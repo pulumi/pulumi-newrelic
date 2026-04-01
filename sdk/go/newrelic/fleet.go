@@ -37,7 +37,6 @@ import (
 //				ManagedEntityType: pulumi.String("HOST"),
 //				OperatingSystem:   pulumi.String("LINUX"),
 //				Description:       pulumi.String("Fleet for managing Linux production hosts"),
-//				Product:           pulumi.String("INFRA"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("environment:production"),
 //					pulumi.String("team:platform,ops"),
@@ -132,8 +131,6 @@ type Fleet struct {
 	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
-	// The New Relic product associated with this fleet (e.g., `INFRA`).
-	Product pulumi.StringPtrOutput `pulumi:"product"`
 	// A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 }
@@ -181,8 +178,6 @@ type fleetState struct {
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId *string `pulumi:"organizationId"`
-	// The New Relic product associated with this fleet (e.g., `INFRA`).
-	Product *string `pulumi:"product"`
 	// A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
 	Tags []string `pulumi:"tags"`
 }
@@ -198,8 +193,6 @@ type FleetState struct {
 	OperatingSystem pulumi.StringPtrInput
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId pulumi.StringPtrInput
-	// The New Relic product associated with this fleet (e.g., `INFRA`).
-	Product pulumi.StringPtrInput
 	// A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
 	Tags pulumi.StringArrayInput
 }
@@ -219,8 +212,6 @@ type fleetArgs struct {
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId *string `pulumi:"organizationId"`
-	// The New Relic product associated with this fleet (e.g., `INFRA`).
-	Product *string `pulumi:"product"`
 	// A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
 	Tags []string `pulumi:"tags"`
 }
@@ -237,8 +228,6 @@ type FleetArgs struct {
 	OperatingSystem pulumi.StringPtrInput
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId pulumi.StringPtrInput
-	// The New Relic product associated with this fleet (e.g., `INFRA`).
-	Product pulumi.StringPtrInput
 	// A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
 	Tags pulumi.StringArrayInput
 }
@@ -353,11 +342,6 @@ func (o FleetOutput) OperatingSystem() pulumi.StringPtrOutput {
 // The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 func (o FleetOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.OrganizationId }).(pulumi.StringOutput)
-}
-
-// The New Relic product associated with this fleet (e.g., `INFRA`).
-func (o FleetOutput) Product() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Product }).(pulumi.StringPtrOutput)
 }
 
 // A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.

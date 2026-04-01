@@ -51,7 +51,6 @@ import javax.annotation.Nullable;
  *             .managedEntityType("HOST")
  *             .operatingSystem("LINUX")
  *             .description("Fleet for managing Linux production hosts")
- *             .product("INFRA")
  *             .tags(            
  *                 "environment:production",
  *                 "team:platform,ops")
@@ -214,20 +213,6 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      */
     public Output<String> organizationId() {
         return this.organizationId;
-    }
-    /**
-     * The New Relic product associated with this fleet (e.g., `INFRA`).
-     * 
-     */
-    @Export(name="product", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> product;
-
-    /**
-     * @return The New Relic product associated with this fleet (e.g., `INFRA`).
-     * 
-     */
-    public Output<Optional<String>> product() {
-        return Codegen.optional(this.product);
     }
     /**
      * A list of tags for the fleet. Each tag should be in the format `&#34;key:value1,value2&#34;` where multiple values can be comma-separated.

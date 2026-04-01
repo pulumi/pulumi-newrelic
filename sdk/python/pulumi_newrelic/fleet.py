@@ -24,7 +24,6 @@ class FleetArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
@@ -34,7 +33,6 @@ class FleetArgs:
         :param pulumi.Input[_builtins.str] name: The name of the fleet. This can be changed after creation.
         :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
-        :param pulumi.Input[_builtins.str] product: The New Relic product associated with this fleet (e.g., `INFRA`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
         """
         pulumi.set(__self__, "managed_entity_type", managed_entity_type)
@@ -46,8 +44,6 @@ class FleetArgs:
             pulumi.set(__self__, "operating_system", operating_system)
         if organization_id is not None:
             pulumi.set(__self__, "organization_id", organization_id)
-        if product is not None:
-            pulumi.set(__self__, "product", product)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -113,18 +109,6 @@ class FleetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def product(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The New Relic product associated with this fleet (e.g., `INFRA`).
-        """
-        return pulumi.get(self, "product")
-
-    @product.setter
-    def product(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "product", value)
-
-    @_builtins.property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
@@ -144,7 +128,6 @@ class _FleetState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
@@ -154,7 +137,6 @@ class _FleetState:
         :param pulumi.Input[_builtins.str] name: The name of the fleet. This can be changed after creation.
         :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
-        :param pulumi.Input[_builtins.str] product: The New Relic product associated with this fleet (e.g., `INFRA`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
         """
         if description is not None:
@@ -167,8 +149,6 @@ class _FleetState:
             pulumi.set(__self__, "operating_system", operating_system)
         if organization_id is not None:
             pulumi.set(__self__, "organization_id", organization_id)
-        if product is not None:
-            pulumi.set(__self__, "product", product)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -234,18 +214,6 @@ class _FleetState:
 
     @_builtins.property
     @pulumi.getter
-    def product(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The New Relic product associated with this fleet (e.g., `INFRA`).
-        """
-        return pulumi.get(self, "product")
-
-    @product.setter
-    def product(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "product", value)
-
-    @_builtins.property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
@@ -268,7 +236,6 @@ class Fleet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -289,7 +256,6 @@ class Fleet(pulumi.CustomResource):
             managed_entity_type="HOST",
             operating_system="LINUX",
             description="Fleet for managing Linux production hosts",
-            product="INFRA",
             tags=[
                 "environment:production",
                 "team:platform,ops",
@@ -338,7 +304,6 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the fleet. This can be changed after creation.
         :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
-        :param pulumi.Input[_builtins.str] product: The New Relic product associated with this fleet (e.g., `INFRA`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
         """
         ...
@@ -365,7 +330,6 @@ class Fleet(pulumi.CustomResource):
             managed_entity_type="HOST",
             operating_system="LINUX",
             description="Fleet for managing Linux production hosts",
-            product="INFRA",
             tags=[
                 "environment:production",
                 "team:platform,ops",
@@ -427,7 +391,6 @@ class Fleet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -445,7 +408,6 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["operating_system"] = operating_system
             __props__.__dict__["organization_id"] = organization_id
-            __props__.__dict__["product"] = product
             __props__.__dict__["tags"] = tags
         super(Fleet, __self__).__init__(
             'newrelic:index/fleet:Fleet',
@@ -462,7 +424,6 @@ class Fleet(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             operating_system: Optional[pulumi.Input[_builtins.str]] = None,
             organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-            product: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Fleet':
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
@@ -476,7 +437,6 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the fleet. This can be changed after creation.
         :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
-        :param pulumi.Input[_builtins.str] product: The New Relic product associated with this fleet (e.g., `INFRA`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -488,7 +448,6 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["operating_system"] = operating_system
         __props__.__dict__["organization_id"] = organization_id
-        __props__.__dict__["product"] = product
         __props__.__dict__["tags"] = tags
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
@@ -531,14 +490,6 @@ class Fleet(pulumi.CustomResource):
         The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
         """
         return pulumi.get(self, "organization_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def product(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The New Relic product associated with this fleet (e.g., `INFRA`).
-        """
-        return pulumi.get(self, "product")
 
     @_builtins.property
     @pulumi.getter

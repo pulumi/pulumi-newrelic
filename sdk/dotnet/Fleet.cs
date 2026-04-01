@@ -32,7 +32,6 @@ namespace Pulumi.NewRelic
     ///         ManagedEntityType = "HOST",
     ///         OperatingSystem = "LINUX",
     ///         Description = "Fleet for managing Linux production hosts",
-    ///         Product = "INFRA",
     ///         Tags = new[]
     ///         {
     ///             "environment:production",
@@ -130,12 +129,6 @@ namespace Pulumi.NewRelic
         public Output<string> OrganizationId { get; private set; } = null!;
 
         /// <summary>
-        /// The New Relic product associated with this fleet (e.g., `INFRA`).
-        /// </summary>
-        [Output("product")]
-        public Output<string?> Product { get; private set; } = null!;
-
-        /// <summary>
         /// A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
         /// </summary>
         [Output("tags")]
@@ -217,12 +210,6 @@ namespace Pulumi.NewRelic
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
 
-        /// <summary>
-        /// The New Relic product associated with this fleet (e.g., `INFRA`).
-        /// </summary>
-        [Input("product")]
-        public Input<string>? Product { get; set; }
-
         [Input("tags")]
         private InputList<string>? _tags;
 
@@ -272,12 +259,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
-
-        /// <summary>
-        /// The New Relic product associated with this fleet (e.g., `INFRA`).
-        /// </summary>
-        [Input("product")]
-        public Input<string>? Product { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
