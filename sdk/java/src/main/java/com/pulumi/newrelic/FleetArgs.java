@@ -93,21 +93,6 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The New Relic product associated with this fleet (e.g., `INFRA`).
-     * 
-     */
-    @Import(name="product")
-    private @Nullable Output<String> product;
-
-    /**
-     * @return The New Relic product associated with this fleet (e.g., `INFRA`).
-     * 
-     */
-    public Optional<Output<String>> product() {
-        return Optional.ofNullable(this.product);
-    }
-
-    /**
      * A list of tags for the fleet. Each tag should be in the format `&#34;key:value1,value2&#34;` where multiple values can be comma-separated.
      * 
      */
@@ -130,7 +115,6 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.operatingSystem = $.operatingSystem;
         this.organizationId = $.organizationId;
-        this.product = $.product;
         this.tags = $.tags;
     }
 
@@ -255,27 +239,6 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder organizationId(String organizationId) {
             return organizationId(Output.of(organizationId));
-        }
-
-        /**
-         * @param product The New Relic product associated with this fleet (e.g., `INFRA`).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder product(@Nullable Output<String> product) {
-            $.product = product;
-            return this;
-        }
-
-        /**
-         * @param product The New Relic product associated with this fleet (e.g., `INFRA`).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder product(String product) {
-            return product(Output.of(product));
         }
 
         /**

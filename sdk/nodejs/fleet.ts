@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  *     managedEntityType: "HOST",
  *     operatingSystem: "LINUX",
  *     description: "Fleet for managing Linux production hosts",
- *     product: "INFRA",
  *     tags: [
  *         "environment:production",
  *         "team:platform,ops",
@@ -115,10 +114,6 @@ export class Fleet extends pulumi.CustomResource {
      */
     declare public readonly organizationId: pulumi.Output<string>;
     /**
-     * The New Relic product associated with this fleet (e.g., `INFRA`).
-     */
-    declare public readonly product: pulumi.Output<string | undefined>;
-    /**
      * A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
      */
     declare public readonly tags: pulumi.Output<string[] | undefined>;
@@ -141,7 +136,6 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["operatingSystem"] = state?.operatingSystem;
             resourceInputs["organizationId"] = state?.organizationId;
-            resourceInputs["product"] = state?.product;
             resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as FleetArgs | undefined;
@@ -153,7 +147,6 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["operatingSystem"] = args?.operatingSystem;
             resourceInputs["organizationId"] = args?.organizationId;
-            resourceInputs["product"] = args?.product;
             resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -186,10 +179,6 @@ export interface FleetState {
      */
     organizationId?: pulumi.Input<string>;
     /**
-     * The New Relic product associated with this fleet (e.g., `INFRA`).
-     */
-    product?: pulumi.Input<string>;
-    /**
      * A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
@@ -219,10 +208,6 @@ export interface FleetArgs {
      * The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
      */
     organizationId?: pulumi.Input<string>;
-    /**
-     * The New Relic product associated with this fleet (e.g., `INFRA`).
-     */
-    product?: pulumi.Input<string>;
     /**
      * A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
      */
