@@ -96,7 +96,7 @@ import * as utilities from "./utilities";
  *         domain: "EXT",
  *         type: "SERVICE_LEVEL",
  *     });
- *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [pair.key]: pair.values }));
+ *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [pair.key]: pair.values }), {});
  *     return {
  *         keyValueMap: keyValueMap,
  *     };
@@ -282,7 +282,7 @@ export interface GetEntityResult {
  *         domain: "EXT",
  *         type: "SERVICE_LEVEL",
  *     });
- *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [pair.key]: pair.values }));
+ *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [pair.key]: pair.values }), {});
  *     return {
  *         keyValueMap: keyValueMap,
  *     };

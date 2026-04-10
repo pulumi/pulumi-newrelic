@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AccountManagement("foo", new()
+    ///     var foo = new NewRelic.Index.AccountManagement("foo", new()
     ///     {
     ///         Name = "Test Account Name",
     ///         Region = "us01",

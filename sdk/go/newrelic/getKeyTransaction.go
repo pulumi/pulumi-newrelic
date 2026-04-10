@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			txn, err := newrelic.LookupKeyTransaction(ctx, &newrelic.LookupKeyTransactionArgs{
+//			txn, err := newrelic.GetKeyTransaction(ctx, &newrelic.LookupKeyTransactionArgs{
 //				Name: "txn",
 //			}, nil)
 //			if err != nil {

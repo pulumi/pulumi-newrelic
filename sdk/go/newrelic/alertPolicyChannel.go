@@ -34,7 +34,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Fetches the data for this policy from your New Relic account
 //			// and is referenced in the newrelic_alert_policy_channel block below.
-//			examplePolicy, err := newrelic.LookupAlertPolicy(ctx, &newrelic.LookupAlertPolicyArgs{
+//			examplePolicy, err := newrelic.GetAlertPolicy(ctx, &newrelic.LookupAlertPolicyArgs{
 //				Name: "my-alert-policy",
 //			}, nil)
 //			if err != nil {

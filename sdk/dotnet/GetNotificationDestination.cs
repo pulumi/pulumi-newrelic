@@ -25,13 +25,13 @@ namespace Pulumi.NewRelic
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Data source
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     var foo = NewRelic.Index.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
         ///     });
         /// 
         ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     var foo_channel = new NewRelic.Index.NotificationChannel("foo-channel", new()
         ///     {
         ///         Name = "webhook-example",
         ///         Type = "WEBHOOK",
@@ -65,13 +65,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     // Data source (uses contains match)
         ///     // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     var foo = NewRelic.Index.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Name = "webhook-destination",
         ///     });
         /// 
         ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     var foo_channel = new NewRelic.Index.NotificationChannel("foo-channel", new()
         ///     {
         ///         Name = "webhook-example",
         ///         Type = "WEBHOOK",
@@ -105,13 +105,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     // Data source (uses exact match)
         ///     // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     var foo = NewRelic.Index.GetNotificationDestination.Invoke(new()
         ///     {
         ///         ExactName = "webhook-destination",
         ///     });
         /// 
         ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     var foo_channel = new NewRelic.Index.NotificationChannel("foo-channel", new()
         ///     {
         ///         Name = "webhook-example",
         ///         Type = "WEBHOOK",
@@ -152,13 +152,13 @@ namespace Pulumi.NewRelic
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Data source
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     var foo = NewRelic.Index.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
         ///     });
         /// 
         ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     var foo_channel = new NewRelic.Index.NotificationChannel("foo-channel", new()
         ///     {
         ///         Name = "webhook-example",
         ///         Type = "WEBHOOK",
@@ -192,13 +192,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     // Data source (uses contains match)
         ///     // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     var foo = NewRelic.Index.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Name = "webhook-destination",
         ///     });
         /// 
         ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     var foo_channel = new NewRelic.Index.NotificationChannel("foo-channel", new()
         ///     {
         ///         Name = "webhook-example",
         ///         Type = "WEBHOOK",
@@ -232,13 +232,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     // Data source (uses exact match)
         ///     // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     var foo = NewRelic.Index.GetNotificationDestination.Invoke(new()
         ///     {
         ///         ExactName = "webhook-destination",
         ///     });
         /// 
         ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     var foo_channel = new NewRelic.Index.NotificationChannel("foo-channel", new()
         ///     {
         ///         Name = "webhook-example",
         ///         Type = "WEBHOOK",
@@ -279,13 +279,13 @@ namespace Pulumi.NewRelic
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Data source
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     var foo = NewRelic.Index.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
         ///     });
         /// 
         ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     var foo_channel = new NewRelic.Index.NotificationChannel("foo-channel", new()
         ///     {
         ///         Name = "webhook-example",
         ///         Type = "WEBHOOK",
@@ -319,13 +319,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     // Data source (uses contains match)
         ///     // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     var foo = NewRelic.Index.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Name = "webhook-destination",
         ///     });
         /// 
         ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     var foo_channel = new NewRelic.Index.NotificationChannel("foo-channel", new()
         ///     {
         ///         Name = "webhook-example",
         ///         Type = "WEBHOOK",
@@ -359,13 +359,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     // Data source (uses exact match)
         ///     // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
-        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     var foo = NewRelic.Index.GetNotificationDestination.Invoke(new()
         ///     {
         ///         ExactName = "webhook-destination",
         ///     });
         /// 
         ///     // Resource
-        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     var foo_channel = new NewRelic.Index.NotificationChannel("foo-channel", new()
         ///     {
         ///         Name = "webhook-example",
         ///         Type = "WEBHOOK",

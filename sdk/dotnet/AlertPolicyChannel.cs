@@ -28,13 +28,13 @@ namespace Pulumi.NewRelic
     /// {
     ///     // Fetches the data for this policy from your New Relic account
     ///     // and is referenced in the newrelic_alert_policy_channel block below.
-    ///     var examplePolicy = NewRelic.GetAlertPolicy.Invoke(new()
+    ///     var examplePolicy = NewRelic.Index.GetAlertPolicy.Invoke(new()
     ///     {
     ///         Name = "my-alert-policy",
     ///     });
     /// 
     ///     // Creates an email alert channel.
-    ///     var emailChannel = new NewRelic.AlertChannel("email_channel", new()
+    ///     var emailChannel = new NewRelic.Index.AlertChannel("email_channel", new()
     ///     {
     ///         Name = "bar",
     ///         Type = "email",
@@ -46,7 +46,7 @@ namespace Pulumi.NewRelic
     ///     });
     /// 
     ///     // Creates a Slack alert channel.
-    ///     var slackChannel = new NewRelic.AlertChannel("slack_channel", new()
+    ///     var slackChannel = new NewRelic.Index.AlertChannel("slack_channel", new()
     ///     {
     ///         Name = "slack-channel-example",
     ///         Type = "slack",
@@ -59,7 +59,7 @@ namespace Pulumi.NewRelic
     /// 
     ///     // Applies the created channels above to the alert policy
     ///     // referenced at the top of the config.
-    ///     var foo = new NewRelic.AlertPolicyChannel("foo", new()
+    ///     var foo = new NewRelic.Index.AlertPolicyChannel("foo", new()
     ///     {
     ///         PolicyId = examplePolicy.Apply(getAlertPolicyResult =&gt; getAlertPolicyResult.Id),
     ///         ChannelIds = new[]

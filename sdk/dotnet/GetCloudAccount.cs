@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var account = NewRelic.GetCloudAccount.Invoke(new()
+        ///     var account = NewRelic.Index.GetCloudAccount.Invoke(new()
         ///     {
         ///         AccountId = "12345",
         ///         CloudProvider = "aws",
@@ -52,7 +52,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var account = NewRelic.GetCloudAccount.Invoke(new()
+        ///     var account = NewRelic.Index.GetCloudAccount.Invoke(new()
         ///     {
         ///         AccountId = "12345",
         ///         CloudProvider = "aws",
@@ -79,7 +79,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var account = NewRelic.GetCloudAccount.Invoke(new()
+        ///     var account = NewRelic.Index.GetCloudAccount.Invoke(new()
         ///     {
         ///         AccountId = "12345",
         ///         CloudProvider = "aws",

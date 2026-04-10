@@ -30,7 +30,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.ServiceLevel("foo", new()
+    ///     var foo = new NewRelic.Index.ServiceLevel("foo", new()
     ///     {
     ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
     ///         Name = "Latency",
@@ -78,7 +78,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mySyntheticMonitorServiceLevel = new NewRelic.ServiceLevel("my_synthetic_monitor_service_level", new()
+    ///     var mySyntheticMonitorServiceLevel = new NewRelic.Index.ServiceLevel("my_synthetic_monitor_service_level", new()
     ///     {
     ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
     ///         Name = "My synthethic monitor - Success",
@@ -111,7 +111,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var mySyntheticMonitorServiceLevelTags = new NewRelic.EntityTags("my_synthetic_monitor_service_level_tags", new()
+    ///     var mySyntheticMonitorServiceLevelTags = new NewRelic.Index.EntityTags("my_synthetic_monitor_service_level_tags", new()
     ///     {
     ///         Guid = mySyntheticMonitorServiceLevel.SliGuid,
     ///         Tags = new[]
@@ -149,7 +149,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mySyntheticMonitorDurationServiceLevel = new NewRelic.ServiceLevel("my_synthetic_monitor_duration_service_level", new()
+    ///     var mySyntheticMonitorDurationServiceLevel = new NewRelic.Index.ServiceLevel("my_synthetic_monitor_duration_service_level", new()
     ///     {
     ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
     ///         Name = "Duration distribution is under 7",

@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.KeyTransaction("foo", new()
+    ///     var foo = new NewRelic.Index.KeyTransaction("foo", new()
     ///     {
     ///         ApplicationGuid = "MzgfNjUyNnxBUE19QVBQTElDQVHJT068NTUfNDT4MjUy",
     ///         ApdexIndex = 0.5,

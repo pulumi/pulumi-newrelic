@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.ObfuscationExpression("foo", new()
+    ///     var foo = new NewRelic.Index.ObfuscationExpression("foo", new()
     ///     {
     ///         AccountId = "12345",
     ///         Name = "OExp",

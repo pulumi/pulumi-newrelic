@@ -24,12 +24,12 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
     ///     {
     ///         Name = "foo",
     ///     });
     /// 
-    ///     var highDiskUsage = new NewRelic.InfraAlertCondition("high_disk_usage", new()
+    ///     var highDiskUsage = new NewRelic.Index.InfraAlertCondition("high_disk_usage", new()
     ///     {
     ///         PolicyId = foo.Id,
     ///         Name = "High disk usage",
@@ -53,7 +53,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var highDbConnCount = new NewRelic.InfraAlertCondition("high_db_conn_count", new()
+    ///     var highDbConnCount = new NewRelic.Index.InfraAlertCondition("high_db_conn_count", new()
     ///     {
     ///         PolicyId = foo.Id,
     ///         Name = "High database connection count",
@@ -72,7 +72,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var processNotRunning = new NewRelic.InfraAlertCondition("process_not_running", new()
+    ///     var processNotRunning = new NewRelic.Index.InfraAlertCondition("process_not_running", new()
     ///     {
     ///         PolicyId = foo.Id,
     ///         Name = "Process not running (/usr/bin/ruby)",
@@ -88,7 +88,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var hostNotReporting = new NewRelic.InfraAlertCondition("host_not_reporting", new()
+    ///     var hostNotReporting = new NewRelic.Index.InfraAlertCondition("host_not_reporting", new()
     ///     {
     ///         PolicyId = foo.Id,
     ///         Name = "Host not reporting",
@@ -124,12 +124,12 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
     ///     {
     ///         Name = "foo policy",
     ///     });
     /// 
-    ///     var fooInfraAlertCondition = new NewRelic.InfraAlertCondition("foo", new()
+    ///     var fooInfraAlertCondition = new NewRelic.Index.InfraAlertCondition("foo", new()
     ///     {
     ///         PolicyId = foo.Id,
     ///         Name = "foo infra condition",
@@ -153,7 +153,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
+    ///     var myConditionEntityTags = new NewRelic.Index.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooInfraAlertCondition.EntityGuid,
     ///         Tags = new[]

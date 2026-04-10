@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var policy = new NewRelic.AlertPolicy("policy", new()
+    ///     var policy = new NewRelic.Index.AlertPolicy("policy", new()
     ///     {
     ///         Name = "my-policy",
     ///     });
@@ -77,7 +77,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
     ///     {
     ///         Name = "foo policy",
     ///     });
@@ -139,7 +139,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
+    ///     var myConditionEntityTags = new NewRelic.Index.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooMultiLocationAlertCondition.EntityGuid,
     ///         Tags = new[]

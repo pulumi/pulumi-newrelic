@@ -30,7 +30,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var fooPeriod = 28;
         /// 
-        ///     var foo = new NewRelic.ServiceLevel("foo", new()
+        ///     var foo = new NewRelic.Index.ServiceLevel("foo", new()
         ///     {
         ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
         ///         Name = "Latency",
@@ -79,7 +79,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooSlowBurn = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     var fooSlowBurn = NewRelic.Index.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "slow_burn",
         ///         SliGuid = foo.SliGuid,
@@ -88,7 +88,7 @@ namespace Pulumi.NewRelic
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
+        ///     var yourCondition = new NewRelic.Index.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = "12345678",
         ///         PolicyId = "67890",
@@ -128,7 +128,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooCustom = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     var fooCustom = NewRelic.Index.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "custom",
         ///         SliGuid = foo.SliGuid,
@@ -139,7 +139,7 @@ namespace Pulumi.NewRelic
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
+        ///     var yourCondition = new NewRelic.Index.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = "12345678",
         ///         PolicyId = "67890",
@@ -190,7 +190,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var fooPeriod = 28;
         /// 
-        ///     var foo = new NewRelic.ServiceLevel("foo", new()
+        ///     var foo = new NewRelic.Index.ServiceLevel("foo", new()
         ///     {
         ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
         ///         Name = "Latency",
@@ -239,7 +239,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooSlowBurn = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     var fooSlowBurn = NewRelic.Index.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "slow_burn",
         ///         SliGuid = foo.SliGuid,
@@ -248,7 +248,7 @@ namespace Pulumi.NewRelic
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
+        ///     var yourCondition = new NewRelic.Index.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = "12345678",
         ///         PolicyId = "67890",
@@ -288,7 +288,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooCustom = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     var fooCustom = NewRelic.Index.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "custom",
         ///         SliGuid = foo.SliGuid,
@@ -299,7 +299,7 @@ namespace Pulumi.NewRelic
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
+        ///     var yourCondition = new NewRelic.Index.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = "12345678",
         ///         PolicyId = "67890",
@@ -350,7 +350,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var fooPeriod = 28;
         /// 
-        ///     var foo = new NewRelic.ServiceLevel("foo", new()
+        ///     var foo = new NewRelic.Index.ServiceLevel("foo", new()
         ///     {
         ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
         ///         Name = "Latency",
@@ -399,7 +399,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooSlowBurn = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     var fooSlowBurn = NewRelic.Index.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "slow_burn",
         ///         SliGuid = foo.SliGuid,
@@ -408,7 +408,7 @@ namespace Pulumi.NewRelic
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
+        ///     var yourCondition = new NewRelic.Index.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = "12345678",
         ///         PolicyId = "67890",
@@ -448,7 +448,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooCustom = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     var fooCustom = NewRelic.Index.GetServiceLevelAlertHelper.Invoke(new()
         ///     {
         ///         AlertType = "custom",
         ///         SliGuid = foo.SliGuid,
@@ -459,7 +459,7 @@ namespace Pulumi.NewRelic
         ///         IsBadEvents = true,
         ///     });
         /// 
-        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
+        ///     var yourCondition = new NewRelic.Index.NrqlAlertCondition("your_condition", new()
         ///     {
         ///         AccountId = "12345678",
         ///         PolicyId = "67890",

@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
@@ -52,7 +52,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
@@ -80,7 +80,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });

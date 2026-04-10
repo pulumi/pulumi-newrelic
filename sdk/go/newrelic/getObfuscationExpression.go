@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			expression, err := newrelic.LookupObfuscationExpression(ctx, &newrelic.LookupObfuscationExpressionArgs{
+//			expression, err := newrelic.GetObfuscationExpression(ctx, &newrelic.LookupObfuscationExpressionArgs{
 //				AccountId: pulumi.StringRef("123456"),
 //				Name:      "The expression",
 //			}, nil)

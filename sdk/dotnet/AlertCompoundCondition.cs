@@ -24,13 +24,13 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new NewRelic.AlertPolicy("example", new()
+    ///     var example = new NewRelic.Index.AlertPolicy("example", new()
     ///     {
     ///         Name = "my-policy",
     ///     });
     /// 
     ///     // Create component NRQL conditions
-    ///     var highResponseTime = new NewRelic.NrqlAlertCondition("high_response_time", new()
+    ///     var highResponseTime = new NewRelic.Index.NrqlAlertCondition("high_response_time", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "High Response Time",
@@ -49,7 +49,7 @@ namespace Pulumi.NewRelic
     ///         ViolationTimeLimitSeconds = 3600,
     ///     });
     /// 
-    ///     var highErrorRate = new NewRelic.NrqlAlertCondition("high_error_rate", new()
+    ///     var highErrorRate = new NewRelic.Index.NrqlAlertCondition("high_error_rate", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "High Error Rate",
@@ -69,7 +69,7 @@ namespace Pulumi.NewRelic
     ///     });
     /// 
     ///     // Create alert compound condition combining both
-    ///     var criticalServiceHealth = new NewRelic.AlertCompoundCondition("critical_service_health", new()
+    ///     var criticalServiceHealth = new NewRelic.Index.AlertCompoundCondition("critical_service_health", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "Critical Service Health",
@@ -106,7 +106,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var highCpu = new NewRelic.NrqlAlertCondition("high_cpu", new()
+    ///     var highCpu = new NewRelic.Index.NrqlAlertCondition("high_cpu", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "High CPU",
@@ -125,7 +125,7 @@ namespace Pulumi.NewRelic
     ///         ViolationTimeLimitSeconds = 3600,
     ///     });
     /// 
-    ///     var highMemory = new NewRelic.NrqlAlertCondition("high_memory", new()
+    ///     var highMemory = new NewRelic.Index.NrqlAlertCondition("high_memory", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "High Memory",
@@ -144,7 +144,7 @@ namespace Pulumi.NewRelic
     ///         ViolationTimeLimitSeconds = 3600,
     ///     });
     /// 
-    ///     var diskFull = new NewRelic.NrqlAlertCondition("disk_full", new()
+    ///     var diskFull = new NewRelic.Index.NrqlAlertCondition("disk_full", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "Disk Full",
@@ -163,7 +163,7 @@ namespace Pulumi.NewRelic
     ///         ViolationTimeLimitSeconds = 3600,
     ///     });
     /// 
-    ///     var complex = new NewRelic.AlertCompoundCondition("complex", new()
+    ///     var complex = new NewRelic.Index.AlertCompoundCondition("complex", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "Complex Infrastructure Alert",
@@ -202,7 +202,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var highThroughputPerHost = new NewRelic.NrqlAlertCondition("high_throughput_per_host", new()
+    ///     var highThroughputPerHost = new NewRelic.Index.NrqlAlertCondition("high_throughput_per_host", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "High Throughput Per Host",
@@ -221,7 +221,7 @@ namespace Pulumi.NewRelic
     ///         ViolationTimeLimitSeconds = 3600,
     ///     });
     /// 
-    ///     var highErrorRatePerHost = new NewRelic.NrqlAlertCondition("high_error_rate_per_host", new()
+    ///     var highErrorRatePerHost = new NewRelic.Index.NrqlAlertCondition("high_error_rate_per_host", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "High Error Rate Per Host",
@@ -240,7 +240,7 @@ namespace Pulumi.NewRelic
     ///         ViolationTimeLimitSeconds = 3600,
     ///     });
     /// 
-    ///     var withFacets = new NewRelic.AlertCompoundCondition("with_facets", new()
+    ///     var withFacets = new NewRelic.Index.AlertCompoundCondition("with_facets", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         Name = "Host-Specific Alert",

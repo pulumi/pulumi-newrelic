@@ -64,7 +64,7 @@ import * as utilities from "./utilities";
  *         name: __key,
  *         type: "APPLICATION",
  *         domain: "APM",
- *     }) }));
+ *     }) }), {});
  *     const fooEntityTags: newrelic.EntityTags[] = [];
  *     for (const range of apps.map((v, k) => ({key: k, value: v}))) {
  *         fooEntityTags.push(new newrelic.EntityTags(`foo-${range.key}`, {

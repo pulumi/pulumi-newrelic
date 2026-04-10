@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertChannel("foo", new()
+    ///     var foo = new NewRelic.Index.AlertChannel("foo", new()
     ///     {
     ///         Name = "foo",
     ///         Type = "email",
@@ -51,7 +51,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertChannel("foo", new()
+    ///     var foo = new NewRelic.Index.AlertChannel("foo", new()
     ///     {
     ///         Name = "slack-example",
     ///         Type = "slack",
@@ -76,7 +76,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertChannel("foo", new()
+    ///     var foo = new NewRelic.Index.AlertChannel("foo", new()
     ///     {
     ///         Name = "opsgenie-example",
     ///         Type = "opsgenie",
@@ -101,7 +101,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertChannel("foo", new()
+    ///     var foo = new NewRelic.Index.AlertChannel("foo", new()
     ///     {
     ///         Name = "pagerduty-example",
     ///         Type = "pagerduty",
@@ -123,7 +123,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertChannel("foo", new()
+    ///     var foo = new NewRelic.Index.AlertChannel("foo", new()
     ///     {
     ///         Name = "victorops-example",
     ///         Type = "victorops",
@@ -146,7 +146,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertChannel("foo", new()
+    ///     var foo = new NewRelic.Index.AlertChannel("foo", new()
     ///     {
     ///         Name = "webhook-example",
     ///         Type = "webhook",
@@ -179,7 +179,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertChannel("foo", new()
+    ///     var foo = new NewRelic.Index.AlertChannel("foo", new()
     ///     {
     ///         Name = "webhook-example",
     ///         Type = "webhook",

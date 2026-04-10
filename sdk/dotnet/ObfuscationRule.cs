@@ -22,14 +22,14 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new NewRelic.ObfuscationExpression("bar", new()
+    ///     var bar = new NewRelic.Index.ObfuscationExpression("bar", new()
     ///     {
     ///         Name = "expressionName",
     ///         Description = "description of the expression",
     ///         Regex = "(^http)",
     ///     });
     /// 
-    ///     var foo = new NewRelic.ObfuscationRule("foo", new()
+    ///     var foo = new NewRelic.Index.ObfuscationRule("foo", new()
     ///     {
     ///         Name = "ruleName",
     ///         Description = "description of the rule",

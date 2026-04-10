@@ -23,7 +23,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.BrowserApplication("foo", new()
+    ///     var foo = new NewRelic.Index.BrowserApplication("foo", new()
     ///     {
     ///         Name = "example-browser-app",
     ///         CookiesEnabled = true,

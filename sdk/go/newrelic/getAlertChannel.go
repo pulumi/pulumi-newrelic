@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Data source
-//			foo, err := newrelic.LookupAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
+//			foo, err := newrelic.GetAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
 //				Name: "foo@example.com",
 //			}, nil)
 //			if err != nil {

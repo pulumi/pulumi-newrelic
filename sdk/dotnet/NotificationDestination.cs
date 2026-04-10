@@ -23,7 +23,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "foo",
@@ -69,7 +69,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "workflow-automation-destination-name",
@@ -105,7 +105,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "ms-teams-example",
@@ -133,7 +133,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "servicenow-example",
@@ -170,7 +170,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "email-example",
@@ -197,7 +197,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "jira-example",
@@ -229,7 +229,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "pagerduty-service-example",
@@ -261,7 +261,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "pagerduty-account-example",
@@ -293,7 +293,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "mobile-push-example",
@@ -320,7 +320,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         Name = "event-bridge-example",
@@ -365,7 +365,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo");
+    ///     var foo = new NewRelic.Index.NotificationDestination("foo");
     /// 
     /// });
     /// ```

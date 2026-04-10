@@ -26,14 +26,14 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = NewRelic.GetEntity.Invoke(new()
+    ///     var foo = NewRelic.Index.GetEntity.Invoke(new()
     ///     {
     ///         Name = "Example application",
     ///         Type = "APPLICATION",
     ///         Domain = "APM",
     ///     });
     /// 
-    ///     var fooEntityTags = new NewRelic.EntityTags("foo", new()
+    ///     var fooEntityTags = new NewRelic.Index.EntityTags("foo", new()
     ///     {
     ///         Guid = foo.Apply(getEntityResult =&gt; getEntityResult.Guid),
     ///         Tags = new[]
@@ -72,7 +72,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(async() =&gt; 
     /// {
-    ///     var apps = (await Std.Toset.InvokeAsync(new()
+    ///     var apps = (await Std.Index.Toset.InvokeAsync(new()
     ///     {
     ///         Input = new[]
     ///         {
@@ -90,10 +90,10 @@ namespace Pulumi.NewRelic
     /// 
     ///     var foo = ;
     /// 
-    ///     var fooEntityTags = new List&lt;NewRelic.EntityTags&gt;();
+    ///     var fooEntityTags = new List&lt;NewRelic.Index.EntityTags&gt;();
     ///     foreach (var range in )
     ///     {
-    ///         fooEntityTags.Add(new NewRelic.EntityTags($"foo-{range.Key}", new()
+    ///         fooEntityTags.Add(new NewRelic.Index.EntityTags($"foo-{range.Key}", new()
     ///         {
     ///             Tags = customTags.Select(pair =&gt; new { pair.Key, pair.Value }).Select(entry =&gt; 
     ///             {

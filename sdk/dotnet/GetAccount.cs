@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = NewRelic.GetAccount.Invoke(new()
+        ///     var example = NewRelic.Index.GetAccount.Invoke(new()
         ///     {
         ///         Name = "Test Account",
         ///     });
@@ -56,7 +56,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = NewRelic.GetAccount.Invoke(new()
+        ///     var example = NewRelic.Index.GetAccount.Invoke(new()
         ///     {
         ///         Name = "Test Account",
         ///     });
@@ -84,7 +84,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = NewRelic.GetAccount.Invoke(new()
+        ///     var example = NewRelic.Index.GetAccount.Invoke(new()
         ///     {
         ///         Name = "Test Account",
         ///     });

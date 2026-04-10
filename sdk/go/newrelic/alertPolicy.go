@@ -113,14 +113,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Reference an existing Slack notification channel.
-//			slackChannel, err := newrelic.LookupAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
+//			slackChannel, err := newrelic.GetAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
 //				Name: "slack-channel-notification",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			// Reference an existing email notification channel.
-//			emailChannel, err := newrelic.LookupAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
+//			emailChannel, err := newrelic.GetAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
 //				Name: "test@example.com",
 //			}, nil)
 //			if err != nil {

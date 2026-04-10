@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
     ///     {
     ///         Name = "example",
     ///         IncidentPreference = "PER_POLICY",
@@ -44,7 +44,7 @@ namespace Pulumi.NewRelic
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Provision a Slack notification channel.
-    ///     var slackChannel = new NewRelic.AlertChannel("slack_channel", new()
+    ///     var slackChannel = new NewRelic.Index.AlertChannel("slack_channel", new()
     ///     {
     ///         Name = "slack-example",
     ///         Type = "slack",
@@ -56,7 +56,7 @@ namespace Pulumi.NewRelic
     ///     });
     /// 
     ///     // Provision an email notification channel.
-    ///     var emailChannel = new NewRelic.AlertChannel("email_channel", new()
+    ///     var emailChannel = new NewRelic.Index.AlertChannel("email_channel", new()
     ///     {
     ///         Name = "email-example",
     ///         Type = "email",
@@ -68,7 +68,7 @@ namespace Pulumi.NewRelic
     ///     });
     /// 
     ///     // Provision the alert policy.
-    ///     var policyWithChannels = new NewRelic.AlertPolicy("policy_with_channels", new()
+    ///     var policyWithChannels = new NewRelic.Index.AlertPolicy("policy_with_channels", new()
     ///     {
     ///         Name = "example-with-channels",
     ///         IncidentPreference = "PER_CONDITION",
@@ -93,19 +93,19 @@ namespace Pulumi.NewRelic
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Reference an existing Slack notification channel.
-    ///     var slackChannel = NewRelic.GetAlertChannel.Invoke(new()
+    ///     var slackChannel = NewRelic.Index.GetAlertChannel.Invoke(new()
     ///     {
     ///         Name = "slack-channel-notification",
     ///     });
     /// 
     ///     // Reference an existing email notification channel.
-    ///     var emailChannel = NewRelic.GetAlertChannel.Invoke(new()
+    ///     var emailChannel = NewRelic.Index.GetAlertChannel.Invoke(new()
     ///     {
     ///         Name = "test@example.com",
     ///     });
     /// 
     ///     // Provision the alert policy.
-    ///     var policyWithChannels = new NewRelic.AlertPolicy("policy_with_channels", new()
+    ///     var policyWithChannels = new NewRelic.Index.AlertPolicy("policy_with_channels", new()
     ///     {
     ///         Name = "example-with-channels",
     ///         IncidentPreference = "PER_CONDITION",

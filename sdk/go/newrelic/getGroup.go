@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.LookupGroup(ctx, &newrelic.LookupGroupArgs{
+//			_, err = newrelic.GetGroup(ctx, &newrelic.LookupGroupArgs{
 //				AuthenticationDomainId: foo.Id,
 //				Name:                   "Test Group",
 //			}, nil)
@@ -73,7 +73,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooGetGroup, err := newrelic.LookupGroup(ctx, &newrelic.LookupGroupArgs{
+//			fooGetGroup, err := newrelic.GetGroup(ctx, &newrelic.LookupGroupArgs{
 //				AuthenticationDomainId: foo.Id,
 //				Name:                   "Test Group",
 //			}, nil)

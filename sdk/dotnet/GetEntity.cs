@@ -35,7 +35,7 @@ namespace Pulumi.NewRelic
         ///     // The entity returned by this configuration would have to 
         ///     // belong to the account_id specified in the provider 
         ///     // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-app",
         ///         Domain = "APM",
@@ -56,7 +56,7 @@ namespace Pulumi.NewRelic
         ///     // The entity returned by this configuration, unlike in 
         ///     // the above example, would have to belong to the account_id 
         ///     // specified in the configuration below, i.e. 654321.
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-app",
         ///         AccountId = "654321",
@@ -79,7 +79,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-otel-app",
         ///         Domain = "EXT",
@@ -107,7 +107,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my_lambda_trace",
         ///         Type = "AWSLAMBDAFUNCTION",
@@ -131,14 +131,14 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetEntity.Invoke(new()
+        ///     var foo = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "Sample Searchable Entity",
         ///         Domain = "EXT",
         ///         Type = "SERVICE_LEVEL",
         ///     });
         /// 
-        ///     var keyValueMap = Std.Jsondecode.Invoke(new()
+        ///     var keyValueMap = Std.Index.Jsondecode.Invoke(new()
         ///     {
         ///         Input = foo.Apply(getEntityResult =&gt; getEntityResult.EntityTags),
         ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
@@ -184,7 +184,7 @@ namespace Pulumi.NewRelic
         ///     // The entity returned by this configuration would have to 
         ///     // belong to the account_id specified in the provider 
         ///     // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-app",
         ///         Domain = "APM",
@@ -205,7 +205,7 @@ namespace Pulumi.NewRelic
         ///     // The entity returned by this configuration, unlike in 
         ///     // the above example, would have to belong to the account_id 
         ///     // specified in the configuration below, i.e. 654321.
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-app",
         ///         AccountId = "654321",
@@ -228,7 +228,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-otel-app",
         ///         Domain = "EXT",
@@ -256,7 +256,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my_lambda_trace",
         ///         Type = "AWSLAMBDAFUNCTION",
@@ -280,14 +280,14 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetEntity.Invoke(new()
+        ///     var foo = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "Sample Searchable Entity",
         ///         Domain = "EXT",
         ///         Type = "SERVICE_LEVEL",
         ///     });
         /// 
-        ///     var keyValueMap = Std.Jsondecode.Invoke(new()
+        ///     var keyValueMap = Std.Index.Jsondecode.Invoke(new()
         ///     {
         ///         Input = foo.Apply(getEntityResult =&gt; getEntityResult.EntityTags),
         ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
@@ -333,7 +333,7 @@ namespace Pulumi.NewRelic
         ///     // The entity returned by this configuration would have to 
         ///     // belong to the account_id specified in the provider 
         ///     // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-app",
         ///         Domain = "APM",
@@ -354,7 +354,7 @@ namespace Pulumi.NewRelic
         ///     // The entity returned by this configuration, unlike in 
         ///     // the above example, would have to belong to the account_id 
         ///     // specified in the configuration below, i.e. 654321.
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-app",
         ///         AccountId = "654321",
@@ -377,7 +377,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-otel-app",
         ///         Domain = "EXT",
@@ -405,7 +405,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     var app = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my_lambda_trace",
         ///         Type = "AWSLAMBDAFUNCTION",
@@ -429,14 +429,14 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetEntity.Invoke(new()
+        ///     var foo = NewRelic.Index.GetEntity.Invoke(new()
         ///     {
         ///         Name = "Sample Searchable Entity",
         ///         Domain = "EXT",
         ///         Type = "SERVICE_LEVEL",
         ///     });
         /// 
-        ///     var keyValueMap = Std.Jsondecode.Invoke(new()
+        ///     var keyValueMap = Std.Index.Jsondecode.Invoke(new()
         ///     {
         ///         Input = foo.Apply(getEntityResult =&gt; getEntityResult.EntityTags),
         ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {

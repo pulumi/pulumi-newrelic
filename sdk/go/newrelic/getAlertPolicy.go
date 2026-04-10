@@ -28,13 +28,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := newrelic.LookupAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
+//			foo, err := newrelic.GetAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
 //				Name: "foo@example.com",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			fooGetAlertPolicy, err := newrelic.LookupAlertPolicy(ctx, &newrelic.LookupAlertPolicyArgs{
+//			fooGetAlertPolicy, err := newrelic.GetAlertPolicy(ctx, &newrelic.LookupAlertPolicyArgs{
 //				Name: "foo policy",
 //			}, nil)
 //			if err != nil {

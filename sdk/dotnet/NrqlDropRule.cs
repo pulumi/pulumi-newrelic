@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.NrqlDropRule("foo", new()
+    ///     var foo = new NewRelic.Index.NrqlDropRule("foo", new()
     ///     {
     ///         AccountId = "12345",
     ///         Description = "Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
@@ -32,7 +32,7 @@ namespace Pulumi.NewRelic
     ///         Nrql = "SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'",
     ///     });
     /// 
-    ///     var bar = new NewRelic.NrqlDropRule("bar", new()
+    ///     var bar = new NewRelic.Index.NrqlDropRule("bar", new()
     ///     {
     ///         AccountId = "12345",
     ///         Description = "Removes the user name and email fields from MyCustomEvent",
@@ -40,7 +40,7 @@ namespace Pulumi.NewRelic
     ///         Nrql = "SELECT userEmail, userName FROM MyCustomEvent",
     ///     });
     /// 
-    ///     var baz = new NewRelic.NrqlDropRule("baz", new()
+    ///     var baz = new NewRelic.Index.NrqlDropRule("baz", new()
     ///     {
     ///         AccountId = "12345",
     ///         Description = "Removes containerId from metric aggregates to reduce metric cardinality.",

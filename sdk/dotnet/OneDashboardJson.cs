@@ -23,9 +23,9 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.OneDashboardJson("foo", new()
+    ///     var foo = new NewRelic.Index.OneDashboardJson("foo", new()
     ///     {
-    ///         Json = Std.File.Invoke(new()
+    ///         Json = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "dashboard.json",
     ///         }).Apply(invoke =&gt; invoke.Result),
