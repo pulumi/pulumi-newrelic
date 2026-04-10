@@ -24,19 +24,19 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var app = NewRelic.GetEntity.Invoke(new()
+    ///     var app = NewRelic.Index.GetEntity.Invoke(new()
     ///     {
     ///         Name = "my-app",
     ///         Type = "APPLICATION",
     ///         Domain = "APM",
     ///     });
     /// 
-    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
     ///     {
     ///         Name = "foo",
     ///     });
     /// 
-    ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+    ///     var fooAlertCondition = new NewRelic.Index.AlertCondition("foo", new()
     ///     {
     ///         PolicyId = foo.Id,
     ///         Name = "foo",
@@ -86,17 +86,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = NewRelic.GetEntity.Invoke(new()
+    ///     var foo = NewRelic.Index.GetEntity.Invoke(new()
     ///     {
     ///         Name = "foo entitiy",
     ///     });
     /// 
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("foo", new()
+    ///     var fooAlertPolicy = new NewRelic.Index.AlertPolicy("foo", new()
     ///     {
     ///         Name = "foo policy",
     ///     });
     /// 
-    ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+    ///     var fooAlertCondition = new NewRelic.Index.AlertCondition("foo", new()
     ///     {
     ///         PolicyId = fooAlertPolicy.Id,
     ///         Name = "foo condition",
@@ -121,7 +121,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
+    ///     var myConditionEntityTags = new NewRelic.Index.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooAlertCondition.EntityGuid,
     ///         Tags = new[]

@@ -34,14 +34,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
+//			_, err = newrelic.GetUser(ctx, &newrelic.LookupUserArgs{
 //				AuthenticationDomainId: foo.Id,
 //				Name:                   pulumi.StringRef("Test User"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
+//			_, err = newrelic.GetUser(ctx, &newrelic.LookupUserArgs{
 //				AuthenticationDomainId: foo.Id,
 //				EmailId:                pulumi.StringRef("test_user@random.com"),
 //			}, nil)

@@ -26,7 +26,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var linuxHosts = new NewRelic.Fleet("linux_hosts", new()
+    ///     var linuxHosts = new NewRelic.Index.Fleet("linux_hosts", new()
     ///     {
     ///         Name = "Production Linux Hosts",
     ///         ManagedEntityType = "HOST",
@@ -52,7 +52,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var windowsHosts = new NewRelic.Fleet("windows_hosts", new()
+    ///     var windowsHosts = new NewRelic.Index.Fleet("windows_hosts", new()
     ///     {
     ///         Name = "Production Windows Hosts",
     ///         ManagedEntityType = "HOST",
@@ -73,7 +73,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var k8sClusters = new NewRelic.Fleet("k8s_clusters", new()
+    ///     var k8sClusters = new NewRelic.Index.Fleet("k8s_clusters", new()
     ///     {
     ///         Name = "Production Kubernetes Clusters",
     ///         ManagedEntityType = "KUBERNETESCLUSTER",

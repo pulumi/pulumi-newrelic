@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Data source
-        ///     var foo = NewRelic.GetTestGrokPattern.Invoke(new()
+        ///     var foo = NewRelic.Index.GetTestGrokPattern.Invoke(new()
         ///     {
         ///         Grok = "%{IP:host_ip}",
         ///         LogLines = new[]
@@ -55,7 +55,7 @@ namespace Pulumi.NewRelic
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Data source
-        ///     var foo = NewRelic.GetTestGrokPattern.Invoke(new()
+        ///     var foo = NewRelic.Index.GetTestGrokPattern.Invoke(new()
         ///     {
         ///         Grok = "%{IP:host_ip}",
         ///         LogLines = new[]
@@ -85,7 +85,7 @@ namespace Pulumi.NewRelic
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Data source
-        ///     var foo = NewRelic.GetTestGrokPattern.Invoke(new()
+        ///     var foo = NewRelic.Index.GetTestGrokPattern.Invoke(new()
         ///     {
         ///         Grok = "%{IP:host_ip}",
         ///         LogLines = new[]

@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Data source
-//			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
+//			foo, err := newrelic.GetNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
 //				Id: pulumi.StringRef("1e543419-0c25-456a-9057-fb0eb310e60b"),
 //			}, nil)
 //			if err != nil {
@@ -73,7 +73,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Data source (uses contains match)
 //			// Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
-//			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
+//			foo, err := newrelic.GetNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
 //				Name: pulumi.StringRef("webhook-destination"),
 //			}, nil)
 //			if err != nil {
@@ -118,7 +118,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Data source (uses exact match)
 //			// Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
-//			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
+//			foo, err := newrelic.GetNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
 //				ExactName: pulumi.StringRef("webhook-destination"),
 //			}, nil)
 //			if err != nil {

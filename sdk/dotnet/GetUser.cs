@@ -25,18 +25,18 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var userOne = NewRelic.GetUser.Invoke(new()
+        ///     var userOne = NewRelic.Index.GetUser.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test User",
         ///     });
         /// 
-        ///     var userTwo = NewRelic.GetUser.Invoke(new()
+        ///     var userTwo = NewRelic.Index.GetUser.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         EmailId = "test_user@random.com",
@@ -62,18 +62,18 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var userOne = NewRelic.GetUser.Invoke(new()
+        ///     var userOne = NewRelic.Index.GetUser.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test User",
         ///     });
         /// 
-        ///     var userTwo = NewRelic.GetUser.Invoke(new()
+        ///     var userTwo = NewRelic.Index.GetUser.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         EmailId = "test_user@random.com",
@@ -99,18 +99,18 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var userOne = NewRelic.GetUser.Invoke(new()
+        ///     var userOne = NewRelic.Index.GetUser.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test User",
         ///     });
         /// 
-        ///     var userTwo = NewRelic.GetUser.Invoke(new()
+        ///     var userTwo = NewRelic.Index.GetUser.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         EmailId = "test_user@random.com",

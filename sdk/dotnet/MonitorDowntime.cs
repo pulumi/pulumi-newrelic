@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.MonitorDowntime("foo", new()
+    ///     var foo = new NewRelic.Index.MonitorDowntime("foo", new()
     ///     {
     ///         Name = "Sample Monitor Downtime",
     ///         MonitorGuids = new[]
@@ -63,7 +63,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleOneTimeNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_one_time_newrelic_monitor_downtime", new()
+    ///     var sampleOneTimeNewrelicMonitorDowntime = new NewRelic.Index.MonitorDowntime("sample_one_time_newrelic_monitor_downtime", new()
     ///     {
     ///         Name = "Sample One Time Monitor Downtime",
     ///         MonitorGuids = new[]
@@ -94,7 +94,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleDailyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_daily_newrelic_monitor_downtime", new()
+    ///     var sampleDailyNewrelicMonitorDowntime = new NewRelic.Index.MonitorDowntime("sample_daily_newrelic_monitor_downtime", new()
     ///     {
     ///         Name = "Sample Daily Monitor Downtime",
     ///         MonitorGuids = new[]
@@ -129,7 +129,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleWeeklyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_weekly_newrelic_monitor_downtime", new()
+    ///     var sampleWeeklyNewrelicMonitorDowntime = new NewRelic.Index.MonitorDowntime("sample_weekly_newrelic_monitor_downtime", new()
     ///     {
     ///         Name = "Sample Weekly Monitor Downtime",
     ///         MonitorGuids = new[]
@@ -165,7 +165,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", new()
+    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.Index.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", new()
     ///     {
     ///         Name = "Sample Monthly Monitor Downtime",
     ///         MonitorGuids = new[]
@@ -202,7 +202,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", new()
+    ///     var sampleMonthlyNewrelicMonitorDowntime = new NewRelic.Index.MonitorDowntime("sample_monthly_newrelic_monitor_downtime", new()
     ///     {
     ///         Name = "Sample Monthly Monitor Downtime",
     ///         MonitorGuids = new[]

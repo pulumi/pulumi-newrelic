@@ -24,13 +24,13 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var expression = NewRelic.GetObfuscationExpression.Invoke(new()
+        ///     var expression = NewRelic.Index.GetObfuscationExpression.Invoke(new()
         ///     {
         ///         AccountId = "123456",
         ///         Name = "The expression",
         ///     });
         /// 
-        ///     var rule = new NewRelic.ObfuscationRule("rule", new()
+        ///     var rule = new NewRelic.Index.ObfuscationRule("rule", new()
         ///     {
         ///         Name = "ruleName",
         ///         Description = "description of the rule",
@@ -69,13 +69,13 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var expression = NewRelic.GetObfuscationExpression.Invoke(new()
+        ///     var expression = NewRelic.Index.GetObfuscationExpression.Invoke(new()
         ///     {
         ///         AccountId = "123456",
         ///         Name = "The expression",
         ///     });
         /// 
-        ///     var rule = new NewRelic.ObfuscationRule("rule", new()
+        ///     var rule = new NewRelic.Index.ObfuscationRule("rule", new()
         ///     {
         ///         Name = "ruleName",
         ///         Description = "description of the rule",
@@ -114,13 +114,13 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var expression = NewRelic.GetObfuscationExpression.Invoke(new()
+        ///     var expression = NewRelic.Index.GetObfuscationExpression.Invoke(new()
         ///     {
         ///         AccountId = "123456",
         ///         Name = "The expression",
         ///     });
         /// 
-        ///     var rule = new NewRelic.ObfuscationRule("rule", new()
+        ///     var rule = new NewRelic.Index.ObfuscationRule("rule", new()
         ///     {
         ///         Name = "ruleName",
         ///         Description = "description of the rule",

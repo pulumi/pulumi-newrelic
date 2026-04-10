@@ -26,7 +26,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertMutingRule("foo", new()
+    ///     var foo = new NewRelic.Index.AlertMutingRule("foo", new()
     ///     {
     ///         Name = "Example Muting Rule",
     ///         Enabled = true,

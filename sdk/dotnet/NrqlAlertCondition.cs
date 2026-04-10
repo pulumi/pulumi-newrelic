@@ -27,12 +27,12 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
     ///     {
     ///         Name = "foo",
     ///     });
     /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
+    ///     var fooNrqlAlertCondition = new NewRelic.Index.NrqlAlertCondition("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         PolicyId = foo.Id,
@@ -155,12 +155,12 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
     ///     {
     ///         Name = "foo",
     ///     });
     /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
+    ///     var fooNrqlAlertCondition = new NewRelic.Index.NrqlAlertCondition("foo", new()
     ///     {
     ///         Type = "baseline",
     ///         AccountId = "12345678",
@@ -213,12 +213,12 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var outlierPolicy = new NewRelic.AlertPolicy("outlier_policy", new()
+    ///     var outlierPolicy = new NewRelic.Index.AlertPolicy("outlier_policy", new()
     ///     {
     ///         Name = "outlier-demo",
     ///     });
     /// 
-    ///     var outlierCondition = new NewRelic.NrqlAlertCondition("outlier_condition", new()
+    ///     var outlierCondition = new NewRelic.Index.NrqlAlertCondition("outlier_condition", new()
     ///     {
     ///         AccountId = "12345678",
     ///         PolicyId = outlierPolicy.Id,
@@ -268,12 +268,12 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
     ///     {
     ///         Name = "foo",
     ///     });
     /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
+    ///     var fooNrqlAlertCondition = new NewRelic.Index.NrqlAlertCondition("foo", new()
     ///     {
     ///         AccountId = "12345678",
     ///         PolicyId = foo.Id,
@@ -312,7 +312,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
+    ///     var myConditionEntityTags = new NewRelic.Index.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooNrqlAlertCondition.EntityGuid,
     ///         Tags = new[]
@@ -356,7 +356,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var z = new NewRelic.NrqlAlertCondition("z", new()
+    ///     var z = new NewRelic.Index.NrqlAlertCondition("z", new()
     ///     {
     ///         PolicyId = zNewrelicAlertPolicy.Id,
     ///         Name = "zleslie-test",
@@ -391,7 +391,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var z = new NewRelic.NrqlAlertCondition("z", new()
+    ///     var z = new NewRelic.Index.NrqlAlertCondition("z", new()
     ///     {
     ///         PolicyId = zNewrelicAlertPolicy.Id,
     ///         Name = "zleslie-test",

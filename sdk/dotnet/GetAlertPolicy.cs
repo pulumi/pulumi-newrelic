@@ -25,17 +25,17 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAlertChannel.Invoke(new()
         ///     {
         ///         Name = "foo@example.com",
         ///     });
         /// 
-        ///     var fooGetAlertPolicy = NewRelic.GetAlertPolicy.Invoke(new()
+        ///     var fooGetAlertPolicy = NewRelic.Index.GetAlertPolicy.Invoke(new()
         ///     {
         ///         Name = "foo policy",
         ///     });
         /// 
-        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     var fooAlertPolicyChannel = new NewRelic.Index.AlertPolicyChannel("foo", new()
         ///     {
         ///         PolicyId = fooGetAlertPolicy.Apply(getAlertPolicyResult =&gt; getAlertPolicyResult.Id),
         ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
@@ -61,17 +61,17 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAlertChannel.Invoke(new()
         ///     {
         ///         Name = "foo@example.com",
         ///     });
         /// 
-        ///     var fooGetAlertPolicy = NewRelic.GetAlertPolicy.Invoke(new()
+        ///     var fooGetAlertPolicy = NewRelic.Index.GetAlertPolicy.Invoke(new()
         ///     {
         ///         Name = "foo policy",
         ///     });
         /// 
-        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     var fooAlertPolicyChannel = new NewRelic.Index.AlertPolicyChannel("foo", new()
         ///     {
         ///         PolicyId = fooGetAlertPolicy.Apply(getAlertPolicyResult =&gt; getAlertPolicyResult.Id),
         ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
@@ -97,17 +97,17 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAlertChannel.Invoke(new()
         ///     {
         ///         Name = "foo@example.com",
         ///     });
         /// 
-        ///     var fooGetAlertPolicy = NewRelic.GetAlertPolicy.Invoke(new()
+        ///     var fooGetAlertPolicy = NewRelic.Index.GetAlertPolicy.Invoke(new()
         ///     {
         ///         Name = "foo policy",
         ///     });
         /// 
-        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     var fooAlertPolicyChannel = new NewRelic.Index.AlertPolicyChannel("foo", new()
         ///     {
         ///         PolicyId = fooGetAlertPolicy.Apply(getAlertPolicyResult =&gt; getAlertPolicyResult.Id),
         ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),

@@ -140,14 +140,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooGetUser, err := newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
+//			fooGetUser, err := newrelic.GetUser(ctx, &newrelic.LookupUserArgs{
 //				AuthenticationDomainId: foo.Id,
 //				EmailId:                pulumi.StringRef("test_user_one@test.com"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			bar, err := newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
+//			bar, err := newrelic.GetUser(ctx, &newrelic.LookupUserArgs{
 //				AuthenticationDomainId: foo.Id,
 //				Name:                   pulumi.StringRef("Test User Two"),
 //			}, nil)

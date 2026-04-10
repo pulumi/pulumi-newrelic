@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.PipelineCloudRule("foo", new()
+    ///     var foo = new NewRelic.Index.PipelineCloudRule("foo", new()
     ///     {
     ///         AccountId = "1000100",
     ///         Name = "Test Pipeline Cloud Rule",

@@ -28,19 +28,19 @@ namespace Pulumi.NewRelic
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Data source
-        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAlertChannel.Invoke(new()
         ///     {
         ///         Name = "foo@example.com",
         ///     });
         /// 
         ///     // Resource
-        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("foo", new()
+        ///     var fooAlertPolicy = new NewRelic.Index.AlertPolicy("foo", new()
         ///     {
         ///         Name = "foo",
         ///     });
         /// 
         ///     // Using the data source and resource together
-        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     var fooAlertPolicyChannel = new NewRelic.Index.AlertPolicyChannel("foo", new()
         ///     {
         ///         PolicyId = fooAlertPolicy.Id,
         ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
@@ -69,19 +69,19 @@ namespace Pulumi.NewRelic
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Data source
-        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAlertChannel.Invoke(new()
         ///     {
         ///         Name = "foo@example.com",
         ///     });
         /// 
         ///     // Resource
-        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("foo", new()
+        ///     var fooAlertPolicy = new NewRelic.Index.AlertPolicy("foo", new()
         ///     {
         ///         Name = "foo",
         ///     });
         /// 
         ///     // Using the data source and resource together
-        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     var fooAlertPolicyChannel = new NewRelic.Index.AlertPolicyChannel("foo", new()
         ///     {
         ///         PolicyId = fooAlertPolicy.Id,
         ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
@@ -110,19 +110,19 @@ namespace Pulumi.NewRelic
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Data source
-        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAlertChannel.Invoke(new()
         ///     {
         ///         Name = "foo@example.com",
         ///     });
         /// 
         ///     // Resource
-        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("foo", new()
+        ///     var fooAlertPolicy = new NewRelic.Index.AlertPolicy("foo", new()
         ///     {
         ///         Name = "foo",
         ///     });
         /// 
         ///     // Using the data source and resource together
-        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     var fooAlertPolicyChannel = new NewRelic.Index.AlertPolicyChannel("foo", new()
         ///     {
         ///         PolicyId = fooAlertPolicy.Id,
         ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),

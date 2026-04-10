@@ -26,7 +26,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampledash = new NewRelic.OneDashboard("exampledash", new()
+    ///     var exampledash = new NewRelic.Index.OneDashboard("exampledash", new()
     ///     {
     ///         Name = "New Relic Terraform Example",
     ///         Permissions = "public_read_only",
@@ -393,7 +393,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var multiPageDashboard = new NewRelic.OneDashboard("multi_page_dashboard", new()
+    ///     var multiPageDashboard = new NewRelic.Index.OneDashboard("multi_page_dashboard", new()
     ///     {
     ///         Name = "My Multi-page dashboard",
     ///         Permissions = "private",

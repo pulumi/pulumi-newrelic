@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampledash = new NewRelic.OneDashboardRaw("exampledash", new()
+    ///     var exampledash = new NewRelic.Index.OneDashboardRaw("exampledash", new()
     ///     {
     ///         Name = "New Relic Terraform Example",
     ///         Pages = new[]

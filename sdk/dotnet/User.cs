@@ -22,12 +22,12 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+    ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
     ///     {
     ///         Name = "Test Authentication Domain",
     ///     });
     /// 
-    ///     var fooUser = new NewRelic.User("foo", new()
+    ///     var fooUser = new NewRelic.Index.User("foo", new()
     ///     {
     ///         Name = "Test New User",
     ///         EmailId = "test_user@test.com",

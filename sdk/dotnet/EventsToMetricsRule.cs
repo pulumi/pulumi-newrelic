@@ -26,7 +26,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.EventsToMetricsRule("foo", new()
+    ///     var foo = new NewRelic.Index.EventsToMetricsRule("foo", new()
     ///     {
     ///         AccountId = "12345",
     ///         Name = "Example events to metrics rule",

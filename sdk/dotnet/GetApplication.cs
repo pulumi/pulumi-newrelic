@@ -26,17 +26,17 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var app = NewRelic.GetApplication.Invoke(new()
+        ///     var app = NewRelic.Index.GetApplication.Invoke(new()
         ///     {
         ///         Name = "my-app",
         ///     });
         /// 
-        ///     var foo = new NewRelic.AlertPolicy("foo", new()
+        ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
         ///     {
         ///         Name = "foo",
         ///     });
         /// 
-        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     var fooAlertCondition = new NewRelic.Index.AlertCondition("foo", new()
         ///     {
         ///         PolicyId = foo.Id,
         ///         Name = "foo",
@@ -81,17 +81,17 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var app = NewRelic.GetApplication.Invoke(new()
+        ///     var app = NewRelic.Index.GetApplication.Invoke(new()
         ///     {
         ///         Name = "my-app",
         ///     });
         /// 
-        ///     var foo = new NewRelic.AlertPolicy("foo", new()
+        ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
         ///     {
         ///         Name = "foo",
         ///     });
         /// 
-        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     var fooAlertCondition = new NewRelic.Index.AlertCondition("foo", new()
         ///     {
         ///         PolicyId = foo.Id,
         ///         Name = "foo",
@@ -136,17 +136,17 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var app = NewRelic.GetApplication.Invoke(new()
+        ///     var app = NewRelic.Index.GetApplication.Invoke(new()
         ///     {
         ///         Name = "my-app",
         ///     });
         /// 
-        ///     var foo = new NewRelic.AlertPolicy("foo", new()
+        ///     var foo = new NewRelic.Index.AlertPolicy("foo", new()
         ///     {
         ///         Name = "foo",
         ///     });
         /// 
-        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     var fooAlertCondition = new NewRelic.Index.AlertCondition("foo", new()
         ///     {
         ///         PolicyId = foo.Id,
         ///         Name = "foo",

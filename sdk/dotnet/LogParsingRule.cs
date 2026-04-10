@@ -23,7 +23,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.LogParsingRule("foo", new()
+    ///     var foo = new NewRelic.Index.LogParsingRule("foo", new()
     ///     {
     ///         Name = "log_parse_rule",
     ///         Attribute = "message",
@@ -48,7 +48,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var grok = NewRelic.GetTestGrokPattern.Invoke(new()
+    ///     var grok = NewRelic.Index.GetTestGrokPattern.Invoke(new()
     ///     {
     ///         Grok = "%{IP:host_ip}",
     ///         LogLines = new[]
@@ -57,7 +57,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var foo = new NewRelic.LogParsingRule("foo", new()
+    ///     var foo = new NewRelic.Index.LogParsingRule("foo", new()
     ///     {
     ///         Name = "log_parse_rule",
     ///         Attribute = "message",

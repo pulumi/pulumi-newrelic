@@ -256,7 +256,7 @@ using NewRelic = Pulumi.NewRelic;
 return await Deployment.RunAsync(() =>
 {
     // Read an APM application resource
-    var foo = NewRelic.GetEntity.Invoke(new()
+    var foo = NewRelic.Index.GetEntity.Invoke(new()
     {
         Name = "Your App Name",
         Domain = "APM",
@@ -264,13 +264,13 @@ return await Deployment.RunAsync(() =>
     });
 
     // Create an alert policy
-    var alert = new NewRelic.AlertPolicy("alert", new()
+    var alert = new NewRelic.Index.AlertPolicy("alert", new()
     {
         Name = "Your Concise Alert Name",
     });
 
     // Add a condition
-    var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
+    var fooNrqlAlertCondition = new NewRelic.Index.NrqlAlertCondition("foo", new()
     {
         PolicyId = alert.Id,
         Type = "static",
@@ -293,7 +293,7 @@ return await Deployment.RunAsync(() =>
     });
 
     // Add a notification channel
-    var email = new NewRelic.AlertChannel("email", new()
+    var email = new NewRelic.Index.AlertChannel("email", new()
     {
         Name = "email",
         Type = "email",
@@ -305,7 +305,7 @@ return await Deployment.RunAsync(() =>
     });
 
     // Link the channel to the policy
-    var alertEmail = new NewRelic.AlertPolicyChannel("alert_email", new()
+    var alertEmail = new NewRelic.Index.AlertPolicyChannel("alert_email", new()
     {
         PolicyId = alert.Id,
         ChannelIds = new[]

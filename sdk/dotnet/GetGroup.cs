@@ -26,12 +26,12 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
+        ///     var fooGetGroup = NewRelic.Index.GetGroup.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test Group",
@@ -55,12 +55,12 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
+        ///     var fooGetGroup = NewRelic.Index.GetGroup.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test Group",
@@ -68,7 +68,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
         /// 
-        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Index.Join.Invoke(new()
         ///     {
         ///         Separator = ", ",
         ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
@@ -100,12 +100,12 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
+        ///     var fooGetGroup = NewRelic.Index.GetGroup.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test Group",
@@ -129,12 +129,12 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
+        ///     var fooGetGroup = NewRelic.Index.GetGroup.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test Group",
@@ -142,7 +142,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
         /// 
-        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Index.Join.Invoke(new()
         ///     {
         ///         Separator = ", ",
         ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
@@ -174,12 +174,12 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
+        ///     var fooGetGroup = NewRelic.Index.GetGroup.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test Group",
@@ -203,12 +203,12 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.Index.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
+        ///     var fooGetGroup = NewRelic.Index.GetGroup.Invoke(new()
         ///     {
         ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test Group",
@@ -216,7 +216,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
         /// 
-        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Index.Join.Invoke(new()
         ///     {
         ///         Separator = ", ",
         ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),

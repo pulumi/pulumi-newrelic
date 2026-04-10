@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.DataPartitionRule("foo", new()
+    ///     var foo = new NewRelic.Index.DataPartitionRule("foo", new()
     ///     {
     ///         Description = "description",
     ///         Enabled = true,

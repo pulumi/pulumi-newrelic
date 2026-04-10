@@ -31,7 +31,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userApiKey = new NewRelic.ApiAccessKey("user_api_key", new()
+    ///     var userApiKey = new NewRelic.Index.ApiAccessKey("user_api_key", new()
     ///     {
     ///         AccountId = "1234321",
     ///         KeyType = "USER",
@@ -52,7 +52,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ingestLicenseKey = new NewRelic.ApiAccessKey("ingest_license_key", new()
+    ///     var ingestLicenseKey = new NewRelic.Index.ApiAccessKey("ingest_license_key", new()
     ///     {
     ///         AccountId = "1234321",
     ///         KeyType = "INGEST",
@@ -73,7 +73,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ingestBrowserKey = new NewRelic.ApiAccessKey("ingest_browser_key", new()
+    ///     var ingestBrowserKey = new NewRelic.Index.ApiAccessKey("ingest_browser_key", new()
     ///     {
     ///         AccountId = "1234321",
     ///         KeyType = "INGEST",
