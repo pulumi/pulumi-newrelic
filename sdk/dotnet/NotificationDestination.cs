@@ -369,7 +369,9 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// 2. Run import command: `terraform import newrelic_notification_destination.foo &lt;destination_id&gt;`
+    /// 2. Run import command:
+    ///    - **Account scope** (default): `terraform import newrelic_notification_destination.foo &lt;destination_id&gt;`
+    ///    - **Organization scope**: `terraform import newrelic_notification_destination.foo &lt;destination_id&gt;:ORGANIZATION:&lt;organization_id&gt;`
     /// 3. Run the following command after the import successfully done and copy the information to your resource:
     ///    `terraform state show newrelic_notification_destination.foo`
     /// 4. Add `IgnoreChanges` attribute on `All` in your imported resource:
@@ -436,7 +438,7 @@ namespace Pulumi.NewRelic
         /// Scope of the destination
         /// </summary>
         [Output("scope")]
-        public Output<Outputs.NotificationDestinationScope?> Scope { get; private set; } = null!;
+        public Output<Outputs.NotificationDestinationScope> Scope { get; private set; } = null!;
 
         /// <summary>
         /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one SecureUrl block is permitted per notification destination definition. See Nested SecureUrl blocks below for details.

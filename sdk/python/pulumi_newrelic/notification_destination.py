@@ -646,7 +646,9 @@ class NotificationDestination(pulumi.CustomResource):
 
         foo = newrelic.NotificationDestination("foo")
         ```
-        2. Run import command: `terraform import newrelic_notification_destination.foo <destination_id>`
+        2. Run import command:
+           - **Account scope** (default): `terraform import newrelic_notification_destination.foo <destination_id>`
+           - **Organization scope**: `terraform import newrelic_notification_destination.foo <destination_id>:ORGANIZATION:<organization_id>`
         3. Run the following command after the import successfully done and copy the information to your resource:
            `terraform state show newrelic_notification_destination.foo`
         4. Add `ignore_changes` attribute on `all` in your imported resource:
@@ -895,7 +897,9 @@ class NotificationDestination(pulumi.CustomResource):
 
         foo = newrelic.NotificationDestination("foo")
         ```
-        2. Run import command: `terraform import newrelic_notification_destination.foo <destination_id>`
+        2. Run import command:
+           - **Account scope** (default): `terraform import newrelic_notification_destination.foo <destination_id>`
+           - **Organization scope**: `terraform import newrelic_notification_destination.foo <destination_id>:ORGANIZATION:<organization_id>`
         3. Run the following command after the import successfully done and copy the information to your resource:
            `terraform state show newrelic_notification_destination.foo`
         4. Add `ignore_changes` attribute on `all` in your imported resource:
@@ -1091,7 +1095,7 @@ class NotificationDestination(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[Optional['outputs.NotificationDestinationScope']]:
+    def scope(self) -> pulumi.Output['outputs.NotificationDestinationScope']:
         """
         Scope of the destination
         """

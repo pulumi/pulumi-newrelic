@@ -83,14 +83,20 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
     }
 
     /**
-     * A nested block of scope of destination which has two parameters scope type and ID.
+     * The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
+     * 
+     * Note:
+     * By Default account scope is considered for the destination until unless it is mentioned explicitly in the arguments. If you want to get a cross account destination, then you need to provide the scope of destination in the arguments.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<GetNotificationDestinationScopeArgs> scope;
 
     /**
-     * @return A nested block of scope of destination which has two parameters scope type and ID.
+     * @return The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
+     * 
+     * Note:
+     * By Default account scope is considered for the destination until unless it is mentioned explicitly in the arguments. If you want to get a cross account destination, then you need to provide the scope of destination in the arguments.
      * 
      */
     public Optional<Output<GetNotificationDestinationScopeArgs>> scope() {
@@ -230,7 +236,10 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param scope A nested block of scope of destination which has two parameters scope type and ID.
+         * @param scope The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
+         * 
+         * Note:
+         * By Default account scope is considered for the destination until unless it is mentioned explicitly in the arguments. If you want to get a cross account destination, then you need to provide the scope of destination in the arguments.
          * 
          * @return builder
          * 
@@ -241,7 +250,10 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param scope A nested block of scope of destination which has two parameters scope type and ID.
+         * @param scope The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
+         * 
+         * Note:
+         * By Default account scope is considered for the destination until unless it is mentioned explicitly in the arguments. If you want to get a cross account destination, then you need to provide the scope of destination in the arguments.
          * 
          * @return builder
          * 

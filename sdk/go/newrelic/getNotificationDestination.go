@@ -170,7 +170,10 @@ type LookupNotificationDestinationArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
 	Name *string `pulumi:"name"`
-	// A nested block of scope of destination which has two parameters scope type and ID.
+	// The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
+	//
+	// Note:
+	// By Default account scope is considered for the destination until unless it is mentioned explicitly in the arguments. If you want to get a cross account destination, then you need to provide the scope of destination in the arguments.
 	Scope *GetNotificationDestinationScope `pulumi:"scope"`
 	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
 	SecureUrls []GetNotificationDestinationSecureUrl `pulumi:"secureUrls"`
@@ -220,7 +223,10 @@ type LookupNotificationDestinationOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A nested block of scope of destination which has two parameters scope type and ID.
+	// The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
+	//
+	// Note:
+	// By Default account scope is considered for the destination until unless it is mentioned explicitly in the arguments. If you want to get a cross account destination, then you need to provide the scope of destination in the arguments.
 	Scope GetNotificationDestinationScopePtrInput `pulumi:"scope"`
 	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
 	SecureUrls GetNotificationDestinationSecureUrlArrayInput `pulumi:"secureUrls"`
