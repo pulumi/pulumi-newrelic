@@ -429,7 +429,9 @@ import (
 //	}
 //
 // ```
-//  2. Run import command: `terraform import newrelic_notification_destination.foo <destination_id>`
+// 2. Run import command:
+//   - **Account scope** (default): `terraform import newrelic_notification_destination.foo <destination_id>`
+//   - **Organization scope**: `terraform import newrelic_notification_destination.foo <destination_id>:ORGANIZATION:<organization_id>`
 //  3. Run the following command after the import successfully done and copy the information to your resource:
 //     `terraform state show newrelic_notification_destination.foo`
 //  4. Add `ignoreChanges` attribute on `all` in your imported resource:
@@ -456,7 +458,7 @@ type NotificationDestination struct {
 	// *
 	Properties NotificationDestinationPropertyArrayOutput `pulumi:"properties"`
 	// Scope of the destination
-	Scope NotificationDestinationScopePtrOutput `pulumi:"scope"`
+	Scope NotificationDestinationScopeOutput `pulumi:"scope"`
 	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
 	SecureUrl NotificationDestinationSecureUrlPtrOutput `pulumi:"secureUrl"`
 	// The status of the destination.
@@ -749,8 +751,8 @@ func (o NotificationDestinationOutput) Properties() NotificationDestinationPrope
 }
 
 // Scope of the destination
-func (o NotificationDestinationOutput) Scope() NotificationDestinationScopePtrOutput {
-	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationScopePtrOutput { return v.Scope }).(NotificationDestinationScopePtrOutput)
+func (o NotificationDestinationOutput) Scope() NotificationDestinationScopeOutput {
+	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationScopeOutput { return v.Scope }).(NotificationDestinationScopeOutput)
 }
 
 // A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.

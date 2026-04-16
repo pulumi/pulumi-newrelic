@@ -239,7 +239,9 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.NotificationDestination("foo", {});
  * ```
- * 2. Run import command: `terraform import newrelic_notification_destination.foo <destination_id>`
+ * 2. Run import command:
+ *    - **Account scope** (default): `terraform import newrelic_notification_destination.foo <destination_id>`
+ *    - **Organization scope**: `terraform import newrelic_notification_destination.foo <destination_id>:ORGANIZATION:<organization_id>`
  * 3. Run the following command after the import successfully done and copy the information to your resource:
  *    `terraform state show newrelic_notification_destination.foo`
  * 4. Add `ignoreChanges` attribute on `all` in your imported resource:
@@ -312,7 +314,7 @@ export class NotificationDestination extends pulumi.CustomResource {
     /**
      * Scope of the destination
      */
-    declare public readonly scope: pulumi.Output<outputs.NotificationDestinationScope | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.NotificationDestinationScope>;
     /**
      * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
      */

@@ -511,7 +511,9 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 2. Run import command: `terraform import newrelic_notification_destination.foo &lt;destination_id&gt;`
+ * 2. Run import command:
+ *    - **Account scope** (default): `terraform import newrelic_notification_destination.foo &lt;destination_id&gt;`
+ *    - **Organization scope**: `terraform import newrelic_notification_destination.foo &lt;destination_id&gt;:ORGANIZATION:&lt;organization_id&gt;`
  * 3. Run the following command after the import successfully done and copy the information to your resource:
  *    `terraform state show newrelic_notification_destination.foo`
  * 4. Add `ignoreChanges` attribute on `all` in your imported resource:
@@ -652,14 +654,14 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="scope", refs={NotificationDestinationScope.class}, tree="[0]")
-    private Output</* @Nullable */ NotificationDestinationScope> scope;
+    private Output<NotificationDestinationScope> scope;
 
     /**
      * @return Scope of the destination
      * 
      */
-    public Output<Optional<NotificationDestinationScope>> scope() {
-        return Codegen.optional(this.scope);
+    public Output<NotificationDestinationScope> scope() {
+        return this.scope;
     }
     /**
      * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
