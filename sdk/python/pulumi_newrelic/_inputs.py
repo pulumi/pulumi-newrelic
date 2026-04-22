@@ -540,7 +540,7 @@ class AlertChannelConfigArgsDict(TypedDict):
     """
     region: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The data center region to store your data. Valid values are US and EU. Default is US.
+    The data center region to store your data. Valid values are US, EU, and JP. Default is US.
     """
     route_key: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -606,7 +606,7 @@ class AlertChannelConfigArgs:
         :param pulumi.Input[_builtins.str] payload_string: Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
         :param pulumi.Input[_builtins.str] payload_type: Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
         :param pulumi.Input[_builtins.str] recipients: A set of recipients for targeting notifications. Multiple values are comma separated.
-        :param pulumi.Input[_builtins.str] region: The data center region to store your data. Valid values are US and EU. Default is US.
+        :param pulumi.Input[_builtins.str] region: The data center region to store your data. Valid values are US, EU, and JP. Default is US.
         :param pulumi.Input[_builtins.str] route_key: The route key for integrating with VictorOps.
         :param pulumi.Input[_builtins.str] service_key: Specifies the service key for integrating with Pagerduty.
         :param pulumi.Input[_builtins.str] tags: A set of tags for targeting notifications. Multiple values are comma separated.
@@ -829,7 +829,7 @@ class AlertChannelConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The data center region to store your data. Valid values are US and EU. Default is US.
+        The data center region to store your data. Valid values are US, EU, and JP. Default is US.
         """
         return pulumi.get(self, "region")
 

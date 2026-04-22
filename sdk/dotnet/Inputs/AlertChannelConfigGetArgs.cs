@@ -187,7 +187,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Recipients { get; set; }
 
         /// <summary>
-        /// The data center region to store your data. Valid values are US and EU. Default is US.
+        /// The data center region to store your data. Valid values are US, EU, and JP. Default is US.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
