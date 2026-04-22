@@ -2664,7 +2664,7 @@
                 },
                 "region": {
                     "type": "string",
-                    "description": "The data center region to store your data. Valid values are US and EU. Default is US.\n",
+                    "description": "The data center region to store your data. Valid values are US, EU, and JP. Default is US.\n",
                     "willReplaceOnChanges": true
                 },
                 "routeKey": {
