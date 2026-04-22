@@ -42,7 +42,7 @@ type AlertChannelConfig struct {
 	PayloadType *string `pulumi:"payloadType"`
 	// A set of recipients for targeting notifications. Multiple values are comma separated.
 	Recipients *string `pulumi:"recipients"`
-	// The data center region to store your data. Valid values are US and EU. Default is US.
+	// The data center region to store your data. Valid values are US, EU, and JP. Default is US.
 	Region *string `pulumi:"region"`
 	// The route key for integrating with VictorOps.
 	RouteKey *string `pulumi:"routeKey"`
@@ -98,7 +98,7 @@ type AlertChannelConfigArgs struct {
 	PayloadType pulumi.StringPtrInput `pulumi:"payloadType"`
 	// A set of recipients for targeting notifications. Multiple values are comma separated.
 	Recipients pulumi.StringPtrInput `pulumi:"recipients"`
-	// The data center region to store your data. Valid values are US and EU. Default is US.
+	// The data center region to store your data. Valid values are US, EU, and JP. Default is US.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The route key for integrating with VictorOps.
 	RouteKey pulumi.StringPtrInput `pulumi:"routeKey"`
@@ -261,7 +261,7 @@ func (o AlertChannelConfigOutput) Recipients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
 }
 
-// The data center region to store your data. Valid values are US and EU. Default is US.
+// The data center region to store your data. Valid values are US, EU, and JP. Default is US.
 func (o AlertChannelConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -460,7 +460,7 @@ func (o AlertChannelConfigPtrOutput) Recipients() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data center region to store your data. Valid values are US and EU. Default is US.
+// The data center region to store your data. Valid values are US, EU, and JP. Default is US.
 func (o AlertChannelConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {

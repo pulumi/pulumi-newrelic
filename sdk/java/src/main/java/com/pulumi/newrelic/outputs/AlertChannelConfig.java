@@ -83,7 +83,7 @@ public final class AlertChannelConfig {
      */
     private @Nullable String recipients;
     /**
-     * @return The data center region to store your data. Valid values are US and EU. Default is US.
+     * @return The data center region to store your data. Valid values are US, EU, and JP. Default is US.
      * 
      */
     private @Nullable String region;
@@ -218,7 +218,7 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.recipients);
     }
     /**
-     * @return The data center region to store your data. Valid values are US and EU. Default is US.
+     * @return The data center region to store your data. Valid values are US, EU, and JP. Default is US.
      * 
      */
     public Optional<String> region() {

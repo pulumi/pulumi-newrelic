@@ -70,7 +70,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Recipients;
         /// <summary>
-        /// The data center region to store your data. Valid values are US and EU. Default is US.
+        /// The data center region to store your data. Valid values are US, EU, and JP. Default is US.
         /// </summary>
         public readonly string? Region;
         /// <summary>

@@ -227,14 +227,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The data center region to store your data. Valid values are US and EU. Default is US.
+     * The data center region to store your data. Valid values are US, EU, and JP. Default is US.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The data center region to store your data. Valid values are US and EU. Default is US.
+     * @return The data center region to store your data. Valid values are US, EU, and JP. Default is US.
      * 
      */
     public Optional<Output<String>> region() {
@@ -670,7 +670,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param region The data center region to store your data. Valid values are US and EU. Default is US.
+         * @param region The data center region to store your data. Valid values are US, EU, and JP. Default is US.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param region The data center region to store your data. Valid values are US and EU. Default is US.
+         * @param region The data center region to store your data. Valid values are US, EU, and JP. Default is US.
          * 
          * @return builder
          * 

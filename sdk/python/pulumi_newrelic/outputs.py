@@ -332,7 +332,7 @@ class AlertChannelConfig(dict):
         :param _builtins.str payload_string: Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
         :param _builtins.str payload_type: Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
         :param _builtins.str recipients: A set of recipients for targeting notifications. Multiple values are comma separated.
-        :param _builtins.str region: The data center region to store your data. Valid values are US and EU. Default is US.
+        :param _builtins.str region: The data center region to store your data. Valid values are US, EU, and JP. Default is US.
         :param _builtins.str route_key: The route key for integrating with VictorOps.
         :param _builtins.str service_key: Specifies the service key for integrating with Pagerduty.
         :param _builtins.str tags: A set of tags for targeting notifications. Multiple values are comma separated.
@@ -499,7 +499,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
         """
-        The data center region to store your data. Valid values are US and EU. Default is US.
+        The data center region to store your data. Valid values are US, EU, and JP. Default is US.
         """
         return pulumi.get(self, "region")
 
