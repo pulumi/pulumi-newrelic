@@ -132,6 +132,10 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     declare public readonly channelIds: pulumi.Output<string[] | undefined>;
     /**
+     * The entity GUID of the alert policy.
+     */
+    declare public /*out*/ readonly entityGuid: pulumi.Output<string>;
+    /**
      * The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
      * * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
      * * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
@@ -158,6 +162,7 @@ export class AlertPolicy extends pulumi.CustomResource {
             const state = argsOrState as AlertPolicyState | undefined;
             resourceInputs["accountId"] = state?.accountId;
             resourceInputs["channelIds"] = state?.channelIds;
+            resourceInputs["entityGuid"] = state?.entityGuid;
             resourceInputs["incidentPreference"] = state?.incidentPreference;
             resourceInputs["name"] = state?.name;
         } else {
@@ -166,6 +171,7 @@ export class AlertPolicy extends pulumi.CustomResource {
             resourceInputs["channelIds"] = args?.channelIds;
             resourceInputs["incidentPreference"] = args?.incidentPreference;
             resourceInputs["name"] = args?.name;
+            resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertPolicy.__pulumiType, name, resourceInputs, opts);
@@ -186,6 +192,10 @@ export interface AlertPolicyState {
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
     channelIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The entity GUID of the alert policy.
+     */
+    entityGuid?: pulumi.Input<string>;
     /**
      * The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
      * * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.

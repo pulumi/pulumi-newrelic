@@ -79,7 +79,8 @@ type LookupAlertPolicyArgs struct {
 type LookupAlertPolicyResult struct {
 	AccountId string `pulumi:"accountId"`
 	// The time the policy was created.
-	CreatedAt string `pulumi:"createdAt"`
+	CreatedAt  string `pulumi:"createdAt"`
+	EntityGuid string `pulumi:"entityGuid"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The rollup strategy for the policy, which can have one of the following values:
@@ -140,6 +141,10 @@ func (o LookupAlertPolicyResultOutput) AccountId() pulumi.StringOutput {
 // The time the policy was created.
 func (o LookupAlertPolicyResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAlertPolicyResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o LookupAlertPolicyResultOutput) EntityGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAlertPolicyResult) string { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

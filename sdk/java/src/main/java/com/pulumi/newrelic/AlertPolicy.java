@@ -213,6 +213,20 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.channelIds);
     }
     /**
+     * The entity GUID of the alert policy.
+     * 
+     */
+    @Export(name="entityGuid", refs={String.class}, tree="[0]")
+    private Output<String> entityGuid;
+
+    /**
+     * @return The entity GUID of the alert policy.
+     * 
+     */
+    public Output<String> entityGuid() {
+        return this.entityGuid;
+    }
+    /**
      * The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
      * * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
      * * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.

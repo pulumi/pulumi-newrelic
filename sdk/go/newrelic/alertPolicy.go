@@ -164,6 +164,8 @@ type AlertPolicy struct {
 	//
 	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
 	ChannelIds pulumi.StringArrayOutput `pulumi:"channelIds"`
+	// The entity GUID of the alert policy.
+	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
 	// The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
 	// * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
 	// * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
@@ -209,6 +211,8 @@ type alertPolicyState struct {
 	//
 	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
 	ChannelIds []string `pulumi:"channelIds"`
+	// The entity GUID of the alert policy.
+	EntityGuid *string `pulumi:"entityGuid"`
 	// The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
 	// * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
 	// * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
@@ -225,6 +229,8 @@ type AlertPolicyState struct {
 	//
 	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
 	ChannelIds pulumi.StringArrayInput
+	// The entity GUID of the alert policy.
+	EntityGuid pulumi.StringPtrInput
 	// The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
 	// * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
 	// * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
@@ -368,6 +374,11 @@ func (o AlertPolicyOutput) AccountId() pulumi.StringOutput {
 // Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
 func (o AlertPolicyOutput) ChannelIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertPolicy) pulumi.StringArrayOutput { return v.ChannelIds }).(pulumi.StringArrayOutput)
+}
+
+// The entity GUID of the alert policy.
+func (o AlertPolicyOutput) EntityGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
 // The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):

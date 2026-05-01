@@ -104,6 +104,7 @@ class _AlertPolicyState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
                  incident_preference: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -111,6 +112,7 @@ class _AlertPolicyState:
 
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
+        :param pulumi.Input[_builtins.str] entity_guid: The entity GUID of the alert policy.
         :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
                * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
                * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
@@ -124,6 +126,8 @@ class _AlertPolicyState:
             pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
         if channel_ids is not None:
             pulumi.set(__self__, "channel_ids", channel_ids)
+        if entity_guid is not None:
+            pulumi.set(__self__, "entity_guid", entity_guid)
         if incident_preference is not None:
             pulumi.set(__self__, "incident_preference", incident_preference)
         if name is not None:
@@ -153,6 +157,18 @@ class _AlertPolicyState:
     @channel_ids.setter
     def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "channel_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The entity GUID of the alert policy.
+        """
+        return pulumi.get(self, "entity_guid")
+
+    @entity_guid.setter
+    def entity_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "entity_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentPreference")
@@ -403,6 +419,7 @@ class AlertPolicy(pulumi.CustomResource):
             __props__.__dict__["channel_ids"] = channel_ids
             __props__.__dict__["incident_preference"] = incident_preference
             __props__.__dict__["name"] = name
+            __props__.__dict__["entity_guid"] = None
         super(AlertPolicy, __self__).__init__(
             'newrelic:index/alertPolicy:AlertPolicy',
             resource_name,
@@ -415,6 +432,7 @@ class AlertPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[_builtins.str]] = None,
             channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
             incident_preference: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None) -> 'AlertPolicy':
         """
@@ -426,6 +444,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
+        :param pulumi.Input[_builtins.str] entity_guid: The entity GUID of the alert policy.
         :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
                * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
                * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
@@ -438,6 +457,7 @@ class AlertPolicy(pulumi.CustomResource):
 
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["channel_ids"] = channel_ids
+        __props__.__dict__["entity_guid"] = entity_guid
         __props__.__dict__["incident_preference"] = incident_preference
         __props__.__dict__["name"] = name
         return AlertPolicy(resource_name, opts=opts, __props__=__props__)
@@ -458,6 +478,14 @@ class AlertPolicy(pulumi.CustomResource):
         **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
         """
         return pulumi.get(self, "channel_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> pulumi.Output[_builtins.str]:
+        """
+        The entity GUID of the alert policy.
+        """
+        return pulumi.get(self, "entity_guid")
 
     @_builtins.property
     @pulumi.getter(name="incidentPreference")
