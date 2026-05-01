@@ -55,6 +55,21 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The entity GUID of the alert policy.
+     * 
+     */
+    @Import(name="entityGuid")
+    private @Nullable Output<String> entityGuid;
+
+    /**
+     * @return The entity GUID of the alert policy.
+     * 
+     */
+    public Optional<Output<String>> entityGuid() {
+        return Optional.ofNullable(this.entityGuid);
+    }
+
+    /**
      * The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
      * * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
      * * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
@@ -95,6 +110,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
     private AlertPolicyState(AlertPolicyState $) {
         this.accountId = $.accountId;
         this.channelIds = $.channelIds;
+        this.entityGuid = $.entityGuid;
         this.incidentPreference = $.incidentPreference;
         this.name = $.name;
     }
@@ -179,6 +195,27 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
         public Builder channelIds(String... channelIds) {
             return channelIds(List.of(channelIds));
+        }
+
+        /**
+         * @param entityGuid The entity GUID of the alert policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityGuid(@Nullable Output<String> entityGuid) {
+            $.entityGuid = entityGuid;
+            return this;
+        }
+
+        /**
+         * @param entityGuid The entity GUID of the alert policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityGuid(String entityGuid) {
+            return entityGuid(Output.of(entityGuid));
         }
 
         /**

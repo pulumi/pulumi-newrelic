@@ -147,6 +147,12 @@ namespace Pulumi.NewRelic
         public Output<ImmutableArray<string>> ChannelIds { get; private set; } = null!;
 
         /// <summary>
+        /// The entity GUID of the alert policy.
+        /// </summary>
+        [Output("entityGuid")]
+        public Output<string> EntityGuid { get; private set; } = null!;
+
+        /// <summary>
         /// The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
         /// * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
         /// * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
@@ -267,6 +273,12 @@ namespace Pulumi.NewRelic
             get => _channelIds ?? (_channelIds = new InputList<string>());
             set => _channelIds = value;
         }
+
+        /// <summary>
+        /// The entity GUID of the alert policy.
+        /// </summary>
+        [Input("entityGuid")]
+        public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
         /// The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):

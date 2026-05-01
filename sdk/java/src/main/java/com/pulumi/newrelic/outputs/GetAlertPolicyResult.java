@@ -18,6 +18,7 @@ public final class GetAlertPolicyResult {
      * 
      */
     private String createdAt;
+    private String entityGuid;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -48,6 +49,9 @@ public final class GetAlertPolicyResult {
      */
     public String createdAt() {
         return this.createdAt;
+    }
+    public String entityGuid() {
+        return this.entityGuid;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -88,6 +92,7 @@ public final class GetAlertPolicyResult {
     public static final class Builder {
         private String accountId;
         private String createdAt;
+        private String entityGuid;
         private String id;
         private @Nullable String incidentPreference;
         private String name;
@@ -97,6 +102,7 @@ public final class GetAlertPolicyResult {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
     	      this.createdAt = defaults.createdAt;
+    	      this.entityGuid = defaults.entityGuid;
     	      this.id = defaults.id;
     	      this.incidentPreference = defaults.incidentPreference;
     	      this.name = defaults.name;
@@ -117,6 +123,14 @@ public final class GetAlertPolicyResult {
               throw new MissingRequiredPropertyException("GetAlertPolicyResult", "createdAt");
             }
             this.createdAt = createdAt;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder entityGuid(String entityGuid) {
+            if (entityGuid == null) {
+              throw new MissingRequiredPropertyException("GetAlertPolicyResult", "entityGuid");
+            }
+            this.entityGuid = entityGuid;
             return this;
         }
         @CustomType.Setter
@@ -153,6 +167,7 @@ public final class GetAlertPolicyResult {
             final var _resultValue = new GetAlertPolicyResult();
             _resultValue.accountId = accountId;
             _resultValue.createdAt = createdAt;
+            _resultValue.entityGuid = entityGuid;
             _resultValue.id = id;
             _resultValue.incidentPreference = incidentPreference;
             _resultValue.name = name;

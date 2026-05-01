@@ -188,6 +188,7 @@ namespace Pulumi.NewRelic
         /// The time the policy was created.
         /// </summary>
         public readonly string CreatedAt;
+        public readonly string EntityGuid;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -211,6 +212,8 @@ namespace Pulumi.NewRelic
 
             string createdAt,
 
+            string entityGuid,
+
             string id,
 
             string? incidentPreference,
@@ -221,6 +224,7 @@ namespace Pulumi.NewRelic
         {
             AccountId = accountId;
             CreatedAt = createdAt;
+            EntityGuid = entityGuid;
             Id = id;
             IncidentPreference = incidentPreference;
             Name = name;

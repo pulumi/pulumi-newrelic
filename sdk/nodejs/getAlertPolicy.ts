@@ -65,6 +65,7 @@ export interface GetAlertPolicyResult {
      * The time the policy was created.
      */
     readonly createdAt: string;
+    readonly entityGuid: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */

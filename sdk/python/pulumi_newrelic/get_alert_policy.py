@@ -26,13 +26,16 @@ class GetAlertPolicyResult:
     """
     A collection of values returned by getAlertPolicy.
     """
-    def __init__(__self__, account_id=None, created_at=None, id=None, incident_preference=None, name=None, updated_at=None):
+    def __init__(__self__, account_id=None, created_at=None, entity_guid=None, id=None, incident_preference=None, name=None, updated_at=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if entity_guid and not isinstance(entity_guid, str):
+            raise TypeError("Expected argument 'entity_guid' to be a str")
+        pulumi.set(__self__, "entity_guid", entity_guid)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,6 +61,11 @@ class GetAlertPolicyResult:
         The time the policy was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> _builtins.str:
+        return pulumi.get(self, "entity_guid")
 
     @_builtins.property
     @pulumi.getter
@@ -100,6 +108,7 @@ class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
         return GetAlertPolicyResult(
             account_id=self.account_id,
             created_at=self.created_at,
+            entity_guid=self.entity_guid,
             id=self.id,
             incident_preference=self.incident_preference,
             name=self.name,
@@ -145,6 +154,7 @@ def get_alert_policy(account_id: Optional[_builtins.str] = None,
     return AwaitableGetAlertPolicyResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        entity_guid=pulumi.get(__ret__, 'entity_guid'),
         id=pulumi.get(__ret__, 'id'),
         incident_preference=pulumi.get(__ret__, 'incident_preference'),
         name=pulumi.get(__ret__, 'name'),
@@ -187,6 +197,7 @@ def get_alert_policy_output(account_id: Optional[pulumi.Input[Optional[_builtins
     return __ret__.apply(lambda __response__: GetAlertPolicyResult(
         account_id=pulumi.get(__response__, 'account_id'),
         created_at=pulumi.get(__response__, 'created_at'),
+        entity_guid=pulumi.get(__response__, 'entity_guid'),
         id=pulumi.get(__response__, 'id'),
         incident_preference=pulumi.get(__response__, 'incident_preference'),
         name=pulumi.get(__response__, 'name'),
