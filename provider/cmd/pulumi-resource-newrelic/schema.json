@@ -12239,6 +12239,10 @@
                     "description": "**DEPRECATED** The \u003cspan pulumi-lang-nodejs=\"`channelIds`\" pulumi-lang-dotnet=\"`ChannelIds`\" pulumi-lang-go=\"`channelIds`\" pulumi-lang-python=\"`channel_ids`\" pulumi-lang-yaml=\"`channelIds`\" pulumi-lang-java=\"`channelIds`\"\u003e`channelIds`\u003c/span\u003e argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).\n",
                     "deprecationMessage": "The \u003cspan pulumi-lang-nodejs=\"`channelIds`\" pulumi-lang-dotnet=\"`ChannelIds`\" pulumi-lang-go=\"`channelIds`\" pulumi-lang-python=\"`channel_ids`\" pulumi-lang-yaml=\"`channelIds`\" pulumi-lang-java=\"`channelIds`\"\u003e`channelIds`\u003c/span\u003e attribute is deprecated and will be removed in the next major release of the provider."
                 },
+                "entityGuid": {
+                    "type": "string",
+                    "description": "The entity GUID of the alert policy.\n"
+                },
                 "incidentPreference": {
                     "type": "string",
                     "description": "The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):\n* `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.\n* `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.\n* `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.\n"
@@ -12250,6 +12254,7 @@
             },
             "required": [
                 "accountId",
+                "entityGuid",
                 "name"
             ],
             "inputProperties": {
@@ -12292,6 +12297,10 @@
                         "description": "**DEPRECATED** The \u003cspan pulumi-lang-nodejs=\"`channelIds`\" pulumi-lang-dotnet=\"`ChannelIds`\" pulumi-lang-go=\"`channelIds`\" pulumi-lang-python=\"`channel_ids`\" pulumi-lang-yaml=\"`channelIds`\" pulumi-lang-java=\"`channelIds`\"\u003e`channelIds`\u003c/span\u003e argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).\n",
                         "deprecationMessage": "The \u003cspan pulumi-lang-nodejs=\"`channelIds`\" pulumi-lang-dotnet=\"`ChannelIds`\" pulumi-lang-go=\"`channelIds`\" pulumi-lang-python=\"`channel_ids`\" pulumi-lang-yaml=\"`channelIds`\" pulumi-lang-java=\"`channelIds`\"\u003e`channelIds`\u003c/span\u003e attribute is deprecated and will be removed in the next major release of the provider.",
                         "willReplaceOnChanges": true
+                    },
+                    "entityGuid": {
+                        "type": "string",
+                        "description": "The entity GUID of the alert policy.\n"
                     },
                     "incidentPreference": {
                         "type": "string",
@@ -17893,6 +17902,9 @@
                         "description": "The time the policy was created.\n",
                         "type": "string"
                     },
+                    "entityGuid": {
+                        "type": "string"
+                    },
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
@@ -17912,6 +17924,7 @@
                 "required": [
                     "accountId",
                     "createdAt",
+                    "entityGuid",
                     "name",
                     "updatedAt",
                     "id"
