@@ -1407,6 +1407,242 @@ func (o EntityTagsTagArrayOutput) Index(i pulumi.IntInput) EntityTagsTagOutput {
 	}).(EntityTagsTagOutput)
 }
 
+type FleetConfigurationVersion struct {
+	// The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
+	//
+	// The following attributes are exported from each `version` block:
+	ConfigurationContent string `pulumi:"configurationContent"`
+	// The entity GUID of this version.
+	VersionEntityId *string `pulumi:"versionEntityId"`
+	// The version number assigned by the API (1, 2, 3, …).
+	VersionNumber *int `pulumi:"versionNumber"`
+}
+
+// FleetConfigurationVersionInput is an input type that accepts FleetConfigurationVersionArgs and FleetConfigurationVersionOutput values.
+// You can construct a concrete instance of `FleetConfigurationVersionInput` via:
+//
+//	FleetConfigurationVersionArgs{...}
+type FleetConfigurationVersionInput interface {
+	pulumi.Input
+
+	ToFleetConfigurationVersionOutput() FleetConfigurationVersionOutput
+	ToFleetConfigurationVersionOutputWithContext(context.Context) FleetConfigurationVersionOutput
+}
+
+type FleetConfigurationVersionArgs struct {
+	// The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
+	//
+	// The following attributes are exported from each `version` block:
+	ConfigurationContent pulumi.StringInput `pulumi:"configurationContent"`
+	// The entity GUID of this version.
+	VersionEntityId pulumi.StringPtrInput `pulumi:"versionEntityId"`
+	// The version number assigned by the API (1, 2, 3, …).
+	VersionNumber pulumi.IntPtrInput `pulumi:"versionNumber"`
+}
+
+func (FleetConfigurationVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetConfigurationVersion)(nil)).Elem()
+}
+
+func (i FleetConfigurationVersionArgs) ToFleetConfigurationVersionOutput() FleetConfigurationVersionOutput {
+	return i.ToFleetConfigurationVersionOutputWithContext(context.Background())
+}
+
+func (i FleetConfigurationVersionArgs) ToFleetConfigurationVersionOutputWithContext(ctx context.Context) FleetConfigurationVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetConfigurationVersionOutput)
+}
+
+// FleetConfigurationVersionArrayInput is an input type that accepts FleetConfigurationVersionArray and FleetConfigurationVersionArrayOutput values.
+// You can construct a concrete instance of `FleetConfigurationVersionArrayInput` via:
+//
+//	FleetConfigurationVersionArray{ FleetConfigurationVersionArgs{...} }
+type FleetConfigurationVersionArrayInput interface {
+	pulumi.Input
+
+	ToFleetConfigurationVersionArrayOutput() FleetConfigurationVersionArrayOutput
+	ToFleetConfigurationVersionArrayOutputWithContext(context.Context) FleetConfigurationVersionArrayOutput
+}
+
+type FleetConfigurationVersionArray []FleetConfigurationVersionInput
+
+func (FleetConfigurationVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetConfigurationVersion)(nil)).Elem()
+}
+
+func (i FleetConfigurationVersionArray) ToFleetConfigurationVersionArrayOutput() FleetConfigurationVersionArrayOutput {
+	return i.ToFleetConfigurationVersionArrayOutputWithContext(context.Background())
+}
+
+func (i FleetConfigurationVersionArray) ToFleetConfigurationVersionArrayOutputWithContext(ctx context.Context) FleetConfigurationVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetConfigurationVersionArrayOutput)
+}
+
+type FleetConfigurationVersionOutput struct{ *pulumi.OutputState }
+
+func (FleetConfigurationVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetConfigurationVersion)(nil)).Elem()
+}
+
+func (o FleetConfigurationVersionOutput) ToFleetConfigurationVersionOutput() FleetConfigurationVersionOutput {
+	return o
+}
+
+func (o FleetConfigurationVersionOutput) ToFleetConfigurationVersionOutputWithContext(ctx context.Context) FleetConfigurationVersionOutput {
+	return o
+}
+
+// The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
+//
+// The following attributes are exported from each `version` block:
+func (o FleetConfigurationVersionOutput) ConfigurationContent() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetConfigurationVersion) string { return v.ConfigurationContent }).(pulumi.StringOutput)
+}
+
+// The entity GUID of this version.
+func (o FleetConfigurationVersionOutput) VersionEntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetConfigurationVersion) *string { return v.VersionEntityId }).(pulumi.StringPtrOutput)
+}
+
+// The version number assigned by the API (1, 2, 3, …).
+func (o FleetConfigurationVersionOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetConfigurationVersion) *int { return v.VersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type FleetConfigurationVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetConfigurationVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetConfigurationVersion)(nil)).Elem()
+}
+
+func (o FleetConfigurationVersionArrayOutput) ToFleetConfigurationVersionArrayOutput() FleetConfigurationVersionArrayOutput {
+	return o
+}
+
+func (o FleetConfigurationVersionArrayOutput) ToFleetConfigurationVersionArrayOutputWithContext(ctx context.Context) FleetConfigurationVersionArrayOutput {
+	return o
+}
+
+func (o FleetConfigurationVersionArrayOutput) Index(i pulumi.IntInput) FleetConfigurationVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetConfigurationVersion {
+		return vs[0].([]FleetConfigurationVersion)[vs[1].(int)]
+	}).(FleetConfigurationVersionOutput)
+}
+
+type FleetDeploymentAgent struct {
+	// The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
+	AgentType string `pulumi:"agentType"`
+	// A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+	ConfigurationVersionId *string `pulumi:"configurationVersionId"`
+	// The agent version string to deploy (e.g. `"1.58.0"`).
+	Version string `pulumi:"version"`
+}
+
+// FleetDeploymentAgentInput is an input type that accepts FleetDeploymentAgentArgs and FleetDeploymentAgentOutput values.
+// You can construct a concrete instance of `FleetDeploymentAgentInput` via:
+//
+//	FleetDeploymentAgentArgs{...}
+type FleetDeploymentAgentInput interface {
+	pulumi.Input
+
+	ToFleetDeploymentAgentOutput() FleetDeploymentAgentOutput
+	ToFleetDeploymentAgentOutputWithContext(context.Context) FleetDeploymentAgentOutput
+}
+
+type FleetDeploymentAgentArgs struct {
+	// The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
+	AgentType pulumi.StringInput `pulumi:"agentType"`
+	// A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+	ConfigurationVersionId pulumi.StringPtrInput `pulumi:"configurationVersionId"`
+	// The agent version string to deploy (e.g. `"1.58.0"`).
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (FleetDeploymentAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetDeploymentAgent)(nil)).Elem()
+}
+
+func (i FleetDeploymentAgentArgs) ToFleetDeploymentAgentOutput() FleetDeploymentAgentOutput {
+	return i.ToFleetDeploymentAgentOutputWithContext(context.Background())
+}
+
+func (i FleetDeploymentAgentArgs) ToFleetDeploymentAgentOutputWithContext(ctx context.Context) FleetDeploymentAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetDeploymentAgentOutput)
+}
+
+// FleetDeploymentAgentArrayInput is an input type that accepts FleetDeploymentAgentArray and FleetDeploymentAgentArrayOutput values.
+// You can construct a concrete instance of `FleetDeploymentAgentArrayInput` via:
+//
+//	FleetDeploymentAgentArray{ FleetDeploymentAgentArgs{...} }
+type FleetDeploymentAgentArrayInput interface {
+	pulumi.Input
+
+	ToFleetDeploymentAgentArrayOutput() FleetDeploymentAgentArrayOutput
+	ToFleetDeploymentAgentArrayOutputWithContext(context.Context) FleetDeploymentAgentArrayOutput
+}
+
+type FleetDeploymentAgentArray []FleetDeploymentAgentInput
+
+func (FleetDeploymentAgentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetDeploymentAgent)(nil)).Elem()
+}
+
+func (i FleetDeploymentAgentArray) ToFleetDeploymentAgentArrayOutput() FleetDeploymentAgentArrayOutput {
+	return i.ToFleetDeploymentAgentArrayOutputWithContext(context.Background())
+}
+
+func (i FleetDeploymentAgentArray) ToFleetDeploymentAgentArrayOutputWithContext(ctx context.Context) FleetDeploymentAgentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetDeploymentAgentArrayOutput)
+}
+
+type FleetDeploymentAgentOutput struct{ *pulumi.OutputState }
+
+func (FleetDeploymentAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetDeploymentAgent)(nil)).Elem()
+}
+
+func (o FleetDeploymentAgentOutput) ToFleetDeploymentAgentOutput() FleetDeploymentAgentOutput {
+	return o
+}
+
+func (o FleetDeploymentAgentOutput) ToFleetDeploymentAgentOutputWithContext(ctx context.Context) FleetDeploymentAgentOutput {
+	return o
+}
+
+// The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
+func (o FleetDeploymentAgentOutput) AgentType() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetDeploymentAgent) string { return v.AgentType }).(pulumi.StringOutput)
+}
+
+// A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+func (o FleetDeploymentAgentOutput) ConfigurationVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetDeploymentAgent) *string { return v.ConfigurationVersionId }).(pulumi.StringPtrOutput)
+}
+
+// The agent version string to deploy (e.g. `"1.58.0"`).
+func (o FleetDeploymentAgentOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetDeploymentAgent) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type FleetDeploymentAgentArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetDeploymentAgentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetDeploymentAgent)(nil)).Elem()
+}
+
+func (o FleetDeploymentAgentArrayOutput) ToFleetDeploymentAgentArrayOutput() FleetDeploymentAgentArrayOutput {
+	return o
+}
+
+func (o FleetDeploymentAgentArrayOutput) ToFleetDeploymentAgentArrayOutputWithContext(ctx context.Context) FleetDeploymentAgentArrayOutput {
+	return o
+}
+
+func (o FleetDeploymentAgentArrayOutput) Index(i pulumi.IntInput) FleetDeploymentAgentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetDeploymentAgent {
+		return vs[0].([]FleetDeploymentAgent)[vs[1].(int)]
+	}).(FleetDeploymentAgentOutput)
+}
+
 type InfraAlertConditionCritical struct {
 	Duration     int      `pulumi:"duration"`
 	TimeFunction *string  `pulumi:"timeFunction"`
@@ -33318,6 +33554,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleSchedulePtrInput)(nil)).Elem(), AlertMutingRuleScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagInput)(nil)).Elem(), EntityTagsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagArrayInput)(nil)).Elem(), EntityTagsTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetConfigurationVersionInput)(nil)).Elem(), FleetConfigurationVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetConfigurationVersionArrayInput)(nil)).Elem(), FleetConfigurationVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetDeploymentAgentInput)(nil)).Elem(), FleetDeploymentAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetDeploymentAgentArrayInput)(nil)).Elem(), FleetDeploymentAgentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionCriticalInput)(nil)).Elem(), InfraAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionCriticalPtrInput)(nil)).Elem(), InfraAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionWarningInput)(nil)).Elem(), InfraAlertConditionWarningArgs{})
@@ -33789,6 +34029,10 @@ func init() {
 	pulumi.RegisterOutputType(AlertMutingRuleSchedulePtrOutput{})
 	pulumi.RegisterOutputType(EntityTagsTagOutput{})
 	pulumi.RegisterOutputType(EntityTagsTagArrayOutput{})
+	pulumi.RegisterOutputType(FleetConfigurationVersionOutput{})
+	pulumi.RegisterOutputType(FleetConfigurationVersionArrayOutput{})
+	pulumi.RegisterOutputType(FleetDeploymentAgentOutput{})
+	pulumi.RegisterOutputType(FleetDeploymentAgentArrayOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionWarningOutput{})

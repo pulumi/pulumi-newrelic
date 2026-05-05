@@ -70,6 +70,16 @@ export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
 utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
 
+export { FleetConfigurationArgs, FleetConfigurationState } from "./fleetConfiguration";
+export type FleetConfiguration = import("./fleetConfiguration").FleetConfiguration;
+export const FleetConfiguration: typeof import("./fleetConfiguration").FleetConfiguration = null as any;
+utilities.lazyLoad(exports, ["FleetConfiguration"], () => require("./fleetConfiguration"));
+
+export { FleetDeploymentArgs, FleetDeploymentState } from "./fleetDeployment";
+export type FleetDeployment = import("./fleetDeployment").FleetDeployment;
+export const FleetDeployment: typeof import("./fleetDeployment").FleetDeployment = null as any;
+utilities.lazyLoad(exports, ["FleetDeployment"], () => require("./fleetDeployment"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -104,6 +114,11 @@ export { GetEntityArgs, GetEntityResult, GetEntityOutputArgs } from "./getEntity
 export const getEntity: typeof import("./getEntity").getEntity = null as any;
 export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
 utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
+
+export { GetFleetConfigurationArgs, GetFleetConfigurationResult, GetFleetConfigurationOutputArgs } from "./getFleetConfiguration";
+export const getFleetConfiguration: typeof import("./getFleetConfiguration").getFleetConfiguration = null as any;
+export const getFleetConfigurationOutput: typeof import("./getFleetConfiguration").getFleetConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetConfiguration","getFleetConfigurationOutput"], () => require("./getFleetConfiguration"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
@@ -286,6 +301,10 @@ const _module = {
                 return new EventsToMetricsRule(name, <any>undefined, { urn })
             case "newrelic:index/fleet:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
+            case "newrelic:index/fleetConfiguration:FleetConfiguration":
+                return new FleetConfiguration(name, <any>undefined, { urn })
+            case "newrelic:index/fleetDeployment:FleetDeployment":
+                return new FleetDeployment(name, <any>undefined, { urn })
             case "newrelic:index/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "newrelic:index/infraAlertCondition:InfraAlertCondition":
@@ -342,6 +361,8 @@ pulumi.runtime.registerResourceModule("newrelic", "index/dataPartitionRule", _mo
 pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/fleet", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/fleetConfiguration", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/fleetDeployment", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/group", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/keyTransaction", _module)
