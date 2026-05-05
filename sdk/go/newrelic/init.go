@@ -47,6 +47,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventsToMetricsRule{}
 	case "newrelic:index/fleet:Fleet":
 		r = &Fleet{}
+	case "newrelic:index/fleetConfiguration:FleetConfiguration":
+		r = &FleetConfiguration{}
+	case "newrelic:index/fleetDeployment:FleetDeployment":
+		r = &FleetDeployment{}
 	case "newrelic:index/group:Group":
 		r = &Group{}
 	case "newrelic:index/infraAlertCondition:InfraAlertCondition":
@@ -179,6 +183,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/fleet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/fleetConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/fleetDeployment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

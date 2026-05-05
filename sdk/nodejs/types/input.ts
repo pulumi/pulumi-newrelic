@@ -197,6 +197,38 @@ export interface EntityTagsTag {
     values: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface FleetConfigurationVersion {
+    /**
+     * The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
+     *
+     * The following attributes are exported from each `version` block:
+     */
+    configurationContent: pulumi.Input<string>;
+    /**
+     * The entity GUID of this version.
+     */
+    versionEntityId?: pulumi.Input<string>;
+    /**
+     * The version number assigned by the API (1, 2, 3, …).
+     */
+    versionNumber?: pulumi.Input<number>;
+}
+
+export interface FleetDeploymentAgent {
+    /**
+     * The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
+     */
+    agentType: pulumi.Input<string>;
+    /**
+     * A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
+     */
+    configurationVersionId?: pulumi.Input<string>;
+    /**
+     * The agent version string to deploy (e.g. `"1.58.0"`).
+     */
+    version: pulumi.Input<string>;
+}
+
 export interface GetEntityTag {
     /**
      * The tag key.

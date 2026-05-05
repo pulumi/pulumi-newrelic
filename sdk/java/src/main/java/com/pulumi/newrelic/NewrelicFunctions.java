@@ -23,6 +23,8 @@ import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
 import com.pulumi.newrelic.inputs.GetCloudAccountPlainArgs;
 import com.pulumi.newrelic.inputs.GetEntityArgs;
 import com.pulumi.newrelic.inputs.GetEntityPlainArgs;
+import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+import com.pulumi.newrelic.inputs.GetFleetConfigurationPlainArgs;
 import com.pulumi.newrelic.inputs.GetGroupArgs;
 import com.pulumi.newrelic.inputs.GetGroupPlainArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
@@ -44,6 +46,7 @@ import com.pulumi.newrelic.outputs.GetApplicationResult;
 import com.pulumi.newrelic.outputs.GetAuthenticationDomainResult;
 import com.pulumi.newrelic.outputs.GetCloudAccountResult;
 import com.pulumi.newrelic.outputs.GetEntityResult;
+import com.pulumi.newrelic.outputs.GetFleetConfigurationResult;
 import com.pulumi.newrelic.outputs.GetGroupResult;
 import com.pulumi.newrelic.outputs.GetKeyTransactionResult;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationResult;
@@ -2536,6 +2539,839 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetEntityResult> getEntityPlain(GetEntityPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getEntity:getEntity", TypeShape.of(GetEntityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to fetch the content and version metadata of an existing New Relic fleet configuration. Three mutually exclusive lookup modes are supported: by **configuration GUID**, by **version entity GUID**, or by **name**.
+     * 
+     * ## Example Usage
+     * 
+     * ### Look Up by Configuration GUID
+     * 
+     * Fetches the content of the **latest** version of the configuration identified by its entity GUID. Also returns the GUIDs of all versions.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .configurationId("NjQyNTg2NXxOR0VQ...")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byId.configurationContent());
+     *         ctx.export("allVersionGuids", byId.versionEntityIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Version Entity GUID
+     * 
+     * Fetches the content of a **specific version** identified by its version entity GUID. Also resolves and returns the parent configuration GUID.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byVersion = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .versionEntityId("NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...")
+     *             .build());
+     * 
+     *         ctx.export("versionContent", byVersion.configurationContent());
+     *         ctx.export("parentConfigGuid", byVersion.configurationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Name
+     * 
+     * Fetches the content of the **latest** version of the configuration matching the given name. Also returns the GUIDs of all versions. The first matching configuration is returned if multiple share the same name.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .name("Production Infrastructure Config")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byName.configurationContent());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetConfigurationResult> getFleetConfiguration() {
+        return getFleetConfiguration(GetFleetConfigurationArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to fetch the content and version metadata of an existing New Relic fleet configuration. Three mutually exclusive lookup modes are supported: by **configuration GUID**, by **version entity GUID**, or by **name**.
+     * 
+     * ## Example Usage
+     * 
+     * ### Look Up by Configuration GUID
+     * 
+     * Fetches the content of the **latest** version of the configuration identified by its entity GUID. Also returns the GUIDs of all versions.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .configurationId("NjQyNTg2NXxOR0VQ...")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byId.configurationContent());
+     *         ctx.export("allVersionGuids", byId.versionEntityIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Version Entity GUID
+     * 
+     * Fetches the content of a **specific version** identified by its version entity GUID. Also resolves and returns the parent configuration GUID.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byVersion = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .versionEntityId("NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...")
+     *             .build());
+     * 
+     *         ctx.export("versionContent", byVersion.configurationContent());
+     *         ctx.export("parentConfigGuid", byVersion.configurationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Name
+     * 
+     * Fetches the content of the **latest** version of the configuration matching the given name. Also returns the GUIDs of all versions. The first matching configuration is returned if multiple share the same name.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .name("Production Infrastructure Config")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byName.configurationContent());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetConfigurationResult> getFleetConfigurationPlain() {
+        return getFleetConfigurationPlain(GetFleetConfigurationPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to fetch the content and version metadata of an existing New Relic fleet configuration. Three mutually exclusive lookup modes are supported: by **configuration GUID**, by **version entity GUID**, or by **name**.
+     * 
+     * ## Example Usage
+     * 
+     * ### Look Up by Configuration GUID
+     * 
+     * Fetches the content of the **latest** version of the configuration identified by its entity GUID. Also returns the GUIDs of all versions.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .configurationId("NjQyNTg2NXxOR0VQ...")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byId.configurationContent());
+     *         ctx.export("allVersionGuids", byId.versionEntityIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Version Entity GUID
+     * 
+     * Fetches the content of a **specific version** identified by its version entity GUID. Also resolves and returns the parent configuration GUID.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byVersion = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .versionEntityId("NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...")
+     *             .build());
+     * 
+     *         ctx.export("versionContent", byVersion.configurationContent());
+     *         ctx.export("parentConfigGuid", byVersion.configurationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Name
+     * 
+     * Fetches the content of the **latest** version of the configuration matching the given name. Also returns the GUIDs of all versions. The first matching configuration is returned if multiple share the same name.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .name("Production Infrastructure Config")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byName.configurationContent());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetConfigurationResult> getFleetConfiguration(GetFleetConfigurationArgs args) {
+        return getFleetConfiguration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to fetch the content and version metadata of an existing New Relic fleet configuration. Three mutually exclusive lookup modes are supported: by **configuration GUID**, by **version entity GUID**, or by **name**.
+     * 
+     * ## Example Usage
+     * 
+     * ### Look Up by Configuration GUID
+     * 
+     * Fetches the content of the **latest** version of the configuration identified by its entity GUID. Also returns the GUIDs of all versions.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .configurationId("NjQyNTg2NXxOR0VQ...")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byId.configurationContent());
+     *         ctx.export("allVersionGuids", byId.versionEntityIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Version Entity GUID
+     * 
+     * Fetches the content of a **specific version** identified by its version entity GUID. Also resolves and returns the parent configuration GUID.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byVersion = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .versionEntityId("NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...")
+     *             .build());
+     * 
+     *         ctx.export("versionContent", byVersion.configurationContent());
+     *         ctx.export("parentConfigGuid", byVersion.configurationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Name
+     * 
+     * Fetches the content of the **latest** version of the configuration matching the given name. Also returns the GUIDs of all versions. The first matching configuration is returned if multiple share the same name.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .name("Production Infrastructure Config")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byName.configurationContent());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetConfigurationResult> getFleetConfigurationPlain(GetFleetConfigurationPlainArgs args) {
+        return getFleetConfigurationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to fetch the content and version metadata of an existing New Relic fleet configuration. Three mutually exclusive lookup modes are supported: by **configuration GUID**, by **version entity GUID**, or by **name**.
+     * 
+     * ## Example Usage
+     * 
+     * ### Look Up by Configuration GUID
+     * 
+     * Fetches the content of the **latest** version of the configuration identified by its entity GUID. Also returns the GUIDs of all versions.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .configurationId("NjQyNTg2NXxOR0VQ...")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byId.configurationContent());
+     *         ctx.export("allVersionGuids", byId.versionEntityIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Version Entity GUID
+     * 
+     * Fetches the content of a **specific version** identified by its version entity GUID. Also resolves and returns the parent configuration GUID.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byVersion = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .versionEntityId("NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...")
+     *             .build());
+     * 
+     *         ctx.export("versionContent", byVersion.configurationContent());
+     *         ctx.export("parentConfigGuid", byVersion.configurationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Name
+     * 
+     * Fetches the content of the **latest** version of the configuration matching the given name. Also returns the GUIDs of all versions. The first matching configuration is returned if multiple share the same name.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .name("Production Infrastructure Config")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byName.configurationContent());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetConfigurationResult> getFleetConfiguration(GetFleetConfigurationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getFleetConfiguration:getFleetConfiguration", TypeShape.of(GetFleetConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to fetch the content and version metadata of an existing New Relic fleet configuration. Three mutually exclusive lookup modes are supported: by **configuration GUID**, by **version entity GUID**, or by **name**.
+     * 
+     * ## Example Usage
+     * 
+     * ### Look Up by Configuration GUID
+     * 
+     * Fetches the content of the **latest** version of the configuration identified by its entity GUID. Also returns the GUIDs of all versions.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .configurationId("NjQyNTg2NXxOR0VQ...")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byId.configurationContent());
+     *         ctx.export("allVersionGuids", byId.versionEntityIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Version Entity GUID
+     * 
+     * Fetches the content of a **specific version** identified by its version entity GUID. Also resolves and returns the parent configuration GUID.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byVersion = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .versionEntityId("NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...")
+     *             .build());
+     * 
+     *         ctx.export("versionContent", byVersion.configurationContent());
+     *         ctx.export("parentConfigGuid", byVersion.configurationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Name
+     * 
+     * Fetches the content of the **latest** version of the configuration matching the given name. Also returns the GUIDs of all versions. The first matching configuration is returned if multiple share the same name.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .name("Production Infrastructure Config")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byName.configurationContent());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetConfigurationResult> getFleetConfiguration(GetFleetConfigurationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getFleetConfiguration:getFleetConfiguration", TypeShape.of(GetFleetConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to fetch the content and version metadata of an existing New Relic fleet configuration. Three mutually exclusive lookup modes are supported: by **configuration GUID**, by **version entity GUID**, or by **name**.
+     * 
+     * ## Example Usage
+     * 
+     * ### Look Up by Configuration GUID
+     * 
+     * Fetches the content of the **latest** version of the configuration identified by its entity GUID. Also returns the GUIDs of all versions.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .configurationId("NjQyNTg2NXxOR0VQ...")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byId.configurationContent());
+     *         ctx.export("allVersionGuids", byId.versionEntityIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Version Entity GUID
+     * 
+     * Fetches the content of a **specific version** identified by its version entity GUID. Also resolves and returns the parent configuration GUID.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byVersion = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .versionEntityId("NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...")
+     *             .build());
+     * 
+     *         ctx.export("versionContent", byVersion.configurationContent());
+     *         ctx.export("parentConfigGuid", byVersion.configurationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Look Up by Name
+     * 
+     * Fetches the content of the **latest** version of the configuration matching the given name. Also returns the GUIDs of all versions. The first matching configuration is returned if multiple share the same name.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byName = NewrelicFunctions.getFleetConfiguration(GetFleetConfigurationArgs.builder()
+     *             .name("Production Infrastructure Config")
+     *             .build());
+     * 
+     *         ctx.export("latestContent", byName.configurationContent());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetConfigurationResult> getFleetConfigurationPlain(GetFleetConfigurationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getFleetConfiguration:getFleetConfiguration", TypeShape.of(GetFleetConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The `newrelic.Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.

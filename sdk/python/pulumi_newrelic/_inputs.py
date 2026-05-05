@@ -29,6 +29,10 @@ __all__ = [
     'AlertMutingRuleScheduleArgsDict',
     'EntityTagsTagArgs',
     'EntityTagsTagArgsDict',
+    'FleetConfigurationVersionArgs',
+    'FleetConfigurationVersionArgsDict',
+    'FleetDeploymentAgentArgs',
+    'FleetDeploymentAgentArgsDict',
     'InfraAlertConditionCriticalArgs',
     'InfraAlertConditionCriticalArgsDict',
     'InfraAlertConditionWarningArgs',
@@ -1378,6 +1382,147 @@ class EntityTagsTagArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "values", value)
+
+
+class FleetConfigurationVersionArgsDict(TypedDict):
+    configuration_content: pulumi.Input[_builtins.str]
+    """
+    The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
+
+    The following attributes are exported from each `version` block:
+    """
+    version_entity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The entity GUID of this version.
+    """
+    version_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The version number assigned by the API (1, 2, 3, …).
+    """
+
+@pulumi.input_type
+class FleetConfigurationVersionArgs:
+    def __init__(__self__, *,
+                 configuration_content: pulumi.Input[_builtins.str],
+                 version_entity_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 version_number: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
+               
+               The following attributes are exported from each `version` block:
+        :param pulumi.Input[_builtins.str] version_entity_id: The entity GUID of this version.
+        :param pulumi.Input[_builtins.int] version_number: The version number assigned by the API (1, 2, 3, …).
+        """
+        pulumi.set(__self__, "configuration_content", configuration_content)
+        if version_entity_id is not None:
+            pulumi.set(__self__, "version_entity_id", version_entity_id)
+        if version_number is not None:
+            pulumi.set(__self__, "version_number", version_number)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationContent")
+    def configuration_content(self) -> pulumi.Input[_builtins.str]:
+        """
+        The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
+
+        The following attributes are exported from each `version` block:
+        """
+        return pulumi.get(self, "configuration_content")
+
+    @configuration_content.setter
+    def configuration_content(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "configuration_content", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionEntityId")
+    def version_entity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The entity GUID of this version.
+        """
+        return pulumi.get(self, "version_entity_id")
+
+    @version_entity_id.setter
+    def version_entity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version_entity_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionNumber")
+    def version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The version number assigned by the API (1, 2, 3, …).
+        """
+        return pulumi.get(self, "version_number")
+
+    @version_number.setter
+    def version_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "version_number", value)
+
+
+class FleetDeploymentAgentArgsDict(TypedDict):
+    agent_type: pulumi.Input[_builtins.str]
+    """
+    The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    The agent version string to deploy (e.g. `"1.58.0"`).
+    """
+    configuration_version_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+    """
+
+@pulumi.input_type
+class FleetDeploymentAgentArgs:
+    def __init__(__self__, *,
+                 agent_type: pulumi.Input[_builtins.str],
+                 version: pulumi.Input[_builtins.str],
+                 configuration_version_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] agent_type: The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
+        :param pulumi.Input[_builtins.str] version: The agent version string to deploy (e.g. `"1.58.0"`).
+        :param pulumi.Input[_builtins.str] configuration_version_id: A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        """
+        pulumi.set(__self__, "agent_type", agent_type)
+        pulumi.set(__self__, "version", version)
+        if configuration_version_id is not None:
+            pulumi.set(__self__, "configuration_version_id", configuration_version_id)
+
+    @_builtins.property
+    @pulumi.getter(name="agentType")
+    def agent_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
+        """
+        return pulumi.get(self, "agent_type")
+
+    @agent_type.setter
+    def agent_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "agent_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[_builtins.str]:
+        """
+        The agent version string to deploy (e.g. `"1.58.0"`).
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationVersionId")
+    def configuration_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        """
+        return pulumi.get(self, "configuration_version_id")
+
+    @configuration_version_id.setter
+    def configuration_version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "configuration_version_id", value)
 
 
 class InfraAlertConditionCriticalArgsDict(TypedDict):

@@ -1340,6 +1340,27 @@
                     }
                 }
             },
+            "newrelic_fleet_configuration": {
+                "current": "newrelic:index/fleetConfiguration:FleetConfiguration",
+                "majorVersion": 5,
+                "fields": {
+                    "version": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "newrelic_fleet_deployment": {
+                "current": "newrelic:index/fleetDeployment:FleetDeployment",
+                "majorVersion": 5,
+                "fields": {
+                    "agent": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "newrelic_group": {
                 "current": "newrelic:index/group:Group",
                 "majorVersion": 5,
@@ -2807,6 +2828,15 @@
                 "majorVersion": 5,
                 "fields": {
                     "tag": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "newrelic_fleet_configuration": {
+                "current": "newrelic:index/getFleetConfiguration:getFleetConfiguration",
+                "majorVersion": 5,
+                "fields": {
+                    "version_entity_ids": {
                         "maxItemsOne": false
                     }
                 }
@@ -4729,6 +4759,18 @@
             "newrelic_fleet": [
                 "organization_id"
             ],
+            "newrelic_fleet_configuration": [
+                "configuration_id",
+                "latest_version_entity_id",
+                "organization_id",
+                "version.$.version_entity_id"
+            ],
+            "newrelic_fleet_deployment": [
+                "agent.$.configuration_version_id",
+                "deployment_id",
+                "fleet_id",
+                "organization_id"
+            ],
             "newrelic_group": [
                 "authentication_domain_id",
                 "user_ids"
@@ -4878,6 +4920,13 @@
                 "account_id",
                 "application_id",
                 "serving_apm_application_id"
+            ],
+            "newrelic_fleet_configuration": [
+                "configuration_id",
+                "latest_version_entity_id",
+                "organization_id",
+                "version_entity_id",
+                "version_entity_ids"
             ],
             "newrelic_group": [
                 "authentication_domain_id",
