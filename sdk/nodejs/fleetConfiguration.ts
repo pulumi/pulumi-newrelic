@@ -65,11 +65,14 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Fleet configurations can be imported using the configuration entity GUID:
+ * Fleet configurations can be imported using a composite ID of `<configuration_guid>:<managed_entity_type>`:
  *
  * ```sh
- * $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>
+ * $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:HOST
+ * $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:KUBERNETESCLUSTER
  * ```
+ *
+ * The `managedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agentType`, `operatingSystem`, `organizationId` — are resolved automatically from the API.
  */
 export class FleetConfiguration extends pulumi.CustomResource {
     /**
@@ -124,6 +127,10 @@ export class FleetConfiguration extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+     */
+    declare public readonly operatingSystem: pulumi.Output<string | undefined>;
+    /**
      * The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
      */
     declare public readonly organizationId: pulumi.Output<string>;
@@ -155,6 +162,7 @@ export class FleetConfiguration extends pulumi.CustomResource {
             resourceInputs["latestVersionNumber"] = state?.latestVersionNumber;
             resourceInputs["managedEntityType"] = state?.managedEntityType;
             resourceInputs["name"] = state?.name;
+            resourceInputs["operatingSystem"] = state?.operatingSystem;
             resourceInputs["organizationId"] = state?.organizationId;
             resourceInputs["totalVersions"] = state?.totalVersions;
             resourceInputs["versions"] = state?.versions;
@@ -172,6 +180,7 @@ export class FleetConfiguration extends pulumi.CustomResource {
             resourceInputs["agentType"] = args?.agentType;
             resourceInputs["managedEntityType"] = args?.managedEntityType;
             resourceInputs["name"] = args?.name;
+            resourceInputs["operatingSystem"] = args?.operatingSystem;
             resourceInputs["organizationId"] = args?.organizationId;
             resourceInputs["versions"] = args?.versions;
             resourceInputs["configurationId"] = undefined /*out*/;
@@ -213,6 +222,10 @@ export interface FleetConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+     */
+    operatingSystem?: pulumi.Input<string>;
+    /**
      * The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
      */
     organizationId?: pulumi.Input<string>;
@@ -242,6 +255,10 @@ export interface FleetConfigurationArgs {
      * The name of the configuration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+     */
+    operatingSystem?: pulumi.Input<string>;
     /**
      * The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
      */

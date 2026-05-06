@@ -187,7 +187,7 @@ import (
 type FleetDeployment struct {
 	pulumi.CustomResourceState
 
-	// One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents FleetDeploymentAgentArrayOutput `pulumi:"agents"`
 	// The entity GUID of the deployment.
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
@@ -212,9 +212,6 @@ func NewFleetDeployment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Agents == nil {
-		return nil, errors.New("invalid value for required argument 'Agents'")
-	}
 	if args.FleetId == nil {
 		return nil, errors.New("invalid value for required argument 'FleetId'")
 	}
@@ -241,7 +238,7 @@ func GetFleetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FleetDeployment resources.
 type fleetDeploymentState struct {
-	// One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents []FleetDeploymentAgent `pulumi:"agents"`
 	// The entity GUID of the deployment.
 	DeploymentId *string `pulumi:"deploymentId"`
@@ -260,7 +257,7 @@ type fleetDeploymentState struct {
 }
 
 type FleetDeploymentState struct {
-	// One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents FleetDeploymentAgentArrayInput
 	// The entity GUID of the deployment.
 	DeploymentId pulumi.StringPtrInput
@@ -283,7 +280,7 @@ func (FleetDeploymentState) ElementType() reflect.Type {
 }
 
 type fleetDeploymentArgs struct {
-	// One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents []FleetDeploymentAgent `pulumi:"agents"`
 	// A description of the deployment.
 	Description *string `pulumi:"description"`
@@ -299,7 +296,7 @@ type fleetDeploymentArgs struct {
 
 // The set of arguments for constructing a FleetDeployment resource.
 type FleetDeploymentArgs struct {
-	// One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents FleetDeploymentAgentArrayInput
 	// A description of the deployment.
 	Description pulumi.StringPtrInput
@@ -400,7 +397,7 @@ func (o FleetDeploymentOutput) ToFleetDeploymentOutputWithContext(ctx context.Co
 	return o
 }
 
-// One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 func (o FleetDeploymentOutput) Agents() FleetDeploymentAgentArrayOutput {
 	return o.ApplyT(func(v *FleetDeployment) FleetDeploymentAgentArrayOutput { return v.Agents }).(FleetDeploymentAgentArrayOutput)
 }

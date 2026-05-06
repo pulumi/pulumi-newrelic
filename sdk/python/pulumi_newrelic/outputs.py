@@ -975,17 +975,16 @@ class FleetDeploymentAgent(dict):
 
     def __init__(__self__, *,
                  agent_type: _builtins.str,
-                 version: _builtins.str,
-                 configuration_version_id: Optional[_builtins.str] = None):
+                 configuration_version_id: _builtins.str,
+                 version: _builtins.str):
         """
         :param _builtins.str agent_type: The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
-        :param _builtins.str version: The agent version string to deploy (e.g. `"1.58.0"`).
         :param _builtins.str configuration_version_id: A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        :param _builtins.str version: The agent version string to deploy (e.g. `"1.58.0"`).
         """
         pulumi.set(__self__, "agent_type", agent_type)
+        pulumi.set(__self__, "configuration_version_id", configuration_version_id)
         pulumi.set(__self__, "version", version)
-        if configuration_version_id is not None:
-            pulumi.set(__self__, "configuration_version_id", configuration_version_id)
 
     @_builtins.property
     @pulumi.getter(name="agentType")
@@ -996,20 +995,20 @@ class FleetDeploymentAgent(dict):
         return pulumi.get(self, "agent_type")
 
     @_builtins.property
+    @pulumi.getter(name="configurationVersionId")
+    def configuration_version_id(self) -> _builtins.str:
+        """
+        A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        """
+        return pulumi.get(self, "configuration_version_id")
+
+    @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
         """
         The agent version string to deploy (e.g. `"1.58.0"`).
         """
         return pulumi.get(self, "version")
-
-    @_builtins.property
-    @pulumi.getter(name="configurationVersionId")
-    def configuration_version_id(self) -> Optional[_builtins.str]:
-        """
-        A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
-        """
-        return pulumi.get(self, "configuration_version_id")
 
 
 @pulumi.output_type

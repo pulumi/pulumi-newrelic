@@ -14,6 +14,7 @@ import com.pulumi.newrelic.outputs.FleetConfigurationVersion;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -99,11 +100,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Fleet configurations can be imported using the configuration entity GUID:
+ * Fleet configurations can be imported using a composite ID of `&lt;configuration_guid&gt;:&lt;managed_entity_type&gt;`:
  * 
  * ```sh
- * $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra &lt;configuration_guid&gt;
+ * $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra &lt;configuration_guid&gt;:HOST
+ * $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra &lt;configuration_guid&gt;:KUBERNETESCLUSTER
  * ```
+ * 
+ * The `managedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agentType`, `operatingSystem`, `organizationId` — are resolved automatically from the API.
  * 
  */
 @ResourceType(type="newrelic:index/fleetConfiguration:FleetConfiguration")
@@ -191,6 +195,20 @@ public class FleetConfiguration extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+     * 
+     */
+    @Export(name="operatingSystem", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> operatingSystem;
+
+    /**
+     * @return The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+     * 
+     */
+    public Output<Optional<String>> operatingSystem() {
+        return Codegen.optional(this.operatingSystem);
     }
     /**
      * The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**

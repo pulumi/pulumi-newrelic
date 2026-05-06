@@ -220,18 +220,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/fleetDeployment:FleetDeployment")
 public class FleetDeployment extends com.pulumi.resources.CustomResource {
     /**
-     * One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
     @Export(name="agents", refs={List.class,FleetDeploymentAgent.class}, tree="[0,1]")
-    private Output<List<FleetDeploymentAgent>> agents;
+    private Output</* @Nullable */ List<FleetDeploymentAgent>> agents;
 
     /**
-     * @return One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * @return One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
-    public Output<List<FleetDeploymentAgent>> agents() {
-        return this.agents;
+    public Output<Optional<List<FleetDeploymentAgent>>> agents() {
+        return Codegen.optional(this.agents);
     }
     /**
      * The entity GUID of the deployment.

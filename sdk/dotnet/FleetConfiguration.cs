@@ -79,11 +79,14 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Import
     /// 
-    /// Fleet configurations can be imported using the configuration entity GUID:
+    /// Fleet configurations can be imported using a composite ID of `&lt;configuration_guid&gt;:&lt;managed_entity_type&gt;`:
     /// 
     /// ```sh
-    /// $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra &lt;configuration_guid&gt;
+    /// $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra &lt;configuration_guid&gt;:HOST
+    /// $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra &lt;configuration_guid&gt;:KUBERNETESCLUSTER
     /// ```
+    /// 
+    /// The `ManagedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `Name`, `AgentType`, `OperatingSystem`, `OrganizationId` — are resolved automatically from the API.
     /// </summary>
     [NewRelicResourceType("newrelic:index/fleetConfiguration:FleetConfiguration")]
     public partial class FleetConfiguration : global::Pulumi.CustomResource
@@ -123,6 +126,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `ManagedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+        /// </summary>
+        [Output("operatingSystem")]
+        public Output<string?> OperatingSystem { get; private set; } = null!;
 
         /// <summary>
         /// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
@@ -207,6 +216,12 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `ManagedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+        /// </summary>
+        [Input("operatingSystem")]
+        public Input<string>? OperatingSystem { get; set; }
+
+        /// <summary>
         /// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         /// </summary>
         [Input("organizationId")]
@@ -267,6 +282,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `ManagedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+        /// </summary>
+        [Input("operatingSystem")]
+        public Input<string>? OperatingSystem { get; set; }
 
         /// <summary>
         /// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**

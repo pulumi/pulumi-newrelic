@@ -25,6 +25,7 @@ class FleetConfigurationArgs:
                  managed_entity_type: pulumi.Input[_builtins.str],
                  versions: pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetConfiguration resource.
@@ -33,6 +34,7 @@ class FleetConfigurationArgs:
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]] versions: One or more version blocks. At least one is required. See Nested `version` blocks below.
         :param pulumi.Input[_builtins.str] name: The name of the configuration.
+        :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         """
         pulumi.set(__self__, "agent_type", agent_type)
@@ -40,6 +42,8 @@ class FleetConfigurationArgs:
         pulumi.set(__self__, "versions", versions)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if operating_system is not None:
+            pulumi.set(__self__, "operating_system", operating_system)
         if organization_id is not None:
             pulumi.set(__self__, "organization_id", organization_id)
 
@@ -92,6 +96,18 @@ class FleetConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="operatingSystem")
+    def operating_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+        """
+        return pulumi.get(self, "operating_system")
+
+    @operating_system.setter
+    def operating_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "operating_system", value)
+
+    @_builtins.property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -113,6 +129,7 @@ class _FleetConfigurationState:
                  latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
                  managed_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None,
                  total_versions: Optional[pulumi.Input[_builtins.int]] = None,
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]] = None):
@@ -125,6 +142,7 @@ class _FleetConfigurationState:
         :param pulumi.Input[_builtins.int] latest_version_number: The highest version number across all versions.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] name: The name of the configuration.
+        :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.int] total_versions: Total number of versions currently in the configuration.
         :param pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]] versions: One or more version blocks. At least one is required. See Nested `version` blocks below.
@@ -141,6 +159,8 @@ class _FleetConfigurationState:
             pulumi.set(__self__, "managed_entity_type", managed_entity_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if operating_system is not None:
+            pulumi.set(__self__, "operating_system", operating_system)
         if organization_id is not None:
             pulumi.set(__self__, "organization_id", organization_id)
         if total_versions is not None:
@@ -221,6 +241,18 @@ class _FleetConfigurationState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="operatingSystem")
+    def operating_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+        """
+        return pulumi.get(self, "operating_system")
+
+    @operating_system.setter
+    def operating_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "operating_system", value)
+
+    @_builtins.property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -266,6 +298,7 @@ class FleetConfiguration(pulumi.CustomResource):
                  agent_type: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None,
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None,
                  __props__=None):
@@ -327,11 +360,14 @@ class FleetConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Fleet configurations can be imported using the configuration entity GUID:
+        Fleet configurations can be imported using a composite ID of `<configuration_guid>:<managed_entity_type>`:
 
         ```sh
-        $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>
+        $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:HOST
+        $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:KUBERNETESCLUSTER
         ```
+
+        The `managed_entity_type` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agent_type`, `operating_system`, `organization_id` — are resolved automatically from the API.
 
 
         :param str resource_name: The name of the resource.
@@ -339,6 +375,7 @@ class FleetConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] agent_type: The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] name: The name of the configuration.
+        :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]] versions: One or more version blocks. At least one is required. See Nested `version` blocks below.
         """
@@ -406,11 +443,14 @@ class FleetConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Fleet configurations can be imported using the configuration entity GUID:
+        Fleet configurations can be imported using a composite ID of `<configuration_guid>:<managed_entity_type>`:
 
         ```sh
-        $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>
+        $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:HOST
+        $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:KUBERNETESCLUSTER
         ```
+
+        The `managed_entity_type` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agent_type`, `operating_system`, `organization_id` — are resolved automatically from the API.
 
 
         :param str resource_name: The name of the resource.
@@ -431,6 +471,7 @@ class FleetConfiguration(pulumi.CustomResource):
                  agent_type: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None,
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None,
                  __props__=None):
@@ -449,6 +490,7 @@ class FleetConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'managed_entity_type'")
             __props__.__dict__["managed_entity_type"] = managed_entity_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["operating_system"] = operating_system
             __props__.__dict__["organization_id"] = organization_id
             if versions is None and not opts.urn:
                 raise TypeError("Missing required property 'versions'")
@@ -473,6 +515,7 @@ class FleetConfiguration(pulumi.CustomResource):
             latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
             managed_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            operating_system: Optional[pulumi.Input[_builtins.str]] = None,
             organization_id: Optional[pulumi.Input[_builtins.str]] = None,
             total_versions: Optional[pulumi.Input[_builtins.int]] = None,
             versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None) -> 'FleetConfiguration':
@@ -489,6 +532,7 @@ class FleetConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] latest_version_number: The highest version number across all versions.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] name: The name of the configuration.
+        :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.int] total_versions: Total number of versions currently in the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]] versions: One or more version blocks. At least one is required. See Nested `version` blocks below.
@@ -503,6 +547,7 @@ class FleetConfiguration(pulumi.CustomResource):
         __props__.__dict__["latest_version_number"] = latest_version_number
         __props__.__dict__["managed_entity_type"] = managed_entity_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["operating_system"] = operating_system
         __props__.__dict__["organization_id"] = organization_id
         __props__.__dict__["total_versions"] = total_versions
         __props__.__dict__["versions"] = versions
@@ -555,6 +600,14 @@ class FleetConfiguration(pulumi.CustomResource):
         The name of the configuration.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="operatingSystem")
+    def operating_system(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+        """
+        return pulumi.get(self, "operating_system")
 
     @_builtins.property
     @pulumi.getter(name="organizationId")

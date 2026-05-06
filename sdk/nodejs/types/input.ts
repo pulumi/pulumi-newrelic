@@ -222,7 +222,7 @@ export interface FleetDeploymentAgent {
     /**
      * A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
      */
-    configurationVersionId?: pulumi.Input<string>;
+    configurationVersionId: pulumi.Input<string>;
     /**
      * The agent version string to deploy (e.g. `"1.58.0"`).
      */

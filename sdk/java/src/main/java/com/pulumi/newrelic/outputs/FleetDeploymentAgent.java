@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetDeploymentAgent {
@@ -21,7 +19,7 @@ public final class FleetDeploymentAgent {
      * @return A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
      * 
      */
-    private @Nullable String configurationVersionId;
+    private String configurationVersionId;
     /**
      * @return The agent version string to deploy (e.g. `&#34;1.58.0&#34;`).
      * 
@@ -40,8 +38,8 @@ public final class FleetDeploymentAgent {
      * @return A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
      * 
      */
-    public Optional<String> configurationVersionId() {
-        return Optional.ofNullable(this.configurationVersionId);
+    public String configurationVersionId() {
+        return this.configurationVersionId;
     }
     /**
      * @return The agent version string to deploy (e.g. `&#34;1.58.0&#34;`).
@@ -61,7 +59,7 @@ public final class FleetDeploymentAgent {
     @CustomType.Builder
     public static final class Builder {
         private String agentType;
-        private @Nullable String configurationVersionId;
+        private String configurationVersionId;
         private String version;
         public Builder() {}
         public Builder(FleetDeploymentAgent defaults) {
@@ -80,8 +78,10 @@ public final class FleetDeploymentAgent {
             return this;
         }
         @CustomType.Setter
-        public Builder configurationVersionId(@Nullable String configurationVersionId) {
-
+        public Builder configurationVersionId(String configurationVersionId) {
+            if (configurationVersionId == null) {
+              throw new MissingRequiredPropertyException("FleetDeploymentAgent", "configurationVersionId");
+            }
             this.configurationVersionId = configurationVersionId;
             return this;
         }

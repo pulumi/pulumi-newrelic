@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class FleetDeploymentAgentArgs extends com.pulumi.resources.ResourceArgs {
@@ -35,15 +33,15 @@ public final class FleetDeploymentAgentArgs extends com.pulumi.resources.Resourc
      * A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
      * 
      */
-    @Import(name="configurationVersionId")
-    private @Nullable Output<String> configurationVersionId;
+    @Import(name="configurationVersionId", required=true)
+    private Output<String> configurationVersionId;
 
     /**
      * @return A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
      * 
      */
-    public Optional<Output<String>> configurationVersionId() {
-        return Optional.ofNullable(this.configurationVersionId);
+    public Output<String> configurationVersionId() {
+        return this.configurationVersionId;
     }
 
     /**
@@ -114,7 +112,7 @@ public final class FleetDeploymentAgentArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder configurationVersionId(@Nullable Output<String> configurationVersionId) {
+        public Builder configurationVersionId(Output<String> configurationVersionId) {
             $.configurationVersionId = configurationVersionId;
             return this;
         }
@@ -153,6 +151,9 @@ public final class FleetDeploymentAgentArgs extends com.pulumi.resources.Resourc
         public FleetDeploymentAgentArgs build() {
             if ($.agentType == null) {
                 throw new MissingRequiredPropertyException("FleetDeploymentAgentArgs", "agentType");
+            }
+            if ($.configurationVersionId == null) {
+                throw new MissingRequiredPropertyException("FleetDeploymentAgentArgs", "configurationVersionId");
             }
             if ($.version == null) {
                 throw new MissingRequiredPropertyException("FleetDeploymentAgentArgs", "version");
