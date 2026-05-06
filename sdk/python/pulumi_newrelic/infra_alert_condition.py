@@ -623,12 +623,12 @@ class InfraAlertCondition(pulumi.CustomResource):
             where="(hostname LIKE '%frontend%')",
             critical={
                 "duration": 25,
-                "value": 90,
+                "value": float(90),
                 "time_function": "all",
             },
             warning={
                 "duration": 10,
-                "value": 80,
+                "value": float(80),
                 "time_function": "all",
             })
         high_db_conn_count = newrelic.InfraAlertCondition("high_db_conn_count",
@@ -643,7 +643,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             integration_provider="RdsDbInstance",
             critical={
                 "duration": 25,
-                "value": 90,
+                "value": float(90),
                 "time_function": "all",
             })
         process_not_running = newrelic.InfraAlertCondition("process_not_running",
@@ -656,7 +656,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             process_where="commandName = '/usr/bin/ruby'",
             critical={
                 "duration": 5,
-                "value": 0,
+                "value": float(0),
             })
         host_not_reporting = newrelic.InfraAlertCondition("host_not_reporting",
             policy_id=foo.id,
@@ -697,12 +697,12 @@ class InfraAlertCondition(pulumi.CustomResource):
             where="(hostname LIKE '%frontend%')",
             critical={
                 "duration": 25,
-                "value": 90,
+                "value": float(90),
                 "time_function": "all",
             },
             warning={
                 "duration": 10,
-                "value": 80,
+                "value": float(80),
                 "time_function": "all",
             })
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
@@ -782,12 +782,12 @@ class InfraAlertCondition(pulumi.CustomResource):
             where="(hostname LIKE '%frontend%')",
             critical={
                 "duration": 25,
-                "value": 90,
+                "value": float(90),
                 "time_function": "all",
             },
             warning={
                 "duration": 10,
-                "value": 80,
+                "value": float(80),
                 "time_function": "all",
             })
         high_db_conn_count = newrelic.InfraAlertCondition("high_db_conn_count",
@@ -802,7 +802,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             integration_provider="RdsDbInstance",
             critical={
                 "duration": 25,
-                "value": 90,
+                "value": float(90),
                 "time_function": "all",
             })
         process_not_running = newrelic.InfraAlertCondition("process_not_running",
@@ -815,7 +815,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             process_where="commandName = '/usr/bin/ruby'",
             critical={
                 "duration": 5,
-                "value": 0,
+                "value": float(0),
             })
         host_not_reporting = newrelic.InfraAlertCondition("host_not_reporting",
             policy_id=foo.id,
@@ -856,12 +856,12 @@ class InfraAlertCondition(pulumi.CustomResource):
             where="(hostname LIKE '%frontend%')",
             critical={
                 "duration": 25,
-                "value": 90,
+                "value": float(90),
                 "time_function": "all",
             },
             warning={
                 "duration": 10,
-                "value": 80,
+                "value": float(80),
                 "time_function": "all",
             })
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",

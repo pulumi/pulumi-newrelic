@@ -366,7 +366,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -380,7 +380,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -421,7 +421,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 80,
+                "threshold": float(80),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -435,7 +435,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 85,
+                "threshold": float(85),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -449,7 +449,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 90,
+                "threshold": float(90),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -490,7 +490,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 1000,
+                "threshold": float(1000),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -504,7 +504,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -608,7 +608,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -622,7 +622,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -663,7 +663,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 80,
+                "threshold": float(80),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -677,7 +677,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 85,
+                "threshold": float(85),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -691,7 +691,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 90,
+                "threshold": float(90),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -732,7 +732,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 1000,
+                "threshold": float(1000),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -746,7 +746,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },

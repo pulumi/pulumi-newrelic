@@ -278,7 +278,7 @@ class ServiceLevel(pulumi.CustomResource):
                 },
             },
             objective={
-                "target": 99,
+                "target": float(99),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -312,7 +312,7 @@ class ServiceLevel(pulumi.CustomResource):
                 },
             },
             objective={
-                "target": 99,
+                "target": float(99),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -362,13 +362,13 @@ class ServiceLevel(pulumi.CustomResource):
                     "select": {
                         "attribute": "`query.wallClockTime.negative.distribution`",
                         "function": "GET_CDF_COUNT",
-                        "threshold": 7,
+                        "threshold": float(7),
                     },
                     "where": "metricName = 'query.wallClockTime.negative.distribution'",
                 },
             },
             objective={
-                "target": 49,
+                "target": float(49),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -441,7 +441,7 @@ class ServiceLevel(pulumi.CustomResource):
                 },
             },
             objective={
-                "target": 99,
+                "target": float(99),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -475,7 +475,7 @@ class ServiceLevel(pulumi.CustomResource):
                 },
             },
             objective={
-                "target": 99,
+                "target": float(99),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -525,13 +525,13 @@ class ServiceLevel(pulumi.CustomResource):
                     "select": {
                         "attribute": "`query.wallClockTime.negative.distribution`",
                         "function": "GET_CDF_COUNT",
-                        "threshold": 7,
+                        "threshold": float(7),
                     },
                     "where": "metricName = 'query.wallClockTime.negative.distribution'",
                 },
             },
             objective={
-                "target": 49,
+                "target": float(49),
                 "time_window": {
                     "rolling": {
                         "count": 7,

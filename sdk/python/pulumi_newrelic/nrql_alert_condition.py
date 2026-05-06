@@ -1102,7 +1102,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             enabled=True,
             violation_time_limit_seconds=3600,
             fill_option="static",
-            fill_value=1,
+            fill_value=float(1),
             aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
@@ -1268,7 +1268,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 0,
+                "threshold": float(0),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             })
@@ -1295,7 +1295,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             enabled=True,
             violation_time_limit_seconds=3600,
             fill_option="static",
-            fill_value=1,
+            fill_value=float(1),
             aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
@@ -1357,7 +1357,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             critical={
                 "operator": "above",
                 "threshold_duration": 120,
-                "threshold": 3,
+                "threshold": float(3),
                 "threshold_occurrences": "AT_LEAST_ONCE",
             },
             nrql={
@@ -1382,7 +1382,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             terms=[{
                 "priority": "critical",
                 "operator": "above",
-                "threshold": 3,
+                "threshold": float(3),
                 "duration": 5,
                 "time_function": "any",
             }],
@@ -1478,7 +1478,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             enabled=True,
             violation_time_limit_seconds=3600,
             fill_option="static",
-            fill_value=1,
+            fill_value=float(1),
             aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
@@ -1644,7 +1644,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 0,
+                "threshold": float(0),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             })
@@ -1671,7 +1671,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             enabled=True,
             violation_time_limit_seconds=3600,
             fill_option="static",
-            fill_value=1,
+            fill_value=float(1),
             aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
@@ -1733,7 +1733,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             critical={
                 "operator": "above",
                 "threshold_duration": 120,
-                "threshold": 3,
+                "threshold": float(3),
                 "threshold_occurrences": "AT_LEAST_ONCE",
             },
             nrql={
@@ -1758,7 +1758,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             terms=[{
                 "priority": "critical",
                 "operator": "above",
-                "threshold": 3,
+                "threshold": float(3),
                 "duration": 5,
                 "time_function": "any",
             }],

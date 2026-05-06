@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]float64{
+//			tmpJSON0, err := json.Marshal([]int{
 //				1234567,
 //				2345671,
 //			})

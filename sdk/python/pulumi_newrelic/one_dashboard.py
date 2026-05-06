@@ -403,15 +403,15 @@ class OneDashboard(pulumi.CustomResource):
                         "legend_enabled": True,
                         "ignore_time_range": False,
                         "y_axis_left_zero": True,
-                        "y_axis_left_min": 0,
-                        "y_axis_left_max": 1,
+                        "y_axis_left_min": float(0),
+                        "y_axis_left_max": float(1),
                         "tooltip": {
                             "mode": "single",
                         },
                         "y_axis_right": {
                             "y_axis_right_zero": True,
-                            "y_axis_right_min": 0,
-                            "y_axis_right_max": 300,
+                            "y_axis_right_min": float(0),
+                            "y_axis_right_max": float(300),
                             "y_axis_right_series": [
                                 "A",
                                 "B",
@@ -453,8 +453,8 @@ class OneDashboard(pulumi.CustomResource):
                         "legend_enabled": True,
                         "ignore_time_range": False,
                         "y_axis_left_zero": True,
-                        "y_axis_left_min": 0,
-                        "y_axis_left_max": 0,
+                        "y_axis_left_min": float(0),
+                        "y_axis_left_max": float(0),
                         "null_values": [{
                             "null_value": "default",
                             "series_overrides": [
@@ -726,15 +726,15 @@ class OneDashboard(pulumi.CustomResource):
                         "legend_enabled": True,
                         "ignore_time_range": False,
                         "y_axis_left_zero": True,
-                        "y_axis_left_min": 0,
-                        "y_axis_left_max": 1,
+                        "y_axis_left_min": float(0),
+                        "y_axis_left_max": float(1),
                         "tooltip": {
                             "mode": "single",
                         },
                         "y_axis_right": {
                             "y_axis_right_zero": True,
-                            "y_axis_right_min": 0,
-                            "y_axis_right_max": 300,
+                            "y_axis_right_min": float(0),
+                            "y_axis_right_max": float(300),
                             "y_axis_right_series": [
                                 "A",
                                 "B",
@@ -776,8 +776,8 @@ class OneDashboard(pulumi.CustomResource):
                         "legend_enabled": True,
                         "ignore_time_range": False,
                         "y_axis_left_zero": True,
-                        "y_axis_left_min": 0,
-                        "y_axis_left_max": 0,
+                        "y_axis_left_min": float(0),
+                        "y_axis_left_max": float(0),
                         "null_values": [{
                             "null_value": "default",
                             "series_overrides": [

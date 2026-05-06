@@ -57,7 +57,7 @@ import * as utilities from "./utilities";
  *     alertType: "slow_burn",
  *     sliGuid: foo.sliGuid,
  *     sloTarget: fooTarget,
- *     sloPeriod: fooPeriod,
+ *     sloPeriod: Number(fooPeriod),
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
@@ -94,7 +94,7 @@ import * as utilities from "./utilities";
  *     alertType: "custom",
  *     sliGuid: foo.sliGuid,
  *     sloTarget: fooTarget,
- *     sloPeriod: fooPeriod,
+ *     sloPeriod: Number(fooPeriod),
  *     customToleratedBudgetConsumption: 4,
  *     customEvaluationPeriod: 5400,
  *     isBadEvents: true,
@@ -255,7 +255,7 @@ export interface GetServiceLevelAlertHelperResult {
  *     alertType: "slow_burn",
  *     sliGuid: foo.sliGuid,
  *     sloTarget: fooTarget,
- *     sloPeriod: fooPeriod,
+ *     sloPeriod: Number(fooPeriod),
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
@@ -292,7 +292,7 @@ export interface GetServiceLevelAlertHelperResult {
  *     alertType: "custom",
  *     sliGuid: foo.sliGuid,
  *     sloTarget: fooTarget,
- *     sloPeriod: fooPeriod,
+ *     sloPeriod: Number(fooPeriod),
  *     customToleratedBudgetConsumption: 4,
  *     customEvaluationPeriod: 5400,
  *     isBadEvents: true,

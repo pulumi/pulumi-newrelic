@@ -34,8 +34,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
      * import com.pulumi.newrelic.synthetics.Monitor;
      * import com.pulumi.newrelic.synthetics.MonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -73,8 +73,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.StepMonitor;
      * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
      * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -122,8 +122,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
      * import com.pulumi.newrelic.synthetics.Monitor;
      * import com.pulumi.newrelic.synthetics.MonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -161,8 +161,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.StepMonitor;
      * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
      * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -210,8 +210,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
      * import com.pulumi.newrelic.synthetics.Monitor;
      * import com.pulumi.newrelic.synthetics.MonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -249,8 +249,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.StepMonitor;
      * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
      * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -298,8 +298,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
      * import com.pulumi.newrelic.synthetics.Monitor;
      * import com.pulumi.newrelic.synthetics.MonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -337,8 +337,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.StepMonitor;
      * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
      * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -386,8 +386,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
      * import com.pulumi.newrelic.synthetics.Monitor;
      * import com.pulumi.newrelic.synthetics.MonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -425,8 +425,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.newrelic.synthetics.StepMonitor;
      * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
      * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -474,8 +474,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
      * import com.pulumi.newrelic.synthetics.inputs.GetSecureCredentialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -516,8 +516,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
      * import com.pulumi.newrelic.synthetics.inputs.GetSecureCredentialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -558,8 +558,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
      * import com.pulumi.newrelic.synthetics.inputs.GetSecureCredentialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -600,8 +600,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
      * import com.pulumi.newrelic.synthetics.inputs.GetSecureCredentialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -642,8 +642,8 @@ public final class SyntheticsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
      * import com.pulumi.newrelic.synthetics.inputs.GetSecureCredentialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

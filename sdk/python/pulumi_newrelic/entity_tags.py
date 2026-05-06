@@ -155,7 +155,7 @@ class EntityTags(pulumi.CustomResource):
             "tag-key-2": "tag-value-2",
             "tag-key-3": "tag-value-3",
         }
-        foo = {__key: newrelic.get_entity(name=__key,
+        foo = {str(__key): newrelic.get_entity(name=str(__key),
             type="APPLICATION",
             domain="APM") for __key, __value in enumerate(apps)}
         foo_entity_tags = []
@@ -164,7 +164,7 @@ class EntityTags(pulumi.CustomResource):
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
-                } for entry in [{"key": k, "value": v} for k, v in custom_tags.items()]],
+                } for entry in [{"key": k, "value": v} for k, v in sorted(custom_tags.items())]],
                 guid=foo[range["key"]].guid))
         ```
 
@@ -237,7 +237,7 @@ class EntityTags(pulumi.CustomResource):
             "tag-key-2": "tag-value-2",
             "tag-key-3": "tag-value-3",
         }
-        foo = {__key: newrelic.get_entity(name=__key,
+        foo = {str(__key): newrelic.get_entity(name=str(__key),
             type="APPLICATION",
             domain="APM") for __key, __value in enumerate(apps)}
         foo_entity_tags = []
@@ -246,7 +246,7 @@ class EntityTags(pulumi.CustomResource):
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
-                } for entry in [{"key": k, "value": v} for k, v in custom_tags.items()]],
+                } for entry in [{"key": k, "value": v} for k, v in sorted(custom_tags.items())]],
                 guid=foo[range["key"]].guid))
         ```
 
