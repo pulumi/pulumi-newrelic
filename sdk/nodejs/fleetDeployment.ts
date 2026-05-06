@@ -140,9 +140,9 @@ export class FleetDeployment extends pulumi.CustomResource {
     }
 
     /**
-     * One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      */
-    declare public readonly agents: pulumi.Output<outputs.FleetDeploymentAgent[]>;
+    declare public readonly agents: pulumi.Output<outputs.FleetDeploymentAgent[] | undefined>;
     /**
      * The entity GUID of the deployment.
      */
@@ -195,9 +195,6 @@ export class FleetDeployment extends pulumi.CustomResource {
             resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as FleetDeploymentArgs | undefined;
-            if (args?.agents === undefined && !opts.urn) {
-                throw new Error("Missing required property 'agents'");
-            }
             if (args?.fleetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetId'");
             }
@@ -220,7 +217,7 @@ export class FleetDeployment extends pulumi.CustomResource {
  */
 export interface FleetDeploymentState {
     /**
-     * One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      */
     agents?: pulumi.Input<pulumi.Input<inputs.FleetDeploymentAgent>[]>;
     /**
@@ -258,9 +255,9 @@ export interface FleetDeploymentState {
  */
 export interface FleetDeploymentArgs {
     /**
-     * One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      */
-    agents: pulumi.Input<pulumi.Input<inputs.FleetDeploymentAgent>[]>;
+    agents?: pulumi.Input<pulumi.Input<inputs.FleetDeploymentAgent>[]>;
     /**
      * A description of the deployment.
      */

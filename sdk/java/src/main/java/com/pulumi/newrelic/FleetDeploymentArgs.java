@@ -19,18 +19,18 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
     public static final FleetDeploymentArgs Empty = new FleetDeploymentArgs();
 
     /**
-     * One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
-    @Import(name="agents", required=true)
-    private Output<List<FleetDeploymentAgentArgs>> agents;
+    @Import(name="agents")
+    private @Nullable Output<List<FleetDeploymentAgentArgs>> agents;
 
     /**
-     * @return One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * @return One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
-    public Output<List<FleetDeploymentAgentArgs>> agents() {
-        return this.agents;
+    public Optional<Output<List<FleetDeploymentAgentArgs>>> agents() {
+        return Optional.ofNullable(this.agents);
     }
 
     /**
@@ -138,18 +138,18 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param agents One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+         * @param agents One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
          * 
          * @return builder
          * 
          */
-        public Builder agents(Output<List<FleetDeploymentAgentArgs>> agents) {
+        public Builder agents(@Nullable Output<List<FleetDeploymentAgentArgs>> agents) {
             $.agents = agents;
             return this;
         }
 
         /**
-         * @param agents One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+         * @param agents One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param agents One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+         * @param agents One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
          * 
          * @return builder
          * 
@@ -284,9 +284,6 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public FleetDeploymentArgs build() {
-            if ($.agents == null) {
-                throw new MissingRequiredPropertyException("FleetDeploymentArgs", "agents");
-            }
             if ($.fleetId == null) {
                 throw new MissingRequiredPropertyException("FleetDeploymentArgs", "fleetId");
             }

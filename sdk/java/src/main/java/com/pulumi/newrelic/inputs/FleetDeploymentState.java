@@ -18,14 +18,14 @@ public final class FleetDeploymentState extends com.pulumi.resources.ResourceArg
     public static final FleetDeploymentState Empty = new FleetDeploymentState();
 
     /**
-     * One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
     @Import(name="agents")
     private @Nullable Output<List<FleetDeploymentAgentArgs>> agents;
 
     /**
-     * @return One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * @return One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
     public Optional<Output<List<FleetDeploymentAgentArgs>>> agents() {
@@ -169,7 +169,7 @@ public final class FleetDeploymentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param agents One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+         * @param agents One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class FleetDeploymentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param agents One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+         * @param agents One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class FleetDeploymentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param agents One or more agent blocks. At least one is required. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+         * @param agents One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
          * 
          * @return builder
          * 

@@ -91,11 +91,14 @@ import (
 //
 // ## Import
 //
-// Fleet configurations can be imported using the configuration entity GUID:
+// Fleet configurations can be imported using a composite ID of `<configuration_guid>:<managed_entity_type>`:
 //
 // ```sh
-// $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>
+// $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:HOST
+// $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:KUBERNETESCLUSTER
 // ```
+//
+// The `managedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agentType`, `operatingSystem`, `organizationId` — are resolved automatically from the API.
 type FleetConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -111,6 +114,8 @@ type FleetConfiguration struct {
 	ManagedEntityType pulumi.StringOutput `pulumi:"managedEntityType"`
 	// The name of the configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
 	// Total number of versions currently in the configuration.
@@ -170,6 +175,8 @@ type fleetConfigurationState struct {
 	ManagedEntityType *string `pulumi:"managedEntityType"`
 	// The name of the configuration.
 	Name *string `pulumi:"name"`
+	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+	OperatingSystem *string `pulumi:"operatingSystem"`
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId *string `pulumi:"organizationId"`
 	// Total number of versions currently in the configuration.
@@ -191,6 +198,8 @@ type FleetConfigurationState struct {
 	ManagedEntityType pulumi.StringPtrInput
 	// The name of the configuration.
 	Name pulumi.StringPtrInput
+	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+	OperatingSystem pulumi.StringPtrInput
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId pulumi.StringPtrInput
 	// Total number of versions currently in the configuration.
@@ -210,6 +219,8 @@ type fleetConfigurationArgs struct {
 	ManagedEntityType string `pulumi:"managedEntityType"`
 	// The name of the configuration.
 	Name *string `pulumi:"name"`
+	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+	OperatingSystem *string `pulumi:"operatingSystem"`
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId *string `pulumi:"organizationId"`
 	// One or more version blocks. At least one is required. See Nested `version` blocks below.
@@ -224,6 +235,8 @@ type FleetConfigurationArgs struct {
 	ManagedEntityType pulumi.StringInput
 	// The name of the configuration.
 	Name pulumi.StringPtrInput
+	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+	OperatingSystem pulumi.StringPtrInput
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId pulumi.StringPtrInput
 	// One or more version blocks. At least one is required. See Nested `version` blocks below.
@@ -345,6 +358,11 @@ func (o FleetConfigurationOutput) ManagedEntityType() pulumi.StringOutput {
 // The name of the configuration.
 func (o FleetConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+func (o FleetConfigurationOutput) OperatingSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringPtrOutput { return v.OperatingSystem }).(pulumi.StringPtrOutput)
 }
 
 // The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**

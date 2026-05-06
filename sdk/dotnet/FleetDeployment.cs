@@ -168,7 +168,7 @@ namespace Pulumi.NewRelic
     public partial class FleetDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more agent blocks. At least one is required. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
+        /// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
         /// </summary>
         [Output("agents")]
         public Output<ImmutableArray<Outputs.FleetDeploymentAgent>> Agents { get; private set; } = null!;
@@ -261,11 +261,11 @@ namespace Pulumi.NewRelic
 
     public sealed class FleetDeploymentArgs : global::Pulumi.ResourceArgs
     {
-        [Input("agents", required: true)]
+        [Input("agents")]
         private InputList<Inputs.FleetDeploymentAgentArgs>? _agents;
 
         /// <summary>
-        /// One or more agent blocks. At least one is required. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
+        /// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
         /// </summary>
         public InputList<Inputs.FleetDeploymentAgentArgs> Agents
         {
@@ -321,7 +321,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.FleetDeploymentAgentGetArgs>? _agents;
 
         /// <summary>
-        /// One or more agent blocks. At least one is required. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
+        /// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
         /// </summary>
         public InputList<Inputs.FleetDeploymentAgentGetArgs> Agents
         {

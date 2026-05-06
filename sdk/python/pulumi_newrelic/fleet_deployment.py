@@ -21,8 +21,8 @@ __all__ = ['FleetDeploymentArgs', 'FleetDeployment']
 @pulumi.input_type
 class FleetDeploymentArgs:
     def __init__(__self__, *,
-                 agents: pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]],
                  fleet_id: pulumi.Input[_builtins.str],
+                 agents: Optional[pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -30,15 +30,16 @@ class FleetDeploymentArgs:
         """
         The set of arguments for constructing a FleetDeployment resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]] agents: One or more agent blocks. At least one is required. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         :param pulumi.Input[_builtins.str] fleet_id: The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
+        :param pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]] agents: One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         :param pulumi.Input[_builtins.str] description: A description of the deployment.
         :param pulumi.Input[_builtins.str] name: The name of the deployment.
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags in `key:value1,value2` format.
         """
-        pulumi.set(__self__, "agents", agents)
         pulumi.set(__self__, "fleet_id", fleet_id)
+        if agents is not None:
+            pulumi.set(__self__, "agents", agents)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -47,18 +48,6 @@ class FleetDeploymentArgs:
             pulumi.set(__self__, "organization_id", organization_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter
-    def agents(self) -> pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]]:
-        """
-        One or more agent blocks. At least one is required. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
-        """
-        return pulumi.get(self, "agents")
-
-    @agents.setter
-    def agents(self, value: pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]]):
-        pulumi.set(self, "agents", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetId")
@@ -71,6 +60,18 @@ class FleetDeploymentArgs:
     @fleet_id.setter
     def fleet_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "fleet_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]]]:
+        """
+        One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        """
+        return pulumi.get(self, "agents")
+
+    @agents.setter
+    def agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]]]):
+        pulumi.set(self, "agents", value)
 
     @_builtins.property
     @pulumi.getter
@@ -135,7 +136,7 @@ class _FleetDeploymentState:
         """
         Input properties used for looking up and filtering FleetDeployment resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]] agents: One or more agent blocks. At least one is required. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]] agents: One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         :param pulumi.Input[_builtins.str] deployment_id: The entity GUID of the deployment.
         :param pulumi.Input[_builtins.str] description: A description of the deployment.
         :param pulumi.Input[_builtins.str] fleet_id: The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
@@ -165,7 +166,7 @@ class _FleetDeploymentState:
     @pulumi.getter
     def agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]]]:
         """
-        One or more agent blocks. At least one is required. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         """
         return pulumi.get(self, "agents")
 
@@ -374,7 +375,7 @@ class FleetDeployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetDeploymentAgentArgs', 'FleetDeploymentAgentArgsDict']]]] agents: One or more agent blocks. At least one is required. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetDeploymentAgentArgs', 'FleetDeploymentAgentArgsDict']]]] agents: One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         :param pulumi.Input[_builtins.str] description: A description of the deployment.
         :param pulumi.Input[_builtins.str] fleet_id: The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] name: The name of the deployment.
@@ -518,8 +519,6 @@ class FleetDeployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetDeploymentArgs.__new__(FleetDeploymentArgs)
 
-            if agents is None and not opts.urn:
-                raise TypeError("Missing required property 'agents'")
             __props__.__dict__["agents"] = agents
             __props__.__dict__["description"] = description
             if fleet_id is None and not opts.urn:
@@ -555,7 +554,7 @@ class FleetDeployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetDeploymentAgentArgs', 'FleetDeploymentAgentArgsDict']]]] agents: One or more agent blocks. At least one is required. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetDeploymentAgentArgs', 'FleetDeploymentAgentArgsDict']]]] agents: One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         :param pulumi.Input[_builtins.str] deployment_id: The entity GUID of the deployment.
         :param pulumi.Input[_builtins.str] description: A description of the deployment.
         :param pulumi.Input[_builtins.str] fleet_id: The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
@@ -580,9 +579,9 @@ class FleetDeployment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def agents(self) -> pulumi.Output[Sequence['outputs.FleetDeploymentAgent']]:
+    def agents(self) -> pulumi.Output[Optional[Sequence['outputs.FleetDeploymentAgent']]]:
         """
-        One or more agent blocks. At least one is required. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         """
         return pulumi.get(self, "agents")
 

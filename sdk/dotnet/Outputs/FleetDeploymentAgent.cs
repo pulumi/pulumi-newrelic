@@ -20,7 +20,7 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
         /// </summary>
-        public readonly string? ConfigurationVersionId;
+        public readonly string ConfigurationVersionId;
         /// <summary>
         /// The agent version string to deploy (e.g. `"1.58.0"`).
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.NewRelic.Outputs
         private FleetDeploymentAgent(
             string agentType,
 
-            string? configurationVersionId,
+            string configurationVersionId,
 
             string version)
         {

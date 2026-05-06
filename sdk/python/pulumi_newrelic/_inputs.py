@@ -1463,30 +1463,29 @@ class FleetDeploymentAgentArgsDict(TypedDict):
     """
     The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
     """
+    configuration_version_id: pulumi.Input[_builtins.str]
+    """
+    A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+    """
     version: pulumi.Input[_builtins.str]
     """
     The agent version string to deploy (e.g. `"1.58.0"`).
-    """
-    configuration_version_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
     """
 
 @pulumi.input_type
 class FleetDeploymentAgentArgs:
     def __init__(__self__, *,
                  agent_type: pulumi.Input[_builtins.str],
-                 version: pulumi.Input[_builtins.str],
-                 configuration_version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_version_id: pulumi.Input[_builtins.str],
+                 version: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] agent_type: The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
-        :param pulumi.Input[_builtins.str] version: The agent version string to deploy (e.g. `"1.58.0"`).
         :param pulumi.Input[_builtins.str] configuration_version_id: A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        :param pulumi.Input[_builtins.str] version: The agent version string to deploy (e.g. `"1.58.0"`).
         """
         pulumi.set(__self__, "agent_type", agent_type)
+        pulumi.set(__self__, "configuration_version_id", configuration_version_id)
         pulumi.set(__self__, "version", version)
-        if configuration_version_id is not None:
-            pulumi.set(__self__, "configuration_version_id", configuration_version_id)
 
     @_builtins.property
     @pulumi.getter(name="agentType")
@@ -1501,6 +1500,18 @@ class FleetDeploymentAgentArgs:
         pulumi.set(self, "agent_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="configurationVersionId")
+    def configuration_version_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        """
+        return pulumi.get(self, "configuration_version_id")
+
+    @configuration_version_id.setter
+    def configuration_version_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "configuration_version_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Input[_builtins.str]:
         """
@@ -1511,18 +1522,6 @@ class FleetDeploymentAgentArgs:
     @version.setter
     def version(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "version", value)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationVersionId")
-    def configuration_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
-        """
-        return pulumi.get(self, "configuration_version_id")
-
-    @configuration_version_id.setter
-    def configuration_version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "configuration_version_id", value)
 
 
 class InfraAlertConditionCriticalArgsDict(TypedDict):

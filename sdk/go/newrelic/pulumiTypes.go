@@ -1532,7 +1532,7 @@ type FleetDeploymentAgent struct {
 	// The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
 	AgentType string `pulumi:"agentType"`
 	// A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
-	ConfigurationVersionId *string `pulumi:"configurationVersionId"`
+	ConfigurationVersionId string `pulumi:"configurationVersionId"`
 	// The agent version string to deploy (e.g. `"1.58.0"`).
 	Version string `pulumi:"version"`
 }
@@ -1552,7 +1552,7 @@ type FleetDeploymentAgentArgs struct {
 	// The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
 	AgentType pulumi.StringInput `pulumi:"agentType"`
 	// A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
-	ConfigurationVersionId pulumi.StringPtrInput `pulumi:"configurationVersionId"`
+	ConfigurationVersionId pulumi.StringInput `pulumi:"configurationVersionId"`
 	// The agent version string to deploy (e.g. `"1.58.0"`).
 	Version pulumi.StringInput `pulumi:"version"`
 }
@@ -1614,8 +1614,8 @@ func (o FleetDeploymentAgentOutput) AgentType() pulumi.StringOutput {
 }
 
 // A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
-func (o FleetDeploymentAgentOutput) ConfigurationVersionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FleetDeploymentAgent) *string { return v.ConfigurationVersionId }).(pulumi.StringPtrOutput)
+func (o FleetDeploymentAgentOutput) ConfigurationVersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetDeploymentAgent) string { return v.ConfigurationVersionId }).(pulumi.StringOutput)
 }
 
 // The agent version string to deploy (e.g. `"1.58.0"`).

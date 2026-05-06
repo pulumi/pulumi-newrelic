@@ -21,8 +21,8 @@ namespace Pulumi.NewRelic.Inputs
         /// <summary>
         /// A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
         /// </summary>
-        [Input("configurationVersionId")]
-        public Input<string>? ConfigurationVersionId { get; set; }
+        [Input("configurationVersionId", required: true)]
+        public Input<string> ConfigurationVersionId { get; set; } = null!;
 
         /// <summary>
         /// The agent version string to deploy (e.g. `"1.58.0"`).

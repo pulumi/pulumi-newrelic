@@ -109,6 +109,21 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+     * 
+     */
+    @Import(name="operatingSystem")
+    private @Nullable Output<String> operatingSystem;
+
+    /**
+     * @return The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+     * 
+     */
+    public Optional<Output<String>> operatingSystem() {
+        return Optional.ofNullable(this.operatingSystem);
+    }
+
+    /**
      * The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
      * 
      */
@@ -162,6 +177,7 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
         this.latestVersionNumber = $.latestVersionNumber;
         this.managedEntityType = $.managedEntityType;
         this.name = $.name;
+        this.operatingSystem = $.operatingSystem;
         this.organizationId = $.organizationId;
         this.totalVersions = $.totalVersions;
         this.versions = $.versions;
@@ -309,6 +325,27 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param operatingSystem The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+         * 
+         * @return builder
+         * 
+         */
+        public Builder operatingSystem(@Nullable Output<String> operatingSystem) {
+            $.operatingSystem = operatingSystem;
+            return this;
+        }
+
+        /**
+         * @param operatingSystem The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+         * 
+         * @return builder
+         * 
+         */
+        public Builder operatingSystem(String operatingSystem) {
+            return operatingSystem(Output.of(operatingSystem));
         }
 
         /**
