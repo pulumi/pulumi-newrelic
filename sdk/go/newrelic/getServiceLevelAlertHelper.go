@@ -50,7 +50,7 @@ import (
 //					Target: pulumi.Float64(fooTarget),
 //					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
 //						Rolling: &newrelic.ServiceLevelObjectiveTimeWindowRollingArgs{
-//							Count: pulumi.Float64(fooPeriod),
+//							Count: pulumi.Int(fooPeriod),
 //							Unit:  pulumi.String("DAY"),
 //						},
 //					},

@@ -20,11 +20,11 @@ __all__ = ['ApiAccessKeyArgs', 'ApiAccessKey']
 class ApiAccessKeyArgs:
     def __init__(__self__, *,
                  key_type: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingest_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiAccessKey resource.
 
@@ -66,31 +66,31 @@ class ApiAccessKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID where the API access key will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestType")
-    def ingest_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingest_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         """
         return pulumi.get(self, "ingest_type")
 
     @ingest_type.setter
-    def ingest_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingest_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingest_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API key.
         - **Note**: While `name` is optional, it is <b style="color:red;">\\*\\*strongly recommended\\*\\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
@@ -98,44 +98,44 @@ class ApiAccessKeyArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional notes about the API access key.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
 @pulumi.input_type
 class _ApiAccessKeyState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingest_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiAccessKey resources.
 
@@ -168,31 +168,31 @@ class _ApiAccessKeyState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID where the API access key will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestType")
-    def ingest_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingest_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         """
         return pulumi.get(self, "ingest_type")
 
     @ingest_type.setter
-    def ingest_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingest_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingest_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The actual API key.
         - <span style="color:tomato;">It is important to exercise caution when exporting the value of `key`, as it is sensitive information</span>. Avoid logging or exposing it inappropriately.
@@ -200,12 +200,12 @@ class _ApiAccessKeyState:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
         - If `key_type` is `INGEST`, then `ingest_type` must be specified.
@@ -214,12 +214,12 @@ class _ApiAccessKeyState:
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API key.
         - **Note**: While `name` is optional, it is <b style="color:red;">\\*\\*strongly recommended\\*\\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
@@ -227,31 +227,31 @@ class _ApiAccessKeyState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional notes about the API access key.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -261,12 +261,12 @@ class ApiAccessKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingest_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to programmatically create and manage the following types of keys in New Relic:
@@ -461,12 +461,12 @@ class ApiAccessKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingest_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -495,13 +495,13 @@ class ApiAccessKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ingest_type: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            key_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiAccessKey':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            key_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiAccessKey':
         """
         Get an existing ApiAccessKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

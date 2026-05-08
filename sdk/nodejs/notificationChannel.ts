@@ -486,35 +486,35 @@ export interface NotificationChannelState {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the channel is active.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * The id of the destination.
      */
-    destinationId?: pulumi.Input<string>;
+    destinationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the channel.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
      */
-    product?: pulumi.Input<string>;
+    product?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes a notification channel property. See Nested property blocks below for details.
      */
-    properties?: pulumi.Input<pulumi.Input<inputs.NotificationChannelProperty>[]>;
+    properties?: pulumi.Input<pulumi.Input<inputs.NotificationChannelProperty>[] | undefined>;
     /**
      * The status of the channel.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -524,11 +524,11 @@ export interface NotificationChannelArgs {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the channel is active.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * The id of the destination.
      */
@@ -536,7 +536,7 @@ export interface NotificationChannelArgs {
     /**
      * The name of the channel.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
      */

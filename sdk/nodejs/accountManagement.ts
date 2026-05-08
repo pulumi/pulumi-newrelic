@@ -108,15 +108,15 @@ export interface AccountManagementState {
     /**
      * The name of the Account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The region code of the account.  One of: `us01`, `eu01`.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of the account - active or canceled
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -126,7 +126,7 @@ export interface AccountManagementArgs {
     /**
      * The name of the Account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The region code of the account.  One of: `us01`, `eu01`.
      */

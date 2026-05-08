@@ -75,8 +75,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -119,8 +119,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -163,8 +163,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -207,8 +207,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -251,8 +251,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -295,8 +295,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -339,8 +339,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -385,8 +385,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -443,8 +443,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -501,8 +501,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -559,8 +559,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -617,8 +617,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -673,8 +673,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -726,8 +726,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -779,8 +779,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -832,8 +832,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -885,8 +885,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
      * import com.pulumi.newrelic.AlertPolicyChannel;
      * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -941,8 +941,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1008,8 +1008,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1075,8 +1075,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1142,8 +1142,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1209,8 +1209,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1269,8 +1269,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1310,8 +1310,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1351,8 +1351,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1392,8 +1392,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1433,8 +1433,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1475,8 +1475,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1518,8 +1518,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1561,8 +1561,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1604,8 +1604,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1647,8 +1647,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1697,8 +1697,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1733,8 +1733,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1774,8 +1774,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1813,8 +1813,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1870,8 +1870,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1906,8 +1906,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1947,8 +1947,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1986,8 +1986,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2043,8 +2043,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2079,8 +2079,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2120,8 +2120,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2159,8 +2159,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2216,8 +2216,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2252,8 +2252,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2293,8 +2293,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2332,8 +2332,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2389,8 +2389,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2425,8 +2425,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2466,8 +2466,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2505,8 +2505,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2558,8 +2558,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2595,8 +2595,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2632,8 +2632,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2677,8 +2677,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2714,8 +2714,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2751,8 +2751,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2796,8 +2796,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2833,8 +2833,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2870,8 +2870,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2915,8 +2915,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2952,8 +2952,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2989,8 +2989,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3034,8 +3034,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3071,8 +3071,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3108,8 +3108,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3153,8 +3153,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3190,8 +3190,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3227,8 +3227,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3272,8 +3272,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3309,8 +3309,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3346,8 +3346,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3390,8 +3390,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3435,8 +3435,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JoinArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3490,8 +3490,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3535,8 +3535,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JoinArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3590,8 +3590,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3635,8 +3635,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JoinArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3690,8 +3690,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3735,8 +3735,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JoinArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3790,8 +3790,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3835,8 +3835,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JoinArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3892,8 +3892,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3957,8 +3957,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4022,8 +4022,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4087,8 +4087,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4152,8 +4152,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.AlertCondition;
      * import com.pulumi.newrelic.AlertConditionArgs;
      * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4215,8 +4215,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4268,8 +4268,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4322,8 +4322,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4385,8 +4385,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4438,8 +4438,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4492,8 +4492,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4555,8 +4555,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4608,8 +4608,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4662,8 +4662,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4725,8 +4725,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4778,8 +4778,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4832,8 +4832,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4895,8 +4895,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4948,8 +4948,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5002,8 +5002,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5065,8 +5065,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5118,8 +5118,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5172,8 +5172,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5235,8 +5235,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5288,8 +5288,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5342,8 +5342,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NotificationChannel;
      * import com.pulumi.newrelic.NotificationChannelArgs;
      * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5405,8 +5405,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.ObfuscationRule;
      * import com.pulumi.newrelic.ObfuscationRuleArgs;
      * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5461,8 +5461,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.ObfuscationRule;
      * import com.pulumi.newrelic.ObfuscationRuleArgs;
      * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5517,8 +5517,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.ObfuscationRule;
      * import com.pulumi.newrelic.ObfuscationRuleArgs;
      * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5573,8 +5573,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.ObfuscationRule;
      * import com.pulumi.newrelic.ObfuscationRuleArgs;
      * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5629,8 +5629,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.ObfuscationRule;
      * import com.pulumi.newrelic.ObfuscationRuleArgs;
      * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5690,8 +5690,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5756,8 +5756,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5820,8 +5820,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5838,7 +5838,7 @@ public final class NewrelicFunctions {
      *             .sliGuid(foo.sliGuid())
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
-     *             .customToleratedBudgetConsumption(4)
+     *             .customToleratedBudgetConsumption(4.0)
      *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
      *             .build());
@@ -5897,8 +5897,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5963,8 +5963,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6027,8 +6027,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6045,7 +6045,7 @@ public final class NewrelicFunctions {
      *             .sliGuid(foo.sliGuid())
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
-     *             .customToleratedBudgetConsumption(4)
+     *             .customToleratedBudgetConsumption(4.0)
      *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
      *             .build());
@@ -6104,8 +6104,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6170,8 +6170,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6234,8 +6234,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6252,7 +6252,7 @@ public final class NewrelicFunctions {
      *             .sliGuid(foo.sliGuid())
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
-     *             .customToleratedBudgetConsumption(4)
+     *             .customToleratedBudgetConsumption(4.0)
      *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
      *             .build());
@@ -6311,8 +6311,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6377,8 +6377,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6441,8 +6441,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6459,7 +6459,7 @@ public final class NewrelicFunctions {
      *             .sliGuid(foo.sliGuid())
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
-     *             .customToleratedBudgetConsumption(4)
+     *             .customToleratedBudgetConsumption(4.0)
      *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
      *             .build());
@@ -6518,8 +6518,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
      * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6584,8 +6584,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6648,8 +6648,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NrqlAlertConditionArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
      * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6666,7 +6666,7 @@ public final class NewrelicFunctions {
      *             .sliGuid(foo.sliGuid())
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
-     *             .customToleratedBudgetConsumption(4)
+     *             .customToleratedBudgetConsumption(4.0)
      *             .customEvaluationPeriod(5400)
      *             .isBadEvents(true)
      *             .build());
@@ -6717,8 +6717,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6761,8 +6761,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6805,8 +6805,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6849,8 +6849,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6893,8 +6893,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6939,8 +6939,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6991,8 +6991,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7043,8 +7043,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7095,8 +7095,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7147,8 +7147,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

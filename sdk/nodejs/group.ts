@@ -190,11 +190,11 @@ export interface GroupState {
     /**
      * The ID of the authentication domain to which the group to be created would belong.
      */
-    authenticationDomainId?: pulumi.Input<string>;
+    authenticationDomainId?: pulumi.Input<string | undefined>;
     /**
      * The name of the group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs of users to be included in the group to be created.
      *
@@ -202,7 +202,7 @@ export interface GroupState {
      *
      * > **WARNING:** Changing the `authenticationDomainId` of a `newrelic.Group` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authenticationDomainId` of an existing group is not supported.
      */
-    userIds?: pulumi.Input<pulumi.Input<string>[]>;
+    userIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -216,7 +216,7 @@ export interface GroupArgs {
     /**
      * The name of the group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs of users to be included in the group to be created.
      *
@@ -224,5 +224,5 @@ export interface GroupArgs {
      *
      * > **WARNING:** Changing the `authenticationDomainId` of a `newrelic.Group` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authenticationDomainId` of an existing group is not supported.
      */
-    userIds?: pulumi.Input<pulumi.Input<string>[]>;
+    userIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

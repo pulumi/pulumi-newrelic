@@ -219,35 +219,35 @@ export interface FleetDeploymentState {
     /**
      * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      */
-    agents?: pulumi.Input<pulumi.Input<inputs.FleetDeploymentAgent>[]>;
+    agents?: pulumi.Input<pulumi.Input<inputs.FleetDeploymentAgent>[] | undefined>;
     /**
      * The entity GUID of the deployment.
      */
-    deploymentId?: pulumi.Input<string>;
+    deploymentId?: pulumi.Input<string | undefined>;
     /**
      * A description of the deployment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
      */
-    fleetId?: pulumi.Input<string>;
+    fleetId?: pulumi.Input<string | undefined>;
     /**
      * The name of the deployment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * The current phase of the deployment. Possible values: `CREATED`, `IN_PROGRESS`, `FAILED`, `COMPLETED`.
      */
-    phase?: pulumi.Input<string>;
+    phase?: pulumi.Input<string | undefined>;
     /**
      * A list of tags in `key:value1,value2` format.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -257,11 +257,11 @@ export interface FleetDeploymentArgs {
     /**
      * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      */
-    agents?: pulumi.Input<pulumi.Input<inputs.FleetDeploymentAgent>[]>;
+    agents?: pulumi.Input<pulumi.Input<inputs.FleetDeploymentAgent>[] | undefined>;
     /**
      * A description of the deployment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
      */
@@ -269,13 +269,13 @@ export interface FleetDeploymentArgs {
     /**
      * The name of the deployment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * A list of tags in `key:value1,value2` format.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

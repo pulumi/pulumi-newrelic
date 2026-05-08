@@ -22,10 +22,10 @@ __all__ = ['AwsEuSovereignIntegrationsArgs', 'AwsEuSovereignIntegrations']
 class AwsEuSovereignIntegrationsArgs:
     def __init__(__self__, *,
                  linked_account_id: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing: Optional[pulumi.Input['AwsEuSovereignIntegrationsBillingArgs']] = None,
-                 cloudtrail: Optional[pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs']] = None,
-                 x_ray: Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing: pulumi.Input[Optional['AwsEuSovereignIntegrationsBillingArgs']] = None,
+                 cloudtrail: pulumi.Input[Optional['AwsEuSovereignIntegrationsCloudtrailArgs']] = None,
+                 x_ray: pulumi.Input[Optional['AwsEuSovereignIntegrationsXRayArgs']] = None):
         """
         The set of arguments for constructing a AwsEuSovereignIntegrations resource.
 
@@ -59,61 +59,61 @@ class AwsEuSovereignIntegrationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def billing(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsBillingArgs']]:
+    def billing(self) -> pulumi.Input[Optional['AwsEuSovereignIntegrationsBillingArgs']]:
         """
         Billing integration
         """
         return pulumi.get(self, "billing")
 
     @billing.setter
-    def billing(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsBillingArgs']]):
+    def billing(self, value: pulumi.Input[Optional['AwsEuSovereignIntegrationsBillingArgs']]):
         pulumi.set(self, "billing", value)
 
     @_builtins.property
     @pulumi.getter
-    def cloudtrail(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs']]:
+    def cloudtrail(self) -> pulumi.Input[Optional['AwsEuSovereignIntegrationsCloudtrailArgs']]:
         """
         CloudTrail integration
         """
         return pulumi.get(self, "cloudtrail")
 
     @cloudtrail.setter
-    def cloudtrail(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs']]):
+    def cloudtrail(self, value: pulumi.Input[Optional['AwsEuSovereignIntegrationsCloudtrailArgs']]):
         pulumi.set(self, "cloudtrail", value)
 
     @_builtins.property
     @pulumi.getter(name="xRay")
-    def x_ray(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']]:
+    def x_ray(self) -> pulumi.Input[Optional['AwsEuSovereignIntegrationsXRayArgs']]:
         """
         X-Ray integration
         """
         return pulumi.get(self, "x_ray")
 
     @x_ray.setter
-    def x_ray(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']]):
+    def x_ray(self, value: pulumi.Input[Optional['AwsEuSovereignIntegrationsXRayArgs']]):
         pulumi.set(self, "x_ray", value)
 
 
 @pulumi.input_type
 class _AwsEuSovereignIntegrationsState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing: Optional[pulumi.Input['AwsEuSovereignIntegrationsBillingArgs']] = None,
-                 cloudtrail: Optional[pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs']] = None,
-                 linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 x_ray: Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing: pulumi.Input[Optional['AwsEuSovereignIntegrationsBillingArgs']] = None,
+                 cloudtrail: pulumi.Input[Optional['AwsEuSovereignIntegrationsCloudtrailArgs']] = None,
+                 linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 x_ray: pulumi.Input[Optional['AwsEuSovereignIntegrationsXRayArgs']] = None):
         """
         Input properties used for looking up and filtering AwsEuSovereignIntegrations resources.
 
@@ -136,62 +136,62 @@ class _AwsEuSovereignIntegrationsState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def billing(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsBillingArgs']]:
+    def billing(self) -> pulumi.Input[Optional['AwsEuSovereignIntegrationsBillingArgs']]:
         """
         Billing integration
         """
         return pulumi.get(self, "billing")
 
     @billing.setter
-    def billing(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsBillingArgs']]):
+    def billing(self, value: pulumi.Input[Optional['AwsEuSovereignIntegrationsBillingArgs']]):
         pulumi.set(self, "billing", value)
 
     @_builtins.property
     @pulumi.getter
-    def cloudtrail(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs']]:
+    def cloudtrail(self) -> pulumi.Input[Optional['AwsEuSovereignIntegrationsCloudtrailArgs']]:
         """
         CloudTrail integration
         """
         return pulumi.get(self, "cloudtrail")
 
     @cloudtrail.setter
-    def cloudtrail(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs']]):
+    def cloudtrail(self, value: pulumi.Input[Optional['AwsEuSovereignIntegrationsCloudtrailArgs']]):
         pulumi.set(self, "cloudtrail", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the linked AWS EU Sovereign account in New Relic.
         """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="xRay")
-    def x_ray(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']]:
+    def x_ray(self) -> pulumi.Input[Optional['AwsEuSovereignIntegrationsXRayArgs']]:
         """
         X-Ray integration
         """
         return pulumi.get(self, "x_ray")
 
     @x_ray.setter
-    def x_ray(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']]):
+    def x_ray(self, value: pulumi.Input[Optional['AwsEuSovereignIntegrationsXRayArgs']]):
         pulumi.set(self, "x_ray", value)
 
 
@@ -201,11 +201,11 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']]] = None,
-                 cloudtrail: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']]] = None,
-                 linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 x_ray: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']]] = None,
+                 cloudtrail: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']]] = None,
+                 linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 x_ray: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to integrate AWS EU Sovereign services with New Relic.
@@ -418,11 +418,11 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']]] = None,
-                 cloudtrail: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']]] = None,
-                 linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 x_ray: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']]] = None,
+                 cloudtrail: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']]] = None,
+                 linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 x_ray: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -449,11 +449,11 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            billing: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']]] = None,
-            cloudtrail: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']]] = None,
-            linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            x_ray: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None) -> 'AwsEuSovereignIntegrations':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            billing: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']]] = None,
+            cloudtrail: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']]] = None,
+            linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            x_ray: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None) -> 'AwsEuSovereignIntegrations':
         """
         Get an existing AwsEuSovereignIntegrations resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

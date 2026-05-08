@@ -24,21 +24,21 @@ class ScriptMonitorArgs:
                  period: pulumi.Input[_builtins.str],
                  status: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 browsers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 device_orientation: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_screenshot_on_failure_and_script: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]] = None,
-                 locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]] = None,
-                 use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 device_orientation: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]] = None,
+                 locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]] = None,
+                 use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ScriptMonitor resource.
 
@@ -135,163 +135,163 @@ class ScriptMonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def browsers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def browsers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
         """
         return pulumi.get(self, "browsers")
 
     @browsers.setter
-    def browsers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def browsers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "browsers", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceOrientation")
-    def device_orientation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_orientation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_orientation")
 
     @device_orientation.setter
-    def device_orientation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_orientation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_orientation", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceType")
-    def device_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_type")
 
     @device_type.setter
-    def device_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         """
         return pulumi.get(self, "devices")
 
     @devices.setter
-    def devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "devices", value)
 
     @_builtins.property
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
-    def enable_screenshot_on_failure_and_script(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_screenshot_on_failure_and_script(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Capture a screenshot during job execution.
         """
         return pulumi.get(self, "enable_screenshot_on_failure_and_script")
 
     @enable_screenshot_on_failure_and_script.setter
-    def enable_screenshot_on_failure_and_script(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_screenshot_on_failure_and_script(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_screenshot_on_failure_and_script", value)
 
     @_builtins.property
     @pulumi.getter(name="locationPrivates")
-    def location_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]:
+    def location_privates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]:
         """
         The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "location_privates")
 
     @location_privates.setter
-    def location_privates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]):
+    def location_privates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]):
         pulumi.set(self, "location_privates", value)
 
     @_builtins.property
     @pulumi.getter(name="locationsPublics")
-    def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations_publics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "locations_publics")
 
     @locations_publics.setter
-    def locations_publics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations_publics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations_publics", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the monitor.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeType")
-    def runtime_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
         """
         return pulumi.get(self, "runtime_type")
 
     @runtime_type.setter
-    def runtime_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_type", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeTypeVersion")
-    def runtime_type_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_type_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
         """
         return pulumi.get(self, "runtime_type_version")
 
     @runtime_type_version.setter
-    def runtime_type_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_type_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_type_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The script that the monitor runs.
         """
         return pulumi.get(self, "script")
 
     @script.setter
-    def script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptLanguage")
-    def script_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The programing language that should execute the script.
         """
         return pulumi.get(self, "script_language")
 
     @script_language.setter
-    def script_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
 
@@ -300,46 +300,46 @@ class ScriptMonitorArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="useUnsupportedLegacyRuntime")
-    def use_unsupported_legacy_runtime(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_unsupported_legacy_runtime(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         return pulumi.get(self, "use_unsupported_legacy_runtime")
 
     @use_unsupported_legacy_runtime.setter
-    def use_unsupported_legacy_runtime(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_unsupported_legacy_runtime(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_unsupported_legacy_runtime", value)
 
 
 @pulumi.input_type
 class _ScriptMonitorState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 browsers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 device_orientation: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_screenshot_on_failure_and_script: Optional[pulumi.Input[_builtins.bool]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]] = None,
-                 locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.str]] = None,
-                 period_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 runtime_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 device_orientation: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]] = None,
+                 locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.str]] = None,
+                 period_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ScriptMonitor resources.
 
@@ -412,223 +412,223 @@ class _ScriptMonitorState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def browsers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def browsers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
         """
         return pulumi.get(self, "browsers")
 
     @browsers.setter
-    def browsers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def browsers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "browsers", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceOrientation")
-    def device_orientation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_orientation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_orientation")
 
     @device_orientation.setter
-    def device_orientation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_orientation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_orientation", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceType")
-    def device_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_type")
 
     @device_type.setter
-    def device_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         """
         return pulumi.get(self, "devices")
 
     @devices.setter
-    def devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "devices", value)
 
     @_builtins.property
     @pulumi.getter(name="enableScreenshotOnFailureAndScript")
-    def enable_screenshot_on_failure_and_script(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_screenshot_on_failure_and_script(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Capture a screenshot during job execution.
         """
         return pulumi.get(self, "enable_screenshot_on_failure_and_script")
 
     @enable_screenshot_on_failure_and_script.setter
-    def enable_screenshot_on_failure_and_script(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_screenshot_on_failure_and_script(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_screenshot_on_failure_and_script", value)
 
     @_builtins.property
     @pulumi.getter
-    def guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the monitor in New Relic.
         """
         return pulumi.get(self, "guid")
 
     @guid.setter
-    def guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guid", value)
 
     @_builtins.property
     @pulumi.getter(name="locationPrivates")
-    def location_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]:
+    def location_privates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]:
         """
         The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "location_privates")
 
     @location_privates.setter
-    def location_privates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]):
+    def location_privates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]]]):
         pulumi.set(self, "location_privates", value)
 
     @_builtins.property
     @pulumi.getter(name="locationsPublics")
-    def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations_publics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         """
         return pulumi.get(self, "locations_publics")
 
     @locations_publics.setter
-    def locations_publics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations_publics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations_publics", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The monitor id of the Synthetics script monitor (not to be confused with the GUID of the monitor).
         """
         return pulumi.get(self, "monitor_id")
 
     @monitor_id.setter
-    def monitor_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the monitor.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         """
         return pulumi.get(self, "period")
 
     @period.setter
-    def period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "period", value)
 
     @_builtins.property
     @pulumi.getter(name="periodInMinutes")
-    def period_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def period_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval in minutes at which Synthetic monitor should run.
         """
         return pulumi.get(self, "period_in_minutes")
 
     @period_in_minutes.setter
-    def period_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def period_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "period_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeType")
-    def runtime_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
         """
         return pulumi.get(self, "runtime_type")
 
     @runtime_type.setter
-    def runtime_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_type", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeTypeVersion")
-    def runtime_type_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_type_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
         """
         return pulumi.get(self, "runtime_type_version")
 
     @runtime_type_version.setter
-    def runtime_type_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_type_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_type_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The script that the monitor runs.
         """
         return pulumi.get(self, "script")
 
     @script.setter
-    def script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptLanguage")
-    def script_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The programing language that should execute the script.
         """
         return pulumi.get(self, "script_language")
 
     @script_language.setter
-    def script_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
 
@@ -637,31 +637,31 @@ class _ScriptMonitorState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScriptMonitorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="useUnsupportedLegacyRuntime")
-    def use_unsupported_legacy_runtime(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_unsupported_legacy_runtime(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         return pulumi.get(self, "use_unsupported_legacy_runtime")
 
     @use_unsupported_legacy_runtime.setter
-    def use_unsupported_legacy_runtime(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_unsupported_legacy_runtime(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_unsupported_legacy_runtime", value)
 
 
@@ -671,24 +671,24 @@ class ScriptMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 browsers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 device_orientation: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_screenshot_on_failure_and_script: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
-                 locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 device_orientation: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
+                 locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
@@ -1090,24 +1090,24 @@ class ScriptMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 browsers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 device_orientation: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_screenshot_on_failure_and_script: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
-                 locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 device_orientation: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
+                 locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1154,27 +1154,27 @@ class ScriptMonitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            browsers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            device_orientation: Optional[pulumi.Input[_builtins.str]] = None,
-            device_type: Optional[pulumi.Input[_builtins.str]] = None,
-            devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enable_screenshot_on_failure_and_script: Optional[pulumi.Input[_builtins.bool]] = None,
-            guid: Optional[pulumi.Input[_builtins.str]] = None,
-            location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
-            locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            period: Optional[pulumi.Input[_builtins.str]] = None,
-            period_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            runtime_type: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-            script: Optional[pulumi.Input[_builtins.str]] = None,
-            script_language: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ScriptMonitor':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            device_orientation: pulumi.Input[Optional[_builtins.str]] = None,
+            device_type: pulumi.Input[Optional[_builtins.str]] = None,
+            devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
+            locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            period: pulumi.Input[Optional[_builtins.str]] = None,
+            period_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+            script: pulumi.Input[Optional[_builtins.str]] = None,
+            script_language: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ScriptMonitor':
         """
         Get an existing ScriptMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

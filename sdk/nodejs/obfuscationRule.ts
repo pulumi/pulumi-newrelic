@@ -143,27 +143,27 @@ export interface ObfuscationRuleState {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Actions for the rule. The actions will be applied in the order specified by this list.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.ObfuscationRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.ObfuscationRuleAction>[] | undefined>;
     /**
      * Description of rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the rule should be applied or not to incoming data.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * NRQL for determining whether a given log record should have obfuscation actions applied.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * Name of rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,7 +173,7 @@ export interface ObfuscationRuleArgs {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Actions for the rule. The actions will be applied in the order specified by this list.
      */
@@ -181,7 +181,7 @@ export interface ObfuscationRuleArgs {
     /**
      * Description of rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the rule should be applied or not to incoming data.
      */
@@ -193,5 +193,5 @@ export interface ObfuscationRuleArgs {
     /**
      * Name of rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

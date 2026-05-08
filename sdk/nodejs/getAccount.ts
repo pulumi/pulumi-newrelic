@@ -95,10 +95,10 @@ export interface GetAccountOutputArgs {
     /**
      * The unique identifier of the account in New Relic. This must be an integer.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the account in New Relic. This must be a string.
      */
-    name?: pulumi.Input<string>;
-    scope?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string | undefined>;
 }

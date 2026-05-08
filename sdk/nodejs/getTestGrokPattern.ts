@@ -103,7 +103,7 @@ export interface GetTestGrokPatternOutputArgs {
     /**
      * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Grok pattern to test.
      */

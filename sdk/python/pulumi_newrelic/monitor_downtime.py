@@ -25,12 +25,12 @@ class MonitorDowntimeArgs:
                  mode: pulumi.Input[_builtins.str],
                  start_time: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_repeat: Optional[pulumi.Input['MonitorDowntimeEndRepeatArgs']] = None,
-                 frequency: Optional[pulumi.Input['MonitorDowntimeFrequencyArgs']] = None,
-                 maintenance_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monitor_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_repeat: pulumi.Input[Optional['MonitorDowntimeEndRepeatArgs']] = None,
+                 frequency: pulumi.Input[Optional['MonitorDowntimeFrequencyArgs']] = None,
+                 maintenance_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monitor_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MonitorDowntime resource.
 
@@ -112,90 +112,90 @@ class MonitorDowntimeArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="endRepeat")
-    def end_repeat(self) -> Optional[pulumi.Input['MonitorDowntimeEndRepeatArgs']]:
+    def end_repeat(self) -> pulumi.Input[Optional['MonitorDowntimeEndRepeatArgs']]:
         """
         A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         """
         return pulumi.get(self, "end_repeat")
 
     @end_repeat.setter
-    def end_repeat(self, value: Optional[pulumi.Input['MonitorDowntimeEndRepeatArgs']]):
+    def end_repeat(self, value: pulumi.Input[Optional['MonitorDowntimeEndRepeatArgs']]):
         pulumi.set(self, "end_repeat", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input['MonitorDowntimeFrequencyArgs']]:
+    def frequency(self) -> pulumi.Input[Optional['MonitorDowntimeFrequencyArgs']]:
         """
         Configuration options for which days of the month a monitor downtime will occur
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input['MonitorDowntimeFrequencyArgs']]):
+    def frequency(self, value: pulumi.Input[Optional['MonitorDowntimeFrequencyArgs']]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceDays")
-    def maintenance_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def maintenance_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of maintenance days to be included with the created weekly Monitor Downtime.
         """
         return pulumi.get(self, "maintenance_days")
 
     @maintenance_days.setter
-    def maintenance_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def maintenance_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "maintenance_days", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorGuids")
-    def monitor_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def monitor_guids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
         """
         return pulumi.get(self, "monitor_guids")
 
     @monitor_guids.setter
-    def monitor_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def monitor_guids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "monitor_guids", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name to identify the Monitor Downtime to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _MonitorDowntimeState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_repeat: Optional[pulumi.Input['MonitorDowntimeEndRepeatArgs']] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input['MonitorDowntimeFrequencyArgs']] = None,
-                 maintenance_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_repeat: pulumi.Input[Optional['MonitorDowntimeEndRepeatArgs']] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional['MonitorDowntimeFrequencyArgs']] = None,
+                 maintenance_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MonitorDowntime resources.
 
@@ -233,122 +233,122 @@ class _MonitorDowntimeState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="endRepeat")
-    def end_repeat(self) -> Optional[pulumi.Input['MonitorDowntimeEndRepeatArgs']]:
+    def end_repeat(self) -> pulumi.Input[Optional['MonitorDowntimeEndRepeatArgs']]:
         """
         A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         """
         return pulumi.get(self, "end_repeat")
 
     @end_repeat.setter
-    def end_repeat(self, value: Optional[pulumi.Input['MonitorDowntimeEndRepeatArgs']]):
+    def end_repeat(self, value: pulumi.Input[Optional['MonitorDowntimeEndRepeatArgs']]):
         pulumi.set(self, "end_repeat", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A datetime stamp signifying the end of the Monitor Downtime.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input['MonitorDowntimeFrequencyArgs']]:
+    def frequency(self) -> pulumi.Input[Optional['MonitorDowntimeFrequencyArgs']]:
         """
         Configuration options for which days of the month a monitor downtime will occur
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input['MonitorDowntimeFrequencyArgs']]):
+    def frequency(self, value: pulumi.Input[Optional['MonitorDowntimeFrequencyArgs']]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceDays")
-    def maintenance_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def maintenance_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of maintenance days to be included with the created weekly Monitor Downtime.
         """
         return pulumi.get(self, "maintenance_days")
 
     @maintenance_days.setter
-    def maintenance_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def maintenance_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "maintenance_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier of the type of Monitor Downtime to be created.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorGuids")
-    def monitor_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def monitor_guids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
         """
         return pulumi.get(self, "monitor_guids")
 
     @monitor_guids.setter
-    def monitor_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def monitor_guids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "monitor_guids", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name to identify the Monitor Downtime to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A datetime stamp signifying the start of the Monitor Downtime.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timezone that applies to the Monitor Downtime schedule.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -358,16 +358,16 @@ class MonitorDowntime(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_repeat: Optional[pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
-                 maintenance_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
+                 maintenance_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete [Monitor Downtimes](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/using-monitors/monitor-downtimes-disable-monitoring-during-scheduled-maintenance-times/) in New Relic.
@@ -741,16 +741,16 @@ class MonitorDowntime(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_repeat: Optional[pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
-                 maintenance_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
+                 maintenance_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -788,16 +788,16 @@ class MonitorDowntime(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            end_repeat: Optional[pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
-            end_time: Optional[pulumi.Input[_builtins.str]] = None,
-            frequency: Optional[pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
-            maintenance_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            monitor_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'MonitorDowntime':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
+            maintenance_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'MonitorDowntime':
         """
         Get an existing MonitorDowntime resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

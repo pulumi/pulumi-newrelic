@@ -25,11 +25,11 @@ class AlertCompoundConditionArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  policy_id: pulumi.Input[_builtins.str],
                  trigger_expression: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 facet_matching_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 threshold_duration: Optional[pulumi.Input[_builtins.int]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold_duration: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a AlertCompoundCondition resource.
 
@@ -110,19 +110,19 @@ class AlertCompoundConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="facetMatchingBehavior")
-    def facet_matching_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def facet_matching_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
         - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
@@ -131,58 +131,58 @@ class AlertCompoundConditionArgs:
         return pulumi.get(self, "facet_matching_behavior")
 
     @facet_matching_behavior.setter
-    def facet_matching_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def facet_matching_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "facet_matching_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the compound alert condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdDuration")
-    def threshold_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threshold_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
         """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
-    def threshold_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threshold_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold_duration", value)
 
 
 @pulumi.input_type
 class _AlertCompoundConditionState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 facet_matching_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 threshold_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 trigger_expression: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 trigger_expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertCompoundCondition resources.
 
@@ -219,43 +219,43 @@ class _AlertCompoundConditionState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="componentConditions")
-    def component_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]]]:
+    def component_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]]]:
         """
         The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
         """
         return pulumi.get(self, "component_conditions")
 
     @component_conditions.setter
-    def component_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]]]):
+    def component_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]]]):
         pulumi.set(self, "component_conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the compound alert condition is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="facetMatchingBehavior")
-    def facet_matching_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def facet_matching_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
         - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
@@ -264,67 +264,67 @@ class _AlertCompoundConditionState:
         return pulumi.get(self, "facet_matching_behavior")
 
     @facet_matching_behavior.setter
-    def facet_matching_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def facet_matching_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "facet_matching_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the compound alert condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the policy where this alert compound condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdDuration")
-    def threshold_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threshold_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
         """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
-    def threshold_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threshold_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerExpression")
-    def trigger_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `component_conditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
         """
         return pulumi.get(self, "trigger_expression")
 
     @trigger_expression.setter
-    def trigger_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_expression", value)
 
 
@@ -334,15 +334,15 @@ class AlertCompoundCondition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 facet_matching_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 threshold_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 trigger_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 trigger_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to create and manage compound alert conditions in New Relic. Compound conditions allow you to combine multiple alert conditions using logical expressions (AND, OR, NOT) to create more sophisticated alerting logic.
@@ -366,7 +366,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -380,7 +380,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -421,7 +421,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 80,
+                "threshold": float(80),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -435,7 +435,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 85,
+                "threshold": float(85),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -449,7 +449,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 90,
+                "threshold": float(90),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -490,7 +490,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 1000,
+                "threshold": float(1000),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -504,7 +504,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -608,7 +608,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -622,7 +622,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -663,7 +663,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 80,
+                "threshold": float(80),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -677,7 +677,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 85,
+                "threshold": float(85),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -691,7 +691,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 90,
+                "threshold": float(90),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -732,7 +732,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 1000,
+                "threshold": float(1000),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -746,7 +746,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 5,
+                "threshold": float(5),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             },
@@ -823,15 +823,15 @@ class AlertCompoundCondition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 facet_matching_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 threshold_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 trigger_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 trigger_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -868,15 +868,15 @@ class AlertCompoundCondition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            component_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            facet_matching_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-            threshold_duration: Optional[pulumi.Input[_builtins.int]] = None,
-            trigger_expression: Optional[pulumi.Input[_builtins.str]] = None) -> 'AlertCompoundCondition':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+            threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            trigger_expression: pulumi.Input[Optional[_builtins.str]] = None) -> 'AlertCompoundCondition':
         """
         Get an existing AlertCompoundCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

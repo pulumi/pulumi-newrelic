@@ -191,27 +191,27 @@ export interface AlertConditionState {
      * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * ```
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
-    entityGuid?: pulumi.Input<string>;
+    entityGuid?: pulumi.Input<string | undefined>;
     /**
      * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
-    monitorId?: pulumi.Input<string>;
+    monitorId?: pulumi.Input<string | undefined>;
     /**
      * The title of this condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,7 +225,7 @@ export interface AlertConditionArgs {
      * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * ```
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
@@ -233,7 +233,7 @@ export interface AlertConditionArgs {
     /**
      * The title of this condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the policy where this condition should be used.
      */
@@ -241,5 +241,5 @@ export interface AlertConditionArgs {
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
 }

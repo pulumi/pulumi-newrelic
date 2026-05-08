@@ -9,87 +9,87 @@ export interface AlertChannelConfig {
     /**
      * The API key for integrating with OpsGenie.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies an authentication password for use with a channel. Supported by the webhook channel type.
      */
-    authPassword?: pulumi.Input<string>;
+    authPassword?: pulumi.Input<string | undefined>;
     /**
      * Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
      */
-    authType?: pulumi.Input<string>;
+    authType?: pulumi.Input<string | undefined>;
     /**
      * Specifies an authentication username for use with a channel. Supported by the webhook channel type.
      */
-    authUsername?: pulumi.Input<string>;
+    authUsername?: pulumi.Input<string | undefined>;
     /**
      * The base URL of the webhook destination.
      */
-    baseUrl?: pulumi.Input<string>;
+    baseUrl?: pulumi.Input<string | undefined>;
     /**
      * The Slack channel to send notifications to.
      */
-    channel?: pulumi.Input<string>;
+    channel?: pulumi.Input<string | undefined>;
     /**
      * A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
      */
-    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
      */
-    headersString?: pulumi.Input<string>;
+    headersString?: pulumi.Input<string | undefined>;
     /**
      * true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
      */
-    includeJsonAttachment?: pulumi.Input<string>;
+    includeJsonAttachment?: pulumi.Input<string | undefined>;
     /**
      * The key for integrating with VictorOps.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
      */
-    payload?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payload?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
      */
-    payloadString?: pulumi.Input<string>;
+    payloadString?: pulumi.Input<string | undefined>;
     /**
      * Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
      */
-    payloadType?: pulumi.Input<string>;
+    payloadType?: pulumi.Input<string | undefined>;
     /**
      * A set of recipients for targeting notifications. Multiple values are comma separated.
      */
-    recipients?: pulumi.Input<string>;
+    recipients?: pulumi.Input<string | undefined>;
     /**
      * The data center region to store your data. Valid values are US, EU, and JP. Default is US.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The route key for integrating with VictorOps.
      */
-    routeKey?: pulumi.Input<string>;
+    routeKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the service key for integrating with Pagerduty.
      */
-    serviceKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string | undefined>;
     /**
      * A set of tags for targeting notifications. Multiple values are comma separated.
      */
-    tags?: pulumi.Input<string>;
+    tags?: pulumi.Input<string | undefined>;
     /**
      * A set of teams for targeting notifications. Multiple values are comma separated.
      */
-    teams?: pulumi.Input<string>;
+    teams?: pulumi.Input<string | undefined>;
     /**
      * Your organization's Slack URL.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The user ID for use with the user channel type.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 export interface AlertCompoundConditionComponentCondition {
@@ -111,11 +111,11 @@ export interface AlertConditionTerm {
     /**
      * One of (above, below, equal). Defaults to equal.
      */
-    operator?: pulumi.Input<string>;
+    operator?: pulumi.Input<string | undefined>;
     /**
      * One of (critical, warning). Defaults to critical.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * Must be 0 or greater.
      */
@@ -156,24 +156,24 @@ export interface AlertMutingRuleSchedule {
     /**
      * The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
      */
-    endRepeat?: pulumi.Input<string>;
+    endRepeat?: pulumi.Input<string | undefined>;
     /**
      * The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
      * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
      */
-    repeat?: pulumi.Input<string>;
+    repeat?: pulumi.Input<string | undefined>;
     /**
      * The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
      */
-    repeatCount?: pulumi.Input<number>;
+    repeatCount?: pulumi.Input<number | undefined>;
     /**
      * The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The time zone that applies to the MutingRule schedule.
      */
@@ -181,7 +181,7 @@ export interface AlertMutingRuleSchedule {
     /**
      * The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
      */
-    weeklyRepeatDays?: pulumi.Input<pulumi.Input<string>[]>;
+    weeklyRepeatDays?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface EntityTagsTag {
@@ -207,11 +207,11 @@ export interface FleetConfigurationVersion {
     /**
      * The entity GUID of this version.
      */
-    versionEntityId?: pulumi.Input<string>;
+    versionEntityId?: pulumi.Input<string | undefined>;
     /**
      * The version number assigned by the API (1, 2, 3, …).
      */
-    versionNumber?: pulumi.Input<number>;
+    versionNumber?: pulumi.Input<number | undefined>;
 }
 
 export interface FleetDeploymentAgent {
@@ -283,36 +283,36 @@ export interface GetNotificationDestinationSecureUrlArgs {
 
 export interface InfraAlertConditionCritical {
     duration: pulumi.Input<number>;
-    timeFunction?: pulumi.Input<string>;
-    value?: pulumi.Input<number>;
+    timeFunction?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<number | undefined>;
 }
 
 export interface InfraAlertConditionWarning {
     duration: pulumi.Input<number>;
-    timeFunction?: pulumi.Input<string>;
-    value?: pulumi.Input<number>;
+    timeFunction?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<number | undefined>;
 }
 
 export interface MonitorDowntimeEndRepeat {
     /**
      * A date, on which the Monitor Downtime's repeat cycle is expected to end.
      */
-    onDate?: pulumi.Input<string>;
+    onDate?: pulumi.Input<string | undefined>;
     /**
      * Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
      */
-    onRepeat?: pulumi.Input<number>;
+    onRepeat?: pulumi.Input<number | undefined>;
 }
 
 export interface MonitorDowntimeFrequency {
     /**
      * A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
      */
-    daysOfMonths?: pulumi.Input<pulumi.Input<number>[]>;
+    daysOfMonths?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * A list of days of the week on which the Monitor Downtime is scheduled to run.
      */
-    daysOfWeek?: pulumi.Input<inputs.MonitorDowntimeFrequencyDaysOfWeek>;
+    daysOfWeek?: pulumi.Input<inputs.MonitorDowntimeFrequencyDaysOfWeek | undefined>;
 }
 
 export interface MonitorDowntimeFrequencyDaysOfWeek {
@@ -330,7 +330,7 @@ export interface NotificationChannelProperty {
     /**
      * Notification property display key.
      */
-    displayValue?: pulumi.Input<string>;
+    displayValue?: pulumi.Input<string | undefined>;
     /**
      * Notification property key.
      */
@@ -338,7 +338,7 @@ export interface NotificationChannelProperty {
     /**
      * Notification property label.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Notification property value.
      */
@@ -371,7 +371,7 @@ export interface NotificationDestinationAuthToken {
     /**
      * The prefix of the URL.
      */
-    prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string | undefined>;
     /**
      * Specifies the token for integrating.
      */
@@ -382,7 +382,7 @@ export interface NotificationDestinationProperty {
     /**
      * Notification property display key.
      */
-    displayValue?: pulumi.Input<string>;
+    displayValue?: pulumi.Input<string | undefined>;
     /**
      * Notification property key.
      */
@@ -390,7 +390,7 @@ export interface NotificationDestinationProperty {
     /**
      * Notification property label.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Notification property value.
      */
@@ -423,21 +423,21 @@ export interface NrqlAlertConditionCritical {
     /**
      * Violations will not change system health status for this term.
      */
-    disableHealthStatusReporting?: pulumi.Input<boolean>;
+    disableHealthStatusReporting?: pulumi.Input<boolean | undefined>;
     /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
      *
      * @deprecated use `thresholdDuration` attribute instead
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
      */
-    operator?: pulumi.Input<string>;
+    operator?: pulumi.Input<string | undefined>;
     /**
      * BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
      */
-    prediction?: pulumi.Input<inputs.NrqlAlertConditionCriticalPrediction>;
+    prediction?: pulumi.Input<inputs.NrqlAlertConditionCriticalPrediction | undefined>;
     /**
      * For baseline conditions must be in range [1, 1000].
      */
@@ -445,48 +445,48 @@ export interface NrqlAlertConditionCritical {
     /**
      * The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
      */
-    thresholdDuration?: pulumi.Input<number>;
+    thresholdDuration?: pulumi.Input<number | undefined>;
     /**
      * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
      */
-    thresholdOccurrences?: pulumi.Input<string>;
+    thresholdOccurrences?: pulumi.Input<string | undefined>;
     /**
      * Valid values are: 'all' or 'any'
      *
      * @deprecated use `thresholdOccurrences` attribute instead
      */
-    timeFunction?: pulumi.Input<string>;
+    timeFunction?: pulumi.Input<string | undefined>;
 }
 
 export interface NrqlAlertConditionCriticalPrediction {
     /**
      * BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
      */
-    predictBy?: pulumi.Input<number>;
+    predictBy?: pulumi.Input<number | undefined>;
     /**
      * BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
      */
-    preferPredictionViolation?: pulumi.Input<boolean>;
+    preferPredictionViolation?: pulumi.Input<boolean | undefined>;
 }
 
 export interface NrqlAlertConditionNrql {
     /**
      * The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `accountId` if unspecified.
      */
-    dataAccountId?: pulumi.Input<string>;
+    dataAccountId?: pulumi.Input<string | undefined>;
     /**
      * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
      *
      * @deprecated use `aggregationMethod` attribute instead
      */
-    evaluationOffset?: pulumi.Input<number>;
+    evaluationOffset?: pulumi.Input<number | undefined>;
     query: pulumi.Input<string>;
     /**
      * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `sinceValue`.
      *
      * @deprecated use `aggregationMethod` attribute instead
      */
-    sinceValue?: pulumi.Input<string>;
+    sinceValue?: pulumi.Input<string | undefined>;
 }
 
 export interface NrqlAlertConditionOutlierConfiguration {
@@ -504,7 +504,7 @@ export interface NrqlAlertConditionOutlierConfigurationDbscan {
     /**
      * BETA PREVIEW: the `evaluationGroupFacet` field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
      */
-    evaluationGroupFacet?: pulumi.Input<string>;
+    evaluationGroupFacet?: pulumi.Input<string | undefined>;
     /**
      * BETA PREVIEW: the `minimumPoints` field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be >= 1.
      */
@@ -515,25 +515,25 @@ export interface NrqlAlertConditionTerm {
     /**
      * Violations will not change system health status for this term.
      */
-    disableHealthStatusReporting?: pulumi.Input<boolean>;
+    disableHealthStatusReporting?: pulumi.Input<boolean | undefined>;
     /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
      *
      * @deprecated use `thresholdDuration` attribute instead
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
      */
-    operator?: pulumi.Input<string>;
+    operator?: pulumi.Input<string | undefined>;
     /**
      * BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
      */
-    prediction?: pulumi.Input<inputs.NrqlAlertConditionTermPrediction>;
+    prediction?: pulumi.Input<inputs.NrqlAlertConditionTermPrediction | undefined>;
     /**
      * One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * For baseline conditions must be in range [1, 1000].
      */
@@ -541,49 +541,49 @@ export interface NrqlAlertConditionTerm {
     /**
      * The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
      */
-    thresholdDuration?: pulumi.Input<number>;
+    thresholdDuration?: pulumi.Input<number | undefined>;
     /**
      * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
      */
-    thresholdOccurrences?: pulumi.Input<string>;
+    thresholdOccurrences?: pulumi.Input<string | undefined>;
     /**
      * Valid values are: 'all' or 'any'
      *
      * @deprecated use `thresholdOccurrences` attribute instead
      */
-    timeFunction?: pulumi.Input<string>;
+    timeFunction?: pulumi.Input<string | undefined>;
 }
 
 export interface NrqlAlertConditionTermPrediction {
     /**
      * BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
      */
-    predictBy?: pulumi.Input<number>;
+    predictBy?: pulumi.Input<number | undefined>;
     /**
      * BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
      */
-    preferPredictionViolation?: pulumi.Input<boolean>;
+    preferPredictionViolation?: pulumi.Input<boolean | undefined>;
 }
 
 export interface NrqlAlertConditionWarning {
     /**
      * Violations will not change system health status for this term.
      */
-    disableHealthStatusReporting?: pulumi.Input<boolean>;
+    disableHealthStatusReporting?: pulumi.Input<boolean | undefined>;
     /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
      *
      * @deprecated use `thresholdDuration` attribute instead
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
      */
-    operator?: pulumi.Input<string>;
+    operator?: pulumi.Input<string | undefined>;
     /**
      * BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
      */
-    prediction?: pulumi.Input<inputs.NrqlAlertConditionWarningPrediction>;
+    prediction?: pulumi.Input<inputs.NrqlAlertConditionWarningPrediction | undefined>;
     /**
      * For baseline conditions must be in range [1, 1000].
      */
@@ -591,28 +591,28 @@ export interface NrqlAlertConditionWarning {
     /**
      * The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
      */
-    thresholdDuration?: pulumi.Input<number>;
+    thresholdDuration?: pulumi.Input<number | undefined>;
     /**
      * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
      */
-    thresholdOccurrences?: pulumi.Input<string>;
+    thresholdOccurrences?: pulumi.Input<string | undefined>;
     /**
      * Valid values are: 'all' or 'any'
      *
      * @deprecated use `thresholdOccurrences` attribute instead
      */
-    timeFunction?: pulumi.Input<string>;
+    timeFunction?: pulumi.Input<string | undefined>;
 }
 
 export interface NrqlAlertConditionWarningPrediction {
     /**
      * BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
      */
-    predictBy?: pulumi.Input<number>;
+    predictBy?: pulumi.Input<number | undefined>;
     /**
      * BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
      */
-    preferPredictionViolation?: pulumi.Input<boolean>;
+    preferPredictionViolation?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ObfuscationRuleAction {
@@ -634,11 +634,11 @@ export interface OneDashboardPage {
     /**
      * Brief text describing the dashboard.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique entity identifier of the dashboard page in New Relic.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -646,70 +646,70 @@ export interface OneDashboardPage {
     /**
      * Supports both `lineInterpolation` and `gradient`
      */
-    widgetAreas?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetArea>[]>;
+    widgetAreas?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetArea>[] | undefined>;
     /**
      * A bar widget.
      */
-    widgetBars?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBar>[]>;
+    widgetBars?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBar>[] | undefined>;
     /**
      * Supports `lineInterpolation` only
      */
-    widgetBillboards?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboard>[]>;
+    widgetBillboards?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboard>[] | undefined>;
     /**
      * A bullet widget.
      */
-    widgetBullets?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBullet>[]>;
+    widgetBullets?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBullet>[] | undefined>;
     /**
      * A funnel widget.
      */
-    widgetFunnels?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnel>[]>;
+    widgetFunnels?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnel>[] | undefined>;
     /**
      * A heatmap widget.
      */
-    widgetHeatmaps?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmap>[]>;
+    widgetHeatmaps?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmap>[] | undefined>;
     /**
      * Supports `gradient` only
      */
-    widgetHistograms?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogram>[]>;
+    widgetHistograms?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogram>[] | undefined>;
     /**
      * A JSON widget.
      */
-    widgetJsons?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJson>[]>;
+    widgetJsons?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJson>[] | undefined>;
     /**
      * Supports `lineInterpolation` only
      */
-    widgetLines?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLine>[]>;
+    widgetLines?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLine>[] | undefined>;
     /**
      * A log table widget.
      */
-    widgetLogTables?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTable>[]>;
+    widgetLogTables?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTable>[] | undefined>;
     /**
      * A markdown widget.
      */
-    widgetMarkdowns?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdown>[]>;
+    widgetMarkdowns?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdown>[] | undefined>;
     /**
      * Supports `gradient` only
      */
-    widgetPies?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPy>[]>;
+    widgetPies?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPy>[] | undefined>;
     /**
      * Supports `gradient` only
      */
-    widgetStackedBars?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBar>[]>;
+    widgetStackedBars?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBar>[] | undefined>;
     /**
      * A table widget.
      */
-    widgetTables?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTable>[]>;
+    widgetTables?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTable>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetArea {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetAreaChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetAreaChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -717,31 +717,31 @@ export interface OneDashboardPageWidgetArea {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetAreaInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetAreaInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -749,11 +749,11 @@ export interface OneDashboardPageWidgetArea {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -765,31 +765,31 @@ export interface OneDashboardPageWidgetArea {
     /**
      * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
      */
-    tooltip?: pulumi.Input<inputs.OneDashboardPageWidgetAreaTooltip>;
+    tooltip?: pulumi.Input<inputs.OneDashboardPageWidgetAreaTooltip | undefined>;
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetAreaChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetAreaChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetAreaChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetAreaChartStylesGradient {
@@ -803,29 +803,29 @@ export interface OneDashboardPageWidgetAreaColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetAreaColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetAreaDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -833,7 +833,7 @@ export interface OneDashboardPageWidgetAreaDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -855,7 +855,7 @@ export interface OneDashboardPageWidgetAreaNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -866,22 +866,22 @@ export interface OneDashboardPageWidgetAreaNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetAreaNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetAreaTooltip {
@@ -895,33 +895,33 @@ export interface OneDashboardPageWidgetAreaUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetAreaUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBar {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetBarChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetBarChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -929,39 +929,39 @@ export interface OneDashboardPageWidgetBar {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
-    filterCurrentDashboard?: pulumi.Input<boolean>;
+    filterCurrentDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetBarInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetBarInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
-    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -969,11 +969,11 @@ export interface OneDashboardPageWidgetBar {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -985,27 +985,27 @@ export interface OneDashboardPageWidgetBar {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetBarChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetBarChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetBarChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBarChartStylesGradient {
@@ -1019,29 +1019,29 @@ export interface OneDashboardPageWidgetBarColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetBarColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBarDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -1049,7 +1049,7 @@ export interface OneDashboardPageWidgetBarDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -1071,7 +1071,7 @@ export interface OneDashboardPageWidgetBarNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1082,59 +1082,59 @@ export interface OneDashboardPageWidgetBarNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetBarNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBarUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBarUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboard {
     /**
      * (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
      */
-    billboardSettings?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettings>;
+    billboardSettings?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettings | undefined>;
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -1142,35 +1142,35 @@ export interface OneDashboardPageWidgetBillboard {
     /**
      * (Optional) Threshold above which the displayed value will be styled with a red color.
      */
-    critical?: pulumi.Input<string>;
+    critical?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -1178,11 +1178,11 @@ export interface OneDashboardPageWidgetBillboard {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1194,87 +1194,87 @@ export interface OneDashboardPageWidgetBillboard {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardUnit>[] | undefined>;
     /**
      * (Optional) Threshold above which the displayed value will be styled with a yellow color.
      */
-    warning?: pulumi.Input<string>;
+    warning?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardBillboardSettings {
     /**
      * (Optional) A nested block that configures grid layout options for the billboard widget. This block supports:
      */
-    gridOptions?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettingsGridOptions>;
+    gridOptions?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettingsGridOptions | undefined>;
     /**
      * (Optional) A nested block that configures clickable links for the billboard widget. This block supports:
      */
-    link?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettingsLink>;
+    link?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettingsLink | undefined>;
     /**
      * (Optional) A nested block that configures the visual settings of the billboard widget. This block supports:
      */
-    visual?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettingsVisual>;
+    visual?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettingsVisual | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardBillboardSettingsGridOptions {
     /**
      * (Optional) Number of columns to use for the grid layout.
      */
-    columns?: pulumi.Input<number>;
+    columns?: pulumi.Input<number | undefined>;
     /**
      * (Optional) Grid configuration for label.
      */
-    label?: pulumi.Input<number>;
+    label?: pulumi.Input<number | undefined>;
     /**
      * (Required) A possible variable value
      */
-    value?: pulumi.Input<number>;
+    value?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardBillboardSettingsLink {
     /**
      * (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.
      */
-    newTab?: pulumi.Input<boolean>;
+    newTab?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) A human-friendly display string for this value.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The URL to navigate to when the billboard is clicked.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardBillboardSettingsVisual {
     /**
      * (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
      */
-    alignment?: pulumi.Input<string>;
+    alignment?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
      */
-    display?: pulumi.Input<string>;
+    display?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardChartStylesGradient {
@@ -1288,29 +1288,29 @@ export interface OneDashboardPageWidgetBillboardColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -1318,7 +1318,7 @@ export interface OneDashboardPageWidgetBillboardDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -1340,7 +1340,7 @@ export interface OneDashboardPageWidgetBillboardNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1351,55 +1351,55 @@ export interface OneDashboardPageWidgetBillboardNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBillboardUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBullet {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetBulletChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetBulletChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -1407,31 +1407,31 @@ export interface OneDashboardPageWidgetBullet {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetBulletInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetBulletInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Required) Visualization limit for the widget.
      */
@@ -1443,11 +1443,11 @@ export interface OneDashboardPageWidgetBullet {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1459,27 +1459,27 @@ export interface OneDashboardPageWidgetBullet {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetBulletChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetBulletChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetBulletChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBulletChartStylesGradient {
@@ -1493,29 +1493,29 @@ export interface OneDashboardPageWidgetBulletColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetBulletColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBulletDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -1523,7 +1523,7 @@ export interface OneDashboardPageWidgetBulletDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -1545,7 +1545,7 @@ export interface OneDashboardPageWidgetBulletNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1556,55 +1556,55 @@ export interface OneDashboardPageWidgetBulletNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetBulletNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBulletUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetBulletUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetFunnel {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetFunnelChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetFunnelChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -1612,31 +1612,31 @@ export interface OneDashboardPageWidgetFunnel {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetFunnelInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetFunnelInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -1644,11 +1644,11 @@ export interface OneDashboardPageWidgetFunnel {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1660,27 +1660,27 @@ export interface OneDashboardPageWidgetFunnel {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetFunnelChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetFunnelChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetFunnelChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetFunnelChartStylesGradient {
@@ -1694,29 +1694,29 @@ export interface OneDashboardPageWidgetFunnelColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetFunnelColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetFunnelDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -1724,7 +1724,7 @@ export interface OneDashboardPageWidgetFunnelDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -1746,7 +1746,7 @@ export interface OneDashboardPageWidgetFunnelNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1757,55 +1757,55 @@ export interface OneDashboardPageWidgetFunnelNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetFunnelNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetFunnelUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetFunnelUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHeatmap {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetHeatmapChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetHeatmapChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -1813,39 +1813,39 @@ export interface OneDashboardPageWidgetHeatmap {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
-    filterCurrentDashboard?: pulumi.Input<boolean>;
+    filterCurrentDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetHeatmapInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetHeatmapInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
-    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -1853,11 +1853,11 @@ export interface OneDashboardPageWidgetHeatmap {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1869,27 +1869,27 @@ export interface OneDashboardPageWidgetHeatmap {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetHeatmapChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetHeatmapChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetHeatmapChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHeatmapChartStylesGradient {
@@ -1903,29 +1903,29 @@ export interface OneDashboardPageWidgetHeatmapColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetHeatmapColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHeatmapDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -1933,7 +1933,7 @@ export interface OneDashboardPageWidgetHeatmapDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -1955,7 +1955,7 @@ export interface OneDashboardPageWidgetHeatmapNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1966,55 +1966,55 @@ export interface OneDashboardPageWidgetHeatmapNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetHeatmapNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHeatmapUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHeatmapUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHistogram {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetHistogramChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetHistogramChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -2022,31 +2022,31 @@ export interface OneDashboardPageWidgetHistogram {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetHistogramInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetHistogramInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -2054,11 +2054,11 @@ export interface OneDashboardPageWidgetHistogram {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2070,27 +2070,27 @@ export interface OneDashboardPageWidgetHistogram {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetHistogramChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetHistogramChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetHistogramChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHistogramChartStylesGradient {
@@ -2104,29 +2104,29 @@ export interface OneDashboardPageWidgetHistogramColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetHistogramColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHistogramDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -2134,7 +2134,7 @@ export interface OneDashboardPageWidgetHistogramDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -2156,7 +2156,7 @@ export interface OneDashboardPageWidgetHistogramNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2167,55 +2167,55 @@ export interface OneDashboardPageWidgetHistogramNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetHistogramNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHistogramUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetHistogramUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetJson {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetJsonChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetJsonChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -2223,31 +2223,31 @@ export interface OneDashboardPageWidgetJson {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetJsonInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetJsonInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -2255,11 +2255,11 @@ export interface OneDashboardPageWidgetJson {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2271,27 +2271,27 @@ export interface OneDashboardPageWidgetJson {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetJsonChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetJsonChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetJsonChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetJsonChartStylesGradient {
@@ -2305,29 +2305,29 @@ export interface OneDashboardPageWidgetJsonColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetJsonColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetJsonDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -2335,7 +2335,7 @@ export interface OneDashboardPageWidgetJsonDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -2357,7 +2357,7 @@ export interface OneDashboardPageWidgetJsonNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2368,55 +2368,55 @@ export interface OneDashboardPageWidgetJsonNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetJsonNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetJsonUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetJsonUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLine {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetLineChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetLineChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -2424,35 +2424,35 @@ export interface OneDashboardPageWidgetLine {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetLineInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetLineInitialSorting | undefined>;
     /**
      * (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
      */
-    isLabelVisible?: pulumi.Input<boolean>;
+    isLabelVisible?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -2460,11 +2460,11 @@ export interface OneDashboardPageWidgetLine {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2472,7 +2472,7 @@ export interface OneDashboardPageWidgetLine {
     /**
      * (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
      */
-    thresholds?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineThreshold>[]>;
+    thresholds?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineThreshold>[] | undefined>;
     /**
      * (Optional) A human-friendly display string for this value.
      */
@@ -2480,39 +2480,39 @@ export interface OneDashboardPageWidgetLine {
     /**
      * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
      */
-    tooltip?: pulumi.Input<inputs.OneDashboardPageWidgetLineTooltip>;
+    tooltip?: pulumi.Input<inputs.OneDashboardPageWidgetLineTooltip | undefined>;
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
     /**
      * (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
      */
-    yAxisLeftZero?: pulumi.Input<boolean>;
+    yAxisLeftZero?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
      */
-    yAxisRight?: pulumi.Input<inputs.OneDashboardPageWidgetLineYAxisRight>;
+    yAxisRight?: pulumi.Input<inputs.OneDashboardPageWidgetLineYAxisRight | undefined>;
 }
 
 export interface OneDashboardPageWidgetLineChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetLineChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetLineChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLineChartStylesGradient {
@@ -2526,29 +2526,29 @@ export interface OneDashboardPageWidgetLineColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetLineColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLineDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -2556,7 +2556,7 @@ export interface OneDashboardPageWidgetLineDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -2578,7 +2578,7 @@ export interface OneDashboardPageWidgetLineNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2589,41 +2589,41 @@ export interface OneDashboardPageWidgetLineNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetLineNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLineThreshold {
     /**
      * The value 'from' which the threshold would need to be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * The value until which the threshold would need to be applied.
      */
-    to?: pulumi.Input<string>;
+    to?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLineTooltip {
@@ -2637,52 +2637,52 @@ export interface OneDashboardPageWidgetLineUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLineUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLineYAxisRight {
     /**
      * Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
      */
-    yAxisRightMax?: pulumi.Input<number>;
+    yAxisRightMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
      */
-    yAxisRightMin?: pulumi.Input<number>;
+    yAxisRightMin?: pulumi.Input<number | undefined>;
     /**
      * (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
      */
-    yAxisRightSeries?: pulumi.Input<pulumi.Input<string>[]>;
+    yAxisRightSeries?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
      */
-    yAxisRightZero?: pulumi.Input<boolean>;
+    yAxisRightZero?: pulumi.Input<boolean | undefined>;
 }
 
 export interface OneDashboardPageWidgetLogTable {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetLogTableChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetLogTableChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -2690,31 +2690,31 @@ export interface OneDashboardPageWidgetLogTable {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetLogTableInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetLogTableInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -2722,11 +2722,11 @@ export interface OneDashboardPageWidgetLogTable {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2738,27 +2738,27 @@ export interface OneDashboardPageWidgetLogTable {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetLogTableChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetLogTableChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetLogTableChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLogTableChartStylesGradient {
@@ -2772,29 +2772,29 @@ export interface OneDashboardPageWidgetLogTableColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetLogTableColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLogTableDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -2802,7 +2802,7 @@ export interface OneDashboardPageWidgetLogTableDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -2824,7 +2824,7 @@ export interface OneDashboardPageWidgetLogTableNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2835,55 +2835,55 @@ export interface OneDashboardPageWidgetLogTableNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetLogTableNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLogTableUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetLogTableUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetMarkdown {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetMarkdownChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetMarkdownChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -2891,39 +2891,39 @@ export interface OneDashboardPageWidgetMarkdown {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetMarkdownInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetMarkdownInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2939,27 +2939,27 @@ export interface OneDashboardPageWidgetMarkdown {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetMarkdownChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetMarkdownChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetMarkdownChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetMarkdownChartStylesGradient {
@@ -2973,29 +2973,29 @@ export interface OneDashboardPageWidgetMarkdownColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetMarkdownColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetMarkdownDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -3003,7 +3003,7 @@ export interface OneDashboardPageWidgetMarkdownDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -3025,55 +3025,55 @@ export interface OneDashboardPageWidgetMarkdownNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetMarkdownNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetMarkdownUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetMarkdownUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetPy {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetPyChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetPyChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -3081,39 +3081,39 @@ export interface OneDashboardPageWidgetPy {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
-    filterCurrentDashboard?: pulumi.Input<boolean>;
+    filterCurrentDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetPyInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetPyInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
-    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -3121,11 +3121,11 @@ export interface OneDashboardPageWidgetPy {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -3137,27 +3137,27 @@ export interface OneDashboardPageWidgetPy {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetPyChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetPyChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetPyChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetPyChartStylesGradient {
@@ -3171,29 +3171,29 @@ export interface OneDashboardPageWidgetPyColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetPyColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetPyDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -3201,7 +3201,7 @@ export interface OneDashboardPageWidgetPyDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -3223,7 +3223,7 @@ export interface OneDashboardPageWidgetPyNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -3234,55 +3234,55 @@ export interface OneDashboardPageWidgetPyNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetPyNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetPyUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetPyUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetStackedBar {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -3290,31 +3290,31 @@ export interface OneDashboardPageWidgetStackedBar {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -3322,11 +3322,11 @@ export interface OneDashboardPageWidgetStackedBar {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -3338,31 +3338,31 @@ export interface OneDashboardPageWidgetStackedBar {
     /**
      * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
      */
-    tooltip?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarTooltip>;
+    tooltip?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarTooltip | undefined>;
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetStackedBarChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetStackedBarChartStylesGradient {
@@ -3376,29 +3376,29 @@ export interface OneDashboardPageWidgetStackedBarColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetStackedBarColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetStackedBarDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -3406,7 +3406,7 @@ export interface OneDashboardPageWidgetStackedBarDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -3428,7 +3428,7 @@ export interface OneDashboardPageWidgetStackedBarNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -3439,22 +3439,22 @@ export interface OneDashboardPageWidgetStackedBarNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetStackedBarNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetStackedBarTooltip {
@@ -3468,33 +3468,33 @@ export interface OneDashboardPageWidgetStackedBarUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetStackedBarUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetTable {
     /**
      * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
      */
-    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetTableChartStyles>;
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetTableChartStyles | undefined>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
-    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableColor>[]>;
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableColor>[] | undefined>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -3502,39 +3502,39 @@ export interface OneDashboardPageWidgetTable {
     /**
      * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      */
-    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableDataFormat>[]>;
+    dataFormats?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableDataFormat>[] | undefined>;
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
-    facetShowOtherSeries?: pulumi.Input<boolean>;
+    facetShowOtherSeries?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
-    filterCurrentDashboard?: pulumi.Input<boolean>;
+    filterCurrentDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
      */
-    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetTableInitialSorting>;
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetTableInitialSorting | undefined>;
     /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
-    legendEnabled?: pulumi.Input<boolean>;
+    legendEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
-    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
@@ -3542,11 +3542,11 @@ export interface OneDashboardPageWidgetTable {
     /**
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
-    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNullValue>[]>;
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNullValue>[] | undefined>;
     /**
      * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
      */
-    refreshRate?: pulumi.Input<string>;
+    refreshRate?: pulumi.Input<string | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -3554,7 +3554,7 @@ export interface OneDashboardPageWidgetTable {
     /**
      * (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
      */
-    thresholds?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableThreshold>[]>;
+    thresholds?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableThreshold>[] | undefined>;
     /**
      * (Optional) A human-friendly display string for this value.
      */
@@ -3562,27 +3562,27 @@ export interface OneDashboardPageWidgetTable {
     /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
-    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableUnit>[]>;
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableUnit>[] | undefined>;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
-    yAxisLeftMax?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
+    yAxisLeftMax?: pulumi.Input<number | undefined>;
     /**
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
-    yAxisLeftMin?: pulumi.Input<number>;
+    yAxisLeftMin?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardPageWidgetTableChartStyles {
     /**
      * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
      */
-    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetTableChartStylesGradient>;
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetTableChartStylesGradient | undefined>;
     /**
      * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
      */
-    lineInterpolation?: pulumi.Input<string>;
+    lineInterpolation?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetTableChartStylesGradient {
@@ -3596,29 +3596,29 @@ export interface OneDashboardPageWidgetTableColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableColorSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableColorSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetTableColorSeriesOverride {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetTableDataFormat {
     /**
      * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -3626,7 +3626,7 @@ export interface OneDashboardPageWidgetTableDataFormat {
     /**
      * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
      */
-    precision?: pulumi.Input<number>;
+    precision?: pulumi.Input<number | undefined>;
     /**
      * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
      */
@@ -3648,7 +3648,7 @@ export interface OneDashboardPageWidgetTableNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -3659,74 +3659,74 @@ export interface OneDashboardPageWidgetTableNullValue {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNullValueSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNullValueSeriesOverride>[] | undefined>;
 }
 
 export interface OneDashboardPageWidgetTableNullValueSeriesOverride {
     /**
      * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
      */
-    nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string | undefined>;
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetTableThreshold {
     /**
      * The name of the column in the table, to which the threshold would need to be applied.
      */
-    columnName?: pulumi.Input<string>;
+    columnName?: pulumi.Input<string | undefined>;
     /**
      * The value 'from' which the threshold would need to be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * The value until which the threshold would need to be applied.
      */
-    to?: pulumi.Input<string>;
+    to?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetTableUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      */
-    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableUnitSeriesOverride>[]>;
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableUnitSeriesOverride>[] | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardPageWidgetTableUnitSeriesOverride {
     /**
      * Series name
      */
-    seriesName?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 export interface OneDashboardRawPage {
     /**
      * Brief text describing the dashboard.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique entity identifier of the dashboard page in New Relic.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -3734,7 +3734,7 @@ export interface OneDashboardRawPage {
     /**
      * (Optional) A nested block that describes a widget. See Nested widget blocks below for details.
      */
-    widgets?: pulumi.Input<pulumi.Input<inputs.OneDashboardRawPageWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.OneDashboardRawPageWidget>[] | undefined>;
 }
 
 export interface OneDashboardRawPageWidget {
@@ -3749,15 +3749,15 @@ export interface OneDashboardRawPageWidget {
     /**
      * (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * The ID of the widget.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Related entity GUIDs.
      */
-    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -3773,22 +3773,22 @@ export interface OneDashboardRawPageWidget {
     /**
      * (Optional) Width of the widget. Valid values are `1` to `12` inclusive. Defaults to `4`.
      */
-    width?: pulumi.Input<number>;
+    width?: pulumi.Input<number | undefined>;
 }
 
 export interface OneDashboardVariable {
     /**
      * (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
      */
-    defaultValues?: pulumi.Input<pulumi.Input<string>[]>;
+    defaultValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
      */
-    isMultiSelection?: pulumi.Input<boolean>;
+    isMultiSelection?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
      */
-    items?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariableItem>[]>;
+    items?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariableItem>[] | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -3796,11 +3796,11 @@ export interface OneDashboardVariable {
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
-    nrqlQuery?: pulumi.Input<inputs.OneDashboardVariableNrqlQuery>;
+    nrqlQuery?: pulumi.Input<inputs.OneDashboardVariableNrqlQuery | undefined>;
     /**
      * (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
      */
-    options?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariableOption>[]>;
+    options?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariableOption>[] | undefined>;
     /**
      * (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
      */
@@ -3819,7 +3819,7 @@ export interface OneDashboardVariableItem {
     /**
      * (Optional) A human-friendly display string for this value.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * (Required) A possible variable value
      */
@@ -3830,7 +3830,7 @@ export interface OneDashboardVariableNrqlQuery {
     /**
      * (Required) List of account IDs such as `[12345, 67890]`.
      */
-    accountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    accountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -3841,15 +3841,15 @@ export interface OneDashboardVariableOption {
     /**
      * (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
      */
-    excluded?: pulumi.Input<boolean>;
+    excluded?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
-    ignoreTimeRange?: pulumi.Input<boolean>;
+    ignoreTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an "Apply" button that allows users to confirm and apply their selected values to the dashboard.
      */
-    showApplyAction?: pulumi.Input<boolean>;
+    showApplyAction?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ServiceLevelEvents {
@@ -3861,11 +3861,11 @@ export interface ServiceLevelEvents {
     /**
      * The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
      */
-    badEvents?: pulumi.Input<inputs.ServiceLevelEventsBadEvents>;
+    badEvents?: pulumi.Input<inputs.ServiceLevelEventsBadEvents | undefined>;
     /**
      * The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
      */
-    goodEvents?: pulumi.Input<inputs.ServiceLevelEventsGoodEvents>;
+    goodEvents?: pulumi.Input<inputs.ServiceLevelEventsGoodEvents | undefined>;
     /**
      * The definition of valid requests.
      */
@@ -3880,19 +3880,19 @@ export interface ServiceLevelEventsBadEvents {
     /**
      * The NRQL SELECT clause to aggregate events.
      */
-    select?: pulumi.Input<inputs.ServiceLevelEventsBadEventsSelect>;
+    select?: pulumi.Input<inputs.ServiceLevelEventsBadEventsSelect | undefined>;
     /**
      * A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
      * a particular entity and returned an error).
      */
-    where?: pulumi.Input<string>;
+    where?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceLevelEventsBadEventsSelect {
     /**
      * The event attribute to use in the SELECT clause.
      */
-    attribute?: pulumi.Input<string>;
+    attribute?: pulumi.Input<string | undefined>;
     /**
      * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      */
@@ -3900,7 +3900,7 @@ export interface ServiceLevelEventsBadEventsSelect {
     /**
      * Limit for values to be counter by `GET_CDF_COUNT` function.
      */
-    threshold?: pulumi.Input<number>;
+    threshold?: pulumi.Input<number | undefined>;
 }
 
 export interface ServiceLevelEventsGoodEvents {
@@ -3911,19 +3911,19 @@ export interface ServiceLevelEventsGoodEvents {
     /**
      * The NRQL SELECT clause to aggregate events.
      */
-    select?: pulumi.Input<inputs.ServiceLevelEventsGoodEventsSelect>;
+    select?: pulumi.Input<inputs.ServiceLevelEventsGoodEventsSelect | undefined>;
     /**
      * A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
      * a particular entity and were successful).
      */
-    where?: pulumi.Input<string>;
+    where?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceLevelEventsGoodEventsSelect {
     /**
      * The event attribute to use in the SELECT clause.
      */
-    attribute?: pulumi.Input<string>;
+    attribute?: pulumi.Input<string | undefined>;
     /**
      * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      */
@@ -3931,7 +3931,7 @@ export interface ServiceLevelEventsGoodEventsSelect {
     /**
      * Limit for values to be counter by `GET_CDF_COUNT` function.
      */
-    threshold?: pulumi.Input<number>;
+    threshold?: pulumi.Input<number | undefined>;
 }
 
 export interface ServiceLevelEventsValidEvents {
@@ -3942,18 +3942,18 @@ export interface ServiceLevelEventsValidEvents {
     /**
      * The NRQL SELECT clause to aggregate events.
      */
-    select?: pulumi.Input<inputs.ServiceLevelEventsValidEventsSelect>;
+    select?: pulumi.Input<inputs.ServiceLevelEventsValidEventsSelect | undefined>;
     /**
      * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      */
-    where?: pulumi.Input<string>;
+    where?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceLevelEventsValidEventsSelect {
     /**
      * The event attribute to use in the SELECT clause.
      */
-    attribute?: pulumi.Input<string>;
+    attribute?: pulumi.Input<string | undefined>;
     /**
      * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
      */
@@ -3961,18 +3961,18 @@ export interface ServiceLevelEventsValidEventsSelect {
     /**
      * Limit for values to be counter by `GET_CDF_COUNT` function.
      */
-    threshold?: pulumi.Input<number>;
+    threshold?: pulumi.Input<number | undefined>;
 }
 
 export interface ServiceLevelObjective {
     /**
      * The description of the SLI.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A short name for the SLI that will help anyone understand what it is about.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
      */
@@ -4009,19 +4009,19 @@ export interface WorkflowDestination {
     /**
      * The name of the workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of triggers to notify about in this destination configuration.
      */
-    notificationTriggers?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationTriggers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Update original notification message (Slack channels only)
      */
-    updateOriginalMessage?: pulumi.Input<boolean>;
+    updateOriginalMessage?: pulumi.Input<boolean | undefined>;
 }
 
 export interface WorkflowEnrichments {
@@ -4035,7 +4035,7 @@ export interface WorkflowEnrichmentsNrql {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * A set of key-value pairs to represent a enrichment configuration.
      */
@@ -4043,7 +4043,7 @@ export interface WorkflowEnrichmentsNrql {
     /**
      * Enrichment's id.
      */
-    enrichmentId?: pulumi.Input<string>;
+    enrichmentId?: pulumi.Input<string | undefined>;
     /**
      * The name of the workflow.
      */
@@ -4051,7 +4051,7 @@ export interface WorkflowEnrichmentsNrql {
     /**
      * The type of the enrichment. One of: (NRQL).
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkflowEnrichmentsNrqlConfiguration {
@@ -4065,7 +4065,7 @@ export interface WorkflowIssuesFilter {
     /**
      * filter id.
      */
-    filterId?: pulumi.Input<string>;
+    filterId?: pulumi.Input<string | undefined>;
     /**
      * The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can't be empty.
      */
@@ -4073,7 +4073,7 @@ export interface WorkflowIssuesFilter {
     /**
      * A condition an issue event should satisfy to be processed by the workflow
      */
-    predicates?: pulumi.Input<pulumi.Input<inputs.WorkflowIssuesFilterPredicate>[]>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.WorkflowIssuesFilterPredicate>[] | undefined>;
     /**
      * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      */
@@ -4099,1860 +4099,1860 @@ export namespace cloud {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsEuSovereignIntegrationsCloudtrail {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsEuSovereignIntegrationsXRay {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsAlb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
          */
-        loadBalancerPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        loadBalancerPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsApiGateway {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        stagePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        stagePrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsAutoScaling {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsAwsDirectConnect {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsAwsStates {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsCloudtrail {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsDynamoDb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsEbs {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsEc2 {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if IP addresses of ec2 instance should be collected
          */
-        fetchIpAddresses?: pulumi.Input<boolean>;
+        fetchIpAddresses?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsElasticSearch {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if IP addresses of ec2 instance should be collected
          */
-        fetchNodes?: pulumi.Input<boolean>;
+        fetchNodes?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsElb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsEmr {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<string>;
+        awsRegions?: pulumi.Input<string | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsIam {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsLambda {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsRds {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsRedShift {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsRoute53 {
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsS3 {
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsSns {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsGovcloudIntegrationsSqs {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
          */
-        queuePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        queuePrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsAlb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
          */
-        loadBalancerPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        loadBalancerPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsApiGateway {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        stagePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        stagePrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsAutoScaling {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsAppSync {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsAthena {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsAutoDiscovery {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsCognito {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsConnect {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsDirectConnect {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsFsx {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsGlue {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsKinesisAnalytics {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsMediaConvert {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsMediaPackageVod {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsMq {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsMsk {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsNeptune {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsQldb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsRoute53resolver {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsStates {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsTransitGateway {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsWaf {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsAwsWafv2 {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsBilling {
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsCloudfront {
         /**
          * Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchLambdasAtEdge?: pulumi.Input<boolean>;
+        fetchLambdasAtEdge?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsCloudtrail {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsDocDb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsDynamodb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsEbs {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsEc2 {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
          */
-        duplicateEc2Tags?: pulumi.Input<boolean>;
+        duplicateEc2Tags?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if IP addresses of ec2 instance should be collected
          */
-        fetchIpAddresses?: pulumi.Input<boolean>;
+        fetchIpAddresses?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsEcs {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsEfs {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsElasticache {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsElasticbeanstalk {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsElasticsearch {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
          */
-        fetchNodes?: pulumi.Input<boolean>;
+        fetchNodes?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsElb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsEmr {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsHealth {
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsIam {
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsIot {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsKinesis {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchShards?: pulumi.Input<boolean>;
+        fetchShards?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsKinesisFirehose {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsLambda {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsRds {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsRedshift {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsRoute53 {
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsS3 {
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsSecurityHub {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsSes {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsSns {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsSqs {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchExtendedInventory?: pulumi.Input<boolean>;
+        fetchExtendedInventory?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
          */
-        queuePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        queuePrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsTrustedAdvisor {
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AwsIntegrationsVpc {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchNatGateway?: pulumi.Input<boolean>;
+        fetchNatGateway?: pulumi.Input<boolean | undefined>;
         /**
          * Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
          */
-        fetchVpn?: pulumi.Input<boolean>;
+        fetchVpn?: pulumi.Input<boolean | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagKey?: pulumi.Input<string>;
+        tagKey?: pulumi.Input<string | undefined>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
-        tagValue?: pulumi.Input<string>;
+        tagValue?: pulumi.Input<string | undefined>;
     }
 
     export interface AwsIntegrationsXRay {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */
-        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        awsRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds.
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface AzureIntegrationsApiManagement {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsAppGateway {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsAppService {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsAutoDiscovery {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsContainers {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsCosmosDb {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsCostManagement {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify if additional cost data per tag should be collected. This field is case sensitive.
          */
-        tagKeys?: pulumi.Input<pulumi.Input<string>[]>;
+        tagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsDataFactory {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsEventHub {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsExpressRoute {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsFirewalls {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsFrontDoor {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsFunctions {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsKeyVault {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsLoadBalancer {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsLogicApps {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsMachineLearning {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsMariaDb {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsMonitor {
         /**
          * A flag that specifies if the integration is active
          */
-        enabled?: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean | undefined>;
         /**
          * Specify resource tags in 'key:value' form to be excluded from monitoring
          */
-        excludeTags?: pulumi.Input<pulumi.Input<string>[]>;
+        excludeTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify resource tags in 'key:value' form to be monitored
          */
-        includeTags?: pulumi.Input<pulumi.Input<string>[]>;
+        includeTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Specify each Azure resource type that needs to be monitored
          */
-        resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsMysql {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsMysqlFlexible {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsPostgresql {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsPostgresqlFlexible {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsPowerBiDedicated {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsRedisCache {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsServiceBus {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsSql {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsSqlManaged {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsStorage {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsVirtualMachine {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsVirtualNetworks {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsVms {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AzureIntegrationsVpnGateway {
         /**
          * The data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
         /**
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
-        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface GcpIntegrationsAlloyDb {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsAppEngine {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsBigQuery {
         /**
          * to fetch tags of the resource
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsBigTable {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsComposer {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsDataFlow {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsDataProc {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsDataStore {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsFireBaseDatabase {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsFireBaseHosting {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsFireBaseStorage {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsFireStore {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsFunctions {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsInterconnect {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsKubernetes {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsLoadBalancing {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsMemCache {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsPubSub {
         /**
          * to fetch tags of the resource
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsRedis {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsRouter {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsRun {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsSpanner {
         /**
          * to fetch tags of the resource
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsSql {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsStorage {
         /**
          * to fetch tags of the resource
          */
-        fetchTags?: pulumi.Input<boolean>;
+        fetchTags?: pulumi.Input<boolean | undefined>;
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsVirtualMachines {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
     export interface GcpIntegrationsVpcAccess {
         /**
          * the data polling interval in seconds
          */
-        metricsPollingInterval?: pulumi.Input<number>;
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 }
 
@@ -5965,7 +5965,7 @@ export namespace insights {
         /**
          * Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
          */
-        timestamp?: pulumi.Input<number>;
+        timestamp?: pulumi.Input<number | undefined>;
         /**
          * The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
          */
@@ -5980,7 +5980,7 @@ export namespace insights {
         /**
          * Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
          */
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<string | undefined>;
         /**
          * The value of the attribute.
          */
@@ -5993,53 +5993,53 @@ export namespace plugins {
         /**
          * A list of expected error classes.
          */
-        expectedErrorClasses?: pulumi.Input<pulumi.Input<string>[]>;
+        expectedErrorClasses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * A list of expected error codes(any status code between 100-900).
          */
-        expectedErrorCodes?: pulumi.Input<pulumi.Input<string>[]>;
+        expectedErrorCodes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * A list of ignored error classes.
          */
-        ignoredErrorClasses?: pulumi.Input<pulumi.Input<string>[]>;
+        ignoredErrorClasses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * A list of ignored error codes(any status code between 100-900).
          */
-        ignoredErrorCodes?: pulumi.Input<pulumi.Input<string>[]>;
+        ignoredErrorCodes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface ApplicationSettingsTransactionTracer {
         /**
          * Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
          */
-        explainQueryPlans?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracerExplainQueryPlan>[]>;
+        explainQueryPlans?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracerExplainQueryPlan>[] | undefined>;
         /**
          * Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
          */
-        sql?: pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracerSql>;
+        sql?: pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracerSql | undefined>;
         /**
          * The response time threshold for collecting stack traces.
          */
-        stackTraceThresholdValue?: pulumi.Input<number>;
+        stackTraceThresholdValue?: pulumi.Input<number | undefined>;
         /**
          * The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
          */
-        transactionThresholdType?: pulumi.Input<string>;
+        transactionThresholdType?: pulumi.Input<string | undefined>;
         /**
          * The threshold value for transactions(in seconds).
          */
-        transactionThresholdValue?: pulumi.Input<number>;
+        transactionThresholdValue?: pulumi.Input<number | undefined>;
     }
 
     export interface ApplicationSettingsTransactionTracerExplainQueryPlan {
         /**
          * The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
          */
-        queryPlanThresholdType?: pulumi.Input<string>;
+        queryPlanThresholdType?: pulumi.Input<string | undefined>;
         /**
          * The response time threshold for capturing query plans(in seconds).
          */
-        queryPlanThresholdValue?: pulumi.Input<number>;
+        queryPlanThresholdValue?: pulumi.Input<number | undefined>;
     }
 
     export interface ApplicationSettingsTransactionTracerSql {
@@ -6064,11 +6064,11 @@ export namespace plugins {
         /**
          * An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
          */
-        remainingEntitiesRule?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRule>;
+        remainingEntitiesRule?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRule | undefined>;
         /**
          * A list of rules.
          */
-        rules?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRule>[]>;
+        rules?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRule>[] | undefined>;
     }
 
     export interface WorkloadStatusConfigAutomaticRemainingEntitiesRule {
@@ -6090,22 +6090,22 @@ export namespace plugins {
         /**
          * Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
          */
-        thresholdType?: pulumi.Input<string>;
+        thresholdType?: pulumi.Input<string | undefined>;
         /**
          * Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
          */
-        thresholdValue?: pulumi.Input<number>;
+        thresholdValue?: pulumi.Input<number | undefined>;
     }
 
     export interface WorkloadStatusConfigAutomaticRule {
         /**
          * A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
          */
-        entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+        entityGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
          */
-        nrqlQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRuleNrqlQuery>[]>;
+        nrqlQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRuleNrqlQuery>[] | undefined>;
         /**
          * The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
          */
@@ -6127,18 +6127,18 @@ export namespace plugins {
         /**
          * Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
          */
-        thresholdType?: pulumi.Input<string>;
+        thresholdType?: pulumi.Input<string | undefined>;
         /**
          * Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
          */
-        thresholdValue?: pulumi.Input<number>;
+        thresholdValue?: pulumi.Input<number | undefined>;
     }
 
     export interface WorkloadStatusConfigStatic {
         /**
          * Relevant information about the workload.
          */
-        description?: pulumi.Input<string>;
+        description?: pulumi.Input<string | undefined>;
         /**
          * Whether the static status configuration is enabled or not.
          */
@@ -6150,7 +6150,7 @@ export namespace plugins {
         /**
          * A short description of the status of the workload.
          */
-        summary?: pulumi.Input<string>;
+        summary?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -6181,11 +6181,11 @@ export namespace synthetics {
         /**
          * Header name.
          */
-        name?: pulumi.Input<string>;
+        name?: pulumi.Input<string | undefined>;
         /**
          * Header Value.
          */
-        value?: pulumi.Input<string>;
+        value?: pulumi.Input<string | undefined>;
     }
 
     export interface MonitorTag {
@@ -6221,7 +6221,7 @@ export namespace synthetics {
         /**
          * The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
          */
-        vsePassword?: pulumi.Input<string>;
+        vsePassword?: pulumi.Input<string | undefined>;
     }
 
     export interface ScriptMonitorTag {
@@ -6243,7 +6243,7 @@ export namespace synthetics {
         /**
          * The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
          */
-        vsePassword?: pulumi.Input<string>;
+        vsePassword?: pulumi.Input<string | undefined>;
     }
 
     export interface StepMonitorStep {
@@ -6258,7 +6258,7 @@ export namespace synthetics {
         /**
          * The metadata values related to the step.
          */
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface StepMonitorTag {

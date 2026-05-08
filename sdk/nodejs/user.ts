@@ -123,15 +123,15 @@ export interface UserState {
     /**
      * The ID of the authentication domain to which the user to be created would belong.
      */
-    authenticationDomainId?: pulumi.Input<string>;
+    authenticationDomainId?: pulumi.Input<string | undefined>;
     /**
      * The email ID of the user to be created.
      */
-    emailId?: pulumi.Input<string>;
+    emailId?: pulumi.Input<string | undefined>;
     /**
      * The name of the user to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tier to which the user to be created would belong. Accepted values for this argument are `BASIC_USER_TIER`, `CORE_USER_TIER`, or `FULL_USER_TIER`. If not specified in the configuration, the argument would default to `BASIC_USER_TIER`.
      *
@@ -139,7 +139,7 @@ export interface UserState {
      *
      * > **WARNING:** Changing the `authenticationDomainId` of a `newrelic.User` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authenticationDomainId` of an existing user is not supported.
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -157,7 +157,7 @@ export interface UserArgs {
     /**
      * The name of the user to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tier to which the user to be created would belong. Accepted values for this argument are `BASIC_USER_TIER`, `CORE_USER_TIER`, or `FULL_USER_TIER`. If not specified in the configuration, the argument would default to `BASIC_USER_TIER`.
      *
@@ -165,5 +165,5 @@ export interface UserArgs {
      *
      * > **WARNING:** Changing the `authenticationDomainId` of a `newrelic.User` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authenticationDomainId` of an existing user is not supported.
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }

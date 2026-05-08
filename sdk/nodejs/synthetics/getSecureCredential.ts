@@ -92,7 +92,7 @@ export interface GetSecureCredentialOutputArgs {
     /**
      * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */

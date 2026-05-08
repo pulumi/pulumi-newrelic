@@ -24,9 +24,9 @@ class FleetConfigurationArgs:
                  agent_type: pulumi.Input[_builtins.str],
                  managed_entity_type: pulumi.Input[_builtins.str],
                  versions: pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetConfiguration resource.
 
@@ -85,54 +85,54 @@ class FleetConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operating_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
-    def operating_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operating_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operating_system", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
 
 @pulumi.input_type
 class _FleetConfigurationState:
     def __init__(__self__, *,
-                 agent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest_version_entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 managed_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 total_versions: Optional[pulumi.Input[_builtins.int]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]] = None):
+                 agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest_version_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 total_versions: pulumi.Input[Optional[_builtins.int]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]] = None):
         """
         Input properties used for looking up and filtering FleetConfiguration resources.
 
@@ -170,122 +170,122 @@ class _FleetConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="agentType")
-    def agent_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
         """
         return pulumi.get(self, "agent_type")
 
     @agent_type.setter
-    def agent_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_type", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationId")
-    def configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity GUID of the configuration.
         """
         return pulumi.get(self, "configuration_id")
 
     @configuration_id.setter
-    def configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="latestVersionEntityId")
-    def latest_version_entity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def latest_version_entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity GUID of the highest-numbered version.
         """
         return pulumi.get(self, "latest_version_entity_id")
 
     @latest_version_entity_id.setter
-    def latest_version_entity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def latest_version_entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "latest_version_entity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="latestVersionNumber")
-    def latest_version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def latest_version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The highest version number across all versions.
         """
         return pulumi.get(self, "latest_version_number")
 
     @latest_version_number.setter
-    def latest_version_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def latest_version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "latest_version_number", value)
 
     @_builtins.property
     @pulumi.getter(name="managedEntityType")
-    def managed_entity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         """
         return pulumi.get(self, "managed_entity_type")
 
     @managed_entity_type.setter
-    def managed_entity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_entity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_entity_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operating_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
-    def operating_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operating_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operating_system", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
     @_builtins.property
     @pulumi.getter(name="totalVersions")
-    def total_versions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_versions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total number of versions currently in the configuration.
         """
         return pulumi.get(self, "total_versions")
 
     @total_versions.setter
-    def total_versions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_versions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_versions", value)
 
     @_builtins.property
     @pulumi.getter
-    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]]:
+    def versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]]:
         """
         One or more version blocks. At least one is required. See Nested `version` blocks below.
         """
         return pulumi.get(self, "versions")
 
     @versions.setter
-    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]]):
+    def versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]]):
         pulumi.set(self, "versions", value)
 
 
@@ -295,12 +295,12 @@ class FleetConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None,
+                 agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None,
                  __props__=None):
         """
         Use this resource to create and manage New Relic fleet configurations for centralized agent management.
@@ -468,12 +468,12 @@ class FleetConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None,
+                 agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -509,16 +509,16 @@ class FleetConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_type: Optional[pulumi.Input[_builtins.str]] = None,
-            configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            latest_version_entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-            managed_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-            total_versions: Optional[pulumi.Input[_builtins.int]] = None,
-            versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None) -> 'FleetConfiguration':
+            agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_version_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+            managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            total_versions: pulumi.Input[Optional[_builtins.int]] = None,
+            versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None) -> 'FleetConfiguration':
         """
         Get an existing FleetConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

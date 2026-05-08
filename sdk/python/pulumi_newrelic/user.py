@@ -21,8 +21,8 @@ class UserArgs:
     def __init__(__self__, *,
                  authentication_domain_id: pulumi.Input[_builtins.str],
                  email_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -68,19 +68,19 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="userType")
-    def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tier to which the user to be created would belong. Accepted values for this argument are `BASIC_USER_TIER`, `CORE_USER_TIER`, or `FULL_USER_TIER`. If not specified in the configuration, the argument would default to `BASIC_USER_TIER`.
 
@@ -91,17 +91,17 @@ class UserArgs:
         return pulumi.get(self, "user_type")
 
     @user_type.setter
-    def user_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_type", value)
 
 
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
-                 authentication_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
 
@@ -125,43 +125,43 @@ class _UserState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationDomainId")
-    def authentication_domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the authentication domain to which the user to be created would belong.
         """
         return pulumi.get(self, "authentication_domain_id")
 
     @authentication_domain_id.setter
-    def authentication_domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_domain_id", value)
 
     @_builtins.property
     @pulumi.getter(name="emailId")
-    def email_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email ID of the user to be created.
         """
         return pulumi.get(self, "email_id")
 
     @email_id.setter
-    def email_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="userType")
-    def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tier to which the user to be created would belong. Accepted values for this argument are `BASIC_USER_TIER`, `CORE_USER_TIER`, or `FULL_USER_TIER`. If not specified in the configuration, the argument would default to `BASIC_USER_TIER`.
 
@@ -172,7 +172,7 @@ class _UserState:
         return pulumi.get(self, "user_type")
 
     @user_type.setter
-    def user_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_type", value)
 
 
@@ -182,10 +182,10 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The `User` resource may be used to create, update and delete users in New Relic.
@@ -271,10 +271,10 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,10 +302,10 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-            email_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            user_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'User':
+            authentication_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

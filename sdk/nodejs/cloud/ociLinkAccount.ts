@@ -246,59 +246,59 @@ export interface OciLinkAccountState {
     /**
      * New Relic account to operate on. Overrides the provider-level `accountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * OCI compartment OCID representing (or containing) the monitored resources/newrelic compartment.
      */
-    compartmentOcid?: pulumi.Input<string>;
+    compartmentOcid?: pulumi.Input<string | undefined>;
     /**
      * Vault secret OCID containing an ingest secret.
      */
-    ingestVaultOcid?: pulumi.Input<string>;
+    ingestVaultOcid?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of integration, such as metrics, logs, or a combination of logs and metrics (e.g., `METRICS`, `LOGS`, `METRICS,LOGS`).
      */
-    instrumentationType?: pulumi.Input<string>;
+    instrumentationType?: pulumi.Input<string | undefined>;
     /**
      * The Logging stack identifier for the OCI account.
      */
-    loggingStackOcid?: pulumi.Input<string>;
+    loggingStackOcid?: pulumi.Input<string | undefined>;
     /**
      * Metric stack OCID (ignored on create, applied on update).
      */
-    metricStackOcid?: pulumi.Input<string>;
+    metricStackOcid?: pulumi.Input<string | undefined>;
     /**
      * Display name for the linked account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * OCI Identity Domain (IDCS) OAuth2 client ID used for workload identity federation.
      */
-    ociClientId?: pulumi.Input<string>;
+    ociClientId?: pulumi.Input<string | undefined>;
     /**
      * OAuth2 client secret. Not displayed in plans or state outputs.
      */
-    ociClientSecret?: pulumi.Input<string>;
+    ociClientSecret?: pulumi.Input<string | undefined>;
     /**
      * Base URL of the OCI Identity Domain (e.g. `https://idcs-<hash>.identity.oraclecloud.com`).
      */
-    ociDomainUrl?: pulumi.Input<string>;
+    ociDomainUrl?: pulumi.Input<string | undefined>;
     /**
      * Home region of the tenancy (e.g. `us-ashburn-1`).
      */
-    ociHomeRegion?: pulumi.Input<string>;
+    ociHomeRegion?: pulumi.Input<string | undefined>;
     /**
      * OCI region for the linkage (ignored on create, applied on update).
      */
-    ociRegion?: pulumi.Input<string>;
+    ociRegion?: pulumi.Input<string | undefined>;
     /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * Vault secret OCID containing a user or auxiliary secret.
      */
-    userVaultOcid?: pulumi.Input<string>;
+    userVaultOcid?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -308,7 +308,7 @@ export interface OciLinkAccountArgs {
     /**
      * New Relic account to operate on. Overrides the provider-level `accountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * OCI compartment OCID representing (or containing) the monitored resources/newrelic compartment.
      */
@@ -316,23 +316,23 @@ export interface OciLinkAccountArgs {
     /**
      * Vault secret OCID containing an ingest secret.
      */
-    ingestVaultOcid?: pulumi.Input<string>;
+    ingestVaultOcid?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of integration, such as metrics, logs, or a combination of logs and metrics (e.g., `METRICS`, `LOGS`, `METRICS,LOGS`).
      */
-    instrumentationType?: pulumi.Input<string>;
+    instrumentationType?: pulumi.Input<string | undefined>;
     /**
      * The Logging stack identifier for the OCI account.
      */
-    loggingStackOcid?: pulumi.Input<string>;
+    loggingStackOcid?: pulumi.Input<string | undefined>;
     /**
      * Metric stack OCID (ignored on create, applied on update).
      */
-    metricStackOcid?: pulumi.Input<string>;
+    metricStackOcid?: pulumi.Input<string | undefined>;
     /**
      * Display name for the linked account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * OCI Identity Domain (IDCS) OAuth2 client ID used for workload identity federation.
      */
@@ -352,7 +352,7 @@ export interface OciLinkAccountArgs {
     /**
      * OCI region for the linkage (ignored on create, applied on update).
      */
-    ociRegion?: pulumi.Input<string>;
+    ociRegion?: pulumi.Input<string | undefined>;
     /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      */
@@ -360,5 +360,5 @@ export interface OciLinkAccountArgs {
     /**
      * Vault secret OCID containing a user or auxiliary secret.
      */
-    userVaultOcid?: pulumi.Input<string>;
+    userVaultOcid?: pulumi.Input<string | undefined>;
 }

@@ -200,43 +200,43 @@ export interface FleetConfigurationState {
     /**
      * The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
      */
-    agentType?: pulumi.Input<string>;
+    agentType?: pulumi.Input<string | undefined>;
     /**
      * The entity GUID of the configuration.
      */
-    configurationId?: pulumi.Input<string>;
+    configurationId?: pulumi.Input<string | undefined>;
     /**
      * The entity GUID of the highest-numbered version.
      */
-    latestVersionEntityId?: pulumi.Input<string>;
+    latestVersionEntityId?: pulumi.Input<string | undefined>;
     /**
      * The highest version number across all versions.
      */
-    latestVersionNumber?: pulumi.Input<number>;
+    latestVersionNumber?: pulumi.Input<number | undefined>;
     /**
      * The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
      */
-    managedEntityType?: pulumi.Input<string>;
+    managedEntityType?: pulumi.Input<string | undefined>;
     /**
      * The name of the configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
      */
-    operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string | undefined>;
     /**
      * The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * Total number of versions currently in the configuration.
      */
-    totalVersions?: pulumi.Input<number>;
+    totalVersions?: pulumi.Input<number | undefined>;
     /**
      * One or more version blocks. At least one is required. See Nested `version` blocks below.
      */
-    versions?: pulumi.Input<pulumi.Input<inputs.FleetConfigurationVersion>[]>;
+    versions?: pulumi.Input<pulumi.Input<inputs.FleetConfigurationVersion>[] | undefined>;
 }
 
 /**
@@ -254,15 +254,15 @@ export interface FleetConfigurationArgs {
     /**
      * The name of the configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
      */
-    operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string | undefined>;
     /**
      * The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * One or more version blocks. At least one is required. See Nested `version` blocks below.
      */

@@ -84,7 +84,7 @@ def get_authentication_domain(name: Optional[_builtins.str] = None,
     return AwaitableGetAuthenticationDomainResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_authentication_domain_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authentication_domain_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthenticationDomainResult]:
     """
     Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.

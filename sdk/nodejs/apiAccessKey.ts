@@ -192,35 +192,35 @@ export interface ApiAccessKeyState {
     /**
      * The New Relic account ID where the API access key will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
      */
-    ingestType?: pulumi.Input<string>;
+    ingestType?: pulumi.Input<string | undefined>;
     /**
      * The actual API key.
      * - <span style="color:tomato;">It is important to exercise caution when exporting the value of `key`, as it is sensitive information</span>. Avoid logging or exposing it inappropriately.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
      * - If `keyType` is `INGEST`, then `ingestType` must be specified.
      * - If `keyType` is `USER`, then `userId` must be specified.
      */
-    keyType?: pulumi.Input<string>;
+    keyType?: pulumi.Input<string | undefined>;
     /**
      * The name of the API key.
      * - **Note**: While `name` is optional, it is <b style="color:red;">\*\*strongly recommended\*\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Additional notes about the API access key.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -230,11 +230,11 @@ export interface ApiAccessKeyArgs {
     /**
      * The New Relic account ID where the API access key will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
      */
-    ingestType?: pulumi.Input<string>;
+    ingestType?: pulumi.Input<string | undefined>;
     /**
      * The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
      * - If `keyType` is `INGEST`, then `ingestType` must be specified.
@@ -245,13 +245,13 @@ export interface ApiAccessKeyArgs {
      * The name of the API key.
      * - **Note**: While `name` is optional, it is <b style="color:red;">\*\*strongly recommended\*\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Additional notes about the API access key.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }

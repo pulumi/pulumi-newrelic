@@ -189,31 +189,31 @@ export interface OneDashboardRawState {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Brief text describing the dashboard.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique entity identifier of the dashboard page in New Relic.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes a page. See Nested page blocks below for details.
      */
-    pages?: pulumi.Input<pulumi.Input<inputs.OneDashboardRawPage>[]>;
+    pages?: pulumi.Input<pulumi.Input<inputs.OneDashboardRawPage>[] | undefined>;
     /**
      * The URL for viewing the dashboard.
      */
-    permalink?: pulumi.Input<string>;
+    permalink?: pulumi.Input<string | undefined>;
     /**
      * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`. Defaults to `publicReadOnly`.
      */
-    permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -223,15 +223,15 @@ export interface OneDashboardRawArgs {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Brief text describing the dashboard.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The title of the dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes a page. See Nested page blocks below for details.
      */
@@ -239,5 +239,5 @@ export interface OneDashboardRawArgs {
     /**
      * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`. Defaults to `publicReadOnly`.
      */
-    permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string | undefined>;
 }

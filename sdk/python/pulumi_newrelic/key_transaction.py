@@ -23,7 +23,7 @@ class KeyTransactionArgs:
                  application_guid: pulumi.Input[_builtins.str],
                  browser_apdex_target: pulumi.Input[_builtins.float],
                  metric_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeyTransaction resource.
 
@@ -94,27 +94,27 @@ class KeyTransactionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the key transaction.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _KeyTransactionState:
     def __init__(__self__, *,
-                 apdex_index: Optional[pulumi.Input[_builtins.float]] = None,
-                 application_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_apdex_target: Optional[pulumi.Input[_builtins.float]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 apdex_index: pulumi.Input[Optional[_builtins.float]] = None,
+                 application_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_apdex_target: pulumi.Input[Optional[_builtins.float]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyTransaction resources.
 
@@ -145,31 +145,31 @@ class _KeyTransactionState:
 
     @_builtins.property
     @pulumi.getter(name="apdexIndex")
-    def apdex_index(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def apdex_index(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).
         """
         return pulumi.get(self, "apdex_index")
 
     @apdex_index.setter
-    def apdex_index(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def apdex_index(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "apdex_index", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationGuid")
-    def application_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the APM Application comprising transactions, of which one would be made a key transaction.
         """
         return pulumi.get(self, "application_guid")
 
     @application_guid.setter
-    def application_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="browserApdexTarget")
-    def browser_apdex_target(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def browser_apdex_target(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).
 
@@ -178,55 +178,55 @@ class _KeyTransactionState:
         return pulumi.get(self, "browser_apdex_target")
 
     @browser_apdex_target.setter
-    def browser_apdex_target(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def browser_apdex_target(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "browser_apdex_target", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain of the entity monitored by the key transaction.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the underlying metric monitored by the key transaction to be created.
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the key transaction.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the entity monitored by the key transaction.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -236,11 +236,11 @@ class KeyTransaction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apdex_index: Optional[pulumi.Input[_builtins.float]] = None,
-                 application_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_apdex_target: Optional[pulumi.Input[_builtins.float]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 apdex_index: pulumi.Input[Optional[_builtins.float]] = None,
+                 application_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_apdex_target: pulumi.Input[Optional[_builtins.float]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to create a new Key Transaction in New Relic.
@@ -329,11 +329,11 @@ class KeyTransaction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apdex_index: Optional[pulumi.Input[_builtins.float]] = None,
-                 application_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_apdex_target: Optional[pulumi.Input[_builtins.float]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 apdex_index: pulumi.Input[Optional[_builtins.float]] = None,
+                 application_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_apdex_target: pulumi.Input[Optional[_builtins.float]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -368,13 +368,13 @@ class KeyTransaction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apdex_index: Optional[pulumi.Input[_builtins.float]] = None,
-            application_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            browser_apdex_target: Optional[pulumi.Input[_builtins.float]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'KeyTransaction':
+            apdex_index: pulumi.Input[Optional[_builtins.float]] = None,
+            application_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_apdex_target: pulumi.Input[Optional[_builtins.float]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'KeyTransaction':
         """
         Get an existing KeyTransaction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

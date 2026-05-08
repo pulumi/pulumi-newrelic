@@ -317,63 +317,63 @@ export interface InfraAlertConditionState {
     /**
      * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
-    comparison?: pulumi.Input<string>;
+    comparison?: pulumi.Input<string | undefined>;
     /**
      * The timestamp the alert condition was created.
      */
-    createdAt?: pulumi.Input<number>;
+    createdAt?: pulumi.Input<number | undefined>;
     /**
      * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      */
-    critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.InfraAlertConditionCritical | undefined>;
     /**
      * The description of the Infrastructure alert condition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
-    entityGuid?: pulumi.Input<string>;
+    entityGuid?: pulumi.Input<string | undefined>;
     /**
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */
-    event?: pulumi.Input<string>;
+    event?: pulumi.Input<string | undefined>;
     /**
      * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      */
-    integrationProvider?: pulumi.Input<string>;
+    integrationProvider?: pulumi.Input<string | undefined>;
     /**
      * The Infrastructure alert condition's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
-    processWhere?: pulumi.Input<string>;
+    processWhere?: pulumi.Input<string | undefined>;
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
     /**
      * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      */
-    select?: pulumi.Input<string>;
+    select?: pulumi.Input<string | undefined>;
     /**
      * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The timestamp the alert condition was last updated.
      */
-    updatedAt?: pulumi.Input<number>;
+    updatedAt?: pulumi.Input<number | undefined>;
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      *
@@ -381,15 +381,15 @@ export interface InfraAlertConditionState {
      * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * ```
      */
-    violationCloseTimer?: pulumi.Input<number>;
+    violationCloseTimer?: pulumi.Input<number | undefined>;
     /**
      * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      */
-    warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.InfraAlertConditionWarning | undefined>;
     /**
      * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
-    where?: pulumi.Input<string>;
+    where?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -399,31 +399,31 @@ export interface InfraAlertConditionArgs {
     /**
      * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
-    comparison?: pulumi.Input<string>;
+    comparison?: pulumi.Input<string | undefined>;
     /**
      * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      */
-    critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.InfraAlertConditionCritical | undefined>;
     /**
      * The description of the Infrastructure alert condition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */
-    event?: pulumi.Input<string>;
+    event?: pulumi.Input<string | undefined>;
     /**
      * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      */
-    integrationProvider?: pulumi.Input<string>;
+    integrationProvider?: pulumi.Input<string | undefined>;
     /**
      * The Infrastructure alert condition's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the alert policy where this condition should be used.
      */
@@ -431,15 +431,15 @@ export interface InfraAlertConditionArgs {
     /**
      * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
-    processWhere?: pulumi.Input<string>;
+    processWhere?: pulumi.Input<string | undefined>;
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
     /**
      * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      */
-    select?: pulumi.Input<string>;
+    select?: pulumi.Input<string | undefined>;
     /**
      * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
@@ -451,13 +451,13 @@ export interface InfraAlertConditionArgs {
      * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * ```
      */
-    violationCloseTimer?: pulumi.Input<number>;
+    violationCloseTimer?: pulumi.Input<number | undefined>;
     /**
      * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      */
-    warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.InfraAlertConditionWarning | undefined>;
     /**
      * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
-    where?: pulumi.Input<string>;
+    where?: pulumi.Input<string | undefined>;
 }

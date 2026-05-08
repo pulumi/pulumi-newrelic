@@ -107,8 +107,8 @@ def get_obfuscation_expression(account_id: Optional[_builtins.str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                      name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_obfuscation_expression_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObfuscationExpressionResult]:
     """
     Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.

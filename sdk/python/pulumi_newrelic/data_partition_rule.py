@@ -23,8 +23,8 @@ class DataPartitionRuleArgs:
                  nrql: pulumi.Input[_builtins.str],
                  retention_policy: pulumi.Input[_builtins.str],
                  target_data_partition: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataPartitionRule resource.
 
@@ -94,39 +94,39 @@ class DataPartitionRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account id associated with the data partition rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the data partition rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
 class _DataPartitionRuleState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deleted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nrql: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_data_partition: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nrql: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_data_partition: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataPartitionRule resources.
 
@@ -155,86 +155,86 @@ class _DataPartitionRuleState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account id associated with the data partition rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def deleted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deleted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
         """
         return pulumi.get(self, "deleted")
 
     @deleted.setter
-    def deleted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deleted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deleted", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the data partition rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this data partition rule is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def nrql(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nrql(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
         """
         return pulumi.get(self, "nrql")
 
     @nrql.setter
-    def nrql(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nrql(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nrql", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retention_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retention_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retention_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDataPartition")
-    def target_data_partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_data_partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data partition where logs will be allocated once the rule is enabled.
         """
         return pulumi.get(self, "target_data_partition")
 
     @target_data_partition.setter
-    def target_data_partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_data_partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_data_partition", value)
 
 
@@ -244,12 +244,12 @@ class DataPartitionRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nrql: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_data_partition: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nrql: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_data_partition: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to create, update and delete New Relic Data partition rule.
@@ -341,12 +341,12 @@ class DataPartitionRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nrql: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_data_partition: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nrql: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_data_partition: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -381,13 +381,13 @@ class DataPartitionRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            deleted: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            nrql: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            target_data_partition: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataPartitionRule':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            nrql: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            target_data_partition: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataPartitionRule':
         """
         Get an existing DataPartitionRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -24,8 +24,8 @@ class ServiceLevelArgs:
                  events: pulumi.Input['ServiceLevelEventsArgs'],
                  guid: pulumi.Input[_builtins.str],
                  objective: pulumi.Input['ServiceLevelObjectiveArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceLevel resource.
 
@@ -85,39 +85,39 @@ class ServiceLevelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the SLI.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short name for the SLI that will help anyone understand what it is about.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ServiceLevelState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input['ServiceLevelEventsArgs']] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 objective: Optional[pulumi.Input['ServiceLevelObjectiveArgs']] = None,
-                 sli_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 sli_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional['ServiceLevelEventsArgs']] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 objective: pulumi.Input[Optional['ServiceLevelObjectiveArgs']] = None,
+                 sli_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 sli_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceLevel resources.
 
@@ -148,19 +148,19 @@ class _ServiceLevelState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the SLI.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input['ServiceLevelEventsArgs']]:
+    def events(self) -> pulumi.Input[Optional['ServiceLevelEventsArgs']]:
         """
         The events that define the NRDB data for the SLI/SLO calculations.
         See Events below for details.
@@ -168,36 +168,36 @@ class _ServiceLevelState:
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input['ServiceLevelEventsArgs']]):
+    def events(self, value: pulumi.Input[Optional['ServiceLevelEventsArgs']]):
         pulumi.set(self, "events", value)
 
     @_builtins.property
     @pulumi.getter
-    def guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         """
         return pulumi.get(self, "guid")
 
     @guid.setter
-    def guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guid", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short name for the SLI that will help anyone understand what it is about.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def objective(self) -> Optional[pulumi.Input['ServiceLevelObjectiveArgs']]:
+    def objective(self) -> pulumi.Input[Optional['ServiceLevelObjectiveArgs']]:
         """
         The objective of the SLI, only one can be defined.
         See Objective below for details.
@@ -205,31 +205,31 @@ class _ServiceLevelState:
         return pulumi.get(self, "objective")
 
     @objective.setter
-    def objective(self, value: Optional[pulumi.Input['ServiceLevelObjectiveArgs']]):
+    def objective(self, value: pulumi.Input[Optional['ServiceLevelObjectiveArgs']]):
         pulumi.set(self, "objective", value)
 
     @_builtins.property
     @pulumi.getter(name="sliGuid")
-    def sli_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sli_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the Service Level Indicator in New Relic.
         """
         return pulumi.get(self, "sli_guid")
 
     @sli_guid.setter
-    def sli_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sli_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sli_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="sliId")
-    def sli_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sli_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the Service Level Indicator.
         """
         return pulumi.get(self, "sli_id")
 
     @sli_id.setter
-    def sli_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sli_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sli_id", value)
 
 
@@ -239,11 +239,11 @@ class ServiceLevel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 objective: Optional[pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 objective: pulumi.Input[Optional[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
@@ -278,7 +278,7 @@ class ServiceLevel(pulumi.CustomResource):
                 },
             },
             objective={
-                "target": 99,
+                "target": float(99),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -312,7 +312,7 @@ class ServiceLevel(pulumi.CustomResource):
                 },
             },
             objective={
-                "target": 99,
+                "target": float(99),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -362,13 +362,13 @@ class ServiceLevel(pulumi.CustomResource):
                     "select": {
                         "attribute": "`query.wallClockTime.negative.distribution`",
                         "function": "GET_CDF_COUNT",
-                        "threshold": 7,
+                        "threshold": float(7),
                     },
                     "where": "metricName = 'query.wallClockTime.negative.distribution'",
                 },
             },
             objective={
-                "target": 49,
+                "target": float(49),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -441,7 +441,7 @@ class ServiceLevel(pulumi.CustomResource):
                 },
             },
             objective={
-                "target": 99,
+                "target": float(99),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -475,7 +475,7 @@ class ServiceLevel(pulumi.CustomResource):
                 },
             },
             objective={
-                "target": 99,
+                "target": float(99),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -525,13 +525,13 @@ class ServiceLevel(pulumi.CustomResource):
                     "select": {
                         "attribute": "`query.wallClockTime.negative.distribution`",
                         "function": "GET_CDF_COUNT",
-                        "threshold": 7,
+                        "threshold": float(7),
                     },
                     "where": "metricName = 'query.wallClockTime.negative.distribution'",
                 },
             },
             objective={
-                "target": 49,
+                "target": float(49),
                 "time_window": {
                     "rolling": {
                         "count": 7,
@@ -570,11 +570,11 @@ class ServiceLevel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 objective: Optional[pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 objective: pulumi.Input[Optional[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -607,13 +607,13 @@ class ServiceLevel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            events: Optional[pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
-            guid: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            objective: Optional[pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
-            sli_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            sli_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceLevel':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            events: pulumi.Input[Optional[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            objective: pulumi.Input[Optional[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
+            sli_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            sli_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceLevel':
         """
         Get an existing ServiceLevel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

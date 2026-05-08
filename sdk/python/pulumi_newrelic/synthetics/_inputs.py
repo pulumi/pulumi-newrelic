@@ -134,11 +134,11 @@ class CertCheckMonitorTagArgs:
 
 
 class MonitorCustomHeaderArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Header name.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Header Value.
     """
@@ -146,8 +146,8 @@ class MonitorCustomHeaderArgsDict(TypedDict):
 @pulumi.input_type
 class MonitorCustomHeaderArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Header name.
         :param pulumi.Input[_builtins.str] value: Header Value.
@@ -159,26 +159,26 @@ class MonitorCustomHeaderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Header name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Header Value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -290,7 +290,7 @@ class ScriptMonitorLocationPrivateArgsDict(TypedDict):
     """
     The unique identifier for the Synthetics private location in New Relic.
     """
-    vse_password: NotRequired[pulumi.Input[_builtins.str]]
+    vse_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
     """
@@ -299,7 +299,7 @@ class ScriptMonitorLocationPrivateArgsDict(TypedDict):
 class ScriptMonitorLocationPrivateArgs:
     def __init__(__self__, *,
                  guid: pulumi.Input[_builtins.str],
-                 vse_password: Optional[pulumi.Input[_builtins.str]] = None):
+                 vse_password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[_builtins.str] vse_password: The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
@@ -322,14 +322,14 @@ class ScriptMonitorLocationPrivateArgs:
 
     @_builtins.property
     @pulumi.getter(name="vsePassword")
-    def vse_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vse_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
         """
         return pulumi.get(self, "vse_password")
 
     @vse_password.setter
-    def vse_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vse_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vse_password", value)
 
 
@@ -385,7 +385,7 @@ class StepMonitorLocationPrivateArgsDict(TypedDict):
     """
     The unique identifier for the Synthetics private location in New Relic.
     """
-    vse_password: NotRequired[pulumi.Input[_builtins.str]]
+    vse_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
     """
@@ -394,7 +394,7 @@ class StepMonitorLocationPrivateArgsDict(TypedDict):
 class StepMonitorLocationPrivateArgs:
     def __init__(__self__, *,
                  guid: pulumi.Input[_builtins.str],
-                 vse_password: Optional[pulumi.Input[_builtins.str]] = None):
+                 vse_password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] guid: The unique identifier for the Synthetics private location in New Relic.
         :param pulumi.Input[_builtins.str] vse_password: The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
@@ -417,14 +417,14 @@ class StepMonitorLocationPrivateArgs:
 
     @_builtins.property
     @pulumi.getter(name="vsePassword")
-    def vse_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vse_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
         """
         return pulumi.get(self, "vse_password")
 
     @vse_password.setter
-    def vse_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vse_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vse_password", value)
 
 
@@ -437,7 +437,7 @@ class StepMonitorStepArgsDict(TypedDict):
     """
     Name of the tag key. Valid values are `ASSERT_ELEMENT`, `ASSERT_MODAL`, `ASSERT_TEXT`, `ASSERT_TITLE`, `CLICK_ELEMENT`, `DISMISS_MODAL`, `DOUBLE_CLICK_ELEMENT`, `HOVER_ELEMENT`, `NAVIGATE`, `SECURE_TEXT_ENTRY`, `SELECT_ELEMENT`, `TEXT_ENTRY`.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The metadata values related to the step.
     """
@@ -447,7 +447,7 @@ class StepMonitorStepArgs:
     def __init__(__self__, *,
                  ordinal: pulumi.Input[_builtins.int],
                  type: pulumi.Input[_builtins.str],
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] ordinal: The position of the step within the script ranging from 0-100.
         :param pulumi.Input[_builtins.str] type: Name of the tag key. Valid values are `ASSERT_ELEMENT`, `ASSERT_MODAL`, `ASSERT_TEXT`, `ASSERT_TITLE`, `CLICK_ELEMENT`, `DISMISS_MODAL`, `DOUBLE_CLICK_ELEMENT`, `HOVER_ELEMENT`, `NAVIGATE`, `SECURE_TEXT_ENTRY`, `SELECT_ELEMENT`, `TEXT_ENTRY`.
@@ -484,14 +484,14 @@ class StepMonitorStepArgs:
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The metadata values related to the step.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 

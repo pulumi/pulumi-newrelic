@@ -124,21 +124,21 @@ export interface AwsLinkAccountState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
      */
-    metricCollectionMode?: pulumi.Input<string>;
+    metricCollectionMode?: pulumi.Input<string | undefined>;
     /**
      * The linked account name
      *
      * > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -148,7 +148,7 @@ export interface AwsLinkAccountArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */
@@ -156,11 +156,11 @@ export interface AwsLinkAccountArgs {
     /**
      * How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
      */
-    metricCollectionMode?: pulumi.Input<string>;
+    metricCollectionMode?: pulumi.Input<string | undefined>;
     /**
      * The linked account name
      *
      * > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

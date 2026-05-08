@@ -21,14 +21,14 @@ __all__ = ['WorkloadArgs', 'Workload']
 @pulumi.input_type
 class WorkloadArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status_config_automatic: Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']] = None,
-                 status_config_static: Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status_config_automatic: pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']] = None,
+                 status_config_static: pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']] = None):
         """
         The set of arguments for constructing a Workload resource.
 
@@ -60,116 +60,116 @@ class WorkloadArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID where you want to create the workload.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Relevant information about the workload.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="entityGuids")
-    def entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def entity_guids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
         """
         return pulumi.get(self, "entity_guids")
 
     @entity_guids.setter
-    def entity_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def entity_guids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "entity_guids", value)
 
     @_builtins.property
     @pulumi.getter(name="entitySearchQueries")
-    def entity_search_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]:
+    def entity_search_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]:
         """
         A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         """
         return pulumi.get(self, "entity_search_queries")
 
     @entity_search_queries.setter
-    def entity_search_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]):
+    def entity_search_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]):
         pulumi.set(self, "entity_search_queries", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload's name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeAccountIds")
-    def scope_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scope_account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of account IDs that will be used to get entities from.
         """
         return pulumi.get(self, "scope_account_ids")
 
     @scope_account_ids.setter
-    def scope_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scope_account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scope_account_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="statusConfigAutomatic")
-    def status_config_automatic(self) -> Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']]:
+    def status_config_automatic(self) -> pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']]:
         """
         An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
         """
         return pulumi.get(self, "status_config_automatic")
 
     @status_config_automatic.setter
-    def status_config_automatic(self, value: Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']]):
+    def status_config_automatic(self, value: pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']]):
         pulumi.set(self, "status_config_automatic", value)
 
     @_builtins.property
     @pulumi.getter(name="statusConfigStatic")
-    def status_config_static(self) -> Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']]:
+    def status_config_static(self) -> pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']]:
         """
         A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         """
         return pulumi.get(self, "status_config_static")
 
     @status_config_static.setter
-    def status_config_static(self, value: Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']]):
+    def status_config_static(self, value: pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']]):
         pulumi.set(self, "status_config_static", value)
 
 
 @pulumi.input_type
 class _WorkloadState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 composite_entity_search_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permalink: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status_config_automatic: Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']] = None,
-                 status_config_static: Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']] = None,
-                 workload_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 composite_entity_search_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permalink: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status_config_automatic: pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']] = None,
+                 status_config_static: pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']] = None,
+                 workload_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workload resources.
 
@@ -213,146 +213,146 @@ class _WorkloadState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID where you want to create the workload.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="compositeEntitySearchQuery")
-    def composite_entity_search_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def composite_entity_search_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The composite query used to compose a dynamic workload.
         """
         return pulumi.get(self, "composite_entity_search_query")
 
     @composite_entity_search_query.setter
-    def composite_entity_search_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def composite_entity_search_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "composite_entity_search_query", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Relevant information about the workload.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="entityGuids")
-    def entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def entity_guids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
         """
         return pulumi.get(self, "entity_guids")
 
     @entity_guids.setter
-    def entity_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def entity_guids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "entity_guids", value)
 
     @_builtins.property
     @pulumi.getter(name="entitySearchQueries")
-    def entity_search_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]:
+    def entity_search_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]:
         """
         A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         """
         return pulumi.get(self, "entity_search_queries")
 
     @entity_search_queries.setter
-    def entity_search_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]):
+    def entity_search_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]):
         pulumi.set(self, "entity_search_queries", value)
 
     @_builtins.property
     @pulumi.getter
-    def guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the workload in New Relic.
         """
         return pulumi.get(self, "guid")
 
     @guid.setter
-    def guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guid", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workload's name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permalink(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permalink(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the workload.
         """
         return pulumi.get(self, "permalink")
 
     @permalink.setter
-    def permalink(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permalink(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permalink", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeAccountIds")
-    def scope_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scope_account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of account IDs that will be used to get entities from.
         """
         return pulumi.get(self, "scope_account_ids")
 
     @scope_account_ids.setter
-    def scope_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scope_account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scope_account_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="statusConfigAutomatic")
-    def status_config_automatic(self) -> Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']]:
+    def status_config_automatic(self) -> pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']]:
         """
         An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
         """
         return pulumi.get(self, "status_config_automatic")
 
     @status_config_automatic.setter
-    def status_config_automatic(self, value: Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']]):
+    def status_config_automatic(self, value: pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']]):
         pulumi.set(self, "status_config_automatic", value)
 
     @_builtins.property
     @pulumi.getter(name="statusConfigStatic")
-    def status_config_static(self) -> Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']]:
+    def status_config_static(self) -> pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']]:
         """
         A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         """
         return pulumi.get(self, "status_config_static")
 
     @status_config_static.setter
-    def status_config_static(self, value: Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']]):
+    def status_config_static(self, value: pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']]):
         pulumi.set(self, "status_config_static", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadId")
-    def workload_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the workload.
         """
         return pulumi.get(self, "workload_id")
 
     @workload_id.setter
-    def workload_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_id", value)
 
 
@@ -362,14 +362,14 @@ class Workload(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status_config_automatic: Optional[pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
-                 status_config_static: Optional[pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
+                 status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete a New Relic One workload.
@@ -663,14 +663,14 @@ class Workload(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status_config_automatic: Optional[pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
-                 status_config_static: Optional[pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
+                 status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -702,18 +702,18 @@ class Workload(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            composite_entity_search_query: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
-            guid: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            permalink: Optional[pulumi.Input[_builtins.str]] = None,
-            scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            status_config_automatic: Optional[pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
-            status_config_static: Optional[pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
-            workload_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Workload':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            composite_entity_search_query: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permalink: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
+            status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
+            workload_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workload':
         """
         Get an existing Workload resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

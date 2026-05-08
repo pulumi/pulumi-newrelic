@@ -160,27 +160,27 @@ export interface NrqlDropRuleState {
     /**
      * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or ` dropAttributesFromMetricAggregates`).
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * The description of the drop rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A NRQL string that specifies what data types to drop.
      */
-    nrql?: pulumi.Input<string>;
+    nrql?: pulumi.Input<string | undefined>;
     /**
      * The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
      */
-    pipelineCloudRuleEntityId?: pulumi.Input<string>;
+    pipelineCloudRuleEntityId?: pulumi.Input<string | undefined>;
     /**
      * The id, uniquely identifying the rule.
      */
-    ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface NrqlDropRuleArgs {
     /**
      * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or ` dropAttributesFromMetricAggregates`).
      */
@@ -198,7 +198,7 @@ export interface NrqlDropRuleArgs {
     /**
      * The description of the drop rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A NRQL string that specifies what data types to drop.
      */

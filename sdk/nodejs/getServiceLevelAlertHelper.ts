@@ -57,7 +57,7 @@ import * as utilities from "./utilities";
  *     alertType: "slow_burn",
  *     sliGuid: foo.sliGuid,
  *     sloTarget: fooTarget,
- *     sloPeriod: fooPeriod,
+ *     sloPeriod: Number(fooPeriod),
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
@@ -94,7 +94,7 @@ import * as utilities from "./utilities";
  *     alertType: "custom",
  *     sliGuid: foo.sliGuid,
  *     sloTarget: fooTarget,
- *     sloPeriod: fooPeriod,
+ *     sloPeriod: Number(fooPeriod),
  *     customToleratedBudgetConsumption: 4,
  *     customEvaluationPeriod: 5400,
  *     isBadEvents: true,
@@ -255,7 +255,7 @@ export interface GetServiceLevelAlertHelperResult {
  *     alertType: "slow_burn",
  *     sliGuid: foo.sliGuid,
  *     sloTarget: fooTarget,
- *     sloPeriod: fooPeriod,
+ *     sloPeriod: Number(fooPeriod),
  *     isBadEvents: true,
  * });
  * const yourCondition = new newrelic.NrqlAlertCondition("your_condition", {
@@ -292,7 +292,7 @@ export interface GetServiceLevelAlertHelperResult {
  *     alertType: "custom",
  *     sliGuid: foo.sliGuid,
  *     sloTarget: fooTarget,
- *     sloPeriod: fooPeriod,
+ *     sloPeriod: Number(fooPeriod),
  *     customToleratedBudgetConsumption: 4,
  *     customEvaluationPeriod: 5400,
  *     isBadEvents: true,
@@ -345,15 +345,15 @@ export interface GetServiceLevelAlertHelperOutputArgs {
     /**
      * Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
      */
-    customEvaluationPeriod?: pulumi.Input<number>;
+    customEvaluationPeriod?: pulumi.Input<number | undefined>;
     /**
      * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
      */
-    customToleratedBudgetConsumption?: pulumi.Input<number>;
+    customToleratedBudgetConsumption?: pulumi.Input<number | undefined>;
     /**
      * If the SLI is defined using bad events. Defaults to `false`
      */
-    isBadEvents?: pulumi.Input<boolean>;
+    isBadEvents?: pulumi.Input<boolean | undefined>;
     /**
      * The guid of the sli we want to set the alert on.
      */

@@ -21,7 +21,7 @@ class AlertPolicyChannelArgs:
     def __init__(__self__, *,
                  channel_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  policy_id: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertPolicyChannel resource.
 
@@ -60,23 +60,23 @@ class AlertPolicyChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
 
 @pulumi.input_type
 class _AlertPolicyChannelState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertPolicyChannel resources.
 
@@ -93,38 +93,38 @@ class _AlertPolicyChannelState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="channelIds")
-    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def channel_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
         """
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
-    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def channel_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "channel_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the policy.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
 
@@ -134,9 +134,9 @@ class AlertPolicyChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to map alert policies to alert channels in New Relic.
@@ -271,9 +271,9 @@ class AlertPolicyChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -300,9 +300,9 @@ class AlertPolicyChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AlertPolicyChannel':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AlertPolicyChannel':
         """
         Get an existing AlertPolicyChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

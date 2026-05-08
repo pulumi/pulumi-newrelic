@@ -22,33 +22,33 @@ __all__ = ['GcpIntegrationsArgs', 'GcpIntegrations']
 class GcpIntegrationsArgs:
     def __init__(__self__, *,
                  linked_account_id: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
-                 app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
-                 big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
-                 big_table: Optional[pulumi.Input['GcpIntegrationsBigTableArgs']] = None,
-                 composer: Optional[pulumi.Input['GcpIntegrationsComposerArgs']] = None,
-                 data_flow: Optional[pulumi.Input['GcpIntegrationsDataFlowArgs']] = None,
-                 data_proc: Optional[pulumi.Input['GcpIntegrationsDataProcArgs']] = None,
-                 data_store: Optional[pulumi.Input['GcpIntegrationsDataStoreArgs']] = None,
-                 fire_base_database: Optional[pulumi.Input['GcpIntegrationsFireBaseDatabaseArgs']] = None,
-                 fire_base_hosting: Optional[pulumi.Input['GcpIntegrationsFireBaseHostingArgs']] = None,
-                 fire_base_storage: Optional[pulumi.Input['GcpIntegrationsFireBaseStorageArgs']] = None,
-                 fire_store: Optional[pulumi.Input['GcpIntegrationsFireStoreArgs']] = None,
-                 functions: Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']] = None,
-                 interconnect: Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']] = None,
-                 kubernetes: Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']] = None,
-                 load_balancing: Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']] = None,
-                 mem_cache: Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']] = None,
-                 pub_sub: Optional[pulumi.Input['GcpIntegrationsPubSubArgs']] = None,
-                 redis: Optional[pulumi.Input['GcpIntegrationsRedisArgs']] = None,
-                 router: Optional[pulumi.Input['GcpIntegrationsRouterArgs']] = None,
-                 run: Optional[pulumi.Input['GcpIntegrationsRunArgs']] = None,
-                 spanner: Optional[pulumi.Input['GcpIntegrationsSpannerArgs']] = None,
-                 sql: Optional[pulumi.Input['GcpIntegrationsSqlArgs']] = None,
-                 storage: Optional[pulumi.Input['GcpIntegrationsStorageArgs']] = None,
-                 virtual_machines: Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']] = None,
-                 vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 alloy_db: pulumi.Input[Optional['GcpIntegrationsAlloyDbArgs']] = None,
+                 app_engine: pulumi.Input[Optional['GcpIntegrationsAppEngineArgs']] = None,
+                 big_query: pulumi.Input[Optional['GcpIntegrationsBigQueryArgs']] = None,
+                 big_table: pulumi.Input[Optional['GcpIntegrationsBigTableArgs']] = None,
+                 composer: pulumi.Input[Optional['GcpIntegrationsComposerArgs']] = None,
+                 data_flow: pulumi.Input[Optional['GcpIntegrationsDataFlowArgs']] = None,
+                 data_proc: pulumi.Input[Optional['GcpIntegrationsDataProcArgs']] = None,
+                 data_store: pulumi.Input[Optional['GcpIntegrationsDataStoreArgs']] = None,
+                 fire_base_database: pulumi.Input[Optional['GcpIntegrationsFireBaseDatabaseArgs']] = None,
+                 fire_base_hosting: pulumi.Input[Optional['GcpIntegrationsFireBaseHostingArgs']] = None,
+                 fire_base_storage: pulumi.Input[Optional['GcpIntegrationsFireBaseStorageArgs']] = None,
+                 fire_store: pulumi.Input[Optional['GcpIntegrationsFireStoreArgs']] = None,
+                 functions: pulumi.Input[Optional['GcpIntegrationsFunctionsArgs']] = None,
+                 interconnect: pulumi.Input[Optional['GcpIntegrationsInterconnectArgs']] = None,
+                 kubernetes: pulumi.Input[Optional['GcpIntegrationsKubernetesArgs']] = None,
+                 load_balancing: pulumi.Input[Optional['GcpIntegrationsLoadBalancingArgs']] = None,
+                 mem_cache: pulumi.Input[Optional['GcpIntegrationsMemCacheArgs']] = None,
+                 pub_sub: pulumi.Input[Optional['GcpIntegrationsPubSubArgs']] = None,
+                 redis: pulumi.Input[Optional['GcpIntegrationsRedisArgs']] = None,
+                 router: pulumi.Input[Optional['GcpIntegrationsRouterArgs']] = None,
+                 run: pulumi.Input[Optional['GcpIntegrationsRunArgs']] = None,
+                 spanner: pulumi.Input[Optional['GcpIntegrationsSpannerArgs']] = None,
+                 sql: pulumi.Input[Optional['GcpIntegrationsSqlArgs']] = None,
+                 storage: pulumi.Input[Optional['GcpIntegrationsStorageArgs']] = None,
+                 virtual_machines: pulumi.Input[Optional['GcpIntegrationsVirtualMachinesArgs']] = None,
+                 vpc_access: pulumi.Input[Optional['GcpIntegrationsVpcAccessArgs']] = None):
         """
         The set of arguments for constructing a GcpIntegrations resource.
 
@@ -155,360 +155,360 @@ class GcpIntegrationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="alloyDb")
-    def alloy_db(self) -> Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']]:
+    def alloy_db(self) -> pulumi.Input[Optional['GcpIntegrationsAlloyDbArgs']]:
         """
         Alloy DB integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "alloy_db")
 
     @alloy_db.setter
-    def alloy_db(self, value: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']]):
+    def alloy_db(self, value: pulumi.Input[Optional['GcpIntegrationsAlloyDbArgs']]):
         pulumi.set(self, "alloy_db", value)
 
     @_builtins.property
     @pulumi.getter(name="appEngine")
-    def app_engine(self) -> Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']]:
+    def app_engine(self) -> pulumi.Input[Optional['GcpIntegrationsAppEngineArgs']]:
         """
         App Engine integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "app_engine")
 
     @app_engine.setter
-    def app_engine(self, value: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']]):
+    def app_engine(self, value: pulumi.Input[Optional['GcpIntegrationsAppEngineArgs']]):
         pulumi.set(self, "app_engine", value)
 
     @_builtins.property
     @pulumi.getter(name="bigQuery")
-    def big_query(self) -> Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']]:
+    def big_query(self) -> pulumi.Input[Optional['GcpIntegrationsBigQueryArgs']]:
         """
         Biq Query integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "big_query")
 
     @big_query.setter
-    def big_query(self, value: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']]):
+    def big_query(self, value: pulumi.Input[Optional['GcpIntegrationsBigQueryArgs']]):
         pulumi.set(self, "big_query", value)
 
     @_builtins.property
     @pulumi.getter(name="bigTable")
-    def big_table(self) -> Optional[pulumi.Input['GcpIntegrationsBigTableArgs']]:
+    def big_table(self) -> pulumi.Input[Optional['GcpIntegrationsBigTableArgs']]:
         """
         Big Table. See Integration blocks below for details.
         """
         return pulumi.get(self, "big_table")
 
     @big_table.setter
-    def big_table(self, value: Optional[pulumi.Input['GcpIntegrationsBigTableArgs']]):
+    def big_table(self, value: pulumi.Input[Optional['GcpIntegrationsBigTableArgs']]):
         pulumi.set(self, "big_table", value)
 
     @_builtins.property
     @pulumi.getter
-    def composer(self) -> Optional[pulumi.Input['GcpIntegrationsComposerArgs']]:
+    def composer(self) -> pulumi.Input[Optional['GcpIntegrationsComposerArgs']]:
         """
         Composer integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "composer")
 
     @composer.setter
-    def composer(self, value: Optional[pulumi.Input['GcpIntegrationsComposerArgs']]):
+    def composer(self, value: pulumi.Input[Optional['GcpIntegrationsComposerArgs']]):
         pulumi.set(self, "composer", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFlow")
-    def data_flow(self) -> Optional[pulumi.Input['GcpIntegrationsDataFlowArgs']]:
+    def data_flow(self) -> pulumi.Input[Optional['GcpIntegrationsDataFlowArgs']]:
         """
         Data Flow integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "data_flow")
 
     @data_flow.setter
-    def data_flow(self, value: Optional[pulumi.Input['GcpIntegrationsDataFlowArgs']]):
+    def data_flow(self, value: pulumi.Input[Optional['GcpIntegrationsDataFlowArgs']]):
         pulumi.set(self, "data_flow", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProc")
-    def data_proc(self) -> Optional[pulumi.Input['GcpIntegrationsDataProcArgs']]:
+    def data_proc(self) -> pulumi.Input[Optional['GcpIntegrationsDataProcArgs']]:
         """
         Data Proc integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "data_proc")
 
     @data_proc.setter
-    def data_proc(self, value: Optional[pulumi.Input['GcpIntegrationsDataProcArgs']]):
+    def data_proc(self, value: pulumi.Input[Optional['GcpIntegrationsDataProcArgs']]):
         pulumi.set(self, "data_proc", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStore")
-    def data_store(self) -> Optional[pulumi.Input['GcpIntegrationsDataStoreArgs']]:
+    def data_store(self) -> pulumi.Input[Optional['GcpIntegrationsDataStoreArgs']]:
         """
         Data Store integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "data_store")
 
     @data_store.setter
-    def data_store(self, value: Optional[pulumi.Input['GcpIntegrationsDataStoreArgs']]):
+    def data_store(self, value: pulumi.Input[Optional['GcpIntegrationsDataStoreArgs']]):
         pulumi.set(self, "data_store", value)
 
     @_builtins.property
     @pulumi.getter(name="fireBaseDatabase")
-    def fire_base_database(self) -> Optional[pulumi.Input['GcpIntegrationsFireBaseDatabaseArgs']]:
+    def fire_base_database(self) -> pulumi.Input[Optional['GcpIntegrationsFireBaseDatabaseArgs']]:
         """
         Fire Base Database integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "fire_base_database")
 
     @fire_base_database.setter
-    def fire_base_database(self, value: Optional[pulumi.Input['GcpIntegrationsFireBaseDatabaseArgs']]):
+    def fire_base_database(self, value: pulumi.Input[Optional['GcpIntegrationsFireBaseDatabaseArgs']]):
         pulumi.set(self, "fire_base_database", value)
 
     @_builtins.property
     @pulumi.getter(name="fireBaseHosting")
-    def fire_base_hosting(self) -> Optional[pulumi.Input['GcpIntegrationsFireBaseHostingArgs']]:
+    def fire_base_hosting(self) -> pulumi.Input[Optional['GcpIntegrationsFireBaseHostingArgs']]:
         """
         Fire Base Hosting integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "fire_base_hosting")
 
     @fire_base_hosting.setter
-    def fire_base_hosting(self, value: Optional[pulumi.Input['GcpIntegrationsFireBaseHostingArgs']]):
+    def fire_base_hosting(self, value: pulumi.Input[Optional['GcpIntegrationsFireBaseHostingArgs']]):
         pulumi.set(self, "fire_base_hosting", value)
 
     @_builtins.property
     @pulumi.getter(name="fireBaseStorage")
-    def fire_base_storage(self) -> Optional[pulumi.Input['GcpIntegrationsFireBaseStorageArgs']]:
+    def fire_base_storage(self) -> pulumi.Input[Optional['GcpIntegrationsFireBaseStorageArgs']]:
         """
         Fire Base Storage integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "fire_base_storage")
 
     @fire_base_storage.setter
-    def fire_base_storage(self, value: Optional[pulumi.Input['GcpIntegrationsFireBaseStorageArgs']]):
+    def fire_base_storage(self, value: pulumi.Input[Optional['GcpIntegrationsFireBaseStorageArgs']]):
         pulumi.set(self, "fire_base_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="fireStore")
-    def fire_store(self) -> Optional[pulumi.Input['GcpIntegrationsFireStoreArgs']]:
+    def fire_store(self) -> pulumi.Input[Optional['GcpIntegrationsFireStoreArgs']]:
         """
         Fire Store integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "fire_store")
 
     @fire_store.setter
-    def fire_store(self, value: Optional[pulumi.Input['GcpIntegrationsFireStoreArgs']]):
+    def fire_store(self, value: pulumi.Input[Optional['GcpIntegrationsFireStoreArgs']]):
         pulumi.set(self, "fire_store", value)
 
     @_builtins.property
     @pulumi.getter
-    def functions(self) -> Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']]:
+    def functions(self) -> pulumi.Input[Optional['GcpIntegrationsFunctionsArgs']]:
         """
         Functions integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "functions")
 
     @functions.setter
-    def functions(self, value: Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']]):
+    def functions(self, value: pulumi.Input[Optional['GcpIntegrationsFunctionsArgs']]):
         pulumi.set(self, "functions", value)
 
     @_builtins.property
     @pulumi.getter
-    def interconnect(self) -> Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']]:
+    def interconnect(self) -> pulumi.Input[Optional['GcpIntegrationsInterconnectArgs']]:
         """
         Interconnect integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "interconnect")
 
     @interconnect.setter
-    def interconnect(self, value: Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']]):
+    def interconnect(self, value: pulumi.Input[Optional['GcpIntegrationsInterconnectArgs']]):
         pulumi.set(self, "interconnect", value)
 
     @_builtins.property
     @pulumi.getter
-    def kubernetes(self) -> Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']]:
+    def kubernetes(self) -> pulumi.Input[Optional['GcpIntegrationsKubernetesArgs']]:
         """
         Kubernetes integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "kubernetes")
 
     @kubernetes.setter
-    def kubernetes(self, value: Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']]):
+    def kubernetes(self, value: pulumi.Input[Optional['GcpIntegrationsKubernetesArgs']]):
         pulumi.set(self, "kubernetes", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancing")
-    def load_balancing(self) -> Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']]:
+    def load_balancing(self) -> pulumi.Input[Optional['GcpIntegrationsLoadBalancingArgs']]:
         """
         Load Balancing integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "load_balancing")
 
     @load_balancing.setter
-    def load_balancing(self, value: Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']]):
+    def load_balancing(self, value: pulumi.Input[Optional['GcpIntegrationsLoadBalancingArgs']]):
         pulumi.set(self, "load_balancing", value)
 
     @_builtins.property
     @pulumi.getter(name="memCache")
-    def mem_cache(self) -> Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']]:
+    def mem_cache(self) -> pulumi.Input[Optional['GcpIntegrationsMemCacheArgs']]:
         """
         Mem cache integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "mem_cache")
 
     @mem_cache.setter
-    def mem_cache(self, value: Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']]):
+    def mem_cache(self, value: pulumi.Input[Optional['GcpIntegrationsMemCacheArgs']]):
         pulumi.set(self, "mem_cache", value)
 
     @_builtins.property
     @pulumi.getter(name="pubSub")
-    def pub_sub(self) -> Optional[pulumi.Input['GcpIntegrationsPubSubArgs']]:
+    def pub_sub(self) -> pulumi.Input[Optional['GcpIntegrationsPubSubArgs']]:
         """
         Pub/Sub integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "pub_sub")
 
     @pub_sub.setter
-    def pub_sub(self, value: Optional[pulumi.Input['GcpIntegrationsPubSubArgs']]):
+    def pub_sub(self, value: pulumi.Input[Optional['GcpIntegrationsPubSubArgs']]):
         pulumi.set(self, "pub_sub", value)
 
     @_builtins.property
     @pulumi.getter
-    def redis(self) -> Optional[pulumi.Input['GcpIntegrationsRedisArgs']]:
+    def redis(self) -> pulumi.Input[Optional['GcpIntegrationsRedisArgs']]:
         """
         Redis integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "redis")
 
     @redis.setter
-    def redis(self, value: Optional[pulumi.Input['GcpIntegrationsRedisArgs']]):
+    def redis(self, value: pulumi.Input[Optional['GcpIntegrationsRedisArgs']]):
         pulumi.set(self, "redis", value)
 
     @_builtins.property
     @pulumi.getter
-    def router(self) -> Optional[pulumi.Input['GcpIntegrationsRouterArgs']]:
+    def router(self) -> pulumi.Input[Optional['GcpIntegrationsRouterArgs']]:
         """
         Router integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "router")
 
     @router.setter
-    def router(self, value: Optional[pulumi.Input['GcpIntegrationsRouterArgs']]):
+    def router(self, value: pulumi.Input[Optional['GcpIntegrationsRouterArgs']]):
         pulumi.set(self, "router", value)
 
     @_builtins.property
     @pulumi.getter
-    def run(self) -> Optional[pulumi.Input['GcpIntegrationsRunArgs']]:
+    def run(self) -> pulumi.Input[Optional['GcpIntegrationsRunArgs']]:
         """
         Run integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "run")
 
     @run.setter
-    def run(self, value: Optional[pulumi.Input['GcpIntegrationsRunArgs']]):
+    def run(self, value: pulumi.Input[Optional['GcpIntegrationsRunArgs']]):
         pulumi.set(self, "run", value)
 
     @_builtins.property
     @pulumi.getter
-    def spanner(self) -> Optional[pulumi.Input['GcpIntegrationsSpannerArgs']]:
+    def spanner(self) -> pulumi.Input[Optional['GcpIntegrationsSpannerArgs']]:
         """
         Spanner integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "spanner")
 
     @spanner.setter
-    def spanner(self, value: Optional[pulumi.Input['GcpIntegrationsSpannerArgs']]):
+    def spanner(self, value: pulumi.Input[Optional['GcpIntegrationsSpannerArgs']]):
         pulumi.set(self, "spanner", value)
 
     @_builtins.property
     @pulumi.getter
-    def sql(self) -> Optional[pulumi.Input['GcpIntegrationsSqlArgs']]:
+    def sql(self) -> pulumi.Input[Optional['GcpIntegrationsSqlArgs']]:
         """
         SQL integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "sql")
 
     @sql.setter
-    def sql(self, value: Optional[pulumi.Input['GcpIntegrationsSqlArgs']]):
+    def sql(self, value: pulumi.Input[Optional['GcpIntegrationsSqlArgs']]):
         pulumi.set(self, "sql", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['GcpIntegrationsStorageArgs']]:
+    def storage(self) -> pulumi.Input[Optional['GcpIntegrationsStorageArgs']]:
         """
         Storage integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['GcpIntegrationsStorageArgs']]):
+    def storage(self, value: pulumi.Input[Optional['GcpIntegrationsStorageArgs']]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']]:
+    def virtual_machines(self) -> pulumi.Input[Optional['GcpIntegrationsVirtualMachinesArgs']]:
         """
         Virtual machines integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "virtual_machines")
 
     @virtual_machines.setter
-    def virtual_machines(self, value: Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']]):
+    def virtual_machines(self, value: pulumi.Input[Optional['GcpIntegrationsVirtualMachinesArgs']]):
         pulumi.set(self, "virtual_machines", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcAccess")
-    def vpc_access(self) -> Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']]:
+    def vpc_access(self) -> pulumi.Input[Optional['GcpIntegrationsVpcAccessArgs']]:
         """
         VPC Access integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "vpc_access")
 
     @vpc_access.setter
-    def vpc_access(self, value: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']]):
+    def vpc_access(self, value: pulumi.Input[Optional['GcpIntegrationsVpcAccessArgs']]):
         pulumi.set(self, "vpc_access", value)
 
 
 @pulumi.input_type
 class _GcpIntegrationsState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
-                 app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
-                 big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
-                 big_table: Optional[pulumi.Input['GcpIntegrationsBigTableArgs']] = None,
-                 composer: Optional[pulumi.Input['GcpIntegrationsComposerArgs']] = None,
-                 data_flow: Optional[pulumi.Input['GcpIntegrationsDataFlowArgs']] = None,
-                 data_proc: Optional[pulumi.Input['GcpIntegrationsDataProcArgs']] = None,
-                 data_store: Optional[pulumi.Input['GcpIntegrationsDataStoreArgs']] = None,
-                 fire_base_database: Optional[pulumi.Input['GcpIntegrationsFireBaseDatabaseArgs']] = None,
-                 fire_base_hosting: Optional[pulumi.Input['GcpIntegrationsFireBaseHostingArgs']] = None,
-                 fire_base_storage: Optional[pulumi.Input['GcpIntegrationsFireBaseStorageArgs']] = None,
-                 fire_store: Optional[pulumi.Input['GcpIntegrationsFireStoreArgs']] = None,
-                 functions: Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']] = None,
-                 interconnect: Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']] = None,
-                 kubernetes: Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']] = None,
-                 linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing: Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']] = None,
-                 mem_cache: Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']] = None,
-                 pub_sub: Optional[pulumi.Input['GcpIntegrationsPubSubArgs']] = None,
-                 redis: Optional[pulumi.Input['GcpIntegrationsRedisArgs']] = None,
-                 router: Optional[pulumi.Input['GcpIntegrationsRouterArgs']] = None,
-                 run: Optional[pulumi.Input['GcpIntegrationsRunArgs']] = None,
-                 spanner: Optional[pulumi.Input['GcpIntegrationsSpannerArgs']] = None,
-                 sql: Optional[pulumi.Input['GcpIntegrationsSqlArgs']] = None,
-                 storage: Optional[pulumi.Input['GcpIntegrationsStorageArgs']] = None,
-                 virtual_machines: Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']] = None,
-                 vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 alloy_db: pulumi.Input[Optional['GcpIntegrationsAlloyDbArgs']] = None,
+                 app_engine: pulumi.Input[Optional['GcpIntegrationsAppEngineArgs']] = None,
+                 big_query: pulumi.Input[Optional['GcpIntegrationsBigQueryArgs']] = None,
+                 big_table: pulumi.Input[Optional['GcpIntegrationsBigTableArgs']] = None,
+                 composer: pulumi.Input[Optional['GcpIntegrationsComposerArgs']] = None,
+                 data_flow: pulumi.Input[Optional['GcpIntegrationsDataFlowArgs']] = None,
+                 data_proc: pulumi.Input[Optional['GcpIntegrationsDataProcArgs']] = None,
+                 data_store: pulumi.Input[Optional['GcpIntegrationsDataStoreArgs']] = None,
+                 fire_base_database: pulumi.Input[Optional['GcpIntegrationsFireBaseDatabaseArgs']] = None,
+                 fire_base_hosting: pulumi.Input[Optional['GcpIntegrationsFireBaseHostingArgs']] = None,
+                 fire_base_storage: pulumi.Input[Optional['GcpIntegrationsFireBaseStorageArgs']] = None,
+                 fire_store: pulumi.Input[Optional['GcpIntegrationsFireStoreArgs']] = None,
+                 functions: pulumi.Input[Optional['GcpIntegrationsFunctionsArgs']] = None,
+                 interconnect: pulumi.Input[Optional['GcpIntegrationsInterconnectArgs']] = None,
+                 kubernetes: pulumi.Input[Optional['GcpIntegrationsKubernetesArgs']] = None,
+                 linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing: pulumi.Input[Optional['GcpIntegrationsLoadBalancingArgs']] = None,
+                 mem_cache: pulumi.Input[Optional['GcpIntegrationsMemCacheArgs']] = None,
+                 pub_sub: pulumi.Input[Optional['GcpIntegrationsPubSubArgs']] = None,
+                 redis: pulumi.Input[Optional['GcpIntegrationsRedisArgs']] = None,
+                 router: pulumi.Input[Optional['GcpIntegrationsRouterArgs']] = None,
+                 run: pulumi.Input[Optional['GcpIntegrationsRunArgs']] = None,
+                 spanner: pulumi.Input[Optional['GcpIntegrationsSpannerArgs']] = None,
+                 sql: pulumi.Input[Optional['GcpIntegrationsSqlArgs']] = None,
+                 storage: pulumi.Input[Optional['GcpIntegrationsStorageArgs']] = None,
+                 virtual_machines: pulumi.Input[Optional['GcpIntegrationsVirtualMachinesArgs']] = None,
+                 vpc_access: pulumi.Input[Optional['GcpIntegrationsVpcAccessArgs']] = None):
         """
         Input properties used for looking up and filtering GcpIntegrations resources.
 
@@ -602,199 +602,199 @@ class _GcpIntegrationsState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="alloyDb")
-    def alloy_db(self) -> Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']]:
+    def alloy_db(self) -> pulumi.Input[Optional['GcpIntegrationsAlloyDbArgs']]:
         """
         Alloy DB integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "alloy_db")
 
     @alloy_db.setter
-    def alloy_db(self, value: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']]):
+    def alloy_db(self, value: pulumi.Input[Optional['GcpIntegrationsAlloyDbArgs']]):
         pulumi.set(self, "alloy_db", value)
 
     @_builtins.property
     @pulumi.getter(name="appEngine")
-    def app_engine(self) -> Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']]:
+    def app_engine(self) -> pulumi.Input[Optional['GcpIntegrationsAppEngineArgs']]:
         """
         App Engine integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "app_engine")
 
     @app_engine.setter
-    def app_engine(self, value: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']]):
+    def app_engine(self, value: pulumi.Input[Optional['GcpIntegrationsAppEngineArgs']]):
         pulumi.set(self, "app_engine", value)
 
     @_builtins.property
     @pulumi.getter(name="bigQuery")
-    def big_query(self) -> Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']]:
+    def big_query(self) -> pulumi.Input[Optional['GcpIntegrationsBigQueryArgs']]:
         """
         Biq Query integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "big_query")
 
     @big_query.setter
-    def big_query(self, value: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']]):
+    def big_query(self, value: pulumi.Input[Optional['GcpIntegrationsBigQueryArgs']]):
         pulumi.set(self, "big_query", value)
 
     @_builtins.property
     @pulumi.getter(name="bigTable")
-    def big_table(self) -> Optional[pulumi.Input['GcpIntegrationsBigTableArgs']]:
+    def big_table(self) -> pulumi.Input[Optional['GcpIntegrationsBigTableArgs']]:
         """
         Big Table. See Integration blocks below for details.
         """
         return pulumi.get(self, "big_table")
 
     @big_table.setter
-    def big_table(self, value: Optional[pulumi.Input['GcpIntegrationsBigTableArgs']]):
+    def big_table(self, value: pulumi.Input[Optional['GcpIntegrationsBigTableArgs']]):
         pulumi.set(self, "big_table", value)
 
     @_builtins.property
     @pulumi.getter
-    def composer(self) -> Optional[pulumi.Input['GcpIntegrationsComposerArgs']]:
+    def composer(self) -> pulumi.Input[Optional['GcpIntegrationsComposerArgs']]:
         """
         Composer integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "composer")
 
     @composer.setter
-    def composer(self, value: Optional[pulumi.Input['GcpIntegrationsComposerArgs']]):
+    def composer(self, value: pulumi.Input[Optional['GcpIntegrationsComposerArgs']]):
         pulumi.set(self, "composer", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFlow")
-    def data_flow(self) -> Optional[pulumi.Input['GcpIntegrationsDataFlowArgs']]:
+    def data_flow(self) -> pulumi.Input[Optional['GcpIntegrationsDataFlowArgs']]:
         """
         Data Flow integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "data_flow")
 
     @data_flow.setter
-    def data_flow(self, value: Optional[pulumi.Input['GcpIntegrationsDataFlowArgs']]):
+    def data_flow(self, value: pulumi.Input[Optional['GcpIntegrationsDataFlowArgs']]):
         pulumi.set(self, "data_flow", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProc")
-    def data_proc(self) -> Optional[pulumi.Input['GcpIntegrationsDataProcArgs']]:
+    def data_proc(self) -> pulumi.Input[Optional['GcpIntegrationsDataProcArgs']]:
         """
         Data Proc integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "data_proc")
 
     @data_proc.setter
-    def data_proc(self, value: Optional[pulumi.Input['GcpIntegrationsDataProcArgs']]):
+    def data_proc(self, value: pulumi.Input[Optional['GcpIntegrationsDataProcArgs']]):
         pulumi.set(self, "data_proc", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStore")
-    def data_store(self) -> Optional[pulumi.Input['GcpIntegrationsDataStoreArgs']]:
+    def data_store(self) -> pulumi.Input[Optional['GcpIntegrationsDataStoreArgs']]:
         """
         Data Store integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "data_store")
 
     @data_store.setter
-    def data_store(self, value: Optional[pulumi.Input['GcpIntegrationsDataStoreArgs']]):
+    def data_store(self, value: pulumi.Input[Optional['GcpIntegrationsDataStoreArgs']]):
         pulumi.set(self, "data_store", value)
 
     @_builtins.property
     @pulumi.getter(name="fireBaseDatabase")
-    def fire_base_database(self) -> Optional[pulumi.Input['GcpIntegrationsFireBaseDatabaseArgs']]:
+    def fire_base_database(self) -> pulumi.Input[Optional['GcpIntegrationsFireBaseDatabaseArgs']]:
         """
         Fire Base Database integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "fire_base_database")
 
     @fire_base_database.setter
-    def fire_base_database(self, value: Optional[pulumi.Input['GcpIntegrationsFireBaseDatabaseArgs']]):
+    def fire_base_database(self, value: pulumi.Input[Optional['GcpIntegrationsFireBaseDatabaseArgs']]):
         pulumi.set(self, "fire_base_database", value)
 
     @_builtins.property
     @pulumi.getter(name="fireBaseHosting")
-    def fire_base_hosting(self) -> Optional[pulumi.Input['GcpIntegrationsFireBaseHostingArgs']]:
+    def fire_base_hosting(self) -> pulumi.Input[Optional['GcpIntegrationsFireBaseHostingArgs']]:
         """
         Fire Base Hosting integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "fire_base_hosting")
 
     @fire_base_hosting.setter
-    def fire_base_hosting(self, value: Optional[pulumi.Input['GcpIntegrationsFireBaseHostingArgs']]):
+    def fire_base_hosting(self, value: pulumi.Input[Optional['GcpIntegrationsFireBaseHostingArgs']]):
         pulumi.set(self, "fire_base_hosting", value)
 
     @_builtins.property
     @pulumi.getter(name="fireBaseStorage")
-    def fire_base_storage(self) -> Optional[pulumi.Input['GcpIntegrationsFireBaseStorageArgs']]:
+    def fire_base_storage(self) -> pulumi.Input[Optional['GcpIntegrationsFireBaseStorageArgs']]:
         """
         Fire Base Storage integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "fire_base_storage")
 
     @fire_base_storage.setter
-    def fire_base_storage(self, value: Optional[pulumi.Input['GcpIntegrationsFireBaseStorageArgs']]):
+    def fire_base_storage(self, value: pulumi.Input[Optional['GcpIntegrationsFireBaseStorageArgs']]):
         pulumi.set(self, "fire_base_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="fireStore")
-    def fire_store(self) -> Optional[pulumi.Input['GcpIntegrationsFireStoreArgs']]:
+    def fire_store(self) -> pulumi.Input[Optional['GcpIntegrationsFireStoreArgs']]:
         """
         Fire Store integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "fire_store")
 
     @fire_store.setter
-    def fire_store(self, value: Optional[pulumi.Input['GcpIntegrationsFireStoreArgs']]):
+    def fire_store(self, value: pulumi.Input[Optional['GcpIntegrationsFireStoreArgs']]):
         pulumi.set(self, "fire_store", value)
 
     @_builtins.property
     @pulumi.getter
-    def functions(self) -> Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']]:
+    def functions(self) -> pulumi.Input[Optional['GcpIntegrationsFunctionsArgs']]:
         """
         Functions integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "functions")
 
     @functions.setter
-    def functions(self, value: Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']]):
+    def functions(self, value: pulumi.Input[Optional['GcpIntegrationsFunctionsArgs']]):
         pulumi.set(self, "functions", value)
 
     @_builtins.property
     @pulumi.getter
-    def interconnect(self) -> Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']]:
+    def interconnect(self) -> pulumi.Input[Optional['GcpIntegrationsInterconnectArgs']]:
         """
         Interconnect integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "interconnect")
 
     @interconnect.setter
-    def interconnect(self, value: Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']]):
+    def interconnect(self, value: pulumi.Input[Optional['GcpIntegrationsInterconnectArgs']]):
         pulumi.set(self, "interconnect", value)
 
     @_builtins.property
     @pulumi.getter
-    def kubernetes(self) -> Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']]:
+    def kubernetes(self) -> pulumi.Input[Optional['GcpIntegrationsKubernetesArgs']]:
         """
         Kubernetes integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "kubernetes")
 
     @kubernetes.setter
-    def kubernetes(self, value: Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']]):
+    def kubernetes(self, value: pulumi.Input[Optional['GcpIntegrationsKubernetesArgs']]):
         pulumi.set(self, "kubernetes", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the linked GCP account in New Relic.
 
@@ -803,139 +803,139 @@ class _GcpIntegrationsState:
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancing")
-    def load_balancing(self) -> Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']]:
+    def load_balancing(self) -> pulumi.Input[Optional['GcpIntegrationsLoadBalancingArgs']]:
         """
         Load Balancing integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "load_balancing")
 
     @load_balancing.setter
-    def load_balancing(self, value: Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']]):
+    def load_balancing(self, value: pulumi.Input[Optional['GcpIntegrationsLoadBalancingArgs']]):
         pulumi.set(self, "load_balancing", value)
 
     @_builtins.property
     @pulumi.getter(name="memCache")
-    def mem_cache(self) -> Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']]:
+    def mem_cache(self) -> pulumi.Input[Optional['GcpIntegrationsMemCacheArgs']]:
         """
         Mem cache integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "mem_cache")
 
     @mem_cache.setter
-    def mem_cache(self, value: Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']]):
+    def mem_cache(self, value: pulumi.Input[Optional['GcpIntegrationsMemCacheArgs']]):
         pulumi.set(self, "mem_cache", value)
 
     @_builtins.property
     @pulumi.getter(name="pubSub")
-    def pub_sub(self) -> Optional[pulumi.Input['GcpIntegrationsPubSubArgs']]:
+    def pub_sub(self) -> pulumi.Input[Optional['GcpIntegrationsPubSubArgs']]:
         """
         Pub/Sub integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "pub_sub")
 
     @pub_sub.setter
-    def pub_sub(self, value: Optional[pulumi.Input['GcpIntegrationsPubSubArgs']]):
+    def pub_sub(self, value: pulumi.Input[Optional['GcpIntegrationsPubSubArgs']]):
         pulumi.set(self, "pub_sub", value)
 
     @_builtins.property
     @pulumi.getter
-    def redis(self) -> Optional[pulumi.Input['GcpIntegrationsRedisArgs']]:
+    def redis(self) -> pulumi.Input[Optional['GcpIntegrationsRedisArgs']]:
         """
         Redis integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "redis")
 
     @redis.setter
-    def redis(self, value: Optional[pulumi.Input['GcpIntegrationsRedisArgs']]):
+    def redis(self, value: pulumi.Input[Optional['GcpIntegrationsRedisArgs']]):
         pulumi.set(self, "redis", value)
 
     @_builtins.property
     @pulumi.getter
-    def router(self) -> Optional[pulumi.Input['GcpIntegrationsRouterArgs']]:
+    def router(self) -> pulumi.Input[Optional['GcpIntegrationsRouterArgs']]:
         """
         Router integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "router")
 
     @router.setter
-    def router(self, value: Optional[pulumi.Input['GcpIntegrationsRouterArgs']]):
+    def router(self, value: pulumi.Input[Optional['GcpIntegrationsRouterArgs']]):
         pulumi.set(self, "router", value)
 
     @_builtins.property
     @pulumi.getter
-    def run(self) -> Optional[pulumi.Input['GcpIntegrationsRunArgs']]:
+    def run(self) -> pulumi.Input[Optional['GcpIntegrationsRunArgs']]:
         """
         Run integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "run")
 
     @run.setter
-    def run(self, value: Optional[pulumi.Input['GcpIntegrationsRunArgs']]):
+    def run(self, value: pulumi.Input[Optional['GcpIntegrationsRunArgs']]):
         pulumi.set(self, "run", value)
 
     @_builtins.property
     @pulumi.getter
-    def spanner(self) -> Optional[pulumi.Input['GcpIntegrationsSpannerArgs']]:
+    def spanner(self) -> pulumi.Input[Optional['GcpIntegrationsSpannerArgs']]:
         """
         Spanner integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "spanner")
 
     @spanner.setter
-    def spanner(self, value: Optional[pulumi.Input['GcpIntegrationsSpannerArgs']]):
+    def spanner(self, value: pulumi.Input[Optional['GcpIntegrationsSpannerArgs']]):
         pulumi.set(self, "spanner", value)
 
     @_builtins.property
     @pulumi.getter
-    def sql(self) -> Optional[pulumi.Input['GcpIntegrationsSqlArgs']]:
+    def sql(self) -> pulumi.Input[Optional['GcpIntegrationsSqlArgs']]:
         """
         SQL integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "sql")
 
     @sql.setter
-    def sql(self, value: Optional[pulumi.Input['GcpIntegrationsSqlArgs']]):
+    def sql(self, value: pulumi.Input[Optional['GcpIntegrationsSqlArgs']]):
         pulumi.set(self, "sql", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['GcpIntegrationsStorageArgs']]:
+    def storage(self) -> pulumi.Input[Optional['GcpIntegrationsStorageArgs']]:
         """
         Storage integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['GcpIntegrationsStorageArgs']]):
+    def storage(self, value: pulumi.Input[Optional['GcpIntegrationsStorageArgs']]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']]:
+    def virtual_machines(self) -> pulumi.Input[Optional['GcpIntegrationsVirtualMachinesArgs']]:
         """
         Virtual machines integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "virtual_machines")
 
     @virtual_machines.setter
-    def virtual_machines(self, value: Optional[pulumi.Input['GcpIntegrationsVirtualMachinesArgs']]):
+    def virtual_machines(self, value: pulumi.Input[Optional['GcpIntegrationsVirtualMachinesArgs']]):
         pulumi.set(self, "virtual_machines", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcAccess")
-    def vpc_access(self) -> Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']]:
+    def vpc_access(self) -> pulumi.Input[Optional['GcpIntegrationsVpcAccessArgs']]:
         """
         VPC Access integration. See Integration blocks below for details.
         """
         return pulumi.get(self, "vpc_access")
 
     @vpc_access.setter
-    def vpc_access(self, value: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']]):
+    def vpc_access(self, value: pulumi.Input[Optional['GcpIntegrationsVpcAccessArgs']]):
         pulumi.set(self, "vpc_access", value)
 
 
@@ -945,34 +945,34 @@ class GcpIntegrations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 alloy_db: Optional[pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
-                 app_engine: Optional[pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
-                 big_query: Optional[pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
-                 big_table: Optional[pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
-                 composer: Optional[pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
-                 data_flow: Optional[pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
-                 data_proc: Optional[pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
-                 data_store: Optional[pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
-                 fire_base_database: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
-                 fire_base_hosting: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
-                 fire_base_storage: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
-                 fire_store: Optional[pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
-                 functions: Optional[pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
-                 interconnect: Optional[pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
-                 kubernetes: Optional[pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
-                 linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing: Optional[pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
-                 mem_cache: Optional[pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
-                 pub_sub: Optional[pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
-                 redis: Optional[pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
-                 router: Optional[pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
-                 run: Optional[pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
-                 spanner: Optional[pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
-                 sql: Optional[pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
-                 storage: Optional[pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
-                 virtual_machines: Optional[pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
-                 vpc_access: Optional[pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
+                 app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
+                 big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
+                 big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
+                 composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
+                 data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
+                 data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
+                 data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
+                 fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
+                 fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
+                 fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
+                 fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
+                 functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
+                 interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
+                 kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
+                 linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
+                 mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
+                 pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
+                 redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
+                 router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
+                 run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
+                 spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
+                 sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
+                 virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
+                 vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to integrate GCP services with New Relic.
@@ -1252,34 +1252,34 @@ class GcpIntegrations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 alloy_db: Optional[pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
-                 app_engine: Optional[pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
-                 big_query: Optional[pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
-                 big_table: Optional[pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
-                 composer: Optional[pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
-                 data_flow: Optional[pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
-                 data_proc: Optional[pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
-                 data_store: Optional[pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
-                 fire_base_database: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
-                 fire_base_hosting: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
-                 fire_base_storage: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
-                 fire_store: Optional[pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
-                 functions: Optional[pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
-                 interconnect: Optional[pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
-                 kubernetes: Optional[pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
-                 linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing: Optional[pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
-                 mem_cache: Optional[pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
-                 pub_sub: Optional[pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
-                 redis: Optional[pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
-                 router: Optional[pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
-                 run: Optional[pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
-                 spanner: Optional[pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
-                 sql: Optional[pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
-                 storage: Optional[pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
-                 virtual_machines: Optional[pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
-                 vpc_access: Optional[pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
+                 app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
+                 big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
+                 big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
+                 composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
+                 data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
+                 data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
+                 data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
+                 fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
+                 fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
+                 fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
+                 fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
+                 functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
+                 interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
+                 kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
+                 linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
+                 mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
+                 pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
+                 redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
+                 router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
+                 run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
+                 spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
+                 sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
+                 virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
+                 vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1329,34 +1329,34 @@ class GcpIntegrations(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            alloy_db: Optional[pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
-            app_engine: Optional[pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
-            big_query: Optional[pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
-            big_table: Optional[pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
-            composer: Optional[pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
-            data_flow: Optional[pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
-            data_proc: Optional[pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
-            data_store: Optional[pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
-            fire_base_database: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
-            fire_base_hosting: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
-            fire_base_storage: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
-            fire_store: Optional[pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
-            functions: Optional[pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
-            interconnect: Optional[pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
-            kubernetes: Optional[pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
-            linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            load_balancing: Optional[pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
-            mem_cache: Optional[pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
-            pub_sub: Optional[pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
-            redis: Optional[pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
-            router: Optional[pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
-            run: Optional[pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
-            spanner: Optional[pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
-            sql: Optional[pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
-            storage: Optional[pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
-            virtual_machines: Optional[pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
-            vpc_access: Optional[pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None) -> 'GcpIntegrations':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
+            app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
+            big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
+            big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
+            composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
+            data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
+            data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
+            data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
+            fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
+            fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
+            fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
+            fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
+            functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
+            interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
+            kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
+            linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
+            mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
+            pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
+            redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
+            router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
+            run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
+            spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
+            sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
+            storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
+            virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
+            vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None) -> 'GcpIntegrations':
         """
         Get an existing GcpIntegrations resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

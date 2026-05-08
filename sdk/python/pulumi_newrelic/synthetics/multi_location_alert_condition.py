@@ -24,11 +24,11 @@ class MultiLocationAlertConditionArgs:
                  critical: pulumi.Input['MultiLocationAlertConditionCriticalArgs'],
                  entities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  policy_id: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 warning: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 warning: pulumi.Input[Optional['MultiLocationAlertConditionWarningArgs']] = None):
         """
         The set of arguments for constructing a MultiLocationAlertCondition resource.
 
@@ -96,55 +96,55 @@ class MultiLocationAlertConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set whether to enable the alert condition.  Defaults to true.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
     @_builtins.property
     @pulumi.getter(name="violationTimeLimitSeconds")
-    def violation_time_limit_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def violation_time_limit_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 
     @violation_time_limit_seconds.setter
-    def violation_time_limit_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def violation_time_limit_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "violation_time_limit_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def warning(self) -> Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']]:
+    def warning(self) -> pulumi.Input[Optional['MultiLocationAlertConditionWarningArgs']]:
         """
         A condition term with the priority set to warning.
 
@@ -154,22 +154,22 @@ class MultiLocationAlertConditionArgs:
         return pulumi.get(self, "warning")
 
     @warning.setter
-    def warning(self, value: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']]):
+    def warning(self, value: pulumi.Input[Optional['MultiLocationAlertConditionWarningArgs']]):
         pulumi.set(self, "warning", value)
 
 
 @pulumi.input_type
 class _MultiLocationAlertConditionState:
     def __init__(__self__, *,
-                 critical: Optional[pulumi.Input['MultiLocationAlertConditionCriticalArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 warning: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']] = None):
+                 critical: pulumi.Input[Optional['MultiLocationAlertConditionCriticalArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 warning: pulumi.Input[Optional['MultiLocationAlertConditionWarningArgs']] = None):
         """
         Input properties used for looking up and filtering MultiLocationAlertCondition resources.
 
@@ -207,103 +207,103 @@ class _MultiLocationAlertConditionState:
 
     @_builtins.property
     @pulumi.getter
-    def critical(self) -> Optional[pulumi.Input['MultiLocationAlertConditionCriticalArgs']]:
+    def critical(self) -> pulumi.Input[Optional['MultiLocationAlertConditionCriticalArgs']]:
         """
         A condition term with the priority set to critical.
         """
         return pulumi.get(self, "critical")
 
     @critical.setter
-    def critical(self, value: Optional[pulumi.Input['MultiLocationAlertConditionCriticalArgs']]):
+    def critical(self, value: pulumi.Input[Optional['MultiLocationAlertConditionCriticalArgs']]):
         pulumi.set(self, "critical", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set whether to enable the alert condition.  Defaults to true.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def entities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Monitor GUID's of the Synthetics monitors to alert on.
         """
         return pulumi.get(self, "entities")
 
     @entities.setter
-    def entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def entities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "entities", value)
 
     @_builtins.property
     @pulumi.getter(name="entityGuid")
-    def entity_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the condition in New Relic.
         """
         return pulumi.get(self, "entity_guid")
 
     @entity_guid.setter
-    def entity_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_guid", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the policy where this condition will be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
     @_builtins.property
     @pulumi.getter(name="violationTimeLimitSeconds")
-    def violation_time_limit_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def violation_time_limit_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 
     @violation_time_limit_seconds.setter
-    def violation_time_limit_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def violation_time_limit_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "violation_time_limit_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def warning(self) -> Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']]:
+    def warning(self) -> pulumi.Input[Optional['MultiLocationAlertConditionWarningArgs']]:
         """
         A condition term with the priority set to warning.
 
@@ -313,7 +313,7 @@ class _MultiLocationAlertConditionState:
         return pulumi.get(self, "warning")
 
     @warning.setter
-    def warning(self, value: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']]):
+    def warning(self, value: pulumi.Input[Optional['MultiLocationAlertConditionWarningArgs']]):
         pulumi.set(self, "warning", value)
 
 
@@ -323,14 +323,14 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 critical: Optional[pulumi.Input[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 warning: Optional[pulumi.Input[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']]] = None,
+                 critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
@@ -569,14 +569,14 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 critical: Optional[pulumi.Input[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 warning: Optional[pulumi.Input[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']]] = None,
+                 critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -611,15 +611,15 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            critical: Optional[pulumi.Input[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-            violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            warning: Optional[pulumi.Input[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']]] = None) -> 'MultiLocationAlertCondition':
+            critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+            violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']]] = None) -> 'MultiLocationAlertCondition':
         """
         Get an existing MultiLocationAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

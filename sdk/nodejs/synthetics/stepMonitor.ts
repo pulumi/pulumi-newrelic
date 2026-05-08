@@ -278,51 +278,51 @@ export interface StepMonitorState {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
      */
-    browsers?: pulumi.Input<pulumi.Input<string>[]>;
+    browsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      */
-    devices?: pulumi.Input<pulumi.Input<string>[]>;
+    devices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Capture a screenshot during job execution.
      */
-    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
+    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean | undefined>;
     /**
      * The unique entity identifier of the monitor in New Relic.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
      */
-    locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorLocationPrivate>[]>;
+    locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorLocationPrivate>[] | undefined>;
     /**
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
-    locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
+    locationsPublics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The monitor id of the synthetics step monitor (not to be confused with the GUID of the monitor).
      */
-    monitorId?: pulumi.Input<string>;
+    monitorId?: pulumi.Input<string | undefined>;
     /**
      * The name for the monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
-    period?: pulumi.Input<string>;
+    period?: pulumi.Input<string | undefined>;
     /**
      * The interval in minutes at which Synthetic monitor should run.
      */
-    periodInMinutes?: pulumi.Input<number>;
+    periodInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      */
-    runtimeType?: pulumi.Input<string>;
+    runtimeType?: pulumi.Input<string | undefined>;
     /**
      * The specific version of the runtime type selected (`100`).
      *
@@ -334,23 +334,23 @@ export interface StepMonitorState {
      * <br><br>
      * You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
      */
-    runtimeTypeVersion?: pulumi.Input<string>;
+    runtimeTypeVersion?: pulumi.Input<string | undefined>;
     /**
      * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The steps that make up the script the monitor will run. See Nested steps blocks below for details.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorStep>[] | undefined>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorTag>[] | undefined>;
     /**
      * A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
      */
-    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -360,31 +360,31 @@ export interface StepMonitorArgs {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
      */
-    browsers?: pulumi.Input<pulumi.Input<string>[]>;
+    browsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      */
-    devices?: pulumi.Input<pulumi.Input<string>[]>;
+    devices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Capture a screenshot during job execution.
      */
-    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
+    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean | undefined>;
     /**
      * The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
      */
-    locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorLocationPrivate>[]>;
+    locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorLocationPrivate>[] | undefined>;
     /**
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
-    locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
+    locationsPublics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name for the monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
@@ -392,7 +392,7 @@ export interface StepMonitorArgs {
     /**
      * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      */
-    runtimeType?: pulumi.Input<string>;
+    runtimeType?: pulumi.Input<string | undefined>;
     /**
      * The specific version of the runtime type selected (`100`).
      *
@@ -404,7 +404,7 @@ export interface StepMonitorArgs {
      * <br><br>
      * You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
      */
-    runtimeTypeVersion?: pulumi.Input<string>;
+    runtimeTypeVersion?: pulumi.Input<string | undefined>;
     /**
      * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
@@ -416,9 +416,9 @@ export interface StepMonitorArgs {
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorTag>[] | undefined>;
     /**
      * A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
      */
-    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean | undefined>;
 }

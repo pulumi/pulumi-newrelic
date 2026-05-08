@@ -280,12 +280,12 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
         secure_urls=pulumi.get(__ret__, 'secure_urls'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_notification_destination_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        exact_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        scope: Optional[pulumi.Input[Optional[Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict']]]] = None,
-                                        secure_urls: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]]]] = None,
+def get_notification_destination_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        exact_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        scope: pulumi.Input[Optional[Optional[Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict']]]] = None,
+                                        secure_urls: pulumi.Input[Optional[Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationDestinationResult]:
     """
     Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.

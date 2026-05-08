@@ -22,10 +22,10 @@ __all__ = ['OneDashboardRawArgs', 'OneDashboardRaw']
 class OneDashboardRawArgs:
     def __init__(__self__, *,
                  pages: pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageArgs']]],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OneDashboardRaw resource.
 
@@ -59,63 +59,63 @@ class OneDashboardRawArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brief text describing the dashboard.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the dashboard.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`. Defaults to `public_read_only`.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permissions", value)
 
 
 @pulumi.input_type
 class _OneDashboardRawState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageArgs']]]] = None,
-                 permalink: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardRawPageArgs']]]] = None,
+                 permalink: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OneDashboardRaw resources.
 
@@ -144,86 +144,86 @@ class _OneDashboardRawState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brief text describing the dashboard.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the dashboard page in New Relic.
         """
         return pulumi.get(self, "guid")
 
     @guid.setter
-    def guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guid", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the dashboard.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageArgs']]]]:
+    def pages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardRawPageArgs']]]]:
         """
         A nested block that describes a page. See Nested page blocks below for details.
         """
         return pulumi.get(self, "pages")
 
     @pages.setter
-    def pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageArgs']]]]):
+    def pages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardRawPageArgs']]]]):
         pulumi.set(self, "pages", value)
 
     @_builtins.property
     @pulumi.getter
-    def permalink(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permalink(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for viewing the dashboard.
         """
         return pulumi.get(self, "permalink")
 
     @permalink.setter
-    def permalink(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permalink(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permalink", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`. Defaults to `public_read_only`.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permissions", value)
 
 
@@ -233,11 +233,11 @@ class OneDashboardRaw(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
@@ -432,11 +432,11 @@ class OneDashboardRaw(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -465,13 +465,13 @@ class OneDashboardRaw(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            guid: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]]] = None,
-            permalink: Optional[pulumi.Input[_builtins.str]] = None,
-            permissions: Optional[pulumi.Input[_builtins.str]] = None) -> 'OneDashboardRaw':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]]] = None,
+            permalink: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[_builtins.str]] = None) -> 'OneDashboardRaw':
         """
         Get an existing OneDashboardRaw resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

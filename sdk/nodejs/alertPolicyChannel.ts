@@ -142,15 +142,15 @@ export interface AlertPolicyChannelState {
     /**
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
      */
-    channelIds?: pulumi.Input<pulumi.Input<string>[]>;
+    channelIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the policy.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -160,7 +160,7 @@ export interface AlertPolicyChannelArgs {
     /**
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
      */

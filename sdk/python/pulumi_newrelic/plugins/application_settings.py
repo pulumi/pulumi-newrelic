@@ -21,17 +21,17 @@ __all__ = ['ApplicationSettingsArgs', 'ApplicationSettings']
 @pulumi.input_type
 class ApplicationSettingsArgs:
     def __init__(__self__, *,
-                 app_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 enable_real_user_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_slow_sql: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_thread_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_user_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]] = None,
-                 use_server_side_config: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 enable_real_user_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_slow_sql: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_thread_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_user_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]] = None,
+                 use_server_side_config: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ApplicationSettings resource.
 
@@ -76,79 +76,79 @@ class ApplicationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="appApdexThreshold")
-    def app_apdex_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def app_apdex_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The acceptable response time limit (Apdex threshold) for the application.
         """
         return pulumi.get(self, "app_apdex_threshold")
 
     @app_apdex_threshold.setter
-    def app_apdex_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def app_apdex_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "app_apdex_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="enableRealUserMonitoring")
-    def enable_real_user_monitoring(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_real_user_monitoring(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Dummy field to support backward compatibility of previous version.should be removed with next major version.
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 
     @enable_real_user_monitoring.setter
-    def enable_real_user_monitoring(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_real_user_monitoring(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_real_user_monitoring", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSlowSql")
-    def enable_slow_sql(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_slow_sql(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the collection of slowest database queries in your traces.
         """
         return pulumi.get(self, "enable_slow_sql")
 
     @enable_slow_sql.setter
-    def enable_slow_sql(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_slow_sql(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_slow_sql", value)
 
     @_builtins.property
     @pulumi.getter(name="enableThreadProfiler")
-    def enable_thread_profiler(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_thread_profiler(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the collection of thread profiling data.
         """
         return pulumi.get(self, "enable_thread_profiler")
 
     @enable_thread_profiler.setter
-    def enable_thread_profiler(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_thread_profiler(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_thread_profiler", value)
 
     @_builtins.property
     @pulumi.getter(name="endUserApdexThreshold")
-    def end_user_apdex_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def end_user_apdex_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Dummy field to support backward compatibility of previous version.should be removed with next major version.
         """
         return pulumi.get(self, "end_user_apdex_threshold")
 
     @end_user_apdex_threshold.setter
-    def end_user_apdex_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def end_user_apdex_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "end_user_apdex_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="errorCollectors")
-    def error_collectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]:
+    def error_collectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]:
         """
         Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
         """
         return pulumi.get(self, "error_collectors")
 
     @error_collectors.setter
-    def error_collectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]):
+    def error_collectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]):
         pulumi.set(self, "error_collectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the application in New Relic APM.
 
@@ -157,12 +157,12 @@ class ApplicationSettingsArgs:
         return pulumi.get(self, "guid")
 
     @guid.setter
-    def guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guid", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom name or alias you can give the application in New Relic APM.
 
@@ -171,61 +171,61 @@ class ApplicationSettingsArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tracerType")
-    def tracer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         """
         return pulumi.get(self, "tracer_type")
 
     @tracer_type.setter
-    def tracer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracer_type", value)
 
     @_builtins.property
     @pulumi.getter(name="transactionTracers")
-    def transaction_tracers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]:
+    def transaction_tracers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]:
         """
         Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         """
         return pulumi.get(self, "transaction_tracers")
 
     @transaction_tracers.setter
-    def transaction_tracers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]):
+    def transaction_tracers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]):
         pulumi.set(self, "transaction_tracers", value)
 
     @_builtins.property
     @pulumi.getter(name="useServerSideConfig")
-    def use_server_side_config(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_server_side_config(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable server side monitoring for the New Relic application.
         """
         return pulumi.get(self, "use_server_side_config")
 
     @use_server_side_config.setter
-    def use_server_side_config(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_server_side_config(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_server_side_config", value)
 
 
 @pulumi.input_type
 class _ApplicationSettingsState:
     def __init__(__self__, *,
-                 app_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 enable_real_user_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_slow_sql: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_thread_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_user_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_imported: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]] = None,
-                 use_server_side_config: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 enable_real_user_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_slow_sql: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_thread_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_user_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_imported: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]] = None,
+                 use_server_side_config: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ApplicationSettings resources.
 
@@ -272,79 +272,79 @@ class _ApplicationSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="appApdexThreshold")
-    def app_apdex_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def app_apdex_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The acceptable response time limit (Apdex threshold) for the application.
         """
         return pulumi.get(self, "app_apdex_threshold")
 
     @app_apdex_threshold.setter
-    def app_apdex_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def app_apdex_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "app_apdex_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="enableRealUserMonitoring")
-    def enable_real_user_monitoring(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_real_user_monitoring(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Dummy field to support backward compatibility of previous version.should be removed with next major version.
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 
     @enable_real_user_monitoring.setter
-    def enable_real_user_monitoring(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_real_user_monitoring(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_real_user_monitoring", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSlowSql")
-    def enable_slow_sql(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_slow_sql(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the collection of slowest database queries in your traces.
         """
         return pulumi.get(self, "enable_slow_sql")
 
     @enable_slow_sql.setter
-    def enable_slow_sql(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_slow_sql(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_slow_sql", value)
 
     @_builtins.property
     @pulumi.getter(name="enableThreadProfiler")
-    def enable_thread_profiler(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_thread_profiler(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the collection of thread profiling data.
         """
         return pulumi.get(self, "enable_thread_profiler")
 
     @enable_thread_profiler.setter
-    def enable_thread_profiler(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_thread_profiler(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_thread_profiler", value)
 
     @_builtins.property
     @pulumi.getter(name="endUserApdexThreshold")
-    def end_user_apdex_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def end_user_apdex_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Dummy field to support backward compatibility of previous version.should be removed with next major version.
         """
         return pulumi.get(self, "end_user_apdex_threshold")
 
     @end_user_apdex_threshold.setter
-    def end_user_apdex_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def end_user_apdex_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "end_user_apdex_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="errorCollectors")
-    def error_collectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]:
+    def error_collectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]:
         """
         Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
         """
         return pulumi.get(self, "error_collectors")
 
     @error_collectors.setter
-    def error_collectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]):
+    def error_collectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]):
         pulumi.set(self, "error_collectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the application in New Relic APM.
 
@@ -353,21 +353,21 @@ class _ApplicationSettingsState:
         return pulumi.get(self, "guid")
 
     @guid.setter
-    def guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guid", value)
 
     @_builtins.property
     @pulumi.getter(name="isImported")
-    def is_imported(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_imported(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "is_imported")
 
     @is_imported.setter
-    def is_imported(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_imported(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_imported", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom name or alias you can give the application in New Relic APM.
 
@@ -376,43 +376,43 @@ class _ApplicationSettingsState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tracerType")
-    def tracer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         """
         return pulumi.get(self, "tracer_type")
 
     @tracer_type.setter
-    def tracer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracer_type", value)
 
     @_builtins.property
     @pulumi.getter(name="transactionTracers")
-    def transaction_tracers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]:
+    def transaction_tracers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]:
         """
         Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         """
         return pulumi.get(self, "transaction_tracers")
 
     @transaction_tracers.setter
-    def transaction_tracers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]):
+    def transaction_tracers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]):
         pulumi.set(self, "transaction_tracers", value)
 
     @_builtins.property
     @pulumi.getter(name="useServerSideConfig")
-    def use_server_side_config(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_server_side_config(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable server side monitoring for the New Relic application.
         """
         return pulumi.get(self, "use_server_side_config")
 
     @use_server_side_config.setter
-    def use_server_side_config(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_server_side_config(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_server_side_config", value)
 
 
@@ -422,17 +422,17 @@ class ApplicationSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 enable_real_user_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_slow_sql: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_thread_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_user_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
-                 use_server_side_config: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 enable_real_user_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_slow_sql: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_thread_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_user_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
+                 use_server_side_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         > **NOTE:** Applications are not created by this resource, but are created by a reporting agent.
@@ -579,17 +579,17 @@ class ApplicationSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 enable_real_user_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_slow_sql: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_thread_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_user_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
-                 use_server_side_config: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 enable_real_user_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_slow_sql: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_thread_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_user_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
+                 use_server_side_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -621,18 +621,18 @@ class ApplicationSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-            enable_real_user_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_slow_sql: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_thread_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-            end_user_apdex_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-            error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
-            guid: Optional[pulumi.Input[_builtins.str]] = None,
-            is_imported: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tracer_type: Optional[pulumi.Input[_builtins.str]] = None,
-            transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
-            use_server_side_config: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ApplicationSettings':
+            app_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            enable_real_user_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_slow_sql: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_thread_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_user_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            is_imported: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tracer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
+            use_server_side_config: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ApplicationSettings':
         """
         Get an existing ApplicationSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -462,152 +462,152 @@ export interface AzureIntegrationsState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
-    apiManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsApiManagement>;
+    apiManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsApiManagement | undefined>;
     /**
      * Azure App Gateway. See Integration blocks below for details.
      */
-    appGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsAppGateway>;
+    appGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsAppGateway | undefined>;
     /**
      * Azure App Service. See Integration blocks below for details.
      */
-    appService?: pulumi.Input<inputs.cloud.AzureIntegrationsAppService>;
+    appService?: pulumi.Input<inputs.cloud.AzureIntegrationsAppService | undefined>;
     /**
      * Azure Auto Discovery
      */
-    autoDiscovery?: pulumi.Input<inputs.cloud.AzureIntegrationsAutoDiscovery>;
+    autoDiscovery?: pulumi.Input<inputs.cloud.AzureIntegrationsAutoDiscovery | undefined>;
     /**
      * Azure Containers. See Integration blocks below for details.
      */
-    containers?: pulumi.Input<inputs.cloud.AzureIntegrationsContainers>;
+    containers?: pulumi.Input<inputs.cloud.AzureIntegrationsContainers | undefined>;
     /**
      * Azure CosmosDB. See Integration blocks below for details.
      */
-    cosmosDb?: pulumi.Input<inputs.cloud.AzureIntegrationsCosmosDb>;
+    cosmosDb?: pulumi.Input<inputs.cloud.AzureIntegrationsCosmosDb | undefined>;
     /**
      * Azure Cost Management. See Integration blocks below for details.
      */
-    costManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsCostManagement>;
+    costManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsCostManagement | undefined>;
     /**
      * Azure Data Factory. See Integration blocks below for details.
      */
-    dataFactory?: pulumi.Input<inputs.cloud.AzureIntegrationsDataFactory>;
+    dataFactory?: pulumi.Input<inputs.cloud.AzureIntegrationsDataFactory | undefined>;
     /**
      * Azure Event Hub. See Integration blocks below for details.
      */
-    eventHub?: pulumi.Input<inputs.cloud.AzureIntegrationsEventHub>;
+    eventHub?: pulumi.Input<inputs.cloud.AzureIntegrationsEventHub | undefined>;
     /**
      * Azure Express Route. See Integration blocks below for details.
      */
-    expressRoute?: pulumi.Input<inputs.cloud.AzureIntegrationsExpressRoute>;
+    expressRoute?: pulumi.Input<inputs.cloud.AzureIntegrationsExpressRoute | undefined>;
     /**
      * Azure Firewalls. See Integration blocks below for details.
      */
-    firewalls?: pulumi.Input<inputs.cloud.AzureIntegrationsFirewalls>;
+    firewalls?: pulumi.Input<inputs.cloud.AzureIntegrationsFirewalls | undefined>;
     /**
      * Azure Front Door. See Integration blocks below for details.
      */
-    frontDoor?: pulumi.Input<inputs.cloud.AzureIntegrationsFrontDoor>;
+    frontDoor?: pulumi.Input<inputs.cloud.AzureIntegrationsFrontDoor | undefined>;
     /**
      * Azure Functions. See Integration blocks below for details.
      */
-    functions?: pulumi.Input<inputs.cloud.AzureIntegrationsFunctions>;
+    functions?: pulumi.Input<inputs.cloud.AzureIntegrationsFunctions | undefined>;
     /**
      * Azure Key Vault. See Integration blocks below for details.
      */
-    keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault>;
+    keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault | undefined>;
     /**
      * The ID of the linked Azure account in New Relic.
      *
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
-    linkedAccountId?: pulumi.Input<string>;
+    linkedAccountId?: pulumi.Input<string | undefined>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
-    loadBalancer?: pulumi.Input<inputs.cloud.AzureIntegrationsLoadBalancer>;
+    loadBalancer?: pulumi.Input<inputs.cloud.AzureIntegrationsLoadBalancer | undefined>;
     /**
      * Azure Logic Apps. See Integration blocks below for details.
      */
-    logicApps?: pulumi.Input<inputs.cloud.AzureIntegrationsLogicApps>;
+    logicApps?: pulumi.Input<inputs.cloud.AzureIntegrationsLogicApps | undefined>;
     /**
      * Azure Machine Learning. See Integration blocks below for details.
      */
-    machineLearning?: pulumi.Input<inputs.cloud.AzureIntegrationsMachineLearning>;
+    machineLearning?: pulumi.Input<inputs.cloud.AzureIntegrationsMachineLearning | undefined>;
     /**
      * Azure MariaDB. See Integration blocks below for details.
      */
-    mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
+    mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb | undefined>;
     /**
      * Azure Monitor. See Integration blocks below for details.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor>;
+    monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor | undefined>;
     /**
      * Azure MySQL. See Integration blocks below for details.
      */
-    mysql?: pulumi.Input<inputs.cloud.AzureIntegrationsMysql>;
+    mysql?: pulumi.Input<inputs.cloud.AzureIntegrationsMysql | undefined>;
     /**
      * Azure MySQL Flexible Server. See Integration blocks below for details.
      */
-    mysqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsMysqlFlexible>;
+    mysqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsMysqlFlexible | undefined>;
     /**
      * Azure PostgreSQL. See Integration blocks below for details.
      */
-    postgresql?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresql>;
+    postgresql?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresql | undefined>;
     /**
      * Azure PostgreSQL Flexible Server. See Integration blocks below for details.
      */
-    postgresqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresqlFlexible>;
+    postgresqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresqlFlexible | undefined>;
     /**
      * Azure Power BI Dedicated. See Integration blocks below for details.
      */
-    powerBiDedicated?: pulumi.Input<inputs.cloud.AzureIntegrationsPowerBiDedicated>;
+    powerBiDedicated?: pulumi.Input<inputs.cloud.AzureIntegrationsPowerBiDedicated | undefined>;
     /**
      * Azure Redis Cache. See Integration blocks below for details.
      */
-    redisCache?: pulumi.Input<inputs.cloud.AzureIntegrationsRedisCache>;
+    redisCache?: pulumi.Input<inputs.cloud.AzureIntegrationsRedisCache | undefined>;
     /**
      * Azure Service Bus. See Integration blocks below for details.
      */
-    serviceBus?: pulumi.Input<inputs.cloud.AzureIntegrationsServiceBus>;
+    serviceBus?: pulumi.Input<inputs.cloud.AzureIntegrationsServiceBus | undefined>;
     /**
      * Azure SQL. See Integration blocks below for details.
      */
-    sql?: pulumi.Input<inputs.cloud.AzureIntegrationsSql>;
+    sql?: pulumi.Input<inputs.cloud.AzureIntegrationsSql | undefined>;
     /**
      * Azure SQL Managed. See Integration blocks below for details.
      */
-    sqlManaged?: pulumi.Input<inputs.cloud.AzureIntegrationsSqlManaged>;
+    sqlManaged?: pulumi.Input<inputs.cloud.AzureIntegrationsSqlManaged | undefined>;
     /**
      * for Azure Storage. See Integration blocks below for details.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      */
-    storage?: pulumi.Input<inputs.cloud.AzureIntegrationsStorage>;
+    storage?: pulumi.Input<inputs.cloud.AzureIntegrationsStorage | undefined>;
     /**
      * Azure Virtual machine. See Integration blocks below for details.
      */
-    virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine>;
+    virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine | undefined>;
     /**
      * for Azure Virtual networks. See Integration blocks below for details.
      */
-    virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks>;
+    virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks | undefined>;
     /**
      * Azure VMs. See Integration blocks below for details.
      */
-    vms?: pulumi.Input<inputs.cloud.AzureIntegrationsVms>;
+    vms?: pulumi.Input<inputs.cloud.AzureIntegrationsVms | undefined>;
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      */
-    vpnGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsVpnGateway>;
+    vpnGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsVpnGateway | undefined>;
 }
 
 /**
@@ -617,63 +617,63 @@ export interface AzureIntegrationsArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
-    apiManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsApiManagement>;
+    apiManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsApiManagement | undefined>;
     /**
      * Azure App Gateway. See Integration blocks below for details.
      */
-    appGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsAppGateway>;
+    appGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsAppGateway | undefined>;
     /**
      * Azure App Service. See Integration blocks below for details.
      */
-    appService?: pulumi.Input<inputs.cloud.AzureIntegrationsAppService>;
+    appService?: pulumi.Input<inputs.cloud.AzureIntegrationsAppService | undefined>;
     /**
      * Azure Auto Discovery
      */
-    autoDiscovery?: pulumi.Input<inputs.cloud.AzureIntegrationsAutoDiscovery>;
+    autoDiscovery?: pulumi.Input<inputs.cloud.AzureIntegrationsAutoDiscovery | undefined>;
     /**
      * Azure Containers. See Integration blocks below for details.
      */
-    containers?: pulumi.Input<inputs.cloud.AzureIntegrationsContainers>;
+    containers?: pulumi.Input<inputs.cloud.AzureIntegrationsContainers | undefined>;
     /**
      * Azure CosmosDB. See Integration blocks below for details.
      */
-    cosmosDb?: pulumi.Input<inputs.cloud.AzureIntegrationsCosmosDb>;
+    cosmosDb?: pulumi.Input<inputs.cloud.AzureIntegrationsCosmosDb | undefined>;
     /**
      * Azure Cost Management. See Integration blocks below for details.
      */
-    costManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsCostManagement>;
+    costManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsCostManagement | undefined>;
     /**
      * Azure Data Factory. See Integration blocks below for details.
      */
-    dataFactory?: pulumi.Input<inputs.cloud.AzureIntegrationsDataFactory>;
+    dataFactory?: pulumi.Input<inputs.cloud.AzureIntegrationsDataFactory | undefined>;
     /**
      * Azure Event Hub. See Integration blocks below for details.
      */
-    eventHub?: pulumi.Input<inputs.cloud.AzureIntegrationsEventHub>;
+    eventHub?: pulumi.Input<inputs.cloud.AzureIntegrationsEventHub | undefined>;
     /**
      * Azure Express Route. See Integration blocks below for details.
      */
-    expressRoute?: pulumi.Input<inputs.cloud.AzureIntegrationsExpressRoute>;
+    expressRoute?: pulumi.Input<inputs.cloud.AzureIntegrationsExpressRoute | undefined>;
     /**
      * Azure Firewalls. See Integration blocks below for details.
      */
-    firewalls?: pulumi.Input<inputs.cloud.AzureIntegrationsFirewalls>;
+    firewalls?: pulumi.Input<inputs.cloud.AzureIntegrationsFirewalls | undefined>;
     /**
      * Azure Front Door. See Integration blocks below for details.
      */
-    frontDoor?: pulumi.Input<inputs.cloud.AzureIntegrationsFrontDoor>;
+    frontDoor?: pulumi.Input<inputs.cloud.AzureIntegrationsFrontDoor | undefined>;
     /**
      * Azure Functions. See Integration blocks below for details.
      */
-    functions?: pulumi.Input<inputs.cloud.AzureIntegrationsFunctions>;
+    functions?: pulumi.Input<inputs.cloud.AzureIntegrationsFunctions | undefined>;
     /**
      * Azure Key Vault. See Integration blocks below for details.
      */
-    keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault>;
+    keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault | undefined>;
     /**
      * The ID of the linked Azure account in New Relic.
      *
@@ -684,83 +684,83 @@ export interface AzureIntegrationsArgs {
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
-    loadBalancer?: pulumi.Input<inputs.cloud.AzureIntegrationsLoadBalancer>;
+    loadBalancer?: pulumi.Input<inputs.cloud.AzureIntegrationsLoadBalancer | undefined>;
     /**
      * Azure Logic Apps. See Integration blocks below for details.
      */
-    logicApps?: pulumi.Input<inputs.cloud.AzureIntegrationsLogicApps>;
+    logicApps?: pulumi.Input<inputs.cloud.AzureIntegrationsLogicApps | undefined>;
     /**
      * Azure Machine Learning. See Integration blocks below for details.
      */
-    machineLearning?: pulumi.Input<inputs.cloud.AzureIntegrationsMachineLearning>;
+    machineLearning?: pulumi.Input<inputs.cloud.AzureIntegrationsMachineLearning | undefined>;
     /**
      * Azure MariaDB. See Integration blocks below for details.
      */
-    mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
+    mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb | undefined>;
     /**
      * Azure Monitor. See Integration blocks below for details.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor>;
+    monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor | undefined>;
     /**
      * Azure MySQL. See Integration blocks below for details.
      */
-    mysql?: pulumi.Input<inputs.cloud.AzureIntegrationsMysql>;
+    mysql?: pulumi.Input<inputs.cloud.AzureIntegrationsMysql | undefined>;
     /**
      * Azure MySQL Flexible Server. See Integration blocks below for details.
      */
-    mysqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsMysqlFlexible>;
+    mysqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsMysqlFlexible | undefined>;
     /**
      * Azure PostgreSQL. See Integration blocks below for details.
      */
-    postgresql?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresql>;
+    postgresql?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresql | undefined>;
     /**
      * Azure PostgreSQL Flexible Server. See Integration blocks below for details.
      */
-    postgresqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresqlFlexible>;
+    postgresqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresqlFlexible | undefined>;
     /**
      * Azure Power BI Dedicated. See Integration blocks below for details.
      */
-    powerBiDedicated?: pulumi.Input<inputs.cloud.AzureIntegrationsPowerBiDedicated>;
+    powerBiDedicated?: pulumi.Input<inputs.cloud.AzureIntegrationsPowerBiDedicated | undefined>;
     /**
      * Azure Redis Cache. See Integration blocks below for details.
      */
-    redisCache?: pulumi.Input<inputs.cloud.AzureIntegrationsRedisCache>;
+    redisCache?: pulumi.Input<inputs.cloud.AzureIntegrationsRedisCache | undefined>;
     /**
      * Azure Service Bus. See Integration blocks below for details.
      */
-    serviceBus?: pulumi.Input<inputs.cloud.AzureIntegrationsServiceBus>;
+    serviceBus?: pulumi.Input<inputs.cloud.AzureIntegrationsServiceBus | undefined>;
     /**
      * Azure SQL. See Integration blocks below for details.
      */
-    sql?: pulumi.Input<inputs.cloud.AzureIntegrationsSql>;
+    sql?: pulumi.Input<inputs.cloud.AzureIntegrationsSql | undefined>;
     /**
      * Azure SQL Managed. See Integration blocks below for details.
      */
-    sqlManaged?: pulumi.Input<inputs.cloud.AzureIntegrationsSqlManaged>;
+    sqlManaged?: pulumi.Input<inputs.cloud.AzureIntegrationsSqlManaged | undefined>;
     /**
      * for Azure Storage. See Integration blocks below for details.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      */
-    storage?: pulumi.Input<inputs.cloud.AzureIntegrationsStorage>;
+    storage?: pulumi.Input<inputs.cloud.AzureIntegrationsStorage | undefined>;
     /**
      * Azure Virtual machine. See Integration blocks below for details.
      */
-    virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine>;
+    virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine | undefined>;
     /**
      * for Azure Virtual networks. See Integration blocks below for details.
      */
-    virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks>;
+    virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks | undefined>;
     /**
      * Azure VMs. See Integration blocks below for details.
      */
-    vms?: pulumi.Input<inputs.cloud.AzureIntegrationsVms>;
+    vms?: pulumi.Input<inputs.cloud.AzureIntegrationsVms | undefined>;
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      */
-    vpnGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsVpnGateway>;
+    vpnGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsVpnGateway | undefined>;
 }

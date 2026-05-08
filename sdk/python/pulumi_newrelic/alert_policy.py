@@ -19,10 +19,10 @@ __all__ = ['AlertPolicyArgs', 'AlertPolicy']
 @pulumi.input_type
 class AlertPolicyArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 incident_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertPolicy resource.
 
@@ -48,32 +48,32 @@ class AlertPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="channelIds")
     @_utilities.deprecated("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
-    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def channel_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
         """
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
-    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def channel_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "channel_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentPreference")
-    def incident_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def incident_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
         * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
@@ -83,30 +83,30 @@ class AlertPolicyArgs:
         return pulumi.get(self, "incident_preference")
 
     @incident_preference.setter
-    def incident_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def incident_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "incident_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _AlertPolicyState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertPolicy resources.
 
@@ -135,44 +135,44 @@ class _AlertPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="channelIds")
     @_utilities.deprecated("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
-    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def channel_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
         """
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
-    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def channel_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "channel_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="entityGuid")
-    def entity_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity GUID of the alert policy.
         """
         return pulumi.get(self, "entity_guid")
 
     @entity_guid.setter
-    def entity_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentPreference")
-    def incident_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def incident_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
         * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
@@ -182,19 +182,19 @@ class _AlertPolicyState:
         return pulumi.get(self, "incident_preference")
 
     @incident_preference.setter
-    def incident_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def incident_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "incident_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -204,10 +204,10 @@ class AlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 incident_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to create and manage New Relic alert policies.
@@ -402,10 +402,10 @@ class AlertPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 incident_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -430,11 +430,11 @@ class AlertPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            incident_preference: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'AlertPolicy':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            incident_preference: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'AlertPolicy':
         """
         Get an existing AlertPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

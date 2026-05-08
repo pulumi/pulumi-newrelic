@@ -96,7 +96,7 @@ import * as utilities from "./utilities";
  *         domain: "EXT",
  *         type: "SERVICE_LEVEL",
  *     });
- *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [pair.key]: pair.values }), {});
+ *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [String(pair.key)]: pair.values }), {});
  *     return {
  *         keyValueMap: keyValueMap,
  *     };
@@ -282,7 +282,7 @@ export interface GetEntityResult {
  *         domain: "EXT",
  *         type: "SERVICE_LEVEL",
  *     });
- *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [pair.key]: pair.values }), {});
+ *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [String(pair.key)]: pair.values }), {});
  *     return {
  *         keyValueMap: keyValueMap,
  *     };
@@ -311,26 +311,26 @@ export interface GetEntityOutputArgs {
     /**
      * The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * A JSON-encoded string, comprising tags associated with the entity fetched.
      * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
      */
-    entityTags?: pulumi.Input<string>;
+    entityTags?: pulumi.Input<string | undefined>;
     /**
      * Ignore case of the `name` when searching for the entity. Defaults to false.
      */
-    ignoreCase?: pulumi.Input<boolean>;
+    ignoreCase?: pulumi.Input<boolean | undefined>;
     /**
      * A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
      *
      * > **WARNING:** Setting the `ignoreNotFound` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
      */
-    ignoreNotFound?: pulumi.Input<boolean>;
+    ignoreNotFound?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
      */
@@ -338,9 +338,9 @@ export interface GetEntityOutputArgs {
     /**
      * A tag applied to the entity. See Nested tag blocks below for details.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.GetEntityTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.GetEntityTagArgs>[] | undefined>;
     /**
      * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

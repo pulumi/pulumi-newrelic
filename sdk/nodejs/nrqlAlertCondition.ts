@@ -602,134 +602,134 @@ export interface NrqlAlertConditionState {
     /**
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      */
-    aggregationDelay?: pulumi.Input<string>;
+    aggregationDelay?: pulumi.Input<string | undefined>;
     /**
      * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
      */
-    aggregationMethod?: pulumi.Input<string>;
+    aggregationMethod?: pulumi.Input<string | undefined>;
     /**
      * How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
      */
-    aggregationTimer?: pulumi.Input<string>;
+    aggregationTimer?: pulumi.Input<string | undefined>;
     /**
      * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
      */
-    aggregationWindow?: pulumi.Input<number>;
+    aggregationWindow?: pulumi.Input<number | undefined>;
     /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
-    baselineDirection?: pulumi.Input<string>;
+    baselineDirection?: pulumi.Input<string | undefined>;
     /**
      * Whether to close all open incidents when the signal expires.
      */
-    closeViolationsOnExpiration?: pulumi.Input<boolean>;
+    closeViolationsOnExpiration?: pulumi.Input<boolean | undefined>;
     /**
      * A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
-    critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.NrqlAlertConditionCritical | undefined>;
     /**
      * The description of the NRQL alert condition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The unique entity identifier of the NRQL Condition in New Relic.
      */
-    entityGuid?: pulumi.Input<string>;
+    entityGuid?: pulumi.Input<string | undefined>;
     /**
      * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
      */
-    evaluationDelay?: pulumi.Input<number>;
+    evaluationDelay?: pulumi.Input<number | undefined>;
     /**
      * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      */
-    expirationDuration?: pulumi.Input<number>;
+    expirationDuration?: pulumi.Input<number | undefined>;
     /**
      * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      */
-    fillOption?: pulumi.Input<string>;
+    fillOption?: pulumi.Input<string | undefined>;
     /**
      * This value will be used for filling gaps in the signal.
      */
-    fillValue?: pulumi.Input<number>;
+    fillValue?: pulumi.Input<number | undefined>;
     /**
      * Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
      */
-    ignoreOnExpectedTermination?: pulumi.Input<boolean>;
+    ignoreOnExpectedTermination?: pulumi.Input<boolean | undefined>;
     /**
      * The title of the condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A NRQL query. See NRQL below for details.
      */
-    nrql?: pulumi.Input<inputs.NrqlAlertConditionNrql>;
+    nrql?: pulumi.Input<inputs.NrqlAlertConditionNrql | undefined>;
     /**
      * Whether to create a new incident to capture that the signal expired.
      */
-    openViolationOnExpiration?: pulumi.Input<boolean>;
+    openViolationOnExpiration?: pulumi.Input<boolean | undefined>;
     /**
      * **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
      */
-    outlierConfiguration?: pulumi.Input<inputs.NrqlAlertConditionOutlierConfiguration>;
+    outlierConfiguration?: pulumi.Input<inputs.NrqlAlertConditionOutlierConfiguration | undefined>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
     /**
      * Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
      */
-    signalSeasonality?: pulumi.Input<string>;
+    signalSeasonality?: pulumi.Input<string | undefined>;
     /**
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      */
-    slideBy?: pulumi.Input<number>;
+    slideBy?: pulumi.Input<number | undefined>;
     /**
      * BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
      */
-    targetEntity?: pulumi.Input<string>;
+    targetEntity?: pulumi.Input<string | undefined>;
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
-    terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[] | undefined>;
     /**
      * The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
      */
-    titleTemplate?: pulumi.Input<string>;
+    titleTemplate?: pulumi.Input<string | undefined>;
     /**
      * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
      * <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      *
      * @deprecated use `violationTimeLimitSeconds` attribute instead
      */
-    violationTimeLimit?: pulumi.Input<string>;
+    violationTimeLimit?: pulumi.Input<string | undefined>;
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      */
-    violationTimeLimitSeconds?: pulumi.Input<number>;
+    violationTimeLimitSeconds?: pulumi.Input<number | undefined>;
     /**
      * A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
-    warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.NrqlAlertConditionWarning | undefined>;
 }
 
 /**
@@ -739,67 +739,67 @@ export interface NrqlAlertConditionArgs {
     /**
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      */
-    aggregationDelay?: pulumi.Input<string>;
+    aggregationDelay?: pulumi.Input<string | undefined>;
     /**
      * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
      */
-    aggregationMethod?: pulumi.Input<string>;
+    aggregationMethod?: pulumi.Input<string | undefined>;
     /**
      * How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
      */
-    aggregationTimer?: pulumi.Input<string>;
+    aggregationTimer?: pulumi.Input<string | undefined>;
     /**
      * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
      */
-    aggregationWindow?: pulumi.Input<number>;
+    aggregationWindow?: pulumi.Input<number | undefined>;
     /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
-    baselineDirection?: pulumi.Input<string>;
+    baselineDirection?: pulumi.Input<string | undefined>;
     /**
      * Whether to close all open incidents when the signal expires.
      */
-    closeViolationsOnExpiration?: pulumi.Input<boolean>;
+    closeViolationsOnExpiration?: pulumi.Input<boolean | undefined>;
     /**
      * A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
-    critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.NrqlAlertConditionCritical | undefined>;
     /**
      * The description of the NRQL alert condition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
      */
-    evaluationDelay?: pulumi.Input<number>;
+    evaluationDelay?: pulumi.Input<number | undefined>;
     /**
      * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      */
-    expirationDuration?: pulumi.Input<number>;
+    expirationDuration?: pulumi.Input<number | undefined>;
     /**
      * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      */
-    fillOption?: pulumi.Input<string>;
+    fillOption?: pulumi.Input<string | undefined>;
     /**
      * This value will be used for filling gaps in the signal.
      */
-    fillValue?: pulumi.Input<number>;
+    fillValue?: pulumi.Input<number | undefined>;
     /**
      * Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
      */
-    ignoreOnExpectedTermination?: pulumi.Input<boolean>;
+    ignoreOnExpectedTermination?: pulumi.Input<boolean | undefined>;
     /**
      * The title of the condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A NRQL query. See NRQL below for details.
      */
@@ -807,11 +807,11 @@ export interface NrqlAlertConditionArgs {
     /**
      * Whether to create a new incident to capture that the signal expired.
      */
-    openViolationOnExpiration?: pulumi.Input<boolean>;
+    openViolationOnExpiration?: pulumi.Input<boolean | undefined>;
     /**
      * **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
      */
-    outlierConfiguration?: pulumi.Input<inputs.NrqlAlertConditionOutlierConfiguration>;
+    outlierConfiguration?: pulumi.Input<inputs.NrqlAlertConditionOutlierConfiguration | undefined>;
     /**
      * The ID of the policy where this condition should be used.
      */
@@ -819,48 +819,48 @@ export interface NrqlAlertConditionArgs {
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
     /**
      * Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
      */
-    signalSeasonality?: pulumi.Input<string>;
+    signalSeasonality?: pulumi.Input<string | undefined>;
     /**
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      */
-    slideBy?: pulumi.Input<number>;
+    slideBy?: pulumi.Input<number | undefined>;
     /**
      * BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
      */
-    targetEntity?: pulumi.Input<string>;
+    targetEntity?: pulumi.Input<string | undefined>;
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
-    terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[] | undefined>;
     /**
      * The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
      */
-    titleTemplate?: pulumi.Input<string>;
+    titleTemplate?: pulumi.Input<string | undefined>;
     /**
      * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
      * <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      *
      * @deprecated use `violationTimeLimitSeconds` attribute instead
      */
-    violationTimeLimit?: pulumi.Input<string>;
+    violationTimeLimit?: pulumi.Input<string | undefined>;
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      */
-    violationTimeLimitSeconds?: pulumi.Input<number>;
+    violationTimeLimitSeconds?: pulumi.Input<number | undefined>;
     /**
      * A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
-    warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.NrqlAlertConditionWarning | undefined>;
 }

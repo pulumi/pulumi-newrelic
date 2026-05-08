@@ -1237,227 +1237,227 @@ export interface AwsIntegrationsState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * ALB integration
      */
-    alb?: pulumi.Input<inputs.cloud.AwsIntegrationsAlb>;
+    alb?: pulumi.Input<inputs.cloud.AwsIntegrationsAlb | undefined>;
     /**
      * API Gateway integration
      */
-    apiGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsApiGateway>;
+    apiGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsApiGateway | undefined>;
     /**
      * AutoScaling integration
      */
-    autoScaling?: pulumi.Input<inputs.cloud.AwsIntegrationsAutoScaling>;
+    autoScaling?: pulumi.Input<inputs.cloud.AwsIntegrationsAutoScaling | undefined>;
     /**
      * Aws Appsync integration
      */
-    awsAppSync?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAppSync>;
+    awsAppSync?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAppSync | undefined>;
     /**
      * Aws Athena integration
      */
-    awsAthena?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAthena>;
+    awsAthena?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAthena | undefined>;
     /**
      * Aws Auto Discovery Integration
      */
-    awsAutoDiscovery?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAutoDiscovery>;
+    awsAutoDiscovery?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAutoDiscovery | undefined>;
     /**
      * Aws Cognito integration
      */
-    awsCognito?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsCognito>;
+    awsCognito?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsCognito | undefined>;
     /**
      * Aws Connect integration
      */
-    awsConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsConnect>;
+    awsConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsConnect | undefined>;
     /**
      * Aws Direct Connect integration
      */
-    awsDirectConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsDirectConnect>;
+    awsDirectConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsDirectConnect | undefined>;
     /**
      * Aws Fsx integration
      */
-    awsFsx?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsFsx>;
+    awsFsx?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsFsx | undefined>;
     /**
      * Aws Glue integration
      */
-    awsGlue?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsGlue>;
+    awsGlue?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsGlue | undefined>;
     /**
      * Aws Kinesis Analytics integration
      */
-    awsKinesisAnalytics?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsKinesisAnalytics>;
+    awsKinesisAnalytics?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsKinesisAnalytics | undefined>;
     /**
      * Aws Media Convert integration
      */
-    awsMediaConvert?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaConvert>;
+    awsMediaConvert?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaConvert | undefined>;
     /**
      * Aws Media PackageVod integration
      */
-    awsMediaPackageVod?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaPackageVod>;
+    awsMediaPackageVod?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaPackageVod | undefined>;
     /**
      * Aws Mq integration
      */
-    awsMq?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMq>;
+    awsMq?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMq | undefined>;
     /**
      * Aws Msk integration
      */
-    awsMsk?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMsk>;
+    awsMsk?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMsk | undefined>;
     /**
      * Aws Neptune integration
      */
-    awsNeptune?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsNeptune>;
+    awsNeptune?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsNeptune | undefined>;
     /**
      * Aws Qldb integration
      */
-    awsQldb?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsQldb>;
+    awsQldb?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsQldb | undefined>;
     /**
      * Aws Route53resolver integration
      */
-    awsRoute53resolver?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsRoute53resolver>;
+    awsRoute53resolver?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsRoute53resolver | undefined>;
     /**
      * Aws states integration
      */
-    awsStates?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsStates>;
+    awsStates?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsStates | undefined>;
     /**
      * Aws Transit Gateway integration
      */
-    awsTransitGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsTransitGateway>;
+    awsTransitGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsTransitGateway | undefined>;
     /**
      * Aws Waf integration
      */
-    awsWaf?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWaf>;
+    awsWaf?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWaf | undefined>;
     /**
      * Aws Wafv2 integration
      */
-    awsWafv2?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWafv2>;
+    awsWafv2?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWafv2 | undefined>;
     /**
      * Billing integration
      */
-    billing?: pulumi.Input<inputs.cloud.AwsIntegrationsBilling>;
+    billing?: pulumi.Input<inputs.cloud.AwsIntegrationsBilling | undefined>;
     /**
      * Cloudfront integration
      */
-    cloudfront?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudfront>;
+    cloudfront?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudfront | undefined>;
     /**
      * CloudTrail integration
      */
-    cloudtrail?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudtrail>;
+    cloudtrail?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudtrail | undefined>;
     /**
      * Doc DB integration
      */
-    docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb>;
+    docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb | undefined>;
     /**
      * Dynamo DB integration
      */
-    dynamodb?: pulumi.Input<inputs.cloud.AwsIntegrationsDynamodb>;
+    dynamodb?: pulumi.Input<inputs.cloud.AwsIntegrationsDynamodb | undefined>;
     /**
      * EBS integration
      */
-    ebs?: pulumi.Input<inputs.cloud.AwsIntegrationsEbs>;
+    ebs?: pulumi.Input<inputs.cloud.AwsIntegrationsEbs | undefined>;
     /**
      * Ec2 integration
      */
-    ec2?: pulumi.Input<inputs.cloud.AwsIntegrationsEc2>;
+    ec2?: pulumi.Input<inputs.cloud.AwsIntegrationsEc2 | undefined>;
     /**
      * Ecs integration
      */
-    ecs?: pulumi.Input<inputs.cloud.AwsIntegrationsEcs>;
+    ecs?: pulumi.Input<inputs.cloud.AwsIntegrationsEcs | undefined>;
     /**
      * Efs integration
      */
-    efs?: pulumi.Input<inputs.cloud.AwsIntegrationsEfs>;
+    efs?: pulumi.Input<inputs.cloud.AwsIntegrationsEfs | undefined>;
     /**
      * Elasticache integration
      */
-    elasticache?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticache>;
+    elasticache?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticache | undefined>;
     /**
      * Elastic Bean Stalk integration
      */
-    elasticbeanstalk?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticbeanstalk>;
+    elasticbeanstalk?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticbeanstalk | undefined>;
     /**
      * Elastic Search integration
      */
-    elasticsearch?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticsearch>;
+    elasticsearch?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticsearch | undefined>;
     /**
      * Elb integration
      */
-    elb?: pulumi.Input<inputs.cloud.AwsIntegrationsElb>;
+    elb?: pulumi.Input<inputs.cloud.AwsIntegrationsElb | undefined>;
     /**
      * Emr integration
      */
-    emr?: pulumi.Input<inputs.cloud.AwsIntegrationsEmr>;
+    emr?: pulumi.Input<inputs.cloud.AwsIntegrationsEmr | undefined>;
     /**
      * Health integration
      */
-    health?: pulumi.Input<inputs.cloud.AwsIntegrationsHealth>;
+    health?: pulumi.Input<inputs.cloud.AwsIntegrationsHealth | undefined>;
     /**
      * Iam integration
      */
-    iam?: pulumi.Input<inputs.cloud.AwsIntegrationsIam>;
+    iam?: pulumi.Input<inputs.cloud.AwsIntegrationsIam | undefined>;
     /**
      * Iot integration
      */
-    iot?: pulumi.Input<inputs.cloud.AwsIntegrationsIot>;
+    iot?: pulumi.Input<inputs.cloud.AwsIntegrationsIot | undefined>;
     /**
      * Kinesis integration
      */
-    kinesis?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesis>;
+    kinesis?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesis | undefined>;
     /**
      * Kinesis Firehose integration
      */
-    kinesisFirehose?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesisFirehose>;
+    kinesisFirehose?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesisFirehose | undefined>;
     /**
      * Lambda integration
      */
-    lambda?: pulumi.Input<inputs.cloud.AwsIntegrationsLambda>;
+    lambda?: pulumi.Input<inputs.cloud.AwsIntegrationsLambda | undefined>;
     /**
      * The ID of the linked AWS account in New Relic.
      */
-    linkedAccountId?: pulumi.Input<string>;
+    linkedAccountId?: pulumi.Input<string | undefined>;
     /**
      * Rds integration
      */
-    rds?: pulumi.Input<inputs.cloud.AwsIntegrationsRds>;
+    rds?: pulumi.Input<inputs.cloud.AwsIntegrationsRds | undefined>;
     /**
      * Redshift integration
      */
-    redshift?: pulumi.Input<inputs.cloud.AwsIntegrationsRedshift>;
+    redshift?: pulumi.Input<inputs.cloud.AwsIntegrationsRedshift | undefined>;
     /**
      * Route53 integration
      */
-    route53?: pulumi.Input<inputs.cloud.AwsIntegrationsRoute53>;
+    route53?: pulumi.Input<inputs.cloud.AwsIntegrationsRoute53 | undefined>;
     /**
      * S3 integration
      */
-    s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
+    s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3 | undefined>;
     /**
      * Security Hub integration
      */
-    securityHub?: pulumi.Input<inputs.cloud.AwsIntegrationsSecurityHub>;
+    securityHub?: pulumi.Input<inputs.cloud.AwsIntegrationsSecurityHub | undefined>;
     /**
      * Ses integration
      */
-    ses?: pulumi.Input<inputs.cloud.AwsIntegrationsSes>;
+    ses?: pulumi.Input<inputs.cloud.AwsIntegrationsSes | undefined>;
     /**
      * Sns integration
      */
-    sns?: pulumi.Input<inputs.cloud.AwsIntegrationsSns>;
+    sns?: pulumi.Input<inputs.cloud.AwsIntegrationsSns | undefined>;
     /**
      * SQS integration
      */
-    sqs?: pulumi.Input<inputs.cloud.AwsIntegrationsSqs>;
+    sqs?: pulumi.Input<inputs.cloud.AwsIntegrationsSqs | undefined>;
     /**
      * Trusted Advisor integration
      */
-    trustedAdvisor?: pulumi.Input<inputs.cloud.AwsIntegrationsTrustedAdvisor>;
+    trustedAdvisor?: pulumi.Input<inputs.cloud.AwsIntegrationsTrustedAdvisor | undefined>;
     /**
      * VPC integration
      */
-    vpc?: pulumi.Input<inputs.cloud.AwsIntegrationsVpc>;
+    vpc?: pulumi.Input<inputs.cloud.AwsIntegrationsVpc | undefined>;
     /**
      * X-Ray integration
      */
-    xRay?: pulumi.Input<inputs.cloud.AwsIntegrationsXRay>;
+    xRay?: pulumi.Input<inputs.cloud.AwsIntegrationsXRay | undefined>;
 }
 
 /**
@@ -1467,179 +1467,179 @@ export interface AwsIntegrationsArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * ALB integration
      */
-    alb?: pulumi.Input<inputs.cloud.AwsIntegrationsAlb>;
+    alb?: pulumi.Input<inputs.cloud.AwsIntegrationsAlb | undefined>;
     /**
      * API Gateway integration
      */
-    apiGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsApiGateway>;
+    apiGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsApiGateway | undefined>;
     /**
      * AutoScaling integration
      */
-    autoScaling?: pulumi.Input<inputs.cloud.AwsIntegrationsAutoScaling>;
+    autoScaling?: pulumi.Input<inputs.cloud.AwsIntegrationsAutoScaling | undefined>;
     /**
      * Aws Appsync integration
      */
-    awsAppSync?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAppSync>;
+    awsAppSync?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAppSync | undefined>;
     /**
      * Aws Athena integration
      */
-    awsAthena?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAthena>;
+    awsAthena?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAthena | undefined>;
     /**
      * Aws Auto Discovery Integration
      */
-    awsAutoDiscovery?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAutoDiscovery>;
+    awsAutoDiscovery?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAutoDiscovery | undefined>;
     /**
      * Aws Cognito integration
      */
-    awsCognito?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsCognito>;
+    awsCognito?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsCognito | undefined>;
     /**
      * Aws Connect integration
      */
-    awsConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsConnect>;
+    awsConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsConnect | undefined>;
     /**
      * Aws Direct Connect integration
      */
-    awsDirectConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsDirectConnect>;
+    awsDirectConnect?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsDirectConnect | undefined>;
     /**
      * Aws Fsx integration
      */
-    awsFsx?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsFsx>;
+    awsFsx?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsFsx | undefined>;
     /**
      * Aws Glue integration
      */
-    awsGlue?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsGlue>;
+    awsGlue?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsGlue | undefined>;
     /**
      * Aws Kinesis Analytics integration
      */
-    awsKinesisAnalytics?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsKinesisAnalytics>;
+    awsKinesisAnalytics?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsKinesisAnalytics | undefined>;
     /**
      * Aws Media Convert integration
      */
-    awsMediaConvert?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaConvert>;
+    awsMediaConvert?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaConvert | undefined>;
     /**
      * Aws Media PackageVod integration
      */
-    awsMediaPackageVod?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaPackageVod>;
+    awsMediaPackageVod?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMediaPackageVod | undefined>;
     /**
      * Aws Mq integration
      */
-    awsMq?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMq>;
+    awsMq?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMq | undefined>;
     /**
      * Aws Msk integration
      */
-    awsMsk?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMsk>;
+    awsMsk?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsMsk | undefined>;
     /**
      * Aws Neptune integration
      */
-    awsNeptune?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsNeptune>;
+    awsNeptune?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsNeptune | undefined>;
     /**
      * Aws Qldb integration
      */
-    awsQldb?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsQldb>;
+    awsQldb?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsQldb | undefined>;
     /**
      * Aws Route53resolver integration
      */
-    awsRoute53resolver?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsRoute53resolver>;
+    awsRoute53resolver?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsRoute53resolver | undefined>;
     /**
      * Aws states integration
      */
-    awsStates?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsStates>;
+    awsStates?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsStates | undefined>;
     /**
      * Aws Transit Gateway integration
      */
-    awsTransitGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsTransitGateway>;
+    awsTransitGateway?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsTransitGateway | undefined>;
     /**
      * Aws Waf integration
      */
-    awsWaf?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWaf>;
+    awsWaf?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWaf | undefined>;
     /**
      * Aws Wafv2 integration
      */
-    awsWafv2?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWafv2>;
+    awsWafv2?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsWafv2 | undefined>;
     /**
      * Billing integration
      */
-    billing?: pulumi.Input<inputs.cloud.AwsIntegrationsBilling>;
+    billing?: pulumi.Input<inputs.cloud.AwsIntegrationsBilling | undefined>;
     /**
      * Cloudfront integration
      */
-    cloudfront?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudfront>;
+    cloudfront?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudfront | undefined>;
     /**
      * CloudTrail integration
      */
-    cloudtrail?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudtrail>;
+    cloudtrail?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudtrail | undefined>;
     /**
      * Doc DB integration
      */
-    docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb>;
+    docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb | undefined>;
     /**
      * Dynamo DB integration
      */
-    dynamodb?: pulumi.Input<inputs.cloud.AwsIntegrationsDynamodb>;
+    dynamodb?: pulumi.Input<inputs.cloud.AwsIntegrationsDynamodb | undefined>;
     /**
      * EBS integration
      */
-    ebs?: pulumi.Input<inputs.cloud.AwsIntegrationsEbs>;
+    ebs?: pulumi.Input<inputs.cloud.AwsIntegrationsEbs | undefined>;
     /**
      * Ec2 integration
      */
-    ec2?: pulumi.Input<inputs.cloud.AwsIntegrationsEc2>;
+    ec2?: pulumi.Input<inputs.cloud.AwsIntegrationsEc2 | undefined>;
     /**
      * Ecs integration
      */
-    ecs?: pulumi.Input<inputs.cloud.AwsIntegrationsEcs>;
+    ecs?: pulumi.Input<inputs.cloud.AwsIntegrationsEcs | undefined>;
     /**
      * Efs integration
      */
-    efs?: pulumi.Input<inputs.cloud.AwsIntegrationsEfs>;
+    efs?: pulumi.Input<inputs.cloud.AwsIntegrationsEfs | undefined>;
     /**
      * Elasticache integration
      */
-    elasticache?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticache>;
+    elasticache?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticache | undefined>;
     /**
      * Elastic Bean Stalk integration
      */
-    elasticbeanstalk?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticbeanstalk>;
+    elasticbeanstalk?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticbeanstalk | undefined>;
     /**
      * Elastic Search integration
      */
-    elasticsearch?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticsearch>;
+    elasticsearch?: pulumi.Input<inputs.cloud.AwsIntegrationsElasticsearch | undefined>;
     /**
      * Elb integration
      */
-    elb?: pulumi.Input<inputs.cloud.AwsIntegrationsElb>;
+    elb?: pulumi.Input<inputs.cloud.AwsIntegrationsElb | undefined>;
     /**
      * Emr integration
      */
-    emr?: pulumi.Input<inputs.cloud.AwsIntegrationsEmr>;
+    emr?: pulumi.Input<inputs.cloud.AwsIntegrationsEmr | undefined>;
     /**
      * Health integration
      */
-    health?: pulumi.Input<inputs.cloud.AwsIntegrationsHealth>;
+    health?: pulumi.Input<inputs.cloud.AwsIntegrationsHealth | undefined>;
     /**
      * Iam integration
      */
-    iam?: pulumi.Input<inputs.cloud.AwsIntegrationsIam>;
+    iam?: pulumi.Input<inputs.cloud.AwsIntegrationsIam | undefined>;
     /**
      * Iot integration
      */
-    iot?: pulumi.Input<inputs.cloud.AwsIntegrationsIot>;
+    iot?: pulumi.Input<inputs.cloud.AwsIntegrationsIot | undefined>;
     /**
      * Kinesis integration
      */
-    kinesis?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesis>;
+    kinesis?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesis | undefined>;
     /**
      * Kinesis Firehose integration
      */
-    kinesisFirehose?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesisFirehose>;
+    kinesisFirehose?: pulumi.Input<inputs.cloud.AwsIntegrationsKinesisFirehose | undefined>;
     /**
      * Lambda integration
      */
-    lambda?: pulumi.Input<inputs.cloud.AwsIntegrationsLambda>;
+    lambda?: pulumi.Input<inputs.cloud.AwsIntegrationsLambda | undefined>;
     /**
      * The ID of the linked AWS account in New Relic.
      */
@@ -1647,45 +1647,45 @@ export interface AwsIntegrationsArgs {
     /**
      * Rds integration
      */
-    rds?: pulumi.Input<inputs.cloud.AwsIntegrationsRds>;
+    rds?: pulumi.Input<inputs.cloud.AwsIntegrationsRds | undefined>;
     /**
      * Redshift integration
      */
-    redshift?: pulumi.Input<inputs.cloud.AwsIntegrationsRedshift>;
+    redshift?: pulumi.Input<inputs.cloud.AwsIntegrationsRedshift | undefined>;
     /**
      * Route53 integration
      */
-    route53?: pulumi.Input<inputs.cloud.AwsIntegrationsRoute53>;
+    route53?: pulumi.Input<inputs.cloud.AwsIntegrationsRoute53 | undefined>;
     /**
      * S3 integration
      */
-    s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
+    s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3 | undefined>;
     /**
      * Security Hub integration
      */
-    securityHub?: pulumi.Input<inputs.cloud.AwsIntegrationsSecurityHub>;
+    securityHub?: pulumi.Input<inputs.cloud.AwsIntegrationsSecurityHub | undefined>;
     /**
      * Ses integration
      */
-    ses?: pulumi.Input<inputs.cloud.AwsIntegrationsSes>;
+    ses?: pulumi.Input<inputs.cloud.AwsIntegrationsSes | undefined>;
     /**
      * Sns integration
      */
-    sns?: pulumi.Input<inputs.cloud.AwsIntegrationsSns>;
+    sns?: pulumi.Input<inputs.cloud.AwsIntegrationsSns | undefined>;
     /**
      * SQS integration
      */
-    sqs?: pulumi.Input<inputs.cloud.AwsIntegrationsSqs>;
+    sqs?: pulumi.Input<inputs.cloud.AwsIntegrationsSqs | undefined>;
     /**
      * Trusted Advisor integration
      */
-    trustedAdvisor?: pulumi.Input<inputs.cloud.AwsIntegrationsTrustedAdvisor>;
+    trustedAdvisor?: pulumi.Input<inputs.cloud.AwsIntegrationsTrustedAdvisor | undefined>;
     /**
      * VPC integration
      */
-    vpc?: pulumi.Input<inputs.cloud.AwsIntegrationsVpc>;
+    vpc?: pulumi.Input<inputs.cloud.AwsIntegrationsVpc | undefined>;
     /**
      * X-Ray integration
      */
-    xRay?: pulumi.Input<inputs.cloud.AwsIntegrationsXRay>;
+    xRay?: pulumi.Input<inputs.cloud.AwsIntegrationsXRay | undefined>;
 }

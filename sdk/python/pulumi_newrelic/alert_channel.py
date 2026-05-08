@@ -22,9 +22,9 @@ __all__ = ['AlertChannelArgs', 'AlertChannel']
 class AlertChannelArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input['AlertChannelConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional['AlertChannelConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertChannel resource.
 
@@ -55,48 +55,48 @@ class AlertChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['AlertChannelConfigArgs']]:
+    def config(self) -> pulumi.Input[Optional['AlertChannelConfigArgs']]:
         """
         A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['AlertChannelConfigArgs']]):
+    def config(self, value: pulumi.Input[Optional['AlertChannelConfigArgs']]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the channel.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _AlertChannelState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input['AlertChannelConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional['AlertChannelConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertChannel resources.
 
@@ -116,50 +116,50 @@ class _AlertChannelState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['AlertChannelConfigArgs']]:
+    def config(self) -> pulumi.Input[Optional['AlertChannelConfigArgs']]:
         """
         A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['AlertChannelConfigArgs']]):
+    def config(self, value: pulumi.Input[Optional['AlertChannelConfigArgs']]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the channel.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -169,10 +169,10 @@ class AlertChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to create and manage New Relic alert channels.
@@ -476,10 +476,10 @@ class AlertChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -505,10 +505,10 @@ class AlertChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            config: Optional[pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'AlertChannel':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            config: pulumi.Input[Optional[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'AlertChannel':
         """
         Get an existing AlertChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

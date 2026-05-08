@@ -310,35 +310,35 @@ export interface WorkflowAutomationState {
     /**
      * The YAML definition of the workflow automation. This should be a valid YAML string that includes a `name` field matching the resource `name` argument, and defines the workflow steps and configuration.
      */
-    definition?: pulumi.Input<string>;
+    definition?: pulumi.Input<string | undefined>;
     /**
      * The ID of the workflow automation.
      */
-    definitionId?: pulumi.Input<string>;
+    definitionId?: pulumi.Input<string | undefined>;
     /**
      * The description of the workflow automation, as defined in the YAML definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the workflow automation. This must match the `name` field in the YAML definition provided in the `definition` argument. **Important**: Changes to this field will force a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The scope ID for the workflow automation. For `ACCOUNT` scope, this should be your New Relic account ID (numeric). For `ORGANIZATION` scope, this should be your organization ID (string). **Important**: Changes to this field will force a new resource to be created.
      */
-    scopeId?: pulumi.Input<string>;
+    scopeId?: pulumi.Input<string | undefined>;
     /**
      * The scope type for the workflow automation. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changes to this field will force a new resource to be created.
      */
-    scopeType?: pulumi.Input<string>;
+    scopeType?: pulumi.Input<string | undefined>;
     /**
      * The current version number of the workflow automation.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
     /**
      * The yaml of the workflow automation.
      */
-    yaml?: pulumi.Input<string>;
+    yaml?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -352,7 +352,7 @@ export interface WorkflowAutomationArgs {
     /**
      * The name of the workflow automation. This must match the `name` field in the YAML definition provided in the `definition` argument. **Important**: Changes to this field will force a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The scope ID for the workflow automation. For `ACCOUNT` scope, this should be your New Relic account ID (numeric). For `ORGANIZATION` scope, this should be your organization ID (string). **Important**: Changes to this field will force a new resource to be created.
      */

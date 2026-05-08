@@ -30,7 +30,7 @@ class EventEventArgsDict(TypedDict):
     """
     The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
     """
-    timestamp: NotRequired[pulumi.Input[_builtins.int]]
+    timestamp: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
     """
@@ -40,7 +40,7 @@ class EventEventArgs:
     def __init__(__self__, *,
                  attributes: pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]],
                  type: pulumi.Input[_builtins.str],
-                 timestamp: Optional[pulumi.Input[_builtins.int]] = None):
+                 timestamp: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]] attributes: An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
         :param pulumi.Input[_builtins.str] type: The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
@@ -77,14 +77,14 @@ class EventEventArgs:
 
     @_builtins.property
     @pulumi.getter
-    def timestamp(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timestamp(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
         """
         return pulumi.get(self, "timestamp")
 
     @timestamp.setter
-    def timestamp(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timestamp(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timestamp", value)
 
 
@@ -97,7 +97,7 @@ class EventEventAttributeArgsDict(TypedDict):
     """
     The value of the attribute.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
     """
@@ -107,7 +107,7 @@ class EventEventAttributeArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key: The name of the attribute.
         :param pulumi.Input[_builtins.str] value: The value of the attribute.
@@ -144,14 +144,14 @@ class EventEventAttributeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 

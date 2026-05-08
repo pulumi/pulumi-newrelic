@@ -23,34 +23,34 @@ class NrqlAlertConditionArgs:
     def __init__(__self__, *,
                  nrql: pulumi.Input['NrqlAlertConditionNrqlArgs'],
                  policy_id: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_timer: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 baseline_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 close_violations_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 critical: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 expiration_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 fill_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 fill_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 ignore_on_expected_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outlier_configuration: Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
-                 slide_by: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
-                 title_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_timer: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 baseline_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 close_violations_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 critical: pulumi.Input[Optional['NrqlAlertConditionCriticalArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 expiration_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 fill_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 fill_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 ignore_on_expected_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_violation_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outlier_configuration: pulumi.Input[Optional['NrqlAlertConditionOutlierConfigurationArgs']] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 signal_seasonality: pulumi.Input[Optional[_builtins.str]] = None,
+                 slide_by: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
+                 title_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 warning: pulumi.Input[Optional['NrqlAlertConditionWarningArgs']] = None):
         """
         The set of arguments for constructing a NrqlAlertCondition resource.
 
@@ -179,296 +179,296 @@ class NrqlAlertConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="aggregationDelay")
-    def aggregation_delay(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregation_delay(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         """
         return pulumi.get(self, "aggregation_delay")
 
     @aggregation_delay.setter
-    def aggregation_delay(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregation_delay(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregation_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="aggregationMethod")
-    def aggregation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         """
         return pulumi.get(self, "aggregation_method")
 
     @aggregation_method.setter
-    def aggregation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="aggregationTimer")
-    def aggregation_timer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregation_timer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
         """
         return pulumi.get(self, "aggregation_timer")
 
     @aggregation_timer.setter
-    def aggregation_timer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregation_timer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregation_timer", value)
 
     @_builtins.property
     @pulumi.getter(name="aggregationWindow")
-    def aggregation_window(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def aggregation_window(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
         """
         return pulumi.get(self, "aggregation_window")
 
     @aggregation_window.setter
-    def aggregation_window(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def aggregation_window(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "aggregation_window", value)
 
     @_builtins.property
     @pulumi.getter(name="baselineDirection")
-    def baseline_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def baseline_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         """
         return pulumi.get(self, "baseline_direction")
 
     @baseline_direction.setter
-    def baseline_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def baseline_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "baseline_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="closeViolationsOnExpiration")
-    def close_violations_on_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def close_violations_on_expiration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to close all open incidents when the signal expires.
         """
         return pulumi.get(self, "close_violations_on_expiration")
 
     @close_violations_on_expiration.setter
-    def close_violations_on_expiration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def close_violations_on_expiration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "close_violations_on_expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def critical(self) -> Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']]:
+    def critical(self) -> pulumi.Input[Optional['NrqlAlertConditionCriticalArgs']]:
         """
         A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "critical")
 
     @critical.setter
-    def critical(self, value: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']]):
+    def critical(self, value: pulumi.Input[Optional['NrqlAlertConditionCriticalArgs']]):
         pulumi.set(self, "critical", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the NRQL alert condition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationDelay")
-    def evaluation_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def evaluation_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
         """
         return pulumi.get(self, "evaluation_delay")
 
     @evaluation_delay.setter
-    def evaluation_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def evaluation_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "evaluation_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDuration")
-    def expiration_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiration_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         """
         return pulumi.get(self, "expiration_duration")
 
     @expiration_duration.setter
-    def expiration_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiration_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiration_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="fillOption")
-    def fill_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fill_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         """
         return pulumi.get(self, "fill_option")
 
     @fill_option.setter
-    def fill_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fill_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fill_option", value)
 
     @_builtins.property
     @pulumi.getter(name="fillValue")
-    def fill_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def fill_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         This value will be used for filling gaps in the signal.
         """
         return pulumi.get(self, "fill_value")
 
     @fill_value.setter
-    def fill_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def fill_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "fill_value", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOnExpectedTermination")
-    def ignore_on_expected_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_on_expected_termination(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
         """
         return pulumi.get(self, "ignore_on_expected_termination")
 
     @ignore_on_expected_termination.setter
-    def ignore_on_expected_termination(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_on_expected_termination(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_on_expected_termination", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="openViolationOnExpiration")
-    def open_violation_on_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def open_violation_on_expiration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create a new incident to capture that the signal expired.
         """
         return pulumi.get(self, "open_violation_on_expiration")
 
     @open_violation_on_expiration.setter
-    def open_violation_on_expiration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def open_violation_on_expiration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "open_violation_on_expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="outlierConfiguration")
-    def outlier_configuration(self) -> Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]:
+    def outlier_configuration(self) -> pulumi.Input[Optional['NrqlAlertConditionOutlierConfigurationArgs']]:
         """
         **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
         """
         return pulumi.get(self, "outlier_configuration")
 
     @outlier_configuration.setter
-    def outlier_configuration(self, value: Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]):
+    def outlier_configuration(self, value: pulumi.Input[Optional['NrqlAlertConditionOutlierConfigurationArgs']]):
         pulumi.set(self, "outlier_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
     @_builtins.property
     @pulumi.getter(name="signalSeasonality")
-    def signal_seasonality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signal_seasonality(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
         """
         return pulumi.get(self, "signal_seasonality")
 
     @signal_seasonality.setter
-    def signal_seasonality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signal_seasonality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signal_seasonality", value)
 
     @_builtins.property
     @pulumi.getter(name="slideBy")
-    def slide_by(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def slide_by(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         """
         return pulumi.get(self, "slide_by")
 
     @slide_by.setter
-    def slide_by(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def slide_by(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "slide_by", value)
 
     @_builtins.property
     @pulumi.getter(name="targetEntity")
-    def target_entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_entity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         """
         return pulumi.get(self, "target_entity")
 
     @target_entity.setter
-    def target_entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_entity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_entity", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""use `critical` and `warning` attributes instead""")
-    def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
+    def terms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
         """
         **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         """
         return pulumi.get(self, "terms")
 
     @terms.setter
-    def terms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]):
+    def terms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]):
         pulumi.set(self, "terms", value)
 
     @_builtins.property
     @pulumi.getter(name="titleTemplate")
-    def title_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         """
         return pulumi.get(self, "title_template")
 
     @title_template.setter
-    def title_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
         <small>\\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
@@ -476,13 +476,13 @@ class NrqlAlertConditionArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="violationTimeLimit")
     @_utilities.deprecated("""use `violation_time_limit_seconds` attribute instead""")
-    def violation_time_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def violation_time_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
         <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
@@ -490,12 +490,12 @@ class NrqlAlertConditionArgs:
         return pulumi.get(self, "violation_time_limit")
 
     @violation_time_limit.setter
-    def violation_time_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def violation_time_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "violation_time_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="violationTimeLimitSeconds")
-    def violation_time_limit_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def violation_time_limit_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
         <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
@@ -503,56 +503,56 @@ class NrqlAlertConditionArgs:
         return pulumi.get(self, "violation_time_limit_seconds")
 
     @violation_time_limit_seconds.setter
-    def violation_time_limit_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def violation_time_limit_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "violation_time_limit_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def warning(self) -> Optional[pulumi.Input['NrqlAlertConditionWarningArgs']]:
+    def warning(self) -> pulumi.Input[Optional['NrqlAlertConditionWarningArgs']]:
         """
         A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "warning")
 
     @warning.setter
-    def warning(self, value: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']]):
+    def warning(self, value: pulumi.Input[Optional['NrqlAlertConditionWarningArgs']]):
         pulumi.set(self, "warning", value)
 
 
 @pulumi.input_type
 class _NrqlAlertConditionState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_timer: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 baseline_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 close_violations_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 critical: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 expiration_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 fill_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 fill_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 ignore_on_expected_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nrql: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']] = None,
-                 open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outlier_configuration: Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
-                 slide_by: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
-                 title_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_timer: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 baseline_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 close_violations_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 critical: pulumi.Input[Optional['NrqlAlertConditionCriticalArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 expiration_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 fill_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 fill_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 ignore_on_expected_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nrql: pulumi.Input[Optional['NrqlAlertConditionNrqlArgs']] = None,
+                 open_violation_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outlier_configuration: pulumi.Input[Optional['NrqlAlertConditionOutlierConfigurationArgs']] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 signal_seasonality: pulumi.Input[Optional[_builtins.str]] = None,
+                 slide_by: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
+                 title_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 warning: pulumi.Input[Optional['NrqlAlertConditionWarningArgs']] = None):
         """
         Input properties used for looking up and filtering NrqlAlertCondition resources.
 
@@ -662,332 +662,332 @@ class _NrqlAlertConditionState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="aggregationDelay")
-    def aggregation_delay(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregation_delay(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         """
         return pulumi.get(self, "aggregation_delay")
 
     @aggregation_delay.setter
-    def aggregation_delay(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregation_delay(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregation_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="aggregationMethod")
-    def aggregation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         """
         return pulumi.get(self, "aggregation_method")
 
     @aggregation_method.setter
-    def aggregation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="aggregationTimer")
-    def aggregation_timer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregation_timer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
         """
         return pulumi.get(self, "aggregation_timer")
 
     @aggregation_timer.setter
-    def aggregation_timer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregation_timer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregation_timer", value)
 
     @_builtins.property
     @pulumi.getter(name="aggregationWindow")
-    def aggregation_window(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def aggregation_window(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
         """
         return pulumi.get(self, "aggregation_window")
 
     @aggregation_window.setter
-    def aggregation_window(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def aggregation_window(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "aggregation_window", value)
 
     @_builtins.property
     @pulumi.getter(name="baselineDirection")
-    def baseline_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def baseline_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         """
         return pulumi.get(self, "baseline_direction")
 
     @baseline_direction.setter
-    def baseline_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def baseline_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "baseline_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="closeViolationsOnExpiration")
-    def close_violations_on_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def close_violations_on_expiration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to close all open incidents when the signal expires.
         """
         return pulumi.get(self, "close_violations_on_expiration")
 
     @close_violations_on_expiration.setter
-    def close_violations_on_expiration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def close_violations_on_expiration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "close_violations_on_expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def critical(self) -> Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']]:
+    def critical(self) -> pulumi.Input[Optional['NrqlAlertConditionCriticalArgs']]:
         """
         A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "critical")
 
     @critical.setter
-    def critical(self, value: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']]):
+    def critical(self, value: pulumi.Input[Optional['NrqlAlertConditionCriticalArgs']]):
         pulumi.set(self, "critical", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the NRQL alert condition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="entityGuid")
-    def entity_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the NRQL Condition in New Relic.
         """
         return pulumi.get(self, "entity_guid")
 
     @entity_guid.setter
-    def entity_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationDelay")
-    def evaluation_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def evaluation_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
         """
         return pulumi.get(self, "evaluation_delay")
 
     @evaluation_delay.setter
-    def evaluation_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def evaluation_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "evaluation_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDuration")
-    def expiration_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiration_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         """
         return pulumi.get(self, "expiration_duration")
 
     @expiration_duration.setter
-    def expiration_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiration_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiration_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="fillOption")
-    def fill_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fill_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         """
         return pulumi.get(self, "fill_option")
 
     @fill_option.setter
-    def fill_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fill_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fill_option", value)
 
     @_builtins.property
     @pulumi.getter(name="fillValue")
-    def fill_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def fill_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         This value will be used for filling gaps in the signal.
         """
         return pulumi.get(self, "fill_value")
 
     @fill_value.setter
-    def fill_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def fill_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "fill_value", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOnExpectedTermination")
-    def ignore_on_expected_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_on_expected_termination(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
         """
         return pulumi.get(self, "ignore_on_expected_termination")
 
     @ignore_on_expected_termination.setter
-    def ignore_on_expected_termination(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_on_expected_termination(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_on_expected_termination", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def nrql(self) -> Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']]:
+    def nrql(self) -> pulumi.Input[Optional['NrqlAlertConditionNrqlArgs']]:
         """
         A NRQL query. See NRQL below for details.
         """
         return pulumi.get(self, "nrql")
 
     @nrql.setter
-    def nrql(self, value: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']]):
+    def nrql(self, value: pulumi.Input[Optional['NrqlAlertConditionNrqlArgs']]):
         pulumi.set(self, "nrql", value)
 
     @_builtins.property
     @pulumi.getter(name="openViolationOnExpiration")
-    def open_violation_on_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def open_violation_on_expiration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create a new incident to capture that the signal expired.
         """
         return pulumi.get(self, "open_violation_on_expiration")
 
     @open_violation_on_expiration.setter
-    def open_violation_on_expiration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def open_violation_on_expiration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "open_violation_on_expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="outlierConfiguration")
-    def outlier_configuration(self) -> Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]:
+    def outlier_configuration(self) -> pulumi.Input[Optional['NrqlAlertConditionOutlierConfigurationArgs']]:
         """
         **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
         """
         return pulumi.get(self, "outlier_configuration")
 
     @outlier_configuration.setter
-    def outlier_configuration(self, value: Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]):
+    def outlier_configuration(self, value: pulumi.Input[Optional['NrqlAlertConditionOutlierConfigurationArgs']]):
         pulumi.set(self, "outlier_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the policy where this condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
     @_builtins.property
     @pulumi.getter(name="signalSeasonality")
-    def signal_seasonality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signal_seasonality(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
         """
         return pulumi.get(self, "signal_seasonality")
 
     @signal_seasonality.setter
-    def signal_seasonality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signal_seasonality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signal_seasonality", value)
 
     @_builtins.property
     @pulumi.getter(name="slideBy")
-    def slide_by(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def slide_by(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         """
         return pulumi.get(self, "slide_by")
 
     @slide_by.setter
-    def slide_by(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def slide_by(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "slide_by", value)
 
     @_builtins.property
     @pulumi.getter(name="targetEntity")
-    def target_entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_entity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         """
         return pulumi.get(self, "target_entity")
 
     @target_entity.setter
-    def target_entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_entity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_entity", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""use `critical` and `warning` attributes instead""")
-    def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
+    def terms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
         """
         **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         """
         return pulumi.get(self, "terms")
 
     @terms.setter
-    def terms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]):
+    def terms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]):
         pulumi.set(self, "terms", value)
 
     @_builtins.property
     @pulumi.getter(name="titleTemplate")
-    def title_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         """
         return pulumi.get(self, "title_template")
 
     @title_template.setter
-    def title_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
         <small>\\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
@@ -995,13 +995,13 @@ class _NrqlAlertConditionState:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="violationTimeLimit")
     @_utilities.deprecated("""use `violation_time_limit_seconds` attribute instead""")
-    def violation_time_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def violation_time_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
         <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
@@ -1009,12 +1009,12 @@ class _NrqlAlertConditionState:
         return pulumi.get(self, "violation_time_limit")
 
     @violation_time_limit.setter
-    def violation_time_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def violation_time_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "violation_time_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="violationTimeLimitSeconds")
-    def violation_time_limit_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def violation_time_limit_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
         <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
@@ -1022,19 +1022,19 @@ class _NrqlAlertConditionState:
         return pulumi.get(self, "violation_time_limit_seconds")
 
     @violation_time_limit_seconds.setter
-    def violation_time_limit_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def violation_time_limit_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "violation_time_limit_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def warning(self) -> Optional[pulumi.Input['NrqlAlertConditionWarningArgs']]:
+    def warning(self) -> pulumi.Input[Optional['NrqlAlertConditionWarningArgs']]:
         """
         A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         return pulumi.get(self, "warning")
 
     @warning.setter
-    def warning(self, value: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']]):
+    def warning(self, value: pulumi.Input[Optional['NrqlAlertConditionWarningArgs']]):
         pulumi.set(self, "warning", value)
 
 
@@ -1044,36 +1044,36 @@ class NrqlAlertCondition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_timer: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 baseline_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 close_violations_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 critical: Optional[pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 expiration_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 fill_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 fill_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 ignore_on_expected_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
-                 open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outlier_configuration: Optional[pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
-                 slide_by: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
-                 title_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 warning: Optional[pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_timer: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 baseline_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 close_violations_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 critical: pulumi.Input[Optional[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 expiration_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 fill_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 fill_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 ignore_on_expected_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nrql: pulumi.Input[Optional[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
+                 open_violation_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outlier_configuration: pulumi.Input[Optional[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 signal_seasonality: pulumi.Input[Optional[_builtins.str]] = None,
+                 slide_by: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
+                 title_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 warning: pulumi.Input[Optional[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to create and manage NRQL alert conditions in New Relic.
@@ -1102,7 +1102,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             enabled=True,
             violation_time_limit_seconds=3600,
             fill_option="static",
-            fill_value=1,
+            fill_value=float(1),
             aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
@@ -1268,7 +1268,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 0,
+                "threshold": float(0),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             })
@@ -1295,7 +1295,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             enabled=True,
             violation_time_limit_seconds=3600,
             fill_option="static",
-            fill_value=1,
+            fill_value=float(1),
             aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
@@ -1357,7 +1357,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             critical={
                 "operator": "above",
                 "threshold_duration": 120,
-                "threshold": 3,
+                "threshold": float(3),
                 "threshold_occurrences": "AT_LEAST_ONCE",
             },
             nrql={
@@ -1382,7 +1382,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             terms=[{
                 "priority": "critical",
                 "operator": "above",
-                "threshold": 3,
+                "threshold": float(3),
                 "duration": 5,
                 "time_function": "any",
             }],
@@ -1478,7 +1478,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             enabled=True,
             violation_time_limit_seconds=3600,
             fill_option="static",
-            fill_value=1,
+            fill_value=float(1),
             aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
@@ -1644,7 +1644,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             },
             critical={
                 "operator": "above",
-                "threshold": 0,
+                "threshold": float(0),
                 "threshold_duration": 300,
                 "threshold_occurrences": "all",
             })
@@ -1671,7 +1671,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             enabled=True,
             violation_time_limit_seconds=3600,
             fill_option="static",
-            fill_value=1,
+            fill_value=float(1),
             aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
@@ -1733,7 +1733,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             critical={
                 "operator": "above",
                 "threshold_duration": 120,
-                "threshold": 3,
+                "threshold": float(3),
                 "threshold_occurrences": "AT_LEAST_ONCE",
             },
             nrql={
@@ -1758,7 +1758,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             terms=[{
                 "priority": "critical",
                 "operator": "above",
-                "threshold": 3,
+                "threshold": float(3),
                 "duration": 5,
                 "time_function": "any",
             }],
@@ -1800,36 +1800,36 @@ class NrqlAlertCondition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_timer: Optional[pulumi.Input[_builtins.str]] = None,
-                 aggregation_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 baseline_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 close_violations_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 critical: Optional[pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 expiration_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 fill_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 fill_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 ignore_on_expected_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
-                 open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outlier_configuration: Optional[pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
-                 slide_by: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
-                 title_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 warning: Optional[pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_timer: pulumi.Input[Optional[_builtins.str]] = None,
+                 aggregation_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 baseline_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 close_violations_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 critical: pulumi.Input[Optional[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 expiration_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 fill_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 fill_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 ignore_on_expected_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nrql: pulumi.Input[Optional[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
+                 open_violation_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outlier_configuration: pulumi.Input[Optional[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 signal_seasonality: pulumi.Input[Optional[_builtins.str]] = None,
+                 slide_by: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
+                 title_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 warning: pulumi.Input[Optional[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1884,37 +1884,37 @@ class NrqlAlertCondition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            aggregation_delay: Optional[pulumi.Input[_builtins.str]] = None,
-            aggregation_method: Optional[pulumi.Input[_builtins.str]] = None,
-            aggregation_timer: Optional[pulumi.Input[_builtins.str]] = None,
-            aggregation_window: Optional[pulumi.Input[_builtins.int]] = None,
-            baseline_direction: Optional[pulumi.Input[_builtins.str]] = None,
-            close_violations_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-            critical: Optional[pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-            expiration_duration: Optional[pulumi.Input[_builtins.int]] = None,
-            fill_option: Optional[pulumi.Input[_builtins.str]] = None,
-            fill_value: Optional[pulumi.Input[_builtins.float]] = None,
-            ignore_on_expected_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
-            open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-            outlier_configuration: Optional[pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-            signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
-            slide_by: Optional[pulumi.Input[_builtins.int]] = None,
-            target_entity: Optional[pulumi.Input[_builtins.str]] = None,
-            terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
-            title_template: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            violation_time_limit: Optional[pulumi.Input[_builtins.str]] = None,
-            violation_time_limit_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            warning: Optional[pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None) -> 'NrqlAlertCondition':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aggregation_delay: pulumi.Input[Optional[_builtins.str]] = None,
+            aggregation_method: pulumi.Input[Optional[_builtins.str]] = None,
+            aggregation_timer: pulumi.Input[Optional[_builtins.str]] = None,
+            aggregation_window: pulumi.Input[Optional[_builtins.int]] = None,
+            baseline_direction: pulumi.Input[Optional[_builtins.str]] = None,
+            close_violations_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+            critical: pulumi.Input[Optional[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            expiration_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            fill_option: pulumi.Input[Optional[_builtins.str]] = None,
+            fill_value: pulumi.Input[Optional[_builtins.float]] = None,
+            ignore_on_expected_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nrql: pulumi.Input[Optional[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
+            open_violation_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+            outlier_configuration: pulumi.Input[Optional[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+            signal_seasonality: pulumi.Input[Optional[_builtins.str]] = None,
+            slide_by: pulumi.Input[Optional[_builtins.int]] = None,
+            target_entity: pulumi.Input[Optional[_builtins.str]] = None,
+            terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
+            title_template: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            violation_time_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            warning: pulumi.Input[Optional[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None) -> 'NrqlAlertCondition':
         """
         Get an existing NrqlAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -133,23 +133,23 @@ export interface OneDashboardJsonState {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The unique entity identifier of the dashboard in New Relic.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      */
-    json?: pulumi.Input<string>;
+    json?: pulumi.Input<string | undefined>;
     /**
      * The URL for viewing the dashboard.
      */
-    permalink?: pulumi.Input<string>;
+    permalink?: pulumi.Input<string | undefined>;
     /**
      * The date and time when the dashboard was last updated.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,7 +159,7 @@ export interface OneDashboardJsonArgs {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      */
