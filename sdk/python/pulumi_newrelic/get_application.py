@@ -126,7 +126,7 @@ def get_application(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_ids=pulumi.get(__ret__, 'instance_ids'),
         name=pulumi.get(__ret__, 'name'))
-def get_application_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     > **DEPRECATED** Use at your own risk. Use the [`get_entity`](https://www.terraform.io/docs/providers/newrelic/d/entity.html) data source instead. This feature may be removed in the next major release.

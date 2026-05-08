@@ -388,56 +388,56 @@ export interface NotificationDestinationState {
     /**
      * Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the destination is active.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
      */
-    authBasic?: pulumi.Input<inputs.NotificationDestinationAuthBasic>;
+    authBasic?: pulumi.Input<inputs.NotificationDestinationAuthBasic | undefined>;
     /**
      * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
      */
-    authCustomHeaders?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationAuthCustomHeader>[]>;
+    authCustomHeaders?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationAuthCustomHeader>[] | undefined>;
     /**
      * A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
      */
-    authToken?: pulumi.Input<inputs.NotificationDestinationAuthToken>;
+    authToken?: pulumi.Input<inputs.NotificationDestinationAuthToken | undefined>;
     /**
      * The unique entity identifier of the destination in New Relic.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The last time a notification was sent.
      */
-    lastSent?: pulumi.Input<string>;
+    lastSent?: pulumi.Input<string | undefined>;
     /**
      * The name of the destination.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
      * *
      */
-    properties?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[]>;
+    properties?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[] | undefined>;
     /**
      * Scope of the destination
      */
-    scope?: pulumi.Input<inputs.NotificationDestinationScope>;
+    scope?: pulumi.Input<inputs.NotificationDestinationScope | undefined>;
     /**
      * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
      */
-    secureUrl?: pulumi.Input<inputs.NotificationDestinationSecureUrl>;
+    secureUrl?: pulumi.Input<inputs.NotificationDestinationSecureUrl | undefined>;
     /**
      * The status of the destination.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -447,27 +447,27 @@ export interface NotificationDestinationArgs {
     /**
      * Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the destination is active.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
      */
-    authBasic?: pulumi.Input<inputs.NotificationDestinationAuthBasic>;
+    authBasic?: pulumi.Input<inputs.NotificationDestinationAuthBasic | undefined>;
     /**
      * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
      */
-    authCustomHeaders?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationAuthCustomHeader>[]>;
+    authCustomHeaders?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationAuthCustomHeader>[] | undefined>;
     /**
      * A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
      */
-    authToken?: pulumi.Input<inputs.NotificationDestinationAuthToken>;
+    authToken?: pulumi.Input<inputs.NotificationDestinationAuthToken | undefined>;
     /**
      * The name of the destination.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
      * *
@@ -476,11 +476,11 @@ export interface NotificationDestinationArgs {
     /**
      * Scope of the destination
      */
-    scope?: pulumi.Input<inputs.NotificationDestinationScope>;
+    scope?: pulumi.Input<inputs.NotificationDestinationScope | undefined>;
     /**
      * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
      */
-    secureUrl?: pulumi.Input<inputs.NotificationDestinationSecureUrl>;
+    secureUrl?: pulumi.Input<inputs.NotificationDestinationSecureUrl | undefined>;
     /**
      * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
      */

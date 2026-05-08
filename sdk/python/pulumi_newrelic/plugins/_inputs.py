@@ -42,19 +42,19 @@ __all__ = [
 ]
 
 class ApplicationSettingsErrorCollectorArgsDict(TypedDict):
-    expected_error_classes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    expected_error_classes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of expected error classes.
     """
-    expected_error_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    expected_error_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of expected error codes(any status code between 100-900).
     """
-    ignored_error_classes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ignored_error_classes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of ignored error classes.
     """
-    ignored_error_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ignored_error_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of ignored error codes(any status code between 100-900).
     """
@@ -62,10 +62,10 @@ class ApplicationSettingsErrorCollectorArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationSettingsErrorCollectorArgs:
     def __init__(__self__, *,
-                 expected_error_classes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 expected_error_codes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ignored_error_classes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ignored_error_codes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 expected_error_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 expected_error_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignored_error_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignored_error_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] expected_error_classes: A list of expected error classes.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] expected_error_codes: A list of expected error codes(any status code between 100-900).
@@ -83,71 +83,71 @@ class ApplicationSettingsErrorCollectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedErrorClasses")
-    def expected_error_classes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def expected_error_classes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of expected error classes.
         """
         return pulumi.get(self, "expected_error_classes")
 
     @expected_error_classes.setter
-    def expected_error_classes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def expected_error_classes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "expected_error_classes", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedErrorCodes")
-    def expected_error_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def expected_error_codes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of expected error codes(any status code between 100-900).
         """
         return pulumi.get(self, "expected_error_codes")
 
     @expected_error_codes.setter
-    def expected_error_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def expected_error_codes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "expected_error_codes", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoredErrorClasses")
-    def ignored_error_classes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ignored_error_classes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of ignored error classes.
         """
         return pulumi.get(self, "ignored_error_classes")
 
     @ignored_error_classes.setter
-    def ignored_error_classes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ignored_error_classes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ignored_error_classes", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoredErrorCodes")
-    def ignored_error_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ignored_error_codes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of ignored error codes(any status code between 100-900).
         """
         return pulumi.get(self, "ignored_error_codes")
 
     @ignored_error_codes.setter
-    def ignored_error_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ignored_error_codes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ignored_error_codes", value)
 
 
 class ApplicationSettingsTransactionTracerArgsDict(TypedDict):
-    explain_query_plans: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgsDict']]]]
+    explain_query_plans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]]]
     """
     Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
     """
-    sql: NotRequired[pulumi.Input['ApplicationSettingsTransactionTracerSqlArgsDict']]
+    sql: NotRequired[pulumi.Input[Optional['ApplicationSettingsTransactionTracerSqlArgs']]]
     """
     Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
     """
-    stack_trace_threshold_value: NotRequired[pulumi.Input[_builtins.float]]
+    stack_trace_threshold_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The response time threshold for collecting stack traces.
     """
-    transaction_threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    transaction_threshold_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
     """
-    transaction_threshold_value: NotRequired[pulumi.Input[_builtins.float]]
+    transaction_threshold_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The threshold value for transactions(in seconds).
     """
@@ -155,11 +155,11 @@ class ApplicationSettingsTransactionTracerArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationSettingsTransactionTracerArgs:
     def __init__(__self__, *,
-                 explain_query_plans: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]] = None,
-                 sql: Optional[pulumi.Input['ApplicationSettingsTransactionTracerSqlArgs']] = None,
-                 stack_trace_threshold_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 transaction_threshold_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 transaction_threshold_value: Optional[pulumi.Input[_builtins.float]] = None):
+                 explain_query_plans: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]] = None,
+                 sql: pulumi.Input[Optional['ApplicationSettingsTransactionTracerSqlArgs']] = None,
+                 stack_trace_threshold_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 transaction_threshold_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 transaction_threshold_value: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]] explain_query_plans: Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
         :param pulumi.Input['ApplicationSettingsTransactionTracerSqlArgs'] sql: Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
@@ -180,71 +180,71 @@ class ApplicationSettingsTransactionTracerArgs:
 
     @_builtins.property
     @pulumi.getter(name="explainQueryPlans")
-    def explain_query_plans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]]:
+    def explain_query_plans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]]:
         """
         Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
         """
         return pulumi.get(self, "explain_query_plans")
 
     @explain_query_plans.setter
-    def explain_query_plans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]]):
+    def explain_query_plans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]]):
         pulumi.set(self, "explain_query_plans", value)
 
     @_builtins.property
     @pulumi.getter
-    def sql(self) -> Optional[pulumi.Input['ApplicationSettingsTransactionTracerSqlArgs']]:
+    def sql(self) -> pulumi.Input[Optional['ApplicationSettingsTransactionTracerSqlArgs']]:
         """
         Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
         """
         return pulumi.get(self, "sql")
 
     @sql.setter
-    def sql(self, value: Optional[pulumi.Input['ApplicationSettingsTransactionTracerSqlArgs']]):
+    def sql(self, value: pulumi.Input[Optional['ApplicationSettingsTransactionTracerSqlArgs']]):
         pulumi.set(self, "sql", value)
 
     @_builtins.property
     @pulumi.getter(name="stackTraceThresholdValue")
-    def stack_trace_threshold_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def stack_trace_threshold_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The response time threshold for collecting stack traces.
         """
         return pulumi.get(self, "stack_trace_threshold_value")
 
     @stack_trace_threshold_value.setter
-    def stack_trace_threshold_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def stack_trace_threshold_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "stack_trace_threshold_value", value)
 
     @_builtins.property
     @pulumi.getter(name="transactionThresholdType")
-    def transaction_threshold_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transaction_threshold_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
         """
         return pulumi.get(self, "transaction_threshold_type")
 
     @transaction_threshold_type.setter
-    def transaction_threshold_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transaction_threshold_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transaction_threshold_type", value)
 
     @_builtins.property
     @pulumi.getter(name="transactionThresholdValue")
-    def transaction_threshold_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def transaction_threshold_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The threshold value for transactions(in seconds).
         """
         return pulumi.get(self, "transaction_threshold_value")
 
     @transaction_threshold_value.setter
-    def transaction_threshold_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def transaction_threshold_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "transaction_threshold_value", value)
 
 
 class ApplicationSettingsTransactionTracerExplainQueryPlanArgsDict(TypedDict):
-    query_plan_threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    query_plan_threshold_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
     """
-    query_plan_threshold_value: NotRequired[pulumi.Input[_builtins.float]]
+    query_plan_threshold_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The response time threshold for capturing query plans(in seconds).
     """
@@ -252,8 +252,8 @@ class ApplicationSettingsTransactionTracerExplainQueryPlanArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationSettingsTransactionTracerExplainQueryPlanArgs:
     def __init__(__self__, *,
-                 query_plan_threshold_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_plan_threshold_value: Optional[pulumi.Input[_builtins.float]] = None):
+                 query_plan_threshold_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_plan_threshold_value: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.str] query_plan_threshold_type: The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
         :param pulumi.Input[_builtins.float] query_plan_threshold_value: The response time threshold for capturing query plans(in seconds).
@@ -265,26 +265,26 @@ class ApplicationSettingsTransactionTracerExplainQueryPlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="queryPlanThresholdType")
-    def query_plan_threshold_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_plan_threshold_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
         """
         return pulumi.get(self, "query_plan_threshold_type")
 
     @query_plan_threshold_type.setter
-    def query_plan_threshold_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_plan_threshold_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_plan_threshold_type", value)
 
     @_builtins.property
     @pulumi.getter(name="queryPlanThresholdValue")
-    def query_plan_threshold_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def query_plan_threshold_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The response time threshold for capturing query plans(in seconds).
         """
         return pulumi.get(self, "query_plan_threshold_value")
 
     @query_plan_threshold_value.setter
-    def query_plan_threshold_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def query_plan_threshold_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "query_plan_threshold_value", value)
 
 
@@ -349,11 +349,11 @@ class WorkloadStatusConfigAutomaticArgsDict(TypedDict):
     """
     Whether the automatic status configuration is enabled or not.
     """
-    remaining_entities_rule: NotRequired[pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgsDict']]
+    remaining_entities_rule: NotRequired[pulumi.Input[Optional['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']]]
     """
     An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
     """
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgsDict']]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]]]
     """
     A list of rules.
     """
@@ -362,8 +362,8 @@ class WorkloadStatusConfigAutomaticArgsDict(TypedDict):
 class WorkloadStatusConfigAutomaticArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 remaining_entities_rule: Optional[pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]] = None):
+                 remaining_entities_rule: pulumi.Input[Optional['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether the automatic status configuration is enabled or not.
         :param pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs'] remaining_entities_rule: An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
@@ -389,26 +389,26 @@ class WorkloadStatusConfigAutomaticArgs:
 
     @_builtins.property
     @pulumi.getter(name="remainingEntitiesRule")
-    def remaining_entities_rule(self) -> Optional[pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']]:
+    def remaining_entities_rule(self) -> pulumi.Input[Optional['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']]:
         """
         An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
         """
         return pulumi.get(self, "remaining_entities_rule")
 
     @remaining_entities_rule.setter
-    def remaining_entities_rule(self, value: Optional[pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']]):
+    def remaining_entities_rule(self, value: pulumi.Input[Optional['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']]):
         pulumi.set(self, "remaining_entities_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]]:
         """
         A list of rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -449,11 +449,11 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRol
     """
     The rollup strategy that is applied to a group of entities.
     """
-    threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    threshold_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
     """
-    threshold_value: NotRequired[pulumi.Input[_builtins.int]]
+    threshold_value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
     """
@@ -463,8 +463,8 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRol
     def __init__(__self__, *,
                  group_by: pulumi.Input[_builtins.str],
                  strategy: pulumi.Input[_builtins.str],
-                 threshold_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 threshold_value: Optional[pulumi.Input[_builtins.int]] = None):
+                 threshold_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold_value: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] group_by: The grouping to be applied to the remaining entities.
         :param pulumi.Input[_builtins.str] strategy: The rollup strategy that is applied to a group of entities.
@@ -504,26 +504,26 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRol
 
     @_builtins.property
     @pulumi.getter(name="thresholdType")
-    def threshold_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threshold_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
         """
         return pulumi.get(self, "threshold_type")
 
     @threshold_type.setter
-    def threshold_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threshold_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threshold_type", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdValue")
-    def threshold_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threshold_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
         """
         return pulumi.get(self, "threshold_value")
 
     @threshold_value.setter
-    def threshold_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threshold_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold_value", value)
 
 
@@ -532,11 +532,11 @@ class WorkloadStatusConfigAutomaticRuleArgsDict(TypedDict):
     """
     The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
     """
-    entity_guids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    entity_guids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
     """
-    nrql_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgsDict']]]]
+    nrql_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]]]]
     """
     A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
     """
@@ -545,8 +545,8 @@ class WorkloadStatusConfigAutomaticRuleArgsDict(TypedDict):
 class WorkloadStatusConfigAutomaticRuleArgs:
     def __init__(__self__, *,
                  rollup: pulumi.Input['WorkloadStatusConfigAutomaticRuleRollupArgs'],
-                 entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 nrql_queries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]]] = None):
+                 entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 nrql_queries: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]]] = None):
         """
         :param pulumi.Input['WorkloadStatusConfigAutomaticRuleRollupArgs'] rollup: The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
@@ -572,26 +572,26 @@ class WorkloadStatusConfigAutomaticRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="entityGuids")
-    def entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def entity_guids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
         """
         return pulumi.get(self, "entity_guids")
 
     @entity_guids.setter
-    def entity_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def entity_guids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "entity_guids", value)
 
     @_builtins.property
     @pulumi.getter(name="nrqlQueries")
-    def nrql_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]]]:
+    def nrql_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]]]:
         """
         A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
         """
         return pulumi.get(self, "nrql_queries")
 
     @nrql_queries.setter
-    def nrql_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]]]):
+    def nrql_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]]]):
         pulumi.set(self, "nrql_queries", value)
 
 
@@ -628,11 +628,11 @@ class WorkloadStatusConfigAutomaticRuleRollupArgsDict(TypedDict):
     """
     The rollup strategy that is applied to a group of entities.
     """
-    threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    threshold_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
     """
-    threshold_value: NotRequired[pulumi.Input[_builtins.int]]
+    threshold_value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
     """
@@ -641,8 +641,8 @@ class WorkloadStatusConfigAutomaticRuleRollupArgsDict(TypedDict):
 class WorkloadStatusConfigAutomaticRuleRollupArgs:
     def __init__(__self__, *,
                  strategy: pulumi.Input[_builtins.str],
-                 threshold_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 threshold_value: Optional[pulumi.Input[_builtins.int]] = None):
+                 threshold_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold_value: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] strategy: The rollup strategy that is applied to a group of entities.
         :param pulumi.Input[_builtins.str] threshold_type: Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
@@ -668,26 +668,26 @@ class WorkloadStatusConfigAutomaticRuleRollupArgs:
 
     @_builtins.property
     @pulumi.getter(name="thresholdType")
-    def threshold_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threshold_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
         """
         return pulumi.get(self, "threshold_type")
 
     @threshold_type.setter
-    def threshold_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threshold_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threshold_type", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdValue")
-    def threshold_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threshold_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
         """
         return pulumi.get(self, "threshold_value")
 
     @threshold_value.setter
-    def threshold_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threshold_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold_value", value)
 
 
@@ -700,11 +700,11 @@ class WorkloadStatusConfigStaticArgsDict(TypedDict):
     """
     The status of the workload.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Relevant information about the workload.
     """
-    summary: NotRequired[pulumi.Input[_builtins.str]]
+    summary: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A short description of the status of the workload.
     """
@@ -714,8 +714,8 @@ class WorkloadStatusConfigStaticArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  status: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether the static status configuration is enabled or not.
         :param pulumi.Input[_builtins.str] status: The status of the workload.
@@ -755,26 +755,26 @@ class WorkloadStatusConfigStaticArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Relevant information about the workload.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def summary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def summary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short description of the status of the workload.
         """
         return pulumi.get(self, "summary")
 
     @summary.setter
-    def summary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def summary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "summary", value)
 
 

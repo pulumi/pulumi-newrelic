@@ -21,9 +21,9 @@ class AlertConditionArgs:
     def __init__(__self__, *,
                  monitor_id: pulumi.Input[_builtins.str],
                  policy_id: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertCondition resource.
 
@@ -72,7 +72,7 @@ class AlertConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set whether to enable the alert condition. Defaults to `true`.
 
@@ -83,43 +83,43 @@ class AlertConditionArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of this condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
 
 @pulumi.input_type
 class _AlertConditionState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertCondition resources.
 
@@ -149,7 +149,7 @@ class _AlertConditionState:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set whether to enable the alert condition. Defaults to `true`.
 
@@ -160,67 +160,67 @@ class _AlertConditionState:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="entityGuid")
-    def entity_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the condition in New Relic.
         """
         return pulumi.get(self, "entity_guid")
 
     @entity_guid.setter
-    def entity_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID of the Synthetics monitor to be referenced in the alert condition.
         """
         return pulumi.get(self, "monitor_id")
 
     @monitor_id.setter
-    def monitor_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of this condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the policy where this condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
 
@@ -230,11 +230,11 @@ class AlertCondition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to create and manage synthetics alert conditions in New Relic.
@@ -423,11 +423,11 @@ class AlertCondition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -457,12 +457,12 @@ class AlertCondition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            monitor_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            runbook_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'AlertCondition':
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'AlertCondition':
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

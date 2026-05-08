@@ -117,19 +117,19 @@ export interface PipelineCloudRuleState {
     /**
      * The account ID where the Pipeline Cloud Rule will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Additional information about the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule. This must be unique within an account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The NRQL query that defines the data to be processed by this Pipeline Cloud Rule.
      */
-    nrql?: pulumi.Input<string>;
+    nrql?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -139,15 +139,15 @@ export interface PipelineCloudRuleArgs {
     /**
      * The account ID where the Pipeline Cloud Rule will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Additional information about the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule. This must be unique within an account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The NRQL query that defines the data to be processed by this Pipeline Cloud Rule.
      */

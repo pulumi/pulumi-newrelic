@@ -234,42 +234,42 @@ export interface MultiLocationAlertConditionState {
     /**
      * A condition term with the priority set to critical.
      */
-    critical?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionCritical | undefined>;
     /**
      * Set whether to enable the alert condition.  Defaults to true.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Monitor GUID's of the Synthetics monitors to alert on.
      */
-    entities?: pulumi.Input<pulumi.Input<string>[]>;
+    entities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
-    entityGuid?: pulumi.Input<string>;
+    entityGuid?: pulumi.Input<string | undefined>;
     /**
      * The title of the condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the policy where this condition will be used.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      */
-    violationTimeLimitSeconds?: pulumi.Input<number>;
+    violationTimeLimitSeconds?: pulumi.Input<number | undefined>;
     /**
      * A condition term with the priority set to warning.
      *
      *
      * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
-    warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning | undefined>;
 }
 
 /**
@@ -283,7 +283,7 @@ export interface MultiLocationAlertConditionArgs {
     /**
      * Set whether to enable the alert condition.  Defaults to true.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Monitor GUID's of the Synthetics monitors to alert on.
      */
@@ -291,7 +291,7 @@ export interface MultiLocationAlertConditionArgs {
     /**
      * The title of the condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the policy where this condition will be used.
      */
@@ -299,16 +299,16 @@ export interface MultiLocationAlertConditionArgs {
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      */
-    violationTimeLimitSeconds?: pulumi.Input<number>;
+    violationTimeLimitSeconds?: pulumi.Input<number | undefined>;
     /**
      * A condition term with the priority set to warning.
      *
      *
      * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
-    warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning | undefined>;
 }

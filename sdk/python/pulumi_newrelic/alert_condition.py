@@ -26,14 +26,14 @@ class AlertConditionArgs:
                  policy_id: pulumi.Input[_builtins.str],
                  terms: pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]],
                  type: pulumi.Input[_builtins.str],
-                 condition_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gc_metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_defined_metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_defined_value_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_close_timer: Optional[pulumi.Input[_builtins.int]] = None):
+                 condition_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gc_metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_defined_metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_defined_value_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a AlertCondition resource.
 
@@ -143,79 +143,79 @@ class AlertConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="conditionScope")
-    def condition_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         """
         return pulumi.get(self, "condition_scope")
 
     @condition_scope.setter
-    def condition_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the condition is enabled or not. Defaults to true.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gcMetric")
-    def gc_metric(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gc_metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         """
         return pulumi.get(self, "gc_metric")
 
     @gc_metric.setter
-    def gc_metric(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gc_metric(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gc_metric", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the condition. Must be between 1 and 64 characters, inclusive.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
     @_builtins.property
     @pulumi.getter(name="userDefinedMetric")
-    def user_defined_metric(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_defined_metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom metric to be evaluated.
         """
         return pulumi.get(self, "user_defined_metric")
 
     @user_defined_metric.setter
-    def user_defined_metric(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_defined_metric(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_defined_metric", value)
 
     @_builtins.property
     @pulumi.getter(name="userDefinedValueFunction")
-    def user_defined_value_function(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_defined_value_function(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
 
@@ -228,12 +228,12 @@ class AlertConditionArgs:
         return pulumi.get(self, "user_defined_value_function")
 
     @user_defined_value_function.setter
-    def user_defined_value_function(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_defined_value_function(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_defined_value_function", value)
 
     @_builtins.property
     @pulumi.getter(name="violationCloseTimer")
-    def violation_close_timer(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def violation_close_timer(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
         * when `type` = `apm_app_metric` and `condition_scope` = `instance`
@@ -242,27 +242,27 @@ class AlertConditionArgs:
         return pulumi.get(self, "violation_close_timer")
 
     @violation_close_timer.setter
-    def violation_close_timer(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def violation_close_timer(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "violation_close_timer", value)
 
 
 @pulumi.input_type
 class _AlertConditionState:
     def __init__(__self__, *,
-                 condition_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 gc_metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_defined_metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_defined_value_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_close_timer: Optional[pulumi.Input[_builtins.int]] = None):
+                 condition_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 gc_metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[Sequence[pulumi.Input['AlertConditionTermArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_defined_metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_defined_value_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering AlertCondition resources.
 
@@ -320,151 +320,151 @@ class _AlertConditionState:
 
     @_builtins.property
     @pulumi.getter(name="conditionScope")
-    def condition_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         """
         return pulumi.get(self, "condition_scope")
 
     @condition_scope.setter
-    def condition_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the condition is enabled or not. Defaults to true.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def entities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The instance IDs associated with this condition.
         """
         return pulumi.get(self, "entities")
 
     @entities.setter
-    def entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def entities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "entities", value)
 
     @_builtins.property
     @pulumi.getter(name="entityGuid")
-    def entity_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the condition in New Relic.
         """
         return pulumi.get(self, "entity_guid")
 
     @entity_guid.setter
-    def entity_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="gcMetric")
-    def gc_metric(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gc_metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         """
         return pulumi.get(self, "gc_metric")
 
     @gc_metric.setter
-    def gc_metric(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gc_metric(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gc_metric", value)
 
     @_builtins.property
     @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
         """
         return pulumi.get(self, "metric")
 
     @metric.setter
-    def metric(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the condition. Must be between 1 and 64 characters, inclusive.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the policy where this condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
 
     @runbook_url.setter
-    def runbook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]]]:
+    def terms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertConditionTermArgs']]]]:
         """
         A list of terms for this condition. See Terms below for details.
         """
         return pulumi.get(self, "terms")
 
     @terms.setter
-    def terms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]]]):
+    def terms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertConditionTermArgs']]]]):
         pulumi.set(self, "terms", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userDefinedMetric")
-    def user_defined_metric(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_defined_metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom metric to be evaluated.
         """
         return pulumi.get(self, "user_defined_metric")
 
     @user_defined_metric.setter
-    def user_defined_metric(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_defined_metric(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_defined_metric", value)
 
     @_builtins.property
     @pulumi.getter(name="userDefinedValueFunction")
-    def user_defined_value_function(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_defined_value_function(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
 
@@ -477,12 +477,12 @@ class _AlertConditionState:
         return pulumi.get(self, "user_defined_value_function")
 
     @user_defined_value_function.setter
-    def user_defined_value_function(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_defined_value_function(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_defined_value_function", value)
 
     @_builtins.property
     @pulumi.getter(name="violationCloseTimer")
-    def violation_close_timer(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def violation_close_timer(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
         * when `type` = `apm_app_metric` and `condition_scope` = `instance`
@@ -491,7 +491,7 @@ class _AlertConditionState:
         return pulumi.get(self, "violation_close_timer")
 
     @violation_close_timer.setter
-    def violation_close_timer(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def violation_close_timer(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "violation_close_timer", value)
 
 
@@ -501,19 +501,19 @@ class AlertCondition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gc_metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_defined_metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_defined_value_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_close_timer: Optional[pulumi.Input[_builtins.int]] = None,
+                 condition_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gc_metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_defined_metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_defined_value_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
@@ -746,19 +746,19 @@ class AlertCondition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gc_metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_defined_metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_defined_value_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 violation_close_timer: Optional[pulumi.Input[_builtins.int]] = None,
+                 condition_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gc_metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_defined_metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_defined_value_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -802,20 +802,20 @@ class AlertCondition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            condition_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            entity_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            gc_metric: Optional[pulumi.Input[_builtins.str]] = None,
-            metric: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
-            terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            user_defined_metric: Optional[pulumi.Input[_builtins.str]] = None,
-            user_defined_value_function: Optional[pulumi.Input[_builtins.str]] = None,
-            violation_close_timer: Optional[pulumi.Input[_builtins.int]] = None) -> 'AlertCondition':
+            condition_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            gc_metric: pulumi.Input[Optional[_builtins.str]] = None,
+            metric: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+            terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_defined_metric: pulumi.Input[Optional[_builtins.str]] = None,
+            user_defined_value_function: pulumi.Input[Optional[_builtins.str]] = None,
+            violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None) -> 'AlertCondition':
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

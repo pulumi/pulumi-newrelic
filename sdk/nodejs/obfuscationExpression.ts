@@ -113,19 +113,19 @@ export interface ObfuscationExpressionState {
     /**
      * The account id associated with the obfuscation expression.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Description of expression.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of expression.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Regex of expression. Must be wrapped in parentheses, e.g. (regex.*).
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -135,15 +135,15 @@ export interface ObfuscationExpressionArgs {
     /**
      * The account id associated with the obfuscation expression.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Description of expression.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of expression.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Regex of expression. Must be wrapped in parentheses, e.g. (regex.*).
      */

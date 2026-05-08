@@ -266,33 +266,33 @@ export interface ServiceLevelState {
     /**
      * The description of the SLI.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The events that define the NRDB data for the SLI/SLO calculations.
      * See Events below for details.
      */
-    events?: pulumi.Input<inputs.ServiceLevelEvents>;
+    events?: pulumi.Input<inputs.ServiceLevelEvents | undefined>;
     /**
      * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * A short name for the SLI that will help anyone understand what it is about.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The objective of the SLI, only one can be defined.
      * See Objective below for details.
      */
-    objective?: pulumi.Input<inputs.ServiceLevelObjective>;
+    objective?: pulumi.Input<inputs.ServiceLevelObjective | undefined>;
     /**
      * The unique entity identifier of the Service Level Indicator in New Relic.
      */
-    sliGuid?: pulumi.Input<string>;
+    sliGuid?: pulumi.Input<string | undefined>;
     /**
      * The unique entity identifier of the Service Level Indicator.
      */
-    sliId?: pulumi.Input<string>;
+    sliId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -302,7 +302,7 @@ export interface ServiceLevelArgs {
     /**
      * The description of the SLI.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The events that define the NRDB data for the SLI/SLO calculations.
      * See Events below for details.
@@ -315,7 +315,7 @@ export interface ServiceLevelArgs {
     /**
      * A short name for the SLI that will help anyone understand what it is about.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The objective of the SLI, only one can be defined.
      * See Objective below for details.

@@ -124,8 +124,8 @@ def get_secure_credential(account_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         key=pulumi.get(__ret__, 'key'),
         last_updated=pulumi.get(__ret__, 'last_updated'))
-def get_secure_credential_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 key: Optional[pulumi.Input[_builtins.str]] = None,
+def get_secure_credential_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 key: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecureCredentialResult]:
     """
     Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.

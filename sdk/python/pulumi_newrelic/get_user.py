@@ -120,9 +120,9 @@ def get_user(authentication_domain_id: Optional[_builtins.str] = None,
         email_id=pulumi.get(__ret__, 'email_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_user_output(authentication_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    email_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_user_output(authentication_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    email_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     The `User` data source helps search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.

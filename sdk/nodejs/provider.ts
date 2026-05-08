@@ -98,34 +98,34 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    accountId?: pulumi.Input<string>;
-    adminApiKey?: pulumi.Input<string>;
-    apiKey?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
+    adminApiKey?: pulumi.Input<string | undefined>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    apiUrl?: pulumi.Input<string>;
-    cacertFile?: pulumi.Input<string>;
+    apiUrl?: pulumi.Input<string | undefined>;
+    cacertFile?: pulumi.Input<string | undefined>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    infrastructureApiUrl?: pulumi.Input<string>;
-    insecureSkipVerify?: pulumi.Input<boolean>;
-    insightsInsertKey?: pulumi.Input<string>;
-    insightsInsertUrl?: pulumi.Input<string>;
-    insightsQueryUrl?: pulumi.Input<string>;
+    infrastructureApiUrl?: pulumi.Input<string | undefined>;
+    insecureSkipVerify?: pulumi.Input<boolean | undefined>;
+    insightsInsertKey?: pulumi.Input<string | undefined>;
+    insightsInsertUrl?: pulumi.Input<string | undefined>;
+    insightsQueryUrl?: pulumi.Input<string | undefined>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    nerdgraphApiUrl?: pulumi.Input<string>;
+    nerdgraphApiUrl?: pulumi.Input<string | undefined>;
     /**
      * The data center for which your New Relic account is configured. Only one region per provider block is permitted.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    syntheticsApiUrl?: pulumi.Input<string>;
+    syntheticsApiUrl?: pulumi.Input<string | undefined>;
 }
 
 export namespace Provider {

@@ -122,9 +122,9 @@ def get_account(account_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         scope=pulumi.get(__ret__, 'scope'))
-def get_account_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       scope: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_account_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       scope: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     This data source allows you to retrieve information about a specific account in New Relic.

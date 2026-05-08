@@ -168,31 +168,31 @@ export interface AlertMutingRuleState {
     /**
      * The account id of the MutingRule.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
      */
-    actionOnMutingRuleWindowEnded?: pulumi.Input<string>;
+    actionOnMutingRuleWindowEnded?: pulumi.Input<string | undefined>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
-    condition?: pulumi.Input<inputs.AlertMutingRuleCondition>;
+    condition?: pulumi.Input<inputs.AlertMutingRuleCondition | undefined>;
     /**
      * The description of the MutingRule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the MutingRule is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the MutingRule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify a schedule for enabling the MutingRule. See Schedule below for details
      */
-    schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
+    schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule | undefined>;
 }
 
 /**
@@ -202,11 +202,11 @@ export interface AlertMutingRuleArgs {
     /**
      * The account id of the MutingRule.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
      */
-    actionOnMutingRuleWindowEnded?: pulumi.Input<string>;
+    actionOnMutingRuleWindowEnded?: pulumi.Input<string | undefined>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
@@ -214,7 +214,7 @@ export interface AlertMutingRuleArgs {
     /**
      * The description of the MutingRule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the MutingRule is enabled.
      */
@@ -222,9 +222,9 @@ export interface AlertMutingRuleArgs {
     /**
      * The name of the MutingRule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify a schedule for enabling the MutingRule. See Schedule below for details
      */
-    schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
+    schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule | undefined>;
 }

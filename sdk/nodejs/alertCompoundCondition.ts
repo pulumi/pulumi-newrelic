@@ -362,41 +362,41 @@ export interface AlertCompoundConditionState {
     /**
      * The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
      */
-    componentConditions?: pulumi.Input<pulumi.Input<inputs.AlertCompoundConditionComponentCondition>[]>;
+    componentConditions?: pulumi.Input<pulumi.Input<inputs.AlertCompoundConditionComponentCondition>[] | undefined>;
     /**
      * Whether or not the compound alert condition is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
      * - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
      * - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
      */
-    facetMatchingBehavior?: pulumi.Input<string>;
+    facetMatchingBehavior?: pulumi.Input<string | undefined>;
     /**
      * The title of the compound alert condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the policy where this alert compound condition should be used.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
     /**
      * The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
      */
-    thresholdDuration?: pulumi.Input<number>;
+    thresholdDuration?: pulumi.Input<number | undefined>;
     /**
      * Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `componentConditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
      */
-    triggerExpression?: pulumi.Input<string>;
+    triggerExpression?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -406,7 +406,7 @@ export interface AlertCompoundConditionArgs {
     /**
      * The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
      */
@@ -420,11 +420,11 @@ export interface AlertCompoundConditionArgs {
      * - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
      * - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
      */
-    facetMatchingBehavior?: pulumi.Input<string>;
+    facetMatchingBehavior?: pulumi.Input<string | undefined>;
     /**
      * The title of the compound alert condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the policy where this alert compound condition should be used.
      */
@@ -432,11 +432,11 @@ export interface AlertCompoundConditionArgs {
     /**
      * Runbook URL to display in notifications.
      */
-    runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string | undefined>;
     /**
      * The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
      */
-    thresholdDuration?: pulumi.Input<number>;
+    thresholdDuration?: pulumi.Input<number | undefined>;
     /**
      * Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `componentConditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
      */

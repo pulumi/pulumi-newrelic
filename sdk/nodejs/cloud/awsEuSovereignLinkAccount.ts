@@ -127,15 +127,15 @@ export interface AwsEuSovereignLinkAccountState {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
      */
-    metricCollectionMode?: pulumi.Input<string>;
+    metricCollectionMode?: pulumi.Input<string | undefined>;
     /**
      * The name/identifier of the AWS EU Sovereign - New Relic 'linked' account.
      *
@@ -143,7 +143,7 @@ export interface AwsEuSovereignLinkAccountState {
      *
      * > **NOTE:** This resource requires the New Relic provider to be configured with `region = "EU"` or the `NEW_RELIC_REGION=EU` environment variable.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -153,7 +153,7 @@ export interface AwsEuSovereignLinkAccountArgs {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */
@@ -161,7 +161,7 @@ export interface AwsEuSovereignLinkAccountArgs {
     /**
      * How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
      */
-    metricCollectionMode?: pulumi.Input<string>;
+    metricCollectionMode?: pulumi.Input<string | undefined>;
     /**
      * The name/identifier of the AWS EU Sovereign - New Relic 'linked' account.
      *
@@ -169,5 +169,5 @@ export interface AwsEuSovereignLinkAccountArgs {
      *
      * > **NOTE:** This resource requires the New Relic provider to be configured with `region = "EU"` or the `NEW_RELIC_REGION=EU` environment variable.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

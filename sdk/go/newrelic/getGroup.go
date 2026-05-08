@@ -81,16 +81,16 @@ import (
 //				return err
 //			}
 //			_ := fooGetGroup.Id
-//			var tmp0 *string
-//			if length > 0 {
-//				tmp0 = std.Join(ctx, &std.JoinArgs{
-//					Separator: ", ",
-//					Input:     fooGetGroup.UserIds,
-//				}, nil).Result
-//			} else {
-//				tmp0 = ""
-//			}
 //			_ = len(fooGetGroup.UserIds).ApplyT(func(length int) (*string, error) {
+//				var tmp0 *string
+//				if length > 0 {
+//					tmp0 = std.Join(ctx, &std.JoinArgs{
+//						Separator: ", ",
+//						Input:     fooGetGroup.UserIds,
+//					}, nil).Result
+//				} else {
+//					tmp0 = ""
+//				}
 //				return &tmp0, nil
 //			}).(pulumi.StringPtrOutput)
 //			return nil

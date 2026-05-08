@@ -269,51 +269,51 @@ export interface WorkloadState {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The composite query used to compose a dynamic workload.
      */
-    compositeEntitySearchQuery?: pulumi.Input<string>;
+    compositeEntitySearchQuery?: pulumi.Input<string | undefined>;
     /**
      * Relevant information about the workload.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
      */
-    entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    entityGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
      */
-    entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
+    entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[] | undefined>;
     /**
      * The unique entity identifier of the workload in New Relic.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The workload's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The URL of the workload.
      */
-    permalink?: pulumi.Input<string>;
+    permalink?: pulumi.Input<string | undefined>;
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    scopeAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeAccountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      */
-    statusConfigAutomatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomatic>;
+    statusConfigAutomatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomatic | undefined>;
     /**
      * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
      */
-    statusConfigStatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigStatic>;
+    statusConfigStatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigStatic | undefined>;
     /**
      * The unique entity identifier of the workload.
      */
-    workloadId?: pulumi.Input<string>;
+    workloadId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -323,33 +323,33 @@ export interface WorkloadArgs {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Relevant information about the workload.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
      */
-    entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    entityGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
      */
-    entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
+    entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[] | undefined>;
     /**
      * The workload's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    scopeAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeAccountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      */
-    statusConfigAutomatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomatic>;
+    statusConfigAutomatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomatic | undefined>;
     /**
      * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
      */
-    statusConfigStatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigStatic>;
+    statusConfigStatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigStatic | undefined>;
 }

@@ -128,9 +128,9 @@ def get_test_grok_pattern(account_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         log_lines=pulumi.get(__ret__, 'log_lines'),
         test_groks=pulumi.get(__ret__, 'test_groks'))
-def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 grok: Optional[pulumi.Input[_builtins.str]] = None,
-                                 log_lines: Optional[pulumi.Input[Sequence[_builtins.str]]] = None,
+def get_test_grok_pattern_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 grok: pulumi.Input[Optional[_builtins.str]] = None,
+                                 log_lines: pulumi.Input[Optional[Sequence[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestGrokPatternResult]:
     """
     Use this data source to validate a grok pattern.  More information on Terraform's data sources can be found here.

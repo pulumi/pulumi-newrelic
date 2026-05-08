@@ -186,19 +186,19 @@ export interface GetFleetConfigurationOutputArgs {
     /**
      * The entity GUID of the fleet configuration. Returns the content of its **latest** version. This attribute is also populated as an output when looking up by `versionEntityId`.
      */
-    configurationId?: pulumi.Input<string>;
+    configurationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the fleet configuration. Returns the content of its **latest** version. The first matching configuration is returned if multiple share the same name.
      *
      * The following optional argument is supported in all modes:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The organization ID. Resolved automatically from the provider account when omitted.
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * The entity GUID of a specific configuration version. Returns the content of that exact version.
      */
-    versionEntityId?: pulumi.Input<string>;
+    versionEntityId?: pulumi.Input<string | undefined>;
 }

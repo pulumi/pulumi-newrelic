@@ -135,35 +135,35 @@ export interface PrivateLocationState {
     /**
      * The account in which the private location will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The private location description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The private location globally unique identifier.
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
     /**
      * The unique client identifier for the private location in New Relic. Same as `id`.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The private locations key.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * An alternate identifier based on name.
      */
-    locationId?: pulumi.Input<string>;
+    locationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the private location.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The private location requires a password to edit if value is true. Defaults to `false`
      */
-    verifiedScriptExecution?: pulumi.Input<boolean>;
+    verifiedScriptExecution?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -173,7 +173,7 @@ export interface PrivateLocationArgs {
     /**
      * The account in which the private location will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The private location description.
      */
@@ -181,9 +181,9 @@ export interface PrivateLocationArgs {
     /**
      * The name of the private location.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The private location requires a password to edit if value is true. Defaults to `false`
      */
-    verifiedScriptExecution?: pulumi.Input<boolean>;
+    verifiedScriptExecution?: pulumi.Input<boolean | undefined>;
 }

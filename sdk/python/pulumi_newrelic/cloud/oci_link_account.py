@@ -25,14 +25,14 @@ class OciLinkAccountArgs:
                  oci_domain_url: pulumi.Input[_builtins.str],
                  oci_home_region: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingest_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 instrumentation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingest_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 instrumentation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OciLinkAccount resource.
 
@@ -148,118 +148,118 @@ class OciLinkAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestVaultOcid")
-    def ingest_vault_ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingest_vault_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Vault secret OCID containing an ingest secret.
         """
         return pulumi.get(self, "ingest_vault_ocid")
 
     @ingest_vault_ocid.setter
-    def ingest_vault_ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingest_vault_ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingest_vault_ocid", value)
 
     @_builtins.property
     @pulumi.getter(name="instrumentationType")
-    def instrumentation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instrumentation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of integration, such as metrics, logs, or a combination of logs and metrics (e.g., `METRICS`, `LOGS`, `METRICS,LOGS`).
         """
         return pulumi.get(self, "instrumentation_type")
 
     @instrumentation_type.setter
-    def instrumentation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instrumentation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instrumentation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingStackOcid")
-    def logging_stack_ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_stack_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Logging stack identifier for the OCI account.
         """
         return pulumi.get(self, "logging_stack_ocid")
 
     @logging_stack_ocid.setter
-    def logging_stack_ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_stack_ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_stack_ocid", value)
 
     @_builtins.property
     @pulumi.getter(name="metricStackOcid")
-    def metric_stack_ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_stack_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metric stack OCID (ignored on create, applied on update).
         """
         return pulumi.get(self, "metric_stack_ocid")
 
     @metric_stack_ocid.setter
-    def metric_stack_ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_stack_ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_stack_ocid", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name for the linked account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ociRegion")
-    def oci_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oci_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OCI region for the linkage (ignored on create, applied on update).
         """
         return pulumi.get(self, "oci_region")
 
     @oci_region.setter
-    def oci_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oci_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oci_region", value)
 
     @_builtins.property
     @pulumi.getter(name="userVaultOcid")
-    def user_vault_ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_vault_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Vault secret OCID containing a user or auxiliary secret.
         """
         return pulumi.get(self, "user_vault_ocid")
 
     @user_vault_ocid.setter
-    def user_vault_ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_vault_ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_vault_ocid", value)
 
 
 @pulumi.input_type
 class _OciLinkAccountState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 compartment_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingest_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 instrumentation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_domain_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_home_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 compartment_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingest_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 instrumentation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_domain_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_home_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OciLinkAccount resources.
 
@@ -309,170 +309,170 @@ class _OciLinkAccountState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="compartmentOcid")
-    def compartment_ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compartment_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OCI compartment OCID representing (or containing) the monitored resources/newrelic compartment.
         """
         return pulumi.get(self, "compartment_ocid")
 
     @compartment_ocid.setter
-    def compartment_ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compartment_ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compartment_ocid", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestVaultOcid")
-    def ingest_vault_ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingest_vault_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Vault secret OCID containing an ingest secret.
         """
         return pulumi.get(self, "ingest_vault_ocid")
 
     @ingest_vault_ocid.setter
-    def ingest_vault_ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingest_vault_ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingest_vault_ocid", value)
 
     @_builtins.property
     @pulumi.getter(name="instrumentationType")
-    def instrumentation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instrumentation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of integration, such as metrics, logs, or a combination of logs and metrics (e.g., `METRICS`, `LOGS`, `METRICS,LOGS`).
         """
         return pulumi.get(self, "instrumentation_type")
 
     @instrumentation_type.setter
-    def instrumentation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instrumentation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instrumentation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingStackOcid")
-    def logging_stack_ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_stack_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Logging stack identifier for the OCI account.
         """
         return pulumi.get(self, "logging_stack_ocid")
 
     @logging_stack_ocid.setter
-    def logging_stack_ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_stack_ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_stack_ocid", value)
 
     @_builtins.property
     @pulumi.getter(name="metricStackOcid")
-    def metric_stack_ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_stack_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metric stack OCID (ignored on create, applied on update).
         """
         return pulumi.get(self, "metric_stack_ocid")
 
     @metric_stack_ocid.setter
-    def metric_stack_ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_stack_ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_stack_ocid", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name for the linked account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ociClientId")
-    def oci_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oci_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OCI Identity Domain (IDCS) OAuth2 client ID used for workload identity federation.
         """
         return pulumi.get(self, "oci_client_id")
 
     @oci_client_id.setter
-    def oci_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oci_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oci_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ociClientSecret")
-    def oci_client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oci_client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth2 client secret. Not displayed in plans or state outputs.
         """
         return pulumi.get(self, "oci_client_secret")
 
     @oci_client_secret.setter
-    def oci_client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oci_client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oci_client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="ociDomainUrl")
-    def oci_domain_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oci_domain_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base URL of the OCI Identity Domain (e.g. `https://idcs-<hash>.identity.oraclecloud.com`).
         """
         return pulumi.get(self, "oci_domain_url")
 
     @oci_domain_url.setter
-    def oci_domain_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oci_domain_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oci_domain_url", value)
 
     @_builtins.property
     @pulumi.getter(name="ociHomeRegion")
-    def oci_home_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oci_home_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Home region of the tenancy (e.g. `us-ashburn-1`).
         """
         return pulumi.get(self, "oci_home_region")
 
     @oci_home_region.setter
-    def oci_home_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oci_home_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oci_home_region", value)
 
     @_builtins.property
     @pulumi.getter(name="ociRegion")
-    def oci_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oci_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OCI region for the linkage (ignored on create, applied on update).
         """
         return pulumi.get(self, "oci_region")
 
     @oci_region.setter
-    def oci_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oci_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oci_region", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userVaultOcid")
-    def user_vault_ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_vault_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Vault secret OCID containing a user or auxiliary secret.
         """
         return pulumi.get(self, "user_vault_ocid")
 
     @user_vault_ocid.setter
-    def user_vault_ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_vault_ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_vault_ocid", value)
 
 
@@ -482,20 +482,20 @@ class OciLinkAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 compartment_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingest_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 instrumentation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_domain_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_home_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 compartment_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingest_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 instrumentation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_domain_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_home_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to link an Oracle Cloud Infrastructure (OCI) account to New Relic.
@@ -695,20 +695,20 @@ class OciLinkAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 compartment_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingest_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 instrumentation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_domain_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_home_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 compartment_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingest_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 instrumentation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_domain_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_home_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -756,20 +756,20 @@ class OciLinkAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            compartment_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-            ingest_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-            instrumentation_type: Optional[pulumi.Input[_builtins.str]] = None,
-            logging_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-            metric_stack_ocid: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            oci_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            oci_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            oci_domain_url: Optional[pulumi.Input[_builtins.str]] = None,
-            oci_home_region: Optional[pulumi.Input[_builtins.str]] = None,
-            oci_region: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None) -> 'OciLinkAccount':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            compartment_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            ingest_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            instrumentation_type: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_domain_url: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_home_region: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None) -> 'OciLinkAccount':
         """
         Get an existing OciLinkAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

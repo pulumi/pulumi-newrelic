@@ -161,27 +161,27 @@ export interface FleetState {
     /**
      * A description of the fleet. This can be updated after creation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The type of entities this fleet will manage. Valid values are `HOST` or `KUBERNETESCLUSTER`. **Note**: This cannot be changed after creation (forces new resource).
      */
-    managedEntityType?: pulumi.Input<string>;
+    managedEntityType?: pulumi.Input<string | undefined>;
     /**
      * The name of the fleet. This can be changed after creation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
      */
-    operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string | undefined>;
     /**
      * The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -191,7 +191,7 @@ export interface FleetArgs {
     /**
      * A description of the fleet. This can be updated after creation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The type of entities this fleet will manage. Valid values are `HOST` or `KUBERNETESCLUSTER`. **Note**: This cannot be changed after creation (forces new resource).
      */
@@ -199,17 +199,17 @@ export interface FleetArgs {
     /**
      * The name of the fleet. This can be changed after creation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
      */
-    operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string | undefined>;
     /**
      * The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

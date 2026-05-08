@@ -178,39 +178,39 @@ export interface LogParsingRuleState {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      */
-    attribute?: pulumi.Input<string>;
+    attribute?: pulumi.Input<string | undefined>;
     /**
      * Whether or not this rule is deleted.
      */
-    deleted?: pulumi.Input<boolean>;
+    deleted?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the rule should be applied or not to incoming data.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Grok of what to parse.
      */
-    grok?: pulumi.Input<string>;
+    grok?: pulumi.Input<string | undefined>;
     /**
      * The Lucene to match events to the parsing rule.
      */
-    lucene?: pulumi.Input<string>;
+    lucene?: pulumi.Input<string | undefined>;
     /**
      * Whether the Grok pattern matched.
      */
-    matched?: pulumi.Input<boolean>;
+    matched?: pulumi.Input<boolean | undefined>;
     /**
      * Name of rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The NRQL to match events to the parsing rule.
      */
-    nrql?: pulumi.Input<string>;
+    nrql?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -220,11 +220,11 @@ export interface LogParsingRuleArgs {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      */
-    attribute?: pulumi.Input<string>;
+    attribute?: pulumi.Input<string | undefined>;
     /**
      * Whether the rule should be applied or not to incoming data.
      */
@@ -240,11 +240,11 @@ export interface LogParsingRuleArgs {
     /**
      * Whether the Grok pattern matched.
      */
-    matched?: pulumi.Input<boolean>;
+    matched?: pulumi.Input<boolean | undefined>;
     /**
      * Name of rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The NRQL to match events to the parsing rule.
      */

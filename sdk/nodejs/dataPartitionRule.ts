@@ -145,31 +145,31 @@ export interface DataPartitionRuleState {
     /**
      * The account id associated with the data partition rule.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
      */
-    deleted?: pulumi.Input<boolean>;
+    deleted?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the data partition rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether or not this data partition rule is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
      */
-    nrql?: pulumi.Input<string>;
+    nrql?: pulumi.Input<string | undefined>;
     /**
      * The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
      */
-    retentionPolicy?: pulumi.Input<string>;
+    retentionPolicy?: pulumi.Input<string | undefined>;
     /**
      * The name of the data partition where logs will be allocated once the rule is enabled.
      */
-    targetDataPartition?: pulumi.Input<string>;
+    targetDataPartition?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -179,11 +179,11 @@ export interface DataPartitionRuleArgs {
     /**
      * The account id associated with the data partition rule.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The description of the data partition rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether or not this data partition rule is enabled.
      */

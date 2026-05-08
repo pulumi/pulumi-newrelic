@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var infra = new NewRelic.Index.FleetDeployment("infra", new()
+    ///     var infra = new NewRelic.FleetDeployment("infra", new()
     ///     {
     ///         FleetId = prod.Id,
     ///         Name = "Production Infra Deployment",
@@ -56,7 +56,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var infraCfg = new NewRelic.Index.FleetConfiguration("infra_cfg", new()
+    ///     var infraCfg = new NewRelic.FleetConfiguration("infra_cfg", new()
     ///     {
     ///         Name = "Production Infra Config",
     ///         AgentType = "NRInfra",
@@ -72,7 +72,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var infra = new NewRelic.Index.FleetDeployment("infra", new()
+    ///     var infra = new NewRelic.FleetDeployment("infra", new()
     ///     {
     ///         FleetId = prod.Id,
     ///         Name = "Production Infra Deployment",
@@ -101,7 +101,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fullStack = new NewRelic.Index.FleetDeployment("full_stack", new()
+    ///     var fullStack = new NewRelic.FleetDeployment("full_stack", new()
     ///     {
     ///         FleetId = prod.Id,
     ///         Name = "Full Stack Deployment",
@@ -134,7 +134,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var infra = new NewRelic.Index.FleetDeployment("infra", new()
+    ///     var infra = new NewRelic.FleetDeployment("infra", new()
     ///     {
     ///         FleetId = prod.Id,
     ///         Name = "Production Deployment",

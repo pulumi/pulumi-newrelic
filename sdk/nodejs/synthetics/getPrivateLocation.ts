@@ -120,11 +120,11 @@ export interface GetPrivateLocationOutputArgs {
     /**
      * The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The key of the private location.
      */
-    keys?: pulumi.Input<pulumi.Input<string>[]>;
+    keys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Synthetics monitor private location.
      */

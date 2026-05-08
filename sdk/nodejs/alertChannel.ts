@@ -233,19 +233,19 @@ export interface AlertChannelState {
     /**
      * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
-    config?: pulumi.Input<inputs.AlertChannelConfig>;
+    config?: pulumi.Input<inputs.AlertChannelConfig | undefined>;
     /**
      * The name of the channel.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -255,15 +255,15 @@ export interface AlertChannelArgs {
     /**
      * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
-    config?: pulumi.Input<inputs.AlertChannelConfig>;
+    config?: pulumi.Input<inputs.AlertChannelConfig | undefined>;
     /**
      * The name of the channel.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */

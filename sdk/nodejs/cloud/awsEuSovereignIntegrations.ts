@@ -189,23 +189,23 @@ export interface AwsEuSovereignIntegrationsState {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Billing integration
      */
-    billing?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsBilling>;
+    billing?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsBilling | undefined>;
     /**
      * CloudTrail integration
      */
-    cloudtrail?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsCloudtrail>;
+    cloudtrail?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsCloudtrail | undefined>;
     /**
      * The ID of the linked AWS EU Sovereign account in New Relic.
      */
-    linkedAccountId?: pulumi.Input<string>;
+    linkedAccountId?: pulumi.Input<string | undefined>;
     /**
      * X-Ray integration
      */
-    xRay?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsXRay>;
+    xRay?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsXRay | undefined>;
 }
 
 /**
@@ -215,15 +215,15 @@ export interface AwsEuSovereignIntegrationsArgs {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Billing integration
      */
-    billing?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsBilling>;
+    billing?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsBilling | undefined>;
     /**
      * CloudTrail integration
      */
-    cloudtrail?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsCloudtrail>;
+    cloudtrail?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsCloudtrail | undefined>;
     /**
      * The ID of the linked AWS EU Sovereign account in New Relic.
      */
@@ -231,5 +231,5 @@ export interface AwsEuSovereignIntegrationsArgs {
     /**
      * X-Ray integration
      */
-    xRay?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsXRay>;
+    xRay?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsXRay | undefined>;
 }

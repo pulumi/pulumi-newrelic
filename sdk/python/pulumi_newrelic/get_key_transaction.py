@@ -155,9 +155,9 @@ def get_key_transaction(account_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_key_transaction_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               guid: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_transaction_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               guid: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyTransactionResult]:
     """
     Use this data source to get information about a specific key transaction in New Relic that already exists.  More information on Terraform's data sources can be found here.

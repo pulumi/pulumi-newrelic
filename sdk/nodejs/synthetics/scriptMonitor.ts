@@ -386,89 +386,89 @@ export interface ScriptMonitorState {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
      */
-    browsers?: pulumi.Input<pulumi.Input<string>[]>;
+    browsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
-    deviceOrientation?: pulumi.Input<string>;
+    deviceOrientation?: pulumi.Input<string | undefined>;
     /**
      * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
-    deviceType?: pulumi.Input<string>;
+    deviceType?: pulumi.Input<string | undefined>;
     /**
      * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      */
-    devices?: pulumi.Input<pulumi.Input<string>[]>;
+    devices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Capture a screenshot during job execution.
      */
-    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
+    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean | undefined>;
     /**
      * The unique entity identifier of the monitor in New Relic.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
-    locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorLocationPrivate>[]>;
+    locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorLocationPrivate>[] | undefined>;
     /**
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
-    locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
+    locationsPublics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The monitor id of the Synthetics script monitor (not to be confused with the GUID of the monitor).
      */
-    monitorId?: pulumi.Input<string>;
+    monitorId?: pulumi.Input<string | undefined>;
     /**
      * The name for the monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
-    period?: pulumi.Input<string>;
+    period?: pulumi.Input<string | undefined>;
     /**
      * The interval in minutes at which Synthetic monitor should run.
      */
-    periodInMinutes?: pulumi.Input<number>;
+    periodInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
      */
-    runtimeType?: pulumi.Input<string>;
+    runtimeType?: pulumi.Input<string | undefined>;
     /**
      * The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
      */
-    runtimeTypeVersion?: pulumi.Input<string>;
+    runtimeTypeVersion?: pulumi.Input<string | undefined>;
     /**
      * The script that the monitor runs.
      */
-    script?: pulumi.Input<string>;
+    script?: pulumi.Input<string | undefined>;
     /**
      * The programing language that should execute the script.
      */
-    scriptLanguage?: pulumi.Input<string>;
+    scriptLanguage?: pulumi.Input<string | undefined>;
     /**
      * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      *
      * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorTag>[] | undefined>;
     /**
      * The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
      */
-    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -478,39 +478,39 @@ export interface ScriptMonitorArgs {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
      */
-    browsers?: pulumi.Input<pulumi.Input<string>[]>;
+    browsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
-    deviceOrientation?: pulumi.Input<string>;
+    deviceOrientation?: pulumi.Input<string | undefined>;
     /**
      * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
-    deviceType?: pulumi.Input<string>;
+    deviceType?: pulumi.Input<string | undefined>;
     /**
      * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      */
-    devices?: pulumi.Input<pulumi.Input<string>[]>;
+    devices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Capture a screenshot during job execution.
      */
-    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
+    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean | undefined>;
     /**
      * The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
-    locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorLocationPrivate>[]>;
+    locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorLocationPrivate>[] | undefined>;
     /**
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
-    locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
+    locationsPublics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name for the monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
@@ -518,19 +518,19 @@ export interface ScriptMonitorArgs {
     /**
      * The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
      */
-    runtimeType?: pulumi.Input<string>;
+    runtimeType?: pulumi.Input<string | undefined>;
     /**
      * The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
      */
-    runtimeTypeVersion?: pulumi.Input<string>;
+    runtimeTypeVersion?: pulumi.Input<string | undefined>;
     /**
      * The script that the monitor runs.
      */
-    script?: pulumi.Input<string>;
+    script?: pulumi.Input<string | undefined>;
     /**
      * The programing language that should execute the script.
      */
-    scriptLanguage?: pulumi.Input<string>;
+    scriptLanguage?: pulumi.Input<string | undefined>;
     /**
      * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
@@ -540,7 +540,7 @@ export interface ScriptMonitorArgs {
      *
      * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorTag>[] | undefined>;
     /**
      * The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
      */
@@ -548,5 +548,5 @@ export interface ScriptMonitorArgs {
     /**
      * A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
      */
-    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean | undefined>;
 }

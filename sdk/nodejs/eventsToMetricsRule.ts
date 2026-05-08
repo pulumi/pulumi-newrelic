@@ -130,27 +130,27 @@ export interface EventsToMetricsRuleState {
     /**
      * Account with the event and where the metrics will be put.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Provides additional information about the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * True means this rule is enabled. False means the rule is currently not creating metrics.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the rule. This must be unique within an account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Explains how to create metrics from events.
      */
-    nrql?: pulumi.Input<string>;
+    nrql?: pulumi.Input<string | undefined>;
     /**
      * The id, uniquely identifying the rule.
      */
-    ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -160,19 +160,19 @@ export interface EventsToMetricsRuleArgs {
     /**
      * Account with the event and where the metrics will be put.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Provides additional information about the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * True means this rule is enabled. False means the rule is currently not creating metrics.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the rule. This must be unique within an account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Explains how to create metrics from events.
      */

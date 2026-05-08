@@ -43,7 +43,7 @@ import (
 //				Properties: newrelic.NotificationChannelPropertyArray{
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("payload"),
-//						Value: pulumi.String("{\n	\"name\": \"foo\"\n}"),
+//						Value: pulumi.String("{\n\t\"name\": \"foo\"\n}"),
 //						Label: pulumi.String("Payload Template"),
 //					},
 //				},
@@ -88,7 +88,7 @@ import (
 //				Properties: newrelic.NotificationChannelPropertyArray{
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("payload"),
-//						Value: pulumi.String("{\n	\"name\": \"foo\"\n}"),
+//						Value: pulumi.String("{\n\t\"name\": \"foo\"\n}"),
 //						Label: pulumi.String("Payload Template"),
 //					},
 //				},
@@ -133,7 +133,7 @@ import (
 //				Properties: newrelic.NotificationChannelPropertyArray{
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("payload"),
-//						Value: pulumi.String("{\n	\"name\": \"foo\"\n}"),
+//						Value: pulumi.String("{\n\t\"name\": \"foo\"\n}"),
 //						Label: pulumi.String("Payload Template"),
 //					},
 //				},

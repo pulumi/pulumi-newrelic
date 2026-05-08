@@ -145,33 +145,33 @@ export interface KeyTransactionState {
     /**
      * A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).
      */
-    apdexIndex?: pulumi.Input<number>;
+    apdexIndex?: pulumi.Input<number | undefined>;
     /**
      * The GUID of the APM Application comprising transactions, of which one would be made a key transaction.
      */
-    applicationGuid?: pulumi.Input<string>;
+    applicationGuid?: pulumi.Input<string | undefined>;
     /**
      * A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).
      *
      * > **NOTE:** It may be noted that the `metricName` and `applicationGuid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `applicationGuid` and/or `metricName` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.
      */
-    browserApdexTarget?: pulumi.Input<number>;
+    browserApdexTarget?: pulumi.Input<number | undefined>;
     /**
      * The domain of the entity monitored by the key transaction.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * The name of the underlying metric monitored by the key transaction to be created.
      */
-    metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string | undefined>;
     /**
      * The name of the key transaction.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of the entity monitored by the key transaction.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -199,5 +199,5 @@ export interface KeyTransactionArgs {
     /**
      * The name of the key transaction.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

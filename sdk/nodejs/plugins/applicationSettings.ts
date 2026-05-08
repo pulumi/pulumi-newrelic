@@ -189,52 +189,52 @@ export interface ApplicationSettingsState {
     /**
      * The acceptable response time limit (Apdex threshold) for the application.
      */
-    appApdexThreshold?: pulumi.Input<number>;
+    appApdexThreshold?: pulumi.Input<number | undefined>;
     /**
      * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
-    enableRealUserMonitoring?: pulumi.Input<boolean>;
+    enableRealUserMonitoring?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable the collection of slowest database queries in your traces.
      */
-    enableSlowSql?: pulumi.Input<boolean>;
+    enableSlowSql?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable the collection of thread profiling data.
      */
-    enableThreadProfiler?: pulumi.Input<boolean>;
+    enableThreadProfiler?: pulumi.Input<boolean | undefined>;
     /**
      * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
-    endUserApdexThreshold?: pulumi.Input<number>;
+    endUserApdexThreshold?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
      */
-    errorCollectors?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsErrorCollector>[]>;
+    errorCollectors?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsErrorCollector>[] | undefined>;
     /**
      * The GUID of the application in New Relic APM.
      *
      * > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
      */
-    guid?: pulumi.Input<string>;
-    isImported?: pulumi.Input<boolean>;
+    guid?: pulumi.Input<string | undefined>;
+    isImported?: pulumi.Input<boolean | undefined>;
     /**
      * A custom name or alias you can give the application in New Relic APM.
      *
      * > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
      */
-    tracerType?: pulumi.Input<string>;
+    tracerType?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
      */
-    transactionTracers?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracer>[]>;
+    transactionTracers?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracer>[] | undefined>;
     /**
      * Enable or disable server side monitoring for the New Relic application.
      */
-    useServerSideConfig?: pulumi.Input<boolean>;
+    useServerSideConfig?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -244,49 +244,49 @@ export interface ApplicationSettingsArgs {
     /**
      * The acceptable response time limit (Apdex threshold) for the application.
      */
-    appApdexThreshold?: pulumi.Input<number>;
+    appApdexThreshold?: pulumi.Input<number | undefined>;
     /**
      * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
-    enableRealUserMonitoring?: pulumi.Input<boolean>;
+    enableRealUserMonitoring?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable the collection of slowest database queries in your traces.
      */
-    enableSlowSql?: pulumi.Input<boolean>;
+    enableSlowSql?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable the collection of thread profiling data.
      */
-    enableThreadProfiler?: pulumi.Input<boolean>;
+    enableThreadProfiler?: pulumi.Input<boolean | undefined>;
     /**
      * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
-    endUserApdexThreshold?: pulumi.Input<number>;
+    endUserApdexThreshold?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
      */
-    errorCollectors?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsErrorCollector>[]>;
+    errorCollectors?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsErrorCollector>[] | undefined>;
     /**
      * The GUID of the application in New Relic APM.
      *
      * > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * A custom name or alias you can give the application in New Relic APM.
      *
      * > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
      */
-    tracerType?: pulumi.Input<string>;
+    tracerType?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
      */
-    transactionTracers?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracer>[]>;
+    transactionTracers?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracer>[] | undefined>;
     /**
      * Enable or disable server side monitoring for the New Relic application.
      */
-    useServerSideConfig?: pulumi.Input<boolean>;
+    useServerSideConfig?: pulumi.Input<boolean | undefined>;
 }

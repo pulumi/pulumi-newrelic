@@ -200,10 +200,10 @@ def get_fleet_configuration(configuration_id: Optional[_builtins.str] = None,
         organization_id=pulumi.get(__ret__, 'organization_id'),
         version_entity_id=pulumi.get(__ret__, 'version_entity_id'),
         version_entity_ids=pulumi.get(__ret__, 'version_entity_ids'))
-def get_fleet_configuration_output(configuration_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   organization_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   version_entity_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_fleet_configuration_output(configuration_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   organization_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   version_entity_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetConfigurationResult]:
     """
     Use this data source to fetch the content and version metadata of an existing New Relic fleet configuration. Three mutually exclusive lookup modes are supported: by **configuration GUID**, by **version entity GUID**, or by **name**.

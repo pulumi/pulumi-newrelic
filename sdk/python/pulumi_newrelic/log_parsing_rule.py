@@ -23,10 +23,10 @@ class LogParsingRuleArgs:
                  grok: pulumi.Input[_builtins.str],
                  lucene: pulumi.Input[_builtins.str],
                  nrql: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 matched: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 matched: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogParsingRule resource.
 
@@ -102,65 +102,65 @@ class LogParsingRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account id associated with the obfuscation rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
         """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
-    def attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def matched(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def matched(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Grok pattern matched.
         """
         return pulumi.get(self, "matched")
 
     @matched.setter
-    def matched(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def matched(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "matched", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _LogParsingRuleState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 deleted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grok: Optional[pulumi.Input[_builtins.str]] = None,
-                 lucene: Optional[pulumi.Input[_builtins.str]] = None,
-                 matched: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nrql: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grok: pulumi.Input[Optional[_builtins.str]] = None,
+                 lucene: pulumi.Input[Optional[_builtins.str]] = None,
+                 matched: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nrql: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogParsingRule resources.
 
@@ -195,110 +195,110 @@ class _LogParsingRuleState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account id associated with the obfuscation rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
         """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
-    def attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def deleted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deleted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this rule is deleted.
         """
         return pulumi.get(self, "deleted")
 
     @deleted.setter
-    def deleted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deleted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deleted", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the rule should be applied or not to incoming data.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def grok(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grok(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Grok of what to parse.
         """
         return pulumi.get(self, "grok")
 
     @grok.setter
-    def grok(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grok(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grok", value)
 
     @_builtins.property
     @pulumi.getter
-    def lucene(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lucene(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Lucene to match events to the parsing rule.
         """
         return pulumi.get(self, "lucene")
 
     @lucene.setter
-    def lucene(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lucene(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lucene", value)
 
     @_builtins.property
     @pulumi.getter
-    def matched(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def matched(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Grok pattern matched.
         """
         return pulumi.get(self, "matched")
 
     @matched.setter
-    def matched(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def matched(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "matched", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def nrql(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nrql(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The NRQL to match events to the parsing rule.
         """
         return pulumi.get(self, "nrql")
 
     @nrql.setter
-    def nrql(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nrql(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nrql", value)
 
 
@@ -308,14 +308,14 @@ class LogParsingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grok: Optional[pulumi.Input[_builtins.str]] = None,
-                 lucene: Optional[pulumi.Input[_builtins.str]] = None,
-                 matched: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nrql: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grok: pulumi.Input[Optional[_builtins.str]] = None,
+                 lucene: pulumi.Input[Optional[_builtins.str]] = None,
+                 matched: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nrql: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to create, update and delete New Relic Log Parsing Rule.
@@ -445,14 +445,14 @@ class LogParsingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grok: Optional[pulumi.Input[_builtins.str]] = None,
-                 lucene: Optional[pulumi.Input[_builtins.str]] = None,
-                 matched: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nrql: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grok: pulumi.Input[Optional[_builtins.str]] = None,
+                 lucene: pulumi.Input[Optional[_builtins.str]] = None,
+                 matched: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nrql: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -489,15 +489,15 @@ class LogParsingRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            deleted: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            grok: Optional[pulumi.Input[_builtins.str]] = None,
-            lucene: Optional[pulumi.Input[_builtins.str]] = None,
-            matched: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nrql: Optional[pulumi.Input[_builtins.str]] = None) -> 'LogParsingRule':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            grok: pulumi.Input[Optional[_builtins.str]] = None,
+            lucene: pulumi.Input[Optional[_builtins.str]] = None,
+            matched: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nrql: pulumi.Input[Optional[_builtins.str]] = None) -> 'LogParsingRule':
         """
         Get an existing LogParsingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

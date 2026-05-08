@@ -60,8 +60,8 @@ class EntityTagsArgs:
 @pulumi.input_type
 class _EntityTagsState:
     def __init__(__self__, *,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]] = None):
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['EntityTagsTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering EntityTags resources.
 
@@ -75,26 +75,26 @@ class _EntityTagsState:
 
     @_builtins.property
     @pulumi.getter
-    def guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The guid of the entity to tag.
         """
         return pulumi.get(self, "guid")
 
     @guid.setter
-    def guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guid", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EntityTagsTagArgs']]]]:
         """
         A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EntityTagsTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -104,8 +104,8 @@ class EntityTags(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete tags for a New Relic One entity.
@@ -143,6 +143,7 @@ class EntityTags(pulumi.CustomResource):
         ### Example of applying multiple tags to multiple entities using a nested `dynamic` block
         ```python
         import pulumi
+        from typing import Any
         import pulumi_newrelic as newrelic
         import pulumi_std as std
 
@@ -155,16 +156,16 @@ class EntityTags(pulumi.CustomResource):
             "tag-key-2": "tag-value-2",
             "tag-key-3": "tag-value-3",
         }
-        foo = {__key: newrelic.get_entity(name=__key,
+        foo = {str(__key): newrelic.get_entity(name=str(__key),
             type="APPLICATION",
             domain="APM") for __key, __value in enumerate(apps)}
-        foo_entity_tags = []
+        foo_entity_tags: list[Any] = []
         for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
             foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
-                } for entry in [{"key": k, "value": v} for k, v in custom_tags.items()]],
+                } for entry in [{"key": k, "value": v} for k, v in sorted(custom_tags.items())]],
                 guid=foo[range["key"]].guid))
         ```
 
@@ -225,6 +226,7 @@ class EntityTags(pulumi.CustomResource):
         ### Example of applying multiple tags to multiple entities using a nested `dynamic` block
         ```python
         import pulumi
+        from typing import Any
         import pulumi_newrelic as newrelic
         import pulumi_std as std
 
@@ -237,16 +239,16 @@ class EntityTags(pulumi.CustomResource):
             "tag-key-2": "tag-value-2",
             "tag-key-3": "tag-value-3",
         }
-        foo = {__key: newrelic.get_entity(name=__key,
+        foo = {str(__key): newrelic.get_entity(name=str(__key),
             type="APPLICATION",
             domain="APM") for __key, __value in enumerate(apps)}
-        foo_entity_tags = []
+        foo_entity_tags: list[Any] = []
         for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
             foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
-                } for entry in [{"key": k, "value": v} for k, v in custom_tags.items()]],
+                } for entry in [{"key": k, "value": v} for k, v in sorted(custom_tags.items())]],
                 guid=foo[range["key"]].guid))
         ```
 
@@ -275,8 +277,8 @@ class EntityTags(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,8 +304,8 @@ class EntityTags(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            guid: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None) -> 'EntityTags':
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None) -> 'EntityTags':
         """
         Get an existing EntityTags resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

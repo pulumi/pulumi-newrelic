@@ -135,35 +135,35 @@ export interface BrowserApplicationState {
     /**
      * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The application ID of the browser application (not to be confused with GUID).
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * Configures cookies. Defaults to `true`, if not specified.
      */
-    cookiesEnabled?: pulumi.Input<boolean>;
+    cookiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      */
-    distributedTracingEnabled?: pulumi.Input<boolean>;
+    distributedTracingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The GUID of the browser application.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * The JavaScript configuration of the browser application, encoded into a string.
      */
-    jsConfig?: pulumi.Input<string>;
+    jsConfig?: pulumi.Input<string | undefined>;
     /**
      * Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      */
-    loaderType?: pulumi.Input<string>;
+    loaderType?: pulumi.Input<string | undefined>;
     /**
      * The name of the browser application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,21 +173,21 @@ export interface BrowserApplicationArgs {
     /**
      * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Configures cookies. Defaults to `true`, if not specified.
      */
-    cookiesEnabled?: pulumi.Input<boolean>;
+    cookiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      */
-    distributedTracingEnabled?: pulumi.Input<boolean>;
+    distributedTracingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      */
-    loaderType?: pulumi.Input<string>;
+    loaderType?: pulumi.Input<string | undefined>;
     /**
      * The name of the browser application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

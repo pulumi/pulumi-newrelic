@@ -122,22 +122,22 @@ export interface AwsGovcloudLinkAccountState {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      *
      * > **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
      * - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
      */
-    metricCollectionMode?: pulumi.Input<string>;
+    metricCollectionMode?: pulumi.Input<string | undefined>;
     /**
      * The name/identifier of the AWS GovCloud - New Relic 'linked' account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,7 +147,7 @@ export interface AwsGovcloudLinkAccountArgs {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      *
@@ -158,9 +158,9 @@ export interface AwsGovcloudLinkAccountArgs {
      * The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
      * - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
      */
-    metricCollectionMode?: pulumi.Input<string>;
+    metricCollectionMode?: pulumi.Input<string | undefined>;
     /**
      * The name/identifier of the AWS GovCloud - New Relic 'linked' account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

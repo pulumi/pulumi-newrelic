@@ -251,7 +251,7 @@ def get_entity(account_id: Optional[_builtins.str] = None,
     foo = newrelic.get_entity(name="Sample Searchable Entity",
         domain="EXT",
         type="SERVICE_LEVEL")
-    key_value_map = {pair["key"]: pair["values"] for pair in std.jsondecode(input=foo.entity_tags).result}
+    key_value_map = {str(pair["key"]): pair["values"] for pair in std.jsondecode(input=foo.entity_tags).result}
     pulumi.export("keyValueMap", key_value_map)
     ```
     The value of `local.key_value_map`  would look like the following.
@@ -294,14 +294,14 @@ def get_entity(account_id: Optional[_builtins.str] = None,
         serving_apm_application_id=pulumi.get(__ret__, 'serving_apm_application_id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_entity_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      domain: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      entity_tags: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      ignore_case: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                      ignore_not_found: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                      name: Optional[pulumi.Input[_builtins.str]] = None,
-                      tags: Optional[pulumi.Input[Optional[Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict']]]]] = None,
-                      type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_entity_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      domain: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      entity_tags: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      ignore_case: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                      ignore_not_found: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                      name: pulumi.Input[Optional[_builtins.str]] = None,
+                      tags: pulumi.Input[Optional[Optional[Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict']]]]] = None,
+                      type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityResult]:
     """
     Use this data source to get information about a specific entity in New Relic One that already exists. More information on Terraform's data sources can be found here.
@@ -382,7 +382,7 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]
     foo = newrelic.get_entity(name="Sample Searchable Entity",
         domain="EXT",
         type="SERVICE_LEVEL")
-    key_value_map = {pair["key"]: pair["values"] for pair in std.jsondecode(input=foo.entity_tags).result}
+    key_value_map = {str(pair["key"]): pair["values"] for pair in std.jsondecode(input=foo.entity_tags).result}
     pulumi.export("keyValueMap", key_value_map)
     ```
     The value of `local.key_value_map`  would look like the following.

@@ -104,7 +104,7 @@ export interface GetObfuscationExpressionOutputArgs {
     /**
      * The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Name of expression.
      */

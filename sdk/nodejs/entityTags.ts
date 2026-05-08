@@ -60,15 +60,15 @@ import * as utilities from "./utilities";
  *         "tag-key-2": "tag-value-2",
  *         "tag-key-3": "tag-value-3",
  *     };
- *     const foo = .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: await newrelic.getEntity({
- *         name: __key,
+ *     const foo = .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: await newrelic.getEntity({
+ *         name: String(__key),
  *         type: "APPLICATION",
  *         domain: "APM",
  *     }) }), {});
  *     const fooEntityTags: newrelic.EntityTags[] = [];
  *     for (const range of apps.map((v, k) => ({key: k, value: v}))) {
  *         fooEntityTags.push(new newrelic.EntityTags(`foo-${range.key}`, {
- *             tags: Object.entries(customTags).map(([k, v]) => ({key: k, value: v})).map(entry => ({
+ *             tags: Object.entries(customTags).sort().map(([k, v]) => ({key: k, value: v})).map(entry => ({
  *                 key: entry.key,
  *                 values: [entry.value],
  *             })),
@@ -162,11 +162,11 @@ export interface EntityTagsState {
     /**
      * The guid of the entity to tag.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes an entity tag. See Nested tag blocks below for details.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[] | undefined>;
 }
 
 /**

@@ -309,43 +309,43 @@ export interface MonitorDowntimeState {
     /**
      * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      */
-    endRepeat?: pulumi.Input<inputs.MonitorDowntimeEndRepeat>;
+    endRepeat?: pulumi.Input<inputs.MonitorDowntimeEndRepeat | undefined>;
     /**
      * A datetime stamp signifying the end of the Monitor Downtime.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * Configuration options for which days of the month a monitor downtime will occur
      */
-    frequency?: pulumi.Input<inputs.MonitorDowntimeFrequency>;
+    frequency?: pulumi.Input<inputs.MonitorDowntimeFrequency | undefined>;
     /**
      * A list of maintenance days to be included with the created weekly Monitor Downtime.
      */
-    maintenanceDays?: pulumi.Input<pulumi.Input<string>[]>;
+    maintenanceDays?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An identifier of the type of Monitor Downtime to be created.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
      */
-    monitorGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    monitorGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A name to identify the Monitor Downtime to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A datetime stamp signifying the start of the Monitor Downtime.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The timezone that applies to the Monitor Downtime schedule.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -355,11 +355,11 @@ export interface MonitorDowntimeArgs {
     /**
      * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      */
-    endRepeat?: pulumi.Input<inputs.MonitorDowntimeEndRepeat>;
+    endRepeat?: pulumi.Input<inputs.MonitorDowntimeEndRepeat | undefined>;
     /**
      * A datetime stamp signifying the end of the Monitor Downtime.
      */
@@ -367,11 +367,11 @@ export interface MonitorDowntimeArgs {
     /**
      * Configuration options for which days of the month a monitor downtime will occur
      */
-    frequency?: pulumi.Input<inputs.MonitorDowntimeFrequency>;
+    frequency?: pulumi.Input<inputs.MonitorDowntimeFrequency | undefined>;
     /**
      * A list of maintenance days to be included with the created weekly Monitor Downtime.
      */
-    maintenanceDays?: pulumi.Input<pulumi.Input<string>[]>;
+    maintenanceDays?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An identifier of the type of Monitor Downtime to be created.
      */
@@ -379,11 +379,11 @@ export interface MonitorDowntimeArgs {
     /**
      * A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
      */
-    monitorGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    monitorGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A name to identify the Monitor Downtime to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A datetime stamp signifying the start of the Monitor Downtime.
      */

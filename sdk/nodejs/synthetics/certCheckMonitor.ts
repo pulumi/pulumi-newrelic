@@ -236,43 +236,43 @@ export interface CertCheckMonitorState {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The desired number of remaining days until the certificate expires to trigger a monitor failure.
      */
-    certificateExpiration?: pulumi.Input<number>;
+    certificateExpiration?: pulumi.Input<number | undefined>;
     /**
      * The domain of the host that will have its certificate checked.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      */
-    locationsPrivates?: pulumi.Input<pulumi.Input<string>[]>;
+    locationsPrivates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
-    locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
+    locationsPublics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The monitor id of the certificate check synthetics monitor (not to be confused with the GUID of the monitor).
      */
-    monitorId?: pulumi.Input<string>;
+    monitorId?: pulumi.Input<string | undefined>;
     /**
      * The name for the monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
-    period?: pulumi.Input<string>;
+    period?: pulumi.Input<string | undefined>;
     /**
      * The interval in minutes at which Synthetic monitor should run.
      */
-    periodInMinutes?: pulumi.Input<number>;
+    periodInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The runtime that the monitor will use to run jobs (`NODE_API`).
      */
-    runtimeType?: pulumi.Input<string>;
+    runtimeType?: pulumi.Input<string | undefined>;
     /**
      * The specific version of the runtime type selected (`16.10`).
      *
@@ -284,19 +284,19 @@ export interface CertCheckMonitorState {
      * <br><br>
      * You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
      */
-    runtimeTypeVersion?: pulumi.Input<string>;
+    runtimeTypeVersion?: pulumi.Input<string | undefined>;
     /**
      * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.CertCheckMonitorTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.CertCheckMonitorTag>[] | undefined>;
     /**
      * A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
      */
-    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -306,7 +306,7 @@ export interface CertCheckMonitorArgs {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The desired number of remaining days until the certificate expires to trigger a monitor failure.
      */
@@ -318,15 +318,15 @@ export interface CertCheckMonitorArgs {
     /**
      * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      */
-    locationsPrivates?: pulumi.Input<pulumi.Input<string>[]>;
+    locationsPrivates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
-    locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
+    locationsPublics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name for the monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
@@ -334,7 +334,7 @@ export interface CertCheckMonitorArgs {
     /**
      * The runtime that the monitor will use to run jobs (`NODE_API`).
      */
-    runtimeType?: pulumi.Input<string>;
+    runtimeType?: pulumi.Input<string | undefined>;
     /**
      * The specific version of the runtime type selected (`16.10`).
      *
@@ -346,7 +346,7 @@ export interface CertCheckMonitorArgs {
      * <br><br>
      * You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
      */
-    runtimeTypeVersion?: pulumi.Input<string>;
+    runtimeTypeVersion?: pulumi.Input<string | undefined>;
     /**
      * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
@@ -354,9 +354,9 @@ export interface CertCheckMonitorArgs {
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.CertCheckMonitorTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.CertCheckMonitorTag>[] | undefined>;
     /**
      * A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
      */
-    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean | undefined>;
 }

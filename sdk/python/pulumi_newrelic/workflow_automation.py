@@ -22,7 +22,7 @@ class WorkflowAutomationArgs:
                  definition: pulumi.Input[_builtins.str],
                  scope_id: pulumi.Input[_builtins.str],
                  scope_type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkflowAutomation resource.
 
@@ -75,28 +75,28 @@ class WorkflowAutomationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workflow automation. This must match the `name` field in the YAML definition provided in the `definition` argument. **Important**: Changes to this field will force a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _WorkflowAutomationState:
     def __init__(__self__, *,
-                 definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None,
-                 yaml: Optional[pulumi.Input[_builtins.str]] = None):
+                 definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None,
+                 yaml: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkflowAutomation resources.
 
@@ -128,98 +128,98 @@ class _WorkflowAutomationState:
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The YAML definition of the workflow automation. This should be a valid YAML string that includes a `name` field matching the resource `name` argument, and defines the workflow steps and configuration.
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionId")
-    def definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the workflow automation.
         """
         return pulumi.get(self, "definition_id")
 
     @definition_id.setter
-    def definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definition_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the workflow automation, as defined in the YAML definition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workflow automation. This must match the `name` field in the YAML definition provided in the `definition` argument. **Important**: Changes to this field will force a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeId")
-    def scope_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope ID for the workflow automation. For `ACCOUNT` scope, this should be your New Relic account ID (numeric). For `ORGANIZATION` scope, this should be your organization ID (string). **Important**: Changes to this field will force a new resource to be created.
         """
         return pulumi.get(self, "scope_id")
 
     @scope_id.setter
-    def scope_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeType")
-    def scope_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope type for the workflow automation. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changes to this field will force a new resource to be created.
         """
         return pulumi.get(self, "scope_type")
 
     @scope_type.setter
-    def scope_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The current version number of the workflow automation.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter
-    def yaml(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def yaml(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The yaml of the workflow automation.
         """
         return pulumi.get(self, "yaml")
 
     @yaml.setter
-    def yaml(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def yaml(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "yaml", value)
 
 
@@ -229,10 +229,10 @@ class WorkflowAutomation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use this resource to create and manage New Relic Workflow Automation.
@@ -648,10 +648,10 @@ class WorkflowAutomation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -685,14 +685,14 @@ class WorkflowAutomation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            definition: Optional[pulumi.Input[_builtins.str]] = None,
-            definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-            scope_type: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None,
-            yaml: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkflowAutomation':
+            definition: pulumi.Input[Optional[_builtins.str]] = None,
+            definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_type: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None,
+            yaml: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkflowAutomation':
         """
         Get an existing WorkflowAutomation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

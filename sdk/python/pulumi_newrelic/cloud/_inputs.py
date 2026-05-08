@@ -290,7 +290,7 @@ __all__ = [
 ]
 
 class AwsEuSovereignIntegrationsBillingArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -298,7 +298,7 @@ class AwsEuSovereignIntegrationsBillingArgsDict(TypedDict):
 @pulumi.input_type
 class AwsEuSovereignIntegrationsBillingArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         """
@@ -307,23 +307,23 @@ class AwsEuSovereignIntegrationsBillingArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsEuSovereignIntegrationsCloudtrailArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -331,8 +331,8 @@ class AwsEuSovereignIntegrationsCloudtrailArgsDict(TypedDict):
 @pulumi.input_type
 class AwsEuSovereignIntegrationsCloudtrailArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
@@ -344,35 +344,35 @@ class AwsEuSovereignIntegrationsCloudtrailArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsEuSovereignIntegrationsXRayArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -380,8 +380,8 @@ class AwsEuSovereignIntegrationsXRayArgsDict(TypedDict):
 @pulumi.input_type
 class AwsEuSovereignIntegrationsXRayArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
@@ -393,55 +393,55 @@ class AwsEuSovereignIntegrationsXRayArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsGovcloudIntegrationsAlbArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    load_balancer_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    load_balancer_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -449,13 +449,13 @@ class AwsGovcloudIntegrationsAlbArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsAlbArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -482,107 +482,107 @@ class AwsGovcloudIntegrationsAlbArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerPrefixes")
-    def load_balancer_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancer_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "load_balancer_prefixes")
 
     @load_balancer_prefixes.setter
-    def load_balancer_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancer_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancer_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsApiGatewayArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    stage_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    stage_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -590,11 +590,11 @@ class AwsGovcloudIntegrationsApiGatewayArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsApiGatewayArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 stage_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 stage_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
@@ -615,71 +615,71 @@ class AwsGovcloudIntegrationsApiGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="stagePrefixes")
-    def stage_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def stage_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "stage_prefixes")
 
     @stage_prefixes.setter
-    def stage_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def stage_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stage_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsAutoScalingArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -687,8 +687,8 @@ class AwsGovcloudIntegrationsAutoScalingArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsAutoScalingArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
@@ -700,35 +700,35 @@ class AwsGovcloudIntegrationsAutoScalingArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsGovcloudIntegrationsAwsDirectConnectArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -736,8 +736,8 @@ class AwsGovcloudIntegrationsAwsDirectConnectArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsAwsDirectConnectArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
@@ -749,35 +749,35 @@ class AwsGovcloudIntegrationsAwsDirectConnectArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsGovcloudIntegrationsAwsStatesArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -785,8 +785,8 @@ class AwsGovcloudIntegrationsAwsStatesArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsAwsStatesArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
@@ -798,35 +798,35 @@ class AwsGovcloudIntegrationsAwsStatesArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsGovcloudIntegrationsCloudtrailArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -834,8 +834,8 @@ class AwsGovcloudIntegrationsCloudtrailArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsCloudtrailArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
@@ -847,51 +847,51 @@ class AwsGovcloudIntegrationsCloudtrailArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsGovcloudIntegrationsDynamoDbArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -899,12 +899,12 @@ class AwsGovcloudIntegrationsDynamoDbArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsDynamoDbArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -928,95 +928,95 @@ class AwsGovcloudIntegrationsDynamoDbArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsEbsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -1024,11 +1024,11 @@ class AwsGovcloudIntegrationsEbsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsEbsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -1049,83 +1049,83 @@ class AwsGovcloudIntegrationsEbsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsEc2ArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_ip_addresses: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_ip_addresses: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if IP addresses of ec2 instance should be collected
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -1133,11 +1133,11 @@ class AwsGovcloudIntegrationsEc2ArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsEc2Args:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_ip_addresses: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_ip_addresses: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_ip_addresses: Specify if IP addresses of ec2 instance should be collected
@@ -1158,83 +1158,83 @@ class AwsGovcloudIntegrationsEc2Args:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchIpAddresses")
-    def fetch_ip_addresses(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_ip_addresses(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if IP addresses of ec2 instance should be collected
         """
         return pulumi.get(self, "fetch_ip_addresses")
 
     @fetch_ip_addresses.setter
-    def fetch_ip_addresses(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_ip_addresses(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsElasticSearchArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_nodes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if IP addresses of ec2 instance should be collected
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -1242,11 +1242,11 @@ class AwsGovcloudIntegrationsElasticSearchArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsElasticSearchArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_nodes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_nodes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_nodes: Specify if IP addresses of ec2 instance should be collected
@@ -1267,79 +1267,79 @@ class AwsGovcloudIntegrationsElasticSearchArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchNodes")
-    def fetch_nodes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_nodes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if IP addresses of ec2 instance should be collected
         """
         return pulumi.get(self, "fetch_nodes")
 
     @fetch_nodes.setter
-    def fetch_nodes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_nodes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsElbArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -1347,10 +1347,10 @@ class AwsGovcloudIntegrationsElbArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsElbArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -1368,71 +1368,71 @@ class AwsGovcloudIntegrationsElbArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsGovcloudIntegrationsEmrArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[_builtins.str]]
+    aws_regions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -1440,11 +1440,11 @@ class AwsGovcloudIntegrationsEmrArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsEmrArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[_builtins.str]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[_builtins.str]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -1465,75 +1465,75 @@ class AwsGovcloudIntegrationsEmrArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_regions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_regions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsIamArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -1541,9 +1541,9 @@ class AwsGovcloudIntegrationsIamArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsIamArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[_builtins.str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
@@ -1558,59 +1558,59 @@ class AwsGovcloudIntegrationsIamArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsLambdaArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -1618,11 +1618,11 @@ class AwsGovcloudIntegrationsLambdaArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsLambdaArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -1643,83 +1643,83 @@ class AwsGovcloudIntegrationsLambdaArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsRdsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -1727,11 +1727,11 @@ class AwsGovcloudIntegrationsRdsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsRdsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -1752,79 +1752,79 @@ class AwsGovcloudIntegrationsRdsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsRedShiftArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -1832,10 +1832,10 @@ class AwsGovcloudIntegrationsRedShiftArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsRedShiftArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
@@ -1853,59 +1853,59 @@ class AwsGovcloudIntegrationsRedShiftArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsRoute53ArgsDict(TypedDict):
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -1913,8 +1913,8 @@ class AwsGovcloudIntegrationsRoute53ArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsRoute53Args:
     def __init__(__self__, *,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
@@ -1926,47 +1926,47 @@ class AwsGovcloudIntegrationsRoute53Args:
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsGovcloudIntegrationsS3ArgsDict(TypedDict):
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -1974,11 +1974,11 @@ class AwsGovcloudIntegrationsS3ArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsS3Args:
     def __init__(__self__, *,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -1999,75 +1999,75 @@ class AwsGovcloudIntegrationsS3Args:
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsGovcloudIntegrationsSnsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
@@ -2075,9 +2075,9 @@ class AwsGovcloudIntegrationsSnsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsSnsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -2092,67 +2092,67 @@ class AwsGovcloudIntegrationsSnsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsGovcloudIntegrationsSqsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    queue_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    queue_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -2160,13 +2160,13 @@ class AwsGovcloudIntegrationsSqsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsGovcloudIntegrationsSqsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 queue_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 queue_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -2193,115 +2193,115 @@ class AwsGovcloudIntegrationsSqsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="queuePrefixes")
-    def queue_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def queue_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "queue_prefixes")
 
     @queue_prefixes.setter
-    def queue_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def queue_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "queue_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsAlbArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    load_balancer_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    load_balancer_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -2309,13 +2309,13 @@ class AwsIntegrationsAlbArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAlbArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -2342,107 +2342,107 @@ class AwsIntegrationsAlbArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerPrefixes")
-    def load_balancer_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancer_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "load_balancer_prefixes")
 
     @load_balancer_prefixes.setter
-    def load_balancer_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancer_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancer_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsApiGatewayArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    stage_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    stage_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -2450,11 +2450,11 @@ class AwsIntegrationsApiGatewayArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsApiGatewayArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 stage_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 stage_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2475,71 +2475,71 @@ class AwsIntegrationsApiGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="stagePrefixes")
-    def stage_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def stage_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "stage_prefixes")
 
     @stage_prefixes.setter
-    def stage_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def stage_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stage_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsAutoScalingArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2547,8 +2547,8 @@ class AwsIntegrationsAutoScalingArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAutoScalingArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2560,35 +2560,35 @@ class AwsIntegrationsAutoScalingArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsAppSyncArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2596,8 +2596,8 @@ class AwsIntegrationsAwsAppSyncArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsAppSyncArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2609,35 +2609,35 @@ class AwsIntegrationsAwsAppSyncArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsAthenaArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2645,8 +2645,8 @@ class AwsIntegrationsAwsAthenaArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsAthenaArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2658,35 +2658,35 @@ class AwsIntegrationsAwsAthenaArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsAutoDiscoveryArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2694,8 +2694,8 @@ class AwsIntegrationsAwsAutoDiscoveryArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsAutoDiscoveryArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2707,35 +2707,35 @@ class AwsIntegrationsAwsAutoDiscoveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsCognitoArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2743,8 +2743,8 @@ class AwsIntegrationsAwsCognitoArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsCognitoArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2756,35 +2756,35 @@ class AwsIntegrationsAwsCognitoArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsConnectArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2792,8 +2792,8 @@ class AwsIntegrationsAwsConnectArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsConnectArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2805,35 +2805,35 @@ class AwsIntegrationsAwsConnectArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsDirectConnectArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2841,8 +2841,8 @@ class AwsIntegrationsAwsDirectConnectArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsDirectConnectArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2854,35 +2854,35 @@ class AwsIntegrationsAwsDirectConnectArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsFsxArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2890,8 +2890,8 @@ class AwsIntegrationsAwsFsxArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsFsxArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2903,35 +2903,35 @@ class AwsIntegrationsAwsFsxArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsGlueArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2939,8 +2939,8 @@ class AwsIntegrationsAwsGlueArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsGlueArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -2952,35 +2952,35 @@ class AwsIntegrationsAwsGlueArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsKinesisAnalyticsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -2988,8 +2988,8 @@ class AwsIntegrationsAwsKinesisAnalyticsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsKinesisAnalyticsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3001,35 +3001,35 @@ class AwsIntegrationsAwsKinesisAnalyticsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsMediaConvertArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3037,8 +3037,8 @@ class AwsIntegrationsAwsMediaConvertArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsMediaConvertArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3050,35 +3050,35 @@ class AwsIntegrationsAwsMediaConvertArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsMediaPackageVodArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3086,8 +3086,8 @@ class AwsIntegrationsAwsMediaPackageVodArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsMediaPackageVodArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3099,35 +3099,35 @@ class AwsIntegrationsAwsMediaPackageVodArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsMqArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3135,8 +3135,8 @@ class AwsIntegrationsAwsMqArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsMqArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3148,35 +3148,35 @@ class AwsIntegrationsAwsMqArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsMskArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3184,8 +3184,8 @@ class AwsIntegrationsAwsMskArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsMskArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3197,35 +3197,35 @@ class AwsIntegrationsAwsMskArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsNeptuneArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3233,8 +3233,8 @@ class AwsIntegrationsAwsNeptuneArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsNeptuneArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3246,35 +3246,35 @@ class AwsIntegrationsAwsNeptuneArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsQldbArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3282,8 +3282,8 @@ class AwsIntegrationsAwsQldbArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsQldbArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3295,35 +3295,35 @@ class AwsIntegrationsAwsQldbArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsRoute53resolverArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3331,8 +3331,8 @@ class AwsIntegrationsAwsRoute53resolverArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsRoute53resolverArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3344,35 +3344,35 @@ class AwsIntegrationsAwsRoute53resolverArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsStatesArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3380,8 +3380,8 @@ class AwsIntegrationsAwsStatesArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsStatesArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3393,35 +3393,35 @@ class AwsIntegrationsAwsStatesArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsTransitGatewayArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3429,8 +3429,8 @@ class AwsIntegrationsAwsTransitGatewayArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsTransitGatewayArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3442,35 +3442,35 @@ class AwsIntegrationsAwsTransitGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsWafArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3478,8 +3478,8 @@ class AwsIntegrationsAwsWafArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsWafArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3491,35 +3491,35 @@ class AwsIntegrationsAwsWafArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsAwsWafv2ArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3527,8 +3527,8 @@ class AwsIntegrationsAwsWafv2ArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsAwsWafv2Args:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3540,31 +3540,31 @@ class AwsIntegrationsAwsWafv2Args:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsBillingArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3572,7 +3572,7 @@ class AwsIntegrationsBillingArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsBillingArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
         """
@@ -3581,35 +3581,35 @@ class AwsIntegrationsBillingArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsCloudfrontArgsDict(TypedDict):
-    fetch_lambdas_at_edge: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_lambdas_at_edge: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -3617,11 +3617,11 @@ class AwsIntegrationsCloudfrontArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsCloudfrontArgs:
     def __init__(__self__, *,
-                 fetch_lambdas_at_edge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 fetch_lambdas_at_edge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] fetch_lambdas_at_edge: Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -3642,71 +3642,71 @@ class AwsIntegrationsCloudfrontArgs:
 
     @_builtins.property
     @pulumi.getter(name="fetchLambdasAtEdge")
-    def fetch_lambdas_at_edge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_lambdas_at_edge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_lambdas_at_edge")
 
     @fetch_lambdas_at_edge.setter
-    def fetch_lambdas_at_edge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_lambdas_at_edge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_lambdas_at_edge", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsCloudtrailArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3714,8 +3714,8 @@ class AwsIntegrationsCloudtrailArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsCloudtrailArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3727,35 +3727,35 @@ class AwsIntegrationsCloudtrailArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsDocDbArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -3763,8 +3763,8 @@ class AwsIntegrationsDocDbArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsDocDbArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -3776,51 +3776,51 @@ class AwsIntegrationsDocDbArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsDynamodbArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -3828,12 +3828,12 @@ class AwsIntegrationsDynamodbArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsDynamodbArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -3857,95 +3857,95 @@ class AwsIntegrationsDynamodbArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsEbsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -3953,11 +3953,11 @@ class AwsIntegrationsEbsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsEbsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -3978,87 +3978,87 @@ class AwsIntegrationsEbsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsEc2ArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    duplicate_ec2_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    duplicate_ec2_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
     """
-    fetch_ip_addresses: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_ip_addresses: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if IP addresses of ec2 instance should be collected
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -4066,12 +4066,12 @@ class AwsIntegrationsEc2ArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsEc2Args:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 duplicate_ec2_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_ip_addresses: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 duplicate_ec2_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_ip_addresses: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] duplicate_ec2_tags: Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
@@ -4095,95 +4095,95 @@ class AwsIntegrationsEc2Args:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="duplicateEc2Tags")
-    def duplicate_ec2_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def duplicate_ec2_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
         """
         return pulumi.get(self, "duplicate_ec2_tags")
 
     @duplicate_ec2_tags.setter
-    def duplicate_ec2_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def duplicate_ec2_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "duplicate_ec2_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchIpAddresses")
-    def fetch_ip_addresses(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_ip_addresses(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if IP addresses of ec2 instance should be collected
         """
         return pulumi.get(self, "fetch_ip_addresses")
 
     @fetch_ip_addresses.setter
-    def fetch_ip_addresses(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_ip_addresses(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsEcsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -4191,11 +4191,11 @@ class AwsIntegrationsEcsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsEcsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -4216,83 +4216,83 @@ class AwsIntegrationsEcsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsEfsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -4300,11 +4300,11 @@ class AwsIntegrationsEfsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsEfsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -4325,83 +4325,83 @@ class AwsIntegrationsEfsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsElasticacheArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -4409,11 +4409,11 @@ class AwsIntegrationsElasticacheArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsElasticacheArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -4434,87 +4434,87 @@ class AwsIntegrationsElasticacheArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsElasticbeanstalkArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -4522,12 +4522,12 @@ class AwsIntegrationsElasticbeanstalkArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsElasticbeanstalkArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -4551,95 +4551,95 @@ class AwsIntegrationsElasticbeanstalkArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsElasticsearchArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_nodes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -4647,11 +4647,11 @@ class AwsIntegrationsElasticsearchArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsElasticsearchArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_nodes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_nodes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_nodes: Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
@@ -4672,79 +4672,79 @@ class AwsIntegrationsElasticsearchArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchNodes")
-    def fetch_nodes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_nodes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
         """
         return pulumi.get(self, "fetch_nodes")
 
     @fetch_nodes.setter
-    def fetch_nodes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_nodes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsElbArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -4752,10 +4752,10 @@ class AwsIntegrationsElbArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsElbArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -4773,71 +4773,71 @@ class AwsIntegrationsElbArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsEmrArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -4845,11 +4845,11 @@ class AwsIntegrationsEmrArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsEmrArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -4870,67 +4870,67 @@ class AwsIntegrationsEmrArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsHealthArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -4938,7 +4938,7 @@ class AwsIntegrationsHealthArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsHealthArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
         """
@@ -4947,27 +4947,27 @@ class AwsIntegrationsHealthArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsIamArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -4975,9 +4975,9 @@ class AwsIntegrationsIamArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsIamArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
         :param pulumi.Input[_builtins.str] tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
@@ -4992,47 +4992,47 @@ class AwsIntegrationsIamArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsIotArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -5040,8 +5040,8 @@ class AwsIntegrationsIotArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsIotArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -5053,51 +5053,51 @@ class AwsIntegrationsIotArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsKinesisArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_shards: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_shards: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -5105,12 +5105,12 @@ class AwsIntegrationsKinesisArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsKinesisArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_shards: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_shards: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_shards: Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -5134,83 +5134,83 @@ class AwsIntegrationsKinesisArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchShards")
-    def fetch_shards(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_shards(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_shards")
 
     @fetch_shards.setter
-    def fetch_shards(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_shards(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_shards", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsKinesisFirehoseArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -5218,8 +5218,8 @@ class AwsIntegrationsKinesisFirehoseArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsKinesisFirehoseArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -5231,47 +5231,47 @@ class AwsIntegrationsKinesisFirehoseArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsLambdaArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -5279,11 +5279,11 @@ class AwsIntegrationsLambdaArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsLambdaArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -5304,83 +5304,83 @@ class AwsIntegrationsLambdaArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsRdsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -5388,11 +5388,11 @@ class AwsIntegrationsRdsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsRdsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -5413,79 +5413,79 @@ class AwsIntegrationsRdsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsRedshiftArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -5493,10 +5493,10 @@ class AwsIntegrationsRedshiftArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsRedshiftArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -5514,59 +5514,59 @@ class AwsIntegrationsRedshiftArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsRoute53ArgsDict(TypedDict):
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -5574,8 +5574,8 @@ class AwsIntegrationsRoute53ArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsRoute53Args:
     def __init__(__self__, *,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -5587,47 +5587,47 @@ class AwsIntegrationsRoute53Args:
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsS3ArgsDict(TypedDict):
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -5635,11 +5635,11 @@ class AwsIntegrationsS3ArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsS3Args:
     def __init__(__self__, *,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param pulumi.Input[_builtins.bool] fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -5660,71 +5660,71 @@ class AwsIntegrationsS3Args:
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsSecurityHubArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -5732,8 +5732,8 @@ class AwsIntegrationsSecurityHubArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsSecurityHubArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -5745,35 +5745,35 @@ class AwsIntegrationsSecurityHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsSesArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -5781,8 +5781,8 @@ class AwsIntegrationsSesArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsSesArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -5794,39 +5794,39 @@ class AwsIntegrationsSesArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsSnsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -5834,9 +5834,9 @@ class AwsIntegrationsSnsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsSnsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -5851,67 +5851,67 @@ class AwsIntegrationsSnsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsSqsArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_extended_inventory: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_extended_inventory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    queue_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    queue_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -5919,13 +5919,13 @@ class AwsIntegrationsSqsArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsSqsArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_extended_inventory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 queue_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_extended_inventory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 queue_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -5952,91 +5952,91 @@ class AwsIntegrationsSqsArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchExtendedInventory")
-    def fetch_extended_inventory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_extended_inventory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
     @fetch_extended_inventory.setter
-    def fetch_extended_inventory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_extended_inventory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_extended_inventory", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="queuePrefixes")
-    def queue_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def queue_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "queue_prefixes")
 
     @queue_prefixes.setter
-    def queue_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def queue_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "queue_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsTrustedAdvisorArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -6044,7 +6044,7 @@ class AwsIntegrationsTrustedAdvisorArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsTrustedAdvisorArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
         """
@@ -6053,39 +6053,39 @@ class AwsIntegrationsTrustedAdvisorArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AwsIntegrationsVpcArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    fetch_nat_gateway: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_nat_gateway: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    fetch_vpn: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_vpn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
-    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    tag_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
-    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
     """
@@ -6093,12 +6093,12 @@ class AwsIntegrationsVpcArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsVpcArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fetch_nat_gateway: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_vpn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fetch_nat_gateway: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_vpn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.bool] fetch_nat_gateway: Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -6122,83 +6122,83 @@ class AwsIntegrationsVpcArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchNatGateway")
-    def fetch_nat_gateway(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_nat_gateway(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_nat_gateway")
 
     @fetch_nat_gateway.setter
-    def fetch_nat_gateway(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_nat_gateway(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_nat_gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchVpn")
-    def fetch_vpn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_vpn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
         """
         return pulumi.get(self, "fetch_vpn")
 
     @fetch_vpn.setter
-    def fetch_vpn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_vpn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_vpn", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
 class AwsIntegrationsXRayArgsDict(TypedDict):
-    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    aws_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each AWS region that includes the resources that you want to monitor.
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds.
     """
@@ -6206,8 +6206,8 @@ class AwsIntegrationsXRayArgsDict(TypedDict):
 @pulumi.input_type
 class AwsIntegrationsXRayArgs:
     def __init__(__self__, *,
-                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
@@ -6219,35 +6219,35 @@ class AwsIntegrationsXRayArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aws_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aws_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds.
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class AzureIntegrationsApiManagementArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6255,8 +6255,8 @@ class AzureIntegrationsApiManagementArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsApiManagementArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6268,35 +6268,35 @@ class AzureIntegrationsApiManagementArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsAppGatewayArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6304,8 +6304,8 @@ class AzureIntegrationsAppGatewayArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsAppGatewayArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6317,35 +6317,35 @@ class AzureIntegrationsAppGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsAppServiceArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6353,8 +6353,8 @@ class AzureIntegrationsAppServiceArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsAppServiceArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6366,35 +6366,35 @@ class AzureIntegrationsAppServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsAutoDiscoveryArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6402,8 +6402,8 @@ class AzureIntegrationsAutoDiscoveryArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsAutoDiscoveryArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6415,35 +6415,35 @@ class AzureIntegrationsAutoDiscoveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsContainersArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6451,8 +6451,8 @@ class AzureIntegrationsContainersArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsContainersArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6464,35 +6464,35 @@ class AzureIntegrationsContainersArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsCosmosDbArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6500,8 +6500,8 @@ class AzureIntegrationsCosmosDbArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsCosmosDbArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6513,35 +6513,35 @@ class AzureIntegrationsCosmosDbArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsCostManagementArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    tag_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tag_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify if additional cost data per tag should be collected. This field is case sensitive.
     """
@@ -6549,8 +6549,8 @@ class AzureIntegrationsCostManagementArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsCostManagementArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_keys: Specify if additional cost data per tag should be collected. This field is case sensitive.
@@ -6562,35 +6562,35 @@ class AzureIntegrationsCostManagementArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagKeys")
-    def tag_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify if additional cost data per tag should be collected. This field is case sensitive.
         """
         return pulumi.get(self, "tag_keys")
 
     @tag_keys.setter
-    def tag_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tag_keys", value)
 
 
 class AzureIntegrationsDataFactoryArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6598,8 +6598,8 @@ class AzureIntegrationsDataFactoryArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsDataFactoryArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6611,35 +6611,35 @@ class AzureIntegrationsDataFactoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsEventHubArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6647,8 +6647,8 @@ class AzureIntegrationsEventHubArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsEventHubArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6660,35 +6660,35 @@ class AzureIntegrationsEventHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsExpressRouteArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6696,8 +6696,8 @@ class AzureIntegrationsExpressRouteArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsExpressRouteArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6709,35 +6709,35 @@ class AzureIntegrationsExpressRouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsFirewallsArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6745,8 +6745,8 @@ class AzureIntegrationsFirewallsArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsFirewallsArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6758,35 +6758,35 @@ class AzureIntegrationsFirewallsArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsFrontDoorArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6794,8 +6794,8 @@ class AzureIntegrationsFrontDoorArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsFrontDoorArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6807,35 +6807,35 @@ class AzureIntegrationsFrontDoorArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsFunctionsArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6843,8 +6843,8 @@ class AzureIntegrationsFunctionsArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsFunctionsArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6856,35 +6856,35 @@ class AzureIntegrationsFunctionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsKeyVaultArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6892,8 +6892,8 @@ class AzureIntegrationsKeyVaultArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsKeyVaultArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6905,35 +6905,35 @@ class AzureIntegrationsKeyVaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsLoadBalancerArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6941,8 +6941,8 @@ class AzureIntegrationsLoadBalancerArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsLoadBalancerArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -6954,35 +6954,35 @@ class AzureIntegrationsLoadBalancerArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsLogicAppsArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -6990,8 +6990,8 @@ class AzureIntegrationsLogicAppsArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsLogicAppsArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7003,35 +7003,35 @@ class AzureIntegrationsLogicAppsArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsMachineLearningArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7039,8 +7039,8 @@ class AzureIntegrationsMachineLearningArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsMachineLearningArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7052,35 +7052,35 @@ class AzureIntegrationsMachineLearningArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsMariaDbArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7088,8 +7088,8 @@ class AzureIntegrationsMariaDbArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsMariaDbArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7101,51 +7101,51 @@ class AzureIntegrationsMariaDbArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsMonitorArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A flag that specifies if the integration is active
     """
-    exclude_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify resource tags in 'key:value' form to be excluded from monitoring
     """
-    include_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    include_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify resource tags in 'key:value' form to be monitored
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
-    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Azure resource type that needs to be monitored
     """
@@ -7153,12 +7153,12 @@ class AzureIntegrationsMonitorArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsMonitorArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: A flag that specifies if the integration is active
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_tags: Specify resource tags in 'key:value' form to be excluded from monitoring
@@ -7182,83 +7182,83 @@ class AzureIntegrationsMonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that specifies if the integration is active
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeTags")
-    def exclude_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify resource tags in 'key:value' form to be excluded from monitoring
         """
         return pulumi.get(self, "exclude_tags")
 
     @exclude_tags.setter
-    def exclude_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTags")
-    def include_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify resource tags in 'key:value' form to be monitored
         """
         return pulumi.get(self, "include_tags")
 
     @include_tags.setter
-    def include_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Azure resource type that needs to be monitored
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_types", value)
 
 
 class AzureIntegrationsMysqlArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7266,8 +7266,8 @@ class AzureIntegrationsMysqlArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsMysqlArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7279,35 +7279,35 @@ class AzureIntegrationsMysqlArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsMysqlFlexibleArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7315,8 +7315,8 @@ class AzureIntegrationsMysqlFlexibleArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsMysqlFlexibleArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7328,35 +7328,35 @@ class AzureIntegrationsMysqlFlexibleArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsPostgresqlArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7364,8 +7364,8 @@ class AzureIntegrationsPostgresqlArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsPostgresqlArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7377,35 +7377,35 @@ class AzureIntegrationsPostgresqlArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsPostgresqlFlexibleArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7413,8 +7413,8 @@ class AzureIntegrationsPostgresqlFlexibleArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsPostgresqlFlexibleArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7426,35 +7426,35 @@ class AzureIntegrationsPostgresqlFlexibleArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsPowerBiDedicatedArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7462,8 +7462,8 @@ class AzureIntegrationsPowerBiDedicatedArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsPowerBiDedicatedArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7475,35 +7475,35 @@ class AzureIntegrationsPowerBiDedicatedArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsRedisCacheArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7511,8 +7511,8 @@ class AzureIntegrationsRedisCacheArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsRedisCacheArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7524,35 +7524,35 @@ class AzureIntegrationsRedisCacheArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsServiceBusArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7560,8 +7560,8 @@ class AzureIntegrationsServiceBusArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsServiceBusArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7573,35 +7573,35 @@ class AzureIntegrationsServiceBusArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsSqlArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7609,8 +7609,8 @@ class AzureIntegrationsSqlArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsSqlArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7622,35 +7622,35 @@ class AzureIntegrationsSqlArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsSqlManagedArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7658,8 +7658,8 @@ class AzureIntegrationsSqlManagedArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsSqlManagedArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7671,35 +7671,35 @@ class AzureIntegrationsSqlManagedArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsStorageArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7707,8 +7707,8 @@ class AzureIntegrationsStorageArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsStorageArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7720,35 +7720,35 @@ class AzureIntegrationsStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsVirtualMachineArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7756,8 +7756,8 @@ class AzureIntegrationsVirtualMachineArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsVirtualMachineArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7769,35 +7769,35 @@ class AzureIntegrationsVirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsVirtualNetworksArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7805,8 +7805,8 @@ class AzureIntegrationsVirtualNetworksArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsVirtualNetworksArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7818,35 +7818,35 @@ class AzureIntegrationsVirtualNetworksArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsVmsArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7854,8 +7854,8 @@ class AzureIntegrationsVmsArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsVmsArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7867,35 +7867,35 @@ class AzureIntegrationsVmsArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class AzureIntegrationsVpnGatewayArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The data polling interval in seconds
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
     """
@@ -7903,8 +7903,8 @@ class AzureIntegrationsVpnGatewayArgsDict(TypedDict):
 @pulumi.input_type
 class AzureIntegrationsVpnGatewayArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
@@ -7916,31 +7916,31 @@ class AzureIntegrationsVpnGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
 
 class GcpIntegrationsAlloyDbArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -7948,7 +7948,7 @@ class GcpIntegrationsAlloyDbArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsAlloyDbArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -7957,19 +7957,19 @@ class GcpIntegrationsAlloyDbArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsAppEngineArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -7977,7 +7977,7 @@ class GcpIntegrationsAppEngineArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsAppEngineArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -7986,23 +7986,23 @@ class GcpIntegrationsAppEngineArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsBigQueryArgsDict(TypedDict):
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     to fetch tags of the resource
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8010,8 +8010,8 @@ class GcpIntegrationsBigQueryArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsBigQueryArgs:
     def __init__(__self__, *,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] fetch_tags: to fetch tags of the resource
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
@@ -8023,31 +8023,31 @@ class GcpIntegrationsBigQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         to fetch tags of the resource
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsBigTableArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8055,7 +8055,7 @@ class GcpIntegrationsBigTableArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsBigTableArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8064,19 +8064,19 @@ class GcpIntegrationsBigTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsComposerArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8084,7 +8084,7 @@ class GcpIntegrationsComposerArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsComposerArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8093,19 +8093,19 @@ class GcpIntegrationsComposerArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsDataFlowArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8113,7 +8113,7 @@ class GcpIntegrationsDataFlowArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsDataFlowArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8122,19 +8122,19 @@ class GcpIntegrationsDataFlowArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsDataProcArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8142,7 +8142,7 @@ class GcpIntegrationsDataProcArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsDataProcArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8151,19 +8151,19 @@ class GcpIntegrationsDataProcArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsDataStoreArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8171,7 +8171,7 @@ class GcpIntegrationsDataStoreArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsDataStoreArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8180,19 +8180,19 @@ class GcpIntegrationsDataStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsFireBaseDatabaseArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8200,7 +8200,7 @@ class GcpIntegrationsFireBaseDatabaseArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsFireBaseDatabaseArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8209,19 +8209,19 @@ class GcpIntegrationsFireBaseDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsFireBaseHostingArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8229,7 +8229,7 @@ class GcpIntegrationsFireBaseHostingArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsFireBaseHostingArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8238,19 +8238,19 @@ class GcpIntegrationsFireBaseHostingArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsFireBaseStorageArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8258,7 +8258,7 @@ class GcpIntegrationsFireBaseStorageArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsFireBaseStorageArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8267,19 +8267,19 @@ class GcpIntegrationsFireBaseStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsFireStoreArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8287,7 +8287,7 @@ class GcpIntegrationsFireStoreArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsFireStoreArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8296,19 +8296,19 @@ class GcpIntegrationsFireStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsFunctionsArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8316,7 +8316,7 @@ class GcpIntegrationsFunctionsArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsFunctionsArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8325,19 +8325,19 @@ class GcpIntegrationsFunctionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsInterconnectArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8345,7 +8345,7 @@ class GcpIntegrationsInterconnectArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsInterconnectArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8354,19 +8354,19 @@ class GcpIntegrationsInterconnectArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsKubernetesArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8374,7 +8374,7 @@ class GcpIntegrationsKubernetesArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsKubernetesArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8383,19 +8383,19 @@ class GcpIntegrationsKubernetesArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsLoadBalancingArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8403,7 +8403,7 @@ class GcpIntegrationsLoadBalancingArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsLoadBalancingArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8412,19 +8412,19 @@ class GcpIntegrationsLoadBalancingArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsMemCacheArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8432,7 +8432,7 @@ class GcpIntegrationsMemCacheArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsMemCacheArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8441,23 +8441,23 @@ class GcpIntegrationsMemCacheArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsPubSubArgsDict(TypedDict):
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     to fetch tags of the resource
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8465,8 +8465,8 @@ class GcpIntegrationsPubSubArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsPubSubArgs:
     def __init__(__self__, *,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] fetch_tags: to fetch tags of the resource
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
@@ -8478,31 +8478,31 @@ class GcpIntegrationsPubSubArgs:
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         to fetch tags of the resource
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsRedisArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8510,7 +8510,7 @@ class GcpIntegrationsRedisArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsRedisArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8519,19 +8519,19 @@ class GcpIntegrationsRedisArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsRouterArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8539,7 +8539,7 @@ class GcpIntegrationsRouterArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsRouterArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8548,19 +8548,19 @@ class GcpIntegrationsRouterArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsRunArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8568,7 +8568,7 @@ class GcpIntegrationsRunArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsRunArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8577,23 +8577,23 @@ class GcpIntegrationsRunArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsSpannerArgsDict(TypedDict):
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     to fetch tags of the resource
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8601,8 +8601,8 @@ class GcpIntegrationsSpannerArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsSpannerArgs:
     def __init__(__self__, *,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] fetch_tags: to fetch tags of the resource
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
@@ -8614,31 +8614,31 @@ class GcpIntegrationsSpannerArgs:
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         to fetch tags of the resource
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsSqlArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8646,7 +8646,7 @@ class GcpIntegrationsSqlArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsSqlArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8655,23 +8655,23 @@ class GcpIntegrationsSqlArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsStorageArgsDict(TypedDict):
-    fetch_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    fetch_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     to fetch tags of the resource
     """
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8679,8 +8679,8 @@ class GcpIntegrationsStorageArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsStorageArgs:
     def __init__(__self__, *,
-                 fetch_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 fetch_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] fetch_tags: to fetch tags of the resource
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
@@ -8692,31 +8692,31 @@ class GcpIntegrationsStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="fetchTags")
-    def fetch_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         to fetch tags of the resource
         """
         return pulumi.get(self, "fetch_tags")
 
     @fetch_tags.setter
-    def fetch_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsVirtualMachinesArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8724,7 +8724,7 @@ class GcpIntegrationsVirtualMachinesArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsVirtualMachinesArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8733,19 +8733,19 @@ class GcpIntegrationsVirtualMachinesArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsVpcAccessArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     the data polling interval in seconds
     """
@@ -8753,7 +8753,7 @@ class GcpIntegrationsVpcAccessArgsDict(TypedDict):
 @pulumi.input_type
 class GcpIntegrationsVpcAccessArgs:
     def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] metrics_polling_interval: the data polling interval in seconds
         """
@@ -8762,14 +8762,14 @@ class GcpIntegrationsVpcAccessArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         the data polling interval in seconds
         """
         return pulumi.get(self, "metrics_polling_interval")
 
     @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
 

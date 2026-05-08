@@ -317,54 +317,54 @@ export interface WorkflowState {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Notification configuration. See Nested destination blocks below for details.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.WorkflowDestination>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.WorkflowDestination>[] | undefined>;
     /**
      * **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
      * these two are different flags, but they are functionally identical. Defaults to true.
      *
      * @deprecated Please use 'enabled' instead
      */
-    destinationsEnabled?: pulumi.Input<boolean>;
+    destinationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether workflow is enabled. Defaults to true.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Workflow's enrichments. See Nested enrichments blocks below for details.
      */
-    enrichments?: pulumi.Input<inputs.WorkflowEnrichments>;
+    enrichments?: pulumi.Input<inputs.WorkflowEnrichments | undefined>;
     /**
      * Whether enrichments are enabled. Defaults to true.
      */
-    enrichmentsEnabled?: pulumi.Input<boolean>;
+    enrichmentsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Workflow entity GUID
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      */
-    issuesFilter?: pulumi.Input<inputs.WorkflowIssuesFilter>;
+    issuesFilter?: pulumi.Input<inputs.WorkflowIssuesFilter | undefined>;
     /**
      * The last time notification was sent for this workflow.
      */
-    lastRun?: pulumi.Input<string>;
+    lastRun?: pulumi.Input<string | undefined>;
     /**
      * How to handle muted issues. See Muting Rules below for details.
      */
-    mutingRulesHandling?: pulumi.Input<string>;
+    mutingRulesHandling?: pulumi.Input<string | undefined>;
     /**
      * The name of the workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The id of the workflow.
      */
-    workflowId?: pulumi.Input<string>;
+    workflowId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -374,7 +374,7 @@ export interface WorkflowArgs {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Notification configuration. See Nested destination blocks below for details.
      */
@@ -385,19 +385,19 @@ export interface WorkflowArgs {
      *
      * @deprecated Please use 'enabled' instead
      */
-    destinationsEnabled?: pulumi.Input<boolean>;
+    destinationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether workflow is enabled. Defaults to true.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Workflow's enrichments. See Nested enrichments blocks below for details.
      */
-    enrichments?: pulumi.Input<inputs.WorkflowEnrichments>;
+    enrichments?: pulumi.Input<inputs.WorkflowEnrichments | undefined>;
     /**
      * Whether enrichments are enabled. Defaults to true.
      */
-    enrichmentsEnabled?: pulumi.Input<boolean>;
+    enrichmentsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      */
@@ -409,5 +409,5 @@ export interface WorkflowArgs {
     /**
      * The name of the workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

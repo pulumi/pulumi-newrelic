@@ -121,9 +121,9 @@ export interface GetUserOutputArgs {
      *
      * > **NOTE** The ID of an authentication domain can be retrieved using its name, via the data source `newrelic.getAuthenticationDomain`, as shown in the example above. Head over to the documentation of this data source for more details and examples.
      */
-    emailId?: pulumi.Input<string>;
+    emailId?: pulumi.Input<string | undefined>;
     /**
      * The name of the user to search for.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

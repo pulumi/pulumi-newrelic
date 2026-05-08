@@ -93,7 +93,7 @@ export interface GetCloudAccountOutputArgs {
     /**
      * The account ID in New Relic.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The cloud provider of the account (aws, gcp, azure, etc)
      */

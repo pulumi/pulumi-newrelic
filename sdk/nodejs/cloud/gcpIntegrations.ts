@@ -349,117 +349,117 @@ export interface GcpIntegrationsState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Alloy DB integration. See Integration blocks below for details.
      */
-    alloyDb?: pulumi.Input<inputs.cloud.GcpIntegrationsAlloyDb>;
+    alloyDb?: pulumi.Input<inputs.cloud.GcpIntegrationsAlloyDb | undefined>;
     /**
      * App Engine integration. See Integration blocks below for details.
      */
-    appEngine?: pulumi.Input<inputs.cloud.GcpIntegrationsAppEngine>;
+    appEngine?: pulumi.Input<inputs.cloud.GcpIntegrationsAppEngine | undefined>;
     /**
      * Biq Query integration. See Integration blocks below for details.
      */
-    bigQuery?: pulumi.Input<inputs.cloud.GcpIntegrationsBigQuery>;
+    bigQuery?: pulumi.Input<inputs.cloud.GcpIntegrationsBigQuery | undefined>;
     /**
      * Big Table. See Integration blocks below for details.
      */
-    bigTable?: pulumi.Input<inputs.cloud.GcpIntegrationsBigTable>;
+    bigTable?: pulumi.Input<inputs.cloud.GcpIntegrationsBigTable | undefined>;
     /**
      * Composer integration. See Integration blocks below for details.
      */
-    composer?: pulumi.Input<inputs.cloud.GcpIntegrationsComposer>;
+    composer?: pulumi.Input<inputs.cloud.GcpIntegrationsComposer | undefined>;
     /**
      * Data Flow integration. See Integration blocks below for details.
      */
-    dataFlow?: pulumi.Input<inputs.cloud.GcpIntegrationsDataFlow>;
+    dataFlow?: pulumi.Input<inputs.cloud.GcpIntegrationsDataFlow | undefined>;
     /**
      * Data Proc integration. See Integration blocks below for details.
      */
-    dataProc?: pulumi.Input<inputs.cloud.GcpIntegrationsDataProc>;
+    dataProc?: pulumi.Input<inputs.cloud.GcpIntegrationsDataProc | undefined>;
     /**
      * Data Store integration. See Integration blocks below for details.
      */
-    dataStore?: pulumi.Input<inputs.cloud.GcpIntegrationsDataStore>;
+    dataStore?: pulumi.Input<inputs.cloud.GcpIntegrationsDataStore | undefined>;
     /**
      * Fire Base Database integration. See Integration blocks below for details.
      */
-    fireBaseDatabase?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseDatabase>;
+    fireBaseDatabase?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseDatabase | undefined>;
     /**
      * Fire Base Hosting integration. See Integration blocks below for details.
      */
-    fireBaseHosting?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseHosting>;
+    fireBaseHosting?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseHosting | undefined>;
     /**
      * Fire Base Storage integration. See Integration blocks below for details.
      */
-    fireBaseStorage?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseStorage>;
+    fireBaseStorage?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseStorage | undefined>;
     /**
      * Fire Store integration. See Integration blocks below for details.
      */
-    fireStore?: pulumi.Input<inputs.cloud.GcpIntegrationsFireStore>;
+    fireStore?: pulumi.Input<inputs.cloud.GcpIntegrationsFireStore | undefined>;
     /**
      * Functions integration. See Integration blocks below for details.
      */
-    functions?: pulumi.Input<inputs.cloud.GcpIntegrationsFunctions>;
+    functions?: pulumi.Input<inputs.cloud.GcpIntegrationsFunctions | undefined>;
     /**
      * Interconnect integration. See Integration blocks below for details.
      */
-    interconnect?: pulumi.Input<inputs.cloud.GcpIntegrationsInterconnect>;
+    interconnect?: pulumi.Input<inputs.cloud.GcpIntegrationsInterconnect | undefined>;
     /**
      * Kubernetes integration. See Integration blocks below for details.
      */
-    kubernetes?: pulumi.Input<inputs.cloud.GcpIntegrationsKubernetes>;
+    kubernetes?: pulumi.Input<inputs.cloud.GcpIntegrationsKubernetes | undefined>;
     /**
      * The ID of the linked GCP account in New Relic.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    linkedAccountId?: pulumi.Input<string>;
+    linkedAccountId?: pulumi.Input<string | undefined>;
     /**
      * Load Balancing integration. See Integration blocks below for details.
      */
-    loadBalancing?: pulumi.Input<inputs.cloud.GcpIntegrationsLoadBalancing>;
+    loadBalancing?: pulumi.Input<inputs.cloud.GcpIntegrationsLoadBalancing | undefined>;
     /**
      * Mem cache integration. See Integration blocks below for details.
      */
-    memCache?: pulumi.Input<inputs.cloud.GcpIntegrationsMemCache>;
+    memCache?: pulumi.Input<inputs.cloud.GcpIntegrationsMemCache | undefined>;
     /**
      * Pub/Sub integration. See Integration blocks below for details.
      */
-    pubSub?: pulumi.Input<inputs.cloud.GcpIntegrationsPubSub>;
+    pubSub?: pulumi.Input<inputs.cloud.GcpIntegrationsPubSub | undefined>;
     /**
      * Redis integration. See Integration blocks below for details.
      */
-    redis?: pulumi.Input<inputs.cloud.GcpIntegrationsRedis>;
+    redis?: pulumi.Input<inputs.cloud.GcpIntegrationsRedis | undefined>;
     /**
      * Router integration. See Integration blocks below for details.
      */
-    router?: pulumi.Input<inputs.cloud.GcpIntegrationsRouter>;
+    router?: pulumi.Input<inputs.cloud.GcpIntegrationsRouter | undefined>;
     /**
      * Run integration. See Integration blocks below for details.
      */
-    run?: pulumi.Input<inputs.cloud.GcpIntegrationsRun>;
+    run?: pulumi.Input<inputs.cloud.GcpIntegrationsRun | undefined>;
     /**
      * Spanner integration. See Integration blocks below for details.
      */
-    spanner?: pulumi.Input<inputs.cloud.GcpIntegrationsSpanner>;
+    spanner?: pulumi.Input<inputs.cloud.GcpIntegrationsSpanner | undefined>;
     /**
      * SQL integration. See Integration blocks below for details.
      */
-    sql?: pulumi.Input<inputs.cloud.GcpIntegrationsSql>;
+    sql?: pulumi.Input<inputs.cloud.GcpIntegrationsSql | undefined>;
     /**
      * Storage integration. See Integration blocks below for details.
      */
-    storage?: pulumi.Input<inputs.cloud.GcpIntegrationsStorage>;
+    storage?: pulumi.Input<inputs.cloud.GcpIntegrationsStorage | undefined>;
     /**
      * Virtual machines integration. See Integration blocks below for details.
      */
-    virtualMachines?: pulumi.Input<inputs.cloud.GcpIntegrationsVirtualMachines>;
+    virtualMachines?: pulumi.Input<inputs.cloud.GcpIntegrationsVirtualMachines | undefined>;
     /**
      * VPC Access integration. See Integration blocks below for details.
      */
-    vpcAccess?: pulumi.Input<inputs.cloud.GcpIntegrationsVpcAccess>;
+    vpcAccess?: pulumi.Input<inputs.cloud.GcpIntegrationsVpcAccess | undefined>;
 }
 
 /**
@@ -469,67 +469,67 @@ export interface GcpIntegrationsArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Alloy DB integration. See Integration blocks below for details.
      */
-    alloyDb?: pulumi.Input<inputs.cloud.GcpIntegrationsAlloyDb>;
+    alloyDb?: pulumi.Input<inputs.cloud.GcpIntegrationsAlloyDb | undefined>;
     /**
      * App Engine integration. See Integration blocks below for details.
      */
-    appEngine?: pulumi.Input<inputs.cloud.GcpIntegrationsAppEngine>;
+    appEngine?: pulumi.Input<inputs.cloud.GcpIntegrationsAppEngine | undefined>;
     /**
      * Biq Query integration. See Integration blocks below for details.
      */
-    bigQuery?: pulumi.Input<inputs.cloud.GcpIntegrationsBigQuery>;
+    bigQuery?: pulumi.Input<inputs.cloud.GcpIntegrationsBigQuery | undefined>;
     /**
      * Big Table. See Integration blocks below for details.
      */
-    bigTable?: pulumi.Input<inputs.cloud.GcpIntegrationsBigTable>;
+    bigTable?: pulumi.Input<inputs.cloud.GcpIntegrationsBigTable | undefined>;
     /**
      * Composer integration. See Integration blocks below for details.
      */
-    composer?: pulumi.Input<inputs.cloud.GcpIntegrationsComposer>;
+    composer?: pulumi.Input<inputs.cloud.GcpIntegrationsComposer | undefined>;
     /**
      * Data Flow integration. See Integration blocks below for details.
      */
-    dataFlow?: pulumi.Input<inputs.cloud.GcpIntegrationsDataFlow>;
+    dataFlow?: pulumi.Input<inputs.cloud.GcpIntegrationsDataFlow | undefined>;
     /**
      * Data Proc integration. See Integration blocks below for details.
      */
-    dataProc?: pulumi.Input<inputs.cloud.GcpIntegrationsDataProc>;
+    dataProc?: pulumi.Input<inputs.cloud.GcpIntegrationsDataProc | undefined>;
     /**
      * Data Store integration. See Integration blocks below for details.
      */
-    dataStore?: pulumi.Input<inputs.cloud.GcpIntegrationsDataStore>;
+    dataStore?: pulumi.Input<inputs.cloud.GcpIntegrationsDataStore | undefined>;
     /**
      * Fire Base Database integration. See Integration blocks below for details.
      */
-    fireBaseDatabase?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseDatabase>;
+    fireBaseDatabase?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseDatabase | undefined>;
     /**
      * Fire Base Hosting integration. See Integration blocks below for details.
      */
-    fireBaseHosting?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseHosting>;
+    fireBaseHosting?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseHosting | undefined>;
     /**
      * Fire Base Storage integration. See Integration blocks below for details.
      */
-    fireBaseStorage?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseStorage>;
+    fireBaseStorage?: pulumi.Input<inputs.cloud.GcpIntegrationsFireBaseStorage | undefined>;
     /**
      * Fire Store integration. See Integration blocks below for details.
      */
-    fireStore?: pulumi.Input<inputs.cloud.GcpIntegrationsFireStore>;
+    fireStore?: pulumi.Input<inputs.cloud.GcpIntegrationsFireStore | undefined>;
     /**
      * Functions integration. See Integration blocks below for details.
      */
-    functions?: pulumi.Input<inputs.cloud.GcpIntegrationsFunctions>;
+    functions?: pulumi.Input<inputs.cloud.GcpIntegrationsFunctions | undefined>;
     /**
      * Interconnect integration. See Integration blocks below for details.
      */
-    interconnect?: pulumi.Input<inputs.cloud.GcpIntegrationsInterconnect>;
+    interconnect?: pulumi.Input<inputs.cloud.GcpIntegrationsInterconnect | undefined>;
     /**
      * Kubernetes integration. See Integration blocks below for details.
      */
-    kubernetes?: pulumi.Input<inputs.cloud.GcpIntegrationsKubernetes>;
+    kubernetes?: pulumi.Input<inputs.cloud.GcpIntegrationsKubernetes | undefined>;
     /**
      * The ID of the linked GCP account in New Relic.
      *
@@ -539,45 +539,45 @@ export interface GcpIntegrationsArgs {
     /**
      * Load Balancing integration. See Integration blocks below for details.
      */
-    loadBalancing?: pulumi.Input<inputs.cloud.GcpIntegrationsLoadBalancing>;
+    loadBalancing?: pulumi.Input<inputs.cloud.GcpIntegrationsLoadBalancing | undefined>;
     /**
      * Mem cache integration. See Integration blocks below for details.
      */
-    memCache?: pulumi.Input<inputs.cloud.GcpIntegrationsMemCache>;
+    memCache?: pulumi.Input<inputs.cloud.GcpIntegrationsMemCache | undefined>;
     /**
      * Pub/Sub integration. See Integration blocks below for details.
      */
-    pubSub?: pulumi.Input<inputs.cloud.GcpIntegrationsPubSub>;
+    pubSub?: pulumi.Input<inputs.cloud.GcpIntegrationsPubSub | undefined>;
     /**
      * Redis integration. See Integration blocks below for details.
      */
-    redis?: pulumi.Input<inputs.cloud.GcpIntegrationsRedis>;
+    redis?: pulumi.Input<inputs.cloud.GcpIntegrationsRedis | undefined>;
     /**
      * Router integration. See Integration blocks below for details.
      */
-    router?: pulumi.Input<inputs.cloud.GcpIntegrationsRouter>;
+    router?: pulumi.Input<inputs.cloud.GcpIntegrationsRouter | undefined>;
     /**
      * Run integration. See Integration blocks below for details.
      */
-    run?: pulumi.Input<inputs.cloud.GcpIntegrationsRun>;
+    run?: pulumi.Input<inputs.cloud.GcpIntegrationsRun | undefined>;
     /**
      * Spanner integration. See Integration blocks below for details.
      */
-    spanner?: pulumi.Input<inputs.cloud.GcpIntegrationsSpanner>;
+    spanner?: pulumi.Input<inputs.cloud.GcpIntegrationsSpanner | undefined>;
     /**
      * SQL integration. See Integration blocks below for details.
      */
-    sql?: pulumi.Input<inputs.cloud.GcpIntegrationsSql>;
+    sql?: pulumi.Input<inputs.cloud.GcpIntegrationsSql | undefined>;
     /**
      * Storage integration. See Integration blocks below for details.
      */
-    storage?: pulumi.Input<inputs.cloud.GcpIntegrationsStorage>;
+    storage?: pulumi.Input<inputs.cloud.GcpIntegrationsStorage | undefined>;
     /**
      * Virtual machines integration. See Integration blocks below for details.
      */
-    virtualMachines?: pulumi.Input<inputs.cloud.GcpIntegrationsVirtualMachines>;
+    virtualMachines?: pulumi.Input<inputs.cloud.GcpIntegrationsVirtualMachines | undefined>;
     /**
      * VPC Access integration. See Integration blocks below for details.
      */
-    vpcAccess?: pulumi.Input<inputs.cloud.GcpIntegrationsVpcAccess>;
+    vpcAccess?: pulumi.Input<inputs.cloud.GcpIntegrationsVpcAccess | undefined>;
 }

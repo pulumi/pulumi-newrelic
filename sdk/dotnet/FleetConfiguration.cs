@@ -26,7 +26,7 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var infra = new NewRelic.Index.FleetConfiguration("infra", new()
+    ///     var infra = new NewRelic.FleetConfiguration("infra", new()
     ///     {
     ///         Name = "Production Infrastructure Config",
     ///         AgentType = "NRInfra",

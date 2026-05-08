@@ -22,11 +22,11 @@ __all__ = ['OneDashboardArgs', 'OneDashboard']
 class OneDashboardArgs:
     def __init__(__self__, *,
                  pages: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
         """
         The set of arguments for constructing a OneDashboard resource.
 
@@ -63,76 +63,76 @@ class OneDashboardArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brief text describing the dashboard.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the dashboard.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]:
         """
         A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
 @pulumi.input_type
 class _OneDashboardState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]] = None,
-                 permalink: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageArgs']]]] = None,
+                 permalink: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering OneDashboard resources.
 
@@ -164,98 +164,98 @@ class _OneDashboardState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brief text describing the dashboard.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique entity identifier of the dashboard page in New Relic.
         """
         return pulumi.get(self, "guid")
 
     @guid.setter
-    def guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guid", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the dashboard.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]]:
+    def pages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageArgs']]]]:
         """
         A nested block that describes a page. See Nested page blocks below for details.
         """
         return pulumi.get(self, "pages")
 
     @pages.setter
-    def pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]]):
+    def pages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageArgs']]]]):
         pulumi.set(self, "pages", value)
 
     @_builtins.property
     @pulumi.getter
-    def permalink(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permalink(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for viewing the dashboard.
         """
         return pulumi.get(self, "permalink")
 
     @permalink.setter
-    def permalink(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permalink(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permalink", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]:
         """
         A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -265,12 +265,12 @@ class OneDashboard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         > **IMPORTANT!**
@@ -403,15 +403,15 @@ class OneDashboard(pulumi.CustomResource):
                         "legend_enabled": True,
                         "ignore_time_range": False,
                         "y_axis_left_zero": True,
-                        "y_axis_left_min": 0,
-                        "y_axis_left_max": 1,
+                        "y_axis_left_min": float(0),
+                        "y_axis_left_max": float(1),
                         "tooltip": {
                             "mode": "single",
                         },
                         "y_axis_right": {
                             "y_axis_right_zero": True,
-                            "y_axis_right_min": 0,
-                            "y_axis_right_max": 300,
+                            "y_axis_right_min": float(0),
+                            "y_axis_right_max": float(300),
                             "y_axis_right_series": [
                                 "A",
                                 "B",
@@ -453,8 +453,8 @@ class OneDashboard(pulumi.CustomResource):
                         "legend_enabled": True,
                         "ignore_time_range": False,
                         "y_axis_left_zero": True,
-                        "y_axis_left_min": 0,
-                        "y_axis_left_max": 0,
+                        "y_axis_left_min": float(0),
+                        "y_axis_left_max": float(0),
                         "null_values": [{
                             "null_value": "default",
                             "series_overrides": [
@@ -726,15 +726,15 @@ class OneDashboard(pulumi.CustomResource):
                         "legend_enabled": True,
                         "ignore_time_range": False,
                         "y_axis_left_zero": True,
-                        "y_axis_left_min": 0,
-                        "y_axis_left_max": 1,
+                        "y_axis_left_min": float(0),
+                        "y_axis_left_max": float(1),
                         "tooltip": {
                             "mode": "single",
                         },
                         "y_axis_right": {
                             "y_axis_right_zero": True,
-                            "y_axis_right_min": 0,
-                            "y_axis_right_max": 300,
+                            "y_axis_right_min": float(0),
+                            "y_axis_right_max": float(300),
                             "y_axis_right_series": [
                                 "A",
                                 "B",
@@ -776,8 +776,8 @@ class OneDashboard(pulumi.CustomResource):
                         "legend_enabled": True,
                         "ignore_time_range": False,
                         "y_axis_left_zero": True,
-                        "y_axis_left_min": 0,
-                        "y_axis_left_max": 0,
+                        "y_axis_left_min": float(0),
+                        "y_axis_left_max": float(0),
                         "null_values": [{
                             "null_value": "default",
                             "series_overrides": [
@@ -918,12 +918,12 @@ class OneDashboard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -953,14 +953,14 @@ class OneDashboard(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            guid: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]]] = None,
-            permalink: Optional[pulumi.Input[_builtins.str]] = None,
-            permissions: Optional[pulumi.Input[_builtins.str]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None) -> 'OneDashboard':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]]] = None,
+            permalink: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None) -> 'OneDashboard':
         """
         Get an existing OneDashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = NewRelic.Index.GetFleetConfiguration.Invoke(new()
+        ///     var byId = NewRelic.GetFleetConfiguration.Invoke(new()
         ///     {
         ///         ConfigurationId = "NjQyNTg2NXxOR0VQ...",
         ///     });
@@ -53,7 +53,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byVersion = NewRelic.Index.GetFleetConfiguration.Invoke(new()
+        ///     var byVersion = NewRelic.GetFleetConfiguration.Invoke(new()
         ///     {
         ///         VersionEntityId = "NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...",
         ///     });
@@ -78,7 +78,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byName = NewRelic.Index.GetFleetConfiguration.Invoke(new()
+        ///     var byName = NewRelic.GetFleetConfiguration.Invoke(new()
         ///     {
         ///         Name = "Production Infrastructure Config",
         ///     });
@@ -110,7 +110,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = NewRelic.Index.GetFleetConfiguration.Invoke(new()
+        ///     var byId = NewRelic.GetFleetConfiguration.Invoke(new()
         ///     {
         ///         ConfigurationId = "NjQyNTg2NXxOR0VQ...",
         ///     });
@@ -135,7 +135,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byVersion = NewRelic.Index.GetFleetConfiguration.Invoke(new()
+        ///     var byVersion = NewRelic.GetFleetConfiguration.Invoke(new()
         ///     {
         ///         VersionEntityId = "NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...",
         ///     });
@@ -160,7 +160,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byName = NewRelic.Index.GetFleetConfiguration.Invoke(new()
+        ///     var byName = NewRelic.GetFleetConfiguration.Invoke(new()
         ///     {
         ///         Name = "Production Infrastructure Config",
         ///     });
@@ -192,7 +192,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byId = NewRelic.Index.GetFleetConfiguration.Invoke(new()
+        ///     var byId = NewRelic.GetFleetConfiguration.Invoke(new()
         ///     {
         ///         ConfigurationId = "NjQyNTg2NXxOR0VQ...",
         ///     });
@@ -217,7 +217,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byVersion = NewRelic.Index.GetFleetConfiguration.Invoke(new()
+        ///     var byVersion = NewRelic.GetFleetConfiguration.Invoke(new()
         ///     {
         ///         VersionEntityId = "NjQyNTg2NXxOR0VQfEFHRU5UX0NPTkZJR1VSQVRJT05fVkVSU0lPTnw...",
         ///     });
@@ -242,7 +242,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var byName = NewRelic.Index.GetFleetConfiguration.Invoke(new()
+        ///     var byName = NewRelic.GetFleetConfiguration.Invoke(new()
         ///     {
         ///         Name = "Production Infrastructure Config",
         ///     });
