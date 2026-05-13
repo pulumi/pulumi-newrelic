@@ -85,6 +85,12 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the private location is shared across the organization. Defaults to `False`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+        /// </summary>
+        [Output("shared")]
+        public Output<bool?> Shared { get; private set; } = null!;
+
+        /// <summary>
         /// The private location requires a password to edit if value is true. Defaults to `False`
         /// </summary>
         [Output("verifiedScriptExecution")]
@@ -155,6 +161,12 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Specifies whether the private location is shared across the organization. Defaults to `False`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+        /// </summary>
+        [Input("shared")]
+        public Input<bool>? Shared { get; set; }
+
+        /// <summary>
         /// The private location requires a password to edit if value is true. Defaults to `False`
         /// </summary>
         [Input("verifiedScriptExecution")]
@@ -209,6 +221,12 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies whether the private location is shared across the organization. Defaults to `False`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+        /// </summary>
+        [Input("shared")]
+        public Input<bool>? Shared { get; set; }
 
         /// <summary>
         /// The private location requires a password to edit if value is true. Defaults to `False`

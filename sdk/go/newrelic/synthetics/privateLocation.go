@@ -65,6 +65,8 @@ type PrivateLocation struct {
 	LocationId pulumi.StringOutput `pulumi:"locationId"`
 	// The name of the private location.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+	Shared pulumi.BoolPtrOutput `pulumi:"shared"`
 	// The private location requires a password to edit if value is true. Defaults to `false`
 	VerifiedScriptExecution pulumi.BoolPtrOutput `pulumi:"verifiedScriptExecution"`
 }
@@ -116,6 +118,8 @@ type privateLocationState struct {
 	LocationId *string `pulumi:"locationId"`
 	// The name of the private location.
 	Name *string `pulumi:"name"`
+	// Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+	Shared *bool `pulumi:"shared"`
 	// The private location requires a password to edit if value is true. Defaults to `false`
 	VerifiedScriptExecution *bool `pulumi:"verifiedScriptExecution"`
 }
@@ -135,6 +139,8 @@ type PrivateLocationState struct {
 	LocationId pulumi.StringPtrInput
 	// The name of the private location.
 	Name pulumi.StringPtrInput
+	// Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+	Shared pulumi.BoolPtrInput
 	// The private location requires a password to edit if value is true. Defaults to `false`
 	VerifiedScriptExecution pulumi.BoolPtrInput
 }
@@ -150,6 +156,8 @@ type privateLocationArgs struct {
 	Description string `pulumi:"description"`
 	// The name of the private location.
 	Name *string `pulumi:"name"`
+	// Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+	Shared *bool `pulumi:"shared"`
 	// The private location requires a password to edit if value is true. Defaults to `false`
 	VerifiedScriptExecution *bool `pulumi:"verifiedScriptExecution"`
 }
@@ -162,6 +170,8 @@ type PrivateLocationArgs struct {
 	Description pulumi.StringInput
 	// The name of the private location.
 	Name pulumi.StringPtrInput
+	// Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+	Shared pulumi.BoolPtrInput
 	// The private location requires a password to edit if value is true. Defaults to `false`
 	VerifiedScriptExecution pulumi.BoolPtrInput
 }
@@ -286,6 +296,11 @@ func (o PrivateLocationOutput) LocationId() pulumi.StringOutput {
 // The name of the private location.
 func (o PrivateLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLocation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+func (o PrivateLocationOutput) Shared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PrivateLocation) pulumi.BoolPtrOutput { return v.Shared }).(pulumi.BoolPtrOutput)
 }
 
 // The private location requires a password to edit if value is true. Defaults to `false`

@@ -22,6 +22,7 @@ class PrivateLocationArgs:
                  description: pulumi.Input[_builtins.str],
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared: pulumi.Input[Optional[_builtins.bool]] = None,
                  verified_script_execution: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PrivateLocation resource.
@@ -29,6 +30,7 @@ class PrivateLocationArgs:
         :param pulumi.Input[_builtins.str] description: The private location description.
         :param pulumi.Input[_builtins.str] account_id: The account in which the private location will be created.
         :param pulumi.Input[_builtins.str] name: The name of the private location.
+        :param pulumi.Input[_builtins.bool] shared: Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
         :param pulumi.Input[_builtins.bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
         """
         pulumi.set(__self__, "description", description)
@@ -36,6 +38,8 @@ class PrivateLocationArgs:
             pulumi.set(__self__, "account_id", account_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if shared is not None:
+            pulumi.set(__self__, "shared", shared)
         if verified_script_execution is not None:
             pulumi.set(__self__, "verified_script_execution", verified_script_execution)
 
@@ -76,6 +80,18 @@ class PrivateLocationArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def shared(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+        """
+        return pulumi.get(self, "shared")
+
+    @shared.setter
+    def shared(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "shared", value)
+
+    @_builtins.property
     @pulumi.getter(name="verifiedScriptExecution")
     def verified_script_execution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -98,6 +114,7 @@ class _PrivateLocationState:
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared: pulumi.Input[Optional[_builtins.bool]] = None,
                  verified_script_execution: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PrivateLocation resources.
@@ -109,6 +126,7 @@ class _PrivateLocationState:
         :param pulumi.Input[_builtins.str] key: The private locations key.
         :param pulumi.Input[_builtins.str] location_id: An alternate identifier based on name.
         :param pulumi.Input[_builtins.str] name: The name of the private location.
+        :param pulumi.Input[_builtins.bool] shared: Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
         :param pulumi.Input[_builtins.bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
         """
         if account_id is not None:
@@ -125,6 +143,8 @@ class _PrivateLocationState:
             pulumi.set(__self__, "location_id", location_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if shared is not None:
+            pulumi.set(__self__, "shared", shared)
         if verified_script_execution is not None:
             pulumi.set(__self__, "verified_script_execution", verified_script_execution)
 
@@ -213,6 +233,18 @@ class _PrivateLocationState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def shared(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+        """
+        return pulumi.get(self, "shared")
+
+    @shared.setter
+    def shared(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "shared", value)
+
+    @_builtins.property
     @pulumi.getter(name="verifiedScriptExecution")
     def verified_script_execution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -234,6 +266,7 @@ class PrivateLocation(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared: pulumi.Input[Optional[_builtins.bool]] = None,
                  verified_script_execution: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -264,6 +297,7 @@ class PrivateLocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The account in which the private location will be created.
         :param pulumi.Input[_builtins.str] description: The private location description.
         :param pulumi.Input[_builtins.str] name: The name of the private location.
+        :param pulumi.Input[_builtins.bool] shared: Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
         :param pulumi.Input[_builtins.bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
         """
         ...
@@ -313,6 +347,7 @@ class PrivateLocation(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared: pulumi.Input[Optional[_builtins.bool]] = None,
                  verified_script_execution: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -328,6 +363,7 @@ class PrivateLocation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["shared"] = shared
             __props__.__dict__["verified_script_execution"] = verified_script_execution
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["guid"] = None
@@ -350,6 +386,7 @@ class PrivateLocation(pulumi.CustomResource):
             key: pulumi.Input[Optional[_builtins.str]] = None,
             location_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            shared: pulumi.Input[Optional[_builtins.bool]] = None,
             verified_script_execution: pulumi.Input[Optional[_builtins.bool]] = None) -> 'PrivateLocation':
         """
         Get an existing PrivateLocation resource's state with the given name, id, and optional extra
@@ -365,6 +402,7 @@ class PrivateLocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key: The private locations key.
         :param pulumi.Input[_builtins.str] location_id: An alternate identifier based on name.
         :param pulumi.Input[_builtins.str] name: The name of the private location.
+        :param pulumi.Input[_builtins.bool] shared: Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
         :param pulumi.Input[_builtins.bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -378,6 +416,7 @@ class PrivateLocation(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         __props__.__dict__["location_id"] = location_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["shared"] = shared
         __props__.__dict__["verified_script_execution"] = verified_script_execution
         return PrivateLocation(resource_name, opts=opts, __props__=__props__)
 
@@ -436,6 +475,14 @@ class PrivateLocation(pulumi.CustomResource):
         The name of the private location.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def shared(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+        """
+        return pulumi.get(self, "shared")
 
     @_builtins.property
     @pulumi.getter(name="verifiedScriptExecution")

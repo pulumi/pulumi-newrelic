@@ -162,6 +162,20 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+     * 
+     */
+    @Export(name="shared", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> shared;
+
+    /**
+     * @return Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+     * 
+     */
+    public Output<Optional<Boolean>> shared() {
+        return Codegen.optional(this.shared);
+    }
+    /**
      * The private location requires a password to edit if value is true. Defaults to `false`
      * 
      */

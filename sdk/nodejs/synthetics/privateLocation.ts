@@ -84,6 +84,10 @@ export class PrivateLocation extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+     */
+    declare public readonly shared: pulumi.Output<boolean | undefined>;
+    /**
      * The private location requires a password to edit if value is true. Defaults to `false`
      */
     declare public readonly verifiedScriptExecution: pulumi.Output<boolean | undefined>;
@@ -108,6 +112,7 @@ export class PrivateLocation extends pulumi.CustomResource {
             resourceInputs["key"] = state?.key;
             resourceInputs["locationId"] = state?.locationId;
             resourceInputs["name"] = state?.name;
+            resourceInputs["shared"] = state?.shared;
             resourceInputs["verifiedScriptExecution"] = state?.verifiedScriptExecution;
         } else {
             const args = argsOrState as PrivateLocationArgs | undefined;
@@ -117,6 +122,7 @@ export class PrivateLocation extends pulumi.CustomResource {
             resourceInputs["accountId"] = args?.accountId;
             resourceInputs["description"] = args?.description;
             resourceInputs["name"] = args?.name;
+            resourceInputs["shared"] = args?.shared;
             resourceInputs["verifiedScriptExecution"] = args?.verifiedScriptExecution;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["guid"] = undefined /*out*/;
@@ -161,6 +167,10 @@ export interface PrivateLocationState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+     */
+    shared?: pulumi.Input<boolean | undefined>;
+    /**
      * The private location requires a password to edit if value is true. Defaults to `false`
      */
     verifiedScriptExecution?: pulumi.Input<boolean | undefined>;
@@ -182,6 +192,10 @@ export interface PrivateLocationArgs {
      * The name of the private location.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+     */
+    shared?: pulumi.Input<boolean | undefined>;
     /**
      * The private location requires a password to edit if value is true. Defaults to `false`
      */

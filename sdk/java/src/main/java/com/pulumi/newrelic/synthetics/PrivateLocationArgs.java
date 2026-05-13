@@ -63,6 +63,21 @@ public final class PrivateLocationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+     * 
+     */
+    @Import(name="shared")
+    private @Nullable Output<Boolean> shared;
+
+    /**
+     * @return Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+     * 
+     */
+    public Optional<Output<Boolean>> shared() {
+        return Optional.ofNullable(this.shared);
+    }
+
+    /**
      * The private location requires a password to edit if value is true. Defaults to `false`
      * 
      */
@@ -83,6 +98,7 @@ public final class PrivateLocationArgs extends com.pulumi.resources.ResourceArgs
         this.accountId = $.accountId;
         this.description = $.description;
         this.name = $.name;
+        this.shared = $.shared;
         this.verifiedScriptExecution = $.verifiedScriptExecution;
     }
 
@@ -165,6 +181,27 @@ public final class PrivateLocationArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param shared Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shared(@Nullable Output<Boolean> shared) {
+            $.shared = shared;
+            return this;
+        }
+
+        /**
+         * @param shared Specifies whether the private location is shared across the organization. Defaults to `false`. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shared(Boolean shared) {
+            return shared(Output.of(shared));
         }
 
         /**
