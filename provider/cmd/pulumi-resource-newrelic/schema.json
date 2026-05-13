@@ -17335,6 +17335,10 @@
                     "type": "string",
                     "description": "The name of the private location.\n"
                 },
+                "shared": {
+                    "type": "boolean",
+                    "description": "Specifies whether the private location is shared across the organization. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.\n"
+                },
                 "verifiedScriptExecution": {
                     "type": "boolean",
                     "description": "The private location requires a password to edit if value is true. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e\n"
@@ -17363,6 +17367,10 @@
                     "type": "string",
                     "description": "The name of the private location.\n",
                     "willReplaceOnChanges": true
+                },
+                "shared": {
+                    "type": "boolean",
+                    "description": "Specifies whether the private location is shared across the organization. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.\n"
                 },
                 "verifiedScriptExecution": {
                     "type": "boolean",
@@ -17404,6 +17412,10 @@
                         "type": "string",
                         "description": "The name of the private location.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "shared": {
+                        "type": "boolean",
+                        "description": "Specifies whether the private location is shared across the organization. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e. **Note:** If a location is shared and used by other accounts in your organization to run synthetic monitors, you cannot unshare this private location until those monitors are disabled.\n"
                     },
                     "verifiedScriptExecution": {
                         "type": "boolean",
