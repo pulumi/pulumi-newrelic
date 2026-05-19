@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
  * 
- * &gt; **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; on &lt;b style=&#34;color:red;&#34;&gt;October 22, 2024&lt;/b&gt;. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt;.
+ * &gt; **IMPORTANT:**  The **Synthetics Legacy Runtime** will reach its &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; on &lt;b style=&#34;color:red;&#34;&gt;Aug 18, 2026&lt;/b&gt;. As a consequence, using the legacy runtime with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt;.
  * &lt;br&gt;&lt;br&gt;
  * If your Synthetic monitors&#39; configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning against `runtimeType` and `runtimeTypeVersion` in the **Argument Reference** section.
  * 
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *             .validationString("success")
  *             .verifySsl(true)
  *             .runtimeType("CHROME_BROWSER")
- *             .runtimeTypeVersion("100")
+ *             .runtimeTypeVersion("LATEST")
  *             .scriptLanguage("JAVASCRIPT")
  *             .devices(            
  *                 "DESKTOP",
@@ -248,7 +248,7 @@ import javax.annotation.Nullable;
  *             .enableScreenshotOnFailureAndScript(true)
  *             .validationString("success")
  *             .verifySsl(true)
- *             .runtimeTypeVersion("100")
+ *             .runtimeTypeVersion("LATEST")
  *             .runtimeType("CHROME_BROWSER")
  *             .scriptLanguage("JAVASCRIPT")
  *             .devices(            
@@ -501,14 +501,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runtimeType);
     }
     /**
-     * The specific version of the runtime type selected (`100`).
+     * The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = &#34;LATEST&#34;` in your configuration to avoid drift.
      * 
      */
     @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
 
     /**
-     * @return The specific version of the runtime type selected (`100`).
+     * @return The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = &#34;LATEST&#34;` in your configuration to avoid drift.
      * 
      */
     public Output<Optional<String>> runtimeTypeVersion() {

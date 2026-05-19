@@ -14,7 +14,7 @@ import (
 
 // Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 //
-// > **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its <b style="color:red;">end-of-life</b> on <b style="color:red;">October 22, 2024</b>. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
+// > **IMPORTANT:**  The **Synthetics Legacy Runtime** will reach its <b style="color:red;">end-of-life</b> on <b style="color:red;">Aug 18, 2026</b>. As a consequence, using the legacy runtime with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
 // <br><br>
 // If your Synthetic monitors' configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning against `runtimeType` and `runtimeTypeVersion` in the **Argument Reference** section.
 //
@@ -95,7 +95,7 @@ import (
 //				ValidationString:                   pulumi.String("success"),
 //				VerifySsl:                          pulumi.Bool(true),
 //				RuntimeType:                        pulumi.String("CHROME_BROWSER"),
-//				RuntimeTypeVersion:                 pulumi.String("100"),
+//				RuntimeTypeVersion:                 pulumi.String("LATEST"),
 //				ScriptLanguage:                     pulumi.String("JAVASCRIPT"),
 //				Devices: pulumi.StringArray{
 //					pulumi.String("DESKTOP"),
@@ -230,7 +230,7 @@ import (
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
 //				ValidationString:                   pulumi.String("success"),
 //				VerifySsl:                          pulumi.Bool(true),
-//				RuntimeTypeVersion:                 pulumi.String("100"),
+//				RuntimeTypeVersion:                 pulumi.String("LATEST"),
 //				RuntimeType:                        pulumi.String("CHROME_BROWSER"),
 //				ScriptLanguage:                     pulumi.String("JAVASCRIPT"),
 //				Devices: pulumi.StringArray{
@@ -309,7 +309,7 @@ type Monitor struct {
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
-	// The specific version of the runtime type selected (`100`).
+	// The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = "LATEST"` in your configuration to avoid drift.
 	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrOutput `pulumi:"scriptLanguage"`
@@ -403,7 +403,7 @@ type monitorState struct {
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The specific version of the runtime type selected (`100`).
+	// The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = "LATEST"` in your configuration to avoid drift.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
@@ -462,7 +462,7 @@ type MonitorState struct {
 	PeriodInMinutes pulumi.IntPtrInput
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrInput
-	// The specific version of the runtime type selected (`100`).
+	// The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = "LATEST"` in your configuration to avoid drift.
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
@@ -521,7 +521,7 @@ type monitorArgs struct {
 	Period *string `pulumi:"period"`
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The specific version of the runtime type selected (`100`).
+	// The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = "LATEST"` in your configuration to avoid drift.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
@@ -577,7 +577,7 @@ type MonitorArgs struct {
 	Period pulumi.StringPtrInput
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrInput
-	// The specific version of the runtime type selected (`100`).
+	// The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = "LATEST"` in your configuration to avoid drift.
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
@@ -767,7 +767,7 @@ func (o MonitorOutput) RuntimeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
 }
 
-// The specific version of the runtime type selected (`100`).
+// The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = "LATEST"` in your configuration to avoid drift.
 func (o MonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }

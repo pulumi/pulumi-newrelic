@@ -254,14 +254,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The specific version of the runtime type selected (`100`).
+     * The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = &#34;LATEST&#34;` in your configuration to avoid drift.
      * 
      */
     @Import(name="runtimeTypeVersion")
     private @Nullable Output<String> runtimeTypeVersion;
 
     /**
-     * @return The specific version of the runtime type selected (`100`).
+     * @return The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = &#34;LATEST&#34;` in your configuration to avoid drift.
      * 
      */
     public Optional<Output<String>> runtimeTypeVersion() {
@@ -829,7 +829,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific version of the runtime type selected (`100`).
+         * @param runtimeTypeVersion The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = &#34;LATEST&#34;` in your configuration to avoid drift.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific version of the runtime type selected (`100`).
+         * @param runtimeTypeVersion The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = &#34;LATEST&#34;` in your configuration to avoid drift.
          * 
          * @return builder
          * 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
  *
- * > **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its <b style="color:red;">end-of-life</b> on <b style="color:red;">October 22, 2024</b>. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
+ * > **IMPORTANT:**  The **Synthetics Legacy Runtime** will reach its <b style="color:red;">end-of-life</b> on <b style="color:red;">Aug 18, 2026</b>. As a consequence, using the legacy runtime with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
  * <br><br>
  * If your Synthetic monitors' configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning against `runtimeType` and `runtimeTypeVersion` in the **Argument Reference** section.
  *
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     validationString: "success",
  *     verifySsl: true,
  *     runtimeType: "CHROME_BROWSER",
- *     runtimeTypeVersion: "100",
+ *     runtimeTypeVersion: "LATEST",
  *     scriptLanguage: "JAVASCRIPT",
  *     devices: [
  *         "DESKTOP",
@@ -138,7 +138,7 @@ import * as utilities from "../utilities";
  *     enableScreenshotOnFailureAndScript: true,
  *     validationString: "success",
  *     verifySsl: true,
- *     runtimeTypeVersion: "100",
+ *     runtimeTypeVersion: "LATEST",
  *     runtimeType: "CHROME_BROWSER",
  *     scriptLanguage: "JAVASCRIPT",
  *     devices: [
@@ -259,7 +259,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly runtimeType: pulumi.Output<string | undefined>;
     /**
-     * The specific version of the runtime type selected (`100`).
+     * The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = "LATEST"` in your configuration to avoid drift.
      */
     declare public readonly runtimeTypeVersion: pulumi.Output<string | undefined>;
     /**
@@ -447,7 +447,7 @@ export interface MonitorState {
      */
     runtimeType?: pulumi.Input<string | undefined>;
     /**
-     * The specific version of the runtime type selected (`100`).
+     * The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = "LATEST"` in your configuration to avoid drift.
      */
     runtimeTypeVersion?: pulumi.Input<string | undefined>;
     /**
@@ -551,7 +551,7 @@ export interface MonitorArgs {
      */
     runtimeType?: pulumi.Input<string | undefined>;
     /**
-     * The specific version of the runtime type selected (`100`).
+     * The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtimeTypeVersion = "LATEST"` in your configuration to avoid drift.
      */
     runtimeTypeVersion?: pulumi.Input<string | undefined>;
     /**

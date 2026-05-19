@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
  * 
- * &gt; **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; on &lt;b style=&#34;color:red;&#34;&gt;October 22, 2024&lt;/b&gt;. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt;.
+ * &gt; **IMPORTANT:**  The **Synthetics Legacy Runtime** will reach its &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; on &lt;b style=&#34;color:red;&#34;&gt;Aug 18, 2026 (`SCRIPT_BROWSER`)&lt;/b&gt; and &lt;b style=&#34;color:red;&#34;&gt;Nov 18, 2026 (`SCRIPT_API`)&lt;/b&gt;. As a consequence, using the legacy runtime with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt;.
  * &lt;br&gt;&lt;br&gt;
  * If your Synthetic monitors&#39; configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning in the **Deprecated Runtime** section.
  * 
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .script("console.log('it works!')")
  *             .scriptLanguage("JAVASCRIPT")
  *             .runtimeType("NODE_API")
- *             .runtimeTypeVersion("16.10")
+ *             .runtimeTypeVersion("22.20.0")
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key("some_key")
  *                 .values("some_value")
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *                 "AP_EAST_1")
  *             .period("EVERY_HOUR")
  *             .script("$browser.get('https://one.newrelic.com')")
- *             .runtimeTypeVersion("100")
+ *             .runtimeTypeVersion("LATEST")
  *             .runtimeType("CHROME_BROWSER")
  *             .scriptLanguage("JAVASCRIPT")
  *             .devices(            
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  *             .script("console.log('terraform integration test updated')")
  *             .scriptLanguage("JAVASCRIPT")
  *             .runtimeType("NODE_API")
- *             .runtimeTypeVersion("16.10")
+ *             .runtimeTypeVersion("22.20.0")
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key("some_key")
  *                 .values("some_value")
@@ -235,7 +235,7 @@ import javax.annotation.Nullable;
  *             .type("SCRIPT_BROWSER")
  *             .period("EVERY_HOUR")
  *             .script("$browser.get('https://one.newrelic.com')")
- *             .runtimeTypeVersion("100")
+ *             .runtimeTypeVersion("LATEST")
  *             .runtimeType("CHROME_BROWSER")
  *             .scriptLanguage("JAVASCRIPT")
  *             .devices(            
@@ -310,7 +310,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .scriptLanguage("JAVASCRIPT")
  *             .runtimeType("CHROME_BROWSER")
- *             .runtimeTypeVersion("100")
+ *             .runtimeTypeVersion("LATEST")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleCredential)
  *                 .build());
@@ -376,12 +376,32 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
     /**
      * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
+     * &gt; **WARNING:**  The &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; of the **Synthetics Legacy Runtime** will take effect on &lt;b style=&#34;color:red;&#34;&gt;Aug 18, 2026 (`SCRIPT_BROWSER`)&lt;/b&gt; and &lt;b style=&#34;color:red;&#34;&gt;Nov 18, 2026 (`SCRIPT_API`)&lt;/b&gt;, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors will officially end on &lt;b style=&#34;color:maroon;&#34;&gt;Aug 18, 2026 (`SCRIPT_BROWSER`)&lt;/b&gt; and &lt;b style=&#34;color:maroon;&#34;&gt;Nov 18, 2026 (`SCRIPT_API`)&lt;/b&gt;. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider &lt;span style=&#34;color:maroon;&#34;&gt;will be blocked by an API error&lt;/span&gt; if they include values corresponding to the legacy runtime.
+     * &lt;br&gt;&lt;br&gt;
+     * Following these changes, starting with &lt;b style=&#34;color:red;&#34;&gt;v3.51.0&lt;/b&gt; of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt; (this applies to all Synthetic monitor resources, except `newrelic.synthetics.Monitor` with type `SIMPLE`). If your monitors&#39; configuration &lt;span style=&#34;color:red;&#34;&gt;is not updated with new runtime values&lt;/span&gt;, you will see the consequences stated here.
+     * &lt;br&gt;&lt;br&gt;
+     * We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible &lt;span style=&#34;color:red;&#34;&gt;if they are still using the legacy runtime&lt;/span&gt;, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you&#39;re looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://docs.newrelic.com/eol/2025/11/eol-chrome-140-node-22-synthetics/) for more details on the EOL, actions needed, relevant resources, and more.
+     * &lt;br&gt;&lt;br&gt;
+     * You would not be affected by the EOL if your Synthetic monitors&#39; Terraform configuration comprises new runtime values.
+     * &lt;br&gt;&lt;br&gt;
+     * **Important — Scripted Monitor Specific Behavior:** Unlike non-scripted monitors, the Terraform Provider does **not** automatically enforce a runtime version upgrade for scripted monitors (`SCRIPT_API` and `SCRIPT_BROWSER`). If you do not update your Terraform configuration before the respective force upgrade date, the Synthetics API will force-upgrade these monitors to the latest runtime (`CHROME_BROWSER LATEST` for `SCRIPT_BROWSER` on Aug 18, 2026; `NODE_API 22.20.0` for `SCRIPT_API` on Nov 18, 2026). This will cause your Terraform state to drift — `pulumi preview` will show the runtime has changed, and a `pulumi up` without updating the configuration will fail with an API error. Update your configuration before these dates to avoid interruption.
+     * 
      */
     @Export(name="deviceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceType;
 
     /**
      * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * 
+     * &gt; **WARNING:**  The &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; of the **Synthetics Legacy Runtime** will take effect on &lt;b style=&#34;color:red;&#34;&gt;Aug 18, 2026 (`SCRIPT_BROWSER`)&lt;/b&gt; and &lt;b style=&#34;color:red;&#34;&gt;Nov 18, 2026 (`SCRIPT_API`)&lt;/b&gt;, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors will officially end on &lt;b style=&#34;color:maroon;&#34;&gt;Aug 18, 2026 (`SCRIPT_BROWSER`)&lt;/b&gt; and &lt;b style=&#34;color:maroon;&#34;&gt;Nov 18, 2026 (`SCRIPT_API`)&lt;/b&gt;. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider &lt;span style=&#34;color:maroon;&#34;&gt;will be blocked by an API error&lt;/span&gt; if they include values corresponding to the legacy runtime.
+     * &lt;br&gt;&lt;br&gt;
+     * Following these changes, starting with &lt;b style=&#34;color:red;&#34;&gt;v3.51.0&lt;/b&gt; of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt; (this applies to all Synthetic monitor resources, except `newrelic.synthetics.Monitor` with type `SIMPLE`). If your monitors&#39; configuration &lt;span style=&#34;color:red;&#34;&gt;is not updated with new runtime values&lt;/span&gt;, you will see the consequences stated here.
+     * &lt;br&gt;&lt;br&gt;
+     * We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible &lt;span style=&#34;color:red;&#34;&gt;if they are still using the legacy runtime&lt;/span&gt;, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you&#39;re looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://docs.newrelic.com/eol/2025/11/eol-chrome-140-node-22-synthetics/) for more details on the EOL, actions needed, relevant resources, and more.
+     * &lt;br&gt;&lt;br&gt;
+     * You would not be affected by the EOL if your Synthetic monitors&#39; Terraform configuration comprises new runtime values.
+     * &lt;br&gt;&lt;br&gt;
+     * **Important — Scripted Monitor Specific Behavior:** Unlike non-scripted monitors, the Terraform Provider does **not** automatically enforce a runtime version upgrade for scripted monitors (`SCRIPT_API` and `SCRIPT_BROWSER`). If you do not update your Terraform configuration before the respective force upgrade date, the Synthetics API will force-upgrade these monitors to the latest runtime (`CHROME_BROWSER LATEST` for `SCRIPT_BROWSER` on Aug 18, 2026; `NODE_API 22.20.0` for `SCRIPT_API` on Nov 18, 2026). This will cause your Terraform state to drift — `pulumi preview` will show the runtime has changed, and a `pulumi up` without updating the configuration will fail with an API error. Update your configuration before these dates to avoid interruption.
      * 
      */
     public Output<Optional<String>> deviceType() {
@@ -528,14 +548,14 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runtimeType);
     }
     /**
-     * The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
+     * The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, use `22.20.0`, which corresponds to Node.js 22.20.0. For the `SCRIPT_BROWSER` monitor type, use `LATEST` to automatically use the latest Chrome version. **Note:** Unlike non-scripted monitors, the Terraform Provider does **not** automatically enforce a runtime version for scripted monitors — customers must explicitly update their configuration. If the configuration is not updated before the respective force upgrade date, the Synthetics API will force-upgrade these monitors to the latest runtime (`SCRIPT_BROWSER` monitors on Aug 18, 2026; `SCRIPT_API` monitors on Nov 18, 2026), resulting in Terraform state drift and API errors on subsequent `pulumi up` runs.
      * 
      */
     @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
 
     /**
-     * @return The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
+     * @return The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, use `22.20.0`, which corresponds to Node.js 22.20.0. For the `SCRIPT_BROWSER` monitor type, use `LATEST` to automatically use the latest Chrome version. **Note:** Unlike non-scripted monitors, the Terraform Provider does **not** automatically enforce a runtime version for scripted monitors — customers must explicitly update their configuration. If the configuration is not updated before the respective force upgrade date, the Synthetics API will force-upgrade these monitors to the latest runtime (`SCRIPT_BROWSER` monitors on Aug 18, 2026; `SCRIPT_API` monitors on Nov 18, 2026), resulting in Terraform state drift and API errors on subsequent `pulumi up` runs.
      * 
      */
     public Output<Optional<String>> runtimeTypeVersion() {
