@@ -66,7 +66,7 @@ class MonitorArgs:
         :param pulumi.Input[_builtins.str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[_builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[_builtins.str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
-        :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected (`100`).
+        :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtime_type_version = "LATEST"` in your configuration to avoid drift.
         :param pulumi.Input[_builtins.str] script_language: The programing language that should execute the script.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
@@ -310,7 +310,7 @@ class MonitorArgs:
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The specific version of the runtime type selected (`100`).
+        The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtime_type_version = "LATEST"` in your configuration to avoid drift.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -455,7 +455,7 @@ class _MonitorState:
         :param pulumi.Input[_builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[_builtins.int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[_builtins.str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
-        :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected (`100`).
+        :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtime_type_version = "LATEST"` in your configuration to avoid drift.
         :param pulumi.Input[_builtins.str] script_language: The programing language that should execute the script.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
@@ -707,7 +707,7 @@ class _MonitorState:
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The specific version of the runtime type selected (`100`).
+        The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtime_type_version = "LATEST"` in your configuration to avoid drift.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -859,7 +859,7 @@ class Monitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 
-        > **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its <b style="color:red;">end-of-life</b> on <b style="color:red;">October 22, 2024</b>. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
+        > **IMPORTANT:**  The **Synthetics Legacy Runtime** will reach its <b style="color:red;">end-of-life</b> on <b style="color:red;">Aug 18, 2026</b>. As a consequence, using the legacy runtime with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
         <br><br>
         If your Synthetic monitors' configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning against `runtime_type` and `runtime_type_version` in the **Argument Reference** section.
 
@@ -906,7 +906,7 @@ class Monitor(pulumi.CustomResource):
             validation_string="success",
             verify_ssl=True,
             runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
+            runtime_type_version="LATEST",
             script_language="JAVASCRIPT",
             devices=[
                 "DESKTOP",
@@ -983,7 +983,7 @@ class Monitor(pulumi.CustomResource):
             enable_screenshot_on_failure_and_script=True,
             validation_string="success",
             verify_ssl=True,
-            runtime_type_version="100",
+            runtime_type_version="LATEST",
             runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
             devices=[
@@ -1030,7 +1030,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[_builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[_builtins.str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
-        :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected (`100`).
+        :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtime_type_version = "LATEST"` in your configuration to avoid drift.
         :param pulumi.Input[_builtins.str] script_language: The programing language that should execute the script.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
@@ -1052,7 +1052,7 @@ class Monitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 
-        > **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its <b style="color:red;">end-of-life</b> on <b style="color:red;">October 22, 2024</b>. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
+        > **IMPORTANT:**  The **Synthetics Legacy Runtime** will reach its <b style="color:red;">end-of-life</b> on <b style="color:red;">Aug 18, 2026</b>. As a consequence, using the legacy runtime with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
         <br><br>
         If your Synthetic monitors' configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning against `runtime_type` and `runtime_type_version` in the **Argument Reference** section.
 
@@ -1099,7 +1099,7 @@ class Monitor(pulumi.CustomResource):
             validation_string="success",
             verify_ssl=True,
             runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
+            runtime_type_version="LATEST",
             script_language="JAVASCRIPT",
             devices=[
                 "DESKTOP",
@@ -1176,7 +1176,7 @@ class Monitor(pulumi.CustomResource):
             enable_screenshot_on_failure_and_script=True,
             validation_string="success",
             verify_ssl=True,
-            runtime_type_version="100",
+            runtime_type_version="LATEST",
             runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
             devices=[
@@ -1341,7 +1341,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[_builtins.int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[_builtins.str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
-        :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected (`100`).
+        :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtime_type_version = "LATEST"` in your configuration to avoid drift.
         :param pulumi.Input[_builtins.str] script_language: The programing language that should execute the script.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
@@ -1513,7 +1513,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The specific version of the runtime type selected (`100`).
+        The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtime_type_version = "LATEST"` in your configuration to avoid drift.
         """
         return pulumi.get(self, "runtime_type_version")
 
