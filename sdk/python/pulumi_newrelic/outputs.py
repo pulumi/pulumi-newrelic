@@ -25,6 +25,7 @@ __all__ = [
     'EntityTagsTag',
     'FleetConfigurationVersion',
     'FleetDeploymentAgent',
+    'FleetMembersRing',
     'InfraAlertConditionCritical',
     'InfraAlertConditionWarning',
     'MonitorDowntimeEndRepeat',
@@ -249,6 +250,7 @@ __all__ = [
     'WorkflowIssuesFilterPredicate',
     'GetAlertChannelConfigResult',
     'GetEntityTagResult',
+    'GetFleetMembersMemberResult',
     'GetNotificationDestinationPropertyResult',
     'GetNotificationDestinationScopeResult',
     'GetNotificationDestinationSecureUrlResult',
@@ -1009,6 +1011,52 @@ class FleetDeploymentAgent(dict):
         The agent version string to deploy (e.g. `"1.58.0"`).
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class FleetMembersRing(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityIds":
+            suggest = "entity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetMembersRing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetMembersRing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetMembersRing.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_ids: Sequence[_builtins.str],
+                 name: _builtins.str):
+        """
+        :param Sequence[_builtins.str] entity_ids: An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+        :param _builtins.str name: The name of the ring (e.g. `"default"`, `"canary"`).
+        """
+        pulumi.set(__self__, "entity_ids", entity_ids)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="entityIds")
+    def entity_ids(self) -> Sequence[_builtins.str]:
+        """
+        An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+        """
+        return pulumi.get(self, "entity_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the ring (e.g. `"default"`, `"canary"`).
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -15223,6 +15271,46 @@ class GetEntityTagResult(dict):
         The tag value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetFleetMembersMemberResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str id: The entity GUID of the fleet member.
+        :param _builtins.str name: The name of the entity.
+        :param _builtins.str type: The entity type (e.g. `HOST`, `KUBERNETESCLUSTER`).
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The entity GUID of the fleet member.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the entity.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The entity type (e.g. `HOST`, `KUBERNETESCLUSTER`).
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

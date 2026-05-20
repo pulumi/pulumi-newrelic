@@ -25,6 +25,8 @@ import com.pulumi.newrelic.inputs.GetEntityArgs;
 import com.pulumi.newrelic.inputs.GetEntityPlainArgs;
 import com.pulumi.newrelic.inputs.GetFleetConfigurationArgs;
 import com.pulumi.newrelic.inputs.GetFleetConfigurationPlainArgs;
+import com.pulumi.newrelic.inputs.GetFleetMembersArgs;
+import com.pulumi.newrelic.inputs.GetFleetMembersPlainArgs;
 import com.pulumi.newrelic.inputs.GetGroupArgs;
 import com.pulumi.newrelic.inputs.GetGroupPlainArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
@@ -47,6 +49,7 @@ import com.pulumi.newrelic.outputs.GetAuthenticationDomainResult;
 import com.pulumi.newrelic.outputs.GetCloudAccountResult;
 import com.pulumi.newrelic.outputs.GetEntityResult;
 import com.pulumi.newrelic.outputs.GetFleetConfigurationResult;
+import com.pulumi.newrelic.outputs.GetFleetMembersResult;
 import com.pulumi.newrelic.outputs.GetGroupResult;
 import com.pulumi.newrelic.outputs.GetKeyTransactionResult;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationResult;
@@ -3372,6 +3375,231 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetFleetConfigurationResult> getFleetConfigurationPlain(GetFleetConfigurationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getFleetConfiguration:getFleetConfiguration", TypeShape.of(GetFleetConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the entities (hosts, Kubernetes clusters) that are currently members of a New Relic Fleet, optionally filtered by ring.
+     * 
+     * ## Example Usage
+     * 
+     * ### All members of a fleet
+     * 
+     * ### Members in a specific ring
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetMembersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
+     *             .fleetId(example.id())
+     *             .ring("canary")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetMembersResult> getFleetMembers(GetFleetMembersArgs args) {
+        return getFleetMembers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the entities (hosts, Kubernetes clusters) that are currently members of a New Relic Fleet, optionally filtered by ring.
+     * 
+     * ## Example Usage
+     * 
+     * ### All members of a fleet
+     * 
+     * ### Members in a specific ring
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetMembersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
+     *             .fleetId(example.id())
+     *             .ring("canary")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetMembersResult> getFleetMembersPlain(GetFleetMembersPlainArgs args) {
+        return getFleetMembersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the entities (hosts, Kubernetes clusters) that are currently members of a New Relic Fleet, optionally filtered by ring.
+     * 
+     * ## Example Usage
+     * 
+     * ### All members of a fleet
+     * 
+     * ### Members in a specific ring
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetMembersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
+     *             .fleetId(example.id())
+     *             .ring("canary")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetMembersResult> getFleetMembers(GetFleetMembersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getFleetMembers:getFleetMembers", TypeShape.of(GetFleetMembersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the entities (hosts, Kubernetes clusters) that are currently members of a New Relic Fleet, optionally filtered by ring.
+     * 
+     * ## Example Usage
+     * 
+     * ### All members of a fleet
+     * 
+     * ### Members in a specific ring
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetMembersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
+     *             .fleetId(example.id())
+     *             .ring("canary")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetMembersResult> getFleetMembers(GetFleetMembersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getFleetMembers:getFleetMembers", TypeShape.of(GetFleetMembersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the entities (hosts, Kubernetes clusters) that are currently members of a New Relic Fleet, optionally filtered by ring.
+     * 
+     * ## Example Usage
+     * 
+     * ### All members of a fleet
+     * 
+     * ### Members in a specific ring
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetFleetMembersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
+     *             .fleetId(example.id())
+     *             .ring("canary")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetMembersResult> getFleetMembersPlain(GetFleetMembersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getFleetMembers:getFleetMembers", TypeShape.of(GetFleetMembersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The `newrelic.Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.

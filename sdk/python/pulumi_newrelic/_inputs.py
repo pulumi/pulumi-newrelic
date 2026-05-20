@@ -33,6 +33,8 @@ __all__ = [
     'FleetConfigurationVersionArgsDict',
     'FleetDeploymentAgentArgs',
     'FleetDeploymentAgentArgsDict',
+    'FleetMembersRingArgs',
+    'FleetMembersRingArgsDict',
     'InfraAlertConditionCriticalArgs',
     'InfraAlertConditionCriticalArgsDict',
     'InfraAlertConditionWarningArgs',
@@ -1522,6 +1524,53 @@ class FleetDeploymentAgentArgs:
     @version.setter
     def version(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "version", value)
+
+
+class FleetMembersRingArgsDict(TypedDict):
+    entity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the ring (e.g. `"default"`, `"canary"`).
+    """
+
+@pulumi.input_type
+class FleetMembersRingArgs:
+    def __init__(__self__, *,
+                 entity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_ids: An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+        :param pulumi.Input[_builtins.str] name: The name of the ring (e.g. `"default"`, `"canary"`).
+        """
+        pulumi.set(__self__, "entity_ids", entity_ids)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="entityIds")
+    def entity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+        """
+        return pulumi.get(self, "entity_ids")
+
+    @entity_ids.setter
+    def entity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "entity_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the ring (e.g. `"default"`, `"canary"`).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
 
 class InfraAlertConditionCriticalArgsDict(TypedDict):

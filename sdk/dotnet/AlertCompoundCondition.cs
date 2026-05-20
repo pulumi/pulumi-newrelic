@@ -325,6 +325,12 @@ namespace Pulumi.NewRelic
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// The unique entity identifier of the compound alert condition in New Relic.
+        /// </summary>
+        [Output("entityGuid")]
+        public Output<string> EntityGuid { get; private set; } = null!;
+
+        /// <summary>
         /// How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
         /// - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
         /// - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
@@ -501,6 +507,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The unique entity identifier of the compound alert condition in New Relic.
+        /// </summary>
+        [Input("entityGuid")]
+        public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
         /// How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:

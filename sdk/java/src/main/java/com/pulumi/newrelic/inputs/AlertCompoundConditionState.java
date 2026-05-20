@@ -65,6 +65,21 @@ public final class AlertCompoundConditionState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The unique entity identifier of the compound alert condition in New Relic.
+     * 
+     */
+    @Import(name="entityGuid")
+    private @Nullable Output<String> entityGuid;
+
+    /**
+     * @return The unique entity identifier of the compound alert condition in New Relic.
+     * 
+     */
+    public Optional<Output<String>> entityGuid() {
+        return Optional.ofNullable(this.entityGuid);
+    }
+
+    /**
      * How the compound condition will take into account the component conditions&#39; facets during evaluation. Valid values are:
      * - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
      * - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
@@ -164,6 +179,7 @@ public final class AlertCompoundConditionState extends com.pulumi.resources.Reso
         this.accountId = $.accountId;
         this.componentConditions = $.componentConditions;
         this.enabled = $.enabled;
+        this.entityGuid = $.entityGuid;
         this.facetMatchingBehavior = $.facetMatchingBehavior;
         this.name = $.name;
         this.policyId = $.policyId;
@@ -261,6 +277,27 @@ public final class AlertCompoundConditionState extends com.pulumi.resources.Reso
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param entityGuid The unique entity identifier of the compound alert condition in New Relic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityGuid(@Nullable Output<String> entityGuid) {
+            $.entityGuid = entityGuid;
+            return this;
+        }
+
+        /**
+         * @param entityGuid The unique entity identifier of the compound alert condition in New Relic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityGuid(String entityGuid) {
+            return entityGuid(Output.of(entityGuid));
         }
 
         /**

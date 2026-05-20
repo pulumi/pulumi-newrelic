@@ -321,6 +321,8 @@ type AlertCompoundCondition struct {
 	ComponentConditions AlertCompoundConditionComponentConditionArrayOutput `pulumi:"componentConditions"`
 	// Whether or not the compound alert condition is enabled. Defaults to `true`.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// The unique entity identifier of the compound alert condition in New Relic.
+	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
 	// How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
 	// - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
 	// - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
@@ -385,6 +387,8 @@ type alertCompoundConditionState struct {
 	ComponentConditions []AlertCompoundConditionComponentCondition `pulumi:"componentConditions"`
 	// Whether or not the compound alert condition is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The unique entity identifier of the compound alert condition in New Relic.
+	EntityGuid *string `pulumi:"entityGuid"`
 	// How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
 	// - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
 	// - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
@@ -408,6 +412,8 @@ type AlertCompoundConditionState struct {
 	ComponentConditions AlertCompoundConditionComponentConditionArrayInput
 	// Whether or not the compound alert condition is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The unique entity identifier of the compound alert condition in New Relic.
+	EntityGuid pulumi.StringPtrInput
 	// How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
 	// - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
 	// - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
@@ -577,6 +583,11 @@ func (o AlertCompoundConditionOutput) ComponentConditions() AlertCompoundConditi
 // Whether or not the compound alert condition is enabled. Defaults to `true`.
 func (o AlertCompoundConditionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AlertCompoundCondition) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The unique entity identifier of the compound alert condition in New Relic.
+func (o AlertCompoundConditionOutput) EntityGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCompoundCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
 // How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:

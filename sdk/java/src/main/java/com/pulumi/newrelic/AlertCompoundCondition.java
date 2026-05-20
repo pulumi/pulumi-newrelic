@@ -385,6 +385,20 @@ public class AlertCompoundCondition extends com.pulumi.resources.CustomResource 
         return this.enabled;
     }
     /**
+     * The unique entity identifier of the compound alert condition in New Relic.
+     * 
+     */
+    @Export(name="entityGuid", refs={String.class}, tree="[0]")
+    private Output<String> entityGuid;
+
+    /**
+     * @return The unique entity identifier of the compound alert condition in New Relic.
+     * 
+     */
+    public Output<String> entityGuid() {
+        return this.entityGuid;
+    }
+    /**
      * How the compound condition will take into account the component conditions&#39; facets during evaluation. Valid values are:
      * - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
      * - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values

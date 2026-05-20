@@ -1643,6 +1643,112 @@ func (o FleetDeploymentAgentArrayOutput) Index(i pulumi.IntInput) FleetDeploymen
 	}).(FleetDeploymentAgentOutput)
 }
 
+type FleetMembersRing struct {
+	// An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+	EntityIds []string `pulumi:"entityIds"`
+	// The name of the ring (e.g. `"default"`, `"canary"`).
+	Name string `pulumi:"name"`
+}
+
+// FleetMembersRingInput is an input type that accepts FleetMembersRingArgs and FleetMembersRingOutput values.
+// You can construct a concrete instance of `FleetMembersRingInput` via:
+//
+//	FleetMembersRingArgs{...}
+type FleetMembersRingInput interface {
+	pulumi.Input
+
+	ToFleetMembersRingOutput() FleetMembersRingOutput
+	ToFleetMembersRingOutputWithContext(context.Context) FleetMembersRingOutput
+}
+
+type FleetMembersRingArgs struct {
+	// An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+	EntityIds pulumi.StringArrayInput `pulumi:"entityIds"`
+	// The name of the ring (e.g. `"default"`, `"canary"`).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FleetMembersRingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetMembersRing)(nil)).Elem()
+}
+
+func (i FleetMembersRingArgs) ToFleetMembersRingOutput() FleetMembersRingOutput {
+	return i.ToFleetMembersRingOutputWithContext(context.Background())
+}
+
+func (i FleetMembersRingArgs) ToFleetMembersRingOutputWithContext(ctx context.Context) FleetMembersRingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetMembersRingOutput)
+}
+
+// FleetMembersRingArrayInput is an input type that accepts FleetMembersRingArray and FleetMembersRingArrayOutput values.
+// You can construct a concrete instance of `FleetMembersRingArrayInput` via:
+//
+//	FleetMembersRingArray{ FleetMembersRingArgs{...} }
+type FleetMembersRingArrayInput interface {
+	pulumi.Input
+
+	ToFleetMembersRingArrayOutput() FleetMembersRingArrayOutput
+	ToFleetMembersRingArrayOutputWithContext(context.Context) FleetMembersRingArrayOutput
+}
+
+type FleetMembersRingArray []FleetMembersRingInput
+
+func (FleetMembersRingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetMembersRing)(nil)).Elem()
+}
+
+func (i FleetMembersRingArray) ToFleetMembersRingArrayOutput() FleetMembersRingArrayOutput {
+	return i.ToFleetMembersRingArrayOutputWithContext(context.Background())
+}
+
+func (i FleetMembersRingArray) ToFleetMembersRingArrayOutputWithContext(ctx context.Context) FleetMembersRingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetMembersRingArrayOutput)
+}
+
+type FleetMembersRingOutput struct{ *pulumi.OutputState }
+
+func (FleetMembersRingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetMembersRing)(nil)).Elem()
+}
+
+func (o FleetMembersRingOutput) ToFleetMembersRingOutput() FleetMembersRingOutput {
+	return o
+}
+
+func (o FleetMembersRingOutput) ToFleetMembersRingOutputWithContext(ctx context.Context) FleetMembersRingOutput {
+	return o
+}
+
+// An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+func (o FleetMembersRingOutput) EntityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetMembersRing) []string { return v.EntityIds }).(pulumi.StringArrayOutput)
+}
+
+// The name of the ring (e.g. `"default"`, `"canary"`).
+func (o FleetMembersRingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetMembersRing) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FleetMembersRingArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetMembersRingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetMembersRing)(nil)).Elem()
+}
+
+func (o FleetMembersRingArrayOutput) ToFleetMembersRingArrayOutput() FleetMembersRingArrayOutput {
+	return o
+}
+
+func (o FleetMembersRingArrayOutput) ToFleetMembersRingArrayOutputWithContext(ctx context.Context) FleetMembersRingArrayOutput {
+	return o
+}
+
+func (o FleetMembersRingArrayOutput) Index(i pulumi.IntInput) FleetMembersRingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetMembersRing {
+		return vs[0].([]FleetMembersRing)[vs[1].(int)]
+	}).(FleetMembersRingOutput)
+}
+
 type InfraAlertConditionCritical struct {
 	Duration     int      `pulumi:"duration"`
 	TimeFunction *string  `pulumi:"timeFunction"`
@@ -32944,6 +33050,121 @@ func (o GetEntityTagArrayOutput) Index(i pulumi.IntInput) GetEntityTagOutput {
 	}).(GetEntityTagOutput)
 }
 
+type GetFleetMembersMember struct {
+	// The entity GUID of the fleet member.
+	Id string `pulumi:"id"`
+	// The name of the entity.
+	Name string `pulumi:"name"`
+	// The entity type (e.g. `HOST`, `KUBERNETESCLUSTER`).
+	Type string `pulumi:"type"`
+}
+
+// GetFleetMembersMemberInput is an input type that accepts GetFleetMembersMemberArgs and GetFleetMembersMemberOutput values.
+// You can construct a concrete instance of `GetFleetMembersMemberInput` via:
+//
+//	GetFleetMembersMemberArgs{...}
+type GetFleetMembersMemberInput interface {
+	pulumi.Input
+
+	ToGetFleetMembersMemberOutput() GetFleetMembersMemberOutput
+	ToGetFleetMembersMemberOutputWithContext(context.Context) GetFleetMembersMemberOutput
+}
+
+type GetFleetMembersMemberArgs struct {
+	// The entity GUID of the fleet member.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the entity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The entity type (e.g. `HOST`, `KUBERNETESCLUSTER`).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetFleetMembersMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetMembersMember)(nil)).Elem()
+}
+
+func (i GetFleetMembersMemberArgs) ToGetFleetMembersMemberOutput() GetFleetMembersMemberOutput {
+	return i.ToGetFleetMembersMemberOutputWithContext(context.Background())
+}
+
+func (i GetFleetMembersMemberArgs) ToGetFleetMembersMemberOutputWithContext(ctx context.Context) GetFleetMembersMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetMembersMemberOutput)
+}
+
+// GetFleetMembersMemberArrayInput is an input type that accepts GetFleetMembersMemberArray and GetFleetMembersMemberArrayOutput values.
+// You can construct a concrete instance of `GetFleetMembersMemberArrayInput` via:
+//
+//	GetFleetMembersMemberArray{ GetFleetMembersMemberArgs{...} }
+type GetFleetMembersMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFleetMembersMemberArrayOutput() GetFleetMembersMemberArrayOutput
+	ToGetFleetMembersMemberArrayOutputWithContext(context.Context) GetFleetMembersMemberArrayOutput
+}
+
+type GetFleetMembersMemberArray []GetFleetMembersMemberInput
+
+func (GetFleetMembersMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetMembersMember)(nil)).Elem()
+}
+
+func (i GetFleetMembersMemberArray) ToGetFleetMembersMemberArrayOutput() GetFleetMembersMemberArrayOutput {
+	return i.ToGetFleetMembersMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFleetMembersMemberArray) ToGetFleetMembersMemberArrayOutputWithContext(ctx context.Context) GetFleetMembersMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetMembersMemberArrayOutput)
+}
+
+type GetFleetMembersMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFleetMembersMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetMembersMember)(nil)).Elem()
+}
+
+func (o GetFleetMembersMemberOutput) ToGetFleetMembersMemberOutput() GetFleetMembersMemberOutput {
+	return o
+}
+
+func (o GetFleetMembersMemberOutput) ToGetFleetMembersMemberOutputWithContext(ctx context.Context) GetFleetMembersMemberOutput {
+	return o
+}
+
+// The entity GUID of the fleet member.
+func (o GetFleetMembersMemberOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetMembersMember) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the entity.
+func (o GetFleetMembersMemberOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetMembersMember) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The entity type (e.g. `HOST`, `KUBERNETESCLUSTER`).
+func (o GetFleetMembersMemberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetMembersMember) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetFleetMembersMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFleetMembersMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetMembersMember)(nil)).Elem()
+}
+
+func (o GetFleetMembersMemberArrayOutput) ToGetFleetMembersMemberArrayOutput() GetFleetMembersMemberArrayOutput {
+	return o
+}
+
+func (o GetFleetMembersMemberArrayOutput) ToGetFleetMembersMemberArrayOutputWithContext(ctx context.Context) GetFleetMembersMemberArrayOutput {
+	return o
+}
+
+func (o GetFleetMembersMemberArrayOutput) Index(i pulumi.IntInput) GetFleetMembersMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFleetMembersMember {
+		return vs[0].([]GetFleetMembersMember)[vs[1].(int)]
+	}).(GetFleetMembersMemberOutput)
+}
+
 type GetNotificationDestinationProperty struct {
 	// Notification property display key.
 	DisplayValue *string `pulumi:"displayValue"`
@@ -33558,6 +33779,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetConfigurationVersionArrayInput)(nil)).Elem(), FleetConfigurationVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDeploymentAgentInput)(nil)).Elem(), FleetDeploymentAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDeploymentAgentArrayInput)(nil)).Elem(), FleetDeploymentAgentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetMembersRingInput)(nil)).Elem(), FleetMembersRingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetMembersRingArrayInput)(nil)).Elem(), FleetMembersRingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionCriticalInput)(nil)).Elem(), InfraAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionCriticalPtrInput)(nil)).Elem(), InfraAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionWarningInput)(nil)).Elem(), InfraAlertConditionWarningArgs{})
@@ -34005,6 +34228,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertChannelConfigInput)(nil)).Elem(), GetAlertChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagInput)(nil)).Elem(), GetEntityTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagArrayInput)(nil)).Elem(), GetEntityTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetMembersMemberInput)(nil)).Elem(), GetFleetMembersMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetMembersMemberArrayInput)(nil)).Elem(), GetFleetMembersMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyInput)(nil)).Elem(), GetNotificationDestinationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyArrayInput)(nil)).Elem(), GetNotificationDestinationPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationScopeInput)(nil)).Elem(), GetNotificationDestinationScopeArgs{})
@@ -34033,6 +34258,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetConfigurationVersionArrayOutput{})
 	pulumi.RegisterOutputType(FleetDeploymentAgentOutput{})
 	pulumi.RegisterOutputType(FleetDeploymentAgentArrayOutput{})
+	pulumi.RegisterOutputType(FleetMembersRingOutput{})
+	pulumi.RegisterOutputType(FleetMembersRingArrayOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionWarningOutput{})
@@ -34480,6 +34707,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(GetEntityTagOutput{})
 	pulumi.RegisterOutputType(GetEntityTagArrayOutput{})
+	pulumi.RegisterOutputType(GetFleetMembersMemberOutput{})
+	pulumi.RegisterOutputType(GetFleetMembersMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationPropertyOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationScopeOutput{})

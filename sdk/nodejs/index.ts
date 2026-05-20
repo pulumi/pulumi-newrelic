@@ -80,6 +80,11 @@ export type FleetDeployment = import("./fleetDeployment").FleetDeployment;
 export const FleetDeployment: typeof import("./fleetDeployment").FleetDeployment = null as any;
 utilities.lazyLoad(exports, ["FleetDeployment"], () => require("./fleetDeployment"));
 
+export { FleetMembersArgs, FleetMembersState } from "./fleetMembers";
+export type FleetMembers = import("./fleetMembers").FleetMembers;
+export const FleetMembers: typeof import("./fleetMembers").FleetMembers = null as any;
+utilities.lazyLoad(exports, ["FleetMembers"], () => require("./fleetMembers"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -119,6 +124,11 @@ export { GetFleetConfigurationArgs, GetFleetConfigurationResult, GetFleetConfigu
 export const getFleetConfiguration: typeof import("./getFleetConfiguration").getFleetConfiguration = null as any;
 export const getFleetConfigurationOutput: typeof import("./getFleetConfiguration").getFleetConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getFleetConfiguration","getFleetConfigurationOutput"], () => require("./getFleetConfiguration"));
+
+export { GetFleetMembersArgs, GetFleetMembersResult, GetFleetMembersOutputArgs } from "./getFleetMembers";
+export const getFleetMembers: typeof import("./getFleetMembers").getFleetMembers = null as any;
+export const getFleetMembersOutput: typeof import("./getFleetMembers").getFleetMembersOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetMembers","getFleetMembersOutput"], () => require("./getFleetMembers"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
@@ -305,6 +315,8 @@ const _module = {
                 return new FleetConfiguration(name, <any>undefined, { urn })
             case "newrelic:index/fleetDeployment:FleetDeployment":
                 return new FleetDeployment(name, <any>undefined, { urn })
+            case "newrelic:index/fleetMembers:FleetMembers":
+                return new FleetMembers(name, <any>undefined, { urn })
             case "newrelic:index/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "newrelic:index/infraAlertCondition:InfraAlertCondition":
@@ -363,6 +375,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _
 pulumi.runtime.registerResourceModule("newrelic", "index/fleet", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/fleetConfiguration", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/fleetDeployment", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/fleetMembers", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/group", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/keyTransaction", _module)
