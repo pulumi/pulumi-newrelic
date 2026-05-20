@@ -177,6 +177,7 @@ class _AlertCompoundConditionState:
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
                  facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -189,6 +190,7 @@ class _AlertCompoundConditionState:
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the compound alert condition is enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the compound alert condition in New Relic.
         :param pulumi.Input[_builtins.str] facet_matching_behavior: How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
                - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
                - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
@@ -204,6 +206,8 @@ class _AlertCompoundConditionState:
             pulumi.set(__self__, "component_conditions", component_conditions)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if entity_guid is not None:
+            pulumi.set(__self__, "entity_guid", entity_guid)
         if facet_matching_behavior is not None:
             pulumi.set(__self__, "facet_matching_behavior", facet_matching_behavior)
         if name is not None:
@@ -252,6 +256,18 @@ class _AlertCompoundConditionState:
     @enabled.setter
     def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique entity identifier of the compound alert condition in New Relic.
+        """
+        return pulumi.get(self, "entity_guid")
+
+    @entity_guid.setter
+    def entity_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "entity_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="facetMatchingBehavior")
@@ -858,6 +874,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             if trigger_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_expression'")
             __props__.__dict__["trigger_expression"] = trigger_expression
+            __props__.__dict__["entity_guid"] = None
         super(AlertCompoundCondition, __self__).__init__(
             'newrelic:index/alertCompoundCondition:AlertCompoundCondition',
             resource_name,
@@ -871,6 +888,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
             facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -887,6 +905,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the compound alert condition is enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the compound alert condition in New Relic.
         :param pulumi.Input[_builtins.str] facet_matching_behavior: How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
                - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
                - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
@@ -903,6 +922,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["component_conditions"] = component_conditions
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["entity_guid"] = entity_guid
         __props__.__dict__["facet_matching_behavior"] = facet_matching_behavior
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_id"] = policy_id
@@ -934,6 +954,14 @@ class AlertCompoundCondition(pulumi.CustomResource):
         Whether or not the compound alert condition is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique entity identifier of the compound alert condition in New Relic.
+        """
+        return pulumi.get(self, "entity_guid")
 
     @_builtins.property
     @pulumi.getter(name="facetMatchingBehavior")

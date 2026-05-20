@@ -229,6 +229,17 @@ export interface FleetDeploymentAgent {
     version: pulumi.Input<string>;
 }
 
+export interface FleetMembersRing {
+    /**
+     * An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+     */
+    entityIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the ring (e.g. `"default"`, `"canary"`).
+     */
+    name: pulumi.Input<string>;
+}
+
 export interface GetEntityTag {
     /**
      * The tag key.

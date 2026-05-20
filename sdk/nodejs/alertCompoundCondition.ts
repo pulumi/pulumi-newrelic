@@ -278,6 +278,10 @@ export class AlertCompoundCondition extends pulumi.CustomResource {
      */
     declare public readonly enabled: pulumi.Output<boolean>;
     /**
+     * The unique entity identifier of the compound alert condition in New Relic.
+     */
+    declare public /*out*/ readonly entityGuid: pulumi.Output<string>;
+    /**
      * How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
      * - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
      * - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
@@ -320,6 +324,7 @@ export class AlertCompoundCondition extends pulumi.CustomResource {
             resourceInputs["accountId"] = state?.accountId;
             resourceInputs["componentConditions"] = state?.componentConditions;
             resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entityGuid"] = state?.entityGuid;
             resourceInputs["facetMatchingBehavior"] = state?.facetMatchingBehavior;
             resourceInputs["name"] = state?.name;
             resourceInputs["policyId"] = state?.policyId;
@@ -349,6 +354,7 @@ export class AlertCompoundCondition extends pulumi.CustomResource {
             resourceInputs["runbookUrl"] = args?.runbookUrl;
             resourceInputs["thresholdDuration"] = args?.thresholdDuration;
             resourceInputs["triggerExpression"] = args?.triggerExpression;
+            resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertCompoundCondition.__pulumiType, name, resourceInputs, opts);
@@ -371,6 +377,10 @@ export interface AlertCompoundConditionState {
      * Whether or not the compound alert condition is enabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * The unique entity identifier of the compound alert condition in New Relic.
+     */
+    entityGuid?: pulumi.Input<string | undefined>;
     /**
      * How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
      * - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates

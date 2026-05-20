@@ -229,6 +229,17 @@ export interface FleetDeploymentAgent {
     version: string;
 }
 
+export interface FleetMembersRing {
+    /**
+     * An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next `apply`.
+     */
+    entityIds: string[];
+    /**
+     * The name of the ring (e.g. `"default"`, `"canary"`).
+     */
+    name: string;
+}
+
 export interface GetAlertChannelConfig {
     apiKey?: string;
     authPassword?: string;
@@ -261,6 +272,21 @@ export interface GetEntityTag {
      * The tag value.
      */
     value: string;
+}
+
+export interface GetFleetMembersMember {
+    /**
+     * The entity GUID of the fleet member.
+     */
+    id: string;
+    /**
+     * The name of the entity.
+     */
+    name: string;
+    /**
+     * The entity type (e.g. `HOST`, `KUBERNETESCLUSTER`).
+     */
+    type: string;
 }
 
 export interface GetNotificationDestinationProperty {

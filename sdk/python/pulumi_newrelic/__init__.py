@@ -21,6 +21,7 @@ from .events_to_metrics_rule import *
 from .fleet import *
 from .fleet_configuration import *
 from .fleet_deployment import *
+from .fleet_members import *
 from .get_account import *
 from .get_alert_channel import *
 from .get_alert_policy import *
@@ -29,6 +30,7 @@ from .get_authentication_domain import *
 from .get_cloud_account import *
 from .get_entity import *
 from .get_fleet_configuration import *
+from .get_fleet_members import *
 from .get_group import *
 from .get_key_transaction import *
 from .get_notification_destination import *
@@ -287,6 +289,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/fleetDeployment:FleetDeployment": "FleetDeployment"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/fleetMembers",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/fleetMembers:FleetMembers": "FleetMembers"
   }
  },
  {

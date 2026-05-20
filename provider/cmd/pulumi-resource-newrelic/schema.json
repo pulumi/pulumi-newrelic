@@ -2905,6 +2905,26 @@
                 "version"
             ]
         },
+        "newrelic:index/FleetMembersRing:FleetMembersRing": {
+            "properties": {
+                "entityIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An ordered list of entity GUIDs to assign to this ring. Only the entities listed here are managed by this resource; any other entities present in the ring through other means are not affected. Removing a GUID from this list will remove that entity from the fleet ring on the next \u003cspan pulumi-lang-nodejs=\"`apply`\" pulumi-lang-dotnet=\"`Apply`\" pulumi-lang-go=\"`apply`\" pulumi-lang-python=\"`apply`\" pulumi-lang-yaml=\"`apply`\" pulumi-lang-java=\"`apply`\"\u003e`apply`\u003c/span\u003e.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the ring (e.g. `\"default\"`, `\"canary\"`).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "entityIds",
+                "name"
+            ]
+        },
         "newrelic:index/InfraAlertConditionCritical:InfraAlertConditionCritical": {
             "properties": {
                 "duration": {
@@ -8491,6 +8511,33 @@
                 "value"
             ]
         },
+        "newrelic:index/getFleetMembersMember:getFleetMembersMember": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The entity GUID of the fleet member.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the entity.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The entity type (e.g. `HOST`, `KUBERNETESCLUSTER`).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "newrelic:index/getNotificationDestinationProperty:getNotificationDestinationProperty": {
             "properties": {
                 "displayValue": {
@@ -11826,6 +11873,10 @@
                     "type": "boolean",
                     "description": "Whether or not the compound alert condition is enabled. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
                 },
+                "entityGuid": {
+                    "type": "string",
+                    "description": "The unique entity identifier of the compound alert condition in New Relic.\n"
+                },
                 "facetMatchingBehavior": {
                     "type": "string",
                     "description": "How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:\n- `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates\n- `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values\n"
@@ -11855,6 +11906,7 @@
                 "accountId",
                 "componentConditions",
                 "enabled",
+                "entityGuid",
                 "facetMatchingBehavior",
                 "name",
                 "policyId",
@@ -11925,6 +11977,10 @@
                     "enabled": {
                         "type": "boolean",
                         "description": "Whether or not the compound alert condition is enabled. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                    },
+                    "entityGuid": {
+                        "type": "string",
+                        "description": "The unique entity identifier of the compound alert condition in New Relic.\n"
                     },
                     "facetMatchingBehavior": {
                         "type": "string",
@@ -13301,6 +13357,62 @@
                             "type": "string"
                         },
                         "description": "A list of tags in `key:value1,value2` format.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/fleetMembers:FleetMembers": {
+            "description": "Use this resource to manage entity assignments across one or more rings of a New Relic Fleet. Each resource instance is scoped to a single fleet and may declare any number of \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e blocks, one per ring to manage.\n\n\u003e **Note** This resource requires access to the New Relic Fleet Control API. Ensure the API key provided to the provider has the necessary Fleet Control permissions.\n\n## How membership management works\n\nEntities can join a fleet ring through two independent paths:\n\n1. **Agent Control instrumentation** — when an entity is instrumented with Agent Control and associated with a fleet, the platform assigns it to the fleet automatically. These entities are outside of Terraform's control unless explicitly declared (see Adopting Agent Control entities below).\n\n2. **Explicit assignment** — this resource manages entities via the `FleetControlAddFleetMembers` and `FleetControlRemoveFleetMembers` API mutations. Only entities listed in \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e are tracked.\n\nThis resource operates on an **opt-in management model**: it tracks only the entities explicitly declared in each \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e block. Entities present in a ring through any other means—including Agent Control instrumentation—are not visible to Terraform, are never reported as drift, and are never removed by this resource — unless they are explicitly added to \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e, at which point they come under full Terraform lifecycle management and can be removed from a ring or moved to another ring on the next \u003cspan pulumi-lang-nodejs=\"`apply`\" pulumi-lang-dotnet=\"`Apply`\" pulumi-lang-go=\"`apply`\" pulumi-lang-python=\"`apply`\" pulumi-lang-yaml=\"`apply`\" pulumi-lang-java=\"`apply`\"\u003e`apply`\u003c/span\u003e.\n\n## Warning reference\n\nThe following warnings may appear during \u003cspan pulumi-lang-nodejs=\"`plan`\" pulumi-lang-dotnet=\"`Plan`\" pulumi-lang-go=\"`plan`\" pulumi-lang-python=\"`plan`\" pulumi-lang-yaml=\"`plan`\" pulumi-lang-java=\"`plan`\"\u003e`plan`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`apply`\" pulumi-lang-dotnet=\"`Apply`\" pulumi-lang-go=\"`apply`\" pulumi-lang-python=\"`apply`\" pulumi-lang-yaml=\"`apply`\" pulumi-lang-java=\"`apply`\"\u003e`apply`\u003c/span\u003e operations:\n\n### Entities already assigned in fleet\n\n```\nWarning: Entities already assigned in fleet — skipped add for ring \"default\"\n```\n\nThis warning fires during \u003cspan pulumi-lang-nodejs=\"`create`\" pulumi-lang-dotnet=\"`Create`\" pulumi-lang-go=\"`create`\" pulumi-lang-python=\"`create`\" pulumi-lang-yaml=\"`create`\" pulumi-lang-java=\"`create`\"\u003e`create`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`update`\" pulumi-lang-dotnet=\"`Update`\" pulumi-lang-go=\"`update`\" pulumi-lang-python=\"`update`\" pulumi-lang-yaml=\"`update`\" pulumi-lang-java=\"`update`\"\u003e`update`\u003c/span\u003e when one or more entities listed in \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e are already assigned somewhere in the fleet (including in a different ring, or via Agent Control). The API rejects duplicate add requests, so the affected entities are skipped for the add mutation. However, if those entities are already in the target ring, they are confirmed by the subsequent read and adopted into Terraform state. From that point on, Terraform manages their lifecycle: removing them from \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e will remove them from the fleet ring on the next \u003cspan pulumi-lang-nodejs=\"`apply`\" pulumi-lang-dotnet=\"`Apply`\" pulumi-lang-go=\"`apply`\" pulumi-lang-python=\"`apply`\" pulumi-lang-yaml=\"`apply`\" pulumi-lang-java=\"`apply`\"\u003e`apply`\u003c/span\u003e.\n\nIf an entity is in a *different* ring than the one declared, it must first be removed from that ring before it can be reassigned. The warning message identifies the affected entity GUIDs and indicates which ring they were targeted for.\n\n### Fleet members removed outside Terraform\n\n```\nWarning: Fleet members removed outside Terraform in ring \"default\"\n```\n\nThis warning fires during \u003cspan pulumi-lang-nodejs=\"`plan`\" pulumi-lang-dotnet=\"`Plan`\" pulumi-lang-go=\"`plan`\" pulumi-lang-python=\"`plan`\" pulumi-lang-yaml=\"`plan`\" pulumi-lang-java=\"`plan`\"\u003e`plan`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`apply`\" pulumi-lang-dotnet=\"`Apply`\" pulumi-lang-go=\"`apply`\" pulumi-lang-python=\"`apply`\" pulumi-lang-yaml=\"`apply`\" pulumi-lang-java=\"`apply`\"\u003e`apply`\u003c/span\u003e when an entity listed in \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e is no longer present in the ring according to the API. This indicates out-of-band drift—the entity was removed from the ring by a process other than Terraform. The next \u003cspan pulumi-lang-nodejs=\"`apply`\" pulumi-lang-dotnet=\"`Apply`\" pulumi-lang-go=\"`apply`\" pulumi-lang-python=\"`apply`\" pulumi-lang-yaml=\"`apply`\" pulumi-lang-java=\"`apply`\"\u003e`apply`\u003c/span\u003e will re-add the entity to restore the declared state. To accept the removal instead, remove the entity GUID from \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e and apply again.\n\nA second \u003cspan pulumi-lang-nodejs=\"`plan`\" pulumi-lang-dotnet=\"`Plan`\" pulumi-lang-go=\"`plan`\" pulumi-lang-python=\"`plan`\" pulumi-lang-yaml=\"`plan`\" pulumi-lang-java=\"`plan`\"\u003e`plan`\u003c/span\u003e after apply will confirm the state is clean once API-side changes have propagated.\n\n## Example Usage\n\n### Single ring\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst example = new newrelic.Fleet(\"example\", {\n    name: \"my-fleet\",\n    managedEntityType: \"HOST\",\n    operatingSystem: \"LINUX\",\n});\nconst exampleFleetMembers = new newrelic.FleetMembers(\"example\", {\n    fleetId: example.id,\n    rings: [{\n        name: \"default\",\n        entityIds: [\n            \"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\",\n            \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nexample = newrelic.Fleet(\"example\",\n    name=\"my-fleet\",\n    managed_entity_type=\"HOST\",\n    operating_system=\"LINUX\")\nexample_fleet_members = newrelic.FleetMembers(\"example\",\n    fleet_id=example.id,\n    rings=[{\n        \"name\": \"default\",\n        \"entity_ids\": [\n            \"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\",\n            \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n        ],\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new NewRelic.Fleet(\"example\", new()\n    {\n        Name = \"my-fleet\",\n        ManagedEntityType = \"HOST\",\n        OperatingSystem = \"LINUX\",\n    });\n\n    var exampleFleetMembers = new NewRelic.FleetMembers(\"example\", new()\n    {\n        FleetId = example.Id,\n        Rings = new[]\n        {\n            new NewRelic.Inputs.FleetMembersRingArgs\n            {\n                Name = \"default\",\n                EntityIds = new[]\n                {\n                    \"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\",\n                    \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := newrelic.NewFleet(ctx, \"example\", \u0026newrelic.FleetArgs{\n\t\t\tName:              pulumi.String(\"my-fleet\"),\n\t\t\tManagedEntityType: pulumi.String(\"HOST\"),\n\t\t\tOperatingSystem:   pulumi.String(\"LINUX\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewFleetMembers(ctx, \"example\", \u0026newrelic.FleetMembersArgs{\n\t\t\tFleetId: example.ID(),\n\t\t\tRings: newrelic.FleetMembersRingArray{\n\t\t\t\t\u0026newrelic.FleetMembersRingArgs{\n\t\t\t\t\tName: pulumi.String(\"default\"),\n\t\t\t\t\tEntityIds: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\"),\n\t\t\t\t\t\tpulumi.String(\"MXxOR0VQfEhPU1R8ODc2NTQzMjE\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.Fleet;\nimport com.pulumi.newrelic.FleetArgs;\nimport com.pulumi.newrelic.FleetMembers;\nimport com.pulumi.newrelic.FleetMembersArgs;\nimport com.pulumi.newrelic.inputs.FleetMembersRingArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Fleet(\"example\", FleetArgs.builder()\n            .name(\"my-fleet\")\n            .managedEntityType(\"HOST\")\n            .operatingSystem(\"LINUX\")\n            .build());\n\n        var exampleFleetMembers = new FleetMembers(\"exampleFleetMembers\", FleetMembersArgs.builder()\n            .fleetId(example.id())\n            .rings(FleetMembersRingArgs.builder()\n                .name(\"default\")\n                .entityIds(                \n                    \"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\",\n                    \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: newrelic:Fleet\n    properties:\n      name: my-fleet\n      managedEntityType: HOST\n      operatingSystem: LINUX\n  exampleFleetMembers:\n    type: newrelic:FleetMembers\n    name: example\n    properties:\n      fleetId: ${example.id}\n      rings:\n        - name: default\n          entityIds:\n            - MXxOR0VQfEhPU1R8MTIzNDU2Nzg\n            - MXxOR0VQfEhPU1R8ODc2NTQzMjE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Multiple rings\n\nMultiple \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e blocks can be declared within a single resource instance to manage entity assignments across rings in one operation. Moving an entity from one ring to another is handled by updating the \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e lists in both ring blocks and applying in a single step.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst example = new newrelic.FleetMembers(\"example\", {\n    fleetId: exampleNewrelicFleet.id,\n    rings: [\n        {\n            name: \"default\",\n            entityIds: [\"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\"],\n        },\n        {\n            name: \"canary\",\n            entityIds: [\n                \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n                \"MXxOR0VQfEhPU1R8OTk5ODc2NTQ\",\n            ],\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nexample = newrelic.FleetMembers(\"example\",\n    fleet_id=example_newrelic_fleet[\"id\"],\n    rings=[\n        {\n            \"name\": \"default\",\n            \"entity_ids\": [\"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\"],\n        },\n        {\n            \"name\": \"canary\",\n            \"entity_ids\": [\n                \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n                \"MXxOR0VQfEhPU1R8OTk5ODc2NTQ\",\n            ],\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new NewRelic.FleetMembers(\"example\", new()\n    {\n        FleetId = exampleNewrelicFleet.Id,\n        Rings = new[]\n        {\n            new NewRelic.Inputs.FleetMembersRingArgs\n            {\n                Name = \"default\",\n                EntityIds = new[]\n                {\n                    \"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\",\n                },\n            },\n            new NewRelic.Inputs.FleetMembersRingArgs\n            {\n                Name = \"canary\",\n                EntityIds = new[]\n                {\n                    \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n                    \"MXxOR0VQfEhPU1R8OTk5ODc2NTQ\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewFleetMembers(ctx, \"example\", \u0026newrelic.FleetMembersArgs{\n\t\t\tFleetId: pulumi.Any(exampleNewrelicFleet.Id),\n\t\t\tRings: newrelic.FleetMembersRingArray{\n\t\t\t\t\u0026newrelic.FleetMembersRingArgs{\n\t\t\t\t\tName: pulumi.String(\"default\"),\n\t\t\t\t\tEntityIds: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026newrelic.FleetMembersRingArgs{\n\t\t\t\t\tName: pulumi.String(\"canary\"),\n\t\t\t\t\tEntityIds: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"MXxOR0VQfEhPU1R8ODc2NTQzMjE\"),\n\t\t\t\t\t\tpulumi.String(\"MXxOR0VQfEhPU1R8OTk5ODc2NTQ\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.FleetMembers;\nimport com.pulumi.newrelic.FleetMembersArgs;\nimport com.pulumi.newrelic.inputs.FleetMembersRingArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new FleetMembers(\"example\", FleetMembersArgs.builder()\n            .fleetId(exampleNewrelicFleet.id())\n            .rings(            \n                FleetMembersRingArgs.builder()\n                    .name(\"default\")\n                    .entityIds(\"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\")\n                    .build(),\n                FleetMembersRingArgs.builder()\n                    .name(\"canary\")\n                    .entityIds(                    \n                        \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n                        \"MXxOR0VQfEhPU1R8OTk5ODc2NTQ\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: newrelic:FleetMembers\n    properties:\n      fleetId: ${exampleNewrelicFleet.id}\n      rings:\n        - name: default\n          entityIds:\n            - MXxOR0VQfEhPU1R8MTIzNDU2Nzg\n        - name: canary\n          entityIds:\n            - MXxOR0VQfEhPU1R8ODc2NTQzMjE\n            - MXxOR0VQfEhPU1R8OTk5ODc2NTQ\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Adopting Agent Control entities\n\nTo bring an entity that joined via Agent Control under Terraform management, add its GUID to \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e. A warning will indicate that the entity is already assigned in the fleet and was skipped during the add mutation. The entity is then confirmed by the subsequent read and adopted into state. Subsequent plans will be no-ops, and destroying the resource (or removing the GUID from \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e) will remove the entity from the fleet ring.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst example = new newrelic.FleetMembers(\"example\", {\n    fleetId: exampleNewrelicFleet.id,\n    rings: [{\n        name: \"default\",\n        entityIds: [\n            \"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\",\n            \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nexample = newrelic.FleetMembers(\"example\",\n    fleet_id=example_newrelic_fleet[\"id\"],\n    rings=[{\n        \"name\": \"default\",\n        \"entity_ids\": [\n            \"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\",\n            \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n        ],\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new NewRelic.FleetMembers(\"example\", new()\n    {\n        FleetId = exampleNewrelicFleet.Id,\n        Rings = new[]\n        {\n            new NewRelic.Inputs.FleetMembersRingArgs\n            {\n                Name = \"default\",\n                EntityIds = new[]\n                {\n                    \"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\",\n                    \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewFleetMembers(ctx, \"example\", \u0026newrelic.FleetMembersArgs{\n\t\t\tFleetId: pulumi.Any(exampleNewrelicFleet.Id),\n\t\t\tRings: newrelic.FleetMembersRingArray{\n\t\t\t\t\u0026newrelic.FleetMembersRingArgs{\n\t\t\t\t\tName: pulumi.String(\"default\"),\n\t\t\t\t\tEntityIds: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\"),\n\t\t\t\t\t\tpulumi.String(\"MXxOR0VQfEhPU1R8ODc2NTQzMjE\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.FleetMembers;\nimport com.pulumi.newrelic.FleetMembersArgs;\nimport com.pulumi.newrelic.inputs.FleetMembersRingArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new FleetMembers(\"example\", FleetMembersArgs.builder()\n            .fleetId(exampleNewrelicFleet.id())\n            .rings(FleetMembersRingArgs.builder()\n                .name(\"default\")\n                .entityIds(                \n                    \"MXxOR0VQfEhPU1R8MTIzNDU2Nzg\",\n                    \"MXxOR0VQfEhPU1R8ODc2NTQzMjE\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: newrelic:FleetMembers\n    properties:\n      fleetId: ${exampleNewrelicFleet.id}\n      rings:\n        - name: default\n          entityIds:\n            - MXxOR0VQfEhPU1R8MTIzNDU2Nzg\n            - MXxOR0VQfEhPU1R8ODc2NTQzMjE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Drift Detection\n\nOn each \u003cspan pulumi-lang-nodejs=\"`plan`\" pulumi-lang-dotnet=\"`Plan`\" pulumi-lang-go=\"`plan`\" pulumi-lang-python=\"`plan`\" pulumi-lang-yaml=\"`plan`\" pulumi-lang-java=\"`plan`\"\u003e`plan`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`refresh`\" pulumi-lang-dotnet=\"`Refresh`\" pulumi-lang-go=\"`refresh`\" pulumi-lang-python=\"`refresh`\" pulumi-lang-yaml=\"`refresh`\" pulumi-lang-java=\"`refresh`\"\u003e`refresh`\u003c/span\u003e, this resource queries the current membership of each declared ring and compares it against the entity GUIDs in state. If any declared entity is no longer present in the ring, a warning is emitted and the pending plan will include a change to re-add it. If the removal was intentional, remove the GUID from \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e to silence the warning and prevent re-addition.\n\nEntities present in the ring but not declared in \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e are never surfaced as drift.\n\n## Import\n\nA \u003cspan pulumi-lang-nodejs=\"`newrelic.FleetMembers`\" pulumi-lang-dotnet=\"`newrelic.FleetMembers`\" pulumi-lang-go=\"`FleetMembers`\" pulumi-lang-python=\"`FleetMembers`\" pulumi-lang-yaml=\"`newrelic.FleetMembers`\" pulumi-lang-java=\"`newrelic.FleetMembers`\"\u003e`newrelic.FleetMembers`\u003c/span\u003e resource can be imported using the fleet GUID:\n\n```sh\n$ pulumi import newrelic:index/fleetMembers:FleetMembers example \u003cfleet_guid\u003e\n```\n\nOn import, the resource queries all current members of the fleet and populates a single \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e block named `\"default\"` with all discovered entity GUIDs. For fleets with entities distributed across multiple rings, update the \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e blocks in the configuration to match the actual ring topology after import and run `pulumi preview` to confirm there are no unintended changes.\n\n\u003e **Note on ordering** Because \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e is an ordered list, the entity GUIDs populated on import reflect the order returned by the API. If your configuration specifies a different order, `pulumi preview` will show an in-place update to reorder the list. Reorder the \u003cspan pulumi-lang-nodejs=\"`entityIds`\" pulumi-lang-dotnet=\"`EntityIds`\" pulumi-lang-go=\"`entityIds`\" pulumi-lang-python=\"`entity_ids`\" pulumi-lang-yaml=\"`entityIds`\" pulumi-lang-java=\"`entityIds`\"\u003e`entityIds`\u003c/span\u003e entries in your configuration to match the imported order, or apply once to let Terraform reorder the state.\n\n",
+            "properties": {
+                "fleetId": {
+                    "type": "string",
+                    "description": "The GUID of the fleet to manage entity assignments for.\n"
+                },
+                "rings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FleetMembersRing:FleetMembersRing"
+                    },
+                    "description": "One or more ring blocks. Each block declares which entities Terraform should maintain in that ring. At least one \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e block must be specified. The following arguments are supported within each \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e block:\n"
+                }
+            },
+            "required": [
+                "fleetId",
+                "rings"
+            ],
+            "inputProperties": {
+                "fleetId": {
+                    "type": "string",
+                    "description": "The GUID of the fleet to manage entity assignments for.\n",
+                    "willReplaceOnChanges": true
+                },
+                "rings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FleetMembersRing:FleetMembersRing"
+                    },
+                    "description": "One or more ring blocks. Each block declares which entities Terraform should maintain in that ring. At least one \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e block must be specified. The following arguments are supported within each \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e block:\n"
+                }
+            },
+            "requiredInputs": [
+                "fleetId",
+                "rings"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FleetMembers resources.\n",
+                "properties": {
+                    "fleetId": {
+                        "type": "string",
+                        "description": "The GUID of the fleet to manage entity assignments for.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "rings": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/FleetMembersRing:FleetMembersRing"
+                        },
+                        "description": "One or more ring blocks. Each block declares which entities Terraform should maintain in that ring. At least one \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e block must be specified. The following arguments are supported within each \u003cspan pulumi-lang-nodejs=\"`ring`\" pulumi-lang-dotnet=\"`Ring`\" pulumi-lang-go=\"`ring`\" pulumi-lang-python=\"`ring`\" pulumi-lang-yaml=\"`ring`\" pulumi-lang-java=\"`ring`\"\u003e`ring`\u003c/span\u003e block:\n"
                     }
                 },
                 "type": "object"
@@ -18584,6 +18696,54 @@
                     "latestVersionEntityId",
                     "organizationId",
                     "versionEntityIds",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "newrelic:index/getFleetMembers:getFleetMembers": {
+            "description": "Use this data source to retrieve the entities (hosts, Kubernetes clusters) that are currently members of a New Relic Fleet, optionally filtered by ring.\n\n## Example Usage\n\n### All members of a fleet\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst all = newrelic.getFleetMembers({\n    fleetId: example.id,\n});\nexport const fleetMemberIds = all.then(all =\u003e .map(m =\u003e (m.id)));\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nall = newrelic.get_fleet_members(fleet_id=example[\"id\"])\npulumi.export(\"fleetMemberIds\", [m.id for m in all.members])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var all = NewRelic.GetFleetMembers.Invoke(new()\n    {\n        FleetId = example.Id,\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"fleetMemberIds\"] = .Select(m =\u003e \n        {\n            return m.Id;\n        }).ToList(),\n    };\n});\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Members in a specific ring\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst canary = newrelic.getFleetMembers({\n    fleetId: example.id,\n    ring: \"canary\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\ncanary = newrelic.get_fleet_members(fleet_id=example[\"id\"],\n    ring=\"canary\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var canary = NewRelic.GetFleetMembers.Invoke(new()\n    {\n        FleetId = example.Id,\n        Ring = \"canary\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.GetFleetMembers(ctx, \u0026newrelic.LookupFleetMembersArgs{\n\t\t\tFleetId: example.Id,\n\t\t\tRing:    pulumi.StringRef(\"canary\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NewrelicFunctions;\nimport com.pulumi.newrelic.inputs.GetFleetMembersArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()\n            .fleetId(example.id())\n            .ring(\"canary\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  canary:\n    fn::invoke:\n      function: newrelic:getFleetMembers\n      arguments:\n        fleetId: ${example.id}\n        ring: canary\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFleetMembers.\n",
+                "properties": {
+                    "fleetId": {
+                        "type": "string",
+                        "description": "The GUID of the fleet to query members for.\n"
+                    },
+                    "ring": {
+                        "type": "string",
+                        "description": "Filter members by ring name. If omitted, members across all rings are returned.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "fleetId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFleetMembers.\n",
+                "properties": {
+                    "fleetId": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "members": {
+                        "description": "List of member entities. Each element contains:\n",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/getFleetMembersMember:getFleetMembersMember"
+                        },
+                        "type": "array"
+                    },
+                    "ring": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "fleetId",
+                    "members",
                     "id"
                 ],
                 "type": "object"
