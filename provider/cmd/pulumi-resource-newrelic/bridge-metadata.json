@@ -1361,6 +1361,22 @@
                     }
                 }
             },
+            "newrelic_fleet_members": {
+                "current": "newrelic:index/fleetMembers:FleetMembers",
+                "majorVersion": 5,
+                "fields": {
+                    "ring": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "entity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "newrelic_group": {
                 "current": "newrelic:index/group:Group",
                 "majorVersion": 5,
@@ -2837,6 +2853,15 @@
                 "majorVersion": 5,
                 "fields": {
                     "version_entity_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "newrelic_fleet_members": {
+                "current": "newrelic:index/getFleetMembers:getFleetMembers",
+                "majorVersion": 5,
+                "fields": {
+                    "members": {
                         "maxItemsOne": false
                     }
                 }
@@ -4771,6 +4796,10 @@
                 "fleet_id",
                 "organization_id"
             ],
+            "newrelic_fleet_members": [
+                "fleet_id",
+                "ring.$.entity_ids"
+            ],
             "newrelic_group": [
                 "authentication_domain_id",
                 "user_ids"
@@ -4927,6 +4956,9 @@
                 "organization_id",
                 "version_entity_id",
                 "version_entity_ids"
+            ],
+            "newrelic_fleet_members": [
+                "fleet_id"
             ],
             "newrelic_group": [
                 "authentication_domain_id",
