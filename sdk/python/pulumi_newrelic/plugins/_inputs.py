@@ -131,11 +131,11 @@ class ApplicationSettingsErrorCollectorArgs:
 
 
 class ApplicationSettingsTransactionTracerArgsDict(TypedDict):
-    explain_query_plans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]]]
+    explain_query_plans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgsDict']]]]]
     """
     Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
     """
-    sql: NotRequired[pulumi.Input[Optional['ApplicationSettingsTransactionTracerSqlArgs']]]
+    sql: NotRequired[pulumi.Input[Optional['ApplicationSettingsTransactionTracerSqlArgsDict']]]
     """
     Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
     """
@@ -349,11 +349,11 @@ class WorkloadStatusConfigAutomaticArgsDict(TypedDict):
     """
     Whether the automatic status configuration is enabled or not.
     """
-    remaining_entities_rule: NotRequired[pulumi.Input[Optional['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']]]
+    remaining_entities_rule: NotRequired[pulumi.Input[Optional['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgsDict']]]
     """
     An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgsDict']]]]]
     """
     A list of rules.
     """
@@ -536,7 +536,7 @@ class WorkloadStatusConfigAutomaticRuleArgsDict(TypedDict):
     """
     A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
     """
-    nrql_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs']]]]]
+    nrql_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgsDict']]]]]
     """
     A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
     """
