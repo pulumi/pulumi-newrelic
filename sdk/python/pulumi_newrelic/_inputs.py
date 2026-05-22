@@ -1717,7 +1717,7 @@ class MonitorDowntimeFrequencyArgsDict(TypedDict):
     """
     A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
     """
-    days_of_week: NotRequired[pulumi.Input[Optional['MonitorDowntimeFrequencyDaysOfWeekArgs']]]
+    days_of_week: NotRequired[pulumi.Input[Optional['MonitorDowntimeFrequencyDaysOfWeekArgsDict']]]
     """
     A list of days of the week on which the Monitor Downtime is scheduled to run.
     """
@@ -2235,7 +2235,7 @@ class NrqlAlertConditionCriticalArgsDict(TypedDict):
     """
     One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
     """
-    prediction: NotRequired[pulumi.Input[Optional['NrqlAlertConditionCriticalPredictionArgs']]]
+    prediction: NotRequired[pulumi.Input[Optional['NrqlAlertConditionCriticalPredictionArgsDict']]]
     """
     BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
     """
@@ -2644,7 +2644,7 @@ class NrqlAlertConditionTermArgsDict(TypedDict):
     """
     One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
     """
-    prediction: NotRequired[pulumi.Input[Optional['NrqlAlertConditionTermPredictionArgs']]]
+    prediction: NotRequired[pulumi.Input[Optional['NrqlAlertConditionTermPredictionArgsDict']]]
     """
     BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
     """
@@ -2889,7 +2889,7 @@ class NrqlAlertConditionWarningArgsDict(TypedDict):
     """
     One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
     """
-    prediction: NotRequired[pulumi.Input[Optional['NrqlAlertConditionWarningPredictionArgs']]]
+    prediction: NotRequired[pulumi.Input[Optional['NrqlAlertConditionWarningPredictionArgsDict']]]
     """
     BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
     """
@@ -3176,59 +3176,59 @@ class OneDashboardPageArgsDict(TypedDict):
     """
     The unique entity identifier of the dashboard page in New Relic.
     """
-    widget_areas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]]]]
+    widget_areas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgsDict']]]]]
     """
     Supports both `line_interpolation` and `gradient`
     """
-    widget_bars: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgs']]]]]
+    widget_bars: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgsDict']]]]]
     """
     A bar widget.
     """
-    widget_billboards: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgs']]]]]
+    widget_billboards: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgsDict']]]]]
     """
     Supports `line_interpolation` only
     """
-    widget_bullets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletArgs']]]]]
+    widget_bullets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletArgsDict']]]]]
     """
     A bullet widget.
     """
-    widget_funnels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelArgs']]]]]
+    widget_funnels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelArgsDict']]]]]
     """
     A funnel widget.
     """
-    widget_heatmaps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapArgs']]]]]
+    widget_heatmaps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapArgsDict']]]]]
     """
     A heatmap widget.
     """
-    widget_histograms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgs']]]]]
+    widget_histograms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgsDict']]]]]
     """
     Supports `gradient` only
     """
-    widget_jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonArgs']]]]]
+    widget_jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonArgsDict']]]]]
     """
     A JSON widget.
     """
-    widget_lines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgs']]]]]
+    widget_lines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgsDict']]]]]
     """
     Supports `line_interpolation` only
     """
-    widget_log_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableArgs']]]]]
+    widget_log_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableArgsDict']]]]]
     """
     A log table widget.
     """
-    widget_markdowns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownArgs']]]]]
+    widget_markdowns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownArgsDict']]]]]
     """
     A markdown widget.
     """
-    widget_pies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgs']]]]]
+    widget_pies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgsDict']]]]]
     """
     Supports `gradient` only
     """
-    widget_stacked_bars: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]]]]
+    widget_stacked_bars: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgsDict']]]]]
     """
     Supports `gradient` only
     """
-    widget_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgs']]]]]
+    widget_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgsDict']]]]]
     """
     A table widget.
     """
@@ -3528,15 +3528,15 @@ class OneDashboardPageWidgetAreaArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetAreaChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetAreaChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -3556,7 +3556,7 @@ class OneDashboardPageWidgetAreaArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetAreaInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetAreaInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -3564,7 +3564,7 @@ class OneDashboardPageWidgetAreaArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -3572,11 +3572,11 @@ class OneDashboardPageWidgetAreaArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    tooltip: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetAreaTooltipArgs']]]
+    tooltip: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetAreaTooltipArgsDict']]]
     """
     (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -3910,7 +3910,7 @@ class OneDashboardPageWidgetAreaArgs:
 
 
 class OneDashboardPageWidgetAreaChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetAreaChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetAreaChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -3991,7 +3991,7 @@ class OneDashboardPageWidgetAreaColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -4271,7 +4271,7 @@ class OneDashboardPageWidgetAreaNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -4393,7 +4393,7 @@ class OneDashboardPageWidgetAreaTooltipArgs:
 
 
 class OneDashboardPageWidgetAreaUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -4507,15 +4507,15 @@ class OneDashboardPageWidgetBarArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBarChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBarChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -4539,7 +4539,7 @@ class OneDashboardPageWidgetBarArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBarInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBarInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -4551,7 +4551,7 @@ class OneDashboardPageWidgetBarArgsDict(TypedDict):
     """
     (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -4559,7 +4559,7 @@ class OneDashboardPageWidgetBarArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -4909,7 +4909,7 @@ class OneDashboardPageWidgetBarArgs:
 
 
 class OneDashboardPageWidgetBarChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBarChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBarChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -4990,7 +4990,7 @@ class OneDashboardPageWidgetBarColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -5270,7 +5270,7 @@ class OneDashboardPageWidgetBarNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -5364,7 +5364,7 @@ class OneDashboardPageWidgetBarNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetBarUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBarUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -5478,15 +5478,15 @@ class OneDashboardPageWidgetBillboardArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    billboard_settings: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardBillboardSettingsArgs']]]
+    billboard_settings: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardBillboardSettingsArgsDict']]]
     """
     (Optional) A nested block that describes billboard specific settings. See Nested billboard\\_settings blocks below for details.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
@@ -5494,7 +5494,7 @@ class OneDashboardPageWidgetBillboardArgsDict(TypedDict):
     """
     (Optional) Threshold above which the displayed value will be styled with a red color.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -5514,7 +5514,7 @@ class OneDashboardPageWidgetBillboardArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -5522,7 +5522,7 @@ class OneDashboardPageWidgetBillboardArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -5530,7 +5530,7 @@ class OneDashboardPageWidgetBillboardArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -5900,15 +5900,15 @@ class OneDashboardPageWidgetBillboardArgs:
 
 
 class OneDashboardPageWidgetBillboardBillboardSettingsArgsDict(TypedDict):
-    grid_options: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs']]]
+    grid_options: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgsDict']]]
     """
     (Optional) A nested block that configures grid layout options for the billboard widget. This block supports:
     """
-    link: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs']]]
+    link: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardBillboardSettingsLinkArgsDict']]]
     """
     (Optional) A nested block that configures clickable links for the billboard widget. This block supports:
     """
-    visual: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs']]]
+    visual: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardBillboardSettingsVisualArgsDict']]]
     """
     (Optional) A nested block that configures the visual settings of the billboard widget. This block supports:
     """
@@ -6156,7 +6156,7 @@ class OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs:
 
 
 class OneDashboardPageWidgetBillboardChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBillboardChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -6237,7 +6237,7 @@ class OneDashboardPageWidgetBillboardColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -6517,7 +6517,7 @@ class OneDashboardPageWidgetBillboardNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -6611,7 +6611,7 @@ class OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetBillboardUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -6729,15 +6729,15 @@ class OneDashboardPageWidgetBulletArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBulletChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBulletChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -6757,7 +6757,7 @@ class OneDashboardPageWidgetBulletArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBulletInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBulletInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -6765,7 +6765,7 @@ class OneDashboardPageWidgetBulletArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -6773,7 +6773,7 @@ class OneDashboardPageWidgetBulletArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -7106,7 +7106,7 @@ class OneDashboardPageWidgetBulletArgs:
 
 
 class OneDashboardPageWidgetBulletChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBulletChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetBulletChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -7187,7 +7187,7 @@ class OneDashboardPageWidgetBulletColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -7467,7 +7467,7 @@ class OneDashboardPageWidgetBulletNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -7561,7 +7561,7 @@ class OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetBulletUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetBulletUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -7675,15 +7675,15 @@ class OneDashboardPageWidgetFunnelArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetFunnelChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetFunnelChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -7703,7 +7703,7 @@ class OneDashboardPageWidgetFunnelArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetFunnelInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetFunnelInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -7711,7 +7711,7 @@ class OneDashboardPageWidgetFunnelArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -7719,7 +7719,7 @@ class OneDashboardPageWidgetFunnelArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -8037,7 +8037,7 @@ class OneDashboardPageWidgetFunnelArgs:
 
 
 class OneDashboardPageWidgetFunnelChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetFunnelChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetFunnelChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -8118,7 +8118,7 @@ class OneDashboardPageWidgetFunnelColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -8398,7 +8398,7 @@ class OneDashboardPageWidgetFunnelNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -8492,7 +8492,7 @@ class OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetFunnelUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -8606,15 +8606,15 @@ class OneDashboardPageWidgetHeatmapArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHeatmapChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHeatmapChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -8638,7 +8638,7 @@ class OneDashboardPageWidgetHeatmapArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHeatmapInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHeatmapInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -8650,7 +8650,7 @@ class OneDashboardPageWidgetHeatmapArgsDict(TypedDict):
     """
     (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -8658,7 +8658,7 @@ class OneDashboardPageWidgetHeatmapArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -9008,7 +9008,7 @@ class OneDashboardPageWidgetHeatmapArgs:
 
 
 class OneDashboardPageWidgetHeatmapChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHeatmapChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHeatmapChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -9089,7 +9089,7 @@ class OneDashboardPageWidgetHeatmapColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -9369,7 +9369,7 @@ class OneDashboardPageWidgetHeatmapNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -9463,7 +9463,7 @@ class OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetHeatmapUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -9577,15 +9577,15 @@ class OneDashboardPageWidgetHistogramArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHistogramChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHistogramChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -9605,7 +9605,7 @@ class OneDashboardPageWidgetHistogramArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHistogramInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHistogramInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -9613,7 +9613,7 @@ class OneDashboardPageWidgetHistogramArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -9621,7 +9621,7 @@ class OneDashboardPageWidgetHistogramArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -9939,7 +9939,7 @@ class OneDashboardPageWidgetHistogramArgs:
 
 
 class OneDashboardPageWidgetHistogramChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHistogramChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetHistogramChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -10020,7 +10020,7 @@ class OneDashboardPageWidgetHistogramColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -10300,7 +10300,7 @@ class OneDashboardPageWidgetHistogramNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -10394,7 +10394,7 @@ class OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetHistogramUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -10508,15 +10508,15 @@ class OneDashboardPageWidgetJsonArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetJsonChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetJsonChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -10536,7 +10536,7 @@ class OneDashboardPageWidgetJsonArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetJsonInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetJsonInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -10544,7 +10544,7 @@ class OneDashboardPageWidgetJsonArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -10552,7 +10552,7 @@ class OneDashboardPageWidgetJsonArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -10870,7 +10870,7 @@ class OneDashboardPageWidgetJsonArgs:
 
 
 class OneDashboardPageWidgetJsonChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetJsonChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetJsonChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -10951,7 +10951,7 @@ class OneDashboardPageWidgetJsonColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -11231,7 +11231,7 @@ class OneDashboardPageWidgetJsonNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -11325,7 +11325,7 @@ class OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetJsonUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetJsonUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -11439,15 +11439,15 @@ class OneDashboardPageWidgetLineArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -11467,7 +11467,7 @@ class OneDashboardPageWidgetLineArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -11479,7 +11479,7 @@ class OneDashboardPageWidgetLineArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -11487,15 +11487,15 @@ class OneDashboardPageWidgetLineArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    thresholds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgs']]]]]
+    thresholds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgsDict']]]]]
     """
     (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
     """
-    tooltip: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineTooltipArgs']]]
+    tooltip: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineTooltipArgsDict']]]
     """
     (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -11512,7 +11512,7 @@ class OneDashboardPageWidgetLineArgsDict(TypedDict):
     """
     (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
     """
-    y_axis_right: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineYAxisRightArgs']]]
+    y_axis_right: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineYAxisRightArgsDict']]]
     """
     (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
     """
@@ -11901,7 +11901,7 @@ class OneDashboardPageWidgetLineArgs:
 
 
 class OneDashboardPageWidgetLineChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLineChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -11982,7 +11982,7 @@ class OneDashboardPageWidgetLineColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -12262,7 +12262,7 @@ class OneDashboardPageWidgetLineNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -12473,7 +12473,7 @@ class OneDashboardPageWidgetLineTooltipArgs:
 
 
 class OneDashboardPageWidgetLineUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -12676,15 +12676,15 @@ class OneDashboardPageWidgetLogTableArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLogTableChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLogTableChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -12704,7 +12704,7 @@ class OneDashboardPageWidgetLogTableArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLogTableInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLogTableInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -12712,7 +12712,7 @@ class OneDashboardPageWidgetLogTableArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -12720,7 +12720,7 @@ class OneDashboardPageWidgetLogTableArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -13038,7 +13038,7 @@ class OneDashboardPageWidgetLogTableArgs:
 
 
 class OneDashboardPageWidgetLogTableChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLogTableChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetLogTableChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -13119,7 +13119,7 @@ class OneDashboardPageWidgetLogTableColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -13399,7 +13399,7 @@ class OneDashboardPageWidgetLogTableNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -13493,7 +13493,7 @@ class OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetLogTableUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -13607,15 +13607,15 @@ class OneDashboardPageWidgetMarkdownArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetMarkdownChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetMarkdownChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -13635,7 +13635,7 @@ class OneDashboardPageWidgetMarkdownArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetMarkdownInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetMarkdownInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -13643,7 +13643,7 @@ class OneDashboardPageWidgetMarkdownArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -13651,7 +13651,7 @@ class OneDashboardPageWidgetMarkdownArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -13969,7 +13969,7 @@ class OneDashboardPageWidgetMarkdownArgs:
 
 
 class OneDashboardPageWidgetMarkdownChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetMarkdownChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetMarkdownChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -14050,7 +14050,7 @@ class OneDashboardPageWidgetMarkdownColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -14282,7 +14282,7 @@ class OneDashboardPageWidgetMarkdownNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -14376,7 +14376,7 @@ class OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetMarkdownUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -14490,15 +14490,15 @@ class OneDashboardPageWidgetPyArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetPyChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetPyChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -14522,7 +14522,7 @@ class OneDashboardPageWidgetPyArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetPyInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetPyInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -14534,7 +14534,7 @@ class OneDashboardPageWidgetPyArgsDict(TypedDict):
     """
     (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -14542,7 +14542,7 @@ class OneDashboardPageWidgetPyArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -14892,7 +14892,7 @@ class OneDashboardPageWidgetPyArgs:
 
 
 class OneDashboardPageWidgetPyChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetPyChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetPyChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -14973,7 +14973,7 @@ class OneDashboardPageWidgetPyColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -15253,7 +15253,7 @@ class OneDashboardPageWidgetPyNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -15347,7 +15347,7 @@ class OneDashboardPageWidgetPyNullValueSeriesOverrideArgs:
 
 
 class OneDashboardPageWidgetPyUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetPyUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -15461,15 +15461,15 @@ class OneDashboardPageWidgetStackedBarArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetStackedBarChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetStackedBarChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -15489,7 +15489,7 @@ class OneDashboardPageWidgetStackedBarArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetStackedBarInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetStackedBarInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -15497,7 +15497,7 @@ class OneDashboardPageWidgetStackedBarArgsDict(TypedDict):
     """
     (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -15505,11 +15505,11 @@ class OneDashboardPageWidgetStackedBarArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    tooltip: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetStackedBarTooltipArgs']]]
+    tooltip: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetStackedBarTooltipArgsDict']]]
     """
     (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -15843,7 +15843,7 @@ class OneDashboardPageWidgetStackedBarArgs:
 
 
 class OneDashboardPageWidgetStackedBarChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetStackedBarChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetStackedBarChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -15924,7 +15924,7 @@ class OneDashboardPageWidgetStackedBarColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -16204,7 +16204,7 @@ class OneDashboardPageWidgetStackedBarNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -16326,7 +16326,7 @@ class OneDashboardPageWidgetStackedBarTooltipArgs:
 
 
 class OneDashboardPageWidgetStackedBarUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -16440,15 +16440,15 @@ class OneDashboardPageWidgetTableArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
-    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetTableChartStylesArgs']]]
+    chart_styles: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetTableChartStylesArgsDict']]]
     """
     (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
-    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorArgs']]]]]
+    colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorArgsDict']]]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
     """
-    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableDataFormatArgs']]]]]
+    data_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableDataFormatArgsDict']]]]]
     """
     (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
     """
@@ -16472,7 +16472,7 @@ class OneDashboardPageWidgetTableArgsDict(TypedDict):
     """
     (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
     """
-    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetTableInitialSortingArgs']]]
+    initial_sorting: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetTableInitialSortingArgsDict']]]
     """
     (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
     """
@@ -16484,7 +16484,7 @@ class OneDashboardPageWidgetTableArgsDict(TypedDict):
     """
     (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
     """
-    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueArgs']]]]]
+    null_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueArgsDict']]]]]
     """
     (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
     """
@@ -16492,11 +16492,11 @@ class OneDashboardPageWidgetTableArgsDict(TypedDict):
     """
     (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
     """
-    thresholds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableThresholdArgs']]]]]
+    thresholds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableThresholdArgsDict']]]]]
     """
     (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
     """
-    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableUnitArgs']]]]]
+    units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableUnitArgsDict']]]]]
     """
     (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
     """
@@ -16862,7 +16862,7 @@ class OneDashboardPageWidgetTableArgs:
 
 
 class OneDashboardPageWidgetTableChartStylesArgsDict(TypedDict):
-    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetTableChartStylesGradientArgs']]]
+    gradient: NotRequired[pulumi.Input[Optional['OneDashboardPageWidgetTableChartStylesGradientArgsDict']]]
     """
     (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
     """
@@ -16943,7 +16943,7 @@ class OneDashboardPageWidgetTableColorArgsDict(TypedDict):
     """
     (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -17223,7 +17223,7 @@ class OneDashboardPageWidgetTableNullValueArgsDict(TypedDict):
     """
     Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
     """
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -17406,7 +17406,7 @@ class OneDashboardPageWidgetTableThresholdArgs:
 
 
 class OneDashboardPageWidgetTableUnitArgsDict(TypedDict):
-    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableUnitSeriesOverrideArgs']]]]]
+    series_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardPageWidgetTableUnitSeriesOverrideArgsDict']]]]]
     """
     (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
     """
@@ -17516,7 +17516,7 @@ class OneDashboardRawPageArgsDict(TypedDict):
     """
     The unique entity identifier of the dashboard page in New Relic.
     """
-    widgets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardRawPageWidgetArgs']]]]]
+    widgets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardRawPageWidgetArgsDict']]]]]
     """
     (Optional) A nested block that describes a widget. See Nested widget blocks below for details.
     """
@@ -17800,15 +17800,15 @@ class OneDashboardVariableArgsDict(TypedDict):
     """
     (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
     """
-    items: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableItemArgs']]]]]
+    items: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableItemArgsDict']]]]]
     """
     (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
     """
-    nrql_query: NotRequired[pulumi.Input[Optional['OneDashboardVariableNrqlQueryArgs']]]
+    nrql_query: NotRequired[pulumi.Input[Optional['OneDashboardVariableNrqlQueryArgsDict']]]
     """
     (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
     """
-    options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableOptionArgs']]]]]
+    options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OneDashboardVariableOptionArgsDict']]]]]
     """
     (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
     """
@@ -18135,11 +18135,11 @@ class ServiceLevelEventsArgsDict(TypedDict):
     """
     The definition of valid requests.
     """
-    bad_events: NotRequired[pulumi.Input[Optional['ServiceLevelEventsBadEventsArgs']]]
+    bad_events: NotRequired[pulumi.Input[Optional['ServiceLevelEventsBadEventsArgsDict']]]
     """
     The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
     """
-    good_events: NotRequired[pulumi.Input[Optional['ServiceLevelEventsGoodEventsArgs']]]
+    good_events: NotRequired[pulumi.Input[Optional['ServiceLevelEventsGoodEventsArgsDict']]]
     """
     The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
     """
@@ -18220,7 +18220,7 @@ class ServiceLevelEventsBadEventsArgsDict(TypedDict):
     """
     The event type where NRDB data will be fetched from.
     """
-    select: NotRequired[pulumi.Input[Optional['ServiceLevelEventsBadEventsSelectArgs']]]
+    select: NotRequired[pulumi.Input[Optional['ServiceLevelEventsBadEventsSelectArgsDict']]]
     """
     The NRQL SELECT clause to aggregate events.
     """
@@ -18359,7 +18359,7 @@ class ServiceLevelEventsGoodEventsArgsDict(TypedDict):
     """
     The event type where NRDB data will be fetched from.
     """
-    select: NotRequired[pulumi.Input[Optional['ServiceLevelEventsGoodEventsSelectArgs']]]
+    select: NotRequired[pulumi.Input[Optional['ServiceLevelEventsGoodEventsSelectArgsDict']]]
     """
     The NRQL SELECT clause to aggregate events.
     """
@@ -18498,7 +18498,7 @@ class ServiceLevelEventsValidEventsArgsDict(TypedDict):
     """
     The event type where NRDB data will be fetched from.
     """
-    select: NotRequired[pulumi.Input[Optional['ServiceLevelEventsValidEventsSelectArgs']]]
+    select: NotRequired[pulumi.Input[Optional['ServiceLevelEventsValidEventsSelectArgsDict']]]
     """
     The NRQL SELECT clause to aggregate events.
     """
@@ -19075,7 +19075,7 @@ class WorkflowIssuesFilterArgsDict(TypedDict):
     """
     filter id.
     """
-    predicates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgs']]]]]
+    predicates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgsDict']]]]]
     """
     A condition an issue event should satisfy to be processed by the workflow
     """
