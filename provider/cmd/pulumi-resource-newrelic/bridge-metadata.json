@@ -132,6 +132,15 @@
                 "current": "newrelic:index/browserApplication:BrowserApplication",
                 "majorVersion": 5
             },
+            "newrelic_cardinality_management": {
+                "current": "newrelic:index/cardinalityManagement:CardinalityManagement",
+                "majorVersion": 5,
+                "fields": {
+                    "metric": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "newrelic_cloud_aws_eu_sovereign_integrations": {
                 "current": "newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations",
                 "majorVersion": 5,
@@ -1420,6 +1429,10 @@
             },
             "newrelic_log_parsing_rule": {
                 "current": "newrelic:index/logParsingRule:LogParsingRule",
+                "majorVersion": 5
+            },
+            "newrelic_metric_pruning_rule": {
+                "current": "newrelic:index/metricPruningRule:MetricPruningRule",
                 "majorVersion": 5
             },
             "newrelic_monitor_downtime": {
@@ -4809,6 +4822,10 @@
             ],
             "newrelic_log_parsing_rule": [
                 "account_id"
+            ],
+            "newrelic_metric_pruning_rule": [
+                "account_id",
+                "rule_id"
             ],
             "newrelic_monitor_downtime": [
                 "account_id"
