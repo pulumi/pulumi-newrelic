@@ -27,6 +27,8 @@ __all__ = [
     'AlertMutingRuleConditionConditionArgsDict',
     'AlertMutingRuleScheduleArgs',
     'AlertMutingRuleScheduleArgsDict',
+    'CardinalityManagementMetricArgs',
+    'CardinalityManagementMetricArgsDict',
     'EntityTagsTagArgs',
     'EntityTagsTagArgsDict',
     'FleetConfigurationVersionArgs',
@@ -1331,6 +1333,53 @@ class AlertMutingRuleScheduleArgs:
     @weekly_repeat_days.setter
     def weekly_repeat_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "weekly_repeat_days", value)
+
+
+class CardinalityManagementMetricArgsDict(TypedDict):
+    cardinality_limit: pulumi.Input[_builtins.int]
+    """
+    The maximum number of unique dimension-value combinations allowed per day for this metric.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The full name of the metric (e.g. `"http.server.duration"`).
+    """
+
+@pulumi.input_type
+class CardinalityManagementMetricArgs:
+    def __init__(__self__, *,
+                 cardinality_limit: pulumi.Input[_builtins.int],
+                 name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] cardinality_limit: The maximum number of unique dimension-value combinations allowed per day for this metric.
+        :param pulumi.Input[_builtins.str] name: The full name of the metric (e.g. `"http.server.duration"`).
+        """
+        pulumi.set(__self__, "cardinality_limit", cardinality_limit)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="cardinalityLimit")
+    def cardinality_limit(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum number of unique dimension-value combinations allowed per day for this metric.
+        """
+        return pulumi.get(self, "cardinality_limit")
+
+    @cardinality_limit.setter
+    def cardinality_limit(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "cardinality_limit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The full name of the metric (e.g. `"http.server.duration"`).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
 
 class EntityTagsTagArgsDict(TypedDict):

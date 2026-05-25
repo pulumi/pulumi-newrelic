@@ -22,6 +22,7 @@ __all__ = [
     'AlertMutingRuleCondition',
     'AlertMutingRuleConditionCondition',
     'AlertMutingRuleSchedule',
+    'CardinalityManagementMetric',
     'EntityTagsTag',
     'FleetConfigurationVersion',
     'FleetDeploymentAgent',
@@ -852,6 +853,52 @@ class AlertMutingRuleSchedule(dict):
         The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
         """
         return pulumi.get(self, "weekly_repeat_days")
+
+
+@pulumi.output_type
+class CardinalityManagementMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cardinalityLimit":
+            suggest = "cardinality_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CardinalityManagementMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CardinalityManagementMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CardinalityManagementMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cardinality_limit: _builtins.int,
+                 name: _builtins.str):
+        """
+        :param _builtins.int cardinality_limit: The maximum number of unique dimension-value combinations allowed per day for this metric.
+        :param _builtins.str name: The full name of the metric (e.g. `"http.server.duration"`).
+        """
+        pulumi.set(__self__, "cardinality_limit", cardinality_limit)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="cardinalityLimit")
+    def cardinality_limit(self) -> _builtins.int:
+        """
+        The maximum number of unique dimension-value combinations allowed per day for this metric.
+        """
+        return pulumi.get(self, "cardinality_limit")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The full name of the metric (e.g. `"http.server.duration"`).
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

@@ -184,6 +184,17 @@ export interface AlertMutingRuleSchedule {
     weeklyRepeatDays?: string[];
 }
 
+export interface CardinalityManagementMetric {
+    /**
+     * The maximum number of unique dimension-value combinations allowed per day for this metric.
+     */
+    cardinalityLimit: number;
+    /**
+     * The full name of the metric (e.g. `"http.server.duration"`).
+     */
+    name: string;
+}
+
 export interface EntityTagsTag {
     /**
      * The key of the tag.

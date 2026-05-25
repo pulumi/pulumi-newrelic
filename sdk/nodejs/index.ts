@@ -50,6 +50,11 @@ export type BrowserApplication = import("./browserApplication").BrowserApplicati
 export const BrowserApplication: typeof import("./browserApplication").BrowserApplication = null as any;
 utilities.lazyLoad(exports, ["BrowserApplication"], () => require("./browserApplication"));
 
+export { CardinalityManagementArgs, CardinalityManagementState } from "./cardinalityManagement";
+export type CardinalityManagement = import("./cardinalityManagement").CardinalityManagement;
+export const CardinalityManagement: typeof import("./cardinalityManagement").CardinalityManagement = null as any;
+utilities.lazyLoad(exports, ["CardinalityManagement"], () => require("./cardinalityManagement"));
+
 export { DataPartitionRuleArgs, DataPartitionRuleState } from "./dataPartitionRule";
 export type DataPartitionRule = import("./dataPartitionRule").DataPartitionRule;
 export const DataPartitionRule: typeof import("./dataPartitionRule").DataPartitionRule = null as any;
@@ -185,6 +190,11 @@ export type LogParsingRule = import("./logParsingRule").LogParsingRule;
 export const LogParsingRule: typeof import("./logParsingRule").LogParsingRule = null as any;
 utilities.lazyLoad(exports, ["LogParsingRule"], () => require("./logParsingRule"));
 
+export { MetricPruningRuleArgs, MetricPruningRuleState } from "./metricPruningRule";
+export type MetricPruningRule = import("./metricPruningRule").MetricPruningRule;
+export const MetricPruningRule: typeof import("./metricPruningRule").MetricPruningRule = null as any;
+utilities.lazyLoad(exports, ["MetricPruningRule"], () => require("./metricPruningRule"));
+
 export { MonitorDowntimeArgs, MonitorDowntimeState } from "./monitorDowntime";
 export type MonitorDowntime = import("./monitorDowntime").MonitorDowntime;
 export const MonitorDowntime: typeof import("./monitorDowntime").MonitorDowntime = null as any;
@@ -303,6 +313,8 @@ const _module = {
                 return new ApiAccessKey(name, <any>undefined, { urn })
             case "newrelic:index/browserApplication:BrowserApplication":
                 return new BrowserApplication(name, <any>undefined, { urn })
+            case "newrelic:index/cardinalityManagement:CardinalityManagement":
+                return new CardinalityManagement(name, <any>undefined, { urn })
             case "newrelic:index/dataPartitionRule:DataPartitionRule":
                 return new DataPartitionRule(name, <any>undefined, { urn })
             case "newrelic:index/entityTags:EntityTags":
@@ -325,6 +337,8 @@ const _module = {
                 return new KeyTransaction(name, <any>undefined, { urn })
             case "newrelic:index/logParsingRule:LogParsingRule":
                 return new LogParsingRule(name, <any>undefined, { urn })
+            case "newrelic:index/metricPruningRule:MetricPruningRule":
+                return new MetricPruningRule(name, <any>undefined, { urn })
             case "newrelic:index/monitorDowntime:MonitorDowntime":
                 return new MonitorDowntime(name, <any>undefined, { urn })
             case "newrelic:index/notificationChannel:NotificationChannel":
@@ -369,6 +383,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicy", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicyChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/apiAccessKey", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/browserApplication", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/cardinalityManagement", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/dataPartitionRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
@@ -380,6 +395,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/group", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/keyTransaction", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/logParsingRule", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/metricPruningRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/monitorDowntime", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationDestination", _module)

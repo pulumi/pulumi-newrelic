@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiAccessKey{}
 	case "newrelic:index/browserApplication:BrowserApplication":
 		r = &BrowserApplication{}
+	case "newrelic:index/cardinalityManagement:CardinalityManagement":
+		r = &CardinalityManagement{}
 	case "newrelic:index/dataPartitionRule:DataPartitionRule":
 		r = &DataPartitionRule{}
 	case "newrelic:index/entityTags:EntityTags":
@@ -61,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KeyTransaction{}
 	case "newrelic:index/logParsingRule:LogParsingRule":
 		r = &LogParsingRule{}
+	case "newrelic:index/metricPruningRule:MetricPruningRule":
+		r = &MetricPruningRule{}
 	case "newrelic:index/monitorDowntime:MonitorDowntime":
 		r = &MonitorDowntime{}
 	case "newrelic:index/notificationChannel:NotificationChannel":
@@ -169,6 +173,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
+		"index/cardinalityManagement",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
 		"index/dataPartitionRule",
 		&module{version},
 	)
@@ -220,6 +229,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/logParsingRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/metricPruningRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
