@@ -15,6 +15,7 @@ from .alert_policy import *
 from .alert_policy_channel import *
 from .api_access_key import *
 from .browser_application import *
+from .cardinality_management import *
 from .data_partition_rule import *
 from .entity_tags import *
 from .events_to_metrics_rule import *
@@ -42,6 +43,7 @@ from .group import *
 from .infra_alert_condition import *
 from .key_transaction import *
 from .log_parsing_rule import *
+from .metric_pruning_rule import *
 from .monitor_downtime import *
 from .notification_channel import *
 from .notification_destination import *
@@ -245,6 +247,14 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
+  "mod": "index/cardinalityManagement",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/cardinalityManagement:CardinalityManagement": "CardinalityManagement"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "index/dataPartitionRule",
   "fqn": "pulumi_newrelic",
   "classes": {
@@ -329,6 +339,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/logParsingRule:LogParsingRule": "LogParsingRule"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/metricPruningRule",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/metricPruningRule:MetricPruningRule": "MetricPruningRule"
   }
  },
  {

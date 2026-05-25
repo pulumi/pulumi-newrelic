@@ -184,6 +184,17 @@ export interface AlertMutingRuleSchedule {
     weeklyRepeatDays?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
+export interface CardinalityManagementMetric {
+    /**
+     * The maximum number of unique dimension-value combinations allowed per day for this metric.
+     */
+    cardinalityLimit: pulumi.Input<number>;
+    /**
+     * The full name of the metric (e.g. `"http.server.duration"`).
+     */
+    name: pulumi.Input<string>;
+}
+
 export interface EntityTagsTag {
     /**
      * The key of the tag.

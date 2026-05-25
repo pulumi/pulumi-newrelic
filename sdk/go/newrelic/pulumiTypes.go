@@ -1295,6 +1295,112 @@ func (o AlertMutingRuleSchedulePtrOutput) WeeklyRepeatDays() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+type CardinalityManagementMetric struct {
+	// The maximum number of unique dimension-value combinations allowed per day for this metric.
+	CardinalityLimit int `pulumi:"cardinalityLimit"`
+	// The full name of the metric (e.g. `"http.server.duration"`).
+	Name string `pulumi:"name"`
+}
+
+// CardinalityManagementMetricInput is an input type that accepts CardinalityManagementMetricArgs and CardinalityManagementMetricOutput values.
+// You can construct a concrete instance of `CardinalityManagementMetricInput` via:
+//
+//	CardinalityManagementMetricArgs{...}
+type CardinalityManagementMetricInput interface {
+	pulumi.Input
+
+	ToCardinalityManagementMetricOutput() CardinalityManagementMetricOutput
+	ToCardinalityManagementMetricOutputWithContext(context.Context) CardinalityManagementMetricOutput
+}
+
+type CardinalityManagementMetricArgs struct {
+	// The maximum number of unique dimension-value combinations allowed per day for this metric.
+	CardinalityLimit pulumi.IntInput `pulumi:"cardinalityLimit"`
+	// The full name of the metric (e.g. `"http.server.duration"`).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (CardinalityManagementMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CardinalityManagementMetric)(nil)).Elem()
+}
+
+func (i CardinalityManagementMetricArgs) ToCardinalityManagementMetricOutput() CardinalityManagementMetricOutput {
+	return i.ToCardinalityManagementMetricOutputWithContext(context.Background())
+}
+
+func (i CardinalityManagementMetricArgs) ToCardinalityManagementMetricOutputWithContext(ctx context.Context) CardinalityManagementMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CardinalityManagementMetricOutput)
+}
+
+// CardinalityManagementMetricArrayInput is an input type that accepts CardinalityManagementMetricArray and CardinalityManagementMetricArrayOutput values.
+// You can construct a concrete instance of `CardinalityManagementMetricArrayInput` via:
+//
+//	CardinalityManagementMetricArray{ CardinalityManagementMetricArgs{...} }
+type CardinalityManagementMetricArrayInput interface {
+	pulumi.Input
+
+	ToCardinalityManagementMetricArrayOutput() CardinalityManagementMetricArrayOutput
+	ToCardinalityManagementMetricArrayOutputWithContext(context.Context) CardinalityManagementMetricArrayOutput
+}
+
+type CardinalityManagementMetricArray []CardinalityManagementMetricInput
+
+func (CardinalityManagementMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CardinalityManagementMetric)(nil)).Elem()
+}
+
+func (i CardinalityManagementMetricArray) ToCardinalityManagementMetricArrayOutput() CardinalityManagementMetricArrayOutput {
+	return i.ToCardinalityManagementMetricArrayOutputWithContext(context.Background())
+}
+
+func (i CardinalityManagementMetricArray) ToCardinalityManagementMetricArrayOutputWithContext(ctx context.Context) CardinalityManagementMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CardinalityManagementMetricArrayOutput)
+}
+
+type CardinalityManagementMetricOutput struct{ *pulumi.OutputState }
+
+func (CardinalityManagementMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CardinalityManagementMetric)(nil)).Elem()
+}
+
+func (o CardinalityManagementMetricOutput) ToCardinalityManagementMetricOutput() CardinalityManagementMetricOutput {
+	return o
+}
+
+func (o CardinalityManagementMetricOutput) ToCardinalityManagementMetricOutputWithContext(ctx context.Context) CardinalityManagementMetricOutput {
+	return o
+}
+
+// The maximum number of unique dimension-value combinations allowed per day for this metric.
+func (o CardinalityManagementMetricOutput) CardinalityLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v CardinalityManagementMetric) int { return v.CardinalityLimit }).(pulumi.IntOutput)
+}
+
+// The full name of the metric (e.g. `"http.server.duration"`).
+func (o CardinalityManagementMetricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CardinalityManagementMetric) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type CardinalityManagementMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (CardinalityManagementMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CardinalityManagementMetric)(nil)).Elem()
+}
+
+func (o CardinalityManagementMetricArrayOutput) ToCardinalityManagementMetricArrayOutput() CardinalityManagementMetricArrayOutput {
+	return o
+}
+
+func (o CardinalityManagementMetricArrayOutput) ToCardinalityManagementMetricArrayOutputWithContext(ctx context.Context) CardinalityManagementMetricArrayOutput {
+	return o
+}
+
+func (o CardinalityManagementMetricArrayOutput) Index(i pulumi.IntInput) CardinalityManagementMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CardinalityManagementMetric {
+		return vs[0].([]CardinalityManagementMetric)[vs[1].(int)]
+	}).(CardinalityManagementMetricOutput)
+}
+
 type EntityTagsTag struct {
 	// The key of the tag.
 	//
@@ -33773,6 +33879,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleConditionConditionArrayInput)(nil)).Elem(), AlertMutingRuleConditionConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleScheduleInput)(nil)).Elem(), AlertMutingRuleScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleSchedulePtrInput)(nil)).Elem(), AlertMutingRuleScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CardinalityManagementMetricInput)(nil)).Elem(), CardinalityManagementMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CardinalityManagementMetricArrayInput)(nil)).Elem(), CardinalityManagementMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagInput)(nil)).Elem(), EntityTagsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagArrayInput)(nil)).Elem(), EntityTagsTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetConfigurationVersionInput)(nil)).Elem(), FleetConfigurationVersionArgs{})
@@ -34252,6 +34360,8 @@ func init() {
 	pulumi.RegisterOutputType(AlertMutingRuleConditionConditionArrayOutput{})
 	pulumi.RegisterOutputType(AlertMutingRuleScheduleOutput{})
 	pulumi.RegisterOutputType(AlertMutingRuleSchedulePtrOutput{})
+	pulumi.RegisterOutputType(CardinalityManagementMetricOutput{})
+	pulumi.RegisterOutputType(CardinalityManagementMetricArrayOutput{})
 	pulumi.RegisterOutputType(EntityTagsTagOutput{})
 	pulumi.RegisterOutputType(EntityTagsTagArrayOutput{})
 	pulumi.RegisterOutputType(FleetConfigurationVersionOutput{})
