@@ -2834,6 +2834,71 @@
                 "timeZone"
             ]
         },
+        "newrelic:index/AwsConnectionCredential:AwsConnectionCredential": {
+            "properties": {
+                "assumeRole": {
+                    "$ref": "#/types/newrelic:index/AwsConnectionCredentialAssumeRole:AwsConnectionCredentialAssumeRole",
+                    "description": "STS:AssumeRole configuration. See below.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "assumeRole"
+            ]
+        },
+        "newrelic:index/AwsConnectionCredentialAssumeRole:AwsConnectionCredentialAssumeRole": {
+            "properties": {
+                "externalId": {
+                    "type": "string",
+                    "description": "External ID supplied by New Relic during STS:AssumeRole.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "ARN of the IAM role New Relic should assume.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "roleArn"
+            ]
+        },
+        "newrelic:index/AwsConnectionSetting:AwsConnectionSetting": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The setting key.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The setting value.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "newrelic:index/AwsConnectionTag:AwsConnectionTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The tag key.\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of tag values.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "values"
+            ]
+        },
         "newrelic:index/CardinalityManagementMetric:CardinalityManagementMetric": {
             "properties": {
                 "cardinalityLimit": {
@@ -2869,6 +2934,416 @@
             "required": [
                 "key",
                 "values"
+            ]
+        },
+        "newrelic:index/FederatedLogsPartitionDataRetentionPolicy:FederatedLogsPartitionDataRetentionPolicy": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "description": "Retention duration value.\n"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "unit"
+            ]
+        },
+        "newrelic:index/FederatedLogsPartitionForwarderConfiguration:FederatedLogsPartitionForwarderConfiguration": {
+            "properties": {
+                "pipelineControl": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsPartitionForwarderConfigurationPipelineControl:FederatedLogsPartitionForwarderConfigurationPipelineControl",
+                    "description": "Pipeline control configuration. See below.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "newrelic:index/FederatedLogsPartitionForwarderConfigurationPipelineControl:FederatedLogsPartitionForwarderConfigurationPipelineControl": {
+            "properties": {
+                "partitionRule": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule:FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule",
+                    "description": "Rule that determines which logs are routed to this partition. See below.\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule:FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "[OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes[\"log.type\"] == \"partition\"`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression"
+            ]
+        },
+        "newrelic:index/FederatedLogsPartitionHealthCheck:FederatedLogsPartitionHealthCheck": {
+            "properties": {
+                "end2endDataFlows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsPartitionHealthCheckEnd2endDataFlow:FederatedLogsPartitionHealthCheckEnd2endDataFlow"
+                    }
+                },
+                "lastUpdatedAt": {
+                    "type": "string"
+                },
+                "queryConnections": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsPartitionHealthCheckQueryConnection:FederatedLogsPartitionHealthCheckQueryConnection"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "end2endDataFlows",
+                        "lastUpdatedAt",
+                        "queryConnections"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/FederatedLogsPartitionHealthCheckEnd2endDataFlow:FederatedLogsPartitionHealthCheckEnd2endDataFlow": {
+            "properties": {
+                "lastUpdatedAt": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "lastUpdatedAt",
+                        "message",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/FederatedLogsPartitionHealthCheckQueryConnection:FederatedLogsPartitionHealthCheckQueryConnection": {
+            "properties": {
+                "lastUpdatedAt": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "lastUpdatedAt",
+                        "message",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/FederatedLogsPartitionLifecycleStatus:FederatedLogsPartitionLifecycleStatus": {
+            "properties": {
+                "lastUpdatedAt": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "lastUpdatedAt",
+                        "message",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/FederatedLogsPartitionStorage:FederatedLogsPartitionStorage": {
+            "properties": {
+                "dataLocationUri": {
+                    "type": "string",
+                    "description": "S3 URI of the partition's data location.\n"
+                },
+                "table": {
+                    "type": "string",
+                    "description": "Glue table name for the partition.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataLocationUri",
+                "table"
+            ]
+        },
+        "newrelic:index/FederatedLogsSetupDefaultPartition:FederatedLogsSetupDefaultPartition": {
+            "properties": {
+                "dataRetentionPolicy": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupDefaultPartitionDataRetentionPolicy:FederatedLogsSetupDefaultPartitionDataRetentionPolicy",
+                    "description": "Retention policy for logs in the default partition. See below.\n"
+                },
+                "storage": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupDefaultPartitionStorage:FederatedLogsSetupDefaultPartitionStorage",
+                    "description": "Storage details for the default partition. See below.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "storage"
+            ]
+        },
+        "newrelic:index/FederatedLogsSetupDefaultPartitionDataRetentionPolicy:FederatedLogsSetupDefaultPartitionDataRetentionPolicy": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "description": "Retention duration value.\n"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "unit"
+            ]
+        },
+        "newrelic:index/FederatedLogsSetupDefaultPartitionStorage:FederatedLogsSetupDefaultPartitionStorage": {
+            "properties": {
+                "dataLocationUri": {
+                    "type": "string",
+                    "description": "S3 URI of the default partition's data location.\n"
+                },
+                "table": {
+                    "type": "string",
+                    "description": "Glue table name for the default partition.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataLocationUri",
+                "table"
+            ]
+        },
+        "newrelic:index/FederatedLogsSetupForwarder:FederatedLogsSetupForwarder": {
+            "properties": {
+                "pipelineControl": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupForwarderPipelineControl:FederatedLogsSetupForwarderPipelineControl",
+                    "description": "Pipeline control configuration. Required when \u003cspan pulumi-lang-nodejs=\"`type`\" pulumi-lang-dotnet=\"`Type`\" pulumi-lang-go=\"`type`\" pulumi-lang-python=\"`type`\" pulumi-lang-yaml=\"`type`\" pulumi-lang-java=\"`type`\" pulumi-lang-hcl=\"`type`\"\u003e`type`\u003c/span\u003e is `PIPELINE_CONTROL`. See below.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The forwarder type. Currently only `PIPELINE_CONTROL` is supported.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "newrelic:index/FederatedLogsSetupForwarderPipelineControl:FederatedLogsSetupForwarderPipelineControl": {
+            "properties": {
+                "fleetId": {
+                    "type": "string",
+                    "description": "The fleet entity GUID.\n"
+                },
+                "routingRule": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupForwarderPipelineControlRoutingRule:FederatedLogsSetupForwarderPipelineControlRoutingRule",
+                    "description": "Routing rule that determines how incoming logs are routed to this setup. See below.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fleetId"
+            ]
+        },
+        "newrelic:index/FederatedLogsSetupForwarderPipelineControlRoutingRule:FederatedLogsSetupForwarderPipelineControlRoutingRule": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "[OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes[\"service.name\"] == \"python-apm\"`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression"
+            ]
+        },
+        "newrelic:index/FederatedLogsSetupHealthCheck:FederatedLogsSetupHealthCheck": {
+            "properties": {
+                "end2endDataFlows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsSetupHealthCheckEnd2endDataFlow:FederatedLogsSetupHealthCheckEnd2endDataFlow"
+                    }
+                },
+                "lastUpdatedAt": {
+                    "type": "string"
+                },
+                "queryConnections": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsSetupHealthCheckQueryConnection:FederatedLogsSetupHealthCheckQueryConnection"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "end2endDataFlows",
+                        "lastUpdatedAt",
+                        "queryConnections"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/FederatedLogsSetupHealthCheckEnd2endDataFlow:FederatedLogsSetupHealthCheckEnd2endDataFlow": {
+            "properties": {
+                "lastUpdatedAt": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "lastUpdatedAt",
+                        "message",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/FederatedLogsSetupHealthCheckQueryConnection:FederatedLogsSetupHealthCheckQueryConnection": {
+            "properties": {
+                "lastUpdatedAt": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "lastUpdatedAt",
+                        "message",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/FederatedLogsSetupLifecycleStatus:FederatedLogsSetupLifecycleStatus": {
+            "properties": {
+                "lastUpdatedAt": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "lastUpdatedAt",
+                        "message",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/FederatedLogsSetupStorage:FederatedLogsSetupStorage": {
+            "properties": {
+                "cloudProviderConfiguration": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupStorageCloudProviderConfiguration:FederatedLogsSetupStorageCloudProviderConfiguration",
+                    "description": "Cloud provider configuration. See below.\n"
+                },
+                "dataIngestConnectionId": {
+                    "type": "string",
+                    "description": "Entity GUID of the \u003cspan pulumi-lang-nodejs=\"`newrelic.AwsConnection`\" pulumi-lang-dotnet=\"`newrelic.AwsConnection`\" pulumi-lang-go=\"`AwsConnection`\" pulumi-lang-python=\"`AwsConnection`\" pulumi-lang-yaml=\"`newrelic.AwsConnection`\" pulumi-lang-java=\"`newrelic.AwsConnection`\" pulumi-lang-hcl=\"`newrelic_aws_connection`\"\u003e`newrelic.AwsConnection`\u003c/span\u003e used for writing data (the fleet ingest role).\n"
+                },
+                "dataLocationBucket": {
+                    "type": "string",
+                    "description": "S3 bucket where log data is stored.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "Glue catalog database name associated with the setup.\n"
+                },
+                "queryConnectionId": {
+                    "type": "string",
+                    "description": "Entity GUID of the \u003cspan pulumi-lang-nodejs=\"`newrelic.AwsConnection`\" pulumi-lang-dotnet=\"`newrelic.AwsConnection`\" pulumi-lang-go=\"`AwsConnection`\" pulumi-lang-python=\"`AwsConnection`\" pulumi-lang-yaml=\"`newrelic.AwsConnection`\" pulumi-lang-java=\"`newrelic.AwsConnection`\" pulumi-lang-hcl=\"`newrelic_aws_connection`\"\u003e`newrelic.AwsConnection`\u003c/span\u003e used for reading data.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "cloudProviderConfiguration",
+                "dataIngestConnectionId",
+                "dataLocationBucket",
+                "database",
+                "queryConnectionId"
+            ]
+        },
+        "newrelic:index/FederatedLogsSetupStorageCloudProviderConfiguration:FederatedLogsSetupStorageCloudProviderConfiguration": {
+            "properties": {
+                "provider": {
+                    "type": "string",
+                    "description": "The cloud provider. Currently only `AWS` is supported.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The cloud provider region (e.g. `us-east-1`).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "provider",
+                "region"
             ]
         },
         "newrelic:index/FleetConfigurationVersion:FleetConfigurationVersion": {
@@ -12621,6 +13096,184 @@
                 "type": "object"
             }
         },
+        "newrelic:index/awsConnection:AwsConnection": {
+            "description": "Use this resource to create and manage an AWS Connection entity in New Relic.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AwsConnection(\"foo\", {\n    name: \"test-aws-connection\",\n    description: \"AWS Connection wrapping the role\",\n    region: \"us-east-1\",\n    enabled: true,\n    scopeType: \"ORGANIZATION\",\n    scopeId: \"YOUR_ORG_ID_HERE\",\n    credential: {\n        assumeRole: {\n            roleArn: \"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\",\n            externalId: \"external id\",\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AwsConnection(\"foo\",\n    name=\"test-aws-connection\",\n    description=\"AWS Connection wrapping the role\",\n    region=\"us-east-1\",\n    enabled=True,\n    scope_type=\"ORGANIZATION\",\n    scope_id=\"YOUR_ORG_ID_HERE\",\n    credential={\n        \"assume_role\": {\n            \"role_arn\": \"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\",\n            \"external_id\": \"external id\",\n        },\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = new NewRelic.AwsConnection(\"foo\", new()\n    {\n        Name = \"test-aws-connection\",\n        Description = \"AWS Connection wrapping the role\",\n        Region = \"us-east-1\",\n        Enabled = true,\n        ScopeType = \"ORGANIZATION\",\n        ScopeId = \"YOUR_ORG_ID_HERE\",\n        Credential = new NewRelic.Inputs.AwsConnectionCredentialArgs\n        {\n            AssumeRole = new NewRelic.Inputs.AwsConnectionCredentialAssumeRoleArgs\n            {\n                RoleArn = \"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\",\n                ExternalId = \"external id\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewAwsConnection(ctx, \"foo\", \u0026newrelic.AwsConnectionArgs{\n\t\t\tName:        pulumi.String(\"test-aws-connection\"),\n\t\t\tDescription: pulumi.String(\"AWS Connection wrapping the role\"),\n\t\t\tRegion:      pulumi.String(\"us-east-1\"),\n\t\t\tEnabled:     pulumi.Bool(true),\n\t\t\tScopeType:   pulumi.String(\"ORGANIZATION\"),\n\t\t\tScopeId:     pulumi.String(\"YOUR_ORG_ID_HERE\"),\n\t\t\tCredential: \u0026newrelic.AwsConnectionCredentialArgs{\n\t\t\t\tAssumeRole: \u0026newrelic.AwsConnectionCredentialAssumeRoleArgs{\n\t\t\t\t\tRoleArn:    pulumi.String(\"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\"),\n\t\t\t\t\tExternalId: pulumi.String(\"external id\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    newrelic = {\n      source = \"pulumi/newrelic\"\n    }\n  }\n}\n\nresource \"newrelic_awsconnection\" \"foo\" {\n  name        = \"test-aws-connection\"\n  description = \"AWS Connection wrapping the role\"\n  region      = \"us-east-1\"\n  enabled     = true\n  scope_type  = \"ORGANIZATION\"\n  scope_id    = \"YOUR_ORG_ID_HERE\"\n  credential = {\n    assume_role = {\n      role_arn    = \"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\"\n      external_id = \"external id\"\n    }\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.AwsConnection;\nimport com.pulumi.newrelic.AwsConnectionArgs;\nimport com.pulumi.newrelic.inputs.AwsConnectionCredentialArgs;\nimport com.pulumi.newrelic.inputs.AwsConnectionCredentialAssumeRoleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new AwsConnection(\"foo\", AwsConnectionArgs.builder()\n            .name(\"test-aws-connection\")\n            .description(\"AWS Connection wrapping the role\")\n            .region(\"us-east-1\")\n            .enabled(true)\n            .scopeType(\"ORGANIZATION\")\n            .scopeId(\"YOUR_ORG_ID_HERE\")\n            .credential(AwsConnectionCredentialArgs.builder()\n                .assumeRole(AwsConnectionCredentialAssumeRoleArgs.builder()\n                    .roleArn(\"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\")\n                    .externalId(\"external id\")\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:AwsConnection\n    properties:\n      name: test-aws-connection\n      description: AWS Connection wrapping the role\n      region: us-east-1\n      enabled: true\n      scopeType: ORGANIZATION\n      scopeId: YOUR_ORG_ID_HERE\n      credential:\n        assumeRole:\n          roleArn: arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\n          externalId: external id\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAWS Connections can be imported using the entity GUID:\n\n```sh\n$ pulumi import newrelic:index/awsConnection:AwsConnection foo \u003centity-guid\u003e\n```\n\n",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "New Relic account ID where the connection will be created. Used when \u003cspan pulumi-lang-nodejs=\"`scopeType \" pulumi-lang-dotnet=\"`ScopeType \" pulumi-lang-go=\"`scopeType \" pulumi-lang-python=\"`scope_type \" pulumi-lang-yaml=\"`scopeType \" pulumi-lang-java=\"`scopeType \" pulumi-lang-hcl=\"`scope_type \"\u003e`scopeType \u003c/span\u003e= ACCOUNT`.\n"
+                },
+                "credential": {
+                    "$ref": "#/types/newrelic:index/AwsConnectionCredential:AwsConnectionCredential",
+                    "description": "Credentials block describing how New Relic should authenticate into the AWS account. See Nested credential block below.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the AWS Connection.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Flag to indicate whether the connection is enabled. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AWS connection.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "AWS region for this connection (e.g. `us-east-1`).\n"
+                },
+                "scopeId": {
+                    "type": "string",
+                    "description": "Scope ID matching \u003cspan pulumi-lang-nodejs=\"`scopeType`\" pulumi-lang-dotnet=\"`ScopeType`\" pulumi-lang-go=\"`scopeType`\" pulumi-lang-python=\"`scope_type`\" pulumi-lang-yaml=\"`scopeType`\" pulumi-lang-java=\"`scopeType`\" pulumi-lang-hcl=\"`scope_type`\"\u003e`scopeType`\u003c/span\u003e — a New Relic account ID for `ACCOUNT` scope, or an organization ID for `ORGANIZATION` scope.\n"
+                },
+                "scopeType": {
+                    "type": "string",
+                    "description": "Scope type for the connection. Valid values: `ACCOUNT`, `ORGANIZATION`.\n"
+                },
+                "settings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/AwsConnectionSetting:AwsConnectionSetting"
+                    },
+                    "description": "Optional list of connection settings. Each entry takes:\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/AwsConnectionTag:AwsConnectionTag"
+                    },
+                    "description": "Tags applied to the AWS Connection entity. Each entry takes:\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "credential",
+                "name",
+                "scopeId"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "New Relic account ID where the connection will be created. Used when \u003cspan pulumi-lang-nodejs=\"`scopeType \" pulumi-lang-dotnet=\"`ScopeType \" pulumi-lang-go=\"`scopeType \" pulumi-lang-python=\"`scope_type \" pulumi-lang-yaml=\"`scopeType \" pulumi-lang-java=\"`scopeType \" pulumi-lang-hcl=\"`scope_type \"\u003e`scopeType \u003c/span\u003e= ACCOUNT`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "credential": {
+                    "$ref": "#/types/newrelic:index/AwsConnectionCredential:AwsConnectionCredential",
+                    "description": "Credentials block describing how New Relic should authenticate into the AWS account. See Nested credential block below.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the AWS Connection.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Flag to indicate whether the connection is enabled. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AWS connection.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "AWS region for this connection (e.g. `us-east-1`).\n"
+                },
+                "scopeId": {
+                    "type": "string",
+                    "description": "Scope ID matching \u003cspan pulumi-lang-nodejs=\"`scopeType`\" pulumi-lang-dotnet=\"`ScopeType`\" pulumi-lang-go=\"`scopeType`\" pulumi-lang-python=\"`scope_type`\" pulumi-lang-yaml=\"`scopeType`\" pulumi-lang-java=\"`scopeType`\" pulumi-lang-hcl=\"`scope_type`\"\u003e`scopeType`\u003c/span\u003e — a New Relic account ID for `ACCOUNT` scope, or an organization ID for `ORGANIZATION` scope.\n",
+                    "willReplaceOnChanges": true
+                },
+                "scopeType": {
+                    "type": "string",
+                    "description": "Scope type for the connection. Valid values: `ACCOUNT`, `ORGANIZATION`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "settings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/AwsConnectionSetting:AwsConnectionSetting"
+                    },
+                    "description": "Optional list of connection settings. Each entry takes:\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/AwsConnectionTag:AwsConnectionTag"
+                    },
+                    "description": "Tags applied to the AWS Connection entity. Each entry takes:\n"
+                }
+            },
+            "requiredInputs": [
+                "credential"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AwsConnection resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "New Relic account ID where the connection will be created. Used when \u003cspan pulumi-lang-nodejs=\"`scopeType \" pulumi-lang-dotnet=\"`ScopeType \" pulumi-lang-go=\"`scopeType \" pulumi-lang-python=\"`scope_type \" pulumi-lang-yaml=\"`scopeType \" pulumi-lang-java=\"`scopeType \" pulumi-lang-hcl=\"`scope_type \"\u003e`scopeType \u003c/span\u003e= ACCOUNT`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "credential": {
+                        "$ref": "#/types/newrelic:index/AwsConnectionCredential:AwsConnectionCredential",
+                        "description": "Credentials block describing how New Relic should authenticate into the AWS account. See Nested credential block below.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the AWS Connection.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Flag to indicate whether the connection is enabled. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                    },
+                    "externalId": {
+                        "type": "string",
+                        "description": "Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the AWS connection.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "AWS region for this connection (e.g. `us-east-1`).\n"
+                    },
+                    "scopeId": {
+                        "type": "string",
+                        "description": "Scope ID matching \u003cspan pulumi-lang-nodejs=\"`scopeType`\" pulumi-lang-dotnet=\"`ScopeType`\" pulumi-lang-go=\"`scopeType`\" pulumi-lang-python=\"`scope_type`\" pulumi-lang-yaml=\"`scopeType`\" pulumi-lang-java=\"`scopeType`\" pulumi-lang-hcl=\"`scope_type`\"\u003e`scopeType`\u003c/span\u003e — a New Relic account ID for `ACCOUNT` scope, or an organization ID for `ORGANIZATION` scope.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "scopeType": {
+                        "type": "string",
+                        "description": "Scope type for the connection. Valid values: `ACCOUNT`, `ORGANIZATION`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "settings": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/AwsConnectionSetting:AwsConnectionSetting"
+                        },
+                        "description": "Optional list of connection settings. Each entry takes:\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/AwsConnectionTag:AwsConnectionTag"
+                        },
+                        "description": "Tags applied to the AWS Connection entity. Each entry takes:\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "newrelic:index/browserApplication:BrowserApplication": {
             "description": "Use this resource to create, update, and delete a standalone New Relic browser application.\n\n## Example Usage\n\nThe following Terraform configuration is an example that illustrates the basic use case of creating a standalone browser application.\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.BrowserApplication(\"foo\", {\n    name: \"example-browser-app\",\n    cookiesEnabled: true,\n    distributedTracingEnabled: true,\n    loaderType: \"SPA\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.BrowserApplication(\"foo\",\n    name=\"example-browser-app\",\n    cookies_enabled=True,\n    distributed_tracing_enabled=True,\n    loader_type=\"SPA\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = new NewRelic.BrowserApplication(\"foo\", new()\n    {\n        Name = \"example-browser-app\",\n        CookiesEnabled = true,\n        DistributedTracingEnabled = true,\n        LoaderType = \"SPA\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewBrowserApplication(ctx, \"foo\", \u0026newrelic.BrowserApplicationArgs{\n\t\t\tName:                      pulumi.String(\"example-browser-app\"),\n\t\t\tCookiesEnabled:            pulumi.Bool(true),\n\t\t\tDistributedTracingEnabled: pulumi.Bool(true),\n\t\t\tLoaderType:                pulumi.String(\"SPA\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    newrelic = {\n      source = \"pulumi/newrelic\"\n    }\n  }\n}\n\nresource \"newrelic_browserapplication\" \"foo\" {\n  name                        = \"example-browser-app\"\n  cookies_enabled             = true\n  distributed_tracing_enabled = true\n  loader_type                 = \"SPA\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.BrowserApplication;\nimport com.pulumi.newrelic.BrowserApplicationArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new BrowserApplication(\"foo\", BrowserApplicationArgs.builder()\n            .name(\"example-browser-app\")\n            .cookiesEnabled(true)\n            .distributedTracingEnabled(true)\n            .loaderType(\"SPA\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:BrowserApplication\n    properties:\n      name: example-browser-app\n      cookiesEnabled: true\n      distributedTracingEnabled: true\n      loaderType: SPA\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nA browser application can be imported using its GUID, i.e.\n\n```sh\n$ pulumi import newrelic:index/browserApplication:BrowserApplication foo \u003cGUID\u003e\n```\n\n",
             "properties": {
@@ -13049,6 +13702,348 @@
                     "ruleId": {
                         "type": "string",
                         "description": "The id, uniquely identifying the rule.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/federatedLogsPartition:FederatedLogsPartition": {
+            "description": "Use this resource to create and manage an additional partition under an existing \u003cspan pulumi-lang-nodejs=\"`newrelic.FederatedLogsSetup`\" pulumi-lang-dotnet=\"`newrelic.FederatedLogsSetup`\" pulumi-lang-go=\"`FederatedLogsSetup`\" pulumi-lang-python=\"`FederatedLogsSetup`\" pulumi-lang-yaml=\"`newrelic.FederatedLogsSetup`\" pulumi-lang-java=\"`newrelic.FederatedLogsSetup`\" pulumi-lang-hcl=\"`newrelic_federated_logs_setup`\"\u003e`newrelic.FederatedLogsSetup`\u003c/span\u003e. \n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.FederatedLogsPartition(\"foo\", {\n    setupId: setup.id,\n    name: \"test-partition-logs\",\n    description: \"test partition for logs\",\n    storage: {\n        table: \"my_app_partition_logs\",\n        dataLocationUri: \"s3://my-app-fed-logs/my_app_partition_logs\",\n    },\n    dataRetentionPolicy: {\n        duration: 365,\n        unit: \"DAYS\",\n    },\n    forwarderConfiguration: {\n        type: \"PIPELINE_CONTROL\",\n        pipelineControl: {\n            partitionRule: {\n                expression: \"attributes[\\\"log.type\\\"] == \\\"partition\\\"\",\n            },\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.FederatedLogsPartition(\"foo\",\n    setup_id=setup[\"id\"],\n    name=\"test-partition-logs\",\n    description=\"test partition for logs\",\n    storage={\n        \"table\": \"my_app_partition_logs\",\n        \"data_location_uri\": \"s3://my-app-fed-logs/my_app_partition_logs\",\n    },\n    data_retention_policy={\n        \"duration\": 365,\n        \"unit\": \"DAYS\",\n    },\n    forwarder_configuration={\n        \"type\": \"PIPELINE_CONTROL\",\n        \"pipeline_control\": {\n            \"partition_rule\": {\n                \"expression\": \"attributes[\\\"log.type\\\"] == \\\"partition\\\"\",\n            },\n        },\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = new NewRelic.FederatedLogsPartition(\"foo\", new()\n    {\n        SetupId = setup.Id,\n        Name = \"test-partition-logs\",\n        Description = \"test partition for logs\",\n        Storage = new NewRelic.Inputs.FederatedLogsPartitionStorageArgs\n        {\n            Table = \"my_app_partition_logs\",\n            DataLocationUri = \"s3://my-app-fed-logs/my_app_partition_logs\",\n        },\n        DataRetentionPolicy = new NewRelic.Inputs.FederatedLogsPartitionDataRetentionPolicyArgs\n        {\n            Duration = 365,\n            Unit = \"DAYS\",\n        },\n        ForwarderConfiguration = new NewRelic.Inputs.FederatedLogsPartitionForwarderConfigurationArgs\n        {\n            Type = \"PIPELINE_CONTROL\",\n            PipelineControl = new NewRelic.Inputs.FederatedLogsPartitionForwarderConfigurationPipelineControlArgs\n            {\n                PartitionRule = new NewRelic.Inputs.FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs\n                {\n                    Expression = \"attributes[\\\"log.type\\\"] == \\\"partition\\\"\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewFederatedLogsPartition(ctx, \"foo\", \u0026newrelic.FederatedLogsPartitionArgs{\n\t\t\tSetupId:     pulumi.Any(setup.Id),\n\t\t\tName:        pulumi.String(\"test-partition-logs\"),\n\t\t\tDescription: pulumi.String(\"test partition for logs\"),\n\t\t\tStorage: \u0026newrelic.FederatedLogsPartitionStorageArgs{\n\t\t\t\tTable:           pulumi.String(\"my_app_partition_logs\"),\n\t\t\t\tDataLocationUri: pulumi.String(\"s3://my-app-fed-logs/my_app_partition_logs\"),\n\t\t\t},\n\t\t\tDataRetentionPolicy: \u0026newrelic.FederatedLogsPartitionDataRetentionPolicyArgs{\n\t\t\t\tDuration: pulumi.Int(365),\n\t\t\t\tUnit:     pulumi.String(\"DAYS\"),\n\t\t\t},\n\t\t\tForwarderConfiguration: \u0026newrelic.FederatedLogsPartitionForwarderConfigurationArgs{\n\t\t\t\tType: pulumi.String(\"PIPELINE_CONTROL\"),\n\t\t\t\tPipelineControl: \u0026newrelic.FederatedLogsPartitionForwarderConfigurationPipelineControlArgs{\n\t\t\t\t\tPartitionRule: \u0026newrelic.FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs{\n\t\t\t\t\t\tExpression: pulumi.String(\"attributes[\\\"log.type\\\"] == \\\"partition\\\"\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    newrelic = {\n      source = \"pulumi/newrelic\"\n    }\n  }\n}\n\nresource \"newrelic_federatedlogspartition\" \"foo\" {\n  setup_id    = setup.id\n  name        = \"test-partition-logs\"\n  description = \"test partition for logs\"\n  storage = {\n    table             = \"my_app_partition_logs\"\n    data_location_uri = \"s3://my-app-fed-logs/my_app_partition_logs\"\n  }\n  data_retention_policy = {\n    duration = 365\n    unit     = \"DAYS\"\n  }\n  forwarder_configuration = {\n    type = \"PIPELINE_CONTROL\"\n    pipeline_control = {\n      partition_rule = {\n        expression = \"attributes[\\\"log.type\\\"] == \\\"partition\\\"\"\n      }\n    }\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.FederatedLogsPartition;\nimport com.pulumi.newrelic.FederatedLogsPartitionArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsPartitionStorageArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsPartitionDataRetentionPolicyArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsPartitionForwarderConfigurationArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsPartitionForwarderConfigurationPipelineControlArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new FederatedLogsPartition(\"foo\", FederatedLogsPartitionArgs.builder()\n            .setupId(setup.id())\n            .name(\"test-partition-logs\")\n            .description(\"test partition for logs\")\n            .storage(FederatedLogsPartitionStorageArgs.builder()\n                .table(\"my_app_partition_logs\")\n                .dataLocationUri(\"s3://my-app-fed-logs/my_app_partition_logs\")\n                .build())\n            .dataRetentionPolicy(FederatedLogsPartitionDataRetentionPolicyArgs.builder()\n                .duration(365)\n                .unit(\"DAYS\")\n                .build())\n            .forwarderConfiguration(FederatedLogsPartitionForwarderConfigurationArgs.builder()\n                .type(\"PIPELINE_CONTROL\")\n                .pipelineControl(FederatedLogsPartitionForwarderConfigurationPipelineControlArgs.builder()\n                    .partitionRule(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs.builder()\n                        .expression(\"attributes[\\\"log.type\\\"] == \\\"partition\\\"\")\n                        .build())\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:FederatedLogsPartition\n    properties:\n      setupId: ${setup.id}\n      name: test-partition-logs\n      description: test partition for logs\n      storage:\n        table: my_app_partition_logs\n        dataLocationUri: s3://my-app-fed-logs/my_app_partition_logs\n      dataRetentionPolicy:\n        duration: 365\n        unit: DAYS\n      forwarderConfiguration:\n        type: PIPELINE_CONTROL\n        pipelineControl:\n          partitionRule:\n            expression: attributes[\"log.type\"] == \"partition\"\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nFederated Logs partitions can be imported using the entity GUID:\n\n```sh\n$ pulumi import newrelic:index/federatedLogsPartition:FederatedLogsPartition foo \u003centity-guid\u003e\n```\n\n",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The New Relic account ID where the federated logs partition will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API."
+                },
+                "active": {
+                    "type": "boolean",
+                    "description": "Whether the partition is active.\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "Creation timestamp.\n"
+                },
+                "dataRetentionPolicy": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsPartitionDataRetentionPolicy:FederatedLogsPartitionDataRetentionPolicy",
+                    "description": "Retention policy for logs in this partition. See Nested\u003cspan pulumi-lang-nodejs=\" dataRetentionPolicy \" pulumi-lang-dotnet=\" DataRetentionPolicy \" pulumi-lang-go=\" dataRetentionPolicy \" pulumi-lang-python=\" data_retention_policy \" pulumi-lang-yaml=\" dataRetentionPolicy \" pulumi-lang-java=\" dataRetentionPolicy \" pulumi-lang-hcl=\" data_retention_policy \"\u003e dataRetentionPolicy \u003c/span\u003eblock below.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for partition.\n"
+                },
+                "forwarderConfiguration": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsPartitionForwarderConfiguration:FederatedLogsPartitionForwarderConfiguration",
+                    "description": "Forwarder configuration for routing specific logs to this partition. See Nested\u003cspan pulumi-lang-nodejs=\" forwarderConfiguration \" pulumi-lang-dotnet=\" ForwarderConfiguration \" pulumi-lang-go=\" forwarderConfiguration \" pulumi-lang-python=\" forwarder_configuration \" pulumi-lang-yaml=\" forwarderConfiguration \" pulumi-lang-java=\" forwarderConfiguration \" pulumi-lang-hcl=\" forwarder_configuration \"\u003e forwarderConfiguration \u003c/span\u003eblock below.\n"
+                },
+                "healthChecks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsPartitionHealthCheck:FederatedLogsPartitionHealthCheck"
+                    },
+                    "description": "Aggregate health check status for the partition.\n"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Whether this is the default partition for the parent setup.\n"
+                },
+                "lifecycleStatuses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsPartitionLifecycleStatus:FederatedLogsPartitionLifecycleStatus"
+                    },
+                    "description": "Current lifecycle status of the partition.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the partition.\n"
+                },
+                "setupId": {
+                    "type": "string",
+                    "description": "Entity GUID of the setup.\n"
+                },
+                "storage": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsPartitionStorage:FederatedLogsPartitionStorage",
+                    "description": "Storage details for this partition. See Nested storage block below.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Last-updated timestamp.\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "active",
+                "createdAt",
+                "healthChecks",
+                "isDefault",
+                "lifecycleStatuses",
+                "name",
+                "setupId",
+                "storage",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The New Relic account ID where the federated logs partition will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API."
+                },
+                "active": {
+                    "type": "boolean",
+                    "description": "Whether the partition is active.\n"
+                },
+                "dataRetentionPolicy": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsPartitionDataRetentionPolicy:FederatedLogsPartitionDataRetentionPolicy",
+                    "description": "Retention policy for logs in this partition. See Nested\u003cspan pulumi-lang-nodejs=\" dataRetentionPolicy \" pulumi-lang-dotnet=\" DataRetentionPolicy \" pulumi-lang-go=\" dataRetentionPolicy \" pulumi-lang-python=\" data_retention_policy \" pulumi-lang-yaml=\" dataRetentionPolicy \" pulumi-lang-java=\" dataRetentionPolicy \" pulumi-lang-hcl=\" data_retention_policy \"\u003e dataRetentionPolicy \u003c/span\u003eblock below.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for partition.\n"
+                },
+                "forwarderConfiguration": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsPartitionForwarderConfiguration:FederatedLogsPartitionForwarderConfiguration",
+                    "description": "Forwarder configuration for routing specific logs to this partition. See Nested\u003cspan pulumi-lang-nodejs=\" forwarderConfiguration \" pulumi-lang-dotnet=\" ForwarderConfiguration \" pulumi-lang-go=\" forwarderConfiguration \" pulumi-lang-python=\" forwarder_configuration \" pulumi-lang-yaml=\" forwarderConfiguration \" pulumi-lang-java=\" forwarderConfiguration \" pulumi-lang-hcl=\" forwarder_configuration \"\u003e forwarderConfiguration \u003c/span\u003eblock below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the partition.\n"
+                },
+                "setupId": {
+                    "type": "string",
+                    "description": "Entity GUID of the setup.\n"
+                },
+                "storage": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsPartitionStorage:FederatedLogsPartitionStorage",
+                    "description": "Storage details for this partition. See Nested storage block below.\n"
+                }
+            },
+            "requiredInputs": [
+                "setupId",
+                "storage"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FederatedLogsPartition resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "The New Relic account ID where the federated logs partition will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API."
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "Whether the partition is active.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Creation timestamp.\n"
+                    },
+                    "dataRetentionPolicy": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsPartitionDataRetentionPolicy:FederatedLogsPartitionDataRetentionPolicy",
+                        "description": "Retention policy for logs in this partition. See Nested\u003cspan pulumi-lang-nodejs=\" dataRetentionPolicy \" pulumi-lang-dotnet=\" DataRetentionPolicy \" pulumi-lang-go=\" dataRetentionPolicy \" pulumi-lang-python=\" data_retention_policy \" pulumi-lang-yaml=\" dataRetentionPolicy \" pulumi-lang-java=\" dataRetentionPolicy \" pulumi-lang-hcl=\" data_retention_policy \"\u003e dataRetentionPolicy \u003c/span\u003eblock below.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description for partition.\n"
+                    },
+                    "forwarderConfiguration": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsPartitionForwarderConfiguration:FederatedLogsPartitionForwarderConfiguration",
+                        "description": "Forwarder configuration for routing specific logs to this partition. See Nested\u003cspan pulumi-lang-nodejs=\" forwarderConfiguration \" pulumi-lang-dotnet=\" ForwarderConfiguration \" pulumi-lang-go=\" forwarderConfiguration \" pulumi-lang-python=\" forwarder_configuration \" pulumi-lang-yaml=\" forwarderConfiguration \" pulumi-lang-java=\" forwarderConfiguration \" pulumi-lang-hcl=\" forwarder_configuration \"\u003e forwarderConfiguration \u003c/span\u003eblock below.\n"
+                    },
+                    "healthChecks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/FederatedLogsPartitionHealthCheck:FederatedLogsPartitionHealthCheck"
+                        },
+                        "description": "Aggregate health check status for the partition.\n"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "Whether this is the default partition for the parent setup.\n"
+                    },
+                    "lifecycleStatuses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/FederatedLogsPartitionLifecycleStatus:FederatedLogsPartitionLifecycleStatus"
+                        },
+                        "description": "Current lifecycle status of the partition.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the partition.\n"
+                    },
+                    "setupId": {
+                        "type": "string",
+                        "description": "Entity GUID of the setup.\n"
+                    },
+                    "storage": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsPartitionStorage:FederatedLogsPartitionStorage",
+                        "description": "Storage details for this partition. See Nested storage block below.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Last-updated timestamp.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/federatedLogsSetup:FederatedLogsSetup": {
+            "description": "Use this resource to create and manage a Federated Logs setup. \n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst ingest = new newrelic.AwsConnection(\"ingest\", {\n    name: \"fed-logs-ingest\",\n    roleArn: \"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\",\n    region: \"us-east-1\",\n    scopeType: \"ORGANIZATION\",\n    scopeId: \"YOUR_ORG_ID_HERE\",\n});\nconst query = new newrelic.AwsConnection(\"query\", {\n    name: \"fed-logs-query\",\n    roleArn: \"arn:aws:iam::123456789012:role/newrelic-fed-logs-query\",\n    region: \"us-east-1\",\n    scopeType: \"ORGANIZATION\",\n    scopeId: \"YOUR_ORG_ID_HERE\",\n});\nconst foo = new newrelic.FederatedLogsSetup(\"foo\", {\n    name: \"my-app-logs\",\n    description: \"Federated logs setup for my-app\",\n    storage: {\n        dataLocationBucket: \"my-app-fed-logs\",\n        database: \"my_app_fed_logs_db\",\n        dataIngestConnectionId: ingest.id,\n        queryConnectionId: query.id,\n        cloudProviderConfiguration: {\n            provider: \"AWS\",\n            region: \"us-east-1\",\n        },\n    },\n    defaultPartition: {\n        storage: {\n            table: \"my_app_default_partition\",\n            dataLocationUri: \"s3://my-app-fed-logs/my_app_default_partition\",\n        },\n        dataRetentionPolicy: {\n            duration: 30,\n            unit: \"DAYS\",\n        },\n    },\n    forwarder: {\n        type: \"PIPELINE_CONTROL\",\n        pipelineControl: {\n            fleetId: \"\u003cfleet-entity-guid\u003e\",\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\ningest = newrelic.AwsConnection(\"ingest\",\n    name=\"fed-logs-ingest\",\n    role_arn=\"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\",\n    region=\"us-east-1\",\n    scope_type=\"ORGANIZATION\",\n    scope_id=\"YOUR_ORG_ID_HERE\")\nquery = newrelic.AwsConnection(\"query\",\n    name=\"fed-logs-query\",\n    role_arn=\"arn:aws:iam::123456789012:role/newrelic-fed-logs-query\",\n    region=\"us-east-1\",\n    scope_type=\"ORGANIZATION\",\n    scope_id=\"YOUR_ORG_ID_HERE\")\nfoo = newrelic.FederatedLogsSetup(\"foo\",\n    name=\"my-app-logs\",\n    description=\"Federated logs setup for my-app\",\n    storage={\n        \"data_location_bucket\": \"my-app-fed-logs\",\n        \"database\": \"my_app_fed_logs_db\",\n        \"data_ingest_connection_id\": ingest.id,\n        \"query_connection_id\": query.id,\n        \"cloud_provider_configuration\": {\n            \"provider\": \"AWS\",\n            \"region\": \"us-east-1\",\n        },\n    },\n    default_partition={\n        \"storage\": {\n            \"table\": \"my_app_default_partition\",\n            \"data_location_uri\": \"s3://my-app-fed-logs/my_app_default_partition\",\n        },\n        \"data_retention_policy\": {\n            \"duration\": 30,\n            \"unit\": \"DAYS\",\n        },\n    },\n    forwarder={\n        \"type\": \"PIPELINE_CONTROL\",\n        \"pipeline_control\": {\n            \"fleet_id\": \"\u003cfleet-entity-guid\u003e\",\n        },\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var ingest = new NewRelic.AwsConnection(\"ingest\", new()\n    {\n        Name = \"fed-logs-ingest\",\n        RoleArn = \"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\",\n        Region = \"us-east-1\",\n        ScopeType = \"ORGANIZATION\",\n        ScopeId = \"YOUR_ORG_ID_HERE\",\n    });\n\n    var query = new NewRelic.AwsConnection(\"query\", new()\n    {\n        Name = \"fed-logs-query\",\n        RoleArn = \"arn:aws:iam::123456789012:role/newrelic-fed-logs-query\",\n        Region = \"us-east-1\",\n        ScopeType = \"ORGANIZATION\",\n        ScopeId = \"YOUR_ORG_ID_HERE\",\n    });\n\n    var foo = new NewRelic.FederatedLogsSetup(\"foo\", new()\n    {\n        Name = \"my-app-logs\",\n        Description = \"Federated logs setup for my-app\",\n        Storage = new NewRelic.Inputs.FederatedLogsSetupStorageArgs\n        {\n            DataLocationBucket = \"my-app-fed-logs\",\n            Database = \"my_app_fed_logs_db\",\n            DataIngestConnectionId = ingest.Id,\n            QueryConnectionId = query.Id,\n            CloudProviderConfiguration = new NewRelic.Inputs.FederatedLogsSetupStorageCloudProviderConfigurationArgs\n            {\n                Provider = \"AWS\",\n                Region = \"us-east-1\",\n            },\n        },\n        DefaultPartition = new NewRelic.Inputs.FederatedLogsSetupDefaultPartitionArgs\n        {\n            Storage = new NewRelic.Inputs.FederatedLogsSetupDefaultPartitionStorageArgs\n            {\n                Table = \"my_app_default_partition\",\n                DataLocationUri = \"s3://my-app-fed-logs/my_app_default_partition\",\n            },\n            DataRetentionPolicy = new NewRelic.Inputs.FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs\n            {\n                Duration = 30,\n                Unit = \"DAYS\",\n            },\n        },\n        Forwarder = new NewRelic.Inputs.FederatedLogsSetupForwarderArgs\n        {\n            Type = \"PIPELINE_CONTROL\",\n            PipelineControl = new NewRelic.Inputs.FederatedLogsSetupForwarderPipelineControlArgs\n            {\n                FleetId = \"\u003cfleet-entity-guid\u003e\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tingest, err := newrelic.NewAwsConnection(ctx, \"ingest\", \u0026newrelic.AwsConnectionArgs{\n\t\t\tName:      pulumi.String(\"fed-logs-ingest\"),\n\t\t\tRoleArn:   \"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\",\n\t\t\tRegion:    pulumi.String(\"us-east-1\"),\n\t\t\tScopeType: pulumi.String(\"ORGANIZATION\"),\n\t\t\tScopeId:   pulumi.String(\"YOUR_ORG_ID_HERE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tquery, err := newrelic.NewAwsConnection(ctx, \"query\", \u0026newrelic.AwsConnectionArgs{\n\t\t\tName:      pulumi.String(\"fed-logs-query\"),\n\t\t\tRoleArn:   \"arn:aws:iam::123456789012:role/newrelic-fed-logs-query\",\n\t\t\tRegion:    pulumi.String(\"us-east-1\"),\n\t\t\tScopeType: pulumi.String(\"ORGANIZATION\"),\n\t\t\tScopeId:   pulumi.String(\"YOUR_ORG_ID_HERE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewFederatedLogsSetup(ctx, \"foo\", \u0026newrelic.FederatedLogsSetupArgs{\n\t\t\tName:        pulumi.String(\"my-app-logs\"),\n\t\t\tDescription: pulumi.String(\"Federated logs setup for my-app\"),\n\t\t\tStorage: \u0026newrelic.FederatedLogsSetupStorageArgs{\n\t\t\t\tDataLocationBucket:     pulumi.String(\"my-app-fed-logs\"),\n\t\t\t\tDatabase:               pulumi.String(\"my_app_fed_logs_db\"),\n\t\t\t\tDataIngestConnectionId: ingest.ID(),\n\t\t\t\tQueryConnectionId:      query.ID(),\n\t\t\t\tCloudProviderConfiguration: \u0026newrelic.FederatedLogsSetupStorageCloudProviderConfigurationArgs{\n\t\t\t\t\tProvider: pulumi.String(\"AWS\"),\n\t\t\t\t\tRegion:   pulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDefaultPartition: \u0026newrelic.FederatedLogsSetupDefaultPartitionArgs{\n\t\t\t\tStorage: \u0026newrelic.FederatedLogsSetupDefaultPartitionStorageArgs{\n\t\t\t\t\tTable:           pulumi.String(\"my_app_default_partition\"),\n\t\t\t\t\tDataLocationUri: pulumi.String(\"s3://my-app-fed-logs/my_app_default_partition\"),\n\t\t\t\t},\n\t\t\t\tDataRetentionPolicy: \u0026newrelic.FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs{\n\t\t\t\t\tDuration: pulumi.Int(30),\n\t\t\t\t\tUnit:     pulumi.String(\"DAYS\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tForwarder: \u0026newrelic.FederatedLogsSetupForwarderArgs{\n\t\t\t\tType: pulumi.String(\"PIPELINE_CONTROL\"),\n\t\t\t\tPipelineControl: \u0026newrelic.FederatedLogsSetupForwarderPipelineControlArgs{\n\t\t\t\t\tFleetId: pulumi.String(\"\u003cfleet-entity-guid\u003e\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    newrelic = {\n      source = \"pulumi/newrelic\"\n    }\n  }\n}\n\nresource \"newrelic_awsconnection\" \"ingest\" {\n  name       = \"fed-logs-ingest\"\n  role_arn   = \"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\"\n  region     = \"us-east-1\"\n  scope_type = \"ORGANIZATION\"\n  scope_id   = \"YOUR_ORG_ID_HERE\"\n}\nresource \"newrelic_awsconnection\" \"query\" {\n  name       = \"fed-logs-query\"\n  role_arn   = \"arn:aws:iam::123456789012:role/newrelic-fed-logs-query\"\n  region     = \"us-east-1\"\n  scope_type = \"ORGANIZATION\"\n  scope_id   = \"YOUR_ORG_ID_HERE\"\n}\nresource \"newrelic_federatedlogssetup\" \"foo\" {\n  name        = \"my-app-logs\"\n  description = \"Federated logs setup for my-app\"\n  storage = {\n    data_location_bucket      = \"my-app-fed-logs\"\n    database                  = \"my_app_fed_logs_db\"\n    data_ingest_connection_id = newrelic_awsconnection.ingest.id\n    query_connection_id       = newrelic_awsconnection.query.id\n    cloud_provider_configuration = {\n      provider = \"AWS\"\n      region   = \"us-east-1\"\n    }\n  }\n  default_partition = {\n    storage = {\n      table             = \"my_app_default_partition\"\n      data_location_uri = \"s3://my-app-fed-logs/my_app_default_partition\"\n    }\n    data_retention_policy = {\n      duration = 30\n      unit     = \"DAYS\"\n    }\n  }\n  forwarder = {\n    type = \"PIPELINE_CONTROL\"\n    pipeline_control = {\n      fleet_id = \"\u003cfleet-entity-guid\u003e\"\n    }\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.AwsConnection;\nimport com.pulumi.newrelic.AwsConnectionArgs;\nimport com.pulumi.newrelic.FederatedLogsSetup;\nimport com.pulumi.newrelic.FederatedLogsSetupArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsSetupStorageArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsSetupStorageCloudProviderConfigurationArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsSetupDefaultPartitionArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsSetupDefaultPartitionStorageArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsSetupForwarderArgs;\nimport com.pulumi.newrelic.inputs.FederatedLogsSetupForwarderPipelineControlArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var ingest = new AwsConnection(\"ingest\", AwsConnectionArgs.builder()\n            .name(\"fed-logs-ingest\")\n            .roleArn(\"arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\")\n            .region(\"us-east-1\")\n            .scopeType(\"ORGANIZATION\")\n            .scopeId(\"YOUR_ORG_ID_HERE\")\n            .build());\n\n        var query = new AwsConnection(\"query\", AwsConnectionArgs.builder()\n            .name(\"fed-logs-query\")\n            .roleArn(\"arn:aws:iam::123456789012:role/newrelic-fed-logs-query\")\n            .region(\"us-east-1\")\n            .scopeType(\"ORGANIZATION\")\n            .scopeId(\"YOUR_ORG_ID_HERE\")\n            .build());\n\n        var foo = new FederatedLogsSetup(\"foo\", FederatedLogsSetupArgs.builder()\n            .name(\"my-app-logs\")\n            .description(\"Federated logs setup for my-app\")\n            .storage(FederatedLogsSetupStorageArgs.builder()\n                .dataLocationBucket(\"my-app-fed-logs\")\n                .database(\"my_app_fed_logs_db\")\n                .dataIngestConnectionId(ingest.id())\n                .queryConnectionId(query.id())\n                .cloudProviderConfiguration(FederatedLogsSetupStorageCloudProviderConfigurationArgs.builder()\n                    .provider(\"AWS\")\n                    .region(\"us-east-1\")\n                    .build())\n                .build())\n            .defaultPartition(FederatedLogsSetupDefaultPartitionArgs.builder()\n                .storage(FederatedLogsSetupDefaultPartitionStorageArgs.builder()\n                    .table(\"my_app_default_partition\")\n                    .dataLocationUri(\"s3://my-app-fed-logs/my_app_default_partition\")\n                    .build())\n                .dataRetentionPolicy(FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs.builder()\n                    .duration(30)\n                    .unit(\"DAYS\")\n                    .build())\n                .build())\n            .forwarder(FederatedLogsSetupForwarderArgs.builder()\n                .type(\"PIPELINE_CONTROL\")\n                .pipelineControl(FederatedLogsSetupForwarderPipelineControlArgs.builder()\n                    .fleetId(\"\u003cfleet-entity-guid\u003e\")\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  ingest:\n    type: newrelic:AwsConnection\n    properties:\n      name: fed-logs-ingest\n      roleArn: arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest\n      region: us-east-1\n      scopeType: ORGANIZATION\n      scopeId: YOUR_ORG_ID_HERE\n  query:\n    type: newrelic:AwsConnection\n    properties:\n      name: fed-logs-query\n      roleArn: arn:aws:iam::123456789012:role/newrelic-fed-logs-query\n      region: us-east-1\n      scopeType: ORGANIZATION\n      scopeId: YOUR_ORG_ID_HERE\n  foo:\n    type: newrelic:FederatedLogsSetup\n    properties:\n      name: my-app-logs\n      description: Federated logs setup for my-app\n      storage:\n        dataLocationBucket: my-app-fed-logs\n        database: my_app_fed_logs_db\n        dataIngestConnectionId: ${ingest.id}\n        queryConnectionId: ${query.id}\n        cloudProviderConfiguration:\n          provider: AWS\n          region: us-east-1\n      defaultPartition:\n        storage:\n          table: my_app_default_partition\n          dataLocationUri: s3://my-app-fed-logs/my_app_default_partition\n        dataRetentionPolicy:\n          duration: 30\n          unit: DAYS\n      forwarder:\n        type: PIPELINE_CONTROL\n        pipelineControl:\n          fleetId: \u003cfleet-entity-guid\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nFederated Logs setups can be imported using the entity GUID:\n\n```sh\n$ pulumi import newrelic:index/federatedLogsSetup:FederatedLogsSetup foo \u003centity-guid\u003e\n```\n\n",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The New Relic account ID where the federated logs setup will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API."
+                },
+                "active": {
+                    "type": "boolean",
+                    "description": "Whether the setup is active.\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "Creation timestamp.\n"
+                },
+                "defaultPartition": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupDefaultPartition:FederatedLogsSetupDefaultPartition",
+                    "description": "Default partition created alongside the setup. See Nested\u003cspan pulumi-lang-nodejs=\" defaultPartition \" pulumi-lang-dotnet=\" DefaultPartition \" pulumi-lang-go=\" defaultPartition \" pulumi-lang-python=\" default_partition \" pulumi-lang-yaml=\" defaultPartition \" pulumi-lang-java=\" defaultPartition \" pulumi-lang-hcl=\" default_partition \"\u003e defaultPartition \u003c/span\u003eblock below.\n"
+                },
+                "defaultPartitionId": {
+                    "type": "string",
+                    "description": "The entity GUID of the default partition created alongside this setup.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for federated logs setup.\n"
+                },
+                "forwarder": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupForwarder:FederatedLogsSetupForwarder",
+                    "description": "Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.\n"
+                },
+                "healthChecks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsSetupHealthCheck:FederatedLogsSetupHealthCheck"
+                    },
+                    "description": "Aggregate health check status for the setup.\n"
+                },
+                "lifecycleStatuses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsSetupLifecycleStatus:FederatedLogsSetupLifecycleStatus"
+                    },
+                    "description": "Current lifecycle status of the setup.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the federated log setup.\n"
+                },
+                "storage": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupStorage:FederatedLogsSetupStorage",
+                    "description": "Storage configuration. Cannot be changed after creation. See Nested storage block below.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Last-updated timestamp.\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "active",
+                "createdAt",
+                "defaultPartition",
+                "defaultPartitionId",
+                "healthChecks",
+                "lifecycleStatuses",
+                "name",
+                "storage",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The New Relic account ID where the federated logs setup will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API."
+                },
+                "active": {
+                    "type": "boolean",
+                    "description": "Whether the setup is active.\n"
+                },
+                "defaultPartition": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupDefaultPartition:FederatedLogsSetupDefaultPartition",
+                    "description": "Default partition created alongside the setup. See Nested\u003cspan pulumi-lang-nodejs=\" defaultPartition \" pulumi-lang-dotnet=\" DefaultPartition \" pulumi-lang-go=\" defaultPartition \" pulumi-lang-python=\" default_partition \" pulumi-lang-yaml=\" defaultPartition \" pulumi-lang-java=\" defaultPartition \" pulumi-lang-hcl=\" default_partition \"\u003e defaultPartition \u003c/span\u003eblock below.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for federated logs setup.\n"
+                },
+                "forwarder": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupForwarder:FederatedLogsSetupForwarder",
+                    "description": "Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the federated log setup.\n"
+                },
+                "storage": {
+                    "$ref": "#/types/newrelic:index/FederatedLogsSetupStorage:FederatedLogsSetupStorage",
+                    "description": "Storage configuration. Cannot be changed after creation. See Nested storage block below.\n"
+                }
+            },
+            "requiredInputs": [
+                "defaultPartition",
+                "storage"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FederatedLogsSetup resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "The New Relic account ID where the federated logs setup will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API."
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "Whether the setup is active.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Creation timestamp.\n"
+                    },
+                    "defaultPartition": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsSetupDefaultPartition:FederatedLogsSetupDefaultPartition",
+                        "description": "Default partition created alongside the setup. See Nested\u003cspan pulumi-lang-nodejs=\" defaultPartition \" pulumi-lang-dotnet=\" DefaultPartition \" pulumi-lang-go=\" defaultPartition \" pulumi-lang-python=\" default_partition \" pulumi-lang-yaml=\" defaultPartition \" pulumi-lang-java=\" defaultPartition \" pulumi-lang-hcl=\" default_partition \"\u003e defaultPartition \u003c/span\u003eblock below.\n"
+                    },
+                    "defaultPartitionId": {
+                        "type": "string",
+                        "description": "The entity GUID of the default partition created alongside this setup.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description for federated logs setup.\n"
+                    },
+                    "forwarder": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsSetupForwarder:FederatedLogsSetupForwarder",
+                        "description": "Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.\n"
+                    },
+                    "healthChecks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/FederatedLogsSetupHealthCheck:FederatedLogsSetupHealthCheck"
+                        },
+                        "description": "Aggregate health check status for the setup.\n"
+                    },
+                    "lifecycleStatuses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/FederatedLogsSetupLifecycleStatus:FederatedLogsSetupLifecycleStatus"
+                        },
+                        "description": "Current lifecycle status of the setup.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the federated log setup.\n"
+                    },
+                    "storage": {
+                        "$ref": "#/types/newrelic:index/FederatedLogsSetupStorage:FederatedLogsSetupStorage",
+                        "description": "Storage configuration. Cannot be changed after creation. See Nested storage block below.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Last-updated timestamp.\n"
                     }
                 },
                 "type": "object"

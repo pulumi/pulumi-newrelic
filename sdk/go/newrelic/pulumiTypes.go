@@ -1295,6 +1295,511 @@ func (o AlertMutingRuleSchedulePtrOutput) WeeklyRepeatDays() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+type AwsConnectionCredential struct {
+	// STS:AssumeRole configuration. See below.
+	AssumeRole AwsConnectionCredentialAssumeRole `pulumi:"assumeRole"`
+}
+
+// AwsConnectionCredentialInput is an input type that accepts AwsConnectionCredentialArgs and AwsConnectionCredentialOutput values.
+// You can construct a concrete instance of `AwsConnectionCredentialInput` via:
+//
+//	AwsConnectionCredentialArgs{...}
+type AwsConnectionCredentialInput interface {
+	pulumi.Input
+
+	ToAwsConnectionCredentialOutput() AwsConnectionCredentialOutput
+	ToAwsConnectionCredentialOutputWithContext(context.Context) AwsConnectionCredentialOutput
+}
+
+type AwsConnectionCredentialArgs struct {
+	// STS:AssumeRole configuration. See below.
+	AssumeRole AwsConnectionCredentialAssumeRoleInput `pulumi:"assumeRole"`
+}
+
+func (AwsConnectionCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsConnectionCredential)(nil)).Elem()
+}
+
+func (i AwsConnectionCredentialArgs) ToAwsConnectionCredentialOutput() AwsConnectionCredentialOutput {
+	return i.ToAwsConnectionCredentialOutputWithContext(context.Background())
+}
+
+func (i AwsConnectionCredentialArgs) ToAwsConnectionCredentialOutputWithContext(ctx context.Context) AwsConnectionCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionCredentialOutput)
+}
+
+func (i AwsConnectionCredentialArgs) ToAwsConnectionCredentialPtrOutput() AwsConnectionCredentialPtrOutput {
+	return i.ToAwsConnectionCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i AwsConnectionCredentialArgs) ToAwsConnectionCredentialPtrOutputWithContext(ctx context.Context) AwsConnectionCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionCredentialOutput).ToAwsConnectionCredentialPtrOutputWithContext(ctx)
+}
+
+// AwsConnectionCredentialPtrInput is an input type that accepts AwsConnectionCredentialArgs, AwsConnectionCredentialPtr and AwsConnectionCredentialPtrOutput values.
+// You can construct a concrete instance of `AwsConnectionCredentialPtrInput` via:
+//
+//	        AwsConnectionCredentialArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsConnectionCredentialPtrInput interface {
+	pulumi.Input
+
+	ToAwsConnectionCredentialPtrOutput() AwsConnectionCredentialPtrOutput
+	ToAwsConnectionCredentialPtrOutputWithContext(context.Context) AwsConnectionCredentialPtrOutput
+}
+
+type awsConnectionCredentialPtrType AwsConnectionCredentialArgs
+
+func AwsConnectionCredentialPtr(v *AwsConnectionCredentialArgs) AwsConnectionCredentialPtrInput {
+	return (*awsConnectionCredentialPtrType)(v)
+}
+
+func (*awsConnectionCredentialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsConnectionCredential)(nil)).Elem()
+}
+
+func (i *awsConnectionCredentialPtrType) ToAwsConnectionCredentialPtrOutput() AwsConnectionCredentialPtrOutput {
+	return i.ToAwsConnectionCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *awsConnectionCredentialPtrType) ToAwsConnectionCredentialPtrOutputWithContext(ctx context.Context) AwsConnectionCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionCredentialPtrOutput)
+}
+
+type AwsConnectionCredentialOutput struct{ *pulumi.OutputState }
+
+func (AwsConnectionCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsConnectionCredential)(nil)).Elem()
+}
+
+func (o AwsConnectionCredentialOutput) ToAwsConnectionCredentialOutput() AwsConnectionCredentialOutput {
+	return o
+}
+
+func (o AwsConnectionCredentialOutput) ToAwsConnectionCredentialOutputWithContext(ctx context.Context) AwsConnectionCredentialOutput {
+	return o
+}
+
+func (o AwsConnectionCredentialOutput) ToAwsConnectionCredentialPtrOutput() AwsConnectionCredentialPtrOutput {
+	return o.ToAwsConnectionCredentialPtrOutputWithContext(context.Background())
+}
+
+func (o AwsConnectionCredentialOutput) ToAwsConnectionCredentialPtrOutputWithContext(ctx context.Context) AwsConnectionCredentialPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsConnectionCredential) *AwsConnectionCredential {
+		return &v
+	}).(AwsConnectionCredentialPtrOutput)
+}
+
+// STS:AssumeRole configuration. See below.
+func (o AwsConnectionCredentialOutput) AssumeRole() AwsConnectionCredentialAssumeRoleOutput {
+	return o.ApplyT(func(v AwsConnectionCredential) AwsConnectionCredentialAssumeRole { return v.AssumeRole }).(AwsConnectionCredentialAssumeRoleOutput)
+}
+
+type AwsConnectionCredentialPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsConnectionCredentialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsConnectionCredential)(nil)).Elem()
+}
+
+func (o AwsConnectionCredentialPtrOutput) ToAwsConnectionCredentialPtrOutput() AwsConnectionCredentialPtrOutput {
+	return o
+}
+
+func (o AwsConnectionCredentialPtrOutput) ToAwsConnectionCredentialPtrOutputWithContext(ctx context.Context) AwsConnectionCredentialPtrOutput {
+	return o
+}
+
+func (o AwsConnectionCredentialPtrOutput) Elem() AwsConnectionCredentialOutput {
+	return o.ApplyT(func(v *AwsConnectionCredential) AwsConnectionCredential {
+		if v != nil {
+			return *v
+		}
+		var ret AwsConnectionCredential
+		return ret
+	}).(AwsConnectionCredentialOutput)
+}
+
+// STS:AssumeRole configuration. See below.
+func (o AwsConnectionCredentialPtrOutput) AssumeRole() AwsConnectionCredentialAssumeRolePtrOutput {
+	return o.ApplyT(func(v *AwsConnectionCredential) *AwsConnectionCredentialAssumeRole {
+		if v == nil {
+			return nil
+		}
+		return &v.AssumeRole
+	}).(AwsConnectionCredentialAssumeRolePtrOutput)
+}
+
+type AwsConnectionCredentialAssumeRole struct {
+	// External ID supplied by New Relic during STS:AssumeRole.
+	ExternalId *string `pulumi:"externalId"`
+	// ARN of the IAM role New Relic should assume.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// AwsConnectionCredentialAssumeRoleInput is an input type that accepts AwsConnectionCredentialAssumeRoleArgs and AwsConnectionCredentialAssumeRoleOutput values.
+// You can construct a concrete instance of `AwsConnectionCredentialAssumeRoleInput` via:
+//
+//	AwsConnectionCredentialAssumeRoleArgs{...}
+type AwsConnectionCredentialAssumeRoleInput interface {
+	pulumi.Input
+
+	ToAwsConnectionCredentialAssumeRoleOutput() AwsConnectionCredentialAssumeRoleOutput
+	ToAwsConnectionCredentialAssumeRoleOutputWithContext(context.Context) AwsConnectionCredentialAssumeRoleOutput
+}
+
+type AwsConnectionCredentialAssumeRoleArgs struct {
+	// External ID supplied by New Relic during STS:AssumeRole.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// ARN of the IAM role New Relic should assume.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AwsConnectionCredentialAssumeRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsConnectionCredentialAssumeRole)(nil)).Elem()
+}
+
+func (i AwsConnectionCredentialAssumeRoleArgs) ToAwsConnectionCredentialAssumeRoleOutput() AwsConnectionCredentialAssumeRoleOutput {
+	return i.ToAwsConnectionCredentialAssumeRoleOutputWithContext(context.Background())
+}
+
+func (i AwsConnectionCredentialAssumeRoleArgs) ToAwsConnectionCredentialAssumeRoleOutputWithContext(ctx context.Context) AwsConnectionCredentialAssumeRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionCredentialAssumeRoleOutput)
+}
+
+func (i AwsConnectionCredentialAssumeRoleArgs) ToAwsConnectionCredentialAssumeRolePtrOutput() AwsConnectionCredentialAssumeRolePtrOutput {
+	return i.ToAwsConnectionCredentialAssumeRolePtrOutputWithContext(context.Background())
+}
+
+func (i AwsConnectionCredentialAssumeRoleArgs) ToAwsConnectionCredentialAssumeRolePtrOutputWithContext(ctx context.Context) AwsConnectionCredentialAssumeRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionCredentialAssumeRoleOutput).ToAwsConnectionCredentialAssumeRolePtrOutputWithContext(ctx)
+}
+
+// AwsConnectionCredentialAssumeRolePtrInput is an input type that accepts AwsConnectionCredentialAssumeRoleArgs, AwsConnectionCredentialAssumeRolePtr and AwsConnectionCredentialAssumeRolePtrOutput values.
+// You can construct a concrete instance of `AwsConnectionCredentialAssumeRolePtrInput` via:
+//
+//	        AwsConnectionCredentialAssumeRoleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsConnectionCredentialAssumeRolePtrInput interface {
+	pulumi.Input
+
+	ToAwsConnectionCredentialAssumeRolePtrOutput() AwsConnectionCredentialAssumeRolePtrOutput
+	ToAwsConnectionCredentialAssumeRolePtrOutputWithContext(context.Context) AwsConnectionCredentialAssumeRolePtrOutput
+}
+
+type awsConnectionCredentialAssumeRolePtrType AwsConnectionCredentialAssumeRoleArgs
+
+func AwsConnectionCredentialAssumeRolePtr(v *AwsConnectionCredentialAssumeRoleArgs) AwsConnectionCredentialAssumeRolePtrInput {
+	return (*awsConnectionCredentialAssumeRolePtrType)(v)
+}
+
+func (*awsConnectionCredentialAssumeRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsConnectionCredentialAssumeRole)(nil)).Elem()
+}
+
+func (i *awsConnectionCredentialAssumeRolePtrType) ToAwsConnectionCredentialAssumeRolePtrOutput() AwsConnectionCredentialAssumeRolePtrOutput {
+	return i.ToAwsConnectionCredentialAssumeRolePtrOutputWithContext(context.Background())
+}
+
+func (i *awsConnectionCredentialAssumeRolePtrType) ToAwsConnectionCredentialAssumeRolePtrOutputWithContext(ctx context.Context) AwsConnectionCredentialAssumeRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionCredentialAssumeRolePtrOutput)
+}
+
+type AwsConnectionCredentialAssumeRoleOutput struct{ *pulumi.OutputState }
+
+func (AwsConnectionCredentialAssumeRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsConnectionCredentialAssumeRole)(nil)).Elem()
+}
+
+func (o AwsConnectionCredentialAssumeRoleOutput) ToAwsConnectionCredentialAssumeRoleOutput() AwsConnectionCredentialAssumeRoleOutput {
+	return o
+}
+
+func (o AwsConnectionCredentialAssumeRoleOutput) ToAwsConnectionCredentialAssumeRoleOutputWithContext(ctx context.Context) AwsConnectionCredentialAssumeRoleOutput {
+	return o
+}
+
+func (o AwsConnectionCredentialAssumeRoleOutput) ToAwsConnectionCredentialAssumeRolePtrOutput() AwsConnectionCredentialAssumeRolePtrOutput {
+	return o.ToAwsConnectionCredentialAssumeRolePtrOutputWithContext(context.Background())
+}
+
+func (o AwsConnectionCredentialAssumeRoleOutput) ToAwsConnectionCredentialAssumeRolePtrOutputWithContext(ctx context.Context) AwsConnectionCredentialAssumeRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsConnectionCredentialAssumeRole) *AwsConnectionCredentialAssumeRole {
+		return &v
+	}).(AwsConnectionCredentialAssumeRolePtrOutput)
+}
+
+// External ID supplied by New Relic during STS:AssumeRole.
+func (o AwsConnectionCredentialAssumeRoleOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AwsConnectionCredentialAssumeRole) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role New Relic should assume.
+func (o AwsConnectionCredentialAssumeRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsConnectionCredentialAssumeRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type AwsConnectionCredentialAssumeRolePtrOutput struct{ *pulumi.OutputState }
+
+func (AwsConnectionCredentialAssumeRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsConnectionCredentialAssumeRole)(nil)).Elem()
+}
+
+func (o AwsConnectionCredentialAssumeRolePtrOutput) ToAwsConnectionCredentialAssumeRolePtrOutput() AwsConnectionCredentialAssumeRolePtrOutput {
+	return o
+}
+
+func (o AwsConnectionCredentialAssumeRolePtrOutput) ToAwsConnectionCredentialAssumeRolePtrOutputWithContext(ctx context.Context) AwsConnectionCredentialAssumeRolePtrOutput {
+	return o
+}
+
+func (o AwsConnectionCredentialAssumeRolePtrOutput) Elem() AwsConnectionCredentialAssumeRoleOutput {
+	return o.ApplyT(func(v *AwsConnectionCredentialAssumeRole) AwsConnectionCredentialAssumeRole {
+		if v != nil {
+			return *v
+		}
+		var ret AwsConnectionCredentialAssumeRole
+		return ret
+	}).(AwsConnectionCredentialAssumeRoleOutput)
+}
+
+// External ID supplied by New Relic during STS:AssumeRole.
+func (o AwsConnectionCredentialAssumeRolePtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsConnectionCredentialAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role New Relic should assume.
+func (o AwsConnectionCredentialAssumeRolePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsConnectionCredentialAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AwsConnectionSetting struct {
+	// The setting key.
+	Key string `pulumi:"key"`
+	// The setting value.
+	Value string `pulumi:"value"`
+}
+
+// AwsConnectionSettingInput is an input type that accepts AwsConnectionSettingArgs and AwsConnectionSettingOutput values.
+// You can construct a concrete instance of `AwsConnectionSettingInput` via:
+//
+//	AwsConnectionSettingArgs{...}
+type AwsConnectionSettingInput interface {
+	pulumi.Input
+
+	ToAwsConnectionSettingOutput() AwsConnectionSettingOutput
+	ToAwsConnectionSettingOutputWithContext(context.Context) AwsConnectionSettingOutput
+}
+
+type AwsConnectionSettingArgs struct {
+	// The setting key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The setting value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AwsConnectionSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsConnectionSetting)(nil)).Elem()
+}
+
+func (i AwsConnectionSettingArgs) ToAwsConnectionSettingOutput() AwsConnectionSettingOutput {
+	return i.ToAwsConnectionSettingOutputWithContext(context.Background())
+}
+
+func (i AwsConnectionSettingArgs) ToAwsConnectionSettingOutputWithContext(ctx context.Context) AwsConnectionSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionSettingOutput)
+}
+
+// AwsConnectionSettingArrayInput is an input type that accepts AwsConnectionSettingArray and AwsConnectionSettingArrayOutput values.
+// You can construct a concrete instance of `AwsConnectionSettingArrayInput` via:
+//
+//	AwsConnectionSettingArray{ AwsConnectionSettingArgs{...} }
+type AwsConnectionSettingArrayInput interface {
+	pulumi.Input
+
+	ToAwsConnectionSettingArrayOutput() AwsConnectionSettingArrayOutput
+	ToAwsConnectionSettingArrayOutputWithContext(context.Context) AwsConnectionSettingArrayOutput
+}
+
+type AwsConnectionSettingArray []AwsConnectionSettingInput
+
+func (AwsConnectionSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AwsConnectionSetting)(nil)).Elem()
+}
+
+func (i AwsConnectionSettingArray) ToAwsConnectionSettingArrayOutput() AwsConnectionSettingArrayOutput {
+	return i.ToAwsConnectionSettingArrayOutputWithContext(context.Background())
+}
+
+func (i AwsConnectionSettingArray) ToAwsConnectionSettingArrayOutputWithContext(ctx context.Context) AwsConnectionSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionSettingArrayOutput)
+}
+
+type AwsConnectionSettingOutput struct{ *pulumi.OutputState }
+
+func (AwsConnectionSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsConnectionSetting)(nil)).Elem()
+}
+
+func (o AwsConnectionSettingOutput) ToAwsConnectionSettingOutput() AwsConnectionSettingOutput {
+	return o
+}
+
+func (o AwsConnectionSettingOutput) ToAwsConnectionSettingOutputWithContext(ctx context.Context) AwsConnectionSettingOutput {
+	return o
+}
+
+// The setting key.
+func (o AwsConnectionSettingOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsConnectionSetting) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The setting value.
+func (o AwsConnectionSettingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsConnectionSetting) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AwsConnectionSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (AwsConnectionSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AwsConnectionSetting)(nil)).Elem()
+}
+
+func (o AwsConnectionSettingArrayOutput) ToAwsConnectionSettingArrayOutput() AwsConnectionSettingArrayOutput {
+	return o
+}
+
+func (o AwsConnectionSettingArrayOutput) ToAwsConnectionSettingArrayOutputWithContext(ctx context.Context) AwsConnectionSettingArrayOutput {
+	return o
+}
+
+func (o AwsConnectionSettingArrayOutput) Index(i pulumi.IntInput) AwsConnectionSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AwsConnectionSetting {
+		return vs[0].([]AwsConnectionSetting)[vs[1].(int)]
+	}).(AwsConnectionSettingOutput)
+}
+
+type AwsConnectionTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// Set of tag values.
+	Values []string `pulumi:"values"`
+}
+
+// AwsConnectionTagInput is an input type that accepts AwsConnectionTagArgs and AwsConnectionTagOutput values.
+// You can construct a concrete instance of `AwsConnectionTagInput` via:
+//
+//	AwsConnectionTagArgs{...}
+type AwsConnectionTagInput interface {
+	pulumi.Input
+
+	ToAwsConnectionTagOutput() AwsConnectionTagOutput
+	ToAwsConnectionTagOutputWithContext(context.Context) AwsConnectionTagOutput
+}
+
+type AwsConnectionTagArgs struct {
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Set of tag values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AwsConnectionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsConnectionTag)(nil)).Elem()
+}
+
+func (i AwsConnectionTagArgs) ToAwsConnectionTagOutput() AwsConnectionTagOutput {
+	return i.ToAwsConnectionTagOutputWithContext(context.Background())
+}
+
+func (i AwsConnectionTagArgs) ToAwsConnectionTagOutputWithContext(ctx context.Context) AwsConnectionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionTagOutput)
+}
+
+// AwsConnectionTagArrayInput is an input type that accepts AwsConnectionTagArray and AwsConnectionTagArrayOutput values.
+// You can construct a concrete instance of `AwsConnectionTagArrayInput` via:
+//
+//	AwsConnectionTagArray{ AwsConnectionTagArgs{...} }
+type AwsConnectionTagArrayInput interface {
+	pulumi.Input
+
+	ToAwsConnectionTagArrayOutput() AwsConnectionTagArrayOutput
+	ToAwsConnectionTagArrayOutputWithContext(context.Context) AwsConnectionTagArrayOutput
+}
+
+type AwsConnectionTagArray []AwsConnectionTagInput
+
+func (AwsConnectionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AwsConnectionTag)(nil)).Elem()
+}
+
+func (i AwsConnectionTagArray) ToAwsConnectionTagArrayOutput() AwsConnectionTagArrayOutput {
+	return i.ToAwsConnectionTagArrayOutputWithContext(context.Background())
+}
+
+func (i AwsConnectionTagArray) ToAwsConnectionTagArrayOutputWithContext(ctx context.Context) AwsConnectionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsConnectionTagArrayOutput)
+}
+
+type AwsConnectionTagOutput struct{ *pulumi.OutputState }
+
+func (AwsConnectionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsConnectionTag)(nil)).Elem()
+}
+
+func (o AwsConnectionTagOutput) ToAwsConnectionTagOutput() AwsConnectionTagOutput {
+	return o
+}
+
+func (o AwsConnectionTagOutput) ToAwsConnectionTagOutputWithContext(ctx context.Context) AwsConnectionTagOutput {
+	return o
+}
+
+// The tag key.
+func (o AwsConnectionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsConnectionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Set of tag values.
+func (o AwsConnectionTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsConnectionTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AwsConnectionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AwsConnectionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AwsConnectionTag)(nil)).Elem()
+}
+
+func (o AwsConnectionTagArrayOutput) ToAwsConnectionTagArrayOutput() AwsConnectionTagArrayOutput {
+	return o
+}
+
+func (o AwsConnectionTagArrayOutput) ToAwsConnectionTagArrayOutputWithContext(ctx context.Context) AwsConnectionTagArrayOutput {
+	return o
+}
+
+func (o AwsConnectionTagArrayOutput) Index(i pulumi.IntInput) AwsConnectionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AwsConnectionTag {
+		return vs[0].([]AwsConnectionTag)[vs[1].(int)]
+	}).(AwsConnectionTagOutput)
+}
+
 type CardinalityManagementMetric struct {
 	// The maximum number of unique dimension-value combinations allowed per day for this metric.
 	CardinalityLimit int `pulumi:"cardinalityLimit"`
@@ -1511,6 +2016,2904 @@ func (o EntityTagsTagArrayOutput) Index(i pulumi.IntInput) EntityTagsTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityTagsTag {
 		return vs[0].([]EntityTagsTag)[vs[1].(int)]
 	}).(EntityTagsTagOutput)
+}
+
+type FederatedLogsPartitionDataRetentionPolicy struct {
+	// Retention duration value.
+	Duration int `pulumi:"duration"`
+	// Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+	Unit string `pulumi:"unit"`
+}
+
+// FederatedLogsPartitionDataRetentionPolicyInput is an input type that accepts FederatedLogsPartitionDataRetentionPolicyArgs and FederatedLogsPartitionDataRetentionPolicyOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionDataRetentionPolicyInput` via:
+//
+//	FederatedLogsPartitionDataRetentionPolicyArgs{...}
+type FederatedLogsPartitionDataRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionDataRetentionPolicyOutput() FederatedLogsPartitionDataRetentionPolicyOutput
+	ToFederatedLogsPartitionDataRetentionPolicyOutputWithContext(context.Context) FederatedLogsPartitionDataRetentionPolicyOutput
+}
+
+type FederatedLogsPartitionDataRetentionPolicyArgs struct {
+	// Retention duration value.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (FederatedLogsPartitionDataRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionDataRetentionPolicy)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionDataRetentionPolicyArgs) ToFederatedLogsPartitionDataRetentionPolicyOutput() FederatedLogsPartitionDataRetentionPolicyOutput {
+	return i.ToFederatedLogsPartitionDataRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionDataRetentionPolicyArgs) ToFederatedLogsPartitionDataRetentionPolicyOutputWithContext(ctx context.Context) FederatedLogsPartitionDataRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionDataRetentionPolicyOutput)
+}
+
+func (i FederatedLogsPartitionDataRetentionPolicyArgs) ToFederatedLogsPartitionDataRetentionPolicyPtrOutput() FederatedLogsPartitionDataRetentionPolicyPtrOutput {
+	return i.ToFederatedLogsPartitionDataRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionDataRetentionPolicyArgs) ToFederatedLogsPartitionDataRetentionPolicyPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionDataRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionDataRetentionPolicyOutput).ToFederatedLogsPartitionDataRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// FederatedLogsPartitionDataRetentionPolicyPtrInput is an input type that accepts FederatedLogsPartitionDataRetentionPolicyArgs, FederatedLogsPartitionDataRetentionPolicyPtr and FederatedLogsPartitionDataRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionDataRetentionPolicyPtrInput` via:
+//
+//	        FederatedLogsPartitionDataRetentionPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsPartitionDataRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionDataRetentionPolicyPtrOutput() FederatedLogsPartitionDataRetentionPolicyPtrOutput
+	ToFederatedLogsPartitionDataRetentionPolicyPtrOutputWithContext(context.Context) FederatedLogsPartitionDataRetentionPolicyPtrOutput
+}
+
+type federatedLogsPartitionDataRetentionPolicyPtrType FederatedLogsPartitionDataRetentionPolicyArgs
+
+func FederatedLogsPartitionDataRetentionPolicyPtr(v *FederatedLogsPartitionDataRetentionPolicyArgs) FederatedLogsPartitionDataRetentionPolicyPtrInput {
+	return (*federatedLogsPartitionDataRetentionPolicyPtrType)(v)
+}
+
+func (*federatedLogsPartitionDataRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionDataRetentionPolicy)(nil)).Elem()
+}
+
+func (i *federatedLogsPartitionDataRetentionPolicyPtrType) ToFederatedLogsPartitionDataRetentionPolicyPtrOutput() FederatedLogsPartitionDataRetentionPolicyPtrOutput {
+	return i.ToFederatedLogsPartitionDataRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsPartitionDataRetentionPolicyPtrType) ToFederatedLogsPartitionDataRetentionPolicyPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionDataRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionDataRetentionPolicyPtrOutput)
+}
+
+type FederatedLogsPartitionDataRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionDataRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionDataRetentionPolicy)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionDataRetentionPolicyOutput) ToFederatedLogsPartitionDataRetentionPolicyOutput() FederatedLogsPartitionDataRetentionPolicyOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionDataRetentionPolicyOutput) ToFederatedLogsPartitionDataRetentionPolicyOutputWithContext(ctx context.Context) FederatedLogsPartitionDataRetentionPolicyOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionDataRetentionPolicyOutput) ToFederatedLogsPartitionDataRetentionPolicyPtrOutput() FederatedLogsPartitionDataRetentionPolicyPtrOutput {
+	return o.ToFederatedLogsPartitionDataRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsPartitionDataRetentionPolicyOutput) ToFederatedLogsPartitionDataRetentionPolicyPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionDataRetentionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsPartitionDataRetentionPolicy) *FederatedLogsPartitionDataRetentionPolicy {
+		return &v
+	}).(FederatedLogsPartitionDataRetentionPolicyPtrOutput)
+}
+
+// Retention duration value.
+func (o FederatedLogsPartitionDataRetentionPolicyOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionDataRetentionPolicy) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+// Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+func (o FederatedLogsPartitionDataRetentionPolicyOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionDataRetentionPolicy) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type FederatedLogsPartitionDataRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionDataRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionDataRetentionPolicy)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionDataRetentionPolicyPtrOutput) ToFederatedLogsPartitionDataRetentionPolicyPtrOutput() FederatedLogsPartitionDataRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionDataRetentionPolicyPtrOutput) ToFederatedLogsPartitionDataRetentionPolicyPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionDataRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionDataRetentionPolicyPtrOutput) Elem() FederatedLogsPartitionDataRetentionPolicyOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionDataRetentionPolicy) FederatedLogsPartitionDataRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsPartitionDataRetentionPolicy
+		return ret
+	}).(FederatedLogsPartitionDataRetentionPolicyOutput)
+}
+
+// Retention duration value.
+func (o FederatedLogsPartitionDataRetentionPolicyPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionDataRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+func (o FederatedLogsPartitionDataRetentionPolicyPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionDataRetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsPartitionForwarderConfiguration struct {
+	// Pipeline control configuration. See below.
+	PipelineControl *FederatedLogsPartitionForwarderConfigurationPipelineControl `pulumi:"pipelineControl"`
+	// Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+	Type string `pulumi:"type"`
+}
+
+// FederatedLogsPartitionForwarderConfigurationInput is an input type that accepts FederatedLogsPartitionForwarderConfigurationArgs and FederatedLogsPartitionForwarderConfigurationOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionForwarderConfigurationInput` via:
+//
+//	FederatedLogsPartitionForwarderConfigurationArgs{...}
+type FederatedLogsPartitionForwarderConfigurationInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionForwarderConfigurationOutput() FederatedLogsPartitionForwarderConfigurationOutput
+	ToFederatedLogsPartitionForwarderConfigurationOutputWithContext(context.Context) FederatedLogsPartitionForwarderConfigurationOutput
+}
+
+type FederatedLogsPartitionForwarderConfigurationArgs struct {
+	// Pipeline control configuration. See below.
+	PipelineControl FederatedLogsPartitionForwarderConfigurationPipelineControlPtrInput `pulumi:"pipelineControl"`
+	// Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FederatedLogsPartitionForwarderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionForwarderConfiguration)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationArgs) ToFederatedLogsPartitionForwarderConfigurationOutput() FederatedLogsPartitionForwarderConfigurationOutput {
+	return i.ToFederatedLogsPartitionForwarderConfigurationOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationArgs) ToFederatedLogsPartitionForwarderConfigurationOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionForwarderConfigurationOutput)
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationArgs) ToFederatedLogsPartitionForwarderConfigurationPtrOutput() FederatedLogsPartitionForwarderConfigurationPtrOutput {
+	return i.ToFederatedLogsPartitionForwarderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationArgs) ToFederatedLogsPartitionForwarderConfigurationPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionForwarderConfigurationOutput).ToFederatedLogsPartitionForwarderConfigurationPtrOutputWithContext(ctx)
+}
+
+// FederatedLogsPartitionForwarderConfigurationPtrInput is an input type that accepts FederatedLogsPartitionForwarderConfigurationArgs, FederatedLogsPartitionForwarderConfigurationPtr and FederatedLogsPartitionForwarderConfigurationPtrOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionForwarderConfigurationPtrInput` via:
+//
+//	        FederatedLogsPartitionForwarderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsPartitionForwarderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionForwarderConfigurationPtrOutput() FederatedLogsPartitionForwarderConfigurationPtrOutput
+	ToFederatedLogsPartitionForwarderConfigurationPtrOutputWithContext(context.Context) FederatedLogsPartitionForwarderConfigurationPtrOutput
+}
+
+type federatedLogsPartitionForwarderConfigurationPtrType FederatedLogsPartitionForwarderConfigurationArgs
+
+func FederatedLogsPartitionForwarderConfigurationPtr(v *FederatedLogsPartitionForwarderConfigurationArgs) FederatedLogsPartitionForwarderConfigurationPtrInput {
+	return (*federatedLogsPartitionForwarderConfigurationPtrType)(v)
+}
+
+func (*federatedLogsPartitionForwarderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionForwarderConfiguration)(nil)).Elem()
+}
+
+func (i *federatedLogsPartitionForwarderConfigurationPtrType) ToFederatedLogsPartitionForwarderConfigurationPtrOutput() FederatedLogsPartitionForwarderConfigurationPtrOutput {
+	return i.ToFederatedLogsPartitionForwarderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsPartitionForwarderConfigurationPtrType) ToFederatedLogsPartitionForwarderConfigurationPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionForwarderConfigurationPtrOutput)
+}
+
+type FederatedLogsPartitionForwarderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionForwarderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionForwarderConfiguration)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationOutput) ToFederatedLogsPartitionForwarderConfigurationOutput() FederatedLogsPartitionForwarderConfigurationOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationOutput) ToFederatedLogsPartitionForwarderConfigurationOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationOutput) ToFederatedLogsPartitionForwarderConfigurationPtrOutput() FederatedLogsPartitionForwarderConfigurationPtrOutput {
+	return o.ToFederatedLogsPartitionForwarderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationOutput) ToFederatedLogsPartitionForwarderConfigurationPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsPartitionForwarderConfiguration) *FederatedLogsPartitionForwarderConfiguration {
+		return &v
+	}).(FederatedLogsPartitionForwarderConfigurationPtrOutput)
+}
+
+// Pipeline control configuration. See below.
+func (o FederatedLogsPartitionForwarderConfigurationOutput) PipelineControl() FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionForwarderConfiguration) *FederatedLogsPartitionForwarderConfigurationPipelineControl {
+		return v.PipelineControl
+	}).(FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput)
+}
+
+// Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+func (o FederatedLogsPartitionForwarderConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionForwarderConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FederatedLogsPartitionForwarderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionForwarderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionForwarderConfiguration)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPtrOutput) ToFederatedLogsPartitionForwarderConfigurationPtrOutput() FederatedLogsPartitionForwarderConfigurationPtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPtrOutput) ToFederatedLogsPartitionForwarderConfigurationPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPtrOutput) Elem() FederatedLogsPartitionForwarderConfigurationOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionForwarderConfiguration) FederatedLogsPartitionForwarderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsPartitionForwarderConfiguration
+		return ret
+	}).(FederatedLogsPartitionForwarderConfigurationOutput)
+}
+
+// Pipeline control configuration. See below.
+func (o FederatedLogsPartitionForwarderConfigurationPtrOutput) PipelineControl() FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionForwarderConfiguration) *FederatedLogsPartitionForwarderConfigurationPipelineControl {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineControl
+	}).(FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput)
+}
+
+// Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+func (o FederatedLogsPartitionForwarderConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionForwarderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsPartitionForwarderConfigurationPipelineControl struct {
+	// Rule that determines which logs are routed to this partition. See below.
+	PartitionRule *FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule `pulumi:"partitionRule"`
+}
+
+// FederatedLogsPartitionForwarderConfigurationPipelineControlInput is an input type that accepts FederatedLogsPartitionForwarderConfigurationPipelineControlArgs and FederatedLogsPartitionForwarderConfigurationPipelineControlOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionForwarderConfigurationPipelineControlInput` via:
+//
+//	FederatedLogsPartitionForwarderConfigurationPipelineControlArgs{...}
+type FederatedLogsPartitionForwarderConfigurationPipelineControlInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionForwarderConfigurationPipelineControlOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlOutput
+	ToFederatedLogsPartitionForwarderConfigurationPipelineControlOutputWithContext(context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlOutput
+}
+
+type FederatedLogsPartitionForwarderConfigurationPipelineControlArgs struct {
+	// Rule that determines which logs are routed to this partition. See below.
+	PartitionRule FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrInput `pulumi:"partitionRule"`
+}
+
+func (FederatedLogsPartitionForwarderConfigurationPipelineControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationPipelineControl)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationPipelineControlArgs) ToFederatedLogsPartitionForwarderConfigurationPipelineControlOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlOutput {
+	return i.ToFederatedLogsPartitionForwarderConfigurationPipelineControlOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationPipelineControlArgs) ToFederatedLogsPartitionForwarderConfigurationPipelineControlOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionForwarderConfigurationPipelineControlOutput)
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationPipelineControlArgs) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return i.ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationPipelineControlArgs) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionForwarderConfigurationPipelineControlOutput).ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutputWithContext(ctx)
+}
+
+// FederatedLogsPartitionForwarderConfigurationPipelineControlPtrInput is an input type that accepts FederatedLogsPartitionForwarderConfigurationPipelineControlArgs, FederatedLogsPartitionForwarderConfigurationPipelineControlPtr and FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionForwarderConfigurationPipelineControlPtrInput` via:
+//
+//	        FederatedLogsPartitionForwarderConfigurationPipelineControlArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsPartitionForwarderConfigurationPipelineControlPtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput
+	ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutputWithContext(context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput
+}
+
+type federatedLogsPartitionForwarderConfigurationPipelineControlPtrType FederatedLogsPartitionForwarderConfigurationPipelineControlArgs
+
+func FederatedLogsPartitionForwarderConfigurationPipelineControlPtr(v *FederatedLogsPartitionForwarderConfigurationPipelineControlArgs) FederatedLogsPartitionForwarderConfigurationPipelineControlPtrInput {
+	return (*federatedLogsPartitionForwarderConfigurationPipelineControlPtrType)(v)
+}
+
+func (*federatedLogsPartitionForwarderConfigurationPipelineControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionForwarderConfigurationPipelineControl)(nil)).Elem()
+}
+
+func (i *federatedLogsPartitionForwarderConfigurationPipelineControlPtrType) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return i.ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsPartitionForwarderConfigurationPipelineControlPtrType) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput)
+}
+
+type FederatedLogsPartitionForwarderConfigurationPipelineControlOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionForwarderConfigurationPipelineControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationPipelineControl)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return o.ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsPartitionForwarderConfigurationPipelineControl) *FederatedLogsPartitionForwarderConfigurationPipelineControl {
+		return &v
+	}).(FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput)
+}
+
+// Rule that determines which logs are routed to this partition. See below.
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlOutput) PartitionRule() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionForwarderConfigurationPipelineControl) *FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule {
+		return v.PartitionRule
+	}).(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput)
+}
+
+type FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionForwarderConfigurationPipelineControl)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput) Elem() FederatedLogsPartitionForwarderConfigurationPipelineControlOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionForwarderConfigurationPipelineControl) FederatedLogsPartitionForwarderConfigurationPipelineControl {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsPartitionForwarderConfigurationPipelineControl
+		return ret
+	}).(FederatedLogsPartitionForwarderConfigurationPipelineControlOutput)
+}
+
+// Rule that determines which logs are routed to this partition. See below.
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput) PartitionRule() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionForwarderConfigurationPipelineControl) *FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionRule
+	}).(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput)
+}
+
+type FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule struct {
+	// [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+	Expression string `pulumi:"expression"`
+}
+
+// FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleInput is an input type that accepts FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs and FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleInput` via:
+//
+//	FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs{...}
+type FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput
+	ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutputWithContext(context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput
+}
+
+type FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs struct {
+	// [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput {
+	return i.ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput)
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return i.ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput).ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutputWithContext(ctx)
+}
+
+// FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrInput is an input type that accepts FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs, FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtr and FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrInput` via:
+//
+//	        FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput
+	ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutputWithContext(context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput
+}
+
+type federatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrType FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs
+
+func FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtr(v *FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrInput {
+	return (*federatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrType)(v)
+}
+
+func (*federatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule)(nil)).Elem()
+}
+
+func (i *federatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrType) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return i.ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrType) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput)
+}
+
+type FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return o.ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule) *FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule {
+		return &v
+	}).(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput)
+}
+
+// [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule) string {
+		return v.Expression
+	}).(pulumi.StringOutput)
+}
+
+type FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput) ToFederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutputWithContext(ctx context.Context) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput) Elem() FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule) FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule
+		return ret
+	}).(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput)
+}
+
+// [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+func (o FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsPartitionHealthCheck struct {
+	End2endDataFlows []FederatedLogsPartitionHealthCheckEnd2endDataFlow `pulumi:"end2endDataFlows"`
+	LastUpdatedAt    *string                                            `pulumi:"lastUpdatedAt"`
+	QueryConnections []FederatedLogsPartitionHealthCheckQueryConnection `pulumi:"queryConnections"`
+}
+
+// FederatedLogsPartitionHealthCheckInput is an input type that accepts FederatedLogsPartitionHealthCheckArgs and FederatedLogsPartitionHealthCheckOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionHealthCheckInput` via:
+//
+//	FederatedLogsPartitionHealthCheckArgs{...}
+type FederatedLogsPartitionHealthCheckInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionHealthCheckOutput() FederatedLogsPartitionHealthCheckOutput
+	ToFederatedLogsPartitionHealthCheckOutputWithContext(context.Context) FederatedLogsPartitionHealthCheckOutput
+}
+
+type FederatedLogsPartitionHealthCheckArgs struct {
+	End2endDataFlows FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayInput `pulumi:"end2endDataFlows"`
+	LastUpdatedAt    pulumi.StringPtrInput                                      `pulumi:"lastUpdatedAt"`
+	QueryConnections FederatedLogsPartitionHealthCheckQueryConnectionArrayInput `pulumi:"queryConnections"`
+}
+
+func (FederatedLogsPartitionHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionHealthCheck)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionHealthCheckArgs) ToFederatedLogsPartitionHealthCheckOutput() FederatedLogsPartitionHealthCheckOutput {
+	return i.ToFederatedLogsPartitionHealthCheckOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionHealthCheckArgs) ToFederatedLogsPartitionHealthCheckOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionHealthCheckOutput)
+}
+
+// FederatedLogsPartitionHealthCheckArrayInput is an input type that accepts FederatedLogsPartitionHealthCheckArray and FederatedLogsPartitionHealthCheckArrayOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionHealthCheckArrayInput` via:
+//
+//	FederatedLogsPartitionHealthCheckArray{ FederatedLogsPartitionHealthCheckArgs{...} }
+type FederatedLogsPartitionHealthCheckArrayInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionHealthCheckArrayOutput() FederatedLogsPartitionHealthCheckArrayOutput
+	ToFederatedLogsPartitionHealthCheckArrayOutputWithContext(context.Context) FederatedLogsPartitionHealthCheckArrayOutput
+}
+
+type FederatedLogsPartitionHealthCheckArray []FederatedLogsPartitionHealthCheckInput
+
+func (FederatedLogsPartitionHealthCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsPartitionHealthCheck)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionHealthCheckArray) ToFederatedLogsPartitionHealthCheckArrayOutput() FederatedLogsPartitionHealthCheckArrayOutput {
+	return i.ToFederatedLogsPartitionHealthCheckArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionHealthCheckArray) ToFederatedLogsPartitionHealthCheckArrayOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionHealthCheckArrayOutput)
+}
+
+type FederatedLogsPartitionHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionHealthCheck)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionHealthCheckOutput) ToFederatedLogsPartitionHealthCheckOutput() FederatedLogsPartitionHealthCheckOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckOutput) ToFederatedLogsPartitionHealthCheckOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckOutput) End2endDataFlows() FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionHealthCheck) []FederatedLogsPartitionHealthCheckEnd2endDataFlow {
+		return v.End2endDataFlows
+	}).(FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput)
+}
+
+func (o FederatedLogsPartitionHealthCheckOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionHealthCheck) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsPartitionHealthCheckOutput) QueryConnections() FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionHealthCheck) []FederatedLogsPartitionHealthCheckQueryConnection {
+		return v.QueryConnections
+	}).(FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput)
+}
+
+type FederatedLogsPartitionHealthCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionHealthCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsPartitionHealthCheck)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionHealthCheckArrayOutput) ToFederatedLogsPartitionHealthCheckArrayOutput() FederatedLogsPartitionHealthCheckArrayOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckArrayOutput) ToFederatedLogsPartitionHealthCheckArrayOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckArrayOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckArrayOutput) Index(i pulumi.IntInput) FederatedLogsPartitionHealthCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedLogsPartitionHealthCheck {
+		return vs[0].([]FederatedLogsPartitionHealthCheck)[vs[1].(int)]
+	}).(FederatedLogsPartitionHealthCheckOutput)
+}
+
+type FederatedLogsPartitionHealthCheckEnd2endDataFlow struct {
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	Message       *string `pulumi:"message"`
+	Status        *string `pulumi:"status"`
+}
+
+// FederatedLogsPartitionHealthCheckEnd2endDataFlowInput is an input type that accepts FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs and FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionHealthCheckEnd2endDataFlowInput` via:
+//
+//	FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs{...}
+type FederatedLogsPartitionHealthCheckEnd2endDataFlowInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionHealthCheckEnd2endDataFlowOutput() FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput
+	ToFederatedLogsPartitionHealthCheckEnd2endDataFlowOutputWithContext(context.Context) FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput
+}
+
+type FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs struct {
+	LastUpdatedAt pulumi.StringPtrInput `pulumi:"lastUpdatedAt"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Status        pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionHealthCheckEnd2endDataFlow)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs) ToFederatedLogsPartitionHealthCheckEnd2endDataFlowOutput() FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput {
+	return i.ToFederatedLogsPartitionHealthCheckEnd2endDataFlowOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs) ToFederatedLogsPartitionHealthCheckEnd2endDataFlowOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput)
+}
+
+// FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayInput is an input type that accepts FederatedLogsPartitionHealthCheckEnd2endDataFlowArray and FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayInput` via:
+//
+//	FederatedLogsPartitionHealthCheckEnd2endDataFlowArray{ FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs{...} }
+type FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput() FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput
+	ToFederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutputWithContext(context.Context) FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput
+}
+
+type FederatedLogsPartitionHealthCheckEnd2endDataFlowArray []FederatedLogsPartitionHealthCheckEnd2endDataFlowInput
+
+func (FederatedLogsPartitionHealthCheckEnd2endDataFlowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsPartitionHealthCheckEnd2endDataFlow)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionHealthCheckEnd2endDataFlowArray) ToFederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput() FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput {
+	return i.ToFederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionHealthCheckEnd2endDataFlowArray) ToFederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput)
+}
+
+type FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionHealthCheckEnd2endDataFlow)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput) ToFederatedLogsPartitionHealthCheckEnd2endDataFlowOutput() FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput) ToFederatedLogsPartitionHealthCheckEnd2endDataFlowOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionHealthCheckEnd2endDataFlow) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionHealthCheckEnd2endDataFlow) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionHealthCheckEnd2endDataFlow) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsPartitionHealthCheckEnd2endDataFlow)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput) ToFederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput() FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput) ToFederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput) Index(i pulumi.IntInput) FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedLogsPartitionHealthCheckEnd2endDataFlow {
+		return vs[0].([]FederatedLogsPartitionHealthCheckEnd2endDataFlow)[vs[1].(int)]
+	}).(FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput)
+}
+
+type FederatedLogsPartitionHealthCheckQueryConnection struct {
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	Message       *string `pulumi:"message"`
+	Status        *string `pulumi:"status"`
+}
+
+// FederatedLogsPartitionHealthCheckQueryConnectionInput is an input type that accepts FederatedLogsPartitionHealthCheckQueryConnectionArgs and FederatedLogsPartitionHealthCheckQueryConnectionOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionHealthCheckQueryConnectionInput` via:
+//
+//	FederatedLogsPartitionHealthCheckQueryConnectionArgs{...}
+type FederatedLogsPartitionHealthCheckQueryConnectionInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionHealthCheckQueryConnectionOutput() FederatedLogsPartitionHealthCheckQueryConnectionOutput
+	ToFederatedLogsPartitionHealthCheckQueryConnectionOutputWithContext(context.Context) FederatedLogsPartitionHealthCheckQueryConnectionOutput
+}
+
+type FederatedLogsPartitionHealthCheckQueryConnectionArgs struct {
+	LastUpdatedAt pulumi.StringPtrInput `pulumi:"lastUpdatedAt"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Status        pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FederatedLogsPartitionHealthCheckQueryConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionHealthCheckQueryConnection)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionHealthCheckQueryConnectionArgs) ToFederatedLogsPartitionHealthCheckQueryConnectionOutput() FederatedLogsPartitionHealthCheckQueryConnectionOutput {
+	return i.ToFederatedLogsPartitionHealthCheckQueryConnectionOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionHealthCheckQueryConnectionArgs) ToFederatedLogsPartitionHealthCheckQueryConnectionOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckQueryConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionHealthCheckQueryConnectionOutput)
+}
+
+// FederatedLogsPartitionHealthCheckQueryConnectionArrayInput is an input type that accepts FederatedLogsPartitionHealthCheckQueryConnectionArray and FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionHealthCheckQueryConnectionArrayInput` via:
+//
+//	FederatedLogsPartitionHealthCheckQueryConnectionArray{ FederatedLogsPartitionHealthCheckQueryConnectionArgs{...} }
+type FederatedLogsPartitionHealthCheckQueryConnectionArrayInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionHealthCheckQueryConnectionArrayOutput() FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput
+	ToFederatedLogsPartitionHealthCheckQueryConnectionArrayOutputWithContext(context.Context) FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput
+}
+
+type FederatedLogsPartitionHealthCheckQueryConnectionArray []FederatedLogsPartitionHealthCheckQueryConnectionInput
+
+func (FederatedLogsPartitionHealthCheckQueryConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsPartitionHealthCheckQueryConnection)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionHealthCheckQueryConnectionArray) ToFederatedLogsPartitionHealthCheckQueryConnectionArrayOutput() FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput {
+	return i.ToFederatedLogsPartitionHealthCheckQueryConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionHealthCheckQueryConnectionArray) ToFederatedLogsPartitionHealthCheckQueryConnectionArrayOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput)
+}
+
+type FederatedLogsPartitionHealthCheckQueryConnectionOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionHealthCheckQueryConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionHealthCheckQueryConnection)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionHealthCheckQueryConnectionOutput) ToFederatedLogsPartitionHealthCheckQueryConnectionOutput() FederatedLogsPartitionHealthCheckQueryConnectionOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckQueryConnectionOutput) ToFederatedLogsPartitionHealthCheckQueryConnectionOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckQueryConnectionOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckQueryConnectionOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionHealthCheckQueryConnection) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsPartitionHealthCheckQueryConnectionOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionHealthCheckQueryConnection) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsPartitionHealthCheckQueryConnectionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionHealthCheckQueryConnection) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsPartitionHealthCheckQueryConnection)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput) ToFederatedLogsPartitionHealthCheckQueryConnectionArrayOutput() FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput) ToFederatedLogsPartitionHealthCheckQueryConnectionArrayOutputWithContext(ctx context.Context) FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput) Index(i pulumi.IntInput) FederatedLogsPartitionHealthCheckQueryConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedLogsPartitionHealthCheckQueryConnection {
+		return vs[0].([]FederatedLogsPartitionHealthCheckQueryConnection)[vs[1].(int)]
+	}).(FederatedLogsPartitionHealthCheckQueryConnectionOutput)
+}
+
+type FederatedLogsPartitionLifecycleStatus struct {
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	Message       *string `pulumi:"message"`
+	Status        *string `pulumi:"status"`
+}
+
+// FederatedLogsPartitionLifecycleStatusInput is an input type that accepts FederatedLogsPartitionLifecycleStatusArgs and FederatedLogsPartitionLifecycleStatusOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionLifecycleStatusInput` via:
+//
+//	FederatedLogsPartitionLifecycleStatusArgs{...}
+type FederatedLogsPartitionLifecycleStatusInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionLifecycleStatusOutput() FederatedLogsPartitionLifecycleStatusOutput
+	ToFederatedLogsPartitionLifecycleStatusOutputWithContext(context.Context) FederatedLogsPartitionLifecycleStatusOutput
+}
+
+type FederatedLogsPartitionLifecycleStatusArgs struct {
+	LastUpdatedAt pulumi.StringPtrInput `pulumi:"lastUpdatedAt"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Status        pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FederatedLogsPartitionLifecycleStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionLifecycleStatus)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionLifecycleStatusArgs) ToFederatedLogsPartitionLifecycleStatusOutput() FederatedLogsPartitionLifecycleStatusOutput {
+	return i.ToFederatedLogsPartitionLifecycleStatusOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionLifecycleStatusArgs) ToFederatedLogsPartitionLifecycleStatusOutputWithContext(ctx context.Context) FederatedLogsPartitionLifecycleStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionLifecycleStatusOutput)
+}
+
+// FederatedLogsPartitionLifecycleStatusArrayInput is an input type that accepts FederatedLogsPartitionLifecycleStatusArray and FederatedLogsPartitionLifecycleStatusArrayOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionLifecycleStatusArrayInput` via:
+//
+//	FederatedLogsPartitionLifecycleStatusArray{ FederatedLogsPartitionLifecycleStatusArgs{...} }
+type FederatedLogsPartitionLifecycleStatusArrayInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionLifecycleStatusArrayOutput() FederatedLogsPartitionLifecycleStatusArrayOutput
+	ToFederatedLogsPartitionLifecycleStatusArrayOutputWithContext(context.Context) FederatedLogsPartitionLifecycleStatusArrayOutput
+}
+
+type FederatedLogsPartitionLifecycleStatusArray []FederatedLogsPartitionLifecycleStatusInput
+
+func (FederatedLogsPartitionLifecycleStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsPartitionLifecycleStatus)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionLifecycleStatusArray) ToFederatedLogsPartitionLifecycleStatusArrayOutput() FederatedLogsPartitionLifecycleStatusArrayOutput {
+	return i.ToFederatedLogsPartitionLifecycleStatusArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionLifecycleStatusArray) ToFederatedLogsPartitionLifecycleStatusArrayOutputWithContext(ctx context.Context) FederatedLogsPartitionLifecycleStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionLifecycleStatusArrayOutput)
+}
+
+type FederatedLogsPartitionLifecycleStatusOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionLifecycleStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionLifecycleStatus)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionLifecycleStatusOutput) ToFederatedLogsPartitionLifecycleStatusOutput() FederatedLogsPartitionLifecycleStatusOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionLifecycleStatusOutput) ToFederatedLogsPartitionLifecycleStatusOutputWithContext(ctx context.Context) FederatedLogsPartitionLifecycleStatusOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionLifecycleStatusOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionLifecycleStatus) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsPartitionLifecycleStatusOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionLifecycleStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsPartitionLifecycleStatusOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionLifecycleStatus) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsPartitionLifecycleStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionLifecycleStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsPartitionLifecycleStatus)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionLifecycleStatusArrayOutput) ToFederatedLogsPartitionLifecycleStatusArrayOutput() FederatedLogsPartitionLifecycleStatusArrayOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionLifecycleStatusArrayOutput) ToFederatedLogsPartitionLifecycleStatusArrayOutputWithContext(ctx context.Context) FederatedLogsPartitionLifecycleStatusArrayOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionLifecycleStatusArrayOutput) Index(i pulumi.IntInput) FederatedLogsPartitionLifecycleStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedLogsPartitionLifecycleStatus {
+		return vs[0].([]FederatedLogsPartitionLifecycleStatus)[vs[1].(int)]
+	}).(FederatedLogsPartitionLifecycleStatusOutput)
+}
+
+type FederatedLogsPartitionStorage struct {
+	// S3 URI of the partition's data location.
+	DataLocationUri string `pulumi:"dataLocationUri"`
+	// Glue table name for the partition.
+	Table string `pulumi:"table"`
+}
+
+// FederatedLogsPartitionStorageInput is an input type that accepts FederatedLogsPartitionStorageArgs and FederatedLogsPartitionStorageOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionStorageInput` via:
+//
+//	FederatedLogsPartitionStorageArgs{...}
+type FederatedLogsPartitionStorageInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionStorageOutput() FederatedLogsPartitionStorageOutput
+	ToFederatedLogsPartitionStorageOutputWithContext(context.Context) FederatedLogsPartitionStorageOutput
+}
+
+type FederatedLogsPartitionStorageArgs struct {
+	// S3 URI of the partition's data location.
+	DataLocationUri pulumi.StringInput `pulumi:"dataLocationUri"`
+	// Glue table name for the partition.
+	Table pulumi.StringInput `pulumi:"table"`
+}
+
+func (FederatedLogsPartitionStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionStorage)(nil)).Elem()
+}
+
+func (i FederatedLogsPartitionStorageArgs) ToFederatedLogsPartitionStorageOutput() FederatedLogsPartitionStorageOutput {
+	return i.ToFederatedLogsPartitionStorageOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionStorageArgs) ToFederatedLogsPartitionStorageOutputWithContext(ctx context.Context) FederatedLogsPartitionStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionStorageOutput)
+}
+
+func (i FederatedLogsPartitionStorageArgs) ToFederatedLogsPartitionStoragePtrOutput() FederatedLogsPartitionStoragePtrOutput {
+	return i.ToFederatedLogsPartitionStoragePtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsPartitionStorageArgs) ToFederatedLogsPartitionStoragePtrOutputWithContext(ctx context.Context) FederatedLogsPartitionStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionStorageOutput).ToFederatedLogsPartitionStoragePtrOutputWithContext(ctx)
+}
+
+// FederatedLogsPartitionStoragePtrInput is an input type that accepts FederatedLogsPartitionStorageArgs, FederatedLogsPartitionStoragePtr and FederatedLogsPartitionStoragePtrOutput values.
+// You can construct a concrete instance of `FederatedLogsPartitionStoragePtrInput` via:
+//
+//	        FederatedLogsPartitionStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsPartitionStoragePtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsPartitionStoragePtrOutput() FederatedLogsPartitionStoragePtrOutput
+	ToFederatedLogsPartitionStoragePtrOutputWithContext(context.Context) FederatedLogsPartitionStoragePtrOutput
+}
+
+type federatedLogsPartitionStoragePtrType FederatedLogsPartitionStorageArgs
+
+func FederatedLogsPartitionStoragePtr(v *FederatedLogsPartitionStorageArgs) FederatedLogsPartitionStoragePtrInput {
+	return (*federatedLogsPartitionStoragePtrType)(v)
+}
+
+func (*federatedLogsPartitionStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionStorage)(nil)).Elem()
+}
+
+func (i *federatedLogsPartitionStoragePtrType) ToFederatedLogsPartitionStoragePtrOutput() FederatedLogsPartitionStoragePtrOutput {
+	return i.ToFederatedLogsPartitionStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsPartitionStoragePtrType) ToFederatedLogsPartitionStoragePtrOutputWithContext(ctx context.Context) FederatedLogsPartitionStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsPartitionStoragePtrOutput)
+}
+
+type FederatedLogsPartitionStorageOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsPartitionStorage)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionStorageOutput) ToFederatedLogsPartitionStorageOutput() FederatedLogsPartitionStorageOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionStorageOutput) ToFederatedLogsPartitionStorageOutputWithContext(ctx context.Context) FederatedLogsPartitionStorageOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionStorageOutput) ToFederatedLogsPartitionStoragePtrOutput() FederatedLogsPartitionStoragePtrOutput {
+	return o.ToFederatedLogsPartitionStoragePtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsPartitionStorageOutput) ToFederatedLogsPartitionStoragePtrOutputWithContext(ctx context.Context) FederatedLogsPartitionStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsPartitionStorage) *FederatedLogsPartitionStorage {
+		return &v
+	}).(FederatedLogsPartitionStoragePtrOutput)
+}
+
+// S3 URI of the partition's data location.
+func (o FederatedLogsPartitionStorageOutput) DataLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionStorage) string { return v.DataLocationUri }).(pulumi.StringOutput)
+}
+
+// Glue table name for the partition.
+func (o FederatedLogsPartitionStorageOutput) Table() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsPartitionStorage) string { return v.Table }).(pulumi.StringOutput)
+}
+
+type FederatedLogsPartitionStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsPartitionStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsPartitionStorage)(nil)).Elem()
+}
+
+func (o FederatedLogsPartitionStoragePtrOutput) ToFederatedLogsPartitionStoragePtrOutput() FederatedLogsPartitionStoragePtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionStoragePtrOutput) ToFederatedLogsPartitionStoragePtrOutputWithContext(ctx context.Context) FederatedLogsPartitionStoragePtrOutput {
+	return o
+}
+
+func (o FederatedLogsPartitionStoragePtrOutput) Elem() FederatedLogsPartitionStorageOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionStorage) FederatedLogsPartitionStorage {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsPartitionStorage
+		return ret
+	}).(FederatedLogsPartitionStorageOutput)
+}
+
+// S3 URI of the partition's data location.
+func (o FederatedLogsPartitionStoragePtrOutput) DataLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataLocationUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Glue table name for the partition.
+func (o FederatedLogsPartitionStoragePtrOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsPartitionStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Table
+	}).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsSetupDefaultPartition struct {
+	// Retention policy for logs in the default partition. See below.
+	DataRetentionPolicy *FederatedLogsSetupDefaultPartitionDataRetentionPolicy `pulumi:"dataRetentionPolicy"`
+	// Storage details for the default partition. See below.
+	Storage FederatedLogsSetupDefaultPartitionStorage `pulumi:"storage"`
+}
+
+// FederatedLogsSetupDefaultPartitionInput is an input type that accepts FederatedLogsSetupDefaultPartitionArgs and FederatedLogsSetupDefaultPartitionOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupDefaultPartitionInput` via:
+//
+//	FederatedLogsSetupDefaultPartitionArgs{...}
+type FederatedLogsSetupDefaultPartitionInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupDefaultPartitionOutput() FederatedLogsSetupDefaultPartitionOutput
+	ToFederatedLogsSetupDefaultPartitionOutputWithContext(context.Context) FederatedLogsSetupDefaultPartitionOutput
+}
+
+type FederatedLogsSetupDefaultPartitionArgs struct {
+	// Retention policy for logs in the default partition. See below.
+	DataRetentionPolicy FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrInput `pulumi:"dataRetentionPolicy"`
+	// Storage details for the default partition. See below.
+	Storage FederatedLogsSetupDefaultPartitionStorageInput `pulumi:"storage"`
+}
+
+func (FederatedLogsSetupDefaultPartitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupDefaultPartition)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupDefaultPartitionArgs) ToFederatedLogsSetupDefaultPartitionOutput() FederatedLogsSetupDefaultPartitionOutput {
+	return i.ToFederatedLogsSetupDefaultPartitionOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupDefaultPartitionArgs) ToFederatedLogsSetupDefaultPartitionOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupDefaultPartitionOutput)
+}
+
+func (i FederatedLogsSetupDefaultPartitionArgs) ToFederatedLogsSetupDefaultPartitionPtrOutput() FederatedLogsSetupDefaultPartitionPtrOutput {
+	return i.ToFederatedLogsSetupDefaultPartitionPtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupDefaultPartitionArgs) ToFederatedLogsSetupDefaultPartitionPtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupDefaultPartitionOutput).ToFederatedLogsSetupDefaultPartitionPtrOutputWithContext(ctx)
+}
+
+// FederatedLogsSetupDefaultPartitionPtrInput is an input type that accepts FederatedLogsSetupDefaultPartitionArgs, FederatedLogsSetupDefaultPartitionPtr and FederatedLogsSetupDefaultPartitionPtrOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupDefaultPartitionPtrInput` via:
+//
+//	        FederatedLogsSetupDefaultPartitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsSetupDefaultPartitionPtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupDefaultPartitionPtrOutput() FederatedLogsSetupDefaultPartitionPtrOutput
+	ToFederatedLogsSetupDefaultPartitionPtrOutputWithContext(context.Context) FederatedLogsSetupDefaultPartitionPtrOutput
+}
+
+type federatedLogsSetupDefaultPartitionPtrType FederatedLogsSetupDefaultPartitionArgs
+
+func FederatedLogsSetupDefaultPartitionPtr(v *FederatedLogsSetupDefaultPartitionArgs) FederatedLogsSetupDefaultPartitionPtrInput {
+	return (*federatedLogsSetupDefaultPartitionPtrType)(v)
+}
+
+func (*federatedLogsSetupDefaultPartitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupDefaultPartition)(nil)).Elem()
+}
+
+func (i *federatedLogsSetupDefaultPartitionPtrType) ToFederatedLogsSetupDefaultPartitionPtrOutput() FederatedLogsSetupDefaultPartitionPtrOutput {
+	return i.ToFederatedLogsSetupDefaultPartitionPtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsSetupDefaultPartitionPtrType) ToFederatedLogsSetupDefaultPartitionPtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupDefaultPartitionPtrOutput)
+}
+
+type FederatedLogsSetupDefaultPartitionOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupDefaultPartitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupDefaultPartition)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupDefaultPartitionOutput) ToFederatedLogsSetupDefaultPartitionOutput() FederatedLogsSetupDefaultPartitionOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionOutput) ToFederatedLogsSetupDefaultPartitionOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionOutput) ToFederatedLogsSetupDefaultPartitionPtrOutput() FederatedLogsSetupDefaultPartitionPtrOutput {
+	return o.ToFederatedLogsSetupDefaultPartitionPtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsSetupDefaultPartitionOutput) ToFederatedLogsSetupDefaultPartitionPtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsSetupDefaultPartition) *FederatedLogsSetupDefaultPartition {
+		return &v
+	}).(FederatedLogsSetupDefaultPartitionPtrOutput)
+}
+
+// Retention policy for logs in the default partition. See below.
+func (o FederatedLogsSetupDefaultPartitionOutput) DataRetentionPolicy() FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupDefaultPartition) *FederatedLogsSetupDefaultPartitionDataRetentionPolicy {
+		return v.DataRetentionPolicy
+	}).(FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput)
+}
+
+// Storage details for the default partition. See below.
+func (o FederatedLogsSetupDefaultPartitionOutput) Storage() FederatedLogsSetupDefaultPartitionStorageOutput {
+	return o.ApplyT(func(v FederatedLogsSetupDefaultPartition) FederatedLogsSetupDefaultPartitionStorage { return v.Storage }).(FederatedLogsSetupDefaultPartitionStorageOutput)
+}
+
+type FederatedLogsSetupDefaultPartitionPtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupDefaultPartitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupDefaultPartition)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupDefaultPartitionPtrOutput) ToFederatedLogsSetupDefaultPartitionPtrOutput() FederatedLogsSetupDefaultPartitionPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionPtrOutput) ToFederatedLogsSetupDefaultPartitionPtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionPtrOutput) Elem() FederatedLogsSetupDefaultPartitionOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupDefaultPartition) FederatedLogsSetupDefaultPartition {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsSetupDefaultPartition
+		return ret
+	}).(FederatedLogsSetupDefaultPartitionOutput)
+}
+
+// Retention policy for logs in the default partition. See below.
+func (o FederatedLogsSetupDefaultPartitionPtrOutput) DataRetentionPolicy() FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupDefaultPartition) *FederatedLogsSetupDefaultPartitionDataRetentionPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.DataRetentionPolicy
+	}).(FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput)
+}
+
+// Storage details for the default partition. See below.
+func (o FederatedLogsSetupDefaultPartitionPtrOutput) Storage() FederatedLogsSetupDefaultPartitionStoragePtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupDefaultPartition) *FederatedLogsSetupDefaultPartitionStorage {
+		if v == nil {
+			return nil
+		}
+		return &v.Storage
+	}).(FederatedLogsSetupDefaultPartitionStoragePtrOutput)
+}
+
+type FederatedLogsSetupDefaultPartitionDataRetentionPolicy struct {
+	// Retention duration value.
+	Duration int `pulumi:"duration"`
+	// Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+	Unit string `pulumi:"unit"`
+}
+
+// FederatedLogsSetupDefaultPartitionDataRetentionPolicyInput is an input type that accepts FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs and FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupDefaultPartitionDataRetentionPolicyInput` via:
+//
+//	FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs{...}
+type FederatedLogsSetupDefaultPartitionDataRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput() FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput
+	ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyOutputWithContext(context.Context) FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput
+}
+
+type FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs struct {
+	// Retention duration value.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupDefaultPartitionDataRetentionPolicy)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput() FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput {
+	return i.ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput)
+}
+
+func (i FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput() FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return i.ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput).ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrInput is an input type that accepts FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs, FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtr and FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrInput` via:
+//
+//	        FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput() FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput
+	ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutputWithContext(context.Context) FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput
+}
+
+type federatedLogsSetupDefaultPartitionDataRetentionPolicyPtrType FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs
+
+func FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtr(v *FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs) FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrInput {
+	return (*federatedLogsSetupDefaultPartitionDataRetentionPolicyPtrType)(v)
+}
+
+func (*federatedLogsSetupDefaultPartitionDataRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupDefaultPartitionDataRetentionPolicy)(nil)).Elem()
+}
+
+func (i *federatedLogsSetupDefaultPartitionDataRetentionPolicyPtrType) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput() FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return i.ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsSetupDefaultPartitionDataRetentionPolicyPtrType) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput)
+}
+
+type FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupDefaultPartitionDataRetentionPolicy)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput() FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput() FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return o.ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsSetupDefaultPartitionDataRetentionPolicy) *FederatedLogsSetupDefaultPartitionDataRetentionPolicy {
+		return &v
+	}).(FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput)
+}
+
+// Retention duration value.
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v FederatedLogsSetupDefaultPartitionDataRetentionPolicy) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+// Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupDefaultPartitionDataRetentionPolicy) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupDefaultPartitionDataRetentionPolicy)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput() FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput) ToFederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput) Elem() FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupDefaultPartitionDataRetentionPolicy) FederatedLogsSetupDefaultPartitionDataRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsSetupDefaultPartitionDataRetentionPolicy
+		return ret
+	}).(FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput)
+}
+
+// Retention duration value.
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupDefaultPartitionDataRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+func (o FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupDefaultPartitionDataRetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsSetupDefaultPartitionStorage struct {
+	// S3 URI of the default partition's data location.
+	DataLocationUri string `pulumi:"dataLocationUri"`
+	// Glue table name for the default partition.
+	Table string `pulumi:"table"`
+}
+
+// FederatedLogsSetupDefaultPartitionStorageInput is an input type that accepts FederatedLogsSetupDefaultPartitionStorageArgs and FederatedLogsSetupDefaultPartitionStorageOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupDefaultPartitionStorageInput` via:
+//
+//	FederatedLogsSetupDefaultPartitionStorageArgs{...}
+type FederatedLogsSetupDefaultPartitionStorageInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupDefaultPartitionStorageOutput() FederatedLogsSetupDefaultPartitionStorageOutput
+	ToFederatedLogsSetupDefaultPartitionStorageOutputWithContext(context.Context) FederatedLogsSetupDefaultPartitionStorageOutput
+}
+
+type FederatedLogsSetupDefaultPartitionStorageArgs struct {
+	// S3 URI of the default partition's data location.
+	DataLocationUri pulumi.StringInput `pulumi:"dataLocationUri"`
+	// Glue table name for the default partition.
+	Table pulumi.StringInput `pulumi:"table"`
+}
+
+func (FederatedLogsSetupDefaultPartitionStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupDefaultPartitionStorage)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupDefaultPartitionStorageArgs) ToFederatedLogsSetupDefaultPartitionStorageOutput() FederatedLogsSetupDefaultPartitionStorageOutput {
+	return i.ToFederatedLogsSetupDefaultPartitionStorageOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupDefaultPartitionStorageArgs) ToFederatedLogsSetupDefaultPartitionStorageOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupDefaultPartitionStorageOutput)
+}
+
+func (i FederatedLogsSetupDefaultPartitionStorageArgs) ToFederatedLogsSetupDefaultPartitionStoragePtrOutput() FederatedLogsSetupDefaultPartitionStoragePtrOutput {
+	return i.ToFederatedLogsSetupDefaultPartitionStoragePtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupDefaultPartitionStorageArgs) ToFederatedLogsSetupDefaultPartitionStoragePtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupDefaultPartitionStorageOutput).ToFederatedLogsSetupDefaultPartitionStoragePtrOutputWithContext(ctx)
+}
+
+// FederatedLogsSetupDefaultPartitionStoragePtrInput is an input type that accepts FederatedLogsSetupDefaultPartitionStorageArgs, FederatedLogsSetupDefaultPartitionStoragePtr and FederatedLogsSetupDefaultPartitionStoragePtrOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupDefaultPartitionStoragePtrInput` via:
+//
+//	        FederatedLogsSetupDefaultPartitionStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsSetupDefaultPartitionStoragePtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupDefaultPartitionStoragePtrOutput() FederatedLogsSetupDefaultPartitionStoragePtrOutput
+	ToFederatedLogsSetupDefaultPartitionStoragePtrOutputWithContext(context.Context) FederatedLogsSetupDefaultPartitionStoragePtrOutput
+}
+
+type federatedLogsSetupDefaultPartitionStoragePtrType FederatedLogsSetupDefaultPartitionStorageArgs
+
+func FederatedLogsSetupDefaultPartitionStoragePtr(v *FederatedLogsSetupDefaultPartitionStorageArgs) FederatedLogsSetupDefaultPartitionStoragePtrInput {
+	return (*federatedLogsSetupDefaultPartitionStoragePtrType)(v)
+}
+
+func (*federatedLogsSetupDefaultPartitionStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupDefaultPartitionStorage)(nil)).Elem()
+}
+
+func (i *federatedLogsSetupDefaultPartitionStoragePtrType) ToFederatedLogsSetupDefaultPartitionStoragePtrOutput() FederatedLogsSetupDefaultPartitionStoragePtrOutput {
+	return i.ToFederatedLogsSetupDefaultPartitionStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsSetupDefaultPartitionStoragePtrType) ToFederatedLogsSetupDefaultPartitionStoragePtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupDefaultPartitionStoragePtrOutput)
+}
+
+type FederatedLogsSetupDefaultPartitionStorageOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupDefaultPartitionStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupDefaultPartitionStorage)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupDefaultPartitionStorageOutput) ToFederatedLogsSetupDefaultPartitionStorageOutput() FederatedLogsSetupDefaultPartitionStorageOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionStorageOutput) ToFederatedLogsSetupDefaultPartitionStorageOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionStorageOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionStorageOutput) ToFederatedLogsSetupDefaultPartitionStoragePtrOutput() FederatedLogsSetupDefaultPartitionStoragePtrOutput {
+	return o.ToFederatedLogsSetupDefaultPartitionStoragePtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsSetupDefaultPartitionStorageOutput) ToFederatedLogsSetupDefaultPartitionStoragePtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsSetupDefaultPartitionStorage) *FederatedLogsSetupDefaultPartitionStorage {
+		return &v
+	}).(FederatedLogsSetupDefaultPartitionStoragePtrOutput)
+}
+
+// S3 URI of the default partition's data location.
+func (o FederatedLogsSetupDefaultPartitionStorageOutput) DataLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupDefaultPartitionStorage) string { return v.DataLocationUri }).(pulumi.StringOutput)
+}
+
+// Glue table name for the default partition.
+func (o FederatedLogsSetupDefaultPartitionStorageOutput) Table() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupDefaultPartitionStorage) string { return v.Table }).(pulumi.StringOutput)
+}
+
+type FederatedLogsSetupDefaultPartitionStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupDefaultPartitionStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupDefaultPartitionStorage)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupDefaultPartitionStoragePtrOutput) ToFederatedLogsSetupDefaultPartitionStoragePtrOutput() FederatedLogsSetupDefaultPartitionStoragePtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionStoragePtrOutput) ToFederatedLogsSetupDefaultPartitionStoragePtrOutputWithContext(ctx context.Context) FederatedLogsSetupDefaultPartitionStoragePtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupDefaultPartitionStoragePtrOutput) Elem() FederatedLogsSetupDefaultPartitionStorageOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupDefaultPartitionStorage) FederatedLogsSetupDefaultPartitionStorage {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsSetupDefaultPartitionStorage
+		return ret
+	}).(FederatedLogsSetupDefaultPartitionStorageOutput)
+}
+
+// S3 URI of the default partition's data location.
+func (o FederatedLogsSetupDefaultPartitionStoragePtrOutput) DataLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupDefaultPartitionStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataLocationUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Glue table name for the default partition.
+func (o FederatedLogsSetupDefaultPartitionStoragePtrOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupDefaultPartitionStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Table
+	}).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsSetupForwarder struct {
+	// Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+	PipelineControl *FederatedLogsSetupForwarderPipelineControl `pulumi:"pipelineControl"`
+	// The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+	Type string `pulumi:"type"`
+}
+
+// FederatedLogsSetupForwarderInput is an input type that accepts FederatedLogsSetupForwarderArgs and FederatedLogsSetupForwarderOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupForwarderInput` via:
+//
+//	FederatedLogsSetupForwarderArgs{...}
+type FederatedLogsSetupForwarderInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupForwarderOutput() FederatedLogsSetupForwarderOutput
+	ToFederatedLogsSetupForwarderOutputWithContext(context.Context) FederatedLogsSetupForwarderOutput
+}
+
+type FederatedLogsSetupForwarderArgs struct {
+	// Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+	PipelineControl FederatedLogsSetupForwarderPipelineControlPtrInput `pulumi:"pipelineControl"`
+	// The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FederatedLogsSetupForwarderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupForwarder)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupForwarderArgs) ToFederatedLogsSetupForwarderOutput() FederatedLogsSetupForwarderOutput {
+	return i.ToFederatedLogsSetupForwarderOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupForwarderArgs) ToFederatedLogsSetupForwarderOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupForwarderOutput)
+}
+
+func (i FederatedLogsSetupForwarderArgs) ToFederatedLogsSetupForwarderPtrOutput() FederatedLogsSetupForwarderPtrOutput {
+	return i.ToFederatedLogsSetupForwarderPtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupForwarderArgs) ToFederatedLogsSetupForwarderPtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupForwarderOutput).ToFederatedLogsSetupForwarderPtrOutputWithContext(ctx)
+}
+
+// FederatedLogsSetupForwarderPtrInput is an input type that accepts FederatedLogsSetupForwarderArgs, FederatedLogsSetupForwarderPtr and FederatedLogsSetupForwarderPtrOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupForwarderPtrInput` via:
+//
+//	        FederatedLogsSetupForwarderArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsSetupForwarderPtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupForwarderPtrOutput() FederatedLogsSetupForwarderPtrOutput
+	ToFederatedLogsSetupForwarderPtrOutputWithContext(context.Context) FederatedLogsSetupForwarderPtrOutput
+}
+
+type federatedLogsSetupForwarderPtrType FederatedLogsSetupForwarderArgs
+
+func FederatedLogsSetupForwarderPtr(v *FederatedLogsSetupForwarderArgs) FederatedLogsSetupForwarderPtrInput {
+	return (*federatedLogsSetupForwarderPtrType)(v)
+}
+
+func (*federatedLogsSetupForwarderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupForwarder)(nil)).Elem()
+}
+
+func (i *federatedLogsSetupForwarderPtrType) ToFederatedLogsSetupForwarderPtrOutput() FederatedLogsSetupForwarderPtrOutput {
+	return i.ToFederatedLogsSetupForwarderPtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsSetupForwarderPtrType) ToFederatedLogsSetupForwarderPtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupForwarderPtrOutput)
+}
+
+type FederatedLogsSetupForwarderOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupForwarderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupForwarder)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupForwarderOutput) ToFederatedLogsSetupForwarderOutput() FederatedLogsSetupForwarderOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderOutput) ToFederatedLogsSetupForwarderOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderOutput) ToFederatedLogsSetupForwarderPtrOutput() FederatedLogsSetupForwarderPtrOutput {
+	return o.ToFederatedLogsSetupForwarderPtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsSetupForwarderOutput) ToFederatedLogsSetupForwarderPtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsSetupForwarder) *FederatedLogsSetupForwarder {
+		return &v
+	}).(FederatedLogsSetupForwarderPtrOutput)
+}
+
+// Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+func (o FederatedLogsSetupForwarderOutput) PipelineControl() FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupForwarder) *FederatedLogsSetupForwarderPipelineControl {
+		return v.PipelineControl
+	}).(FederatedLogsSetupForwarderPipelineControlPtrOutput)
+}
+
+// The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+func (o FederatedLogsSetupForwarderOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupForwarder) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FederatedLogsSetupForwarderPtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupForwarderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupForwarder)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupForwarderPtrOutput) ToFederatedLogsSetupForwarderPtrOutput() FederatedLogsSetupForwarderPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPtrOutput) ToFederatedLogsSetupForwarderPtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPtrOutput) Elem() FederatedLogsSetupForwarderOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupForwarder) FederatedLogsSetupForwarder {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsSetupForwarder
+		return ret
+	}).(FederatedLogsSetupForwarderOutput)
+}
+
+// Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+func (o FederatedLogsSetupForwarderPtrOutput) PipelineControl() FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupForwarder) *FederatedLogsSetupForwarderPipelineControl {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineControl
+	}).(FederatedLogsSetupForwarderPipelineControlPtrOutput)
+}
+
+// The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+func (o FederatedLogsSetupForwarderPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupForwarder) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsSetupForwarderPipelineControl struct {
+	// The fleet entity GUID.
+	FleetId string `pulumi:"fleetId"`
+	// Routing rule that determines how incoming logs are routed to this setup. See below.
+	RoutingRule *FederatedLogsSetupForwarderPipelineControlRoutingRule `pulumi:"routingRule"`
+}
+
+// FederatedLogsSetupForwarderPipelineControlInput is an input type that accepts FederatedLogsSetupForwarderPipelineControlArgs and FederatedLogsSetupForwarderPipelineControlOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupForwarderPipelineControlInput` via:
+//
+//	FederatedLogsSetupForwarderPipelineControlArgs{...}
+type FederatedLogsSetupForwarderPipelineControlInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupForwarderPipelineControlOutput() FederatedLogsSetupForwarderPipelineControlOutput
+	ToFederatedLogsSetupForwarderPipelineControlOutputWithContext(context.Context) FederatedLogsSetupForwarderPipelineControlOutput
+}
+
+type FederatedLogsSetupForwarderPipelineControlArgs struct {
+	// The fleet entity GUID.
+	FleetId pulumi.StringInput `pulumi:"fleetId"`
+	// Routing rule that determines how incoming logs are routed to this setup. See below.
+	RoutingRule FederatedLogsSetupForwarderPipelineControlRoutingRulePtrInput `pulumi:"routingRule"`
+}
+
+func (FederatedLogsSetupForwarderPipelineControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupForwarderPipelineControl)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupForwarderPipelineControlArgs) ToFederatedLogsSetupForwarderPipelineControlOutput() FederatedLogsSetupForwarderPipelineControlOutput {
+	return i.ToFederatedLogsSetupForwarderPipelineControlOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupForwarderPipelineControlArgs) ToFederatedLogsSetupForwarderPipelineControlOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupForwarderPipelineControlOutput)
+}
+
+func (i FederatedLogsSetupForwarderPipelineControlArgs) ToFederatedLogsSetupForwarderPipelineControlPtrOutput() FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return i.ToFederatedLogsSetupForwarderPipelineControlPtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupForwarderPipelineControlArgs) ToFederatedLogsSetupForwarderPipelineControlPtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupForwarderPipelineControlOutput).ToFederatedLogsSetupForwarderPipelineControlPtrOutputWithContext(ctx)
+}
+
+// FederatedLogsSetupForwarderPipelineControlPtrInput is an input type that accepts FederatedLogsSetupForwarderPipelineControlArgs, FederatedLogsSetupForwarderPipelineControlPtr and FederatedLogsSetupForwarderPipelineControlPtrOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupForwarderPipelineControlPtrInput` via:
+//
+//	        FederatedLogsSetupForwarderPipelineControlArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsSetupForwarderPipelineControlPtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupForwarderPipelineControlPtrOutput() FederatedLogsSetupForwarderPipelineControlPtrOutput
+	ToFederatedLogsSetupForwarderPipelineControlPtrOutputWithContext(context.Context) FederatedLogsSetupForwarderPipelineControlPtrOutput
+}
+
+type federatedLogsSetupForwarderPipelineControlPtrType FederatedLogsSetupForwarderPipelineControlArgs
+
+func FederatedLogsSetupForwarderPipelineControlPtr(v *FederatedLogsSetupForwarderPipelineControlArgs) FederatedLogsSetupForwarderPipelineControlPtrInput {
+	return (*federatedLogsSetupForwarderPipelineControlPtrType)(v)
+}
+
+func (*federatedLogsSetupForwarderPipelineControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupForwarderPipelineControl)(nil)).Elem()
+}
+
+func (i *federatedLogsSetupForwarderPipelineControlPtrType) ToFederatedLogsSetupForwarderPipelineControlPtrOutput() FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return i.ToFederatedLogsSetupForwarderPipelineControlPtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsSetupForwarderPipelineControlPtrType) ToFederatedLogsSetupForwarderPipelineControlPtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupForwarderPipelineControlPtrOutput)
+}
+
+type FederatedLogsSetupForwarderPipelineControlOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupForwarderPipelineControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupForwarderPipelineControl)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlOutput) ToFederatedLogsSetupForwarderPipelineControlOutput() FederatedLogsSetupForwarderPipelineControlOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlOutput) ToFederatedLogsSetupForwarderPipelineControlOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlOutput) ToFederatedLogsSetupForwarderPipelineControlPtrOutput() FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return o.ToFederatedLogsSetupForwarderPipelineControlPtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlOutput) ToFederatedLogsSetupForwarderPipelineControlPtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsSetupForwarderPipelineControl) *FederatedLogsSetupForwarderPipelineControl {
+		return &v
+	}).(FederatedLogsSetupForwarderPipelineControlPtrOutput)
+}
+
+// The fleet entity GUID.
+func (o FederatedLogsSetupForwarderPipelineControlOutput) FleetId() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupForwarderPipelineControl) string { return v.FleetId }).(pulumi.StringOutput)
+}
+
+// Routing rule that determines how incoming logs are routed to this setup. See below.
+func (o FederatedLogsSetupForwarderPipelineControlOutput) RoutingRule() FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupForwarderPipelineControl) *FederatedLogsSetupForwarderPipelineControlRoutingRule {
+		return v.RoutingRule
+	}).(FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput)
+}
+
+type FederatedLogsSetupForwarderPipelineControlPtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupForwarderPipelineControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupForwarderPipelineControl)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlPtrOutput) ToFederatedLogsSetupForwarderPipelineControlPtrOutput() FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlPtrOutput) ToFederatedLogsSetupForwarderPipelineControlPtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlPtrOutput) Elem() FederatedLogsSetupForwarderPipelineControlOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupForwarderPipelineControl) FederatedLogsSetupForwarderPipelineControl {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsSetupForwarderPipelineControl
+		return ret
+	}).(FederatedLogsSetupForwarderPipelineControlOutput)
+}
+
+// The fleet entity GUID.
+func (o FederatedLogsSetupForwarderPipelineControlPtrOutput) FleetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupForwarderPipelineControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FleetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Routing rule that determines how incoming logs are routed to this setup. See below.
+func (o FederatedLogsSetupForwarderPipelineControlPtrOutput) RoutingRule() FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupForwarderPipelineControl) *FederatedLogsSetupForwarderPipelineControlRoutingRule {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingRule
+	}).(FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput)
+}
+
+type FederatedLogsSetupForwarderPipelineControlRoutingRule struct {
+	// [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+	Expression string `pulumi:"expression"`
+}
+
+// FederatedLogsSetupForwarderPipelineControlRoutingRuleInput is an input type that accepts FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs and FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupForwarderPipelineControlRoutingRuleInput` via:
+//
+//	FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs{...}
+type FederatedLogsSetupForwarderPipelineControlRoutingRuleInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupForwarderPipelineControlRoutingRuleOutput() FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput
+	ToFederatedLogsSetupForwarderPipelineControlRoutingRuleOutputWithContext(context.Context) FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput
+}
+
+type FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs struct {
+	// [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupForwarderPipelineControlRoutingRule)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs) ToFederatedLogsSetupForwarderPipelineControlRoutingRuleOutput() FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput {
+	return i.ToFederatedLogsSetupForwarderPipelineControlRoutingRuleOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs) ToFederatedLogsSetupForwarderPipelineControlRoutingRuleOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput)
+}
+
+func (i FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs) ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput() FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return i.ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs) ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput).ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutputWithContext(ctx)
+}
+
+// FederatedLogsSetupForwarderPipelineControlRoutingRulePtrInput is an input type that accepts FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs, FederatedLogsSetupForwarderPipelineControlRoutingRulePtr and FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupForwarderPipelineControlRoutingRulePtrInput` via:
+//
+//	        FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsSetupForwarderPipelineControlRoutingRulePtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput() FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput
+	ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutputWithContext(context.Context) FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput
+}
+
+type federatedLogsSetupForwarderPipelineControlRoutingRulePtrType FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs
+
+func FederatedLogsSetupForwarderPipelineControlRoutingRulePtr(v *FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs) FederatedLogsSetupForwarderPipelineControlRoutingRulePtrInput {
+	return (*federatedLogsSetupForwarderPipelineControlRoutingRulePtrType)(v)
+}
+
+func (*federatedLogsSetupForwarderPipelineControlRoutingRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupForwarderPipelineControlRoutingRule)(nil)).Elem()
+}
+
+func (i *federatedLogsSetupForwarderPipelineControlRoutingRulePtrType) ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput() FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return i.ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsSetupForwarderPipelineControlRoutingRulePtrType) ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput)
+}
+
+type FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupForwarderPipelineControlRoutingRule)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput) ToFederatedLogsSetupForwarderPipelineControlRoutingRuleOutput() FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput) ToFederatedLogsSetupForwarderPipelineControlRoutingRuleOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput) ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput() FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return o.ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput) ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsSetupForwarderPipelineControlRoutingRule) *FederatedLogsSetupForwarderPipelineControlRoutingRule {
+		return &v
+	}).(FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput)
+}
+
+// [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+func (o FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupForwarderPipelineControlRoutingRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupForwarderPipelineControlRoutingRule)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput) ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput() FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput) ToFederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutputWithContext(ctx context.Context) FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput) Elem() FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupForwarderPipelineControlRoutingRule) FederatedLogsSetupForwarderPipelineControlRoutingRule {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsSetupForwarderPipelineControlRoutingRule
+		return ret
+	}).(FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput)
+}
+
+// [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+func (o FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupForwarderPipelineControlRoutingRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsSetupHealthCheck struct {
+	End2endDataFlows []FederatedLogsSetupHealthCheckEnd2endDataFlow `pulumi:"end2endDataFlows"`
+	LastUpdatedAt    *string                                        `pulumi:"lastUpdatedAt"`
+	QueryConnections []FederatedLogsSetupHealthCheckQueryConnection `pulumi:"queryConnections"`
+}
+
+// FederatedLogsSetupHealthCheckInput is an input type that accepts FederatedLogsSetupHealthCheckArgs and FederatedLogsSetupHealthCheckOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupHealthCheckInput` via:
+//
+//	FederatedLogsSetupHealthCheckArgs{...}
+type FederatedLogsSetupHealthCheckInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupHealthCheckOutput() FederatedLogsSetupHealthCheckOutput
+	ToFederatedLogsSetupHealthCheckOutputWithContext(context.Context) FederatedLogsSetupHealthCheckOutput
+}
+
+type FederatedLogsSetupHealthCheckArgs struct {
+	End2endDataFlows FederatedLogsSetupHealthCheckEnd2endDataFlowArrayInput `pulumi:"end2endDataFlows"`
+	LastUpdatedAt    pulumi.StringPtrInput                                  `pulumi:"lastUpdatedAt"`
+	QueryConnections FederatedLogsSetupHealthCheckQueryConnectionArrayInput `pulumi:"queryConnections"`
+}
+
+func (FederatedLogsSetupHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupHealthCheck)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupHealthCheckArgs) ToFederatedLogsSetupHealthCheckOutput() FederatedLogsSetupHealthCheckOutput {
+	return i.ToFederatedLogsSetupHealthCheckOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupHealthCheckArgs) ToFederatedLogsSetupHealthCheckOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupHealthCheckOutput)
+}
+
+// FederatedLogsSetupHealthCheckArrayInput is an input type that accepts FederatedLogsSetupHealthCheckArray and FederatedLogsSetupHealthCheckArrayOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupHealthCheckArrayInput` via:
+//
+//	FederatedLogsSetupHealthCheckArray{ FederatedLogsSetupHealthCheckArgs{...} }
+type FederatedLogsSetupHealthCheckArrayInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupHealthCheckArrayOutput() FederatedLogsSetupHealthCheckArrayOutput
+	ToFederatedLogsSetupHealthCheckArrayOutputWithContext(context.Context) FederatedLogsSetupHealthCheckArrayOutput
+}
+
+type FederatedLogsSetupHealthCheckArray []FederatedLogsSetupHealthCheckInput
+
+func (FederatedLogsSetupHealthCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsSetupHealthCheck)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupHealthCheckArray) ToFederatedLogsSetupHealthCheckArrayOutput() FederatedLogsSetupHealthCheckArrayOutput {
+	return i.ToFederatedLogsSetupHealthCheckArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupHealthCheckArray) ToFederatedLogsSetupHealthCheckArrayOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupHealthCheckArrayOutput)
+}
+
+type FederatedLogsSetupHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupHealthCheck)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupHealthCheckOutput) ToFederatedLogsSetupHealthCheckOutput() FederatedLogsSetupHealthCheckOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckOutput) ToFederatedLogsSetupHealthCheckOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckOutput) End2endDataFlows() FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput {
+	return o.ApplyT(func(v FederatedLogsSetupHealthCheck) []FederatedLogsSetupHealthCheckEnd2endDataFlow {
+		return v.End2endDataFlows
+	}).(FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput)
+}
+
+func (o FederatedLogsSetupHealthCheckOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupHealthCheck) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsSetupHealthCheckOutput) QueryConnections() FederatedLogsSetupHealthCheckQueryConnectionArrayOutput {
+	return o.ApplyT(func(v FederatedLogsSetupHealthCheck) []FederatedLogsSetupHealthCheckQueryConnection {
+		return v.QueryConnections
+	}).(FederatedLogsSetupHealthCheckQueryConnectionArrayOutput)
+}
+
+type FederatedLogsSetupHealthCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupHealthCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsSetupHealthCheck)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupHealthCheckArrayOutput) ToFederatedLogsSetupHealthCheckArrayOutput() FederatedLogsSetupHealthCheckArrayOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckArrayOutput) ToFederatedLogsSetupHealthCheckArrayOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckArrayOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckArrayOutput) Index(i pulumi.IntInput) FederatedLogsSetupHealthCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedLogsSetupHealthCheck {
+		return vs[0].([]FederatedLogsSetupHealthCheck)[vs[1].(int)]
+	}).(FederatedLogsSetupHealthCheckOutput)
+}
+
+type FederatedLogsSetupHealthCheckEnd2endDataFlow struct {
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	Message       *string `pulumi:"message"`
+	Status        *string `pulumi:"status"`
+}
+
+// FederatedLogsSetupHealthCheckEnd2endDataFlowInput is an input type that accepts FederatedLogsSetupHealthCheckEnd2endDataFlowArgs and FederatedLogsSetupHealthCheckEnd2endDataFlowOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupHealthCheckEnd2endDataFlowInput` via:
+//
+//	FederatedLogsSetupHealthCheckEnd2endDataFlowArgs{...}
+type FederatedLogsSetupHealthCheckEnd2endDataFlowInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupHealthCheckEnd2endDataFlowOutput() FederatedLogsSetupHealthCheckEnd2endDataFlowOutput
+	ToFederatedLogsSetupHealthCheckEnd2endDataFlowOutputWithContext(context.Context) FederatedLogsSetupHealthCheckEnd2endDataFlowOutput
+}
+
+type FederatedLogsSetupHealthCheckEnd2endDataFlowArgs struct {
+	LastUpdatedAt pulumi.StringPtrInput `pulumi:"lastUpdatedAt"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Status        pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FederatedLogsSetupHealthCheckEnd2endDataFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupHealthCheckEnd2endDataFlow)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupHealthCheckEnd2endDataFlowArgs) ToFederatedLogsSetupHealthCheckEnd2endDataFlowOutput() FederatedLogsSetupHealthCheckEnd2endDataFlowOutput {
+	return i.ToFederatedLogsSetupHealthCheckEnd2endDataFlowOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupHealthCheckEnd2endDataFlowArgs) ToFederatedLogsSetupHealthCheckEnd2endDataFlowOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckEnd2endDataFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupHealthCheckEnd2endDataFlowOutput)
+}
+
+// FederatedLogsSetupHealthCheckEnd2endDataFlowArrayInput is an input type that accepts FederatedLogsSetupHealthCheckEnd2endDataFlowArray and FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupHealthCheckEnd2endDataFlowArrayInput` via:
+//
+//	FederatedLogsSetupHealthCheckEnd2endDataFlowArray{ FederatedLogsSetupHealthCheckEnd2endDataFlowArgs{...} }
+type FederatedLogsSetupHealthCheckEnd2endDataFlowArrayInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput() FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput
+	ToFederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutputWithContext(context.Context) FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput
+}
+
+type FederatedLogsSetupHealthCheckEnd2endDataFlowArray []FederatedLogsSetupHealthCheckEnd2endDataFlowInput
+
+func (FederatedLogsSetupHealthCheckEnd2endDataFlowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsSetupHealthCheckEnd2endDataFlow)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupHealthCheckEnd2endDataFlowArray) ToFederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput() FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput {
+	return i.ToFederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupHealthCheckEnd2endDataFlowArray) ToFederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput)
+}
+
+type FederatedLogsSetupHealthCheckEnd2endDataFlowOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupHealthCheckEnd2endDataFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupHealthCheckEnd2endDataFlow)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupHealthCheckEnd2endDataFlowOutput) ToFederatedLogsSetupHealthCheckEnd2endDataFlowOutput() FederatedLogsSetupHealthCheckEnd2endDataFlowOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckEnd2endDataFlowOutput) ToFederatedLogsSetupHealthCheckEnd2endDataFlowOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckEnd2endDataFlowOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckEnd2endDataFlowOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupHealthCheckEnd2endDataFlow) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsSetupHealthCheckEnd2endDataFlowOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupHealthCheckEnd2endDataFlow) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsSetupHealthCheckEnd2endDataFlowOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupHealthCheckEnd2endDataFlow) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsSetupHealthCheckEnd2endDataFlow)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput) ToFederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput() FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput) ToFederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput) Index(i pulumi.IntInput) FederatedLogsSetupHealthCheckEnd2endDataFlowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedLogsSetupHealthCheckEnd2endDataFlow {
+		return vs[0].([]FederatedLogsSetupHealthCheckEnd2endDataFlow)[vs[1].(int)]
+	}).(FederatedLogsSetupHealthCheckEnd2endDataFlowOutput)
+}
+
+type FederatedLogsSetupHealthCheckQueryConnection struct {
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	Message       *string `pulumi:"message"`
+	Status        *string `pulumi:"status"`
+}
+
+// FederatedLogsSetupHealthCheckQueryConnectionInput is an input type that accepts FederatedLogsSetupHealthCheckQueryConnectionArgs and FederatedLogsSetupHealthCheckQueryConnectionOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupHealthCheckQueryConnectionInput` via:
+//
+//	FederatedLogsSetupHealthCheckQueryConnectionArgs{...}
+type FederatedLogsSetupHealthCheckQueryConnectionInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupHealthCheckQueryConnectionOutput() FederatedLogsSetupHealthCheckQueryConnectionOutput
+	ToFederatedLogsSetupHealthCheckQueryConnectionOutputWithContext(context.Context) FederatedLogsSetupHealthCheckQueryConnectionOutput
+}
+
+type FederatedLogsSetupHealthCheckQueryConnectionArgs struct {
+	LastUpdatedAt pulumi.StringPtrInput `pulumi:"lastUpdatedAt"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Status        pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FederatedLogsSetupHealthCheckQueryConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupHealthCheckQueryConnection)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupHealthCheckQueryConnectionArgs) ToFederatedLogsSetupHealthCheckQueryConnectionOutput() FederatedLogsSetupHealthCheckQueryConnectionOutput {
+	return i.ToFederatedLogsSetupHealthCheckQueryConnectionOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupHealthCheckQueryConnectionArgs) ToFederatedLogsSetupHealthCheckQueryConnectionOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckQueryConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupHealthCheckQueryConnectionOutput)
+}
+
+// FederatedLogsSetupHealthCheckQueryConnectionArrayInput is an input type that accepts FederatedLogsSetupHealthCheckQueryConnectionArray and FederatedLogsSetupHealthCheckQueryConnectionArrayOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupHealthCheckQueryConnectionArrayInput` via:
+//
+//	FederatedLogsSetupHealthCheckQueryConnectionArray{ FederatedLogsSetupHealthCheckQueryConnectionArgs{...} }
+type FederatedLogsSetupHealthCheckQueryConnectionArrayInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupHealthCheckQueryConnectionArrayOutput() FederatedLogsSetupHealthCheckQueryConnectionArrayOutput
+	ToFederatedLogsSetupHealthCheckQueryConnectionArrayOutputWithContext(context.Context) FederatedLogsSetupHealthCheckQueryConnectionArrayOutput
+}
+
+type FederatedLogsSetupHealthCheckQueryConnectionArray []FederatedLogsSetupHealthCheckQueryConnectionInput
+
+func (FederatedLogsSetupHealthCheckQueryConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsSetupHealthCheckQueryConnection)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupHealthCheckQueryConnectionArray) ToFederatedLogsSetupHealthCheckQueryConnectionArrayOutput() FederatedLogsSetupHealthCheckQueryConnectionArrayOutput {
+	return i.ToFederatedLogsSetupHealthCheckQueryConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupHealthCheckQueryConnectionArray) ToFederatedLogsSetupHealthCheckQueryConnectionArrayOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckQueryConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupHealthCheckQueryConnectionArrayOutput)
+}
+
+type FederatedLogsSetupHealthCheckQueryConnectionOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupHealthCheckQueryConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupHealthCheckQueryConnection)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupHealthCheckQueryConnectionOutput) ToFederatedLogsSetupHealthCheckQueryConnectionOutput() FederatedLogsSetupHealthCheckQueryConnectionOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckQueryConnectionOutput) ToFederatedLogsSetupHealthCheckQueryConnectionOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckQueryConnectionOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckQueryConnectionOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupHealthCheckQueryConnection) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsSetupHealthCheckQueryConnectionOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupHealthCheckQueryConnection) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsSetupHealthCheckQueryConnectionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupHealthCheckQueryConnection) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsSetupHealthCheckQueryConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupHealthCheckQueryConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsSetupHealthCheckQueryConnection)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupHealthCheckQueryConnectionArrayOutput) ToFederatedLogsSetupHealthCheckQueryConnectionArrayOutput() FederatedLogsSetupHealthCheckQueryConnectionArrayOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckQueryConnectionArrayOutput) ToFederatedLogsSetupHealthCheckQueryConnectionArrayOutputWithContext(ctx context.Context) FederatedLogsSetupHealthCheckQueryConnectionArrayOutput {
+	return o
+}
+
+func (o FederatedLogsSetupHealthCheckQueryConnectionArrayOutput) Index(i pulumi.IntInput) FederatedLogsSetupHealthCheckQueryConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedLogsSetupHealthCheckQueryConnection {
+		return vs[0].([]FederatedLogsSetupHealthCheckQueryConnection)[vs[1].(int)]
+	}).(FederatedLogsSetupHealthCheckQueryConnectionOutput)
+}
+
+type FederatedLogsSetupLifecycleStatus struct {
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	Message       *string `pulumi:"message"`
+	Status        *string `pulumi:"status"`
+}
+
+// FederatedLogsSetupLifecycleStatusInput is an input type that accepts FederatedLogsSetupLifecycleStatusArgs and FederatedLogsSetupLifecycleStatusOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupLifecycleStatusInput` via:
+//
+//	FederatedLogsSetupLifecycleStatusArgs{...}
+type FederatedLogsSetupLifecycleStatusInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupLifecycleStatusOutput() FederatedLogsSetupLifecycleStatusOutput
+	ToFederatedLogsSetupLifecycleStatusOutputWithContext(context.Context) FederatedLogsSetupLifecycleStatusOutput
+}
+
+type FederatedLogsSetupLifecycleStatusArgs struct {
+	LastUpdatedAt pulumi.StringPtrInput `pulumi:"lastUpdatedAt"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Status        pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FederatedLogsSetupLifecycleStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupLifecycleStatus)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupLifecycleStatusArgs) ToFederatedLogsSetupLifecycleStatusOutput() FederatedLogsSetupLifecycleStatusOutput {
+	return i.ToFederatedLogsSetupLifecycleStatusOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupLifecycleStatusArgs) ToFederatedLogsSetupLifecycleStatusOutputWithContext(ctx context.Context) FederatedLogsSetupLifecycleStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupLifecycleStatusOutput)
+}
+
+// FederatedLogsSetupLifecycleStatusArrayInput is an input type that accepts FederatedLogsSetupLifecycleStatusArray and FederatedLogsSetupLifecycleStatusArrayOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupLifecycleStatusArrayInput` via:
+//
+//	FederatedLogsSetupLifecycleStatusArray{ FederatedLogsSetupLifecycleStatusArgs{...} }
+type FederatedLogsSetupLifecycleStatusArrayInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupLifecycleStatusArrayOutput() FederatedLogsSetupLifecycleStatusArrayOutput
+	ToFederatedLogsSetupLifecycleStatusArrayOutputWithContext(context.Context) FederatedLogsSetupLifecycleStatusArrayOutput
+}
+
+type FederatedLogsSetupLifecycleStatusArray []FederatedLogsSetupLifecycleStatusInput
+
+func (FederatedLogsSetupLifecycleStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsSetupLifecycleStatus)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupLifecycleStatusArray) ToFederatedLogsSetupLifecycleStatusArrayOutput() FederatedLogsSetupLifecycleStatusArrayOutput {
+	return i.ToFederatedLogsSetupLifecycleStatusArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupLifecycleStatusArray) ToFederatedLogsSetupLifecycleStatusArrayOutputWithContext(ctx context.Context) FederatedLogsSetupLifecycleStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupLifecycleStatusArrayOutput)
+}
+
+type FederatedLogsSetupLifecycleStatusOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupLifecycleStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupLifecycleStatus)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupLifecycleStatusOutput) ToFederatedLogsSetupLifecycleStatusOutput() FederatedLogsSetupLifecycleStatusOutput {
+	return o
+}
+
+func (o FederatedLogsSetupLifecycleStatusOutput) ToFederatedLogsSetupLifecycleStatusOutputWithContext(ctx context.Context) FederatedLogsSetupLifecycleStatusOutput {
+	return o
+}
+
+func (o FederatedLogsSetupLifecycleStatusOutput) LastUpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupLifecycleStatus) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsSetupLifecycleStatusOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupLifecycleStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o FederatedLogsSetupLifecycleStatusOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedLogsSetupLifecycleStatus) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsSetupLifecycleStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupLifecycleStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedLogsSetupLifecycleStatus)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupLifecycleStatusArrayOutput) ToFederatedLogsSetupLifecycleStatusArrayOutput() FederatedLogsSetupLifecycleStatusArrayOutput {
+	return o
+}
+
+func (o FederatedLogsSetupLifecycleStatusArrayOutput) ToFederatedLogsSetupLifecycleStatusArrayOutputWithContext(ctx context.Context) FederatedLogsSetupLifecycleStatusArrayOutput {
+	return o
+}
+
+func (o FederatedLogsSetupLifecycleStatusArrayOutput) Index(i pulumi.IntInput) FederatedLogsSetupLifecycleStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedLogsSetupLifecycleStatus {
+		return vs[0].([]FederatedLogsSetupLifecycleStatus)[vs[1].(int)]
+	}).(FederatedLogsSetupLifecycleStatusOutput)
+}
+
+type FederatedLogsSetupStorage struct {
+	// Cloud provider configuration. See below.
+	CloudProviderConfiguration FederatedLogsSetupStorageCloudProviderConfiguration `pulumi:"cloudProviderConfiguration"`
+	// Entity GUID of the `AwsConnection` used for writing data (the fleet ingest role).
+	DataIngestConnectionId string `pulumi:"dataIngestConnectionId"`
+	// S3 bucket where log data is stored.
+	DataLocationBucket string `pulumi:"dataLocationBucket"`
+	// Glue catalog database name associated with the setup.
+	Database string `pulumi:"database"`
+	// Entity GUID of the `AwsConnection` used for reading data.
+	QueryConnectionId string `pulumi:"queryConnectionId"`
+}
+
+// FederatedLogsSetupStorageInput is an input type that accepts FederatedLogsSetupStorageArgs and FederatedLogsSetupStorageOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupStorageInput` via:
+//
+//	FederatedLogsSetupStorageArgs{...}
+type FederatedLogsSetupStorageInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupStorageOutput() FederatedLogsSetupStorageOutput
+	ToFederatedLogsSetupStorageOutputWithContext(context.Context) FederatedLogsSetupStorageOutput
+}
+
+type FederatedLogsSetupStorageArgs struct {
+	// Cloud provider configuration. See below.
+	CloudProviderConfiguration FederatedLogsSetupStorageCloudProviderConfigurationInput `pulumi:"cloudProviderConfiguration"`
+	// Entity GUID of the `AwsConnection` used for writing data (the fleet ingest role).
+	DataIngestConnectionId pulumi.StringInput `pulumi:"dataIngestConnectionId"`
+	// S3 bucket where log data is stored.
+	DataLocationBucket pulumi.StringInput `pulumi:"dataLocationBucket"`
+	// Glue catalog database name associated with the setup.
+	Database pulumi.StringInput `pulumi:"database"`
+	// Entity GUID of the `AwsConnection` used for reading data.
+	QueryConnectionId pulumi.StringInput `pulumi:"queryConnectionId"`
+}
+
+func (FederatedLogsSetupStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupStorage)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupStorageArgs) ToFederatedLogsSetupStorageOutput() FederatedLogsSetupStorageOutput {
+	return i.ToFederatedLogsSetupStorageOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupStorageArgs) ToFederatedLogsSetupStorageOutputWithContext(ctx context.Context) FederatedLogsSetupStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupStorageOutput)
+}
+
+func (i FederatedLogsSetupStorageArgs) ToFederatedLogsSetupStoragePtrOutput() FederatedLogsSetupStoragePtrOutput {
+	return i.ToFederatedLogsSetupStoragePtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupStorageArgs) ToFederatedLogsSetupStoragePtrOutputWithContext(ctx context.Context) FederatedLogsSetupStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupStorageOutput).ToFederatedLogsSetupStoragePtrOutputWithContext(ctx)
+}
+
+// FederatedLogsSetupStoragePtrInput is an input type that accepts FederatedLogsSetupStorageArgs, FederatedLogsSetupStoragePtr and FederatedLogsSetupStoragePtrOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupStoragePtrInput` via:
+//
+//	        FederatedLogsSetupStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsSetupStoragePtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupStoragePtrOutput() FederatedLogsSetupStoragePtrOutput
+	ToFederatedLogsSetupStoragePtrOutputWithContext(context.Context) FederatedLogsSetupStoragePtrOutput
+}
+
+type federatedLogsSetupStoragePtrType FederatedLogsSetupStorageArgs
+
+func FederatedLogsSetupStoragePtr(v *FederatedLogsSetupStorageArgs) FederatedLogsSetupStoragePtrInput {
+	return (*federatedLogsSetupStoragePtrType)(v)
+}
+
+func (*federatedLogsSetupStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupStorage)(nil)).Elem()
+}
+
+func (i *federatedLogsSetupStoragePtrType) ToFederatedLogsSetupStoragePtrOutput() FederatedLogsSetupStoragePtrOutput {
+	return i.ToFederatedLogsSetupStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsSetupStoragePtrType) ToFederatedLogsSetupStoragePtrOutputWithContext(ctx context.Context) FederatedLogsSetupStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupStoragePtrOutput)
+}
+
+type FederatedLogsSetupStorageOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupStorage)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupStorageOutput) ToFederatedLogsSetupStorageOutput() FederatedLogsSetupStorageOutput {
+	return o
+}
+
+func (o FederatedLogsSetupStorageOutput) ToFederatedLogsSetupStorageOutputWithContext(ctx context.Context) FederatedLogsSetupStorageOutput {
+	return o
+}
+
+func (o FederatedLogsSetupStorageOutput) ToFederatedLogsSetupStoragePtrOutput() FederatedLogsSetupStoragePtrOutput {
+	return o.ToFederatedLogsSetupStoragePtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsSetupStorageOutput) ToFederatedLogsSetupStoragePtrOutputWithContext(ctx context.Context) FederatedLogsSetupStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsSetupStorage) *FederatedLogsSetupStorage {
+		return &v
+	}).(FederatedLogsSetupStoragePtrOutput)
+}
+
+// Cloud provider configuration. See below.
+func (o FederatedLogsSetupStorageOutput) CloudProviderConfiguration() FederatedLogsSetupStorageCloudProviderConfigurationOutput {
+	return o.ApplyT(func(v FederatedLogsSetupStorage) FederatedLogsSetupStorageCloudProviderConfiguration {
+		return v.CloudProviderConfiguration
+	}).(FederatedLogsSetupStorageCloudProviderConfigurationOutput)
+}
+
+// Entity GUID of the `AwsConnection` used for writing data (the fleet ingest role).
+func (o FederatedLogsSetupStorageOutput) DataIngestConnectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupStorage) string { return v.DataIngestConnectionId }).(pulumi.StringOutput)
+}
+
+// S3 bucket where log data is stored.
+func (o FederatedLogsSetupStorageOutput) DataLocationBucket() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupStorage) string { return v.DataLocationBucket }).(pulumi.StringOutput)
+}
+
+// Glue catalog database name associated with the setup.
+func (o FederatedLogsSetupStorageOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupStorage) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// Entity GUID of the `AwsConnection` used for reading data.
+func (o FederatedLogsSetupStorageOutput) QueryConnectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupStorage) string { return v.QueryConnectionId }).(pulumi.StringOutput)
+}
+
+type FederatedLogsSetupStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupStorage)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupStoragePtrOutput) ToFederatedLogsSetupStoragePtrOutput() FederatedLogsSetupStoragePtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupStoragePtrOutput) ToFederatedLogsSetupStoragePtrOutputWithContext(ctx context.Context) FederatedLogsSetupStoragePtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupStoragePtrOutput) Elem() FederatedLogsSetupStorageOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupStorage) FederatedLogsSetupStorage {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsSetupStorage
+		return ret
+	}).(FederatedLogsSetupStorageOutput)
+}
+
+// Cloud provider configuration. See below.
+func (o FederatedLogsSetupStoragePtrOutput) CloudProviderConfiguration() FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupStorage) *FederatedLogsSetupStorageCloudProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudProviderConfiguration
+	}).(FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput)
+}
+
+// Entity GUID of the `AwsConnection` used for writing data (the fleet ingest role).
+func (o FederatedLogsSetupStoragePtrOutput) DataIngestConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataIngestConnectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 bucket where log data is stored.
+func (o FederatedLogsSetupStoragePtrOutput) DataLocationBucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataLocationBucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Glue catalog database name associated with the setup.
+func (o FederatedLogsSetupStoragePtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// Entity GUID of the `AwsConnection` used for reading data.
+func (o FederatedLogsSetupStoragePtrOutput) QueryConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryConnectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+type FederatedLogsSetupStorageCloudProviderConfiguration struct {
+	// The cloud provider. Currently only `AWS` is supported.
+	Provider string `pulumi:"provider"`
+	// The cloud provider region (e.g. `us-east-1`).
+	Region string `pulumi:"region"`
+}
+
+// FederatedLogsSetupStorageCloudProviderConfigurationInput is an input type that accepts FederatedLogsSetupStorageCloudProviderConfigurationArgs and FederatedLogsSetupStorageCloudProviderConfigurationOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupStorageCloudProviderConfigurationInput` via:
+//
+//	FederatedLogsSetupStorageCloudProviderConfigurationArgs{...}
+type FederatedLogsSetupStorageCloudProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupStorageCloudProviderConfigurationOutput() FederatedLogsSetupStorageCloudProviderConfigurationOutput
+	ToFederatedLogsSetupStorageCloudProviderConfigurationOutputWithContext(context.Context) FederatedLogsSetupStorageCloudProviderConfigurationOutput
+}
+
+type FederatedLogsSetupStorageCloudProviderConfigurationArgs struct {
+	// The cloud provider. Currently only `AWS` is supported.
+	Provider pulumi.StringInput `pulumi:"provider"`
+	// The cloud provider region (e.g. `us-east-1`).
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (FederatedLogsSetupStorageCloudProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupStorageCloudProviderConfiguration)(nil)).Elem()
+}
+
+func (i FederatedLogsSetupStorageCloudProviderConfigurationArgs) ToFederatedLogsSetupStorageCloudProviderConfigurationOutput() FederatedLogsSetupStorageCloudProviderConfigurationOutput {
+	return i.ToFederatedLogsSetupStorageCloudProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupStorageCloudProviderConfigurationArgs) ToFederatedLogsSetupStorageCloudProviderConfigurationOutputWithContext(ctx context.Context) FederatedLogsSetupStorageCloudProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupStorageCloudProviderConfigurationOutput)
+}
+
+func (i FederatedLogsSetupStorageCloudProviderConfigurationArgs) ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutput() FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput {
+	return i.ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FederatedLogsSetupStorageCloudProviderConfigurationArgs) ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutputWithContext(ctx context.Context) FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupStorageCloudProviderConfigurationOutput).ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// FederatedLogsSetupStorageCloudProviderConfigurationPtrInput is an input type that accepts FederatedLogsSetupStorageCloudProviderConfigurationArgs, FederatedLogsSetupStorageCloudProviderConfigurationPtr and FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `FederatedLogsSetupStorageCloudProviderConfigurationPtrInput` via:
+//
+//	        FederatedLogsSetupStorageCloudProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedLogsSetupStorageCloudProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutput() FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput
+	ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutputWithContext(context.Context) FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput
+}
+
+type federatedLogsSetupStorageCloudProviderConfigurationPtrType FederatedLogsSetupStorageCloudProviderConfigurationArgs
+
+func FederatedLogsSetupStorageCloudProviderConfigurationPtr(v *FederatedLogsSetupStorageCloudProviderConfigurationArgs) FederatedLogsSetupStorageCloudProviderConfigurationPtrInput {
+	return (*federatedLogsSetupStorageCloudProviderConfigurationPtrType)(v)
+}
+
+func (*federatedLogsSetupStorageCloudProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupStorageCloudProviderConfiguration)(nil)).Elem()
+}
+
+func (i *federatedLogsSetupStorageCloudProviderConfigurationPtrType) ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutput() FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput {
+	return i.ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *federatedLogsSetupStorageCloudProviderConfigurationPtrType) ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutputWithContext(ctx context.Context) FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput)
+}
+
+type FederatedLogsSetupStorageCloudProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupStorageCloudProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedLogsSetupStorageCloudProviderConfiguration)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupStorageCloudProviderConfigurationOutput) ToFederatedLogsSetupStorageCloudProviderConfigurationOutput() FederatedLogsSetupStorageCloudProviderConfigurationOutput {
+	return o
+}
+
+func (o FederatedLogsSetupStorageCloudProviderConfigurationOutput) ToFederatedLogsSetupStorageCloudProviderConfigurationOutputWithContext(ctx context.Context) FederatedLogsSetupStorageCloudProviderConfigurationOutput {
+	return o
+}
+
+func (o FederatedLogsSetupStorageCloudProviderConfigurationOutput) ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutput() FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput {
+	return o.ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FederatedLogsSetupStorageCloudProviderConfigurationOutput) ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutputWithContext(ctx context.Context) FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedLogsSetupStorageCloudProviderConfiguration) *FederatedLogsSetupStorageCloudProviderConfiguration {
+		return &v
+	}).(FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput)
+}
+
+// The cloud provider. Currently only `AWS` is supported.
+func (o FederatedLogsSetupStorageCloudProviderConfigurationOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupStorageCloudProviderConfiguration) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+// The cloud provider region (e.g. `us-east-1`).
+func (o FederatedLogsSetupStorageCloudProviderConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedLogsSetupStorageCloudProviderConfiguration) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedLogsSetupStorageCloudProviderConfiguration)(nil)).Elem()
+}
+
+func (o FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput) ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutput() FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput) ToFederatedLogsSetupStorageCloudProviderConfigurationPtrOutputWithContext(ctx context.Context) FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput) Elem() FederatedLogsSetupStorageCloudProviderConfigurationOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupStorageCloudProviderConfiguration) FederatedLogsSetupStorageCloudProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedLogsSetupStorageCloudProviderConfiguration
+		return ret
+	}).(FederatedLogsSetupStorageCloudProviderConfigurationOutput)
+}
+
+// The cloud provider. Currently only `AWS` is supported.
+func (o FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupStorageCloudProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Provider
+	}).(pulumi.StringPtrOutput)
+}
+
+// The cloud provider region (e.g. `us-east-1`).
+func (o FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedLogsSetupStorageCloudProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
 }
 
 type FleetConfigurationVersion struct {
@@ -33879,10 +37282,60 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleConditionConditionArrayInput)(nil)).Elem(), AlertMutingRuleConditionConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleScheduleInput)(nil)).Elem(), AlertMutingRuleScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleSchedulePtrInput)(nil)).Elem(), AlertMutingRuleScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsConnectionCredentialInput)(nil)).Elem(), AwsConnectionCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsConnectionCredentialPtrInput)(nil)).Elem(), AwsConnectionCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsConnectionCredentialAssumeRoleInput)(nil)).Elem(), AwsConnectionCredentialAssumeRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsConnectionCredentialAssumeRolePtrInput)(nil)).Elem(), AwsConnectionCredentialAssumeRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsConnectionSettingInput)(nil)).Elem(), AwsConnectionSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsConnectionSettingArrayInput)(nil)).Elem(), AwsConnectionSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsConnectionTagInput)(nil)).Elem(), AwsConnectionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsConnectionTagArrayInput)(nil)).Elem(), AwsConnectionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CardinalityManagementMetricInput)(nil)).Elem(), CardinalityManagementMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CardinalityManagementMetricArrayInput)(nil)).Elem(), CardinalityManagementMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagInput)(nil)).Elem(), EntityTagsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagArrayInput)(nil)).Elem(), EntityTagsTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionDataRetentionPolicyInput)(nil)).Elem(), FederatedLogsPartitionDataRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionDataRetentionPolicyPtrInput)(nil)).Elem(), FederatedLogsPartitionDataRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationInput)(nil)).Elem(), FederatedLogsPartitionForwarderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationPtrInput)(nil)).Elem(), FederatedLogsPartitionForwarderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationPipelineControlInput)(nil)).Elem(), FederatedLogsPartitionForwarderConfigurationPipelineControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationPipelineControlPtrInput)(nil)).Elem(), FederatedLogsPartitionForwarderConfigurationPipelineControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleInput)(nil)).Elem(), FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrInput)(nil)).Elem(), FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionHealthCheckInput)(nil)).Elem(), FederatedLogsPartitionHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionHealthCheckArrayInput)(nil)).Elem(), FederatedLogsPartitionHealthCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionHealthCheckEnd2endDataFlowInput)(nil)).Elem(), FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayInput)(nil)).Elem(), FederatedLogsPartitionHealthCheckEnd2endDataFlowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionHealthCheckQueryConnectionInput)(nil)).Elem(), FederatedLogsPartitionHealthCheckQueryConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionHealthCheckQueryConnectionArrayInput)(nil)).Elem(), FederatedLogsPartitionHealthCheckQueryConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionLifecycleStatusInput)(nil)).Elem(), FederatedLogsPartitionLifecycleStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionLifecycleStatusArrayInput)(nil)).Elem(), FederatedLogsPartitionLifecycleStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionStorageInput)(nil)).Elem(), FederatedLogsPartitionStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsPartitionStoragePtrInput)(nil)).Elem(), FederatedLogsPartitionStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupDefaultPartitionInput)(nil)).Elem(), FederatedLogsSetupDefaultPartitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupDefaultPartitionPtrInput)(nil)).Elem(), FederatedLogsSetupDefaultPartitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupDefaultPartitionDataRetentionPolicyInput)(nil)).Elem(), FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrInput)(nil)).Elem(), FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupDefaultPartitionStorageInput)(nil)).Elem(), FederatedLogsSetupDefaultPartitionStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupDefaultPartitionStoragePtrInput)(nil)).Elem(), FederatedLogsSetupDefaultPartitionStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupForwarderInput)(nil)).Elem(), FederatedLogsSetupForwarderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupForwarderPtrInput)(nil)).Elem(), FederatedLogsSetupForwarderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupForwarderPipelineControlInput)(nil)).Elem(), FederatedLogsSetupForwarderPipelineControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupForwarderPipelineControlPtrInput)(nil)).Elem(), FederatedLogsSetupForwarderPipelineControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupForwarderPipelineControlRoutingRuleInput)(nil)).Elem(), FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupForwarderPipelineControlRoutingRulePtrInput)(nil)).Elem(), FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupHealthCheckInput)(nil)).Elem(), FederatedLogsSetupHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupHealthCheckArrayInput)(nil)).Elem(), FederatedLogsSetupHealthCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupHealthCheckEnd2endDataFlowInput)(nil)).Elem(), FederatedLogsSetupHealthCheckEnd2endDataFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupHealthCheckEnd2endDataFlowArrayInput)(nil)).Elem(), FederatedLogsSetupHealthCheckEnd2endDataFlowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupHealthCheckQueryConnectionInput)(nil)).Elem(), FederatedLogsSetupHealthCheckQueryConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupHealthCheckQueryConnectionArrayInput)(nil)).Elem(), FederatedLogsSetupHealthCheckQueryConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupLifecycleStatusInput)(nil)).Elem(), FederatedLogsSetupLifecycleStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupLifecycleStatusArrayInput)(nil)).Elem(), FederatedLogsSetupLifecycleStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupStorageInput)(nil)).Elem(), FederatedLogsSetupStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupStoragePtrInput)(nil)).Elem(), FederatedLogsSetupStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupStorageCloudProviderConfigurationInput)(nil)).Elem(), FederatedLogsSetupStorageCloudProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedLogsSetupStorageCloudProviderConfigurationPtrInput)(nil)).Elem(), FederatedLogsSetupStorageCloudProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetConfigurationVersionInput)(nil)).Elem(), FleetConfigurationVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetConfigurationVersionArrayInput)(nil)).Elem(), FleetConfigurationVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDeploymentAgentInput)(nil)).Elem(), FleetDeploymentAgentArgs{})
@@ -34360,10 +37813,60 @@ func init() {
 	pulumi.RegisterOutputType(AlertMutingRuleConditionConditionArrayOutput{})
 	pulumi.RegisterOutputType(AlertMutingRuleScheduleOutput{})
 	pulumi.RegisterOutputType(AlertMutingRuleSchedulePtrOutput{})
+	pulumi.RegisterOutputType(AwsConnectionCredentialOutput{})
+	pulumi.RegisterOutputType(AwsConnectionCredentialPtrOutput{})
+	pulumi.RegisterOutputType(AwsConnectionCredentialAssumeRoleOutput{})
+	pulumi.RegisterOutputType(AwsConnectionCredentialAssumeRolePtrOutput{})
+	pulumi.RegisterOutputType(AwsConnectionSettingOutput{})
+	pulumi.RegisterOutputType(AwsConnectionSettingArrayOutput{})
+	pulumi.RegisterOutputType(AwsConnectionTagOutput{})
+	pulumi.RegisterOutputType(AwsConnectionTagArrayOutput{})
 	pulumi.RegisterOutputType(CardinalityManagementMetricOutput{})
 	pulumi.RegisterOutputType(CardinalityManagementMetricArrayOutput{})
 	pulumi.RegisterOutputType(EntityTagsTagOutput{})
 	pulumi.RegisterOutputType(EntityTagsTagArrayOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionDataRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionDataRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionForwarderConfigurationOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionForwarderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionForwarderConfigurationPipelineControlOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionForwarderConfigurationPipelineControlPtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRulePtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionHealthCheckOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionHealthCheckArrayOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionHealthCheckEnd2endDataFlowOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionHealthCheckEnd2endDataFlowArrayOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionHealthCheckQueryConnectionOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionHealthCheckQueryConnectionArrayOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionLifecycleStatusOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionLifecycleStatusArrayOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionStorageOutput{})
+	pulumi.RegisterOutputType(FederatedLogsPartitionStoragePtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupDefaultPartitionOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupDefaultPartitionPtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupDefaultPartitionDataRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupDefaultPartitionDataRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupDefaultPartitionStorageOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupDefaultPartitionStoragePtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupForwarderOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupForwarderPtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupForwarderPipelineControlOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupForwarderPipelineControlPtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupForwarderPipelineControlRoutingRuleOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupForwarderPipelineControlRoutingRulePtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupHealthCheckOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupHealthCheckArrayOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupHealthCheckEnd2endDataFlowOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupHealthCheckEnd2endDataFlowArrayOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupHealthCheckQueryConnectionOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupHealthCheckQueryConnectionArrayOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupLifecycleStatusOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupLifecycleStatusArrayOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupStorageOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupStoragePtrOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupStorageCloudProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(FederatedLogsSetupStorageCloudProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetConfigurationVersionOutput{})
 	pulumi.RegisterOutputType(FleetConfigurationVersionArrayOutput{})
 	pulumi.RegisterOutputType(FleetDeploymentAgentOutput{})

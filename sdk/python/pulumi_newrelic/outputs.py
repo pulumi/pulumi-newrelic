@@ -22,8 +22,33 @@ __all__ = [
     'AlertMutingRuleCondition',
     'AlertMutingRuleConditionCondition',
     'AlertMutingRuleSchedule',
+    'AwsConnectionCredential',
+    'AwsConnectionCredentialAssumeRole',
+    'AwsConnectionSetting',
+    'AwsConnectionTag',
     'CardinalityManagementMetric',
     'EntityTagsTag',
+    'FederatedLogsPartitionDataRetentionPolicy',
+    'FederatedLogsPartitionForwarderConfiguration',
+    'FederatedLogsPartitionForwarderConfigurationPipelineControl',
+    'FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule',
+    'FederatedLogsPartitionHealthCheck',
+    'FederatedLogsPartitionHealthCheckEnd2endDataFlow',
+    'FederatedLogsPartitionHealthCheckQueryConnection',
+    'FederatedLogsPartitionLifecycleStatus',
+    'FederatedLogsPartitionStorage',
+    'FederatedLogsSetupDefaultPartition',
+    'FederatedLogsSetupDefaultPartitionDataRetentionPolicy',
+    'FederatedLogsSetupDefaultPartitionStorage',
+    'FederatedLogsSetupForwarder',
+    'FederatedLogsSetupForwarderPipelineControl',
+    'FederatedLogsSetupForwarderPipelineControlRoutingRule',
+    'FederatedLogsSetupHealthCheck',
+    'FederatedLogsSetupHealthCheckEnd2endDataFlow',
+    'FederatedLogsSetupHealthCheckQueryConnection',
+    'FederatedLogsSetupLifecycleStatus',
+    'FederatedLogsSetupStorage',
+    'FederatedLogsSetupStorageCloudProviderConfiguration',
     'FleetConfigurationVersion',
     'FleetDeploymentAgent',
     'FleetMembersRing',
@@ -856,6 +881,148 @@ class AlertMutingRuleSchedule(dict):
 
 
 @pulumi.output_type
+class AwsConnectionCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assumeRole":
+            suggest = "assume_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsConnectionCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsConnectionCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsConnectionCredential.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assume_role: 'outputs.AwsConnectionCredentialAssumeRole'):
+        """
+        :param 'AwsConnectionCredentialAssumeRoleArgs' assume_role: STS:AssumeRole configuration. See below.
+        """
+        pulumi.set(__self__, "assume_role", assume_role)
+
+    @_builtins.property
+    @pulumi.getter(name="assumeRole")
+    def assume_role(self) -> 'outputs.AwsConnectionCredentialAssumeRole':
+        """
+        STS:AssumeRole configuration. See below.
+        """
+        return pulumi.get(self, "assume_role")
+
+
+@pulumi.output_type
+class AwsConnectionCredentialAssumeRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsConnectionCredentialAssumeRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsConnectionCredentialAssumeRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsConnectionCredentialAssumeRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 external_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str role_arn: ARN of the IAM role New Relic should assume.
+        :param _builtins.str external_id: External ID supplied by New Relic during STS:AssumeRole.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role New Relic should assume.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID supplied by New Relic during STS:AssumeRole.
+        """
+        return pulumi.get(self, "external_id")
+
+
+@pulumi.output_type
+class AwsConnectionSetting(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: The setting key.
+        :param _builtins.str value: The setting value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The setting key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The setting value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AwsConnectionTag(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str key: The tag key.
+        :param Sequence[_builtins.str] values: Set of tag values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of tag values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class CardinalityManagementMetric(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -932,6 +1099,908 @@ class EntityTagsTag(dict):
         The tag values.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class FederatedLogsPartitionDataRetentionPolicy(dict):
+    def __init__(__self__, *,
+                 duration: _builtins.int,
+                 unit: _builtins.str):
+        """
+        :param _builtins.int duration: Retention duration value.
+        :param _builtins.str unit: Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> _builtins.int:
+        """
+        Retention duration value.
+        """
+        return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> _builtins.str:
+        """
+        Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class FederatedLogsPartitionForwarderConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineControl":
+            suggest = "pipeline_control"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsPartitionForwarderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsPartitionForwarderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsPartitionForwarderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 pipeline_control: Optional['outputs.FederatedLogsPartitionForwarderConfigurationPipelineControl'] = None):
+        """
+        :param _builtins.str type: Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+        :param 'FederatedLogsPartitionForwarderConfigurationPipelineControlArgs' pipeline_control: Pipeline control configuration. See below.
+        """
+        pulumi.set(__self__, "type", type)
+        if pipeline_control is not None:
+            pulumi.set(__self__, "pipeline_control", pipeline_control)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineControl")
+    def pipeline_control(self) -> Optional['outputs.FederatedLogsPartitionForwarderConfigurationPipelineControl']:
+        """
+        Pipeline control configuration. See below.
+        """
+        return pulumi.get(self, "pipeline_control")
+
+
+@pulumi.output_type
+class FederatedLogsPartitionForwarderConfigurationPipelineControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionRule":
+            suggest = "partition_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsPartitionForwarderConfigurationPipelineControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsPartitionForwarderConfigurationPipelineControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsPartitionForwarderConfigurationPipelineControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partition_rule: Optional['outputs.FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule'] = None):
+        """
+        :param 'FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs' partition_rule: Rule that determines which logs are routed to this partition. See below.
+        """
+        if partition_rule is not None:
+            pulumi.set(__self__, "partition_rule", partition_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionRule")
+    def partition_rule(self) -> Optional['outputs.FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule']:
+        """
+        Rule that determines which logs are routed to this partition. See below.
+        """
+        return pulumi.get(self, "partition_rule")
+
+
+@pulumi.output_type
+class FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule(dict):
+    def __init__(__self__, *,
+                 expression: _builtins.str):
+        """
+        :param _builtins.str expression: [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class FederatedLogsPartitionHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "end2endDataFlows":
+            suggest = "end2end_data_flows"
+        elif key == "lastUpdatedAt":
+            suggest = "last_updated_at"
+        elif key == "queryConnections":
+            suggest = "query_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsPartitionHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsPartitionHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsPartitionHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end2end_data_flows: Optional[Sequence['outputs.FederatedLogsPartitionHealthCheckEnd2endDataFlow']] = None,
+                 last_updated_at: Optional[_builtins.str] = None,
+                 query_connections: Optional[Sequence['outputs.FederatedLogsPartitionHealthCheckQueryConnection']] = None):
+        if end2end_data_flows is not None:
+            pulumi.set(__self__, "end2end_data_flows", end2end_data_flows)
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if query_connections is not None:
+            pulumi.set(__self__, "query_connections", query_connections)
+
+    @_builtins.property
+    @pulumi.getter(name="end2endDataFlows")
+    def end2end_data_flows(self) -> Optional[Sequence['outputs.FederatedLogsPartitionHealthCheckEnd2endDataFlow']]:
+        return pulumi.get(self, "end2end_data_flows")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_at")
+
+    @_builtins.property
+    @pulumi.getter(name="queryConnections")
+    def query_connections(self) -> Optional[Sequence['outputs.FederatedLogsPartitionHealthCheckQueryConnection']]:
+        return pulumi.get(self, "query_connections")
+
+
+@pulumi.output_type
+class FederatedLogsPartitionHealthCheckEnd2endDataFlow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedAt":
+            suggest = "last_updated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsPartitionHealthCheckEnd2endDataFlow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsPartitionHealthCheckEnd2endDataFlow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsPartitionHealthCheckEnd2endDataFlow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_at: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FederatedLogsPartitionHealthCheckQueryConnection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedAt":
+            suggest = "last_updated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsPartitionHealthCheckQueryConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsPartitionHealthCheckQueryConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsPartitionHealthCheckQueryConnection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_at: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FederatedLogsPartitionLifecycleStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedAt":
+            suggest = "last_updated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsPartitionLifecycleStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsPartitionLifecycleStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsPartitionLifecycleStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_at: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FederatedLogsPartitionStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataLocationUri":
+            suggest = "data_location_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsPartitionStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsPartitionStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsPartitionStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_location_uri: _builtins.str,
+                 table: _builtins.str):
+        """
+        :param _builtins.str data_location_uri: S3 URI of the partition's data location.
+        :param _builtins.str table: Glue table name for the partition.
+        """
+        pulumi.set(__self__, "data_location_uri", data_location_uri)
+        pulumi.set(__self__, "table", table)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLocationUri")
+    def data_location_uri(self) -> _builtins.str:
+        """
+        S3 URI of the partition's data location.
+        """
+        return pulumi.get(self, "data_location_uri")
+
+    @_builtins.property
+    @pulumi.getter
+    def table(self) -> _builtins.str:
+        """
+        Glue table name for the partition.
+        """
+        return pulumi.get(self, "table")
+
+
+@pulumi.output_type
+class FederatedLogsSetupDefaultPartition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataRetentionPolicy":
+            suggest = "data_retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsSetupDefaultPartition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsSetupDefaultPartition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsSetupDefaultPartition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage: 'outputs.FederatedLogsSetupDefaultPartitionStorage',
+                 data_retention_policy: Optional['outputs.FederatedLogsSetupDefaultPartitionDataRetentionPolicy'] = None):
+        """
+        :param 'FederatedLogsSetupDefaultPartitionStorageArgs' storage: Storage details for the default partition. See below.
+        :param 'FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs' data_retention_policy: Retention policy for logs in the default partition. See below.
+        """
+        pulumi.set(__self__, "storage", storage)
+        if data_retention_policy is not None:
+            pulumi.set(__self__, "data_retention_policy", data_retention_policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def storage(self) -> 'outputs.FederatedLogsSetupDefaultPartitionStorage':
+        """
+        Storage details for the default partition. See below.
+        """
+        return pulumi.get(self, "storage")
+
+    @_builtins.property
+    @pulumi.getter(name="dataRetentionPolicy")
+    def data_retention_policy(self) -> Optional['outputs.FederatedLogsSetupDefaultPartitionDataRetentionPolicy']:
+        """
+        Retention policy for logs in the default partition. See below.
+        """
+        return pulumi.get(self, "data_retention_policy")
+
+
+@pulumi.output_type
+class FederatedLogsSetupDefaultPartitionDataRetentionPolicy(dict):
+    def __init__(__self__, *,
+                 duration: _builtins.int,
+                 unit: _builtins.str):
+        """
+        :param _builtins.int duration: Retention duration value.
+        :param _builtins.str unit: Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> _builtins.int:
+        """
+        Retention duration value.
+        """
+        return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> _builtins.str:
+        """
+        Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class FederatedLogsSetupDefaultPartitionStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataLocationUri":
+            suggest = "data_location_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsSetupDefaultPartitionStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsSetupDefaultPartitionStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsSetupDefaultPartitionStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_location_uri: _builtins.str,
+                 table: _builtins.str):
+        """
+        :param _builtins.str data_location_uri: S3 URI of the default partition's data location.
+        :param _builtins.str table: Glue table name for the default partition.
+        """
+        pulumi.set(__self__, "data_location_uri", data_location_uri)
+        pulumi.set(__self__, "table", table)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLocationUri")
+    def data_location_uri(self) -> _builtins.str:
+        """
+        S3 URI of the default partition's data location.
+        """
+        return pulumi.get(self, "data_location_uri")
+
+    @_builtins.property
+    @pulumi.getter
+    def table(self) -> _builtins.str:
+        """
+        Glue table name for the default partition.
+        """
+        return pulumi.get(self, "table")
+
+
+@pulumi.output_type
+class FederatedLogsSetupForwarder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineControl":
+            suggest = "pipeline_control"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsSetupForwarder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsSetupForwarder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsSetupForwarder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 pipeline_control: Optional['outputs.FederatedLogsSetupForwarderPipelineControl'] = None):
+        """
+        :param _builtins.str type: The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+        :param 'FederatedLogsSetupForwarderPipelineControlArgs' pipeline_control: Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+        """
+        pulumi.set(__self__, "type", type)
+        if pipeline_control is not None:
+            pulumi.set(__self__, "pipeline_control", pipeline_control)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineControl")
+    def pipeline_control(self) -> Optional['outputs.FederatedLogsSetupForwarderPipelineControl']:
+        """
+        Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+        """
+        return pulumi.get(self, "pipeline_control")
+
+
+@pulumi.output_type
+class FederatedLogsSetupForwarderPipelineControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fleetId":
+            suggest = "fleet_id"
+        elif key == "routingRule":
+            suggest = "routing_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsSetupForwarderPipelineControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsSetupForwarderPipelineControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsSetupForwarderPipelineControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fleet_id: _builtins.str,
+                 routing_rule: Optional['outputs.FederatedLogsSetupForwarderPipelineControlRoutingRule'] = None):
+        """
+        :param _builtins.str fleet_id: The fleet entity GUID.
+        :param 'FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs' routing_rule: Routing rule that determines how incoming logs are routed to this setup. See below.
+        """
+        pulumi.set(__self__, "fleet_id", fleet_id)
+        if routing_rule is not None:
+            pulumi.set(__self__, "routing_rule", routing_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="fleetId")
+    def fleet_id(self) -> _builtins.str:
+        """
+        The fleet entity GUID.
+        """
+        return pulumi.get(self, "fleet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="routingRule")
+    def routing_rule(self) -> Optional['outputs.FederatedLogsSetupForwarderPipelineControlRoutingRule']:
+        """
+        Routing rule that determines how incoming logs are routed to this setup. See below.
+        """
+        return pulumi.get(self, "routing_rule")
+
+
+@pulumi.output_type
+class FederatedLogsSetupForwarderPipelineControlRoutingRule(dict):
+    def __init__(__self__, *,
+                 expression: _builtins.str):
+        """
+        :param _builtins.str expression: [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class FederatedLogsSetupHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "end2endDataFlows":
+            suggest = "end2end_data_flows"
+        elif key == "lastUpdatedAt":
+            suggest = "last_updated_at"
+        elif key == "queryConnections":
+            suggest = "query_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsSetupHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsSetupHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsSetupHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end2end_data_flows: Optional[Sequence['outputs.FederatedLogsSetupHealthCheckEnd2endDataFlow']] = None,
+                 last_updated_at: Optional[_builtins.str] = None,
+                 query_connections: Optional[Sequence['outputs.FederatedLogsSetupHealthCheckQueryConnection']] = None):
+        if end2end_data_flows is not None:
+            pulumi.set(__self__, "end2end_data_flows", end2end_data_flows)
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if query_connections is not None:
+            pulumi.set(__self__, "query_connections", query_connections)
+
+    @_builtins.property
+    @pulumi.getter(name="end2endDataFlows")
+    def end2end_data_flows(self) -> Optional[Sequence['outputs.FederatedLogsSetupHealthCheckEnd2endDataFlow']]:
+        return pulumi.get(self, "end2end_data_flows")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_at")
+
+    @_builtins.property
+    @pulumi.getter(name="queryConnections")
+    def query_connections(self) -> Optional[Sequence['outputs.FederatedLogsSetupHealthCheckQueryConnection']]:
+        return pulumi.get(self, "query_connections")
+
+
+@pulumi.output_type
+class FederatedLogsSetupHealthCheckEnd2endDataFlow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedAt":
+            suggest = "last_updated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsSetupHealthCheckEnd2endDataFlow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsSetupHealthCheckEnd2endDataFlow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsSetupHealthCheckEnd2endDataFlow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_at: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FederatedLogsSetupHealthCheckQueryConnection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedAt":
+            suggest = "last_updated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsSetupHealthCheckQueryConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsSetupHealthCheckQueryConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsSetupHealthCheckQueryConnection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_at: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FederatedLogsSetupLifecycleStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedAt":
+            suggest = "last_updated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsSetupLifecycleStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsSetupLifecycleStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsSetupLifecycleStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_at: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FederatedLogsSetupStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudProviderConfiguration":
+            suggest = "cloud_provider_configuration"
+        elif key == "dataIngestConnectionId":
+            suggest = "data_ingest_connection_id"
+        elif key == "dataLocationBucket":
+            suggest = "data_location_bucket"
+        elif key == "queryConnectionId":
+            suggest = "query_connection_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedLogsSetupStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedLogsSetupStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedLogsSetupStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_provider_configuration: 'outputs.FederatedLogsSetupStorageCloudProviderConfiguration',
+                 data_ingest_connection_id: _builtins.str,
+                 data_location_bucket: _builtins.str,
+                 database: _builtins.str,
+                 query_connection_id: _builtins.str):
+        """
+        :param 'FederatedLogsSetupStorageCloudProviderConfigurationArgs' cloud_provider_configuration: Cloud provider configuration. See below.
+        :param _builtins.str data_ingest_connection_id: Entity GUID of the `AwsConnection` used for writing data (the fleet ingest role).
+        :param _builtins.str data_location_bucket: S3 bucket where log data is stored.
+        :param _builtins.str database: Glue catalog database name associated with the setup.
+        :param _builtins.str query_connection_id: Entity GUID of the `AwsConnection` used for reading data.
+        """
+        pulumi.set(__self__, "cloud_provider_configuration", cloud_provider_configuration)
+        pulumi.set(__self__, "data_ingest_connection_id", data_ingest_connection_id)
+        pulumi.set(__self__, "data_location_bucket", data_location_bucket)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "query_connection_id", query_connection_id)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudProviderConfiguration")
+    def cloud_provider_configuration(self) -> 'outputs.FederatedLogsSetupStorageCloudProviderConfiguration':
+        """
+        Cloud provider configuration. See below.
+        """
+        return pulumi.get(self, "cloud_provider_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="dataIngestConnectionId")
+    def data_ingest_connection_id(self) -> _builtins.str:
+        """
+        Entity GUID of the `AwsConnection` used for writing data (the fleet ingest role).
+        """
+        return pulumi.get(self, "data_ingest_connection_id")
+
+    @_builtins.property
+    @pulumi.getter(name="dataLocationBucket")
+    def data_location_bucket(self) -> _builtins.str:
+        """
+        S3 bucket where log data is stored.
+        """
+        return pulumi.get(self, "data_location_bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> _builtins.str:
+        """
+        Glue catalog database name associated with the setup.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter(name="queryConnectionId")
+    def query_connection_id(self) -> _builtins.str:
+        """
+        Entity GUID of the `AwsConnection` used for reading data.
+        """
+        return pulumi.get(self, "query_connection_id")
+
+
+@pulumi.output_type
+class FederatedLogsSetupStorageCloudProviderConfiguration(dict):
+    def __init__(__self__, *,
+                 provider: _builtins.str,
+                 region: _builtins.str):
+        """
+        :param _builtins.str provider: The cloud provider. Currently only `AWS` is supported.
+        :param _builtins.str region: The cloud provider region (e.g. `us-east-1`).
+        """
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> _builtins.str:
+        """
+        The cloud provider. Currently only `AWS` is supported.
+        """
+        return pulumi.get(self, "provider")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        The cloud provider region (e.g. `us-east-1`).
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

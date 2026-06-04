@@ -184,6 +184,46 @@ export interface AlertMutingRuleSchedule {
     weeklyRepeatDays?: string[];
 }
 
+export interface AwsConnectionCredential {
+    /**
+     * STS:AssumeRole configuration. See below.
+     */
+    assumeRole: outputs.AwsConnectionCredentialAssumeRole;
+}
+
+export interface AwsConnectionCredentialAssumeRole {
+    /**
+     * External ID supplied by New Relic during STS:AssumeRole.
+     */
+    externalId?: string;
+    /**
+     * ARN of the IAM role New Relic should assume.
+     */
+    roleArn: string;
+}
+
+export interface AwsConnectionSetting {
+    /**
+     * The setting key.
+     */
+    key: string;
+    /**
+     * The setting value.
+     */
+    value: string;
+}
+
+export interface AwsConnectionTag {
+    /**
+     * The tag key.
+     */
+    key: string;
+    /**
+     * Set of tag values.
+     */
+    values: string[];
+}
+
 export interface CardinalityManagementMetric {
     /**
      * The maximum number of unique dimension-value combinations allowed per day for this metric.
@@ -206,6 +246,197 @@ export interface EntityTagsTag {
      * The tag values.
      */
     values: string[];
+}
+
+export interface FederatedLogsPartitionDataRetentionPolicy {
+    /**
+     * Retention duration value.
+     */
+    duration: number;
+    /**
+     * Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+     */
+    unit: string;
+}
+
+export interface FederatedLogsPartitionForwarderConfiguration {
+    /**
+     * Pipeline control configuration. See below.
+     */
+    pipelineControl?: outputs.FederatedLogsPartitionForwarderConfigurationPipelineControl;
+    /**
+     * Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+     */
+    type: string;
+}
+
+export interface FederatedLogsPartitionForwarderConfigurationPipelineControl {
+    /**
+     * Rule that determines which logs are routed to this partition. See below.
+     */
+    partitionRule?: outputs.FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule;
+}
+
+export interface FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule {
+    /**
+     * [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+     */
+    expression: string;
+}
+
+export interface FederatedLogsPartitionHealthCheck {
+    end2endDataFlows: outputs.FederatedLogsPartitionHealthCheckEnd2endDataFlow[];
+    lastUpdatedAt: string;
+    queryConnections: outputs.FederatedLogsPartitionHealthCheckQueryConnection[];
+}
+
+export interface FederatedLogsPartitionHealthCheckEnd2endDataFlow {
+    lastUpdatedAt: string;
+    message: string;
+    status: string;
+}
+
+export interface FederatedLogsPartitionHealthCheckQueryConnection {
+    lastUpdatedAt: string;
+    message: string;
+    status: string;
+}
+
+export interface FederatedLogsPartitionLifecycleStatus {
+    lastUpdatedAt: string;
+    message: string;
+    status: string;
+}
+
+export interface FederatedLogsPartitionStorage {
+    /**
+     * S3 URI of the partition's data location.
+     */
+    dataLocationUri: string;
+    /**
+     * Glue table name for the partition.
+     */
+    table: string;
+}
+
+export interface FederatedLogsSetupDefaultPartition {
+    /**
+     * Retention policy for logs in the default partition. See below.
+     */
+    dataRetentionPolicy?: outputs.FederatedLogsSetupDefaultPartitionDataRetentionPolicy;
+    /**
+     * Storage details for the default partition. See below.
+     */
+    storage: outputs.FederatedLogsSetupDefaultPartitionStorage;
+}
+
+export interface FederatedLogsSetupDefaultPartitionDataRetentionPolicy {
+    /**
+     * Retention duration value.
+     */
+    duration: number;
+    /**
+     * Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+     */
+    unit: string;
+}
+
+export interface FederatedLogsSetupDefaultPartitionStorage {
+    /**
+     * S3 URI of the default partition's data location.
+     */
+    dataLocationUri: string;
+    /**
+     * Glue table name for the default partition.
+     */
+    table: string;
+}
+
+export interface FederatedLogsSetupForwarder {
+    /**
+     * Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+     */
+    pipelineControl?: outputs.FederatedLogsSetupForwarderPipelineControl;
+    /**
+     * The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+     */
+    type: string;
+}
+
+export interface FederatedLogsSetupForwarderPipelineControl {
+    /**
+     * The fleet entity GUID.
+     */
+    fleetId: string;
+    /**
+     * Routing rule that determines how incoming logs are routed to this setup. See below.
+     */
+    routingRule?: outputs.FederatedLogsSetupForwarderPipelineControlRoutingRule;
+}
+
+export interface FederatedLogsSetupForwarderPipelineControlRoutingRule {
+    /**
+     * [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+     */
+    expression: string;
+}
+
+export interface FederatedLogsSetupHealthCheck {
+    end2endDataFlows: outputs.FederatedLogsSetupHealthCheckEnd2endDataFlow[];
+    lastUpdatedAt: string;
+    queryConnections: outputs.FederatedLogsSetupHealthCheckQueryConnection[];
+}
+
+export interface FederatedLogsSetupHealthCheckEnd2endDataFlow {
+    lastUpdatedAt: string;
+    message: string;
+    status: string;
+}
+
+export interface FederatedLogsSetupHealthCheckQueryConnection {
+    lastUpdatedAt: string;
+    message: string;
+    status: string;
+}
+
+export interface FederatedLogsSetupLifecycleStatus {
+    lastUpdatedAt: string;
+    message: string;
+    status: string;
+}
+
+export interface FederatedLogsSetupStorage {
+    /**
+     * Cloud provider configuration. See below.
+     */
+    cloudProviderConfiguration: outputs.FederatedLogsSetupStorageCloudProviderConfiguration;
+    /**
+     * Entity GUID of the `newrelic.AwsConnection` used for writing data (the fleet ingest role).
+     */
+    dataIngestConnectionId: string;
+    /**
+     * S3 bucket where log data is stored.
+     */
+    dataLocationBucket: string;
+    /**
+     * Glue catalog database name associated with the setup.
+     */
+    database: string;
+    /**
+     * Entity GUID of the `newrelic.AwsConnection` used for reading data.
+     */
+    queryConnectionId: string;
+}
+
+export interface FederatedLogsSetupStorageCloudProviderConfiguration {
+    /**
+     * The cloud provider. Currently only `AWS` is supported.
+     */
+    provider: string;
+    /**
+     * The cloud provider region (e.g. `us-east-1`).
+     */
+    region: string;
 }
 
 export interface FleetConfigurationVersion {
