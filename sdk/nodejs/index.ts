@@ -45,6 +45,11 @@ export type ApiAccessKey = import("./apiAccessKey").ApiAccessKey;
 export const ApiAccessKey: typeof import("./apiAccessKey").ApiAccessKey = null as any;
 utilities.lazyLoad(exports, ["ApiAccessKey"], () => require("./apiAccessKey"));
 
+export { AwsConnectionArgs, AwsConnectionState } from "./awsConnection";
+export type AwsConnection = import("./awsConnection").AwsConnection;
+export const AwsConnection: typeof import("./awsConnection").AwsConnection = null as any;
+utilities.lazyLoad(exports, ["AwsConnection"], () => require("./awsConnection"));
+
 export { BrowserApplicationArgs, BrowserApplicationState } from "./browserApplication";
 export type BrowserApplication = import("./browserApplication").BrowserApplication;
 export const BrowserApplication: typeof import("./browserApplication").BrowserApplication = null as any;
@@ -69,6 +74,16 @@ export { EventsToMetricsRuleArgs, EventsToMetricsRuleState } from "./eventsToMet
 export type EventsToMetricsRule = import("./eventsToMetricsRule").EventsToMetricsRule;
 export const EventsToMetricsRule: typeof import("./eventsToMetricsRule").EventsToMetricsRule = null as any;
 utilities.lazyLoad(exports, ["EventsToMetricsRule"], () => require("./eventsToMetricsRule"));
+
+export { FederatedLogsPartitionArgs, FederatedLogsPartitionState } from "./federatedLogsPartition";
+export type FederatedLogsPartition = import("./federatedLogsPartition").FederatedLogsPartition;
+export const FederatedLogsPartition: typeof import("./federatedLogsPartition").FederatedLogsPartition = null as any;
+utilities.lazyLoad(exports, ["FederatedLogsPartition"], () => require("./federatedLogsPartition"));
+
+export { FederatedLogsSetupArgs, FederatedLogsSetupState } from "./federatedLogsSetup";
+export type FederatedLogsSetup = import("./federatedLogsSetup").FederatedLogsSetup;
+export const FederatedLogsSetup: typeof import("./federatedLogsSetup").FederatedLogsSetup = null as any;
+utilities.lazyLoad(exports, ["FederatedLogsSetup"], () => require("./federatedLogsSetup"));
 
 export { FleetArgs, FleetState } from "./fleet";
 export type Fleet = import("./fleet").Fleet;
@@ -311,6 +326,8 @@ const _module = {
                 return new AlertPolicyChannel(name, <any>undefined, { urn })
             case "newrelic:index/apiAccessKey:ApiAccessKey":
                 return new ApiAccessKey(name, <any>undefined, { urn })
+            case "newrelic:index/awsConnection:AwsConnection":
+                return new AwsConnection(name, <any>undefined, { urn })
             case "newrelic:index/browserApplication:BrowserApplication":
                 return new BrowserApplication(name, <any>undefined, { urn })
             case "newrelic:index/cardinalityManagement:CardinalityManagement":
@@ -321,6 +338,10 @@ const _module = {
                 return new EntityTags(name, <any>undefined, { urn })
             case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
                 return new EventsToMetricsRule(name, <any>undefined, { urn })
+            case "newrelic:index/federatedLogsPartition:FederatedLogsPartition":
+                return new FederatedLogsPartition(name, <any>undefined, { urn })
+            case "newrelic:index/federatedLogsSetup:FederatedLogsSetup":
+                return new FederatedLogsSetup(name, <any>undefined, { urn })
             case "newrelic:index/fleet:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
             case "newrelic:index/fleetConfiguration:FleetConfiguration":
@@ -382,11 +403,14 @@ pulumi.runtime.registerResourceModule("newrelic", "index/alertMutingRule", _modu
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicy", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicyChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/apiAccessKey", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/awsConnection", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/browserApplication", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/cardinalityManagement", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/dataPartitionRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/federatedLogsPartition", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/federatedLogsSetup", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/fleet", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/fleetConfiguration", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/fleetDeployment", _module)

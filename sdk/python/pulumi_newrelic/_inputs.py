@@ -27,10 +27,60 @@ __all__ = [
     'AlertMutingRuleConditionConditionArgsDict',
     'AlertMutingRuleScheduleArgs',
     'AlertMutingRuleScheduleArgsDict',
+    'AwsConnectionCredentialArgs',
+    'AwsConnectionCredentialArgsDict',
+    'AwsConnectionCredentialAssumeRoleArgs',
+    'AwsConnectionCredentialAssumeRoleArgsDict',
+    'AwsConnectionSettingArgs',
+    'AwsConnectionSettingArgsDict',
+    'AwsConnectionTagArgs',
+    'AwsConnectionTagArgsDict',
     'CardinalityManagementMetricArgs',
     'CardinalityManagementMetricArgsDict',
     'EntityTagsTagArgs',
     'EntityTagsTagArgsDict',
+    'FederatedLogsPartitionDataRetentionPolicyArgs',
+    'FederatedLogsPartitionDataRetentionPolicyArgsDict',
+    'FederatedLogsPartitionForwarderConfigurationArgs',
+    'FederatedLogsPartitionForwarderConfigurationArgsDict',
+    'FederatedLogsPartitionForwarderConfigurationPipelineControlArgs',
+    'FederatedLogsPartitionForwarderConfigurationPipelineControlArgsDict',
+    'FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs',
+    'FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgsDict',
+    'FederatedLogsPartitionHealthCheckArgs',
+    'FederatedLogsPartitionHealthCheckArgsDict',
+    'FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs',
+    'FederatedLogsPartitionHealthCheckEnd2endDataFlowArgsDict',
+    'FederatedLogsPartitionHealthCheckQueryConnectionArgs',
+    'FederatedLogsPartitionHealthCheckQueryConnectionArgsDict',
+    'FederatedLogsPartitionLifecycleStatusArgs',
+    'FederatedLogsPartitionLifecycleStatusArgsDict',
+    'FederatedLogsPartitionStorageArgs',
+    'FederatedLogsPartitionStorageArgsDict',
+    'FederatedLogsSetupDefaultPartitionArgs',
+    'FederatedLogsSetupDefaultPartitionArgsDict',
+    'FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs',
+    'FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgsDict',
+    'FederatedLogsSetupDefaultPartitionStorageArgs',
+    'FederatedLogsSetupDefaultPartitionStorageArgsDict',
+    'FederatedLogsSetupForwarderArgs',
+    'FederatedLogsSetupForwarderArgsDict',
+    'FederatedLogsSetupForwarderPipelineControlArgs',
+    'FederatedLogsSetupForwarderPipelineControlArgsDict',
+    'FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs',
+    'FederatedLogsSetupForwarderPipelineControlRoutingRuleArgsDict',
+    'FederatedLogsSetupHealthCheckArgs',
+    'FederatedLogsSetupHealthCheckArgsDict',
+    'FederatedLogsSetupHealthCheckEnd2endDataFlowArgs',
+    'FederatedLogsSetupHealthCheckEnd2endDataFlowArgsDict',
+    'FederatedLogsSetupHealthCheckQueryConnectionArgs',
+    'FederatedLogsSetupHealthCheckQueryConnectionArgsDict',
+    'FederatedLogsSetupLifecycleStatusArgs',
+    'FederatedLogsSetupLifecycleStatusArgsDict',
+    'FederatedLogsSetupStorageArgs',
+    'FederatedLogsSetupStorageArgsDict',
+    'FederatedLogsSetupStorageCloudProviderConfigurationArgs',
+    'FederatedLogsSetupStorageCloudProviderConfigurationArgsDict',
     'FleetConfigurationVersionArgs',
     'FleetConfigurationVersionArgsDict',
     'FleetDeploymentAgentArgs',
@@ -1335,6 +1385,176 @@ class AlertMutingRuleScheduleArgs:
         pulumi.set(self, "weekly_repeat_days", value)
 
 
+class AwsConnectionCredentialArgsDict(TypedDict):
+    assume_role: pulumi.Input['AwsConnectionCredentialAssumeRoleArgsDict']
+    """
+    STS:AssumeRole configuration. See below.
+    """
+
+@pulumi.input_type
+class AwsConnectionCredentialArgs:
+    def __init__(__self__, *,
+                 assume_role: pulumi.Input['AwsConnectionCredentialAssumeRoleArgs']):
+        """
+        :param pulumi.Input['AwsConnectionCredentialAssumeRoleArgs'] assume_role: STS:AssumeRole configuration. See below.
+        """
+        pulumi.set(__self__, "assume_role", assume_role)
+
+    @_builtins.property
+    @pulumi.getter(name="assumeRole")
+    def assume_role(self) -> pulumi.Input['AwsConnectionCredentialAssumeRoleArgs']:
+        """
+        STS:AssumeRole configuration. See below.
+        """
+        return pulumi.get(self, "assume_role")
+
+    @assume_role.setter
+    def assume_role(self, value: pulumi.Input['AwsConnectionCredentialAssumeRoleArgs']):
+        pulumi.set(self, "assume_role", value)
+
+
+class AwsConnectionCredentialAssumeRoleArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role New Relic should assume.
+    """
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    External ID supplied by New Relic during STS:AssumeRole.
+    """
+
+@pulumi.input_type
+class AwsConnectionCredentialAssumeRoleArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[_builtins.str],
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role New Relic should assume.
+        :param pulumi.Input[_builtins.str] external_id: External ID supplied by New Relic during STS:AssumeRole.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM role New Relic should assume.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        External ID supplied by New Relic during STS:AssumeRole.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+
+class AwsConnectionSettingArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The setting key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The setting value.
+    """
+
+@pulumi.input_type
+class AwsConnectionSettingArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key: The setting key.
+        :param pulumi.Input[_builtins.str] value: The setting value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The setting key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The setting value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class AwsConnectionTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of tag values.
+    """
+
+@pulumi.input_type
+class AwsConnectionTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] key: The tag key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Set of tag values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of tag values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
 class CardinalityManagementMetricArgsDict(TypedDict):
     cardinality_limit: pulumi.Input[_builtins.int]
     """
@@ -1433,6 +1653,990 @@ class EntityTagsTagArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "values", value)
+
+
+class FederatedLogsPartitionDataRetentionPolicyArgsDict(TypedDict):
+    duration: pulumi.Input[_builtins.int]
+    """
+    Retention duration value.
+    """
+    unit: pulumi.Input[_builtins.str]
+    """
+    Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+    """
+
+@pulumi.input_type
+class FederatedLogsPartitionDataRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[_builtins.int],
+                 unit: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] duration: Retention duration value.
+        :param pulumi.Input[_builtins.str] unit: Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[_builtins.int]:
+        """
+        Retention duration value.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[_builtins.str]:
+        """
+        Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "unit", value)
+
+
+class FederatedLogsPartitionForwarderConfigurationArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+    """
+    pipeline_control: NotRequired[pulumi.Input[Optional['FederatedLogsPartitionForwarderConfigurationPipelineControlArgsDict']]]
+    """
+    Pipeline control configuration. See below.
+    """
+
+@pulumi.input_type
+class FederatedLogsPartitionForwarderConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 pipeline_control: pulumi.Input[Optional['FederatedLogsPartitionForwarderConfigurationPipelineControlArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+        :param pulumi.Input['FederatedLogsPartitionForwarderConfigurationPipelineControlArgs'] pipeline_control: Pipeline control configuration. See below.
+        """
+        pulumi.set(__self__, "type", type)
+        if pipeline_control is not None:
+            pulumi.set(__self__, "pipeline_control", pipeline_control)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineControl")
+    def pipeline_control(self) -> pulumi.Input[Optional['FederatedLogsPartitionForwarderConfigurationPipelineControlArgs']]:
+        """
+        Pipeline control configuration. See below.
+        """
+        return pulumi.get(self, "pipeline_control")
+
+    @pipeline_control.setter
+    def pipeline_control(self, value: pulumi.Input[Optional['FederatedLogsPartitionForwarderConfigurationPipelineControlArgs']]):
+        pulumi.set(self, "pipeline_control", value)
+
+
+class FederatedLogsPartitionForwarderConfigurationPipelineControlArgsDict(TypedDict):
+    partition_rule: NotRequired[pulumi.Input[Optional['FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgsDict']]]
+    """
+    Rule that determines which logs are routed to this partition. See below.
+    """
+
+@pulumi.input_type
+class FederatedLogsPartitionForwarderConfigurationPipelineControlArgs:
+    def __init__(__self__, *,
+                 partition_rule: pulumi.Input[Optional['FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs']] = None):
+        """
+        :param pulumi.Input['FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs'] partition_rule: Rule that determines which logs are routed to this partition. See below.
+        """
+        if partition_rule is not None:
+            pulumi.set(__self__, "partition_rule", partition_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionRule")
+    def partition_rule(self) -> pulumi.Input[Optional['FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs']]:
+        """
+        Rule that determines which logs are routed to this partition. See below.
+        """
+        return pulumi.get(self, "partition_rule")
+
+    @partition_rule.setter
+    def partition_rule(self, value: pulumi.Input[Optional['FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs']]):
+        pulumi.set(self, "partition_rule", value)
+
+
+class FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgsDict(TypedDict):
+    expression: pulumi.Input[_builtins.str]
+    """
+    [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+    """
+
+@pulumi.input_type
+class FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] expression: [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "expression", value)
+
+
+class FederatedLogsPartitionHealthCheckArgsDict(TypedDict):
+    end2end_data_flows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckEnd2endDataFlowArgsDict']]]]]
+    last_updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    query_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckQueryConnectionArgsDict']]]]]
+
+@pulumi.input_type
+class FederatedLogsPartitionHealthCheckArgs:
+    def __init__(__self__, *,
+                 end2end_data_flows: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs']]]] = None,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_connections: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckQueryConnectionArgs']]]] = None):
+        if end2end_data_flows is not None:
+            pulumi.set(__self__, "end2end_data_flows", end2end_data_flows)
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if query_connections is not None:
+            pulumi.set(__self__, "query_connections", query_connections)
+
+    @_builtins.property
+    @pulumi.getter(name="end2endDataFlows")
+    def end2end_data_flows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs']]]]:
+        return pulumi.get(self, "end2end_data_flows")
+
+    @end2end_data_flows.setter
+    def end2end_data_flows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs']]]]):
+        pulumi.set(self, "end2end_data_flows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_updated_at")
+
+    @last_updated_at.setter
+    def last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryConnections")
+    def query_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckQueryConnectionArgs']]]]:
+        return pulumi.get(self, "query_connections")
+
+    @query_connections.setter
+    def query_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckQueryConnectionArgs']]]]):
+        pulumi.set(self, "query_connections", value)
+
+
+class FederatedLogsPartitionHealthCheckEnd2endDataFlowArgsDict(TypedDict):
+    last_updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class FederatedLogsPartitionHealthCheckEnd2endDataFlowArgs:
+    def __init__(__self__, *,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_updated_at")
+
+    @last_updated_at.setter
+    def last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+
+class FederatedLogsPartitionHealthCheckQueryConnectionArgsDict(TypedDict):
+    last_updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class FederatedLogsPartitionHealthCheckQueryConnectionArgs:
+    def __init__(__self__, *,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_updated_at")
+
+    @last_updated_at.setter
+    def last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+
+class FederatedLogsPartitionLifecycleStatusArgsDict(TypedDict):
+    last_updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class FederatedLogsPartitionLifecycleStatusArgs:
+    def __init__(__self__, *,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_updated_at")
+
+    @last_updated_at.setter
+    def last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+
+class FederatedLogsPartitionStorageArgsDict(TypedDict):
+    data_location_uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI of the partition's data location.
+    """
+    table: pulumi.Input[_builtins.str]
+    """
+    Glue table name for the partition.
+    """
+
+@pulumi.input_type
+class FederatedLogsPartitionStorageArgs:
+    def __init__(__self__, *,
+                 data_location_uri: pulumi.Input[_builtins.str],
+                 table: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] data_location_uri: S3 URI of the partition's data location.
+        :param pulumi.Input[_builtins.str] table: Glue table name for the partition.
+        """
+        pulumi.set(__self__, "data_location_uri", data_location_uri)
+        pulumi.set(__self__, "table", table)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLocationUri")
+    def data_location_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI of the partition's data location.
+        """
+        return pulumi.get(self, "data_location_uri")
+
+    @data_location_uri.setter
+    def data_location_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def table(self) -> pulumi.Input[_builtins.str]:
+        """
+        Glue table name for the partition.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table", value)
+
+
+class FederatedLogsSetupDefaultPartitionArgsDict(TypedDict):
+    storage: pulumi.Input['FederatedLogsSetupDefaultPartitionStorageArgsDict']
+    """
+    Storage details for the default partition. See below.
+    """
+    data_retention_policy: NotRequired[pulumi.Input[Optional['FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgsDict']]]
+    """
+    Retention policy for logs in the default partition. See below.
+    """
+
+@pulumi.input_type
+class FederatedLogsSetupDefaultPartitionArgs:
+    def __init__(__self__, *,
+                 storage: pulumi.Input['FederatedLogsSetupDefaultPartitionStorageArgs'],
+                 data_retention_policy: pulumi.Input[Optional['FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs']] = None):
+        """
+        :param pulumi.Input['FederatedLogsSetupDefaultPartitionStorageArgs'] storage: Storage details for the default partition. See below.
+        :param pulumi.Input['FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs'] data_retention_policy: Retention policy for logs in the default partition. See below.
+        """
+        pulumi.set(__self__, "storage", storage)
+        if data_retention_policy is not None:
+            pulumi.set(__self__, "data_retention_policy", data_retention_policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def storage(self) -> pulumi.Input['FederatedLogsSetupDefaultPartitionStorageArgs']:
+        """
+        Storage details for the default partition. See below.
+        """
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: pulumi.Input['FederatedLogsSetupDefaultPartitionStorageArgs']):
+        pulumi.set(self, "storage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataRetentionPolicy")
+    def data_retention_policy(self) -> pulumi.Input[Optional['FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs']]:
+        """
+        Retention policy for logs in the default partition. See below.
+        """
+        return pulumi.get(self, "data_retention_policy")
+
+    @data_retention_policy.setter
+    def data_retention_policy(self, value: pulumi.Input[Optional['FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs']]):
+        pulumi.set(self, "data_retention_policy", value)
+
+
+class FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgsDict(TypedDict):
+    duration: pulumi.Input[_builtins.int]
+    """
+    Retention duration value.
+    """
+    unit: pulumi.Input[_builtins.str]
+    """
+    Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+    """
+
+@pulumi.input_type
+class FederatedLogsSetupDefaultPartitionDataRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[_builtins.int],
+                 unit: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] duration: Retention duration value.
+        :param pulumi.Input[_builtins.str] unit: Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[_builtins.int]:
+        """
+        Retention duration value.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[_builtins.str]:
+        """
+        Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "unit", value)
+
+
+class FederatedLogsSetupDefaultPartitionStorageArgsDict(TypedDict):
+    data_location_uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI of the default partition's data location.
+    """
+    table: pulumi.Input[_builtins.str]
+    """
+    Glue table name for the default partition.
+    """
+
+@pulumi.input_type
+class FederatedLogsSetupDefaultPartitionStorageArgs:
+    def __init__(__self__, *,
+                 data_location_uri: pulumi.Input[_builtins.str],
+                 table: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] data_location_uri: S3 URI of the default partition's data location.
+        :param pulumi.Input[_builtins.str] table: Glue table name for the default partition.
+        """
+        pulumi.set(__self__, "data_location_uri", data_location_uri)
+        pulumi.set(__self__, "table", table)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLocationUri")
+    def data_location_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI of the default partition's data location.
+        """
+        return pulumi.get(self, "data_location_uri")
+
+    @data_location_uri.setter
+    def data_location_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def table(self) -> pulumi.Input[_builtins.str]:
+        """
+        Glue table name for the default partition.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table", value)
+
+
+class FederatedLogsSetupForwarderArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+    """
+    pipeline_control: NotRequired[pulumi.Input[Optional['FederatedLogsSetupForwarderPipelineControlArgsDict']]]
+    """
+    Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+    """
+
+@pulumi.input_type
+class FederatedLogsSetupForwarderArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 pipeline_control: pulumi.Input[Optional['FederatedLogsSetupForwarderPipelineControlArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+        :param pulumi.Input['FederatedLogsSetupForwarderPipelineControlArgs'] pipeline_control: Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+        """
+        pulumi.set(__self__, "type", type)
+        if pipeline_control is not None:
+            pulumi.set(__self__, "pipeline_control", pipeline_control)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineControl")
+    def pipeline_control(self) -> pulumi.Input[Optional['FederatedLogsSetupForwarderPipelineControlArgs']]:
+        """
+        Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+        """
+        return pulumi.get(self, "pipeline_control")
+
+    @pipeline_control.setter
+    def pipeline_control(self, value: pulumi.Input[Optional['FederatedLogsSetupForwarderPipelineControlArgs']]):
+        pulumi.set(self, "pipeline_control", value)
+
+
+class FederatedLogsSetupForwarderPipelineControlArgsDict(TypedDict):
+    fleet_id: pulumi.Input[_builtins.str]
+    """
+    The fleet entity GUID.
+    """
+    routing_rule: NotRequired[pulumi.Input[Optional['FederatedLogsSetupForwarderPipelineControlRoutingRuleArgsDict']]]
+    """
+    Routing rule that determines how incoming logs are routed to this setup. See below.
+    """
+
+@pulumi.input_type
+class FederatedLogsSetupForwarderPipelineControlArgs:
+    def __init__(__self__, *,
+                 fleet_id: pulumi.Input[_builtins.str],
+                 routing_rule: pulumi.Input[Optional['FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] fleet_id: The fleet entity GUID.
+        :param pulumi.Input['FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs'] routing_rule: Routing rule that determines how incoming logs are routed to this setup. See below.
+        """
+        pulumi.set(__self__, "fleet_id", fleet_id)
+        if routing_rule is not None:
+            pulumi.set(__self__, "routing_rule", routing_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="fleetId")
+    def fleet_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The fleet entity GUID.
+        """
+        return pulumi.get(self, "fleet_id")
+
+    @fleet_id.setter
+    def fleet_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "fleet_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routingRule")
+    def routing_rule(self) -> pulumi.Input[Optional['FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs']]:
+        """
+        Routing rule that determines how incoming logs are routed to this setup. See below.
+        """
+        return pulumi.get(self, "routing_rule")
+
+    @routing_rule.setter
+    def routing_rule(self, value: pulumi.Input[Optional['FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs']]):
+        pulumi.set(self, "routing_rule", value)
+
+
+class FederatedLogsSetupForwarderPipelineControlRoutingRuleArgsDict(TypedDict):
+    expression: pulumi.Input[_builtins.str]
+    """
+    [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+    """
+
+@pulumi.input_type
+class FederatedLogsSetupForwarderPipelineControlRoutingRuleArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] expression: [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "expression", value)
+
+
+class FederatedLogsSetupHealthCheckArgsDict(TypedDict):
+    end2end_data_flows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckEnd2endDataFlowArgsDict']]]]]
+    last_updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    query_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckQueryConnectionArgsDict']]]]]
+
+@pulumi.input_type
+class FederatedLogsSetupHealthCheckArgs:
+    def __init__(__self__, *,
+                 end2end_data_flows: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckEnd2endDataFlowArgs']]]] = None,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_connections: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckQueryConnectionArgs']]]] = None):
+        if end2end_data_flows is not None:
+            pulumi.set(__self__, "end2end_data_flows", end2end_data_flows)
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if query_connections is not None:
+            pulumi.set(__self__, "query_connections", query_connections)
+
+    @_builtins.property
+    @pulumi.getter(name="end2endDataFlows")
+    def end2end_data_flows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckEnd2endDataFlowArgs']]]]:
+        return pulumi.get(self, "end2end_data_flows")
+
+    @end2end_data_flows.setter
+    def end2end_data_flows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckEnd2endDataFlowArgs']]]]):
+        pulumi.set(self, "end2end_data_flows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_updated_at")
+
+    @last_updated_at.setter
+    def last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryConnections")
+    def query_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckQueryConnectionArgs']]]]:
+        return pulumi.get(self, "query_connections")
+
+    @query_connections.setter
+    def query_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckQueryConnectionArgs']]]]):
+        pulumi.set(self, "query_connections", value)
+
+
+class FederatedLogsSetupHealthCheckEnd2endDataFlowArgsDict(TypedDict):
+    last_updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class FederatedLogsSetupHealthCheckEnd2endDataFlowArgs:
+    def __init__(__self__, *,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_updated_at")
+
+    @last_updated_at.setter
+    def last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+
+class FederatedLogsSetupHealthCheckQueryConnectionArgsDict(TypedDict):
+    last_updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class FederatedLogsSetupHealthCheckQueryConnectionArgs:
+    def __init__(__self__, *,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_updated_at")
+
+    @last_updated_at.setter
+    def last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+
+class FederatedLogsSetupLifecycleStatusArgsDict(TypedDict):
+    last_updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class FederatedLogsSetupLifecycleStatusArgs:
+    def __init__(__self__, *,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
+        if last_updated_at is not None:
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedAt")
+    def last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_updated_at")
+
+    @last_updated_at.setter
+    def last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+
+class FederatedLogsSetupStorageArgsDict(TypedDict):
+    cloud_provider_configuration: pulumi.Input['FederatedLogsSetupStorageCloudProviderConfigurationArgsDict']
+    """
+    Cloud provider configuration. See below.
+    """
+    data_ingest_connection_id: pulumi.Input[_builtins.str]
+    """
+    Entity GUID of the `AwsConnection` used for writing data (the fleet ingest role).
+    """
+    data_location_bucket: pulumi.Input[_builtins.str]
+    """
+    S3 bucket where log data is stored.
+    """
+    database: pulumi.Input[_builtins.str]
+    """
+    Glue catalog database name associated with the setup.
+    """
+    query_connection_id: pulumi.Input[_builtins.str]
+    """
+    Entity GUID of the `AwsConnection` used for reading data.
+    """
+
+@pulumi.input_type
+class FederatedLogsSetupStorageArgs:
+    def __init__(__self__, *,
+                 cloud_provider_configuration: pulumi.Input['FederatedLogsSetupStorageCloudProviderConfigurationArgs'],
+                 data_ingest_connection_id: pulumi.Input[_builtins.str],
+                 data_location_bucket: pulumi.Input[_builtins.str],
+                 database: pulumi.Input[_builtins.str],
+                 query_connection_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['FederatedLogsSetupStorageCloudProviderConfigurationArgs'] cloud_provider_configuration: Cloud provider configuration. See below.
+        :param pulumi.Input[_builtins.str] data_ingest_connection_id: Entity GUID of the `AwsConnection` used for writing data (the fleet ingest role).
+        :param pulumi.Input[_builtins.str] data_location_bucket: S3 bucket where log data is stored.
+        :param pulumi.Input[_builtins.str] database: Glue catalog database name associated with the setup.
+        :param pulumi.Input[_builtins.str] query_connection_id: Entity GUID of the `AwsConnection` used for reading data.
+        """
+        pulumi.set(__self__, "cloud_provider_configuration", cloud_provider_configuration)
+        pulumi.set(__self__, "data_ingest_connection_id", data_ingest_connection_id)
+        pulumi.set(__self__, "data_location_bucket", data_location_bucket)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "query_connection_id", query_connection_id)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudProviderConfiguration")
+    def cloud_provider_configuration(self) -> pulumi.Input['FederatedLogsSetupStorageCloudProviderConfigurationArgs']:
+        """
+        Cloud provider configuration. See below.
+        """
+        return pulumi.get(self, "cloud_provider_configuration")
+
+    @cloud_provider_configuration.setter
+    def cloud_provider_configuration(self, value: pulumi.Input['FederatedLogsSetupStorageCloudProviderConfigurationArgs']):
+        pulumi.set(self, "cloud_provider_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataIngestConnectionId")
+    def data_ingest_connection_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Entity GUID of the `AwsConnection` used for writing data (the fleet ingest role).
+        """
+        return pulumi.get(self, "data_ingest_connection_id")
+
+    @data_ingest_connection_id.setter
+    def data_ingest_connection_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_ingest_connection_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLocationBucket")
+    def data_location_bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 bucket where log data is stored.
+        """
+        return pulumi.get(self, "data_location_bucket")
+
+    @data_location_bucket.setter
+    def data_location_bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_location_bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> pulumi.Input[_builtins.str]:
+        """
+        Glue catalog database name associated with the setup.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryConnectionId")
+    def query_connection_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Entity GUID of the `AwsConnection` used for reading data.
+        """
+        return pulumi.get(self, "query_connection_id")
+
+    @query_connection_id.setter
+    def query_connection_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query_connection_id", value)
+
+
+class FederatedLogsSetupStorageCloudProviderConfigurationArgsDict(TypedDict):
+    provider: pulumi.Input[_builtins.str]
+    """
+    The cloud provider. Currently only `AWS` is supported.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    The cloud provider region (e.g. `us-east-1`).
+    """
+
+@pulumi.input_type
+class FederatedLogsSetupStorageCloudProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 provider: pulumi.Input[_builtins.str],
+                 region: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] provider: The cloud provider. Currently only `AWS` is supported.
+        :param pulumi.Input[_builtins.str] region: The cloud provider region (e.g. `us-east-1`).
+        """
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[_builtins.str]:
+        """
+        The cloud provider. Currently only `AWS` is supported.
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        """
+        The cloud provider region (e.g. `us-east-1`).
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
 
 
 class FleetConfigurationVersionArgsDict(TypedDict):

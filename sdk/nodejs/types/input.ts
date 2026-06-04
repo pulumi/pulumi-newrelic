@@ -184,6 +184,46 @@ export interface AlertMutingRuleSchedule {
     weeklyRepeatDays?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
+export interface AwsConnectionCredential {
+    /**
+     * STS:AssumeRole configuration. See below.
+     */
+    assumeRole: pulumi.Input<inputs.AwsConnectionCredentialAssumeRole>;
+}
+
+export interface AwsConnectionCredentialAssumeRole {
+    /**
+     * External ID supplied by New Relic during STS:AssumeRole.
+     */
+    externalId?: pulumi.Input<string | undefined>;
+    /**
+     * ARN of the IAM role New Relic should assume.
+     */
+    roleArn: pulumi.Input<string>;
+}
+
+export interface AwsConnectionSetting {
+    /**
+     * The setting key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The setting value.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface AwsConnectionTag {
+    /**
+     * The tag key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Set of tag values.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface CardinalityManagementMetric {
     /**
      * The maximum number of unique dimension-value combinations allowed per day for this metric.
@@ -206,6 +246,197 @@ export interface EntityTagsTag {
      * The tag values.
      */
     values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface FederatedLogsPartitionDataRetentionPolicy {
+    /**
+     * Retention duration value.
+     */
+    duration: pulumi.Input<number>;
+    /**
+     * Time unit. One of `DAYS`, `WEEKS`, or `MONTHS`.
+     */
+    unit: pulumi.Input<string>;
+}
+
+export interface FederatedLogsPartitionForwarderConfiguration {
+    /**
+     * Pipeline control configuration. See below.
+     */
+    pipelineControl?: pulumi.Input<inputs.FederatedLogsPartitionForwarderConfigurationPipelineControl | undefined>;
+    /**
+     * Forwarder type. Must match the parent setup's forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface FederatedLogsPartitionForwarderConfigurationPipelineControl {
+    /**
+     * Rule that determines which logs are routed to this partition. See below.
+     */
+    partitionRule?: pulumi.Input<inputs.FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule | undefined>;
+}
+
+export interface FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRule {
+    /**
+     * [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this partition. Example: `attributes["log.type"] == "partition"`.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface FederatedLogsPartitionHealthCheck {
+    end2endDataFlows?: pulumi.Input<pulumi.Input<inputs.FederatedLogsPartitionHealthCheckEnd2endDataFlow>[] | undefined>;
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
+    queryConnections?: pulumi.Input<pulumi.Input<inputs.FederatedLogsPartitionHealthCheckQueryConnection>[] | undefined>;
+}
+
+export interface FederatedLogsPartitionHealthCheckEnd2endDataFlow {
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
+    message?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+}
+
+export interface FederatedLogsPartitionHealthCheckQueryConnection {
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
+    message?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+}
+
+export interface FederatedLogsPartitionLifecycleStatus {
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
+    message?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+}
+
+export interface FederatedLogsPartitionStorage {
+    /**
+     * S3 URI of the partition's data location.
+     */
+    dataLocationUri: pulumi.Input<string>;
+    /**
+     * Glue table name for the partition.
+     */
+    table: pulumi.Input<string>;
+}
+
+export interface FederatedLogsSetupDefaultPartition {
+    /**
+     * Retention policy for logs in the default partition. See below.
+     */
+    dataRetentionPolicy?: pulumi.Input<inputs.FederatedLogsSetupDefaultPartitionDataRetentionPolicy | undefined>;
+    /**
+     * Storage details for the default partition. See below.
+     */
+    storage: pulumi.Input<inputs.FederatedLogsSetupDefaultPartitionStorage>;
+}
+
+export interface FederatedLogsSetupDefaultPartitionDataRetentionPolicy {
+    /**
+     * Retention duration value.
+     */
+    duration: pulumi.Input<number>;
+    /**
+     * Time unit for the duration. One of `DAYS`, `WEEKS`, or `MONTHS`.
+     */
+    unit: pulumi.Input<string>;
+}
+
+export interface FederatedLogsSetupDefaultPartitionStorage {
+    /**
+     * S3 URI of the default partition's data location.
+     */
+    dataLocationUri: pulumi.Input<string>;
+    /**
+     * Glue table name for the default partition.
+     */
+    table: pulumi.Input<string>;
+}
+
+export interface FederatedLogsSetupForwarder {
+    /**
+     * Pipeline control configuration. Required when `type` is `PIPELINE_CONTROL`. See below.
+     */
+    pipelineControl?: pulumi.Input<inputs.FederatedLogsSetupForwarderPipelineControl | undefined>;
+    /**
+     * The forwarder type. Currently only `PIPELINE_CONTROL` is supported.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface FederatedLogsSetupForwarderPipelineControl {
+    /**
+     * The fleet entity GUID.
+     */
+    fleetId: pulumi.Input<string>;
+    /**
+     * Routing rule that determines how incoming logs are routed to this setup. See below.
+     */
+    routingRule?: pulumi.Input<inputs.FederatedLogsSetupForwarderPipelineControlRoutingRule | undefined>;
+}
+
+export interface FederatedLogsSetupForwarderPipelineControlRoutingRule {
+    /**
+     * [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/pkg/ottl) expression for routing logs to this setup. Example: `attributes["service.name"] == "python-apm"`.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface FederatedLogsSetupHealthCheck {
+    end2endDataFlows?: pulumi.Input<pulumi.Input<inputs.FederatedLogsSetupHealthCheckEnd2endDataFlow>[] | undefined>;
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
+    queryConnections?: pulumi.Input<pulumi.Input<inputs.FederatedLogsSetupHealthCheckQueryConnection>[] | undefined>;
+}
+
+export interface FederatedLogsSetupHealthCheckEnd2endDataFlow {
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
+    message?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+}
+
+export interface FederatedLogsSetupHealthCheckQueryConnection {
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
+    message?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+}
+
+export interface FederatedLogsSetupLifecycleStatus {
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
+    message?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+}
+
+export interface FederatedLogsSetupStorage {
+    /**
+     * Cloud provider configuration. See below.
+     */
+    cloudProviderConfiguration: pulumi.Input<inputs.FederatedLogsSetupStorageCloudProviderConfiguration>;
+    /**
+     * Entity GUID of the `newrelic.AwsConnection` used for writing data (the fleet ingest role).
+     */
+    dataIngestConnectionId: pulumi.Input<string>;
+    /**
+     * S3 bucket where log data is stored.
+     */
+    dataLocationBucket: pulumi.Input<string>;
+    /**
+     * Glue catalog database name associated with the setup.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * Entity GUID of the `newrelic.AwsConnection` used for reading data.
+     */
+    queryConnectionId: pulumi.Input<string>;
+}
+
+export interface FederatedLogsSetupStorageCloudProviderConfiguration {
+    /**
+     * The cloud provider. Currently only `AWS` is supported.
+     */
+    provider: pulumi.Input<string>;
+    /**
+     * The cloud provider region (e.g. `us-east-1`).
+     */
+    region: pulumi.Input<string>;
 }
 
 export interface FleetConfigurationVersion {

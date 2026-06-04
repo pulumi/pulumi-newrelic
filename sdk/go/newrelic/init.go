@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertPolicyChannel{}
 	case "newrelic:index/apiAccessKey:ApiAccessKey":
 		r = &ApiAccessKey{}
+	case "newrelic:index/awsConnection:AwsConnection":
+		r = &AwsConnection{}
 	case "newrelic:index/browserApplication:BrowserApplication":
 		r = &BrowserApplication{}
 	case "newrelic:index/cardinalityManagement:CardinalityManagement":
@@ -47,6 +49,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EntityTags{}
 	case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
 		r = &EventsToMetricsRule{}
+	case "newrelic:index/federatedLogsPartition:FederatedLogsPartition":
+		r = &FederatedLogsPartition{}
+	case "newrelic:index/federatedLogsSetup:FederatedLogsSetup":
+		r = &FederatedLogsSetup{}
 	case "newrelic:index/fleet:Fleet":
 		r = &Fleet{}
 	case "newrelic:index/fleetConfiguration:FleetConfiguration":
@@ -168,6 +174,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
+		"index/awsConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
 		"index/browserApplication",
 		&module{version},
 	)
@@ -189,6 +200,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/eventsToMetricsRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/federatedLogsPartition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/federatedLogsSetup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

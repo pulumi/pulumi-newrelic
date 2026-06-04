@@ -14,11 +14,14 @@ from .alert_muting_rule import *
 from .alert_policy import *
 from .alert_policy_channel import *
 from .api_access_key import *
+from .aws_connection import *
 from .browser_application import *
 from .cardinality_management import *
 from .data_partition_rule import *
 from .entity_tags import *
 from .events_to_metrics_rule import *
+from .federated_logs_partition import *
+from .federated_logs_setup import *
 from .fleet import *
 from .fleet_configuration import *
 from .fleet_deployment import *
@@ -239,6 +242,14 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
+  "mod": "index/awsConnection",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/awsConnection:AwsConnection": "AwsConnection"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "index/browserApplication",
   "fqn": "pulumi_newrelic",
   "classes": {
@@ -275,6 +286,22 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/eventsToMetricsRule:EventsToMetricsRule": "EventsToMetricsRule"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/federatedLogsPartition",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/federatedLogsPartition:FederatedLogsPartition": "FederatedLogsPartition"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/federatedLogsSetup",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/federatedLogsSetup:FederatedLogsSetup": "FederatedLogsSetup"
   }
  },
  {
