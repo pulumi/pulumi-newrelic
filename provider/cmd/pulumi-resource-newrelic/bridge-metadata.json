@@ -128,6 +128,35 @@
                     }
                 }
             },
+            "newrelic_aws_connection": {
+                "current": "newrelic:index/awsConnection:AwsConnection",
+                "majorVersion": 5,
+                "fields": {
+                    "credential": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "assume_role": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "settings": {
+                        "maxItemsOne": false
+                    },
+                    "tag": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "newrelic_browser_application": {
                 "current": "newrelic:index/browserApplication:BrowserApplication",
                 "majorVersion": 5
@@ -1339,6 +1368,113 @@
             "newrelic_events_to_metrics_rule": {
                 "current": "newrelic:index/eventsToMetricsRule:EventsToMetricsRule",
                 "majorVersion": 5
+            },
+            "newrelic_federated_logs_partition": {
+                "current": "newrelic:index/federatedLogsPartition:FederatedLogsPartition",
+                "majorVersion": 5,
+                "fields": {
+                    "data_retention_policy": {
+                        "maxItemsOne": true
+                    },
+                    "forwarder_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "pipeline_control": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "partition_rule": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "health_check": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "end2end_data_flow": {
+                                    "maxItemsOne": false
+                                },
+                                "query_connection": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "lifecycle_status": {
+                        "maxItemsOne": false
+                    },
+                    "storage": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "newrelic_federated_logs_setup": {
+                "current": "newrelic:index/federatedLogsSetup:FederatedLogsSetup",
+                "majorVersion": 5,
+                "fields": {
+                    "default_partition": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "data_retention_policy": {
+                                    "maxItemsOne": true
+                                },
+                                "storage": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "forwarder": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "pipeline_control": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "routing_rule": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "health_check": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "end2end_data_flow": {
+                                    "maxItemsOne": false
+                                },
+                                "query_connection": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "lifecycle_status": {
+                        "maxItemsOne": false
+                    },
+                    "storage": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "cloud_provider_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "newrelic_fleet": {
                 "current": "newrelic:index/fleet:Fleet",
@@ -4739,6 +4875,12 @@
                 "account_id",
                 "user_id"
             ],
+            "newrelic_aws_connection": [
+                "account_id",
+                "credential.$.assume_role.$.external_id",
+                "external_id",
+                "scope_id"
+            ],
             "newrelic_browser_application": [
                 "account_id",
                 "application_id"
@@ -4793,6 +4935,17 @@
             "newrelic_events_to_metrics_rule": [
                 "account_id",
                 "rule_id"
+            ],
+            "newrelic_federated_logs_partition": [
+                "account_id",
+                "setup_id"
+            ],
+            "newrelic_federated_logs_setup": [
+                "account_id",
+                "default_partition_id",
+                "forwarder.$.pipeline_control.$.fleet_id",
+                "storage.$.data_ingest_connection_id",
+                "storage.$.query_connection_id"
             ],
             "newrelic_fleet": [
                 "organization_id"
