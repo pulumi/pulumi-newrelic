@@ -1777,6 +1777,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import com.pulumi.newrelic.inputs.GetEntityTagArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1950,6 +1951,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import com.pulumi.newrelic.inputs.GetEntityTagArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2123,6 +2125,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import com.pulumi.newrelic.inputs.GetEntityTagArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2296,6 +2299,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import com.pulumi.newrelic.inputs.GetEntityTagArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2469,6 +2473,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import com.pulumi.newrelic.inputs.GetEntityTagArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3687,7 +3692,7 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
      *             .build()).result() : "");
@@ -3787,7 +3792,7 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
      *             .build()).result() : "");
@@ -3887,7 +3892,7 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
      *             .build()).result() : "");
@@ -3987,7 +3992,7 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
      *             .build()).result() : "");
@@ -4087,7 +4092,7 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
      *             .build()).result() : "");

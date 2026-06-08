@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.insights.Event;
  * import com.pulumi.newrelic.insights.EventArgs;
  * import com.pulumi.newrelic.insights.inputs.EventEventArgs;
+ * import com.pulumi.newrelic.insights.inputs.EventEventAttributeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
