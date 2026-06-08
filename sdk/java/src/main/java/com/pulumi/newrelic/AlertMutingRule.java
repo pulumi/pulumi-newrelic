@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.AlertMutingRule;
  * import com.pulumi.newrelic.AlertMutingRuleArgs;
  * import com.pulumi.newrelic.inputs.AlertMutingRuleConditionArgs;
+ * import com.pulumi.newrelic.inputs.AlertMutingRuleConditionConditionArgs;
  * import com.pulumi.newrelic.inputs.AlertMutingRuleScheduleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

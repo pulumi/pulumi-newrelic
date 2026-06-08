@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.OneDashboardRaw;
  * import com.pulumi.newrelic.OneDashboardRawArgs;
  * import com.pulumi.newrelic.inputs.OneDashboardRawPageArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardRawPageWidgetArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;

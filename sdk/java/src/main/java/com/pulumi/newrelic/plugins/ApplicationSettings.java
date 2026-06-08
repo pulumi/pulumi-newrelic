@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.plugins.ApplicationSettings;
  * import com.pulumi.newrelic.plugins.ApplicationSettingsArgs;
  * import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsTransactionTracerArgs;
+ * import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsTransactionTracerExplainQueryPlanArgs;
  * import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsTransactionTracerSqlArgs;
  * import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsErrorCollectorArgs;
  * import java.util.ArrayList;
