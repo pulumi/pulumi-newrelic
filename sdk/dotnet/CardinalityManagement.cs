@@ -119,6 +119,58 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
+    /// ### Example — managing many metrics in bulk
+    /// 
+    /// If you have a long list of metrics to manage, you can keep a single source of truth in `Locals` and use a `Dynamic` block to expand them into `Metric` blocks at apply time. Adding or removing a metric is then a one-line edit.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var highCardinalityMetrics = new[]
+    ///     {
+    ///         
+    ///         {
+    ///             { "name", "http.server.duration" },
+    ///             { "limit", 200000 },
+    ///         },
+    ///         
+    ///         {
+    ///             { "name", "otelcol_nrreceiver_incoming_request_proxy" },
+    ///             { "limit", 300000 },
+    ///         },
+    ///         
+    ///         {
+    ///             { "name", "k8s.pod.cpu.usage" },
+    ///             { "limit", 150000 },
+    ///         },
+    ///         
+    ///         {
+    ///             { "name", "k8s.pod.memory.usage" },
+    ///             { "limit", 150000 },
+    ///         },
+    ///     };
+    /// 
+    ///     var bulk = new NewRelic.CardinalityManagement("bulk", new()
+    ///     {
+    ///         Metrics = highCardinalityMetrics.Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
+    ///         {
+    ///             return new NewRelic.Inputs.CardinalityManagementMetricArgs
+    ///             {
+    ///                 Name = entry.Value.Name,
+    ///                 CardinalityLimit = entry.Value.Limit,
+    ///             };
+    ///         }).ToList(),
+    ///         Mode = "PER_METRIC",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Behaviour
     /// 
     /// - **`pulumi up`** — submits one override per `Metric` block. A warning is displayed as a reminder that updates may take a few minutes to be reflected in the UI.

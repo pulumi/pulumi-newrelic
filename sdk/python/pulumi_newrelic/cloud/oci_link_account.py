@@ -32,6 +32,8 @@ class OciLinkAccountArgs:
                  metric_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OciLinkAccount resource.
@@ -49,6 +51,8 @@ class OciLinkAccountArgs:
         :param pulumi.Input[_builtins.str] metric_stack_ocid: Metric stack OCID (ignored on create, applied on update).
         :param pulumi.Input[_builtins.str] name: Display name for the linked account.
         :param pulumi.Input[_builtins.str] oci_region: OCI region for the linkage (ignored on create, applied on update).
+        :param pulumi.Input[_builtins.str] resource_tag: A value propagated as the `ext_resource_tag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trust_type = "UPST"`. Cannot be changed after creation.
+        :param pulumi.Input[_builtins.str] trust_type: The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
         :param pulumi.Input[_builtins.str] user_vault_ocid: Vault secret OCID containing a user or auxiliary secret.
         """
         pulumi.set(__self__, "compartment_ocid", compartment_ocid)
@@ -71,6 +75,10 @@ class OciLinkAccountArgs:
             pulumi.set(__self__, "name", name)
         if oci_region is not None:
             pulumi.set(__self__, "oci_region", oci_region)
+        if resource_tag is not None:
+            pulumi.set(__self__, "resource_tag", resource_tag)
+        if trust_type is not None:
+            pulumi.set(__self__, "trust_type", trust_type)
         if user_vault_ocid is not None:
             pulumi.set(__self__, "user_vault_ocid", user_vault_ocid)
 
@@ -231,6 +239,30 @@ class OciLinkAccountArgs:
         pulumi.set(self, "oci_region", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceTag")
+    def resource_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A value propagated as the `ext_resource_tag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trust_type = "UPST"`. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "resource_tag")
+
+    @resource_tag.setter
+    def resource_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trustType")
+    def trust_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+        """
+        return pulumi.get(self, "trust_type")
+
+    @trust_type.setter
+    def trust_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "trust_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="userVaultOcid")
     def user_vault_ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -258,7 +290,9 @@ class _OciLinkAccountState:
                  oci_domain_url: pulumi.Input[Optional[_builtins.str]] = None,
                  oci_home_region: pulumi.Input[Optional[_builtins.str]] = None,
                  oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OciLinkAccount resources.
@@ -275,7 +309,9 @@ class _OciLinkAccountState:
         :param pulumi.Input[_builtins.str] oci_domain_url: Base URL of the OCI Identity Domain (e.g. `https://idcs-<hash>.identity.oraclecloud.com`).
         :param pulumi.Input[_builtins.str] oci_home_region: Home region of the tenancy (e.g. `us-ashburn-1`).
         :param pulumi.Input[_builtins.str] oci_region: OCI region for the linkage (ignored on create, applied on update).
+        :param pulumi.Input[_builtins.str] resource_tag: A value propagated as the `ext_resource_tag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trust_type = "UPST"`. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] tenant_id: OCI tenancy OCID (root tenancy). Changing forces a new linked account.
+        :param pulumi.Input[_builtins.str] trust_type: The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
         :param pulumi.Input[_builtins.str] user_vault_ocid: Vault secret OCID containing a user or auxiliary secret.
         """
         if account_id is not None:
@@ -302,8 +338,12 @@ class _OciLinkAccountState:
             pulumi.set(__self__, "oci_home_region", oci_home_region)
         if oci_region is not None:
             pulumi.set(__self__, "oci_region", oci_region)
+        if resource_tag is not None:
+            pulumi.set(__self__, "resource_tag", resource_tag)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if trust_type is not None:
+            pulumi.set(__self__, "trust_type", trust_type)
         if user_vault_ocid is not None:
             pulumi.set(__self__, "user_vault_ocid", user_vault_ocid)
 
@@ -452,6 +492,18 @@ class _OciLinkAccountState:
         pulumi.set(self, "oci_region", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceTag")
+    def resource_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A value propagated as the `ext_resource_tag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trust_type = "UPST"`. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "resource_tag")
+
+    @resource_tag.setter
+    def resource_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_tag", value)
+
+    @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -462,6 +514,18 @@ class _OciLinkAccountState:
     @tenant_id.setter
     def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trustType")
+    def trust_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+        """
+        return pulumi.get(self, "trust_type")
+
+    @trust_type.setter
+    def trust_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "trust_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userVaultOcid")
@@ -494,7 +558,9 @@ class OciLinkAccount(pulumi.CustomResource):
                  oci_domain_url: pulumi.Input[Optional[_builtins.str]] = None,
                  oci_home_region: pulumi.Input[Optional[_builtins.str]] = None,
                  oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -591,7 +657,9 @@ class OciLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oci_domain_url: Base URL of the OCI Identity Domain (e.g. `https://idcs-<hash>.identity.oraclecloud.com`).
         :param pulumi.Input[_builtins.str] oci_home_region: Home region of the tenancy (e.g. `us-ashburn-1`).
         :param pulumi.Input[_builtins.str] oci_region: OCI region for the linkage (ignored on create, applied on update).
+        :param pulumi.Input[_builtins.str] resource_tag: A value propagated as the `ext_resource_tag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trust_type = "UPST"`. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] tenant_id: OCI tenancy OCID (root tenancy). Changing forces a new linked account.
+        :param pulumi.Input[_builtins.str] trust_type: The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
         :param pulumi.Input[_builtins.str] user_vault_ocid: Vault secret OCID containing a user or auxiliary secret.
         """
         ...
@@ -707,7 +775,9 @@ class OciLinkAccount(pulumi.CustomResource):
                  oci_domain_url: pulumi.Input[Optional[_builtins.str]] = None,
                  oci_home_region: pulumi.Input[Optional[_builtins.str]] = None,
                  oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -740,9 +810,11 @@ class OciLinkAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'oci_home_region'")
             __props__.__dict__["oci_home_region"] = oci_home_region
             __props__.__dict__["oci_region"] = oci_region
+            __props__.__dict__["resource_tag"] = resource_tag
             if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["trust_type"] = trust_type
             __props__.__dict__["user_vault_ocid"] = user_vault_ocid
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["ociClientSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -768,7 +840,9 @@ class OciLinkAccount(pulumi.CustomResource):
             oci_domain_url: pulumi.Input[Optional[_builtins.str]] = None,
             oci_home_region: pulumi.Input[Optional[_builtins.str]] = None,
             oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_tag: pulumi.Input[Optional[_builtins.str]] = None,
             tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_type: pulumi.Input[Optional[_builtins.str]] = None,
             user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None) -> 'OciLinkAccount':
         """
         Get an existing OciLinkAccount resource's state with the given name, id, and optional extra
@@ -789,7 +863,9 @@ class OciLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oci_domain_url: Base URL of the OCI Identity Domain (e.g. `https://idcs-<hash>.identity.oraclecloud.com`).
         :param pulumi.Input[_builtins.str] oci_home_region: Home region of the tenancy (e.g. `us-ashburn-1`).
         :param pulumi.Input[_builtins.str] oci_region: OCI region for the linkage (ignored on create, applied on update).
+        :param pulumi.Input[_builtins.str] resource_tag: A value propagated as the `ext_resource_tag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trust_type = "UPST"`. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] tenant_id: OCI tenancy OCID (root tenancy). Changing forces a new linked account.
+        :param pulumi.Input[_builtins.str] trust_type: The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
         :param pulumi.Input[_builtins.str] user_vault_ocid: Vault secret OCID containing a user or auxiliary secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -808,7 +884,9 @@ class OciLinkAccount(pulumi.CustomResource):
         __props__.__dict__["oci_domain_url"] = oci_domain_url
         __props__.__dict__["oci_home_region"] = oci_home_region
         __props__.__dict__["oci_region"] = oci_region
+        __props__.__dict__["resource_tag"] = resource_tag
         __props__.__dict__["tenant_id"] = tenant_id
+        __props__.__dict__["trust_type"] = trust_type
         __props__.__dict__["user_vault_ocid"] = user_vault_ocid
         return OciLinkAccount(resource_name, opts=opts, __props__=__props__)
 
@@ -909,12 +987,28 @@ class OciLinkAccount(pulumi.CustomResource):
         return pulumi.get(self, "oci_region")
 
     @_builtins.property
+    @pulumi.getter(name="resourceTag")
+    def resource_tag(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A value propagated as the `ext_resource_tag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trust_type = "UPST"`. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "resource_tag")
+
+    @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[_builtins.str]:
         """
         OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         """
         return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="trustType")
+    def trust_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+        """
+        return pulumi.get(self, "trust_type")
 
     @_builtins.property
     @pulumi.getter(name="userVaultOcid")

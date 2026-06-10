@@ -148,8 +148,12 @@ type OciLinkAccount struct {
 	OciHomeRegion pulumi.StringOutput `pulumi:"ociHomeRegion"`
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion pulumi.StringPtrOutput `pulumi:"ociRegion"`
+	// A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = "UPST"`. Cannot be changed after creation.
+	ResourceTag pulumi.StringPtrOutput `pulumi:"resourceTag"`
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+	// The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+	TrustType pulumi.StringPtrOutput `pulumi:"trustType"`
 	// Vault secret OCID containing a user or auxiliary secret.
 	UserVaultOcid pulumi.StringPtrOutput `pulumi:"userVaultOcid"`
 }
@@ -233,8 +237,12 @@ type ociLinkAccountState struct {
 	OciHomeRegion *string `pulumi:"ociHomeRegion"`
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion *string `pulumi:"ociRegion"`
+	// A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = "UPST"`. Cannot be changed after creation.
+	ResourceTag *string `pulumi:"resourceTag"`
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId *string `pulumi:"tenantId"`
+	// The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+	TrustType *string `pulumi:"trustType"`
 	// Vault secret OCID containing a user or auxiliary secret.
 	UserVaultOcid *string `pulumi:"userVaultOcid"`
 }
@@ -264,8 +272,12 @@ type OciLinkAccountState struct {
 	OciHomeRegion pulumi.StringPtrInput
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion pulumi.StringPtrInput
+	// A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = "UPST"`. Cannot be changed after creation.
+	ResourceTag pulumi.StringPtrInput
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId pulumi.StringPtrInput
+	// The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+	TrustType pulumi.StringPtrInput
 	// Vault secret OCID containing a user or auxiliary secret.
 	UserVaultOcid pulumi.StringPtrInput
 }
@@ -299,8 +311,12 @@ type ociLinkAccountArgs struct {
 	OciHomeRegion string `pulumi:"ociHomeRegion"`
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion *string `pulumi:"ociRegion"`
+	// A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = "UPST"`. Cannot be changed after creation.
+	ResourceTag *string `pulumi:"resourceTag"`
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId string `pulumi:"tenantId"`
+	// The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+	TrustType *string `pulumi:"trustType"`
 	// Vault secret OCID containing a user or auxiliary secret.
 	UserVaultOcid *string `pulumi:"userVaultOcid"`
 }
@@ -331,8 +347,12 @@ type OciLinkAccountArgs struct {
 	OciHomeRegion pulumi.StringInput
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion pulumi.StringPtrInput
+	// A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = "UPST"`. Cannot be changed after creation.
+	ResourceTag pulumi.StringPtrInput
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId pulumi.StringInput
+	// The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+	TrustType pulumi.StringPtrInput
 	// Vault secret OCID containing a user or auxiliary secret.
 	UserVaultOcid pulumi.StringPtrInput
 }
@@ -484,9 +504,19 @@ func (o OciLinkAccountOutput) OciRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OciLinkAccount) pulumi.StringPtrOutput { return v.OciRegion }).(pulumi.StringPtrOutput)
 }
 
+// A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = "UPST"`. Cannot be changed after creation.
+func (o OciLinkAccountOutput) ResourceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OciLinkAccount) pulumi.StringPtrOutput { return v.ResourceTag }).(pulumi.StringPtrOutput)
+}
+
 // OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 func (o OciLinkAccountOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OciLinkAccount) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+func (o OciLinkAccountOutput) TrustType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OciLinkAccount) pulumi.StringPtrOutput { return v.TrustType }).(pulumi.StringPtrOutput)
 }
 
 // Vault secret OCID containing a user or auxiliary secret.

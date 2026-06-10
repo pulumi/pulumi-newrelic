@@ -87,6 +87,41 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Example — managing many metrics in bulk
+ *
+ * If you have a long list of metrics to manage, you can keep a single source of truth in `locals` and use a `dynamic` block to expand them into `metric` blocks at apply time. Adding or removing a metric is then a one-line edit.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const highCardinalityMetrics = [
+ *     {
+ *         name: "http.server.duration",
+ *         limit: 200000,
+ *     },
+ *     {
+ *         name: "otelcol_nrreceiver_incoming_request_proxy",
+ *         limit: 300000,
+ *     },
+ *     {
+ *         name: "k8s.pod.cpu.usage",
+ *         limit: 150000,
+ *     },
+ *     {
+ *         name: "k8s.pod.memory.usage",
+ *         limit: 150000,
+ *     },
+ * ];
+ * const bulk = new newrelic.CardinalityManagement("bulk", {
+ *     metrics: highCardinalityMetrics.map((v, k) => ({key: k, value: v})).map(entry => ({
+ *         name: entry.value.name,
+ *         cardinalityLimit: Number(entry.value.limit),
+ *     })),
+ *     mode: "PER_METRIC",
+ * });
+ * ```
+ *
  * ### Behaviour
  *
  * - **`pulumi up`** — submits one override per `metric` block. A warning is displayed as a reminder that updates may take a few minutes to be reflected in the UI.

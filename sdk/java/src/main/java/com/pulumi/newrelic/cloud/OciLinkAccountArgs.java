@@ -197,6 +197,21 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = &#34;UPST&#34;`. Cannot be changed after creation.
+     * 
+     */
+    @Import(name="resourceTag")
+    private @Nullable Output<String> resourceTag;
+
+    /**
+     * @return A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = &#34;UPST&#34;`. Cannot be changed after creation.
+     * 
+     */
+    public Optional<Output<String>> resourceTag() {
+        return Optional.ofNullable(this.resourceTag);
+    }
+
+    /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      * 
      */
@@ -209,6 +224,21 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Output<String> tenantId() {
         return this.tenantId;
+    }
+
+    /**
+     * The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+     * 
+     */
+    @Import(name="trustType")
+    private @Nullable Output<String> trustType;
+
+    /**
+     * @return The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+     * 
+     */
+    public Optional<Output<String>> trustType() {
+        return Optional.ofNullable(this.trustType);
     }
 
     /**
@@ -241,7 +271,9 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         this.ociDomainUrl = $.ociDomainUrl;
         this.ociHomeRegion = $.ociHomeRegion;
         this.ociRegion = $.ociRegion;
+        this.resourceTag = $.resourceTag;
         this.tenantId = $.tenantId;
+        this.trustType = $.trustType;
         this.userVaultOcid = $.userVaultOcid;
     }
 
@@ -516,6 +548,27 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param resourceTag A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = &#34;UPST&#34;`. Cannot be changed after creation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTag(@Nullable Output<String> resourceTag) {
+            $.resourceTag = resourceTag;
+            return this;
+        }
+
+        /**
+         * @param resourceTag A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = &#34;UPST&#34;`. Cannot be changed after creation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTag(String resourceTag) {
+            return resourceTag(Output.of(resourceTag));
+        }
+
+        /**
          * @param tenantId OCI tenancy OCID (root tenancy). Changing forces a new linked account.
          * 
          * @return builder
@@ -534,6 +587,27 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
+        }
+
+        /**
+         * @param trustType The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustType(@Nullable Output<String> trustType) {
+            $.trustType = trustType;
+            return this;
+        }
+
+        /**
+         * @param trustType The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustType(String trustType) {
+            return trustType(Output.of(trustType));
         }
 
         /**

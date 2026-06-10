@@ -227,6 +227,40 @@ class CardinalityManagement(pulumi.CustomResource):
             ])
         ```
 
+        ### Example — managing many metrics in bulk
+
+        If you have a long list of metrics to manage, you can keep a single source of truth in `locals` and use a `dynamic` block to expand them into `metric` blocks at apply time. Adding or removing a metric is then a one-line edit.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        high_cardinality_metrics = [
+            {
+                "name": "http.server.duration",
+                "limit": 200000,
+            },
+            {
+                "name": "otelcol_nrreceiver_incoming_request_proxy",
+                "limit": 300000,
+            },
+            {
+                "name": "k8s.pod.cpu.usage",
+                "limit": 150000,
+            },
+            {
+                "name": "k8s.pod.memory.usage",
+                "limit": 150000,
+            },
+        ]
+        bulk = newrelic.CardinalityManagement("bulk",
+            metrics=[{
+                "name": entry["value"]["name"],
+                "cardinality_limit": int(entry["value"]["limit"]),
+            } for entry in [{"key": k, "value": v} for k, v in sorted(high_cardinality_metrics.items())]],
+            mode="PER_METRIC")
+        ```
+
         ### Behaviour
 
         - **`pulumi up`** — submits one override per `metric` block. A warning is displayed as a reminder that updates may take a few minutes to be reflected in the UI.
@@ -373,6 +407,40 @@ class CardinalityManagement(pulumi.CustomResource):
                     "cardinality_limit": 150000,
                 },
             ])
+        ```
+
+        ### Example — managing many metrics in bulk
+
+        If you have a long list of metrics to manage, you can keep a single source of truth in `locals` and use a `dynamic` block to expand them into `metric` blocks at apply time. Adding or removing a metric is then a one-line edit.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        high_cardinality_metrics = [
+            {
+                "name": "http.server.duration",
+                "limit": 200000,
+            },
+            {
+                "name": "otelcol_nrreceiver_incoming_request_proxy",
+                "limit": 300000,
+            },
+            {
+                "name": "k8s.pod.cpu.usage",
+                "limit": 150000,
+            },
+            {
+                "name": "k8s.pod.memory.usage",
+                "limit": 150000,
+            },
+        ]
+        bulk = newrelic.CardinalityManagement("bulk",
+            metrics=[{
+                "name": entry["value"]["name"],
+                "cardinality_limit": int(entry["value"]["limit"]),
+            } for entry in [{"key": k, "value": v} for k, v in sorted(high_cardinality_metrics.items())]],
+            mode="PER_METRIC")
         ```
 
         ### Behaviour

@@ -162,9 +162,17 @@ export class OciLinkAccount extends pulumi.CustomResource {
      */
     declare public readonly ociRegion: pulumi.Output<string | undefined>;
     /**
+     * A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = "UPST"`. Cannot be changed after creation.
+     */
+    declare public readonly resourceTag: pulumi.Output<string | undefined>;
+    /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      */
     declare public readonly tenantId: pulumi.Output<string>;
+    /**
+     * The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+     */
+    declare public readonly trustType: pulumi.Output<string | undefined>;
     /**
      * Vault secret OCID containing a user or auxiliary secret.
      */
@@ -195,7 +203,9 @@ export class OciLinkAccount extends pulumi.CustomResource {
             resourceInputs["ociDomainUrl"] = state?.ociDomainUrl;
             resourceInputs["ociHomeRegion"] = state?.ociHomeRegion;
             resourceInputs["ociRegion"] = state?.ociRegion;
+            resourceInputs["resourceTag"] = state?.resourceTag;
             resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["trustType"] = state?.trustType;
             resourceInputs["userVaultOcid"] = state?.userVaultOcid;
         } else {
             const args = argsOrState as OciLinkAccountArgs | undefined;
@@ -229,7 +239,9 @@ export class OciLinkAccount extends pulumi.CustomResource {
             resourceInputs["ociDomainUrl"] = args?.ociDomainUrl;
             resourceInputs["ociHomeRegion"] = args?.ociHomeRegion;
             resourceInputs["ociRegion"] = args?.ociRegion;
+            resourceInputs["resourceTag"] = args?.resourceTag;
             resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["trustType"] = args?.trustType;
             resourceInputs["userVaultOcid"] = args?.userVaultOcid;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -292,9 +304,17 @@ export interface OciLinkAccountState {
      */
     ociRegion?: pulumi.Input<string | undefined>;
     /**
+     * A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = "UPST"`. Cannot be changed after creation.
+     */
+    resourceTag?: pulumi.Input<string | undefined>;
+    /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      */
     tenantId?: pulumi.Input<string | undefined>;
+    /**
+     * The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+     */
+    trustType?: pulumi.Input<string | undefined>;
     /**
      * Vault secret OCID containing a user or auxiliary secret.
      */
@@ -354,9 +374,17 @@ export interface OciLinkAccountArgs {
      */
     ociRegion?: pulumi.Input<string | undefined>;
     /**
+     * A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = "UPST"`. Cannot be changed after creation.
+     */
+    resourceTag?: pulumi.Input<string | undefined>;
+    /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      */
     tenantId: pulumi.Input<string>;
+    /**
+     * The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+     */
+    trustType?: pulumi.Input<string | undefined>;
     /**
      * Vault secret OCID containing a user or auxiliary secret.
      */
