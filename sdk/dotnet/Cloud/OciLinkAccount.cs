@@ -180,10 +180,22 @@ namespace Pulumi.NewRelic.Cloud
         public Output<string?> OciRegion { get; private set; } = null!;
 
         /// <summary>
+        /// A value propagated as the `ExtResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `TrustType = "UPST"`. Cannot be changed after creation.
+        /// </summary>
+        [Output("resourceTag")]
+        public Output<string?> ResourceTag { get; private set; } = null!;
+
+        /// <summary>
         /// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+        /// </summary>
+        [Output("trustType")]
+        public Output<string?> TrustType { get; private set; } = null!;
 
         /// <summary>
         /// Vault secret OCID containing a user or auxiliary secret.
@@ -324,10 +336,22 @@ namespace Pulumi.NewRelic.Cloud
         public Input<string>? OciRegion { get; set; }
 
         /// <summary>
+        /// A value propagated as the `ExtResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `TrustType = "UPST"`. Cannot be changed after creation.
+        /// </summary>
+        [Input("resourceTag")]
+        public Input<string>? ResourceTag { get; set; }
+
+        /// <summary>
         /// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
+
+        /// <summary>
+        /// The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+        /// </summary>
+        [Input("trustType")]
+        public Input<string>? TrustType { get; set; }
 
         /// <summary>
         /// Vault secret OCID containing a user or auxiliary secret.
@@ -426,10 +450,22 @@ namespace Pulumi.NewRelic.Cloud
         public Input<string>? OciRegion { get; set; }
 
         /// <summary>
+        /// A value propagated as the `ExtResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `TrustType = "UPST"`. Cannot be changed after creation.
+        /// </summary>
+        [Input("resourceTag")]
+        public Input<string>? ResourceTag { get; set; }
+
+        /// <summary>
         /// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+        /// </summary>
+        [Input("trustType")]
+        public Input<string>? TrustType { get; set; }
 
         /// <summary>
         /// Vault secret OCID containing a user or auxiliary secret.

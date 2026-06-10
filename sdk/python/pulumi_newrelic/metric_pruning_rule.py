@@ -193,6 +193,46 @@ class MetricPruningRule(pulumi.CustomResource):
             description="Remove collector.name attribute from http.server.duration to reduce cardinality")
         ```
 
+        ### Pruning the same attribute from many metrics in bulk
+
+        When the same attribute needs to be stripped from a set of metrics, keep the metric list in `locals` and use `for_each` with a templated `nrql` and `description`. Only the metric name varies between rules — the rest of the configuration is shared.
+
+        ```python
+        import pulumi
+        from typing import Any
+        import pulumi_newrelic as newrelic
+        import pulumi_std as std
+
+        # The attribute to prune from every metric in the list below.
+        pruned_attribute = "collector.name"
+        # Metrics to apply the pruning rule to.
+        # Add or remove entries here to manage rules in bulk.
+        metrics_to_prune = std.toset(input=[
+            "http.server.duration",
+            "http.client.duration",
+            "rpc.server.duration",
+            "k8s.pod.cpu.usage",
+            "k8s.pod.memory.usage",
+        ]).result
+        bulk: list[Any] = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate(metrics_to_prune)]:
+            bulk.append(newrelic.MetricPruningRule(f"bulk-{range['key']}",
+                nrql=f"SELECT {pruned_attribute} FROM Metric WHERE metricName = '{range['value']}'",
+                description=f"Remove {pruned_attribute} from {range['value']} to reduce cardinality"))
+        ```
+
+        Each entry in `metrics_to_prune` produces an independent `MetricPruningRule` resource (e.g. `newrelic_metric_pruning_rule.bulk["http.server.duration"]`) that can be inspected, imported, or destroyed individually.
+
+        ***
+
+        ## Behaviour
+
+        - **`pulumi up`** — creates the pruning rule in New Relic. The rule begins stripping the nominated attributes from matching metric aggregates immediately after creation.
+        - **`pulumi preview` / `terraform refresh` on an existing resource** — reads the current state of the pruning rule from New Relic and surfaces any drift (e.g. if the rule was deleted outside of Terraform).
+        - **`terraform destroy`** — permanently deletes the pruning rule. Once removed, the nominated attributes will no longer be stripped from incoming metric data. There is no reset to a default state; the rule is deleted outright.
+
+        > **Note:** Because all arguments are immutable, any in-place change (e.g. updating the NRQL or description) will trigger a destroy-and-recreate. The old rule is deleted before the new one is created, so there will be a brief window during which no pruning is active for the affected metric.
+
         ***
 
         ## Import
@@ -247,6 +287,46 @@ class MetricPruningRule(pulumi.CustomResource):
             nrql="SELECT collector.name FROM Metric WHERE metricName = 'http.server.duration'",
             description="Remove collector.name attribute from http.server.duration to reduce cardinality")
         ```
+
+        ### Pruning the same attribute from many metrics in bulk
+
+        When the same attribute needs to be stripped from a set of metrics, keep the metric list in `locals` and use `for_each` with a templated `nrql` and `description`. Only the metric name varies between rules — the rest of the configuration is shared.
+
+        ```python
+        import pulumi
+        from typing import Any
+        import pulumi_newrelic as newrelic
+        import pulumi_std as std
+
+        # The attribute to prune from every metric in the list below.
+        pruned_attribute = "collector.name"
+        # Metrics to apply the pruning rule to.
+        # Add or remove entries here to manage rules in bulk.
+        metrics_to_prune = std.toset(input=[
+            "http.server.duration",
+            "http.client.duration",
+            "rpc.server.duration",
+            "k8s.pod.cpu.usage",
+            "k8s.pod.memory.usage",
+        ]).result
+        bulk: list[Any] = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate(metrics_to_prune)]:
+            bulk.append(newrelic.MetricPruningRule(f"bulk-{range['key']}",
+                nrql=f"SELECT {pruned_attribute} FROM Metric WHERE metricName = '{range['value']}'",
+                description=f"Remove {pruned_attribute} from {range['value']} to reduce cardinality"))
+        ```
+
+        Each entry in `metrics_to_prune` produces an independent `MetricPruningRule` resource (e.g. `newrelic_metric_pruning_rule.bulk["http.server.duration"]`) that can be inspected, imported, or destroyed individually.
+
+        ***
+
+        ## Behaviour
+
+        - **`pulumi up`** — creates the pruning rule in New Relic. The rule begins stripping the nominated attributes from matching metric aggregates immediately after creation.
+        - **`pulumi preview` / `terraform refresh` on an existing resource** — reads the current state of the pruning rule from New Relic and surfaces any drift (e.g. if the rule was deleted outside of Terraform).
+        - **`terraform destroy`** — permanently deletes the pruning rule. Once removed, the nominated attributes will no longer be stripped from incoming metric data. There is no reset to a default state; the rule is deleted outright.
+
+        > **Note:** Because all arguments are immutable, any in-place change (e.g. updating the NRQL or description) will trigger a destroy-and-recreate. The old rule is deleted before the new one is created, so there will be a brief window during which no pruning is active for the affected metric.
 
         ***
 

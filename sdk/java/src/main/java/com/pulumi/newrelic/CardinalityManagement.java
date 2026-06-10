@@ -165,6 +165,10 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Example — managing many metrics in bulk
+ * 
+ * If you have a long list of metrics to manage, you can keep a single source of truth in `locals` and use a `dynamic` block to expand them into `metric` blocks at apply time. Adding or removing a metric is then a one-line edit.
+ * 
  * ### Behaviour
  * 
  * - **`pulumi up`** — submits one override per `metric` block. A warning is displayed as a reminder that updates may take a few minutes to be reflected in the UI.

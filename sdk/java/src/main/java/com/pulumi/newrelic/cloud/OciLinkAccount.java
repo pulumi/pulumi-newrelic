@@ -312,6 +312,20 @@ public class OciLinkAccount extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ociRegion);
     }
     /**
+     * A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = &#34;UPST&#34;`. Cannot be changed after creation.
+     * 
+     */
+    @Export(name="resourceTag", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resourceTag;
+
+    /**
+     * @return A value propagated as the `extResourceTag` claim on the RPST so customer IAM policies can scope authorization on a specific tag value (for example, `env=prod`). Ignored when `trustType = &#34;UPST&#34;`. Cannot be changed after creation.
+     * 
+     */
+    public Output<Optional<String>> resourceTag() {
+        return Codegen.optional(this.resourceTag);
+    }
+    /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      * 
      */
@@ -324,6 +338,20 @@ public class OciLinkAccount extends com.pulumi.resources.CustomResource {
      */
     public Output<String> tenantId() {
         return this.tenantId;
+    }
+    /**
+     * The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+     * 
+     */
+    @Export(name="trustType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> trustType;
+
+    /**
+     * @return The OCI WIF trust type. Allowed values are `UPST` (default) or `RPST`. Set this to `RPST` to use Resource Principal Session Token (claim-based) authorization instead of the default User Principal Session Token (service-user-based) flow. The corresponding identity propagation trust must be configured with the matching trust type in your OCI tenancy. Cannot be changed after creation — re-create the linked account to switch trust types. See the WIF setup module for details.
+     * 
+     */
+    public Output<Optional<String>> trustType() {
+        return Codegen.optional(this.trustType);
     }
     /**
      * Vault secret OCID containing a user or auxiliary secret.
