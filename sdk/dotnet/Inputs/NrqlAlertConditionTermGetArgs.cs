@@ -13,6 +13,12 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class NrqlAlertConditionTermGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// BETA PREVIEW: the `DisableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+        /// </summary>
+        [Input("disableEventCreation")]
+        public Input<bool>? DisableEventCreation { get; set; }
+
+        /// <summary>
         /// Violations will not change system health status for this term.
         /// </summary>
         [Input("disableHealthStatusReporting")]

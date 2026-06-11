@@ -138,6 +138,7 @@ import javax.annotation.Nullable;
  * - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
  * - `prediction` - (Optional) **BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis.** Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for _static_ NRQL alert conditions. See Prediction below for details.
  * - `disableHealthStatusReporting` - (Optional) `true` or `false`. Defaults to `false` when field not included in TF config. Violations will not change system health status for this term.
+ * - `disableEventCreation` - (Optional) **BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis.** `true` or `false`. Defaults to `false` when field not included in TF config. When set to `true`, violations will not create events.
  * 
  * &gt; **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `thresholdDuration` (one of the two) is mandatory. Both of these should not be specified.
  * 

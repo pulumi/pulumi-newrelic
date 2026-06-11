@@ -731,6 +731,10 @@ export interface NotificationDestinationSecureUrl {
 
 export interface NrqlAlertConditionCritical {
     /**
+     * BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+     */
+    disableEventCreation?: boolean;
+    /**
      * Violations will not change system health status for this term.
      */
     disableHealthStatusReporting?: boolean;
@@ -823,6 +827,10 @@ export interface NrqlAlertConditionOutlierConfigurationDbscan {
 
 export interface NrqlAlertConditionTerm {
     /**
+     * BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+     */
+    disableEventCreation?: boolean;
+    /**
      * Violations will not change system health status for this term.
      */
     disableHealthStatusReporting?: boolean;
@@ -876,6 +884,10 @@ export interface NrqlAlertConditionTermPrediction {
 }
 
 export interface NrqlAlertConditionWarning {
+    /**
+     * BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+     */
+    disableEventCreation?: boolean;
     /**
      * Violations will not change system health status for this term.
      */

@@ -17,6 +17,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionCritical {
     /**
+     * @return BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+     * 
+     */
+    private @Nullable Boolean disableEventCreation;
+    /**
      * @return Violations will not change system health status for this term.
      * 
      */
@@ -66,6 +71,13 @@ public final class NrqlAlertConditionCritical {
     private @Nullable String timeFunction;
 
     private NrqlAlertConditionCritical() {}
+    /**
+     * @return BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+     * 
+     */
+    public Optional<Boolean> disableEventCreation() {
+        return Optional.ofNullable(this.disableEventCreation);
+    }
     /**
      * @return Violations will not change system health status for this term.
      * 
@@ -140,6 +152,7 @@ public final class NrqlAlertConditionCritical {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean disableEventCreation;
         private @Nullable Boolean disableHealthStatusReporting;
         private @Nullable Integer duration;
         private @Nullable String operator;
@@ -151,6 +164,7 @@ public final class NrqlAlertConditionCritical {
         public Builder() {}
         public Builder(NrqlAlertConditionCritical defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.disableEventCreation = defaults.disableEventCreation;
     	      this.disableHealthStatusReporting = defaults.disableHealthStatusReporting;
     	      this.duration = defaults.duration;
     	      this.operator = defaults.operator;
@@ -161,6 +175,12 @@ public final class NrqlAlertConditionCritical {
     	      this.timeFunction = defaults.timeFunction;
         }
 
+        @CustomType.Setter
+        public Builder disableEventCreation(@Nullable Boolean disableEventCreation) {
+
+            this.disableEventCreation = disableEventCreation;
+            return this;
+        }
         @CustomType.Setter
         public Builder disableHealthStatusReporting(@Nullable Boolean disableHealthStatusReporting) {
 
@@ -213,6 +233,7 @@ public final class NrqlAlertConditionCritical {
         }
         public NrqlAlertConditionCritical build() {
             final var _resultValue = new NrqlAlertConditionCritical();
+            _resultValue.disableEventCreation = disableEventCreation;
             _resultValue.disableHealthStatusReporting = disableHealthStatusReporting;
             _resultValue.duration = duration;
             _resultValue.operator = operator;

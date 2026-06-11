@@ -17,6 +17,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionTerm {
     /**
+     * @return BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+     * 
+     */
+    private @Nullable Boolean disableEventCreation;
+    /**
      * @return Violations will not change system health status for this term.
      * 
      */
@@ -71,6 +76,13 @@ public final class NrqlAlertConditionTerm {
     private @Nullable String timeFunction;
 
     private NrqlAlertConditionTerm() {}
+    /**
+     * @return BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+     * 
+     */
+    public Optional<Boolean> disableEventCreation() {
+        return Optional.ofNullable(this.disableEventCreation);
+    }
     /**
      * @return Violations will not change system health status for this term.
      * 
@@ -152,6 +164,7 @@ public final class NrqlAlertConditionTerm {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean disableEventCreation;
         private @Nullable Boolean disableHealthStatusReporting;
         private @Nullable Integer duration;
         private @Nullable String operator;
@@ -164,6 +177,7 @@ public final class NrqlAlertConditionTerm {
         public Builder() {}
         public Builder(NrqlAlertConditionTerm defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.disableEventCreation = defaults.disableEventCreation;
     	      this.disableHealthStatusReporting = defaults.disableHealthStatusReporting;
     	      this.duration = defaults.duration;
     	      this.operator = defaults.operator;
@@ -175,6 +189,12 @@ public final class NrqlAlertConditionTerm {
     	      this.timeFunction = defaults.timeFunction;
         }
 
+        @CustomType.Setter
+        public Builder disableEventCreation(@Nullable Boolean disableEventCreation) {
+
+            this.disableEventCreation = disableEventCreation;
+            return this;
+        }
         @CustomType.Setter
         public Builder disableHealthStatusReporting(@Nullable Boolean disableHealthStatusReporting) {
 
@@ -233,6 +253,7 @@ public final class NrqlAlertConditionTerm {
         }
         public NrqlAlertConditionTerm build() {
             final var _resultValue = new NrqlAlertConditionTerm();
+            _resultValue.disableEventCreation = disableEventCreation;
             _resultValue.disableHealthStatusReporting = disableHealthStatusReporting;
             _resultValue.duration = duration;
             _resultValue.operator = operator;

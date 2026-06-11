@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class NrqlAlertConditionWarning
     {
         /// <summary>
+        /// BETA PREVIEW: the `DisableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+        /// </summary>
+        public readonly bool? DisableEventCreation;
+        /// <summary>
         /// Violations will not change system health status for this term.
         /// </summary>
         public readonly bool? DisableHealthStatusReporting;
@@ -48,6 +52,8 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private NrqlAlertConditionWarning(
+            bool? disableEventCreation,
+
             bool? disableHealthStatusReporting,
 
             int? duration,
@@ -64,6 +70,7 @@ namespace Pulumi.NewRelic.Outputs
 
             string? timeFunction)
         {
+            DisableEventCreation = disableEventCreation;
             DisableHealthStatusReporting = disableHealthStatusReporting;
             Duration = duration;
             Operator = @operator;

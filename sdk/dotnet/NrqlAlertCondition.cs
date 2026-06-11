@@ -108,6 +108,7 @@ namespace Pulumi.NewRelic
     /// - `TimeFunction` - (Optional) **DEPRECATED:** Use `ThresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `All` or `Any`.
     /// - `Prediction` - (Optional) **BETA PREVIEW: the `Prediction` field is in limited release and only enabled for preview on a per-account basis.** Use `Prediction` to open alerts when your static threshold is predicted to be reached in the future. The `Prediction` field is only available for _static_ NRQL alert conditions. See Prediction below for details.
     /// - `DisableHealthStatusReporting` - (Optional) `True` or `False`. Defaults to `False` when field not included in TF config. Violations will not change system health status for this term.
+    /// - `DisableEventCreation` - (Optional) **BETA PREVIEW: the `DisableEventCreation` field is in limited release and only enabled for preview on a per-account basis.** `True` or `False`. Defaults to `False` when field not included in TF config. When set to `True`, violations will not create events.
     /// 
     /// &gt; **NOTE:** When a `Critical` or `Warning` block is added to this resource, using either `Duration` or `ThresholdDuration` (one of the two) is mandatory. Both of these should not be specified.
     /// 
