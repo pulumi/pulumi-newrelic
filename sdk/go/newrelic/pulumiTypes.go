@@ -7031,6 +7031,8 @@ func (o NotificationDestinationSecureUrlPtrOutput) SecureSuffix() pulumi.StringP
 }
 
 type NrqlAlertConditionCritical struct {
+	// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+	DisableEventCreation *bool `pulumi:"disableEventCreation"`
 	// Violations will not change system health status for this term.
 	DisableHealthStatusReporting *bool `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
@@ -7065,6 +7067,8 @@ type NrqlAlertConditionCriticalInput interface {
 }
 
 type NrqlAlertConditionCriticalArgs struct {
+	// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+	DisableEventCreation pulumi.BoolPtrInput `pulumi:"disableEventCreation"`
 	// Violations will not change system health status for this term.
 	DisableHealthStatusReporting pulumi.BoolPtrInput `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
@@ -7164,6 +7168,11 @@ func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutputW
 	}).(NrqlAlertConditionCriticalPtrOutput)
 }
 
+// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+func (o NrqlAlertConditionCriticalOutput) DisableEventCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) *bool { return v.DisableEventCreation }).(pulumi.BoolPtrOutput)
+}
+
 // Violations will not change system health status for this term.
 func (o NrqlAlertConditionCriticalOutput) DisableHealthStatusReporting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *bool { return v.DisableHealthStatusReporting }).(pulumi.BoolPtrOutput)
@@ -7230,6 +7239,16 @@ func (o NrqlAlertConditionCriticalPtrOutput) Elem() NrqlAlertConditionCriticalOu
 		var ret NrqlAlertConditionCritical
 		return ret
 	}).(NrqlAlertConditionCriticalOutput)
+}
+
+// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+func (o NrqlAlertConditionCriticalPtrOutput) DisableEventCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableEventCreation
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Violations will not change system health status for this term.
@@ -7993,6 +8012,8 @@ func (o NrqlAlertConditionOutlierConfigurationDbscanPtrOutput) MinimumPoints() p
 }
 
 type NrqlAlertConditionTerm struct {
+	// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+	DisableEventCreation *bool `pulumi:"disableEventCreation"`
 	// Violations will not change system health status for this term.
 	DisableHealthStatusReporting *bool `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
@@ -8029,6 +8050,8 @@ type NrqlAlertConditionTermInput interface {
 }
 
 type NrqlAlertConditionTermArgs struct {
+	// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+	DisableEventCreation pulumi.BoolPtrInput `pulumi:"disableEventCreation"`
 	// Violations will not change system health status for this term.
 	DisableHealthStatusReporting pulumi.BoolPtrInput `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
@@ -8102,6 +8125,11 @@ func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutput() NrqlAlert
 
 func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutputWithContext(ctx context.Context) NrqlAlertConditionTermOutput {
 	return o
+}
+
+// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+func (o NrqlAlertConditionTermOutput) DisableEventCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionTerm) *bool { return v.DisableEventCreation }).(pulumi.BoolPtrOutput)
 }
 
 // Violations will not change system health status for this term.
@@ -8330,6 +8358,8 @@ func (o NrqlAlertConditionTermPredictionPtrOutput) PreferPredictionViolation() p
 }
 
 type NrqlAlertConditionWarning struct {
+	// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+	DisableEventCreation *bool `pulumi:"disableEventCreation"`
 	// Violations will not change system health status for this term.
 	DisableHealthStatusReporting *bool `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
@@ -8364,6 +8394,8 @@ type NrqlAlertConditionWarningInput interface {
 }
 
 type NrqlAlertConditionWarningArgs struct {
+	// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+	DisableEventCreation pulumi.BoolPtrInput `pulumi:"disableEventCreation"`
 	// Violations will not change system health status for this term.
 	DisableHealthStatusReporting pulumi.BoolPtrInput `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
@@ -8463,6 +8495,11 @@ func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutputWit
 	}).(NrqlAlertConditionWarningPtrOutput)
 }
 
+// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+func (o NrqlAlertConditionWarningOutput) DisableEventCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) *bool { return v.DisableEventCreation }).(pulumi.BoolPtrOutput)
+}
+
 // Violations will not change system health status for this term.
 func (o NrqlAlertConditionWarningOutput) DisableHealthStatusReporting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *bool { return v.DisableHealthStatusReporting }).(pulumi.BoolPtrOutput)
@@ -8529,6 +8566,16 @@ func (o NrqlAlertConditionWarningPtrOutput) Elem() NrqlAlertConditionWarningOutp
 		var ret NrqlAlertConditionWarning
 		return ret
 	}).(NrqlAlertConditionWarningOutput)
+}
+
+// BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+func (o NrqlAlertConditionWarningPtrOutput) DisableEventCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableEventCreation
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Violations will not change system health status for this term.

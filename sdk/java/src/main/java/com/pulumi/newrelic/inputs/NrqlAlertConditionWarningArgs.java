@@ -21,6 +21,21 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
     public static final NrqlAlertConditionWarningArgs Empty = new NrqlAlertConditionWarningArgs();
 
     /**
+     * BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+     * 
+     */
+    @Import(name="disableEventCreation")
+    private @Nullable Output<Boolean> disableEventCreation;
+
+    /**
+     * @return BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+     * 
+     */
+    public Optional<Output<Boolean>> disableEventCreation() {
+        return Optional.ofNullable(this.disableEventCreation);
+    }
+
+    /**
      * Violations will not change system health status for this term.
      * 
      */
@@ -159,6 +174,7 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
     private NrqlAlertConditionWarningArgs() {}
 
     private NrqlAlertConditionWarningArgs(NrqlAlertConditionWarningArgs $) {
+        this.disableEventCreation = $.disableEventCreation;
         this.disableHealthStatusReporting = $.disableHealthStatusReporting;
         this.duration = $.duration;
         this.operator = $.operator;
@@ -185,6 +201,27 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
 
         public Builder(NrqlAlertConditionWarningArgs defaults) {
             $ = new NrqlAlertConditionWarningArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param disableEventCreation BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableEventCreation(@Nullable Output<Boolean> disableEventCreation) {
+            $.disableEventCreation = disableEventCreation;
+            return this;
+        }
+
+        /**
+         * @param disableEventCreation BETA PREVIEW: the `disableEventCreation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableEventCreation(Boolean disableEventCreation) {
+            return disableEventCreation(Output.of(disableEventCreation));
         }
 
         /**

@@ -3476,6 +3476,10 @@ class NrqlAlertConditionCriticalArgsDict(TypedDict):
     """
     For baseline conditions must be in range [1, 1000].
     """
+    disable_event_creation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    BETA PREVIEW: the `disable_event_creation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+    """
     disable_health_status_reporting: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Violations will not change system health status for this term.
@@ -3509,6 +3513,7 @@ class NrqlAlertConditionCriticalArgsDict(TypedDict):
 class NrqlAlertConditionCriticalArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[_builtins.float],
+                 disable_event_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_health_status_reporting: pulumi.Input[Optional[_builtins.bool]] = None,
                  duration: pulumi.Input[Optional[_builtins.int]] = None,
                  operator: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3518,6 +3523,7 @@ class NrqlAlertConditionCriticalArgs:
                  time_function: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.float] threshold: For baseline conditions must be in range [1, 1000].
+        :param pulumi.Input[_builtins.bool] disable_event_creation: BETA PREVIEW: the `disable_event_creation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
         :param pulumi.Input[_builtins.bool] disable_health_status_reporting: Violations will not change system health status for this term.
         :param pulumi.Input[_builtins.int] duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param pulumi.Input[_builtins.str] operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
@@ -3527,6 +3533,8 @@ class NrqlAlertConditionCriticalArgs:
         :param pulumi.Input[_builtins.str] time_function: Valid values are: 'all' or 'any'
         """
         pulumi.set(__self__, "threshold", threshold)
+        if disable_event_creation is not None:
+            pulumi.set(__self__, "disable_event_creation", disable_event_creation)
         if disable_health_status_reporting is not None:
             pulumi.set(__self__, "disable_health_status_reporting", disable_health_status_reporting)
         if duration is not None:
@@ -3559,6 +3567,18 @@ class NrqlAlertConditionCriticalArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableEventCreation")
+    def disable_event_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        BETA PREVIEW: the `disable_event_creation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+        """
+        return pulumi.get(self, "disable_event_creation")
+
+    @disable_event_creation.setter
+    def disable_event_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disable_event_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="disableHealthStatusReporting")
@@ -3885,6 +3905,10 @@ class NrqlAlertConditionTermArgsDict(TypedDict):
     """
     For baseline conditions must be in range [1, 1000].
     """
+    disable_event_creation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    BETA PREVIEW: the `disable_event_creation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+    """
     disable_health_status_reporting: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Violations will not change system health status for this term.
@@ -3922,6 +3946,7 @@ class NrqlAlertConditionTermArgsDict(TypedDict):
 class NrqlAlertConditionTermArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[_builtins.float],
+                 disable_event_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_health_status_reporting: pulumi.Input[Optional[_builtins.bool]] = None,
                  duration: pulumi.Input[Optional[_builtins.int]] = None,
                  operator: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3932,6 +3957,7 @@ class NrqlAlertConditionTermArgs:
                  time_function: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.float] threshold: For baseline conditions must be in range [1, 1000].
+        :param pulumi.Input[_builtins.bool] disable_event_creation: BETA PREVIEW: the `disable_event_creation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
         :param pulumi.Input[_builtins.bool] disable_health_status_reporting: Violations will not change system health status for this term.
         :param pulumi.Input[_builtins.int] duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param pulumi.Input[_builtins.str] operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
@@ -3942,6 +3968,8 @@ class NrqlAlertConditionTermArgs:
         :param pulumi.Input[_builtins.str] time_function: Valid values are: 'all' or 'any'
         """
         pulumi.set(__self__, "threshold", threshold)
+        if disable_event_creation is not None:
+            pulumi.set(__self__, "disable_event_creation", disable_event_creation)
         if disable_health_status_reporting is not None:
             pulumi.set(__self__, "disable_health_status_reporting", disable_health_status_reporting)
         if duration is not None:
@@ -3976,6 +4004,18 @@ class NrqlAlertConditionTermArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableEventCreation")
+    def disable_event_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        BETA PREVIEW: the `disable_event_creation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+        """
+        return pulumi.get(self, "disable_event_creation")
+
+    @disable_event_creation.setter
+    def disable_event_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disable_event_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="disableHealthStatusReporting")
@@ -4130,6 +4170,10 @@ class NrqlAlertConditionWarningArgsDict(TypedDict):
     """
     For baseline conditions must be in range [1, 1000].
     """
+    disable_event_creation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    BETA PREVIEW: the `disable_event_creation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+    """
     disable_health_status_reporting: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Violations will not change system health status for this term.
@@ -4163,6 +4207,7 @@ class NrqlAlertConditionWarningArgsDict(TypedDict):
 class NrqlAlertConditionWarningArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[_builtins.float],
+                 disable_event_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_health_status_reporting: pulumi.Input[Optional[_builtins.bool]] = None,
                  duration: pulumi.Input[Optional[_builtins.int]] = None,
                  operator: pulumi.Input[Optional[_builtins.str]] = None,
@@ -4172,6 +4217,7 @@ class NrqlAlertConditionWarningArgs:
                  time_function: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.float] threshold: For baseline conditions must be in range [1, 1000].
+        :param pulumi.Input[_builtins.bool] disable_event_creation: BETA PREVIEW: the `disable_event_creation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
         :param pulumi.Input[_builtins.bool] disable_health_status_reporting: Violations will not change system health status for this term.
         :param pulumi.Input[_builtins.int] duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param pulumi.Input[_builtins.str] operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
@@ -4181,6 +4227,8 @@ class NrqlAlertConditionWarningArgs:
         :param pulumi.Input[_builtins.str] time_function: Valid values are: 'all' or 'any'
         """
         pulumi.set(__self__, "threshold", threshold)
+        if disable_event_creation is not None:
+            pulumi.set(__self__, "disable_event_creation", disable_event_creation)
         if disable_health_status_reporting is not None:
             pulumi.set(__self__, "disable_health_status_reporting", disable_health_status_reporting)
         if duration is not None:
@@ -4213,6 +4261,18 @@ class NrqlAlertConditionWarningArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableEventCreation")
+    def disable_event_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        BETA PREVIEW: the `disable_event_creation` field is in limited release and only enabled for preview on a per-account basis. When set to true, violations will not create events.
+        """
+        return pulumi.get(self, "disable_event_creation")
+
+    @disable_event_creation.setter
+    def disable_event_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disable_event_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="disableHealthStatusReporting")
