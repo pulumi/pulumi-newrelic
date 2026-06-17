@@ -12,184 +12,298 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage New Relic Workflow Automation.
     /// 
-    /// Workflow Automation allows you to define automated workflows using YAML definitions. These workflows can be scoped to either an account or an organization and support various automation steps and configurations.
+    /// Workflow Automation allows you to define automated workflows using YAML definitions. These workflows can scope to either an account or an organization and support various automation steps and configurations.
     /// 
     /// ## Example Usage
     /// 
     /// ### Basic Workflow Automation with ACCOUNT Scope
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testQuery = new NewRelic.WorkflowAutomation("test_query", new()
+    ///     {
+    ///         Name = "test_query_workflow",
+    ///         ScopeId = "your-account-id",
+    ///         ScopeType = "ACCOUNT",
+    ///         Definition = @"name: test_query_workflow
+    /// description: Simple workflow that queries NRDB and waits
+    /// steps:
+    ///   - name: queryNrdb
+    ///     type: action
+    ///     action: newrelic.nrdb.query
+    ///     version: 1
+    ///     inputs:
+    ///       query: SELECT count(*) from Log LIMIT 10
+    ///   - name: wait
+    ///     type: wait
+    ///     seconds: 3
+    ///     signals: []
+    ///     next: end
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Workflow Automation with ORGANIZATION Scope
     /// 
-    /// ### Advanced Workflow: CCU Governance and Monitoring
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// This example demonstrates a production-grade workflow for monitoring and governing Compute Capacity Unit (CCU) consumption with input validation, email notifications, and event tracking:
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var orgQuery = new NewRelic.WorkflowAutomation("org_query", new()
+    ///     {
+    ///         Name = "org_query_workflow",
+    ///         ScopeId = "your-organization-id",
+    ///         ScopeType = "ORGANIZATION",
+    ///         Definition = @"name: org_query_workflow
+    /// description: Organization-level workflow that queries NRDB
+    /// steps:
+    ///   - name: queryNrdb
+    ///     type: action
+    ///     action: newrelic.nrdb.query
+    ///     version: 1
+    ///     inputs:
+    ///       query: SELECT count(*) from Transaction LIMIT 10
+    ///   - name: wait
+    ///     type: wait
+    ///     seconds: 5
+    ///     signals: []
+    ///     next: end
+    /// ",
+    ///     });
     /// 
-    /// ## YAML Definition Structure
+    /// });
+    /// ```
     /// 
-    /// The `Definition` argument accepts a YAML string that defines the workflow automation. The YAML must include the following fields:
+    /// ## [YAML Definition Structure](https://docs.newrelic.com/docs/workflow-automation/workflow-automation-apis/definition-schema/)
     /// 
-    /// ### Required Fields
+    /// The `Definition` argument accepts a YAML string that defines the workflow's structure and logic.
     /// 
-    /// * `Name` - (Required) The name of the workflow. This **must** match the `Name` argument in the Terraform resource.
-    /// * `Description` - (Optional but recommended) A description of what the workflow automation does.
-    /// * `Steps` - (Required) An array of steps that define the workflow automation logic.
+    /// ### Top-Level Fields
+    /// 
+    /// | Field | Type | Required | Description |
+    /// | ----- | ----- | ----- | ----- |
+    /// | `Name` | String | Yes | The name of the workflow. Must match the `Name` argument in the Terraform resource. |
+    /// | `Description` | String | No | A brief summary of what the workflow does. Recommended for clarity. |
+    /// | `workflowInputs` | Object | No | A map of input variables that can be passed to the workflow at runtime. |
+    /// | `Steps` | Array | Yes | An ordered array of step objects that define the workflow's logic. |
+    /// 
+    /// ***
     /// 
     /// ### Workflow Inputs
     /// 
-    /// Workflows can define inputs that can be passed when the workflow is executed:
+    /// Define inputs to make your workflows more flexible and reusable.
     /// 
-    /// Inputs can reference secrets using the syntax: `${{ :secrets:secretName }}`
+    /// * Inputs can reference secrets using the syntax: `${{ :secrets:secretName }}`
     /// 
-    /// #### Input Validation
+    /// #### Input Validation Types
     /// 
     /// Workflow inputs support various validation types to ensure data integrity:
     /// 
-    /// **Regex Validation:**
+    /// * [Regex Validation:](https://docs.newrelic.com/docs/workflow-automation/workflow-automation-apis/definition-schema/#validation-types)
     /// 
-    /// **Integer Range Validation:**
+    /// * Integer Range Validation:
     /// 
-    /// **List Type:**
+    /// **Note**: By default, integer variables accept both positive and negative values. If you define a *minIntValue* validation, the field rejects any value below that threshold. For example, setting *minIntValue: 0* prevents negative integers from being entered.
     /// 
-    /// ### Step Types
+    /// * List Type:
     /// 
-    /// Each step in the `Steps` array can be of different types:
+    /// **Note**: This list is case sensitive.
+    /// 
+    /// **Step Types**
+    /// 
+    /// Each object in the `Steps` array defines a single unit of work. The primary step types are [`Action`, `Wait`, `Switch`, and `Loop`.](https://docs.newrelic.com/docs/workflow-automation/create-a-workflow-automation/create-your-own/#core-concepts)
     /// 
     /// #### Action Steps
     /// 
-    /// Action steps execute specific actions like querying NRDB, transforming data, or sending notifications:
+    /// Executes a specific function, such as querying data or sending a notification.
     /// 
-    /// * `type: action` - Executes an action
-    ///   * `Action` - The action to execute (e.g., `newrelic.nrdb.query`, `utils.transform.toCSV`, `slack.chat.postMessage`)
-    ///   * `Version` - The version of the action to use
-    ///   * `Inputs` - Input parameters for the action
+    /// * `type: action` \- Defines the step as an action.
+    ///   * `Action` \- The specific action to execute (example, `newrelic.nrdb.query`).
+    ///   * `Version` \- The version of the action to use.
+    ///   * `Inputs` \- A map of input parameters for the action.
     /// 
-    /// Common actions include:
-    /// - `newrelic.nrdb.query` - Query New Relic database
-    /// - `utils.transform.toCSV` - Transform data to CSV format
-    /// - `slack.chat.postMessage` - Send messages to Slack
-    /// - And many more...
+    /// Example:
     /// 
-    /// #### Wait Steps
+    /// **Common actions include:**
     /// 
-    /// * `type: wait` - Pauses the workflow execution
-    ///   * `Seconds` - Number of seconds to wait
-    ///   * `Signals` - Optional array of signals to wait for
-    ///   * `Next` - Optional next step name (use "end" to terminate)
+    /// * `newrelic.nrdb.query` \- Query New Relic database
+    /// * `utils.transform.toCSV` \- Transform data to CSV format
+    /// * `slack.chat.postMessage` \- Send messages to Slack
     /// 
-    /// #### Switch Steps
+    /// **Available actions**
+    /// A complete list of available actions, their versions, and required inputs can be found in the [**Workflow Action Catalog**](https://docs.newrelic.com/docs/workflow-automation/actions-catalog/).
     /// 
-    /// * `type: switch` - Conditional branching based on expressions
-    ///   * `Switch` - Array of conditions to evaluate
-    ///     * `Condition` - Expression to evaluate (uses JQ syntax)
-    ///     * `Next` - Step to execute if condition is true
-    ///   * `Next` - Default step if no conditions match
+    /// #### Wait steps
     /// 
-    /// #### Loop Steps
+    /// Pauses the workflow for a specified duration or until it receives a signal.
     /// 
-    /// * `type: loop` - Repeats a set of steps
-    ///   * `for.in` - Expression defining the iteration (e.g., `${{ [range(1; 30)] }}`)
-    ///   * `Steps` - Array of steps to execute in each iteration
-    ///   * Steps can use `next: break` to exit the loop early
+    /// * `type: wait`
+    ///   * `Seconds` \- The number of seconds to pause.
+    ///   * `Signals` \- (Optional) An array of signals to wait for. See [SignalWorkflowRun](https://docs.newrelic.com/docs/workflow-automation/workflow-automation-apis/signal-workflow-run/) for more information
+    ///   * `Next` \- (Optional) The name of the next step. Use `End` to terminate the workflow.
+    /// 
+    /// Example:
+    /// 
+    /// #### Switch steps
+    /// 
+    /// Provides conditional branching logic.
+    /// 
+    /// * `type: switch`
+    ///   * `Switch` \- An array of conditions to evaluate in order.
+    ///   * `Condition` \- A JQ expression that evaluates to `True` or `False`.
+    ///   * `Next` \- The name of the step to execute if the condition is true. The `Switch` block can also have a top-level `Next` field to define the default step if no conditions match.
+    /// 
+    /// Example:
+    /// 
+    /// #### Loop steps
+    /// 
+    /// Iterates over a set of values and executes a sequence of steps for each iteration.
+    /// 
+    /// * `type: loop`
+    ///   * `for.in` \- A JQ expression that returns an array to iterate over.
+    ///   * `Steps` \- An array of steps to execute for each iteration. Inside the loop, you can use `next: continue` to skip to the next iteration or `next: break` to exit the loop.
+    /// 
+    /// Example:
+    /// 
+    /// ***
     /// 
     /// ### Referencing Data in Workflows
     /// 
-    /// You can reference data from previous steps and inputs using template expressions:
+    /// You can dynamically reference data from inputs, secrets, and other steps using JQ-like template expressions.
     /// 
-    /// * Workflow inputs: `${{ .workflowInputs.inputName }}`
-    /// * Step outputs: `${{ .steps.stepName.outputs.fieldName }}`
-    /// * Secrets: `${{ :secrets:secretName }}`
+    /// | Data Source | Syntax | Example |
+    /// | ----- | ----- | ----- |
+    /// | **Workflow Inputs** | `${{ .workflowInputs.inputName }}` | `${{ .workflowInputs.ccuThreshold }}` |
+    /// | **Step Outputs** | `${{ .steps.stepName.outputs.fieldName }}` | `${{ .steps.query1.outputs.results }}` |
+    /// | **Loop Elements** | `${{ .steps.loopStepName.loop.element }}` | `${{ .steps.loopStep1.loop.element.email }}` |
+    /// | **Secrets** | `${{ :secrets:secretName }}` | `${{ :secrets:myApiKey }}` |
+    /// 
+    /// ***
     /// 
     /// ### Example YAML Structure
     /// 
-    /// **Simple workflow with query and wait:**
+    /// Simple workflow with query and wait:
     /// 
-    /// **Advanced workflow with inputs and multiple actions:**
+    /// Advanced workflow with inputs and multiple actions:
     /// 
-    /// ## Important Notes
+    /// ## Important note
     /// 
     /// ### Name Consistency
     /// 
-    /// The `Name` field in the Terraform resource **must** match the `Name` field in the YAML definition. If they don't match, Terraform will return an error during plan or apply.
+    /// The `Name` field in the Terraform resource must match the name field in the YAML definition. If they don't match, Terraform will return an error during `terraform validate`, `Plan`, or `Apply`.
+    /// 
+    /// Example Error Message:
     /// 
     /// For example, this configuration is **correct**:
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new NewRelic.WorkflowAutomation("example", new()
+    ///     {
+    ///         Name = "my-workflow",
+    ///         ScopeId = "1234567",
+    ///         ScopeType = "ACCOUNT",
+    ///         Definition = @"name: my-workflow      # This matches the resource name
+    /// description: Example workflow
+    /// steps:
+    ///   - name: waitStep
+    ///     type: wait
+    ///     seconds: 10
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// This configuration is **incorrect** and will fail:
     /// 
-    /// ### Scope Types
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// * **ACCOUNT** - The workflow automation is scoped to a specific New Relic account. Use your numeric account ID as the `ScopeId`.
-    /// * **ORGANIZATION** - The workflow automation is scoped to your entire New Relic organization. Use your organization ID string as the `ScopeId`.
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new NewRelic.WorkflowAutomation("example", new()
+    ///     {
+    ///         Name = "my-workflow",
+    ///         ScopeId = "1234567",
+    ///         ScopeType = "ACCOUNT",
+    ///         Definition = @"name: different-name   # This doesn't match the resource name - ERROR!
+    /// description: Example workflow
+    /// steps:
+    ///   - name: waitStep
+    ///     type: wait
+    ///     seconds: 10
+    /// ",
+    ///     });
     /// 
-    /// ### ForceNew Attributes
+    /// });
+    /// ```
     /// 
-    /// The following attributes will force a new resource to be created if changed:
-    /// * `Name` - Changing the workflow name creates a new workflow.
-    /// * `ScopeId` - Changing the scope ID creates a new workflow.
-    /// * `ScopeType` - Changing between ACCOUNT and ORGANIZATION creates a new workflow.
+    /// ### Scope type
     /// 
-    /// ### YAML Validation
+    /// * **ACCOUNT** \- The workflow automation is scoped to a specific New Relic account. Use your numeric account ID as the `ScopeId`.
+    /// * **ORGANIZATION** \- The workflow automation is scoped to your entire New Relic organization. Use your organization ID string as the `ScopeId`.
     /// 
-    /// The provider validates the YAML definition during plan and apply operations:
-    /// * The YAML must be valid and parseable.
+    /// See, [Create accounts and organizations](https://docs.newrelic.com/docs/accounts/accounts-billing/account-structure/multi-tenancy/org-creation/) on how to create an account or an organization.
+    /// 
+    /// ### ForceNew attributes
+    /// 
+    /// The following attributes, when changed, will force creation of a new resource :
+    /// 
+    /// * `Name` \- Changing the workflow name creates a new resource.
+    /// * `ScopeId` \- Changing the scope ID creates a new resource.
+    /// * `ScopeType` \- Changing between **ACCOUNT** and **ORGANIZATION** creates a new resource.
+    /// 
+    /// ### YAML validation
+    /// 
+    /// The provider validates the YAML definition during plan-and-apply operations:
+    /// 
+    /// * The YAML must be valid and parsable.
     /// * The `Name` field must be present in the YAML.
-    /// * The `Name` in the YAML must match the Terraform resource `Name`.
+    /// * The `Name` in the YAML must match the Terraform resource name.
     /// 
     /// Invalid YAML or missing required fields will result in an error.
     /// 
-    /// ## Additional Information
+    /// Example YAML validation errors:
     /// 
-    /// For more details about New Relic Workflow Automation, please refer to the [New Relic Workflow Automation documentation](https://docs.newrelic.com/docs/workflow-automation/).
+    ///   YAML Validation Error
+    ///   1. *waitStep* has invalid type "waitAgain". Valid types are:
+    ///    action, loop, switch, wait, assign
     /// 
-    /// ### Versioning
+    ///   2. Workflow definition names can not be changed.
+    /// 
+    /// ### *Versioning*
     /// 
     /// Each time you update the `Definition` of a workflow automation, New Relic automatically increments the `Version` attribute. This allows you to track changes to your workflow automation over time.
     /// 
-    /// ### Best Practices
-    /// 
-    /// 1. **Use Heredoc Syntax**: For multi-line YAML definitions, use the heredoc syntax (`&lt;&lt;-YAML ... YAML`) for better readability.
-    /// 
-    /// 2. **External YAML Files**: For complex workflows, consider storing your YAML in separate files and using Terraform's `file()` or `templatefile()` functions:
-    /// 
-    /// 3. **Version Control**: Store your workflow YAML definitions in version control alongside your Terraform configuration.
-    /// 
-    /// 4. **Testing**: Test workflow automation changes in a non-production account before applying to production.
-    /// 
-    /// 5. **Naming Conventions**: Use consistent naming conventions for your workflows to make them easier to manage and identify.
-    /// 
-    /// ### Troubleshooting
-    /// 
-    /// #### Name Mismatch Error
-    /// 
-    /// If you receive an error like "name in resource configuration does not match name in YAML definition", ensure that:
-    /// * The `Name` attribute in your Terraform resource matches exactly with the `Name` field in your YAML definition.
-    /// * There are no extra spaces or different capitalization between the two names.
-    /// 
-    /// #### Scope ID Format Error
-    /// 
-    /// If you receive an error about invalid ScopeId format for ACCOUNT scope:
-    /// * Ensure your account ID is numeric (e.g., "1234567", not "account-1234567").
-    /// * For ACCOUNT scope, the ScopeId should be a string representation of your numeric account ID.
-    /// 
-    /// #### Invalid YAML Error
-    /// 
-    /// If you receive a YAML parsing error:
-    /// * Validate your YAML syntax using a YAML validator.
-    /// * Ensure proper indentation (YAML is indentation-sensitive).
-    /// * Check that all required fields are present.
-    /// 
-    /// ## See Also
-    /// 
-    /// * [New Relic Workflow Automation Documentation](https://docs.newrelic.com/docs/workflow-automation/)
-    /// 
     /// ## Import
     /// 
-    /// Workflow automations can be imported using the composite ID format: `&lt;scope_type&gt;#&lt;scope_id&gt;#&lt;workflow_name&gt;`, e.g.
+    /// Import workflow automations using the composite ID format: `&lt;scope_type&gt;#&lt;scope_id&gt;#&lt;workflow_name&gt;`, for example:
     /// 
     /// ```sh
     /// $ pulumi import newrelic:index/workflowAutomation:WorkflowAutomation test_query ACCOUNT#1234567#test_query_workflow
     /// ```
-    /// 
-    /// For workflows with complex names:
     /// 
     /// ```sh
     /// $ pulumi import newrelic:index/workflowAutomation:WorkflowAutomation ccu_governance ACCOUNT#1234567#CCUGovernance
@@ -205,7 +319,7 @@ namespace Pulumi.NewRelic
     public partial class WorkflowAutomation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The YAML definition of the workflow automation. This should be a valid YAML string that includes a `Name` field matching the resource `Name` argument, and defines the workflow steps and configuration.
+        /// \- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow's configuration.
         /// </summary>
         [Output("definition")]
         public Output<string> Definition { get; private set; } = null!;
@@ -217,31 +331,31 @@ namespace Pulumi.NewRelic
         public Output<string> DefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the workflow automation, as defined in the YAML definition.
+        /// \- The description of the workflow, as defined in the YAML.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the workflow automation. This must match the `Name` field in the YAML definition provided in the `Definition` argument. **Important**: Changes to this field will force a new resource to be created.
+        /// \- (Required) The name of the workflow. This must match the `Name` field in the YAML `Definition`. **Important**: Changing this field will force a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The scope ID for the workflow automation. For `ACCOUNT` scope, this should be your New Relic account ID (numeric). For `ORGANIZATION` scope, this should be your organization ID (string). **Important**: Changes to this field will force a new resource to be created.
+        /// \- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
         /// </summary>
         [Output("scopeId")]
         public Output<string> ScopeId { get; private set; } = null!;
 
         /// <summary>
-        /// The scope type for the workflow automation. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changes to this field will force a new resource to be created.
+        /// \- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
         /// </summary>
         [Output("scopeType")]
         public Output<string> ScopeType { get; private set; } = null!;
 
         /// <summary>
-        /// The current version number of the workflow automation.
+        /// \- The current version number of the workflow. This number increments with each update to the `Definition`.
         /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
@@ -299,25 +413,25 @@ namespace Pulumi.NewRelic
     public sealed class WorkflowAutomationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The YAML definition of the workflow automation. This should be a valid YAML string that includes a `Name` field matching the resource `Name` argument, and defines the workflow steps and configuration.
+        /// \- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow's configuration.
         /// </summary>
         [Input("definition", required: true)]
         public Input<string> Definition { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workflow automation. This must match the `Name` field in the YAML definition provided in the `Definition` argument. **Important**: Changes to this field will force a new resource to be created.
+        /// \- (Required) The name of the workflow. This must match the `Name` field in the YAML `Definition`. **Important**: Changing this field will force a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The scope ID for the workflow automation. For `ACCOUNT` scope, this should be your New Relic account ID (numeric). For `ORGANIZATION` scope, this should be your organization ID (string). **Important**: Changes to this field will force a new resource to be created.
+        /// \- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
         /// </summary>
         [Input("scopeId", required: true)]
         public Input<string> ScopeId { get; set; } = null!;
 
         /// <summary>
-        /// The scope type for the workflow automation. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changes to this field will force a new resource to be created.
+        /// \- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
         /// </summary>
         [Input("scopeType", required: true)]
         public Input<string> ScopeType { get; set; } = null!;
@@ -331,7 +445,7 @@ namespace Pulumi.NewRelic
     public sealed class WorkflowAutomationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The YAML definition of the workflow automation. This should be a valid YAML string that includes a `Name` field matching the resource `Name` argument, and defines the workflow steps and configuration.
+        /// \- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow's configuration.
         /// </summary>
         [Input("definition")]
         public Input<string>? Definition { get; set; }
@@ -343,31 +457,31 @@ namespace Pulumi.NewRelic
         public Input<string>? DefinitionId { get; set; }
 
         /// <summary>
-        /// The description of the workflow automation, as defined in the YAML definition.
+        /// \- The description of the workflow, as defined in the YAML.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the workflow automation. This must match the `Name` field in the YAML definition provided in the `Definition` argument. **Important**: Changes to this field will force a new resource to be created.
+        /// \- (Required) The name of the workflow. This must match the `Name` field in the YAML `Definition`. **Important**: Changing this field will force a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The scope ID for the workflow automation. For `ACCOUNT` scope, this should be your New Relic account ID (numeric). For `ORGANIZATION` scope, this should be your organization ID (string). **Important**: Changes to this field will force a new resource to be created.
+        /// \- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
         /// </summary>
         [Input("scopeId")]
         public Input<string>? ScopeId { get; set; }
 
         /// <summary>
-        /// The scope type for the workflow automation. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changes to this field will force a new resource to be created.
+        /// \- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
         /// </summary>
         [Input("scopeType")]
         public Input<string>? ScopeType { get; set; }
 
         /// <summary>
-        /// The current version number of the workflow automation.
+        /// \- The current version number of the workflow. This number increments with each update to the `Definition`.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
