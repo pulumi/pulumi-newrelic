@@ -1489,7 +1489,7 @@
                 "current": "newrelic:index/fleetConfiguration:FleetConfiguration",
                 "majorVersion": 5,
                 "fields": {
-                    "version": {
+                    "version_entity_ids": {
                         "maxItemsOne": false
                     }
                 }
@@ -4954,7 +4954,7 @@
                 "configuration_id",
                 "latest_version_entity_id",
                 "organization_id",
-                "version.$.version_entity_id"
+                "version_entity_ids"
             ],
             "newrelic_fleet_deployment": [
                 "agent.$.configuration_version_id",
