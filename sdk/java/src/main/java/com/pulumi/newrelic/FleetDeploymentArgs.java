@@ -19,14 +19,14 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
     public static final FleetDeploymentArgs Empty = new FleetDeploymentArgs();
 
     /**
-     * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
     @Import(name="agents")
     private @Nullable Output<List<FleetDeploymentAgentArgs>> agents;
 
     /**
-     * @return One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * @return Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
     public Optional<Output<List<FleetDeploymentAgentArgs>>> agents() {
@@ -64,14 +64,14 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the deployment.
+     * The name of the deployment. Updatable while the deployment is in `CREATED` phase.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the deployment.
+     * @return The name of the deployment. Updatable while the deployment is in `CREATED` phase.
      * 
      */
     public Optional<Output<String>> name() {
@@ -138,7 +138,7 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param agents One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+         * @param agents Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param agents One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+         * @param agents Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param agents One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+         * @param agents Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the deployment.
+         * @param name The name of the deployment. Updatable while the deployment is in `CREATED` phase.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class FleetDeploymentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the deployment.
+         * @param name The name of the deployment. Updatable while the deployment is in `CREATED` phase.
          * 
          * @return builder
          * 

@@ -187,14 +187,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+     * The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
      * 
      */
     @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> operatingSystem;
 
     /**
-     * @return The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+     * @return The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
      * 
      */
     public Output<Optional<String>> operatingSystem() {

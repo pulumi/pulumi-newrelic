@@ -439,30 +439,13 @@ export interface FederatedLogsSetupStorageCloudProviderConfiguration {
     region: string;
 }
 
-export interface FleetConfigurationVersion {
-    /**
-     * The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
-     *
-     * The following attributes are exported from each `version` block:
-     */
-    configurationContent: string;
-    /**
-     * The entity GUID of this version.
-     */
-    versionEntityId: string;
-    /**
-     * The version number assigned by the API (1, 2, 3, …).
-     */
-    versionNumber: number;
-}
-
 export interface FleetDeploymentAgent {
     /**
      * The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
      */
     agentType: string;
     /**
-     * A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
+     * The entity GUID of the configuration version (from `newrelic.FleetConfiguration`) to associate with this agent. Reference `latestVersionEntityId` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
      */
     configurationVersionId: string;
     /**

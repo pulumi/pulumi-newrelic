@@ -49,7 +49,6 @@ __all__ = [
     'FederatedLogsSetupLifecycleStatus',
     'FederatedLogsSetupStorage',
     'FederatedLogsSetupStorageCloudProviderConfiguration',
-    'FleetConfigurationVersion',
     'FleetDeploymentAgent',
     'FleetMembersRing',
     'InfraAlertConditionCritical',
@@ -2004,73 +2003,6 @@ class FederatedLogsSetupStorageCloudProviderConfiguration(dict):
 
 
 @pulumi.output_type
-class FleetConfigurationVersion(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "configurationContent":
-            suggest = "configuration_content"
-        elif key == "versionEntityId":
-            suggest = "version_entity_id"
-        elif key == "versionNumber":
-            suggest = "version_number"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FleetConfigurationVersion. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FleetConfigurationVersion.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FleetConfigurationVersion.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 configuration_content: _builtins.str,
-                 version_entity_id: Optional[_builtins.str] = None,
-                 version_number: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str configuration_content: The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
-               
-               The following attributes are exported from each `version` block:
-        :param _builtins.str version_entity_id: The entity GUID of this version.
-        :param _builtins.int version_number: The version number assigned by the API (1, 2, 3, …).
-        """
-        pulumi.set(__self__, "configuration_content", configuration_content)
-        if version_entity_id is not None:
-            pulumi.set(__self__, "version_entity_id", version_entity_id)
-        if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationContent")
-    def configuration_content(self) -> _builtins.str:
-        """
-        The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
-
-        The following attributes are exported from each `version` block:
-        """
-        return pulumi.get(self, "configuration_content")
-
-    @_builtins.property
-    @pulumi.getter(name="versionEntityId")
-    def version_entity_id(self) -> Optional[_builtins.str]:
-        """
-        The entity GUID of this version.
-        """
-        return pulumi.get(self, "version_entity_id")
-
-    @_builtins.property
-    @pulumi.getter(name="versionNumber")
-    def version_number(self) -> Optional[_builtins.int]:
-        """
-        The version number assigned by the API (1, 2, 3, …).
-        """
-        return pulumi.get(self, "version_number")
-
-
-@pulumi.output_type
 class FleetDeploymentAgent(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2097,7 +2029,7 @@ class FleetDeploymentAgent(dict):
                  version: _builtins.str):
         """
         :param _builtins.str agent_type: The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
-        :param _builtins.str configuration_version_id: A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        :param _builtins.str configuration_version_id: The entity GUID of the configuration version (from `FleetConfiguration`) to associate with this agent. Reference `latest_version_entity_id` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
         :param _builtins.str version: The agent version string to deploy (e.g. `"1.58.0"`).
         """
         pulumi.set(__self__, "agent_type", agent_type)
@@ -2116,7 +2048,7 @@ class FleetDeploymentAgent(dict):
     @pulumi.getter(name="configurationVersionId")
     def configuration_version_id(self) -> _builtins.str:
         """
-        A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        The entity GUID of the configuration version (from `FleetConfiguration`) to associate with this agent. Reference `latest_version_entity_id` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
         """
         return pulumi.get(self, "configuration_version_id")
 

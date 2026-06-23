@@ -62,14 +62,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+     * The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
      * 
      */
     @Import(name="operatingSystem")
     private @Nullable Output<String> operatingSystem;
 
     /**
-     * @return The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+     * @return The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
      * 
      */
     public Optional<Output<String>> operatingSystem() {
@@ -199,7 +199,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingSystem The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+         * @param operatingSystem The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingSystem The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+         * @param operatingSystem The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
          * 
          * @return builder
          * 

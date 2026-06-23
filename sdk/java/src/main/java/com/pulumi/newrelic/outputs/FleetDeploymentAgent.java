@@ -16,7 +16,7 @@ public final class FleetDeploymentAgent {
      */
     private String agentType;
     /**
-     * @return A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
+     * @return The entity GUID of the configuration version (from `newrelic.FleetConfiguration`) to associate with this agent. Reference `latestVersionEntityId` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
      * 
      */
     private String configurationVersionId;
@@ -35,7 +35,7 @@ public final class FleetDeploymentAgent {
         return this.agentType;
     }
     /**
-     * @return A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
+     * @return The entity GUID of the configuration version (from `newrelic.FleetConfiguration`) to associate with this agent. Reference `latestVersionEntityId` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
      * 
      */
     public String configurationVersionId() {

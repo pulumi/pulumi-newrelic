@@ -6,9 +6,7 @@ package com.pulumi.newrelic;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import com.pulumi.newrelic.inputs.FleetConfigurationVersionArgs;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,6 +32,21 @@ public final class FleetConfigurationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+     * 
+     */
+    @Import(name="configurationContent", required=true)
+    private Output<String> configurationContent;
+
+    /**
+     * @return The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+     * 
+     */
+    public Output<String> configurationContent() {
+        return this.configurationContent;
+    }
+
+    /**
      * The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
      * 
      */
@@ -49,14 +62,14 @@ public final class FleetConfigurationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the configuration.
+     * The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the configuration.
+     * @return The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,30 +106,15 @@ public final class FleetConfigurationArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.organizationId);
     }
 
-    /**
-     * One or more version blocks. At least one is required. See Nested `version` blocks below.
-     * 
-     */
-    @Import(name="versions", required=true)
-    private Output<List<FleetConfigurationVersionArgs>> versions;
-
-    /**
-     * @return One or more version blocks. At least one is required. See Nested `version` blocks below.
-     * 
-     */
-    public Output<List<FleetConfigurationVersionArgs>> versions() {
-        return this.versions;
-    }
-
     private FleetConfigurationArgs() {}
 
     private FleetConfigurationArgs(FleetConfigurationArgs $) {
         this.agentType = $.agentType;
+        this.configurationContent = $.configurationContent;
         this.managedEntityType = $.managedEntityType;
         this.name = $.name;
         this.operatingSystem = $.operatingSystem;
         this.organizationId = $.organizationId;
-        this.versions = $.versions;
     }
 
     public static Builder builder() {
@@ -159,6 +157,27 @@ public final class FleetConfigurationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param configurationContent The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationContent(Output<String> configurationContent) {
+            $.configurationContent = configurationContent;
+            return this;
+        }
+
+        /**
+         * @param configurationContent The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationContent(String configurationContent) {
+            return configurationContent(Output.of(configurationContent));
+        }
+
+        /**
          * @param managedEntityType The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
          * 
          * @return builder
@@ -180,7 +199,7 @@ public final class FleetConfigurationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the configuration.
+         * @param name The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
          * 
          * @return builder
          * 
@@ -191,7 +210,7 @@ public final class FleetConfigurationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the configuration.
+         * @param name The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
          * 
          * @return builder
          * 
@@ -242,46 +261,15 @@ public final class FleetConfigurationArgs extends com.pulumi.resources.ResourceA
             return organizationId(Output.of(organizationId));
         }
 
-        /**
-         * @param versions One or more version blocks. At least one is required. See Nested `version` blocks below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder versions(Output<List<FleetConfigurationVersionArgs>> versions) {
-            $.versions = versions;
-            return this;
-        }
-
-        /**
-         * @param versions One or more version blocks. At least one is required. See Nested `version` blocks below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder versions(List<FleetConfigurationVersionArgs> versions) {
-            return versions(Output.of(versions));
-        }
-
-        /**
-         * @param versions One or more version blocks. At least one is required. See Nested `version` blocks below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder versions(FleetConfigurationVersionArgs... versions) {
-            return versions(List.of(versions));
-        }
-
         public FleetConfigurationArgs build() {
             if ($.agentType == null) {
                 throw new MissingRequiredPropertyException("FleetConfigurationArgs", "agentType");
             }
+            if ($.configurationContent == null) {
+                throw new MissingRequiredPropertyException("FleetConfigurationArgs", "configurationContent");
+            }
             if ($.managedEntityType == null) {
                 throw new MissingRequiredPropertyException("FleetConfigurationArgs", "managedEntityType");
-            }
-            if ($.versions == null) {
-                throw new MissingRequiredPropertyException("FleetConfigurationArgs", "versions");
             }
             return $;
         }

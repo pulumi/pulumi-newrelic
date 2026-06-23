@@ -30,14 +30,14 @@ public final class FleetDeploymentAgentArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
+     * The entity GUID of the configuration version (from `newrelic.FleetConfiguration`) to associate with this agent. Reference `latestVersionEntityId` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
      * 
      */
     @Import(name="configurationVersionId", required=true)
     private Output<String> configurationVersionId;
 
     /**
-     * @return A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
+     * @return The entity GUID of the configuration version (from `newrelic.FleetConfiguration`) to associate with this agent. Reference `latestVersionEntityId` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
      * 
      */
     public Output<String> configurationVersionId() {
@@ -107,7 +107,7 @@ public final class FleetDeploymentAgentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param configurationVersionId A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
+         * @param configurationVersionId The entity GUID of the configuration version (from `newrelic.FleetConfiguration`) to associate with this agent. Reference `latestVersionEntityId` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class FleetDeploymentAgentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param configurationVersionId A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
+         * @param configurationVersionId The entity GUID of the configuration version (from `newrelic.FleetConfiguration`) to associate with this agent. Reference `latestVersionEntityId` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
          * 
          * @return builder
          * 
