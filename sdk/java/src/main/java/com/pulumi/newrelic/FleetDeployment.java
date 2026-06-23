@@ -19,9 +19,9 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create and manage New Relic fleet deployments.
  * 
- * A fleet deployment defines the agent versions and optional configuration versions to roll out to a fleet. Each deployment belongs to a fleet and contains one or more `agent` blocks describing which agent type and version to deploy, and optionally which configuration version (from `newrelic.FleetConfiguration`) to apply.
+ * A fleet deployment defines the agent versions and configuration versions to roll out to a fleet. Each deployment belongs to a fleet and may contain zero or more `agent` blocks describing which agent type and version to deploy and which configuration version (from `newrelic.FleetConfiguration`) to apply.
  * 
- * &gt; **Note:** Deployments can only be updated while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `name`, `description`, `agent`, or `tags` will be **blocked at plan time** with an error. Run `terraform destroy` to remove the deployment from state and then re-create it with the desired configuration. If `terraform destroy` itself fails because the deployment is actively executing, the resource will be removed from Terraform state with a warning — once the deployment reaches a terminal phase (`COMPLETED` or `FAILED`) you can clean it up manually in the New Relic UI.
+ * &gt; **Note: Phase-gate immutability.** Deployments can only be modified while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `name`, `description`, `agent`, or `tags` is **blocked at plan time** with a clear error. The recommended recovery path is `terraform state rm &lt;resource_address&gt;` (or a `removed` block) to drop the executed deployment from Terraform state, then re-declare a fresh deployment with the desired configuration. `terraform destroy` works only if you have no pending changes to the deployment in your HCL — otherwise the same plan-time gate fires during the destroy plan.
  * 
  * ## Example Usage
  * 
@@ -34,49 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.FleetDeployment;
- * import com.pulumi.newrelic.FleetDeploymentArgs;
- * import com.pulumi.newrelic.inputs.FleetDeploymentAgentArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var infra = new FleetDeployment("infra", FleetDeploymentArgs.builder()
- *             .fleetId(prod.id())
- *             .name("Production Infra Deployment")
- *             .description("Deploys NRInfra v1.58.0 to the production fleet")
- *             .agents(FleetDeploymentAgentArgs.builder()
- *                 .agentType("NRInfra")
- *                 .version("1.58.0")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Deployment Linked to a Configuration Version
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.FleetConfiguration;
  * import com.pulumi.newrelic.FleetConfigurationArgs;
- * import com.pulumi.newrelic.inputs.FleetConfigurationVersionArgs;
  * import com.pulumi.newrelic.FleetDeployment;
  * import com.pulumi.newrelic.FleetDeploymentArgs;
  * import com.pulumi.newrelic.inputs.FleetDeploymentAgentArgs;
@@ -97,12 +56,11 @@ import javax.annotation.Nullable;
  *             .name("Production Infra Config")
  *             .agentType("NRInfra")
  *             .managedEntityType("HOST")
- *             .versions(FleetConfigurationVersionArgs.builder()
- *                 .configurationContent("""
+ *             .operatingSystem("LINUX")
+ *             .configurationContent("""
  * log:
  *   level: info
- *                 """)
- *                 .build())
+ *             """)
  *             .build());
  * 
  *         var infra = new FleetDeployment("infra", FleetDeploymentArgs.builder()
@@ -122,6 +80,8 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ### Multiple Agents
+ * 
+ * Each `agentType` may appear at most once per deployment.
  * 
  * <pre>
  * {@code
@@ -158,7 +118,88 @@ import javax.annotation.Nullable;
  *                 FleetDeploymentAgentArgs.builder()
  *                     .agentType("FluentBit")
  *                     .version("3.2.0")
+ *                     .configurationVersionId(fbCfg.latestVersionEntityId())
  *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Zero-Agent Deployment
+ * 
+ * A deployment can be created or updated with zero `agent` blocks — for example, to drain all agent assignments from an existing deployment, or to seed a deployment record that will have agents added later (while still in `CREATED` phase).
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.FleetDeployment;
+ * import com.pulumi.newrelic.FleetDeploymentArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var drained = new FleetDeployment("drained", FleetDeploymentArgs.builder()
+ *             .fleetId(prod.id())
+ *             .name("Drained deployment")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Pinning to a Specific Configuration Version
+ * 
+ * By default, referencing `newrelic_fleet_configuration.&lt;name&gt;.latest_version_entity_id` ties the deployment to whichever version is current at plan time. Updating the configuration&#39;s `configurationContent` will change `latestVersionEntityId`, which in turn proposes an update to any deployment referencing it. If the deployment has already left `CREATED`, that update will be **blocked by the phase-gate** — see the note above.
+ * 
+ * For long-lived deployments that should remain stable, pin to a specific historical version instead:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.FleetDeployment;
+ * import com.pulumi.newrelic.FleetDeploymentArgs;
+ * import com.pulumi.newrelic.inputs.FleetDeploymentAgentArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pinned = new FleetDeployment("pinned", FleetDeploymentArgs.builder()
+ *             .fleetId(prod.id())
+ *             .name("Stable v1 rollout")
+ *             .agents(FleetDeploymentAgentArgs.builder()
+ *                 .agentType("NRInfra")
+ *                 .version("1.58.0")
+ *                 .configurationVersionId(infraCfg.versionEntityIds()[0])
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -197,6 +238,7 @@ import javax.annotation.Nullable;
  *             .agents(FleetDeploymentAgentArgs.builder()
  *                 .agentType("NRInfra")
  *                 .version("1.58.0")
+ *                 .configurationVersionId(infraCfg.latestVersionEntityId())
  *                 .build())
  *             .tags(            
  *                 "environment:production",
@@ -220,14 +262,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/fleetDeployment:FleetDeployment")
 public class FleetDeployment extends com.pulumi.resources.CustomResource {
     /**
-     * One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
     @Export(name="agents", refs={List.class,FleetDeploymentAgent.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FleetDeploymentAgent>> agents;
 
     /**
-     * @return One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+     * @return Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
      * 
      */
     public Output<Optional<List<FleetDeploymentAgent>>> agents() {
@@ -276,14 +318,14 @@ public class FleetDeployment extends com.pulumi.resources.CustomResource {
         return this.fleetId;
     }
     /**
-     * The name of the deployment.
+     * The name of the deployment. Updatable while the deployment is in `CREATED` phase.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the deployment.
+     * @return The name of the deployment. Updatable while the deployment is in `CREATED` phase.
      * 
      */
     public Output<String> name() {

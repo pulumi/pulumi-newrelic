@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.FleetConfigurationArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.FleetConfigurationState;
-import com.pulumi.newrelic.outputs.FleetConfigurationVersion;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -20,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create and manage New Relic fleet configurations for centralized agent management.
  * 
- * A fleet configuration defines versioned agent settings deployable to your fleets. Each configuration is specific to an agent type and managed entity type. Versions are immutable - their content cannot be modified after creation. To add a new configuration, add a `version` block; to remove one, delete its block.
+ * A fleet configuration holds versioned agent settings. The configuration content is immutable — each change to `configurationContent` creates a new version on the API automatically, similar to how AWS launch templates work. The resource ID (the configuration entity GUID) never changes across updates. Use the `newrelic.FleetConfiguration` data source to access the content of a specific historical version.
  * 
  * ## Example Usage
  * 
@@ -35,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.FleetConfiguration;
  * import com.pulumi.newrelic.FleetConfigurationArgs;
- * import com.pulumi.newrelic.inputs.FleetConfigurationVersionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -53,16 +51,15 @@ import javax.annotation.Nullable;
  *             .name("Production Infrastructure Config")
  *             .agentType("NRInfra")
  *             .managedEntityType("HOST")
- *             .versions(FleetConfigurationVersionArgs.builder()
- *                 .configurationContent("""
+ *             .operatingSystem("LINUX")
+ *             .configurationContent("""
  * log:
  *   level: info
  *   file: /var/log/newrelic-infra/newrelic-infra.log
  * metrics:
  *   enabled: true
  *   system_sample_rate: 15
- *                 """)
- *                 .build())
+ *             """)
  *             .build());
  * 
  *     }
@@ -70,33 +67,11 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Version Immutability
+ * ## Out-of-band drift warnings
  * 
- * Version content is **immutable** - the API does not support updating the content of an existing version. If you attempt to modify `configurationContent` of an already-applied `version` block, Terraform will catch this at plan time and surface an error before any API call is made:
+ * If a version is deleted outside of Terraform (UI, API, or another tool), the next `plan` or `refresh` will surface a warning so you understand why state changed:
  * 
- * To update the configuration in use:
- * - **Add** a new `version` block with the updated content.
- * - **Remove** the old `version` block whose content you no longer need.
- * 
- * Terraform applies removals (API deletes) before creates, so if you add and remove a block in the same `apply`, the old version is deleted first and the new one is created after.
- * 
- * ### Unique Content Requirement
- * 
- * All `version` blocks within a resource must have distinct `configurationContent` values. Duplicate content is caught at plan time before any changes are applied:
- * 
- * This also applies to rollback scenarios. If you previously had versions A → B and want to roll back by reintroducing A&#39;s content as a new version, add a new `version` block with A&#39;s content rather than restoring an old block - the new version will get a new version number from the API.
- * 
- * ### Version Numbering
- * 
- * Version numbers are assigned sequentially by the API and are never reused or renumbered. When you remove a `version` block, the remaining versions keep their original numbers. For example, if you have versions 1, 2, and 3 and remove version 2, the configuration will have versions 1 and 3 - the API does not compact the sequence.
- * 
- * `latestVersionNumber` and `latestVersionEntityId` always reflect the highest-numbered version, regardless of how many versions exist.
- * 
- * ### Externally Deleted Versions
- * 
- * If a version is deleted outside of Terraform (for example, via the API or the New Relic UI), the next `pulumi preview` will show a warning for the affected version:
- * 
- * The warning indicates that Terraform will recreate the missing version on the next `apply`. If the deletion was intentional, remove the corresponding `version` block from your configuration before applying.
+ * If the previously-tracked **latest** version was the one deleted, an additional, stronger warning fires explaining that `configurationContent` has been refreshed from the new latest version on the API. If your declared content differs from that new latest, the next `apply` will create a new version restoring your declared content — this is the expected, self-healing behavior.
  * 
  * ## Import
  * 
@@ -107,7 +82,7 @@ import javax.annotation.Nullable;
  * $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra &lt;configuration_guid&gt;:KUBERNETESCLUSTER
  * ```
  * 
- * The `managedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agentType`, `operatingSystem`, `organizationId` — are resolved automatically from the API.
+ * The `managedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agentType`, `operatingSystem`, `organizationId`, `configurationContent` — are resolved automatically from the API.
  * 
  */
 @ResourceType(type="newrelic:index/fleetConfiguration:FleetConfiguration")
@@ -125,6 +100,20 @@ public class FleetConfiguration extends com.pulumi.resources.CustomResource {
      */
     public Output<String> agentType() {
         return this.agentType;
+    }
+    /**
+     * The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+     * 
+     */
+    @Export(name="configurationContent", refs={String.class}, tree="[0]")
+    private Output<String> configurationContent;
+
+    /**
+     * @return The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+     * 
+     */
+    public Output<String> configurationContent() {
+        return this.configurationContent;
     }
     /**
      * The entity GUID of the configuration.
@@ -155,14 +144,14 @@ public class FleetConfiguration extends com.pulumi.resources.CustomResource {
         return this.latestVersionEntityId;
     }
     /**
-     * The highest version number across all versions.
+     * The highest version number across all versions created so far.
      * 
      */
     @Export(name="latestVersionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestVersionNumber;
 
     /**
-     * @return The highest version number across all versions.
+     * @return The highest version number across all versions created so far.
      * 
      */
     public Output<Integer> latestVersionNumber() {
@@ -183,14 +172,14 @@ public class FleetConfiguration extends com.pulumi.resources.CustomResource {
         return this.managedEntityType;
     }
     /**
-     * The name of the configuration.
+     * The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the configuration.
+     * @return The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
      * 
      */
     public Output<String> name() {
@@ -239,18 +228,18 @@ public class FleetConfiguration extends com.pulumi.resources.CustomResource {
         return this.totalVersions;
     }
     /**
-     * One or more version blocks. At least one is required. See Nested `version` blocks below.
+     * A list of entity GUIDs for all versions, sorted oldest-first. Use with the `newrelic.FleetConfiguration` data source to retrieve the content of a specific historical version.
      * 
      */
-    @Export(name="versions", refs={List.class,FleetConfigurationVersion.class}, tree="[0,1]")
-    private Output<List<FleetConfigurationVersion>> versions;
+    @Export(name="versionEntityIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> versionEntityIds;
 
     /**
-     * @return One or more version blocks. At least one is required. See Nested `version` blocks below.
+     * @return A list of entity GUIDs for all versions, sorted oldest-first. Use with the `newrelic.FleetConfiguration` data source to retrieve the content of a specific historical version.
      * 
      */
-    public Output<List<FleetConfigurationVersion>> versions() {
-        return this.versions;
+    public Output<List<String>> versionEntityIds() {
+        return this.versionEntityIds;
     }
 
     /**

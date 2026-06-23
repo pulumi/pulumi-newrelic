@@ -18,7 +18,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string AgentType;
         /// <summary>
-        /// A configuration version entity GUID (from `newrelic.FleetConfiguration`) to associate with this agent in the deployment.
+        /// The entity GUID of the configuration version (from `newrelic.FleetConfiguration`) to associate with this agent. Reference `LatestVersionEntityId` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
         /// </summary>
         public readonly string ConfigurationVersionId;
         /// <summary>

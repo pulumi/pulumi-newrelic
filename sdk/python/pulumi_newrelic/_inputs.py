@@ -81,8 +81,6 @@ __all__ = [
     'FederatedLogsSetupStorageArgsDict',
     'FederatedLogsSetupStorageCloudProviderConfigurationArgs',
     'FederatedLogsSetupStorageCloudProviderConfigurationArgsDict',
-    'FleetConfigurationVersionArgs',
-    'FleetConfigurationVersionArgsDict',
     'FleetDeploymentAgentArgs',
     'FleetDeploymentAgentArgsDict',
     'FleetMembersRingArgs',
@@ -2639,80 +2637,6 @@ class FederatedLogsSetupStorageCloudProviderConfigurationArgs:
         pulumi.set(self, "region", value)
 
 
-class FleetConfigurationVersionArgsDict(TypedDict):
-    configuration_content: pulumi.Input[_builtins.str]
-    """
-    The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
-
-    The following attributes are exported from each `version` block:
-    """
-    version_entity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The entity GUID of this version.
-    """
-    version_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The version number assigned by the API (1, 2, 3, …).
-    """
-
-@pulumi.input_type
-class FleetConfigurationVersionArgs:
-    def __init__(__self__, *,
-                 configuration_content: pulumi.Input[_builtins.str],
-                 version_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 version_number: pulumi.Input[Optional[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
-               
-               The following attributes are exported from each `version` block:
-        :param pulumi.Input[_builtins.str] version_entity_id: The entity GUID of this version.
-        :param pulumi.Input[_builtins.int] version_number: The version number assigned by the API (1, 2, 3, …).
-        """
-        pulumi.set(__self__, "configuration_content", configuration_content)
-        if version_entity_id is not None:
-            pulumi.set(__self__, "version_entity_id", version_entity_id)
-        if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationContent")
-    def configuration_content(self) -> pulumi.Input[_builtins.str]:
-        """
-        The YAML or JSON content for this version. Must be unique across all `version` blocks in the resource. Use `file()` to load content from a file: `file("${path.module}/config.yaml")`.
-
-        The following attributes are exported from each `version` block:
-        """
-        return pulumi.get(self, "configuration_content")
-
-    @configuration_content.setter
-    def configuration_content(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "configuration_content", value)
-
-    @_builtins.property
-    @pulumi.getter(name="versionEntityId")
-    def version_entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The entity GUID of this version.
-        """
-        return pulumi.get(self, "version_entity_id")
-
-    @version_entity_id.setter
-    def version_entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "version_entity_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="versionNumber")
-    def version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The version number assigned by the API (1, 2, 3, …).
-        """
-        return pulumi.get(self, "version_number")
-
-    @version_number.setter
-    def version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "version_number", value)
-
-
 class FleetDeploymentAgentArgsDict(TypedDict):
     agent_type: pulumi.Input[_builtins.str]
     """
@@ -2720,7 +2644,7 @@ class FleetDeploymentAgentArgsDict(TypedDict):
     """
     configuration_version_id: pulumi.Input[_builtins.str]
     """
-    A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+    The entity GUID of the configuration version (from `FleetConfiguration`) to associate with this agent. Reference `latest_version_entity_id` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
     """
     version: pulumi.Input[_builtins.str]
     """
@@ -2735,7 +2659,7 @@ class FleetDeploymentAgentArgs:
                  version: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] agent_type: The agent type. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`.
-        :param pulumi.Input[_builtins.str] configuration_version_id: A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        :param pulumi.Input[_builtins.str] configuration_version_id: The entity GUID of the configuration version (from `FleetConfiguration`) to associate with this agent. Reference `latest_version_entity_id` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
         :param pulumi.Input[_builtins.str] version: The agent version string to deploy (e.g. `"1.58.0"`).
         """
         pulumi.set(__self__, "agent_type", agent_type)
@@ -2758,7 +2682,7 @@ class FleetDeploymentAgentArgs:
     @pulumi.getter(name="configurationVersionId")
     def configuration_version_id(self) -> pulumi.Input[_builtins.str]:
         """
-        A configuration version entity GUID (from `FleetConfiguration`) to associate with this agent in the deployment.
+        The entity GUID of the configuration version (from `FleetConfiguration`) to associate with this agent. Reference `latest_version_entity_id` to follow the current version, or `version_entity_ids[N]` to pin to a specific historical version.
         """
         return pulumi.get(self, "configuration_version_id")
 

@@ -14,7 +14,7 @@ import (
 
 // Use this resource to create and manage New Relic fleet configurations for centralized agent management.
 //
-// A fleet configuration defines versioned agent settings deployable to your fleets. Each configuration is specific to an agent type and managed entity type. Versions are immutable - their content cannot be modified after creation. To add a new configuration, add a `version` block; to remove one, delete its block.
+// A fleet configuration holds versioned agent settings. The configuration content is immutable — each change to `configurationContent` creates a new version on the API automatically, similar to how AWS launch templates work. The resource ID (the configuration entity GUID) never changes across updates. Use the `FleetConfiguration` data source to access the content of a specific historical version.
 //
 // ## Example Usage
 //
@@ -36,9 +36,8 @@ import (
 //				Name:              pulumi.String("Production Infrastructure Config"),
 //				AgentType:         pulumi.String("NRInfra"),
 //				ManagedEntityType: pulumi.String("HOST"),
-//				Versions: newrelic.FleetConfigurationVersionArray{
-//					&newrelic.FleetConfigurationVersionArgs{
-//						ConfigurationContent: pulumi.String(`log:
+//				OperatingSystem:   pulumi.String("LINUX"),
+//				ConfigurationContent: pulumi.String(`log:
 //	  level: info
 //	  file: /var/log/newrelic-infra/newrelic-infra.log
 //
@@ -49,8 +48,6 @@ import (
 //
 // `),
 //
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -61,33 +58,11 @@ import (
 //
 // ```
 //
-// ### Version Immutability
+// ## Out-of-band drift warnings
 //
-// Version content is **immutable** - the API does not support updating the content of an existing version. If you attempt to modify `configurationContent` of an already-applied `version` block, Terraform will catch this at plan time and surface an error before any API call is made:
+// If a version is deleted outside of Terraform (UI, API, or another tool), the next `plan` or `refresh` will surface a warning so you understand why state changed:
 //
-// To update the configuration in use:
-// - **Add** a new `version` block with the updated content.
-// - **Remove** the old `version` block whose content you no longer need.
-//
-// Terraform applies removals (API deletes) before creates, so if you add and remove a block in the same `apply`, the old version is deleted first and the new one is created after.
-//
-// ### Unique Content Requirement
-//
-// All `version` blocks within a resource must have distinct `configurationContent` values. Duplicate content is caught at plan time before any changes are applied:
-//
-// This also applies to rollback scenarios. If you previously had versions A → B and want to roll back by reintroducing A's content as a new version, add a new `version` block with A's content rather than restoring an old block - the new version will get a new version number from the API.
-//
-// ### Version Numbering
-//
-// Version numbers are assigned sequentially by the API and are never reused or renumbered. When you remove a `version` block, the remaining versions keep their original numbers. For example, if you have versions 1, 2, and 3 and remove version 2, the configuration will have versions 1 and 3 - the API does not compact the sequence.
-//
-// `latestVersionNumber` and `latestVersionEntityId` always reflect the highest-numbered version, regardless of how many versions exist.
-//
-// ### Externally Deleted Versions
-//
-// If a version is deleted outside of Terraform (for example, via the API or the New Relic UI), the next `pulumi preview` will show a warning for the affected version:
-//
-// The warning indicates that Terraform will recreate the missing version on the next `apply`. If the deletion was intentional, remove the corresponding `version` block from your configuration before applying.
+// If the previously-tracked **latest** version was the one deleted, an additional, stronger warning fires explaining that `configurationContent` has been refreshed from the new latest version on the API. If your declared content differs from that new latest, the next `apply` will create a new version restoring your declared content — this is the expected, self-healing behavior.
 //
 // ## Import
 //
@@ -98,21 +73,23 @@ import (
 // $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:KUBERNETESCLUSTER
 // ```
 //
-// The `managedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agentType`, `operatingSystem`, `organizationId` — are resolved automatically from the API.
+// The `managedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agentType`, `operatingSystem`, `organizationId`, `configurationContent` — are resolved automatically from the API.
 type FleetConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
 	AgentType pulumi.StringOutput `pulumi:"agentType"`
+	// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+	ConfigurationContent pulumi.StringOutput `pulumi:"configurationContent"`
 	// The entity GUID of the configuration.
 	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
 	// The entity GUID of the highest-numbered version.
 	LatestVersionEntityId pulumi.StringOutput `pulumi:"latestVersionEntityId"`
-	// The highest version number across all versions.
+	// The highest version number across all versions created so far.
 	LatestVersionNumber pulumi.IntOutput `pulumi:"latestVersionNumber"`
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType pulumi.StringOutput `pulumi:"managedEntityType"`
-	// The name of the configuration.
+	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
@@ -120,8 +97,8 @@ type FleetConfiguration struct {
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
 	// Total number of versions currently in the configuration.
 	TotalVersions pulumi.IntOutput `pulumi:"totalVersions"`
-	// One or more version blocks. At least one is required. See Nested `version` blocks below.
-	Versions FleetConfigurationVersionArrayOutput `pulumi:"versions"`
+	// A list of entity GUIDs for all versions, sorted oldest-first. Use with the `FleetConfiguration` data source to retrieve the content of a specific historical version.
+	VersionEntityIds pulumi.StringArrayOutput `pulumi:"versionEntityIds"`
 }
 
 // NewFleetConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -134,11 +111,11 @@ func NewFleetConfiguration(ctx *pulumi.Context,
 	if args.AgentType == nil {
 		return nil, errors.New("invalid value for required argument 'AgentType'")
 	}
+	if args.ConfigurationContent == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigurationContent'")
+	}
 	if args.ManagedEntityType == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedEntityType'")
-	}
-	if args.Versions == nil {
-		return nil, errors.New("invalid value for required argument 'Versions'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FleetConfiguration
@@ -165,15 +142,17 @@ func GetFleetConfiguration(ctx *pulumi.Context,
 type fleetConfigurationState struct {
 	// The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
 	AgentType *string `pulumi:"agentType"`
+	// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+	ConfigurationContent *string `pulumi:"configurationContent"`
 	// The entity GUID of the configuration.
 	ConfigurationId *string `pulumi:"configurationId"`
 	// The entity GUID of the highest-numbered version.
 	LatestVersionEntityId *string `pulumi:"latestVersionEntityId"`
-	// The highest version number across all versions.
+	// The highest version number across all versions created so far.
 	LatestVersionNumber *int `pulumi:"latestVersionNumber"`
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType *string `pulumi:"managedEntityType"`
-	// The name of the configuration.
+	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
 	Name *string `pulumi:"name"`
 	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	OperatingSystem *string `pulumi:"operatingSystem"`
@@ -181,22 +160,24 @@ type fleetConfigurationState struct {
 	OrganizationId *string `pulumi:"organizationId"`
 	// Total number of versions currently in the configuration.
 	TotalVersions *int `pulumi:"totalVersions"`
-	// One or more version blocks. At least one is required. See Nested `version` blocks below.
-	Versions []FleetConfigurationVersion `pulumi:"versions"`
+	// A list of entity GUIDs for all versions, sorted oldest-first. Use with the `FleetConfiguration` data source to retrieve the content of a specific historical version.
+	VersionEntityIds []string `pulumi:"versionEntityIds"`
 }
 
 type FleetConfigurationState struct {
 	// The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
 	AgentType pulumi.StringPtrInput
+	// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+	ConfigurationContent pulumi.StringPtrInput
 	// The entity GUID of the configuration.
 	ConfigurationId pulumi.StringPtrInput
 	// The entity GUID of the highest-numbered version.
 	LatestVersionEntityId pulumi.StringPtrInput
-	// The highest version number across all versions.
+	// The highest version number across all versions created so far.
 	LatestVersionNumber pulumi.IntPtrInput
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType pulumi.StringPtrInput
-	// The name of the configuration.
+	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
 	Name pulumi.StringPtrInput
 	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	OperatingSystem pulumi.StringPtrInput
@@ -204,8 +185,8 @@ type FleetConfigurationState struct {
 	OrganizationId pulumi.StringPtrInput
 	// Total number of versions currently in the configuration.
 	TotalVersions pulumi.IntPtrInput
-	// One or more version blocks. At least one is required. See Nested `version` blocks below.
-	Versions FleetConfigurationVersionArrayInput
+	// A list of entity GUIDs for all versions, sorted oldest-first. Use with the `FleetConfiguration` data source to retrieve the content of a specific historical version.
+	VersionEntityIds pulumi.StringArrayInput
 }
 
 func (FleetConfigurationState) ElementType() reflect.Type {
@@ -215,32 +196,32 @@ func (FleetConfigurationState) ElementType() reflect.Type {
 type fleetConfigurationArgs struct {
 	// The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
 	AgentType string `pulumi:"agentType"`
+	// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+	ConfigurationContent string `pulumi:"configurationContent"`
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType string `pulumi:"managedEntityType"`
-	// The name of the configuration.
+	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
 	Name *string `pulumi:"name"`
 	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId *string `pulumi:"organizationId"`
-	// One or more version blocks. At least one is required. See Nested `version` blocks below.
-	Versions []FleetConfigurationVersion `pulumi:"versions"`
 }
 
 // The set of arguments for constructing a FleetConfiguration resource.
 type FleetConfigurationArgs struct {
 	// The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
 	AgentType pulumi.StringInput
+	// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+	ConfigurationContent pulumi.StringInput
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType pulumi.StringInput
-	// The name of the configuration.
+	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
 	Name pulumi.StringPtrInput
 	// The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managedEntityType` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	OperatingSystem pulumi.StringPtrInput
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId pulumi.StringPtrInput
-	// One or more version blocks. At least one is required. See Nested `version` blocks below.
-	Versions FleetConfigurationVersionArrayInput
 }
 
 func (FleetConfigurationArgs) ElementType() reflect.Type {
@@ -335,6 +316,11 @@ func (o FleetConfigurationOutput) AgentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.AgentType }).(pulumi.StringOutput)
 }
 
+// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+func (o FleetConfigurationOutput) ConfigurationContent() pulumi.StringOutput {
+	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.ConfigurationContent }).(pulumi.StringOutput)
+}
+
 // The entity GUID of the configuration.
 func (o FleetConfigurationOutput) ConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.ConfigurationId }).(pulumi.StringOutput)
@@ -345,7 +331,7 @@ func (o FleetConfigurationOutput) LatestVersionEntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.LatestVersionEntityId }).(pulumi.StringOutput)
 }
 
-// The highest version number across all versions.
+// The highest version number across all versions created so far.
 func (o FleetConfigurationOutput) LatestVersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.IntOutput { return v.LatestVersionNumber }).(pulumi.IntOutput)
 }
@@ -355,7 +341,7 @@ func (o FleetConfigurationOutput) ManagedEntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.ManagedEntityType }).(pulumi.StringOutput)
 }
 
-// The name of the configuration.
+// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
 func (o FleetConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -375,9 +361,9 @@ func (o FleetConfigurationOutput) TotalVersions() pulumi.IntOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.IntOutput { return v.TotalVersions }).(pulumi.IntOutput)
 }
 
-// One or more version blocks. At least one is required. See Nested `version` blocks below.
-func (o FleetConfigurationOutput) Versions() FleetConfigurationVersionArrayOutput {
-	return o.ApplyT(func(v *FleetConfiguration) FleetConfigurationVersionArrayOutput { return v.Versions }).(FleetConfigurationVersionArrayOutput)
+// A list of entity GUIDs for all versions, sorted oldest-first. Use with the `FleetConfiguration` data source to retrieve the content of a specific historical version.
+func (o FleetConfigurationOutput) VersionEntityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringArrayOutput { return v.VersionEntityIds }).(pulumi.StringArrayOutput)
 }
 
 type FleetConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -14,9 +14,9 @@ import (
 
 // Use this resource to create and manage New Relic fleet deployments.
 //
-// A fleet deployment defines the agent versions and optional configuration versions to roll out to a fleet. Each deployment belongs to a fleet and contains one or more `agent` blocks describing which agent type and version to deploy, and optionally which configuration version (from `FleetConfiguration`) to apply.
+// A fleet deployment defines the agent versions and configuration versions to roll out to a fleet. Each deployment belongs to a fleet and may contain zero or more `agent` blocks describing which agent type and version to deploy and which configuration version (from `FleetConfiguration`) to apply.
 //
-// > **Note:** Deployments can only be updated while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `name`, `description`, `agent`, or `tags` will be **blocked at plan time** with an error. Run `terraform destroy` to remove the deployment from state and then re-create it with the desired configuration. If `terraform destroy` itself fails because the deployment is actively executing, the resource will be removed from Terraform state with a warning — once the deployment reaches a terminal phase (`COMPLETED` or `FAILED`) you can clean it up manually in the New Relic UI.
+// > **Note: Phase-gate immutability.** Deployments can only be modified while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `name`, `description`, `agent`, or `tags` is **blocked at plan time** with a clear error. The recommended recovery path is `terraform state rm <resource_address>` (or a `removed` block) to drop the executed deployment from Terraform state, then re-declare a fresh deployment with the desired configuration. `terraform destroy` works only if you have no pending changes to the deployment in your HCL — otherwise the same plan-time gate fires during the destroy plan.
 //
 // ## Example Usage
 //
@@ -34,49 +34,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewFleetDeployment(ctx, "infra", &newrelic.FleetDeploymentArgs{
-//				FleetId:     pulumi.Any(prod.Id),
-//				Name:        pulumi.String("Production Infra Deployment"),
-//				Description: pulumi.String("Deploys NRInfra v1.58.0 to the production fleet"),
-//				Agents: newrelic.FleetDeploymentAgentArray{
-//					&newrelic.FleetDeploymentAgentArgs{
-//						AgentType: pulumi.String("NRInfra"),
-//						Version:   pulumi.String("1.58.0"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Deployment Linked to a Configuration Version
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
 //			infraCfg, err := newrelic.NewFleetConfiguration(ctx, "infra_cfg", &newrelic.FleetConfigurationArgs{
-//				Name:              pulumi.String("Production Infra Config"),
-//				AgentType:         pulumi.String("NRInfra"),
-//				ManagedEntityType: pulumi.String("HOST"),
-//				Versions: newrelic.FleetConfigurationVersionArray{
-//					&newrelic.FleetConfigurationVersionArgs{
-//						ConfigurationContent: pulumi.String("log:\n  level: info\n"),
-//					},
-//				},
+//				Name:                 pulumi.String("Production Infra Config"),
+//				AgentType:            pulumi.String("NRInfra"),
+//				ManagedEntityType:    pulumi.String("HOST"),
+//				OperatingSystem:      pulumi.String("LINUX"),
+//				ConfigurationContent: pulumi.String("log:\n  level: info\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -104,6 +67,8 @@ import (
 //
 // ### Multiple Agents
 //
+// Each `agentType` may appear at most once per deployment.
+//
 // ```go
 // package main
 //
@@ -126,8 +91,76 @@ import (
 //						ConfigurationVersionId: pulumi.Any(infraCfg.LatestVersionEntityId),
 //					},
 //					&newrelic.FleetDeploymentAgentArgs{
-//						AgentType: pulumi.String("FluentBit"),
-//						Version:   pulumi.String("3.2.0"),
+//						AgentType:              pulumi.String("FluentBit"),
+//						Version:                pulumi.String("3.2.0"),
+//						ConfigurationVersionId: pulumi.Any(fbCfg.LatestVersionEntityId),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Zero-Agent Deployment
+//
+// A deployment can be created or updated with zero `agent` blocks — for example, to drain all agent assignments from an existing deployment, or to seed a deployment record that will have agents added later (while still in `CREATED` phase).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewFleetDeployment(ctx, "drained", &newrelic.FleetDeploymentArgs{
+//				FleetId: pulumi.Any(prod.Id),
+//				Name:    pulumi.String("Drained deployment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Pinning to a Specific Configuration Version
+//
+// By default, referencing `newrelic_fleet_configuration.<name>.latest_version_entity_id` ties the deployment to whichever version is current at plan time. Updating the configuration's `configurationContent` will change `latestVersionEntityId`, which in turn proposes an update to any deployment referencing it. If the deployment has already left `CREATED`, that update will be **blocked by the phase-gate** — see the note above.
+//
+// For long-lived deployments that should remain stable, pin to a specific historical version instead:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewFleetDeployment(ctx, "pinned", &newrelic.FleetDeploymentArgs{
+//				FleetId: pulumi.Any(prod.Id),
+//				Name:    pulumi.String("Stable v1 rollout"),
+//				Agents: newrelic.FleetDeploymentAgentArray{
+//					&newrelic.FleetDeploymentAgentArgs{
+//						AgentType:              pulumi.String("NRInfra"),
+//						Version:                pulumi.String("1.58.0"),
+//						ConfigurationVersionId: pulumi.Any(infraCfg.VersionEntityIds[0]),
 //					},
 //				},
 //			})
@@ -159,8 +192,9 @@ import (
 //				Name:    pulumi.String("Production Deployment"),
 //				Agents: newrelic.FleetDeploymentAgentArray{
 //					&newrelic.FleetDeploymentAgentArgs{
-//						AgentType: pulumi.String("NRInfra"),
-//						Version:   pulumi.String("1.58.0"),
+//						AgentType:              pulumi.String("NRInfra"),
+//						Version:                pulumi.String("1.58.0"),
+//						ConfigurationVersionId: pulumi.Any(infraCfg.LatestVersionEntityId),
 //					},
 //				},
 //				Tags: pulumi.StringArray{
@@ -187,7 +221,7 @@ import (
 type FleetDeployment struct {
 	pulumi.CustomResourceState
 
-	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents FleetDeploymentAgentArrayOutput `pulumi:"agents"`
 	// The entity GUID of the deployment.
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
@@ -195,7 +229,7 @@ type FleetDeployment struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
 	FleetId pulumi.StringOutput `pulumi:"fleetId"`
-	// The name of the deployment.
+	// The name of the deployment. Updatable while the deployment is in `CREATED` phase.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
@@ -238,7 +272,7 @@ func GetFleetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FleetDeployment resources.
 type fleetDeploymentState struct {
-	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents []FleetDeploymentAgent `pulumi:"agents"`
 	// The entity GUID of the deployment.
 	DeploymentId *string `pulumi:"deploymentId"`
@@ -246,7 +280,7 @@ type fleetDeploymentState struct {
 	Description *string `pulumi:"description"`
 	// The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
 	FleetId *string `pulumi:"fleetId"`
-	// The name of the deployment.
+	// The name of the deployment. Updatable while the deployment is in `CREATED` phase.
 	Name *string `pulumi:"name"`
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId *string `pulumi:"organizationId"`
@@ -257,7 +291,7 @@ type fleetDeploymentState struct {
 }
 
 type FleetDeploymentState struct {
-	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents FleetDeploymentAgentArrayInput
 	// The entity GUID of the deployment.
 	DeploymentId pulumi.StringPtrInput
@@ -265,7 +299,7 @@ type FleetDeploymentState struct {
 	Description pulumi.StringPtrInput
 	// The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
 	FleetId pulumi.StringPtrInput
-	// The name of the deployment.
+	// The name of the deployment. Updatable while the deployment is in `CREATED` phase.
 	Name pulumi.StringPtrInput
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId pulumi.StringPtrInput
@@ -280,13 +314,13 @@ func (FleetDeploymentState) ElementType() reflect.Type {
 }
 
 type fleetDeploymentArgs struct {
-	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents []FleetDeploymentAgent `pulumi:"agents"`
 	// A description of the deployment.
 	Description *string `pulumi:"description"`
 	// The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
 	FleetId string `pulumi:"fleetId"`
-	// The name of the deployment.
+	// The name of the deployment. Updatable while the deployment is in `CREATED` phase.
 	Name *string `pulumi:"name"`
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId *string `pulumi:"organizationId"`
@@ -296,13 +330,13 @@ type fleetDeploymentArgs struct {
 
 // The set of arguments for constructing a FleetDeployment resource.
 type FleetDeploymentArgs struct {
-	// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+	// Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents FleetDeploymentAgentArrayInput
 	// A description of the deployment.
 	Description pulumi.StringPtrInput
 	// The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
 	FleetId pulumi.StringInput
-	// The name of the deployment.
+	// The name of the deployment. Updatable while the deployment is in `CREATED` phase.
 	Name pulumi.StringPtrInput
 	// The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
 	OrganizationId pulumi.StringPtrInput
@@ -397,7 +431,7 @@ func (o FleetDeploymentOutput) ToFleetDeploymentOutputWithContext(ctx context.Co
 	return o
 }
 
-// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
+// Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 func (o FleetDeploymentOutput) Agents() FleetDeploymentAgentArrayOutput {
 	return o.ApplyT(func(v *FleetDeployment) FleetDeploymentAgentArrayOutput { return v.Agents }).(FleetDeploymentAgentArrayOutput)
 }
@@ -417,7 +451,7 @@ func (o FleetDeploymentOutput) FleetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetDeployment) pulumi.StringOutput { return v.FleetId }).(pulumi.StringOutput)
 }
 
-// The name of the deployment.
+// The name of the deployment. Updatable while the deployment is in `CREATED` phase.
 func (o FleetDeploymentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetDeployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -5,7 +5,6 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.newrelic.inputs.FleetConfigurationVersionArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -31,6 +30,21 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> agentType() {
         return Optional.ofNullable(this.agentType);
+    }
+
+    /**
+     * The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+     * 
+     */
+    @Import(name="configurationContent")
+    private @Nullable Output<String> configurationContent;
+
+    /**
+     * @return The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+     * 
+     */
+    public Optional<Output<String>> configurationContent() {
+        return Optional.ofNullable(this.configurationContent);
     }
 
     /**
@@ -64,14 +78,14 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The highest version number across all versions.
+     * The highest version number across all versions created so far.
      * 
      */
     @Import(name="latestVersionNumber")
     private @Nullable Output<Integer> latestVersionNumber;
 
     /**
-     * @return The highest version number across all versions.
+     * @return The highest version number across all versions created so far.
      * 
      */
     public Optional<Output<Integer>> latestVersionNumber() {
@@ -94,14 +108,14 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the configuration.
+     * The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the configuration.
+     * @return The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
      * 
      */
     public Optional<Output<String>> name() {
@@ -154,24 +168,25 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more version blocks. At least one is required. See Nested `version` blocks below.
+     * A list of entity GUIDs for all versions, sorted oldest-first. Use with the `newrelic.FleetConfiguration` data source to retrieve the content of a specific historical version.
      * 
      */
-    @Import(name="versions")
-    private @Nullable Output<List<FleetConfigurationVersionArgs>> versions;
+    @Import(name="versionEntityIds")
+    private @Nullable Output<List<String>> versionEntityIds;
 
     /**
-     * @return One or more version blocks. At least one is required. See Nested `version` blocks below.
+     * @return A list of entity GUIDs for all versions, sorted oldest-first. Use with the `newrelic.FleetConfiguration` data source to retrieve the content of a specific historical version.
      * 
      */
-    public Optional<Output<List<FleetConfigurationVersionArgs>>> versions() {
-        return Optional.ofNullable(this.versions);
+    public Optional<Output<List<String>>> versionEntityIds() {
+        return Optional.ofNullable(this.versionEntityIds);
     }
 
     private FleetConfigurationState() {}
 
     private FleetConfigurationState(FleetConfigurationState $) {
         this.agentType = $.agentType;
+        this.configurationContent = $.configurationContent;
         this.configurationId = $.configurationId;
         this.latestVersionEntityId = $.latestVersionEntityId;
         this.latestVersionNumber = $.latestVersionNumber;
@@ -180,7 +195,7 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
         this.operatingSystem = $.operatingSystem;
         this.organizationId = $.organizationId;
         this.totalVersions = $.totalVersions;
-        this.versions = $.versions;
+        this.versionEntityIds = $.versionEntityIds;
     }
 
     public static Builder builder() {
@@ -220,6 +235,27 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
          */
         public Builder agentType(String agentType) {
             return agentType(Output.of(agentType));
+        }
+
+        /**
+         * @param configurationContent The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationContent(@Nullable Output<String> configurationContent) {
+            $.configurationContent = configurationContent;
+            return this;
+        }
+
+        /**
+         * @param configurationContent The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationContent(String configurationContent) {
+            return configurationContent(Output.of(configurationContent));
         }
 
         /**
@@ -265,7 +301,7 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param latestVersionNumber The highest version number across all versions.
+         * @param latestVersionNumber The highest version number across all versions created so far.
          * 
          * @return builder
          * 
@@ -276,7 +312,7 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param latestVersionNumber The highest version number across all versions.
+         * @param latestVersionNumber The highest version number across all versions created so far.
          * 
          * @return builder
          * 
@@ -307,7 +343,7 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the configuration.
+         * @param name The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
          * 
          * @return builder
          * 
@@ -318,7 +354,7 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the configuration.
+         * @param name The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
          * 
          * @return builder
          * 
@@ -391,34 +427,34 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param versions One or more version blocks. At least one is required. See Nested `version` blocks below.
+         * @param versionEntityIds A list of entity GUIDs for all versions, sorted oldest-first. Use with the `newrelic.FleetConfiguration` data source to retrieve the content of a specific historical version.
          * 
          * @return builder
          * 
          */
-        public Builder versions(@Nullable Output<List<FleetConfigurationVersionArgs>> versions) {
-            $.versions = versions;
+        public Builder versionEntityIds(@Nullable Output<List<String>> versionEntityIds) {
+            $.versionEntityIds = versionEntityIds;
             return this;
         }
 
         /**
-         * @param versions One or more version blocks. At least one is required. See Nested `version` blocks below.
+         * @param versionEntityIds A list of entity GUIDs for all versions, sorted oldest-first. Use with the `newrelic.FleetConfiguration` data source to retrieve the content of a specific historical version.
          * 
          * @return builder
          * 
          */
-        public Builder versions(List<FleetConfigurationVersionArgs> versions) {
-            return versions(Output.of(versions));
+        public Builder versionEntityIds(List<String> versionEntityIds) {
+            return versionEntityIds(Output.of(versionEntityIds));
         }
 
         /**
-         * @param versions One or more version blocks. At least one is required. See Nested `version` blocks below.
+         * @param versionEntityIds A list of entity GUIDs for all versions, sorted oldest-first. Use with the `newrelic.FleetConfiguration` data source to retrieve the content of a specific historical version.
          * 
          * @return builder
          * 
          */
-        public Builder versions(FleetConfigurationVersionArgs... versions) {
-            return versions(List.of(versions));
+        public Builder versionEntityIds(String... versionEntityIds) {
+            return versionEntityIds(List.of(versionEntityIds));
         }
 
         public FleetConfigurationState build() {

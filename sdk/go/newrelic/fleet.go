@@ -127,7 +127,7 @@ type Fleet struct {
 	ManagedEntityType pulumi.StringOutput `pulumi:"managedEntityType"`
 	// The name of the fleet. This can be changed after creation.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
 	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
@@ -174,7 +174,7 @@ type fleetState struct {
 	ManagedEntityType *string `pulumi:"managedEntityType"`
 	// The name of the fleet. This can be changed after creation.
 	Name *string `pulumi:"name"`
-	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId *string `pulumi:"organizationId"`
@@ -189,7 +189,7 @@ type FleetState struct {
 	ManagedEntityType pulumi.StringPtrInput
 	// The name of the fleet. This can be changed after creation.
 	Name pulumi.StringPtrInput
-	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
 	OperatingSystem pulumi.StringPtrInput
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId pulumi.StringPtrInput
@@ -208,7 +208,7 @@ type fleetArgs struct {
 	ManagedEntityType string `pulumi:"managedEntityType"`
 	// The name of the fleet. This can be changed after creation.
 	Name *string `pulumi:"name"`
-	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId *string `pulumi:"organizationId"`
@@ -224,7 +224,7 @@ type FleetArgs struct {
 	ManagedEntityType pulumi.StringInput
 	// The name of the fleet. This can be changed after creation.
 	Name pulumi.StringPtrInput
-	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+	// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
 	OperatingSystem pulumi.StringPtrInput
 	// The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
 	OrganizationId pulumi.StringPtrInput
@@ -334,7 +334,7 @@ func (o FleetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+// The operating system type for HOST fleets. **Required when `managedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
 func (o FleetOutput) OperatingSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.OperatingSystem }).(pulumi.StringPtrOutput)
 }

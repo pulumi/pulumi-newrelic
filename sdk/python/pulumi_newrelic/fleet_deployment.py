@@ -31,9 +31,9 @@ class FleetDeploymentArgs:
         The set of arguments for constructing a FleetDeployment resource.
 
         :param pulumi.Input[_builtins.str] fleet_id: The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
-        :param pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]] agents: One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]] agents: Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         :param pulumi.Input[_builtins.str] description: A description of the deployment.
-        :param pulumi.Input[_builtins.str] name: The name of the deployment.
+        :param pulumi.Input[_builtins.str] name: The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags in `key:value1,value2` format.
         """
@@ -65,7 +65,7 @@ class FleetDeploymentArgs:
     @pulumi.getter
     def agents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]]]:
         """
-        One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         """
         return pulumi.get(self, "agents")
 
@@ -89,7 +89,7 @@ class FleetDeploymentArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the deployment.
+        The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         """
         return pulumi.get(self, "name")
 
@@ -136,11 +136,11 @@ class _FleetDeploymentState:
         """
         Input properties used for looking up and filtering FleetDeployment resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]] agents: One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]] agents: Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         :param pulumi.Input[_builtins.str] deployment_id: The entity GUID of the deployment.
         :param pulumi.Input[_builtins.str] description: A description of the deployment.
         :param pulumi.Input[_builtins.str] fleet_id: The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
-        :param pulumi.Input[_builtins.str] name: The name of the deployment.
+        :param pulumi.Input[_builtins.str] name: The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] phase: The current phase of the deployment. Possible values: `CREATED`, `IN_PROGRESS`, `FAILED`, `COMPLETED`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags in `key:value1,value2` format.
@@ -166,7 +166,7 @@ class _FleetDeploymentState:
     @pulumi.getter
     def agents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetDeploymentAgentArgs']]]]:
         """
-        One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         """
         return pulumi.get(self, "agents")
 
@@ -214,7 +214,7 @@ class _FleetDeploymentState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the deployment.
+        The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         """
         return pulumi.get(self, "name")
 
@@ -275,9 +275,9 @@ class FleetDeployment(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic fleet deployments.
 
-        A fleet deployment defines the agent versions and optional configuration versions to roll out to a fleet. Each deployment belongs to a fleet and contains one or more `agent` blocks describing which agent type and version to deploy, and optionally which configuration version (from `FleetConfiguration`) to apply.
+        A fleet deployment defines the agent versions and configuration versions to roll out to a fleet. Each deployment belongs to a fleet and may contain zero or more `agent` blocks describing which agent type and version to deploy and which configuration version (from `FleetConfiguration`) to apply.
 
-        > **Note:** Deployments can only be updated while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `name`, `description`, `agent`, or `tags` will be **blocked at plan time** with an error. Run `terraform destroy` to remove the deployment from state and then re-create it with the desired configuration. If `terraform destroy` itself fails because the deployment is actively executing, the resource will be removed from Terraform state with a warning — once the deployment reaches a terminal phase (`COMPLETED` or `FAILED`) you can clean it up manually in the New Relic UI.
+        > **Note: Phase-gate immutability.** Deployments can only be modified while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `name`, `description`, `agent`, or `tags` is **blocked at plan time** with a clear error. The recommended recovery path is `terraform state rm <resource_address>` (or a `removed` block) to drop the executed deployment from Terraform state, then re-declare a fresh deployment with the desired configuration. `terraform destroy` works only if you have no pending changes to the deployment in your HCL — otherwise the same plan-time gate fires during the destroy plan.
 
         ## Example Usage
 
@@ -287,31 +287,14 @@ class FleetDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        infra = newrelic.FleetDeployment("infra",
-            fleet_id=prod["id"],
-            name="Production Infra Deployment",
-            description="Deploys NRInfra v1.58.0 to the production fleet",
-            agents=[{
-                "agent_type": "NRInfra",
-                "version": "1.58.0",
-            }])
-        ```
-
-        ### Deployment Linked to a Configuration Version
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
         infra_cfg = newrelic.FleetConfiguration("infra_cfg",
             name="Production Infra Config",
             agent_type="NRInfra",
             managed_entity_type="HOST",
-            versions=[{
-                "configuration_content": \"\"\"log:
+            operating_system="LINUX",
+            configuration_content=\"\"\"log:
           level: info
-        \"\"\",
-            }])
+        \"\"\")
         infra = newrelic.FleetDeployment("infra",
             fleet_id=prod["id"],
             name="Production Infra Deployment",
@@ -324,6 +307,8 @@ class FleetDeployment(pulumi.CustomResource):
         ```
 
         ### Multiple Agents
+
+        Each `agent_type` may appear at most once per deployment.
 
         ```python
         import pulumi
@@ -341,8 +326,42 @@ class FleetDeployment(pulumi.CustomResource):
                 {
                     "agent_type": "FluentBit",
                     "version": "3.2.0",
+                    "configuration_version_id": fb_cfg["latestVersionEntityId"],
                 },
             ])
+        ```
+
+        ### Zero-Agent Deployment
+
+        A deployment can be created or updated with zero `agent` blocks — for example, to drain all agent assignments from an existing deployment, or to seed a deployment record that will have agents added later (while still in `CREATED` phase).
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        drained = newrelic.FleetDeployment("drained",
+            fleet_id=prod["id"],
+            name="Drained deployment")
+        ```
+
+        ### Pinning to a Specific Configuration Version
+
+        By default, referencing `newrelic_fleet_configuration.<name>.latest_version_entity_id` ties the deployment to whichever version is current at plan time. Updating the configuration's `configuration_content` will change `latest_version_entity_id`, which in turn proposes an update to any deployment referencing it. If the deployment has already left `CREATED`, that update will be **blocked by the phase-gate** — see the note above.
+
+        For long-lived deployments that should remain stable, pin to a specific historical version instead:
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        pinned = newrelic.FleetDeployment("pinned",
+            fleet_id=prod["id"],
+            name="Stable v1 rollout",
+            agents=[{
+                "agent_type": "NRInfra",
+                "version": "1.58.0",
+                "configuration_version_id": infra_cfg["versionEntityIds"][0],
+            }])
         ```
 
         ### With Tags
@@ -357,6 +376,7 @@ class FleetDeployment(pulumi.CustomResource):
             agents=[{
                 "agent_type": "NRInfra",
                 "version": "1.58.0",
+                "configuration_version_id": infra_cfg["latestVersionEntityId"],
             }],
             tags=[
                 "environment:production",
@@ -375,10 +395,10 @@ class FleetDeployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetDeploymentAgentArgs', 'FleetDeploymentAgentArgsDict']]]] agents: One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetDeploymentAgentArgs', 'FleetDeploymentAgentArgsDict']]]] agents: Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         :param pulumi.Input[_builtins.str] description: A description of the deployment.
         :param pulumi.Input[_builtins.str] fleet_id: The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
-        :param pulumi.Input[_builtins.str] name: The name of the deployment.
+        :param pulumi.Input[_builtins.str] name: The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags in `key:value1,value2` format.
         """
@@ -391,9 +411,9 @@ class FleetDeployment(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic fleet deployments.
 
-        A fleet deployment defines the agent versions and optional configuration versions to roll out to a fleet. Each deployment belongs to a fleet and contains one or more `agent` blocks describing which agent type and version to deploy, and optionally which configuration version (from `FleetConfiguration`) to apply.
+        A fleet deployment defines the agent versions and configuration versions to roll out to a fleet. Each deployment belongs to a fleet and may contain zero or more `agent` blocks describing which agent type and version to deploy and which configuration version (from `FleetConfiguration`) to apply.
 
-        > **Note:** Deployments can only be updated while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `name`, `description`, `agent`, or `tags` will be **blocked at plan time** with an error. Run `terraform destroy` to remove the deployment from state and then re-create it with the desired configuration. If `terraform destroy` itself fails because the deployment is actively executing, the resource will be removed from Terraform state with a warning — once the deployment reaches a terminal phase (`COMPLETED` or `FAILED`) you can clean it up manually in the New Relic UI.
+        > **Note: Phase-gate immutability.** Deployments can only be modified while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `name`, `description`, `agent`, or `tags` is **blocked at plan time** with a clear error. The recommended recovery path is `terraform state rm <resource_address>` (or a `removed` block) to drop the executed deployment from Terraform state, then re-declare a fresh deployment with the desired configuration. `terraform destroy` works only if you have no pending changes to the deployment in your HCL — otherwise the same plan-time gate fires during the destroy plan.
 
         ## Example Usage
 
@@ -403,31 +423,14 @@ class FleetDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        infra = newrelic.FleetDeployment("infra",
-            fleet_id=prod["id"],
-            name="Production Infra Deployment",
-            description="Deploys NRInfra v1.58.0 to the production fleet",
-            agents=[{
-                "agent_type": "NRInfra",
-                "version": "1.58.0",
-            }])
-        ```
-
-        ### Deployment Linked to a Configuration Version
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
         infra_cfg = newrelic.FleetConfiguration("infra_cfg",
             name="Production Infra Config",
             agent_type="NRInfra",
             managed_entity_type="HOST",
-            versions=[{
-                "configuration_content": \"\"\"log:
+            operating_system="LINUX",
+            configuration_content=\"\"\"log:
           level: info
-        \"\"\",
-            }])
+        \"\"\")
         infra = newrelic.FleetDeployment("infra",
             fleet_id=prod["id"],
             name="Production Infra Deployment",
@@ -440,6 +443,8 @@ class FleetDeployment(pulumi.CustomResource):
         ```
 
         ### Multiple Agents
+
+        Each `agent_type` may appear at most once per deployment.
 
         ```python
         import pulumi
@@ -457,8 +462,42 @@ class FleetDeployment(pulumi.CustomResource):
                 {
                     "agent_type": "FluentBit",
                     "version": "3.2.0",
+                    "configuration_version_id": fb_cfg["latestVersionEntityId"],
                 },
             ])
+        ```
+
+        ### Zero-Agent Deployment
+
+        A deployment can be created or updated with zero `agent` blocks — for example, to drain all agent assignments from an existing deployment, or to seed a deployment record that will have agents added later (while still in `CREATED` phase).
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        drained = newrelic.FleetDeployment("drained",
+            fleet_id=prod["id"],
+            name="Drained deployment")
+        ```
+
+        ### Pinning to a Specific Configuration Version
+
+        By default, referencing `newrelic_fleet_configuration.<name>.latest_version_entity_id` ties the deployment to whichever version is current at plan time. Updating the configuration's `configuration_content` will change `latest_version_entity_id`, which in turn proposes an update to any deployment referencing it. If the deployment has already left `CREATED`, that update will be **blocked by the phase-gate** — see the note above.
+
+        For long-lived deployments that should remain stable, pin to a specific historical version instead:
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        pinned = newrelic.FleetDeployment("pinned",
+            fleet_id=prod["id"],
+            name="Stable v1 rollout",
+            agents=[{
+                "agent_type": "NRInfra",
+                "version": "1.58.0",
+                "configuration_version_id": infra_cfg["versionEntityIds"][0],
+            }])
         ```
 
         ### With Tags
@@ -473,6 +512,7 @@ class FleetDeployment(pulumi.CustomResource):
             agents=[{
                 "agent_type": "NRInfra",
                 "version": "1.58.0",
+                "configuration_version_id": infra_cfg["latestVersionEntityId"],
             }],
             tags=[
                 "environment:production",
@@ -554,11 +594,11 @@ class FleetDeployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetDeploymentAgentArgs', 'FleetDeploymentAgentArgsDict']]]] agents: One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetDeploymentAgentArgs', 'FleetDeploymentAgentArgsDict']]]] agents: Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         :param pulumi.Input[_builtins.str] deployment_id: The entity GUID of the deployment.
         :param pulumi.Input[_builtins.str] description: A description of the deployment.
         :param pulumi.Input[_builtins.str] fleet_id: The entity GUID of the fleet this deployment belongs to. **Cannot be changed after creation.**
-        :param pulumi.Input[_builtins.str] name: The name of the deployment.
+        :param pulumi.Input[_builtins.str] name: The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] phase: The current phase of the deployment. Possible values: `CREATED`, `IN_PROGRESS`, `FAILED`, `COMPLETED`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags in `key:value1,value2` format.
@@ -581,7 +621,7 @@ class FleetDeployment(pulumi.CustomResource):
     @pulumi.getter
     def agents(self) -> pulumi.Output[Optional[Sequence['outputs.FleetDeploymentAgent']]]:
         """
-        One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
+        Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agent_type` may appear at most once per deployment. See Nested `agent` blocks below.
         """
         return pulumi.get(self, "agents")
 
@@ -613,7 +653,7 @@ class FleetDeployment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the deployment.
+        The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         """
         return pulumi.get(self, "name")
 

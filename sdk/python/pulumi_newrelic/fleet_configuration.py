@@ -13,8 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['FleetConfigurationArgs', 'FleetConfiguration']
 
@@ -22,8 +20,8 @@ __all__ = ['FleetConfigurationArgs', 'FleetConfiguration']
 class FleetConfigurationArgs:
     def __init__(__self__, *,
                  agent_type: pulumi.Input[_builtins.str],
+                 configuration_content: pulumi.Input[_builtins.str],
                  managed_entity_type: pulumi.Input[_builtins.str],
-                 versions: pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]],
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -31,15 +29,15 @@ class FleetConfigurationArgs:
         The set of arguments for constructing a FleetConfiguration resource.
 
         :param pulumi.Input[_builtins.str] agent_type: The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
+        :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
-        :param pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]] versions: One or more version blocks. At least one is required. See Nested `version` blocks below.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration.
+        :param pulumi.Input[_builtins.str] name: The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         """
         pulumi.set(__self__, "agent_type", agent_type)
+        pulumi.set(__self__, "configuration_content", configuration_content)
         pulumi.set(__self__, "managed_entity_type", managed_entity_type)
-        pulumi.set(__self__, "versions", versions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if operating_system is not None:
@@ -60,6 +58,18 @@ class FleetConfigurationArgs:
         pulumi.set(self, "agent_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="configurationContent")
+    def configuration_content(self) -> pulumi.Input[_builtins.str]:
+        """
+        The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+        """
+        return pulumi.get(self, "configuration_content")
+
+    @configuration_content.setter
+    def configuration_content(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "configuration_content", value)
+
+    @_builtins.property
     @pulumi.getter(name="managedEntityType")
     def managed_entity_type(self) -> pulumi.Input[_builtins.str]:
         """
@@ -73,21 +83,9 @@ class FleetConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def versions(self) -> pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]:
-        """
-        One or more version blocks. At least one is required. See Nested `version` blocks below.
-        """
-        return pulumi.get(self, "versions")
-
-    @versions.setter
-    def versions(self, value: pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]):
-        pulumi.set(self, "versions", value)
-
-    @_builtins.property
-    @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the configuration.
+        The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         """
         return pulumi.get(self, "name")
 
@@ -124,6 +122,7 @@ class FleetConfigurationArgs:
 class _FleetConfigurationState:
     def __init__(__self__, *,
                  agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_content: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  latest_version_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
@@ -132,23 +131,26 @@ class _FleetConfigurationState:
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_id: pulumi.Input[Optional[_builtins.str]] = None,
                  total_versions: pulumi.Input[Optional[_builtins.int]] = None,
-                 versions: pulumi.Input[Optional[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]] = None):
+                 version_entity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FleetConfiguration resources.
 
         :param pulumi.Input[_builtins.str] agent_type: The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
+        :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
         :param pulumi.Input[_builtins.str] configuration_id: The entity GUID of the configuration.
         :param pulumi.Input[_builtins.str] latest_version_entity_id: The entity GUID of the highest-numbered version.
-        :param pulumi.Input[_builtins.int] latest_version_number: The highest version number across all versions.
+        :param pulumi.Input[_builtins.int] latest_version_number: The highest version number across all versions created so far.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
-        :param pulumi.Input[_builtins.str] name: The name of the configuration.
+        :param pulumi.Input[_builtins.str] name: The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.int] total_versions: Total number of versions currently in the configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]] versions: One or more version blocks. At least one is required. See Nested `version` blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] version_entity_ids: A list of entity GUIDs for all versions, sorted oldest-first. Use with the `FleetConfiguration` data source to retrieve the content of a specific historical version.
         """
         if agent_type is not None:
             pulumi.set(__self__, "agent_type", agent_type)
+        if configuration_content is not None:
+            pulumi.set(__self__, "configuration_content", configuration_content)
         if configuration_id is not None:
             pulumi.set(__self__, "configuration_id", configuration_id)
         if latest_version_entity_id is not None:
@@ -165,8 +167,8 @@ class _FleetConfigurationState:
             pulumi.set(__self__, "organization_id", organization_id)
         if total_versions is not None:
             pulumi.set(__self__, "total_versions", total_versions)
-        if versions is not None:
-            pulumi.set(__self__, "versions", versions)
+        if version_entity_ids is not None:
+            pulumi.set(__self__, "version_entity_ids", version_entity_ids)
 
     @_builtins.property
     @pulumi.getter(name="agentType")
@@ -179,6 +181,18 @@ class _FleetConfigurationState:
     @agent_type.setter
     def agent_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationContent")
+    def configuration_content(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+        """
+        return pulumi.get(self, "configuration_content")
+
+    @configuration_content.setter
+    def configuration_content(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_content", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationId")
@@ -208,7 +222,7 @@ class _FleetConfigurationState:
     @pulumi.getter(name="latestVersionNumber")
     def latest_version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The highest version number across all versions.
+        The highest version number across all versions created so far.
         """
         return pulumi.get(self, "latest_version_number")
 
@@ -232,7 +246,7 @@ class _FleetConfigurationState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the configuration.
+        The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         """
         return pulumi.get(self, "name")
 
@@ -277,16 +291,16 @@ class _FleetConfigurationState:
         pulumi.set(self, "total_versions", value)
 
     @_builtins.property
-    @pulumi.getter
-    def versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]]:
+    @pulumi.getter(name="versionEntityIds")
+    def version_entity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        One or more version blocks. At least one is required. See Nested `version` blocks below.
+        A list of entity GUIDs for all versions, sorted oldest-first. Use with the `FleetConfiguration` data source to retrieve the content of a specific historical version.
         """
-        return pulumi.get(self, "versions")
+        return pulumi.get(self, "version_entity_ids")
 
-    @versions.setter
-    def versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetConfigurationVersionArgs']]]]):
-        pulumi.set(self, "versions", value)
+    @version_entity_ids.setter
+    def version_entity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "version_entity_ids", value)
 
 
 @pulumi.type_token("newrelic:index/fleetConfiguration:FleetConfiguration")
@@ -296,16 +310,16 @@ class FleetConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_content: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None,
                  __props__=None):
         """
         Use this resource to create and manage New Relic fleet configurations for centralized agent management.
 
-        A fleet configuration defines versioned agent settings deployable to your fleets. Each configuration is specific to an agent type and managed entity type. Versions are immutable - their content cannot be modified after creation. To add a new configuration, add a `version` block; to remove one, delete its block.
+        A fleet configuration holds versioned agent settings. The configuration content is immutable — each change to `configuration_content` creates a new version on the API automatically, similar to how AWS launch templates work. The resource ID (the configuration entity GUID) never changes across updates. Use the `FleetConfiguration` data source to access the content of a specific historical version.
 
         ## Example Usage
 
@@ -319,44 +333,21 @@ class FleetConfiguration(pulumi.CustomResource):
             name="Production Infrastructure Config",
             agent_type="NRInfra",
             managed_entity_type="HOST",
-            versions=[{
-                "configuration_content": \"\"\"log:
+            operating_system="LINUX",
+            configuration_content=\"\"\"log:
           level: info
           file: /var/log/newrelic-infra/newrelic-infra.log
         metrics:
           enabled: true
           system_sample_rate: 15
-        \"\"\",
-            }])
+        \"\"\")
         ```
 
-        ### Version Immutability
+        ## Out-of-band drift warnings
 
-        Version content is **immutable** - the API does not support updating the content of an existing version. If you attempt to modify `configuration_content` of an already-applied `version` block, Terraform will catch this at plan time and surface an error before any API call is made:
+        If a version is deleted outside of Terraform (UI, API, or another tool), the next `plan` or `refresh` will surface a warning so you understand why state changed:
 
-        To update the configuration in use:
-        - **Add** a new `version` block with the updated content.
-        - **Remove** the old `version` block whose content you no longer need.
-
-        Terraform applies removals (API deletes) before creates, so if you add and remove a block in the same `apply`, the old version is deleted first and the new one is created after.
-
-        ### Unique Content Requirement
-
-        All `version` blocks within a resource must have distinct `configuration_content` values. Duplicate content is caught at plan time before any changes are applied:
-
-        This also applies to rollback scenarios. If you previously had versions A → B and want to roll back by reintroducing A's content as a new version, add a new `version` block with A's content rather than restoring an old block - the new version will get a new version number from the API.
-
-        ### Version Numbering
-
-        Version numbers are assigned sequentially by the API and are never reused or renumbered. When you remove a `version` block, the remaining versions keep their original numbers. For example, if you have versions 1, 2, and 3 and remove version 2, the configuration will have versions 1 and 3 - the API does not compact the sequence.
-
-        `latest_version_number` and `latest_version_entity_id` always reflect the highest-numbered version, regardless of how many versions exist.
-
-        ### Externally Deleted Versions
-
-        If a version is deleted outside of Terraform (for example, via the API or the New Relic UI), the next `pulumi preview` will show a warning for the affected version:
-
-        The warning indicates that Terraform will recreate the missing version on the next `apply`. If the deletion was intentional, remove the corresponding `version` block from your configuration before applying.
+        If the previously-tracked **latest** version was the one deleted, an additional, stronger warning fires explaining that `configuration_content` has been refreshed from the new latest version on the API. If your declared content differs from that new latest, the next `apply` will create a new version restoring your declared content — this is the expected, self-healing behavior.
 
         ## Import
 
@@ -367,17 +358,17 @@ class FleetConfiguration(pulumi.CustomResource):
         $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:KUBERNETESCLUSTER
         ```
 
-        The `managed_entity_type` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agent_type`, `operating_system`, `organization_id` — are resolved automatically from the API.
+        The `managed_entity_type` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agent_type`, `operating_system`, `organization_id`, `configuration_content` — are resolved automatically from the API.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_type: The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
+        :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
-        :param pulumi.Input[_builtins.str] name: The name of the configuration.
+        :param pulumi.Input[_builtins.str] name: The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]] versions: One or more version blocks. At least one is required. See Nested `version` blocks below.
         """
         ...
     @overload
@@ -388,7 +379,7 @@ class FleetConfiguration(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic fleet configurations for centralized agent management.
 
-        A fleet configuration defines versioned agent settings deployable to your fleets. Each configuration is specific to an agent type and managed entity type. Versions are immutable - their content cannot be modified after creation. To add a new configuration, add a `version` block; to remove one, delete its block.
+        A fleet configuration holds versioned agent settings. The configuration content is immutable — each change to `configuration_content` creates a new version on the API automatically, similar to how AWS launch templates work. The resource ID (the configuration entity GUID) never changes across updates. Use the `FleetConfiguration` data source to access the content of a specific historical version.
 
         ## Example Usage
 
@@ -402,44 +393,21 @@ class FleetConfiguration(pulumi.CustomResource):
             name="Production Infrastructure Config",
             agent_type="NRInfra",
             managed_entity_type="HOST",
-            versions=[{
-                "configuration_content": \"\"\"log:
+            operating_system="LINUX",
+            configuration_content=\"\"\"log:
           level: info
           file: /var/log/newrelic-infra/newrelic-infra.log
         metrics:
           enabled: true
           system_sample_rate: 15
-        \"\"\",
-            }])
+        \"\"\")
         ```
 
-        ### Version Immutability
+        ## Out-of-band drift warnings
 
-        Version content is **immutable** - the API does not support updating the content of an existing version. If you attempt to modify `configuration_content` of an already-applied `version` block, Terraform will catch this at plan time and surface an error before any API call is made:
+        If a version is deleted outside of Terraform (UI, API, or another tool), the next `plan` or `refresh` will surface a warning so you understand why state changed:
 
-        To update the configuration in use:
-        - **Add** a new `version` block with the updated content.
-        - **Remove** the old `version` block whose content you no longer need.
-
-        Terraform applies removals (API deletes) before creates, so if you add and remove a block in the same `apply`, the old version is deleted first and the new one is created after.
-
-        ### Unique Content Requirement
-
-        All `version` blocks within a resource must have distinct `configuration_content` values. Duplicate content is caught at plan time before any changes are applied:
-
-        This also applies to rollback scenarios. If you previously had versions A → B and want to roll back by reintroducing A's content as a new version, add a new `version` block with A's content rather than restoring an old block - the new version will get a new version number from the API.
-
-        ### Version Numbering
-
-        Version numbers are assigned sequentially by the API and are never reused or renumbered. When you remove a `version` block, the remaining versions keep their original numbers. For example, if you have versions 1, 2, and 3 and remove version 2, the configuration will have versions 1 and 3 - the API does not compact the sequence.
-
-        `latest_version_number` and `latest_version_entity_id` always reflect the highest-numbered version, regardless of how many versions exist.
-
-        ### Externally Deleted Versions
-
-        If a version is deleted outside of Terraform (for example, via the API or the New Relic UI), the next `pulumi preview` will show a warning for the affected version:
-
-        The warning indicates that Terraform will recreate the missing version on the next `apply`. If the deletion was intentional, remove the corresponding `version` block from your configuration before applying.
+        If the previously-tracked **latest** version was the one deleted, an additional, stronger warning fires explaining that `configuration_content` has been refreshed from the new latest version on the API. If your declared content differs from that new latest, the next `apply` will create a new version restoring your declared content — this is the expected, self-healing behavior.
 
         ## Import
 
@@ -450,7 +418,7 @@ class FleetConfiguration(pulumi.CustomResource):
         $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra <configuration_guid>:KUBERNETESCLUSTER
         ```
 
-        The `managed_entity_type` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agent_type`, `operating_system`, `organization_id` — are resolved automatically from the API.
+        The `managed_entity_type` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `name`, `agent_type`, `operating_system`, `organization_id`, `configuration_content` — are resolved automatically from the API.
 
 
         :param str resource_name: The name of the resource.
@@ -469,11 +437,11 @@ class FleetConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_content: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -486,19 +454,20 @@ class FleetConfiguration(pulumi.CustomResource):
             if agent_type is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_type'")
             __props__.__dict__["agent_type"] = agent_type
+            if configuration_content is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration_content'")
+            __props__.__dict__["configuration_content"] = configuration_content
             if managed_entity_type is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_entity_type'")
             __props__.__dict__["managed_entity_type"] = managed_entity_type
             __props__.__dict__["name"] = name
             __props__.__dict__["operating_system"] = operating_system
             __props__.__dict__["organization_id"] = organization_id
-            if versions is None and not opts.urn:
-                raise TypeError("Missing required property 'versions'")
-            __props__.__dict__["versions"] = versions
             __props__.__dict__["configuration_id"] = None
             __props__.__dict__["latest_version_entity_id"] = None
             __props__.__dict__["latest_version_number"] = None
             __props__.__dict__["total_versions"] = None
+            __props__.__dict__["version_entity_ids"] = None
         super(FleetConfiguration, __self__).__init__(
             'newrelic:index/fleetConfiguration:FleetConfiguration',
             resource_name,
@@ -510,6 +479,7 @@ class FleetConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_content: pulumi.Input[Optional[_builtins.str]] = None,
             configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
             latest_version_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
             latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
@@ -518,7 +488,7 @@ class FleetConfiguration(pulumi.CustomResource):
             operating_system: pulumi.Input[Optional[_builtins.str]] = None,
             organization_id: pulumi.Input[Optional[_builtins.str]] = None,
             total_versions: pulumi.Input[Optional[_builtins.int]] = None,
-            versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]]] = None) -> 'FleetConfiguration':
+            version_entity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'FleetConfiguration':
         """
         Get an existing FleetConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -527,21 +497,23 @@ class FleetConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_type: The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
+        :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
         :param pulumi.Input[_builtins.str] configuration_id: The entity GUID of the configuration.
         :param pulumi.Input[_builtins.str] latest_version_entity_id: The entity GUID of the highest-numbered version.
-        :param pulumi.Input[_builtins.int] latest_version_number: The highest version number across all versions.
+        :param pulumi.Input[_builtins.int] latest_version_number: The highest version number across all versions created so far.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
-        :param pulumi.Input[_builtins.str] name: The name of the configuration.
+        :param pulumi.Input[_builtins.str] name: The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.int] total_versions: Total number of versions currently in the configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetConfigurationVersionArgs', 'FleetConfigurationVersionArgsDict']]]] versions: One or more version blocks. At least one is required. See Nested `version` blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] version_entity_ids: A list of entity GUIDs for all versions, sorted oldest-first. Use with the `FleetConfiguration` data source to retrieve the content of a specific historical version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _FleetConfigurationState.__new__(_FleetConfigurationState)
 
         __props__.__dict__["agent_type"] = agent_type
+        __props__.__dict__["configuration_content"] = configuration_content
         __props__.__dict__["configuration_id"] = configuration_id
         __props__.__dict__["latest_version_entity_id"] = latest_version_entity_id
         __props__.__dict__["latest_version_number"] = latest_version_number
@@ -550,7 +522,7 @@ class FleetConfiguration(pulumi.CustomResource):
         __props__.__dict__["operating_system"] = operating_system
         __props__.__dict__["organization_id"] = organization_id
         __props__.__dict__["total_versions"] = total_versions
-        __props__.__dict__["versions"] = versions
+        __props__.__dict__["version_entity_ids"] = version_entity_ids
         return FleetConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -560,6 +532,14 @@ class FleetConfiguration(pulumi.CustomResource):
         The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
         """
         return pulumi.get(self, "agent_type")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationContent")
+    def configuration_content(self) -> pulumi.Output[_builtins.str]:
+        """
+        The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+        """
+        return pulumi.get(self, "configuration_content")
 
     @_builtins.property
     @pulumi.getter(name="configurationId")
@@ -581,7 +561,7 @@ class FleetConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="latestVersionNumber")
     def latest_version_number(self) -> pulumi.Output[_builtins.int]:
         """
-        The highest version number across all versions.
+        The highest version number across all versions created so far.
         """
         return pulumi.get(self, "latest_version_number")
 
@@ -597,7 +577,7 @@ class FleetConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the configuration.
+        The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         """
         return pulumi.get(self, "name")
 
@@ -626,10 +606,10 @@ class FleetConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "total_versions")
 
     @_builtins.property
-    @pulumi.getter
-    def versions(self) -> pulumi.Output[Sequence['outputs.FleetConfigurationVersion']]:
+    @pulumi.getter(name="versionEntityIds")
+    def version_entity_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        One or more version blocks. At least one is required. See Nested `version` blocks below.
+        A list of entity GUIDs for all versions, sorted oldest-first. Use with the `FleetConfiguration` data source to retrieve the content of a specific historical version.
         """
-        return pulumi.get(self, "versions")
+        return pulumi.get(self, "version_entity_ids")
 

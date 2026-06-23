@@ -31,7 +31,7 @@ class FleetArgs:
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this fleet will manage. Valid values are `HOST` or `KUBERNETESCLUSTER`. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] description: A description of the fleet. This can be updated after creation.
         :param pulumi.Input[_builtins.str] name: The name of the fleet. This can be changed after creation.
-        :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
         """
@@ -87,7 +87,7 @@ class FleetArgs:
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         """
         return pulumi.get(self, "operating_system")
 
@@ -135,7 +135,7 @@ class _FleetState:
         :param pulumi.Input[_builtins.str] description: A description of the fleet. This can be updated after creation.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this fleet will manage. Valid values are `HOST` or `KUBERNETESCLUSTER`. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] name: The name of the fleet. This can be changed after creation.
-        :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
         """
@@ -192,7 +192,7 @@ class _FleetState:
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         """
         return pulumi.get(self, "operating_system")
 
@@ -302,7 +302,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the fleet. This can be updated after creation.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this fleet will manage. Valid values are `HOST` or `KUBERNETESCLUSTER`. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] name: The name of the fleet. This can be changed after creation.
-        :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
         """
@@ -435,7 +435,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the fleet. This can be updated after creation.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this fleet will manage. Valid values are `HOST` or `KUBERNETESCLUSTER`. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] name: The name of the fleet. This can be changed after creation.
-        :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        :param pulumi.Input[_builtins.str] operating_system: The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. If not provided, it will be automatically fetched from your account. **Note**: This cannot be changed after creation (forces new resource).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the fleet. Each tag should be in the format `"key:value1,value2"` where multiple values can be comma-separated.
         """
@@ -479,7 +479,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        The operating system type for HOST fleets. **Required when `managed_entity_type` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         """
         return pulumi.get(self, "operating_system")
 

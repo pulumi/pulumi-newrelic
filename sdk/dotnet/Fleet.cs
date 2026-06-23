@@ -117,7 +117,7 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The operating system type for HOST fleets. **Required when `ManagedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `ManagedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        /// The operating system type for HOST fleets. **Required when `ManagedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `ManagedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         /// </summary>
         [Output("operatingSystem")]
         public Output<string?> OperatingSystem { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The operating system type for HOST fleets. **Required when `ManagedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `ManagedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        /// The operating system type for HOST fleets. **Required when `ManagedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `ManagedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The operating system type for HOST fleets. **Required when `ManagedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `ManagedEntityType` is `KUBERNETESCLUSTER`**. **Note**: This cannot be changed after creation (forces new resource).
+        /// The operating system type for HOST fleets. **Required when `ManagedEntityType` is `HOST`**. Valid values are `LINUX` or `WINDOWS`. **Must not be set when `ManagedEntityType` is `KUBERNETESCLUSTER`**. Both pairings are validated at plan time so misconfigurations surface before apply. **Note**: This cannot be changed after creation (forces new resource).
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }

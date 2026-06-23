@@ -12,41 +12,13 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage New Relic fleet deployments.
     /// 
-    /// A fleet deployment defines the agent versions and optional configuration versions to roll out to a fleet. Each deployment belongs to a fleet and contains one or more `Agent` blocks describing which agent type and version to deploy, and optionally which configuration version (from `newrelic.FleetConfiguration`) to apply.
+    /// A fleet deployment defines the agent versions and configuration versions to roll out to a fleet. Each deployment belongs to a fleet and may contain zero or more `Agent` blocks describing which agent type and version to deploy and which configuration version (from `newrelic.FleetConfiguration`) to apply.
     /// 
-    /// &gt; **Note:** Deployments can only be updated while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `Name`, `Description`, `Agent`, or `Tags` will be **blocked at plan time** with an error. Run `terraform destroy` to remove the deployment from state and then re-create it with the desired configuration. If `terraform destroy` itself fails because the deployment is actively executing, the resource will be removed from Terraform state with a warning — once the deployment reaches a terminal phase (`COMPLETED` or `FAILED`) you can clean it up manually in the New Relic UI.
+    /// &gt; **Note: Phase-gate immutability.** Deployments can only be modified while in the `CREATED` phase. Once the fleet backend begins executing the deployment (phase advances to `IN_PROGRESS`, `FAILED`, or `COMPLETED`), any attempt to change `Name`, `Description`, `Agent`, or `Tags` is **blocked at plan time** with a clear error. The recommended recovery path is `terraform state rm &lt;resource_address&gt;` (or a `Removed` block) to drop the executed deployment from Terraform state, then re-declare a fresh deployment with the desired configuration. `terraform destroy` works only if you have no pending changes to the deployment in your HCL — otherwise the same plan-time gate fires during the destroy plan.
     /// 
     /// ## Example Usage
     /// 
     /// ### Basic Deployment
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var infra = new NewRelic.FleetDeployment("infra", new()
-    ///     {
-    ///         FleetId = prod.Id,
-    ///         Name = "Production Infra Deployment",
-    ///         Description = "Deploys NRInfra v1.58.0 to the production fleet",
-    ///         Agents = new[]
-    ///         {
-    ///             new NewRelic.Inputs.FleetDeploymentAgentArgs
-    ///             {
-    ///                 AgentType = "NRInfra",
-    ///                 Version = "1.58.0",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Deployment Linked to a Configuration Version
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -61,15 +33,10 @@ namespace Pulumi.NewRelic
     ///         Name = "Production Infra Config",
     ///         AgentType = "NRInfra",
     ///         ManagedEntityType = "HOST",
-    ///         Versions = new[]
-    ///         {
-    ///             new NewRelic.Inputs.FleetConfigurationVersionArgs
-    ///             {
-    ///                 ConfigurationContent = @"log:
+    ///         OperatingSystem = "LINUX",
+    ///         ConfigurationContent = @"log:
     ///   level: info
     /// ",
-    ///             },
-    ///         },
     ///     });
     /// 
     ///     var infra = new NewRelic.FleetDeployment("infra", new()
@@ -92,6 +59,8 @@ namespace Pulumi.NewRelic
     /// ```
     /// 
     /// ### Multiple Agents
+    /// 
+    /// Each `AgentType` may appear at most once per deployment.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -117,6 +86,60 @@ namespace Pulumi.NewRelic
     ///             {
     ///                 AgentType = "FluentBit",
     ///                 Version = "3.2.0",
+    ///                 ConfigurationVersionId = fbCfg.LatestVersionEntityId,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Zero-Agent Deployment
+    /// 
+    /// A deployment can be created or updated with zero `Agent` blocks — for example, to drain all agent assignments from an existing deployment, or to seed a deployment record that will have agents added later (while still in `CREATED` phase).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var drained = new NewRelic.FleetDeployment("drained", new()
+    ///     {
+    ///         FleetId = prod.Id,
+    ///         Name = "Drained deployment",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Pinning to a Specific Configuration Version
+    /// 
+    /// By default, referencing `newrelic_fleet_configuration.&lt;name&gt;.latest_version_entity_id` ties the deployment to whichever version is current at plan time. Updating the configuration's `ConfigurationContent` will change `LatestVersionEntityId`, which in turn proposes an update to any deployment referencing it. If the deployment has already left `CREATED`, that update will be **blocked by the phase-gate** — see the note above.
+    /// 
+    /// For long-lived deployments that should remain stable, pin to a specific historical version instead:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pinned = new NewRelic.FleetDeployment("pinned", new()
+    ///     {
+    ///         FleetId = prod.Id,
+    ///         Name = "Stable v1 rollout",
+    ///         Agents = new[]
+    ///         {
+    ///             new NewRelic.Inputs.FleetDeploymentAgentArgs
+    ///             {
+    ///                 AgentType = "NRInfra",
+    ///                 Version = "1.58.0",
+    ///                 ConfigurationVersionId = infraCfg.VersionEntityIds[0],
     ///             },
     ///         },
     ///     });
@@ -144,6 +167,7 @@ namespace Pulumi.NewRelic
     ///             {
     ///                 AgentType = "NRInfra",
     ///                 Version = "1.58.0",
+    ///                 ConfigurationVersionId = infraCfg.LatestVersionEntityId,
     ///             },
     ///         },
     ///         Tags = new[]
@@ -168,7 +192,7 @@ namespace Pulumi.NewRelic
     public partial class FleetDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
+        /// Zero or more `Agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
         /// </summary>
         [Output("agents")]
         public Output<ImmutableArray<Outputs.FleetDeploymentAgent>> Agents { get; private set; } = null!;
@@ -192,7 +216,7 @@ namespace Pulumi.NewRelic
         public Output<string> FleetId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the deployment.
+        /// The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -265,7 +289,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.FleetDeploymentAgentArgs>? _agents;
 
         /// <summary>
-        /// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
+        /// Zero or more `Agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
         /// </summary>
         public InputList<Inputs.FleetDeploymentAgentArgs> Agents
         {
@@ -286,7 +310,7 @@ namespace Pulumi.NewRelic
         public Input<string> FleetId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the deployment.
+        /// The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -321,7 +345,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.FleetDeploymentAgentGetArgs>? _agents;
 
         /// <summary>
-        /// One or more agent blocks. At least one is required when creating a deployment. On update, the list may be set to empty (`agent = []`) to uninstall all agent assignments from the deployment. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
+        /// Zero or more `Agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `AgentType` may appear at most once per deployment. See Nested `Agent` blocks below.
         /// </summary>
         public InputList<Inputs.FleetDeploymentAgentGetArgs> Agents
         {
@@ -348,7 +372,7 @@ namespace Pulumi.NewRelic
         public Input<string>? FleetId { get; set; }
 
         /// <summary>
-        /// The name of the deployment.
+        /// The name of the deployment. Updatable while the deployment is in `CREATED` phase.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

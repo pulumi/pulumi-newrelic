@@ -12,7 +12,7 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage New Relic fleet configurations for centralized agent management.
     /// 
-    /// A fleet configuration defines versioned agent settings deployable to your fleets. Each configuration is specific to an agent type and managed entity type. Versions are immutable - their content cannot be modified after creation. To add a new configuration, add a `Version` block; to remove one, delete its block.
+    /// A fleet configuration holds versioned agent settings. The configuration content is immutable — each change to `ConfigurationContent` creates a new version on the API automatically, similar to how AWS launch templates work. The resource ID (the configuration entity GUID) never changes across updates. Use the `newrelic.FleetConfiguration` data source to access the content of a specific historical version.
     /// 
     /// ## Example Usage
     /// 
@@ -31,51 +31,24 @@ namespace Pulumi.NewRelic
     ///         Name = "Production Infrastructure Config",
     ///         AgentType = "NRInfra",
     ///         ManagedEntityType = "HOST",
-    ///         Versions = new[]
-    ///         {
-    ///             new NewRelic.Inputs.FleetConfigurationVersionArgs
-    ///             {
-    ///                 ConfigurationContent = @"log:
+    ///         OperatingSystem = "LINUX",
+    ///         ConfigurationContent = @"log:
     ///   level: info
     ///   file: /var/log/newrelic-infra/newrelic-infra.log
     /// metrics:
     ///   enabled: true
     ///   system_sample_rate: 15
     /// ",
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ### Version Immutability
+    /// ## Out-of-band drift warnings
     /// 
-    /// Version content is **immutable** - the API does not support updating the content of an existing version. If you attempt to modify `ConfigurationContent` of an already-applied `Version` block, Terraform will catch this at plan time and surface an error before any API call is made:
+    /// If a version is deleted outside of Terraform (UI, API, or another tool), the next `Plan` or `Refresh` will surface a warning so you understand why state changed:
     /// 
-    /// To update the configuration in use:
-    /// - **Add** a new `Version` block with the updated content.
-    /// - **Remove** the old `Version` block whose content you no longer need.
-    /// 
-    /// Terraform applies removals (API deletes) before creates, so if you add and remove a block in the same `Apply`, the old version is deleted first and the new one is created after.
-    /// 
-    /// ### Unique Content Requirement
-    /// 
-    /// All `Version` blocks within a resource must have distinct `ConfigurationContent` values. Duplicate content is caught at plan time before any changes are applied:
-    /// 
-    /// This also applies to rollback scenarios. If you previously had versions A → B and want to roll back by reintroducing A's content as a new version, add a new `Version` block with A's content rather than restoring an old block - the new version will get a new version number from the API.
-    /// 
-    /// ### Version Numbering
-    /// 
-    /// Version numbers are assigned sequentially by the API and are never reused or renumbered. When you remove a `Version` block, the remaining versions keep their original numbers. For example, if you have versions 1, 2, and 3 and remove version 2, the configuration will have versions 1 and 3 - the API does not compact the sequence.
-    /// 
-    /// `LatestVersionNumber` and `LatestVersionEntityId` always reflect the highest-numbered version, regardless of how many versions exist.
-    /// 
-    /// ### Externally Deleted Versions
-    /// 
-    /// If a version is deleted outside of Terraform (for example, via the API or the New Relic UI), the next `pulumi preview` will show a warning for the affected version:
-    /// 
-    /// The warning indicates that Terraform will recreate the missing version on the next `Apply`. If the deletion was intentional, remove the corresponding `Version` block from your configuration before applying.
+    /// If the previously-tracked **latest** version was the one deleted, an additional, stronger warning fires explaining that `ConfigurationContent` has been refreshed from the new latest version on the API. If your declared content differs from that new latest, the next `Apply` will create a new version restoring your declared content — this is the expected, self-healing behavior.
     /// 
     /// ## Import
     /// 
@@ -86,7 +59,7 @@ namespace Pulumi.NewRelic
     /// $ pulumi import newrelic:index/fleetConfiguration:FleetConfiguration infra &lt;configuration_guid&gt;:KUBERNETESCLUSTER
     /// ```
     /// 
-    /// The `ManagedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `Name`, `AgentType`, `OperatingSystem`, `OrganizationId` — are resolved automatically from the API.
+    /// The `ManagedEntityType` portion is required because the New Relic API does not return it via the entity lookup query (a GraphQL schema constraint). All other attributes — `Name`, `AgentType`, `OperatingSystem`, `OrganizationId`, `ConfigurationContent` — are resolved automatically from the API.
     /// </summary>
     [NewRelicResourceType("newrelic:index/fleetConfiguration:FleetConfiguration")]
     public partial class FleetConfiguration : global::Pulumi.CustomResource
@@ -96,6 +69,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("agentType")]
         public Output<string> AgentType { get; private set; } = null!;
+
+        /// <summary>
+        /// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+        /// </summary>
+        [Output("configurationContent")]
+        public Output<string> ConfigurationContent { get; private set; } = null!;
 
         /// <summary>
         /// The entity GUID of the configuration.
@@ -110,7 +89,7 @@ namespace Pulumi.NewRelic
         public Output<string> LatestVersionEntityId { get; private set; } = null!;
 
         /// <summary>
-        /// The highest version number across all versions.
+        /// The highest version number across all versions created so far.
         /// </summary>
         [Output("latestVersionNumber")]
         public Output<int> LatestVersionNumber { get; private set; } = null!;
@@ -122,7 +101,7 @@ namespace Pulumi.NewRelic
         public Output<string> ManagedEntityType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the configuration.
+        /// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -146,10 +125,10 @@ namespace Pulumi.NewRelic
         public Output<int> TotalVersions { get; private set; } = null!;
 
         /// <summary>
-        /// One or more version blocks. At least one is required. See Nested `Version` blocks below.
+        /// A list of entity GUIDs for all versions, sorted oldest-first. Use with the `newrelic.FleetConfiguration` data source to retrieve the content of a specific historical version.
         /// </summary>
-        [Output("versions")]
-        public Output<ImmutableArray<Outputs.FleetConfigurationVersion>> Versions { get; private set; } = null!;
+        [Output("versionEntityIds")]
+        public Output<ImmutableArray<string>> VersionEntityIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -204,13 +183,19 @@ namespace Pulumi.NewRelic
         public Input<string> AgentType { get; set; } = null!;
 
         /// <summary>
+        /// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+        /// </summary>
+        [Input("configurationContent", required: true)]
+        public Input<string> ConfigurationContent { get; set; } = null!;
+
+        /// <summary>
         /// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         /// </summary>
         [Input("managedEntityType", required: true)]
         public Input<string> ManagedEntityType { get; set; } = null!;
 
         /// <summary>
-        /// The name of the configuration.
+        /// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -227,18 +212,6 @@ namespace Pulumi.NewRelic
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
 
-        [Input("versions", required: true)]
-        private InputList<Inputs.FleetConfigurationVersionArgs>? _versions;
-
-        /// <summary>
-        /// One or more version blocks. At least one is required. See Nested `Version` blocks below.
-        /// </summary>
-        public InputList<Inputs.FleetConfigurationVersionArgs> Versions
-        {
-            get => _versions ?? (_versions = new InputList<Inputs.FleetConfigurationVersionArgs>());
-            set => _versions = value;
-        }
-
         public FleetConfigurationArgs()
         {
         }
@@ -254,6 +227,12 @@ namespace Pulumi.NewRelic
         public Input<string>? AgentType { get; set; }
 
         /// <summary>
+        /// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+        /// </summary>
+        [Input("configurationContent")]
+        public Input<string>? ConfigurationContent { get; set; }
+
+        /// <summary>
         /// The entity GUID of the configuration.
         /// </summary>
         [Input("configurationId")]
@@ -266,7 +245,7 @@ namespace Pulumi.NewRelic
         public Input<string>? LatestVersionEntityId { get; set; }
 
         /// <summary>
-        /// The highest version number across all versions.
+        /// The highest version number across all versions created so far.
         /// </summary>
         [Input("latestVersionNumber")]
         public Input<int>? LatestVersionNumber { get; set; }
@@ -278,7 +257,7 @@ namespace Pulumi.NewRelic
         public Input<string>? ManagedEntityType { get; set; }
 
         /// <summary>
-        /// The name of the configuration.
+        /// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -301,16 +280,16 @@ namespace Pulumi.NewRelic
         [Input("totalVersions")]
         public Input<int>? TotalVersions { get; set; }
 
-        [Input("versions")]
-        private InputList<Inputs.FleetConfigurationVersionGetArgs>? _versions;
+        [Input("versionEntityIds")]
+        private InputList<string>? _versionEntityIds;
 
         /// <summary>
-        /// One or more version blocks. At least one is required. See Nested `Version` blocks below.
+        /// A list of entity GUIDs for all versions, sorted oldest-first. Use with the `newrelic.FleetConfiguration` data source to retrieve the content of a specific historical version.
         /// </summary>
-        public InputList<Inputs.FleetConfigurationVersionGetArgs> Versions
+        public InputList<string> VersionEntityIds
         {
-            get => _versions ?? (_versions = new InputList<Inputs.FleetConfigurationVersionGetArgs>());
-            set => _versions = value;
+            get => _versionEntityIds ?? (_versionEntityIds = new InputList<string>());
+            set => _versionEntityIds = value;
         }
 
         public FleetConfigurationState()
