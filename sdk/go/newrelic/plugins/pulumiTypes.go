@@ -517,6 +517,112 @@ func (o ApplicationSettingsTransactionTracerSqlPtrOutput) RecordSql() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkloadDynamicFlow struct {
+	// The unique entity identifier of the dynamic flow entry.
+	EntityGuid string `pulumi:"entityGuid"`
+	// The transaction name associated with the dynamic flow entry.
+	TransactionName string `pulumi:"transactionName"`
+}
+
+// WorkloadDynamicFlowInput is an input type that accepts WorkloadDynamicFlowArgs and WorkloadDynamicFlowOutput values.
+// You can construct a concrete instance of `WorkloadDynamicFlowInput` via:
+//
+//	WorkloadDynamicFlowArgs{...}
+type WorkloadDynamicFlowInput interface {
+	pulumi.Input
+
+	ToWorkloadDynamicFlowOutput() WorkloadDynamicFlowOutput
+	ToWorkloadDynamicFlowOutputWithContext(context.Context) WorkloadDynamicFlowOutput
+}
+
+type WorkloadDynamicFlowArgs struct {
+	// The unique entity identifier of the dynamic flow entry.
+	EntityGuid pulumi.StringInput `pulumi:"entityGuid"`
+	// The transaction name associated with the dynamic flow entry.
+	TransactionName pulumi.StringInput `pulumi:"transactionName"`
+}
+
+func (WorkloadDynamicFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadDynamicFlow)(nil)).Elem()
+}
+
+func (i WorkloadDynamicFlowArgs) ToWorkloadDynamicFlowOutput() WorkloadDynamicFlowOutput {
+	return i.ToWorkloadDynamicFlowOutputWithContext(context.Background())
+}
+
+func (i WorkloadDynamicFlowArgs) ToWorkloadDynamicFlowOutputWithContext(ctx context.Context) WorkloadDynamicFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadDynamicFlowOutput)
+}
+
+// WorkloadDynamicFlowArrayInput is an input type that accepts WorkloadDynamicFlowArray and WorkloadDynamicFlowArrayOutput values.
+// You can construct a concrete instance of `WorkloadDynamicFlowArrayInput` via:
+//
+//	WorkloadDynamicFlowArray{ WorkloadDynamicFlowArgs{...} }
+type WorkloadDynamicFlowArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadDynamicFlowArrayOutput() WorkloadDynamicFlowArrayOutput
+	ToWorkloadDynamicFlowArrayOutputWithContext(context.Context) WorkloadDynamicFlowArrayOutput
+}
+
+type WorkloadDynamicFlowArray []WorkloadDynamicFlowInput
+
+func (WorkloadDynamicFlowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadDynamicFlow)(nil)).Elem()
+}
+
+func (i WorkloadDynamicFlowArray) ToWorkloadDynamicFlowArrayOutput() WorkloadDynamicFlowArrayOutput {
+	return i.ToWorkloadDynamicFlowArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadDynamicFlowArray) ToWorkloadDynamicFlowArrayOutputWithContext(ctx context.Context) WorkloadDynamicFlowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadDynamicFlowArrayOutput)
+}
+
+type WorkloadDynamicFlowOutput struct{ *pulumi.OutputState }
+
+func (WorkloadDynamicFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadDynamicFlow)(nil)).Elem()
+}
+
+func (o WorkloadDynamicFlowOutput) ToWorkloadDynamicFlowOutput() WorkloadDynamicFlowOutput {
+	return o
+}
+
+func (o WorkloadDynamicFlowOutput) ToWorkloadDynamicFlowOutputWithContext(ctx context.Context) WorkloadDynamicFlowOutput {
+	return o
+}
+
+// The unique entity identifier of the dynamic flow entry.
+func (o WorkloadDynamicFlowOutput) EntityGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadDynamicFlow) string { return v.EntityGuid }).(pulumi.StringOutput)
+}
+
+// The transaction name associated with the dynamic flow entry.
+func (o WorkloadDynamicFlowOutput) TransactionName() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadDynamicFlow) string { return v.TransactionName }).(pulumi.StringOutput)
+}
+
+type WorkloadDynamicFlowArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadDynamicFlowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadDynamicFlow)(nil)).Elem()
+}
+
+func (o WorkloadDynamicFlowArrayOutput) ToWorkloadDynamicFlowArrayOutput() WorkloadDynamicFlowArrayOutput {
+	return o
+}
+
+func (o WorkloadDynamicFlowArrayOutput) ToWorkloadDynamicFlowArrayOutputWithContext(ctx context.Context) WorkloadDynamicFlowArrayOutput {
+	return o
+}
+
+func (o WorkloadDynamicFlowArrayOutput) Index(i pulumi.IntInput) WorkloadDynamicFlowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadDynamicFlow {
+		return vs[0].([]WorkloadDynamicFlow)[vs[1].(int)]
+	}).(WorkloadDynamicFlowOutput)
+}
+
 type WorkloadEntitySearchQuery struct {
 	// A valid entity search query; empty, and null values are considered invalid.
 	Query string `pulumi:"query"`
@@ -612,6 +718,143 @@ func (o WorkloadEntitySearchQueryArrayOutput) Index(i pulumi.IntInput) WorkloadE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadEntitySearchQuery {
 		return vs[0].([]WorkloadEntitySearchQuery)[vs[1].(int)]
 	}).(WorkloadEntitySearchQueryOutput)
+}
+
+type WorkloadStatusConfigAlertPolicy struct {
+	// Whether the alert policy status configuration is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// WorkloadStatusConfigAlertPolicyInput is an input type that accepts WorkloadStatusConfigAlertPolicyArgs and WorkloadStatusConfigAlertPolicyOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAlertPolicyInput` via:
+//
+//	WorkloadStatusConfigAlertPolicyArgs{...}
+type WorkloadStatusConfigAlertPolicyInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAlertPolicyOutput() WorkloadStatusConfigAlertPolicyOutput
+	ToWorkloadStatusConfigAlertPolicyOutputWithContext(context.Context) WorkloadStatusConfigAlertPolicyOutput
+}
+
+type WorkloadStatusConfigAlertPolicyArgs struct {
+	// Whether the alert policy status configuration is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (WorkloadStatusConfigAlertPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAlertPolicy)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigAlertPolicyArgs) ToWorkloadStatusConfigAlertPolicyOutput() WorkloadStatusConfigAlertPolicyOutput {
+	return i.ToWorkloadStatusConfigAlertPolicyOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAlertPolicyArgs) ToWorkloadStatusConfigAlertPolicyOutputWithContext(ctx context.Context) WorkloadStatusConfigAlertPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAlertPolicyOutput)
+}
+
+func (i WorkloadStatusConfigAlertPolicyArgs) ToWorkloadStatusConfigAlertPolicyPtrOutput() WorkloadStatusConfigAlertPolicyPtrOutput {
+	return i.ToWorkloadStatusConfigAlertPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAlertPolicyArgs) ToWorkloadStatusConfigAlertPolicyPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAlertPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAlertPolicyOutput).ToWorkloadStatusConfigAlertPolicyPtrOutputWithContext(ctx)
+}
+
+// WorkloadStatusConfigAlertPolicyPtrInput is an input type that accepts WorkloadStatusConfigAlertPolicyArgs, WorkloadStatusConfigAlertPolicyPtr and WorkloadStatusConfigAlertPolicyPtrOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAlertPolicyPtrInput` via:
+//
+//	        WorkloadStatusConfigAlertPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadStatusConfigAlertPolicyPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAlertPolicyPtrOutput() WorkloadStatusConfigAlertPolicyPtrOutput
+	ToWorkloadStatusConfigAlertPolicyPtrOutputWithContext(context.Context) WorkloadStatusConfigAlertPolicyPtrOutput
+}
+
+type workloadStatusConfigAlertPolicyPtrType WorkloadStatusConfigAlertPolicyArgs
+
+func WorkloadStatusConfigAlertPolicyPtr(v *WorkloadStatusConfigAlertPolicyArgs) WorkloadStatusConfigAlertPolicyPtrInput {
+	return (*workloadStatusConfigAlertPolicyPtrType)(v)
+}
+
+func (*workloadStatusConfigAlertPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigAlertPolicy)(nil)).Elem()
+}
+
+func (i *workloadStatusConfigAlertPolicyPtrType) ToWorkloadStatusConfigAlertPolicyPtrOutput() WorkloadStatusConfigAlertPolicyPtrOutput {
+	return i.ToWorkloadStatusConfigAlertPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadStatusConfigAlertPolicyPtrType) ToWorkloadStatusConfigAlertPolicyPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAlertPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAlertPolicyPtrOutput)
+}
+
+type WorkloadStatusConfigAlertPolicyOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAlertPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAlertPolicy)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAlertPolicyOutput) ToWorkloadStatusConfigAlertPolicyOutput() WorkloadStatusConfigAlertPolicyOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAlertPolicyOutput) ToWorkloadStatusConfigAlertPolicyOutputWithContext(ctx context.Context) WorkloadStatusConfigAlertPolicyOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAlertPolicyOutput) ToWorkloadStatusConfigAlertPolicyPtrOutput() WorkloadStatusConfigAlertPolicyPtrOutput {
+	return o.ToWorkloadStatusConfigAlertPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadStatusConfigAlertPolicyOutput) ToWorkloadStatusConfigAlertPolicyPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAlertPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadStatusConfigAlertPolicy) *WorkloadStatusConfigAlertPolicy {
+		return &v
+	}).(WorkloadStatusConfigAlertPolicyPtrOutput)
+}
+
+// Whether the alert policy status configuration is enabled or not.
+func (o WorkloadStatusConfigAlertPolicyOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAlertPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type WorkloadStatusConfigAlertPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAlertPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigAlertPolicy)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAlertPolicyPtrOutput) ToWorkloadStatusConfigAlertPolicyPtrOutput() WorkloadStatusConfigAlertPolicyPtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAlertPolicyPtrOutput) ToWorkloadStatusConfigAlertPolicyPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAlertPolicyPtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAlertPolicyPtrOutput) Elem() WorkloadStatusConfigAlertPolicyOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAlertPolicy) WorkloadStatusConfigAlertPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadStatusConfigAlertPolicy
+		return ret
+	}).(WorkloadStatusConfigAlertPolicyOutput)
+}
+
+// Whether the alert policy status configuration is enabled or not.
+func (o WorkloadStatusConfigAlertPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAlertPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type WorkloadStatusConfigAutomatic struct {
@@ -1619,8 +1862,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsTransactionTracerExplainQueryPlanArrayInput)(nil)).Elem(), ApplicationSettingsTransactionTracerExplainQueryPlanArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsTransactionTracerSqlInput)(nil)).Elem(), ApplicationSettingsTransactionTracerSqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsTransactionTracerSqlPtrInput)(nil)).Elem(), ApplicationSettingsTransactionTracerSqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDynamicFlowInput)(nil)).Elem(), WorkloadDynamicFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDynamicFlowArrayInput)(nil)).Elem(), WorkloadDynamicFlowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEntitySearchQueryInput)(nil)).Elem(), WorkloadEntitySearchQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEntitySearchQueryArrayInput)(nil)).Elem(), WorkloadEntitySearchQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAlertPolicyInput)(nil)).Elem(), WorkloadStatusConfigAlertPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAlertPolicyPtrInput)(nil)).Elem(), WorkloadStatusConfigAlertPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticInput)(nil)).Elem(), WorkloadStatusConfigAutomaticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticPtrInput)(nil)).Elem(), WorkloadStatusConfigAutomaticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRemainingEntitiesRuleInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs{})
@@ -1642,8 +1889,12 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsTransactionTracerSqlOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsTransactionTracerSqlPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadDynamicFlowOutput{})
+	pulumi.RegisterOutputType(WorkloadDynamicFlowArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadEntitySearchQueryOutput{})
 	pulumi.RegisterOutputType(WorkloadEntitySearchQueryArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAlertPolicyOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAlertPolicyPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticOutput{})
 	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput{})

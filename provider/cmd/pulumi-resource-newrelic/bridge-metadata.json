@@ -2899,6 +2899,9 @@
                 "current": "newrelic:plugins/workload:Workload",
                 "majorVersion": 5,
                 "fields": {
+                    "dynamic_flows": {
+                        "maxItemsOne": false
+                    },
                     "entity_guids": {
                         "maxItemsOne": false
                     },
@@ -2907,6 +2910,9 @@
                     },
                     "scope_account_ids": {
                         "maxItemsOne": false
+                    },
+                    "status_config_alert_policy": {
+                        "maxItemsOne": true
                     },
                     "status_config_automatic": {
                         "maxItemsOne": true,

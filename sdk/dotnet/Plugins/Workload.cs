@@ -12,11 +12,20 @@ namespace Pulumi.NewRelic.Plugins
     /// <summary>
     /// Use this resource to create, update, and delete a New Relic One workload.
     /// 
-    /// A New Relic User API key is required to provision this resource.  Set the `ApiKey`
+    /// Workloads let you group related entities — services, hosts, databases, browser apps, and more — into a single operational view to monitor health and triage incidents across a business domain.
+    /// 
+    /// This resource supports two workload modes:
+    /// 
+    /// - **Standard workload** — define membership using entity GUIDs (`EntityGuids`) and/or dynamic search queries (`EntitySearchQuery`). Membership updates automatically as query results change. Cannot be used together with `DynamicFlows`.
+    /// - **Intelligent workload** — use `DynamicFlows` to anchor the workload to a transaction entry point. If it is set alongside `EntityGuids` or `EntitySearchQuery`, `DynamicFlows` takes precedence and an intelligent workload is created. New Relic auto-discovers and refreshes related entities every five minutes using Transaction 360 distributed tracing data. Supports `StatusConfigAlertPolicy` in addition to the standard `StatusConfigAutomatic` and `StatusConfigStatic` options.
+    /// 
+    /// A New Relic User API key is required to provision this resource. Set the `ApiKey`
     /// attribute in the `Provider` block or the `NEW_RELIC_API_KEY` environment
     /// variable with your User API key.
     /// 
     /// ## Example Usage
+    /// 
+    /// **Standard Workload**
     /// 
     /// Include entities with a certain string on the name.
     /// ```csharp
@@ -40,39 +49,6 @@ namespace Pulumi.NewRelic.Plugins
     ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
     ///             {
     ///                 Query = "name like '%Example application%'",
-    ///             },
-    ///         },
-    ///         ScopeAccountIds = new[]
-    ///         {
-    ///             "12345678",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Include entities with a set of tags.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
-    ///     {
-    ///         Name = "Example workload with tags",
-    ///         AccountId = "12345678",
-    ///         EntityGuids = new[]
-    ///         {
-    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
-    ///         },
-    ///         EntitySearchQueries = new[]
-    ///         {
-    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
-    ///             {
-    ///                 Query = "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
     ///             },
     ///         },
     ///         ScopeAccountIds = new[]
@@ -235,6 +211,103 @@ namespace Pulumi.NewRelic.Plugins
     /// });
     /// ```
     /// 
+    /// **Intelligent Workload**
+    /// 
+    /// &gt; An intelligent workload uses `DynamicFlows` to anchor the workload to a transaction entry point. New Relic automatically discovers and refreshes the related entities using Transaction 360 distributed tracing data — no manual entity selection required. If it is set alongside `EntityGuids` or `EntitySearchQuery`, `DynamicFlows` takes precedence and an intelligent workload is created. The `StatusConfigAlertPolicy` block derives workload health from the alert state of its entities and requires `DynamicFlows` to be set; `StatusConfigAutomatic` and `StatusConfigStatic` remain available. [See our docs](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/workloads/create-intelligent-workload/)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var intelligent = new NewRelic.Plugins.Workload("intelligent", new()
+    ///     {
+    ///         Name = "Example intelligent workload",
+    ///         AccountId = "12345678",
+    ///         DynamicFlows = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadDynamicFlowArgs
+    ///             {
+    ///                 EntityGuid = "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///                 TransactionName = "WebTransaction/Action/index",
+    ///             },
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             "12345678",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// **Intelligent Workload with Alert Condition**
+    /// 
+    /// &gt; **BETA PREVIEW:** `TargetEntity` in `newrelic.NrqlAlertCondition` is in limited release and only enabled for preview on a per-account basis. Once an intelligent workload is created with `StatusConfigAlertPolicy` enabled, alert conditions can be attached by referencing the workload's `Guid` (available post-apply as `newrelic_workload.&lt;resource_label&gt;.guid`) as `TargetEntity`. The workload health is then derived from the alert states of those conditions.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var intelligent = new NewRelic.Plugins.Workload("intelligent", new()
+    ///     {
+    ///         Name = "Example intelligent workload",
+    ///         AccountId = "12345678",
+    ///         DynamicFlows = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadDynamicFlowArgs
+    ///             {
+    ///                 EntityGuid = "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///                 TransactionName = "WebTransaction/Action/index",
+    ///             },
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             "12345678",
+    ///         },
+    ///         StatusConfigAlertPolicy = new NewRelic.Plugins.Inputs.WorkloadStatusConfigAlertPolicyArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo",
+    ///     });
+    /// 
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         PolicyId = foo.Id,
+    ///         Type = "static",
+    ///         Name = "foo",
+    ///         Enabled = true,
+    ///         ViolationTimeLimitSeconds = 3600,
+    ///         TargetEntity = intelligent.Guid,
+    ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+    ///         {
+    ///             Query = "SELECT count(*) FROM Transaction WHERE appName = 'Your App'",
+    ///         },
+    ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
+    ///         {
+    ///             Operator = "above",
+    ///             Threshold = 5.5,
+    ///             ThresholdDuration = 300,
+    ///             ThresholdOccurrences = "ALL",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// New Relic workloads can be imported using a concatenated string of the format
@@ -266,13 +339,19 @@ namespace Pulumi.NewRelic.Plugins
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required.
+        /// A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `EntityGuids` or `EntitySearchQuery`, `DynamicFlows` takes precedence and an intelligent workload is created. At least one of `EntityGuids`, `EntitySearchQuery`, or `DynamicFlows` must be specified. See Nested DynamicFlows blocks below for details.
+        /// </summary>
+        [Output("dynamicFlows")]
+        public Output<ImmutableArray<Outputs.WorkloadDynamicFlow>> DynamicFlows { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of entity GUIDs manually assigned to this workload. At least one of `EntityGuids`, `EntitySearchQuery`, or `DynamicFlows` must be specified.
         /// </summary>
         [Output("entityGuids")]
         public Output<ImmutableArray<string>> EntityGuids { get; private set; } = null!;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required. See Nested EntitySearchQuery blocks below for details.
+        /// A list of search queries that define a dynamic workload. At least one of `EntityGuids`, `EntitySearchQuery`, or `DynamicFlows` must be specified. See Nested EntitySearchQuery blocks below for details.
         /// </summary>
         [Output("entitySearchQueries")]
         public Output<ImmutableArray<Outputs.WorkloadEntitySearchQuery>> EntitySearchQueries { get; private set; } = null!;
@@ -302,13 +381,19 @@ namespace Pulumi.NewRelic.Plugins
         public Output<ImmutableArray<string>> ScopeAccountIds { get; private set; } = null!;
 
         /// <summary>
-        /// An input object used to represent an automatic status configuration.See Nested StatusConfigAutomatic blocks below for details.
+        /// An alert policy status configuration for intelligent workloads. Requires `DynamicFlows` to be set. See Nested StatusConfigAlertPolicy blocks below for details.
+        /// </summary>
+        [Output("statusConfigAlertPolicy")]
+        public Output<Outputs.WorkloadStatusConfigAlertPolicy?> StatusConfigAlertPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// An input object used to represent an automatic status configuration. See Nested StatusConfigAutomatic blocks below for details.
         /// </summary>
         [Output("statusConfigAutomatic")]
         public Output<Outputs.WorkloadStatusConfigAutomatic?> StatusConfigAutomatic { get; private set; } = null!;
 
         /// <summary>
-        /// A list of static status configurations. You can only configure one static status for a workload.See Nested StatusConfigStatic blocks below for details.
+        /// A list of static status configurations. You can only configure one static status for a workload. See Nested StatusConfigStatic blocks below for details.
         /// </summary>
         [Output("statusConfigStatic")]
         public Output<Outputs.WorkloadStatusConfigStatic?> StatusConfigStatic { get; private set; } = null!;
@@ -377,11 +462,23 @@ namespace Pulumi.NewRelic.Plugins
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("dynamicFlows")]
+        private InputList<Inputs.WorkloadDynamicFlowArgs>? _dynamicFlows;
+
+        /// <summary>
+        /// A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `EntityGuids` or `EntitySearchQuery`, `DynamicFlows` takes precedence and an intelligent workload is created. At least one of `EntityGuids`, `EntitySearchQuery`, or `DynamicFlows` must be specified. See Nested DynamicFlows blocks below for details.
+        /// </summary>
+        public InputList<Inputs.WorkloadDynamicFlowArgs> DynamicFlows
+        {
+            get => _dynamicFlows ?? (_dynamicFlows = new InputList<Inputs.WorkloadDynamicFlowArgs>());
+            set => _dynamicFlows = value;
+        }
+
         [Input("entityGuids")]
         private InputList<string>? _entityGuids;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required.
+        /// A list of entity GUIDs manually assigned to this workload. At least one of `EntityGuids`, `EntitySearchQuery`, or `DynamicFlows` must be specified.
         /// </summary>
         public InputList<string> EntityGuids
         {
@@ -393,7 +490,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<Inputs.WorkloadEntitySearchQueryArgs>? _entitySearchQueries;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required. See Nested EntitySearchQuery blocks below for details.
+        /// A list of search queries that define a dynamic workload. At least one of `EntityGuids`, `EntitySearchQuery`, or `DynamicFlows` must be specified. See Nested EntitySearchQuery blocks below for details.
         /// </summary>
         public InputList<Inputs.WorkloadEntitySearchQueryArgs> EntitySearchQueries
         {
@@ -420,13 +517,19 @@ namespace Pulumi.NewRelic.Plugins
         }
 
         /// <summary>
-        /// An input object used to represent an automatic status configuration.See Nested StatusConfigAutomatic blocks below for details.
+        /// An alert policy status configuration for intelligent workloads. Requires `DynamicFlows` to be set. See Nested StatusConfigAlertPolicy blocks below for details.
+        /// </summary>
+        [Input("statusConfigAlertPolicy")]
+        public Input<Inputs.WorkloadStatusConfigAlertPolicyArgs>? StatusConfigAlertPolicy { get; set; }
+
+        /// <summary>
+        /// An input object used to represent an automatic status configuration. See Nested StatusConfigAutomatic blocks below for details.
         /// </summary>
         [Input("statusConfigAutomatic")]
         public Input<Inputs.WorkloadStatusConfigAutomaticArgs>? StatusConfigAutomatic { get; set; }
 
         /// <summary>
-        /// A list of static status configurations. You can only configure one static status for a workload.See Nested StatusConfigStatic blocks below for details.
+        /// A list of static status configurations. You can only configure one static status for a workload. See Nested StatusConfigStatic blocks below for details.
         /// </summary>
         [Input("statusConfigStatic")]
         public Input<Inputs.WorkloadStatusConfigStaticArgs>? StatusConfigStatic { get; set; }
@@ -457,11 +560,23 @@ namespace Pulumi.NewRelic.Plugins
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("dynamicFlows")]
+        private InputList<Inputs.WorkloadDynamicFlowGetArgs>? _dynamicFlows;
+
+        /// <summary>
+        /// A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `EntityGuids` or `EntitySearchQuery`, `DynamicFlows` takes precedence and an intelligent workload is created. At least one of `EntityGuids`, `EntitySearchQuery`, or `DynamicFlows` must be specified. See Nested DynamicFlows blocks below for details.
+        /// </summary>
+        public InputList<Inputs.WorkloadDynamicFlowGetArgs> DynamicFlows
+        {
+            get => _dynamicFlows ?? (_dynamicFlows = new InputList<Inputs.WorkloadDynamicFlowGetArgs>());
+            set => _dynamicFlows = value;
+        }
+
         [Input("entityGuids")]
         private InputList<string>? _entityGuids;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required.
+        /// A list of entity GUIDs manually assigned to this workload. At least one of `EntityGuids`, `EntitySearchQuery`, or `DynamicFlows` must be specified.
         /// </summary>
         public InputList<string> EntityGuids
         {
@@ -473,7 +588,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<Inputs.WorkloadEntitySearchQueryGetArgs>? _entitySearchQueries;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required. See Nested EntitySearchQuery blocks below for details.
+        /// A list of search queries that define a dynamic workload. At least one of `EntityGuids`, `EntitySearchQuery`, or `DynamicFlows` must be specified. See Nested EntitySearchQuery blocks below for details.
         /// </summary>
         public InputList<Inputs.WorkloadEntitySearchQueryGetArgs> EntitySearchQueries
         {
@@ -512,13 +627,19 @@ namespace Pulumi.NewRelic.Plugins
         }
 
         /// <summary>
-        /// An input object used to represent an automatic status configuration.See Nested StatusConfigAutomatic blocks below for details.
+        /// An alert policy status configuration for intelligent workloads. Requires `DynamicFlows` to be set. See Nested StatusConfigAlertPolicy blocks below for details.
+        /// </summary>
+        [Input("statusConfigAlertPolicy")]
+        public Input<Inputs.WorkloadStatusConfigAlertPolicyGetArgs>? StatusConfigAlertPolicy { get; set; }
+
+        /// <summary>
+        /// An input object used to represent an automatic status configuration. See Nested StatusConfigAutomatic blocks below for details.
         /// </summary>
         [Input("statusConfigAutomatic")]
         public Input<Inputs.WorkloadStatusConfigAutomaticGetArgs>? StatusConfigAutomatic { get; set; }
 
         /// <summary>
-        /// A list of static status configurations. You can only configure one static status for a workload.See Nested StatusConfigStatic blocks below for details.
+        /// A list of static status configurations. You can only configure one static status for a workload. See Nested StatusConfigStatic blocks below for details.
         /// </summary>
         [Input("statusConfigStatic")]
         public Input<Inputs.WorkloadStatusConfigStaticGetArgs>? StatusConfigStatic { get; set; }

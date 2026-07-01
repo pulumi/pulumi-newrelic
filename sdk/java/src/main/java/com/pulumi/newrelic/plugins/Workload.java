@@ -10,7 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.plugins.WorkloadArgs;
 import com.pulumi.newrelic.plugins.inputs.WorkloadState;
+import com.pulumi.newrelic.plugins.outputs.WorkloadDynamicFlow;
 import com.pulumi.newrelic.plugins.outputs.WorkloadEntitySearchQuery;
+import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigAlertPolicy;
 import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigAutomatic;
 import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigStatic;
 import java.lang.String;
@@ -21,11 +23,20 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create, update, and delete a New Relic One workload.
  * 
- * A New Relic User API key is required to provision this resource.  Set the `apiKey`
+ * Workloads let you group related entities — services, hosts, databases, browser apps, and more — into a single operational view to monitor health and triage incidents across a business domain.
+ * 
+ * This resource supports two workload modes:
+ * 
+ * - **Standard workload** — define membership using entity GUIDs (`entityGuids`) and/or dynamic search queries (`entitySearchQuery`). Membership updates automatically as query results change. Cannot be used together with `dynamicFlows`.
+ * - **Intelligent workload** — use `dynamicFlows` to anchor the workload to a transaction entry point. If it is set alongside `entityGuids` or `entitySearchQuery`, `dynamicFlows` takes precedence and an intelligent workload is created. New Relic auto-discovers and refreshes related entities every five minutes using Transaction 360 distributed tracing data. Supports `statusConfigAlertPolicy` in addition to the standard `statusConfigAutomatic` and `statusConfigStatic` options.
+ * 
+ * A New Relic User API key is required to provision this resource. Set the `apiKey`
  * attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
  * variable with your User API key.
  * 
  * ## Example Usage
+ * 
+ * **Standard Workload**
  * 
  * Include entities with a certain string on the name.
  * <pre>
@@ -57,45 +68,6 @@ import javax.annotation.Nullable;
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
  *                 .query("name like '%Example application%'")
- *                 .build())
- *             .scopeAccountIds("12345678")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * Include entities with a set of tags.
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.plugins.Workload;
- * import com.pulumi.newrelic.plugins.WorkloadArgs;
- * import com.pulumi.newrelic.plugins.inputs.WorkloadEntitySearchQueryArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()
- *             .name("Example workload with tags")
- *             .accountId("12345678")
- *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
- *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
- *                 .query("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'")
  *                 .build())
  *             .scopeAccountIds("12345678")
  *             .build());
@@ -265,6 +237,123 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * **Intelligent Workload**
+ * 
+ * &gt; An intelligent workload uses `dynamicFlows` to anchor the workload to a transaction entry point. New Relic automatically discovers and refreshes the related entities using Transaction 360 distributed tracing data — no manual entity selection required. If it is set alongside `entityGuids` or `entitySearchQuery`, `dynamicFlows` takes precedence and an intelligent workload is created. The `statusConfigAlertPolicy` block derives workload health from the alert state of its entities and requires `dynamicFlows` to be set; `statusConfigAutomatic` and `statusConfigStatic` remain available. [See our docs](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/workloads/create-intelligent-workload/)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.plugins.Workload;
+ * import com.pulumi.newrelic.plugins.WorkloadArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadDynamicFlowArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var intelligent = new Workload("intelligent", WorkloadArgs.builder()
+ *             .name("Example intelligent workload")
+ *             .accountId("12345678")
+ *             .dynamicFlows(WorkloadDynamicFlowArgs.builder()
+ *                 .entityGuid("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
+ *                 .transactionName("WebTransaction/Action/index")
+ *                 .build())
+ *             .scopeAccountIds("12345678")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * **Intelligent Workload with Alert Condition**
+ * 
+ * &gt; **BETA PREVIEW:** `targetEntity` in `newrelic.NrqlAlertCondition` is in limited release and only enabled for preview on a per-account basis. Once an intelligent workload is created with `statusConfigAlertPolicy` enabled, alert conditions can be attached by referencing the workload&#39;s `guid` (available post-apply as `newrelic_workload.&lt;resource_label&gt;.guid`) as `targetEntity`. The workload health is then derived from the alert states of those conditions.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.plugins.Workload;
+ * import com.pulumi.newrelic.plugins.WorkloadArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadDynamicFlowArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAlertPolicyArgs;
+ * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
+ * import com.pulumi.newrelic.NrqlAlertCondition;
+ * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var intelligent = new Workload("intelligent", WorkloadArgs.builder()
+ *             .name("Example intelligent workload")
+ *             .accountId("12345678")
+ *             .dynamicFlows(WorkloadDynamicFlowArgs.builder()
+ *                 .entityGuid("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
+ *                 .transactionName("WebTransaction/Action/index")
+ *                 .build())
+ *             .scopeAccountIds("12345678")
+ *             .statusConfigAlertPolicy(WorkloadStatusConfigAlertPolicyArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
+ *             .build());
+ * 
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
+ *             .name("foo")
+ *             .build());
+ * 
+ *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()
+ *             .accountId("12345678")
+ *             .policyId(foo.id())
+ *             .type("static")
+ *             .name("foo")
+ *             .enabled(true)
+ *             .violationTimeLimitSeconds(3600)
+ *             .targetEntity(intelligent.guid())
+ *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+ *                 .query("SELECT count(*) FROM Transaction WHERE appName = 'Your App'")
+ *                 .build())
+ *             .critical(NrqlAlertConditionCriticalArgs.builder()
+ *                 .operator("above")
+ *                 .threshold(5.5)
+ *                 .thresholdDuration(300)
+ *                 .thresholdOccurrences("ALL")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * New Relic workloads can be imported using a concatenated string of the format
@@ -320,28 +409,42 @@ public class Workload extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+     * A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entityGuids` or `entitySearchQuery`, `dynamicFlows` takes precedence and an intelligent workload is created. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested dynamicFlows blocks below for details.
+     * 
+     */
+    @Export(name="dynamicFlows", refs={List.class,WorkloadDynamicFlow.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<WorkloadDynamicFlow>> dynamicFlows;
+
+    /**
+     * @return A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entityGuids` or `entitySearchQuery`, `dynamicFlows` takes precedence and an intelligent workload is created. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested dynamicFlows blocks below for details.
+     * 
+     */
+    public Output<Optional<List<WorkloadDynamicFlow>>> dynamicFlows() {
+        return Codegen.optional(this.dynamicFlows);
+    }
+    /**
+     * A list of entity GUIDs manually assigned to this workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified.
      * 
      */
     @Export(name="entityGuids", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> entityGuids;
 
     /**
-     * @return A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+     * @return A list of entity GUIDs manually assigned to this workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified.
      * 
      */
     public Output<List<String>> entityGuids() {
         return this.entityGuids;
     }
     /**
-     * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+     * A list of search queries that define a dynamic workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested entitySearchQuery blocks below for details.
      * 
      */
     @Export(name="entitySearchQueries", refs={List.class,WorkloadEntitySearchQuery.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkloadEntitySearchQuery>> entitySearchQueries;
 
     /**
-     * @return A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+     * @return A list of search queries that define a dynamic workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested entitySearchQuery blocks below for details.
      * 
      */
     public Output<Optional<List<WorkloadEntitySearchQuery>>> entitySearchQueries() {
@@ -404,28 +507,42 @@ public class Workload extends com.pulumi.resources.CustomResource {
         return this.scopeAccountIds;
     }
     /**
-     * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     * An alert policy status configuration for intelligent workloads. Requires `dynamicFlows` to be set. See Nested statusConfigAlertPolicy blocks below for details.
+     * 
+     */
+    @Export(name="statusConfigAlertPolicy", refs={WorkloadStatusConfigAlertPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ WorkloadStatusConfigAlertPolicy> statusConfigAlertPolicy;
+
+    /**
+     * @return An alert policy status configuration for intelligent workloads. Requires `dynamicFlows` to be set. See Nested statusConfigAlertPolicy blocks below for details.
+     * 
+     */
+    public Output<Optional<WorkloadStatusConfigAlertPolicy>> statusConfigAlertPolicy() {
+        return Codegen.optional(this.statusConfigAlertPolicy);
+    }
+    /**
+     * An input object used to represent an automatic status configuration. See Nested statusConfigAutomatic blocks below for details.
      * 
      */
     @Export(name="statusConfigAutomatic", refs={WorkloadStatusConfigAutomatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigAutomatic> statusConfigAutomatic;
 
     /**
-     * @return An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     * @return An input object used to represent an automatic status configuration. See Nested statusConfigAutomatic blocks below for details.
      * 
      */
     public Output<Optional<WorkloadStatusConfigAutomatic>> statusConfigAutomatic() {
         return Codegen.optional(this.statusConfigAutomatic);
     }
     /**
-     * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     * A list of static status configurations. You can only configure one static status for a workload. See Nested statusConfigStatic blocks below for details.
      * 
      */
     @Export(name="statusConfigStatic", refs={WorkloadStatusConfigStatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigStatic> statusConfigStatic;
 
     /**
-     * @return A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     * @return A list of static status configurations. You can only configure one static status for a workload. See Nested statusConfigStatic blocks below for details.
      * 
      */
     public Output<Optional<WorkloadStatusConfigStatic>> statusConfigStatic() {

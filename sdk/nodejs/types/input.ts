@@ -6297,11 +6297,29 @@ export namespace plugins {
         recordSql: pulumi.Input<string>;
     }
 
+    export interface WorkloadDynamicFlow {
+        /**
+         * The unique entity identifier of the dynamic flow entry.
+         */
+        entityGuid: pulumi.Input<string>;
+        /**
+         * The transaction name associated with the dynamic flow entry.
+         */
+        transactionName: pulumi.Input<string>;
+    }
+
     export interface WorkloadEntitySearchQuery {
         /**
          * A valid entity search query; empty, and null values are considered invalid.
          */
         query: pulumi.Input<string>;
+    }
+
+    export interface WorkloadStatusConfigAlertPolicy {
+        /**
+         * Whether the alert policy status configuration is enabled or not.
+         */
+        enabled: pulumi.Input<boolean>;
     }
 
     export interface WorkloadStatusConfigAutomatic {
