@@ -6357,11 +6357,29 @@ export namespace plugins {
         recordSql: string;
     }
 
+    export interface WorkloadDynamicFlow {
+        /**
+         * The unique entity identifier of the dynamic flow entry.
+         */
+        entityGuid: string;
+        /**
+         * The transaction name associated with the dynamic flow entry.
+         */
+        transactionName: string;
+    }
+
     export interface WorkloadEntitySearchQuery {
         /**
          * A valid entity search query; empty, and null values are considered invalid.
          */
         query: string;
+    }
+
+    export interface WorkloadStatusConfigAlertPolicy {
+        /**
+         * Whether the alert policy status configuration is enabled or not.
+         */
+        enabled: boolean;
     }
 
     export interface WorkloadStatusConfigAutomatic {

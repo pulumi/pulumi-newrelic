@@ -5,7 +5,9 @@ package com.pulumi.newrelic.plugins.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.plugins.inputs.WorkloadDynamicFlowArgs;
 import com.pulumi.newrelic.plugins.inputs.WorkloadEntitySearchQueryArgs;
+import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAlertPolicyArgs;
 import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticArgs;
 import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigStaticArgs;
 import java.lang.String;
@@ -65,14 +67,29 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+     * A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entityGuids` or `entitySearchQuery`, `dynamicFlows` takes precedence and an intelligent workload is created. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested dynamicFlows blocks below for details.
+     * 
+     */
+    @Import(name="dynamicFlows")
+    private @Nullable Output<List<WorkloadDynamicFlowArgs>> dynamicFlows;
+
+    /**
+     * @return A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entityGuids` or `entitySearchQuery`, `dynamicFlows` takes precedence and an intelligent workload is created. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested dynamicFlows blocks below for details.
+     * 
+     */
+    public Optional<Output<List<WorkloadDynamicFlowArgs>>> dynamicFlows() {
+        return Optional.ofNullable(this.dynamicFlows);
+    }
+
+    /**
+     * A list of entity GUIDs manually assigned to this workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified.
      * 
      */
     @Import(name="entityGuids")
     private @Nullable Output<List<String>> entityGuids;
 
     /**
-     * @return A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+     * @return A list of entity GUIDs manually assigned to this workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified.
      * 
      */
     public Optional<Output<List<String>>> entityGuids() {
@@ -80,14 +97,14 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+     * A list of search queries that define a dynamic workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested entitySearchQuery blocks below for details.
      * 
      */
     @Import(name="entitySearchQueries")
     private @Nullable Output<List<WorkloadEntitySearchQueryArgs>> entitySearchQueries;
 
     /**
-     * @return A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+     * @return A list of search queries that define a dynamic workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested entitySearchQuery blocks below for details.
      * 
      */
     public Optional<Output<List<WorkloadEntitySearchQueryArgs>>> entitySearchQueries() {
@@ -155,14 +172,29 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     * An alert policy status configuration for intelligent workloads. Requires `dynamicFlows` to be set. See Nested statusConfigAlertPolicy blocks below for details.
+     * 
+     */
+    @Import(name="statusConfigAlertPolicy")
+    private @Nullable Output<WorkloadStatusConfigAlertPolicyArgs> statusConfigAlertPolicy;
+
+    /**
+     * @return An alert policy status configuration for intelligent workloads. Requires `dynamicFlows` to be set. See Nested statusConfigAlertPolicy blocks below for details.
+     * 
+     */
+    public Optional<Output<WorkloadStatusConfigAlertPolicyArgs>> statusConfigAlertPolicy() {
+        return Optional.ofNullable(this.statusConfigAlertPolicy);
+    }
+
+    /**
+     * An input object used to represent an automatic status configuration. See Nested statusConfigAutomatic blocks below for details.
      * 
      */
     @Import(name="statusConfigAutomatic")
     private @Nullable Output<WorkloadStatusConfigAutomaticArgs> statusConfigAutomatic;
 
     /**
-     * @return An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     * @return An input object used to represent an automatic status configuration. See Nested statusConfigAutomatic blocks below for details.
      * 
      */
     public Optional<Output<WorkloadStatusConfigAutomaticArgs>> statusConfigAutomatic() {
@@ -170,14 +202,14 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     * A list of static status configurations. You can only configure one static status for a workload. See Nested statusConfigStatic blocks below for details.
      * 
      */
     @Import(name="statusConfigStatic")
     private @Nullable Output<WorkloadStatusConfigStaticArgs> statusConfigStatic;
 
     /**
-     * @return A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     * @return A list of static status configurations. You can only configure one static status for a workload. See Nested statusConfigStatic blocks below for details.
      * 
      */
     public Optional<Output<WorkloadStatusConfigStaticArgs>> statusConfigStatic() {
@@ -205,12 +237,14 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         this.accountId = $.accountId;
         this.compositeEntitySearchQuery = $.compositeEntitySearchQuery;
         this.description = $.description;
+        this.dynamicFlows = $.dynamicFlows;
         this.entityGuids = $.entityGuids;
         this.entitySearchQueries = $.entitySearchQueries;
         this.guid = $.guid;
         this.name = $.name;
         this.permalink = $.permalink;
         this.scopeAccountIds = $.scopeAccountIds;
+        this.statusConfigAlertPolicy = $.statusConfigAlertPolicy;
         this.statusConfigAutomatic = $.statusConfigAutomatic;
         this.statusConfigStatic = $.statusConfigStatic;
         this.workloadId = $.workloadId;
@@ -298,7 +332,38 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+         * @param dynamicFlows A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entityGuids` or `entitySearchQuery`, `dynamicFlows` takes precedence and an intelligent workload is created. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested dynamicFlows blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicFlows(@Nullable Output<List<WorkloadDynamicFlowArgs>> dynamicFlows) {
+            $.dynamicFlows = dynamicFlows;
+            return this;
+        }
+
+        /**
+         * @param dynamicFlows A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entityGuids` or `entitySearchQuery`, `dynamicFlows` takes precedence and an intelligent workload is created. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested dynamicFlows blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicFlows(List<WorkloadDynamicFlowArgs> dynamicFlows) {
+            return dynamicFlows(Output.of(dynamicFlows));
+        }
+
+        /**
+         * @param dynamicFlows A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entityGuids` or `entitySearchQuery`, `dynamicFlows` takes precedence and an intelligent workload is created. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested dynamicFlows blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicFlows(WorkloadDynamicFlowArgs... dynamicFlows) {
+            return dynamicFlows(List.of(dynamicFlows));
+        }
+
+        /**
+         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified.
          * 
          * @return builder
          * 
@@ -309,7 +374,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified.
          * 
          * @return builder
          * 
@@ -319,7 +384,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
+         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified.
          * 
          * @return builder
          * 
@@ -329,7 +394,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested entitySearchQuery blocks below for details.
          * 
          * @return builder
          * 
@@ -340,7 +405,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested entitySearchQuery blocks below for details.
          * 
          * @return builder
          * 
@@ -350,7 +415,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
+         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of `entityGuids`, `entitySearchQuery`, or `dynamicFlows` must be specified. See Nested entitySearchQuery blocks below for details.
          * 
          * @return builder
          * 
@@ -454,7 +519,28 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusConfigAutomatic An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+         * @param statusConfigAlertPolicy An alert policy status configuration for intelligent workloads. Requires `dynamicFlows` to be set. See Nested statusConfigAlertPolicy blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusConfigAlertPolicy(@Nullable Output<WorkloadStatusConfigAlertPolicyArgs> statusConfigAlertPolicy) {
+            $.statusConfigAlertPolicy = statusConfigAlertPolicy;
+            return this;
+        }
+
+        /**
+         * @param statusConfigAlertPolicy An alert policy status configuration for intelligent workloads. Requires `dynamicFlows` to be set. See Nested statusConfigAlertPolicy blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusConfigAlertPolicy(WorkloadStatusConfigAlertPolicyArgs statusConfigAlertPolicy) {
+            return statusConfigAlertPolicy(Output.of(statusConfigAlertPolicy));
+        }
+
+        /**
+         * @param statusConfigAutomatic An input object used to represent an automatic status configuration. See Nested statusConfigAutomatic blocks below for details.
          * 
          * @return builder
          * 
@@ -465,7 +551,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusConfigAutomatic An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+         * @param statusConfigAutomatic An input object used to represent an automatic status configuration. See Nested statusConfigAutomatic blocks below for details.
          * 
          * @return builder
          * 
@@ -475,7 +561,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload. See Nested statusConfigStatic blocks below for details.
          * 
          * @return builder
          * 
@@ -486,7 +572,7 @@ public final class WorkloadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload. See Nested statusConfigStatic blocks below for details.
          * 
          * @return builder
          * 

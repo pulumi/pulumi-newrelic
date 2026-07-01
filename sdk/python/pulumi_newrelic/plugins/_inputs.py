@@ -23,8 +23,12 @@ __all__ = [
     'ApplicationSettingsTransactionTracerExplainQueryPlanArgsDict',
     'ApplicationSettingsTransactionTracerSqlArgs',
     'ApplicationSettingsTransactionTracerSqlArgsDict',
+    'WorkloadDynamicFlowArgs',
+    'WorkloadDynamicFlowArgsDict',
     'WorkloadEntitySearchQueryArgs',
     'WorkloadEntitySearchQueryArgsDict',
+    'WorkloadStatusConfigAlertPolicyArgs',
+    'WorkloadStatusConfigAlertPolicyArgsDict',
     'WorkloadStatusConfigAutomaticArgs',
     'WorkloadStatusConfigAutomaticArgsDict',
     'WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs',
@@ -316,6 +320,53 @@ class ApplicationSettingsTransactionTracerSqlArgs:
         pulumi.set(self, "record_sql", value)
 
 
+class WorkloadDynamicFlowArgsDict(TypedDict):
+    entity_guid: pulumi.Input[_builtins.str]
+    """
+    The unique entity identifier of the dynamic flow entry.
+    """
+    transaction_name: pulumi.Input[_builtins.str]
+    """
+    The transaction name associated with the dynamic flow entry.
+    """
+
+@pulumi.input_type
+class WorkloadDynamicFlowArgs:
+    def __init__(__self__, *,
+                 entity_guid: pulumi.Input[_builtins.str],
+                 transaction_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the dynamic flow entry.
+        :param pulumi.Input[_builtins.str] transaction_name: The transaction name associated with the dynamic flow entry.
+        """
+        pulumi.set(__self__, "entity_guid", entity_guid)
+        pulumi.set(__self__, "transaction_name", transaction_name)
+
+    @_builtins.property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique entity identifier of the dynamic flow entry.
+        """
+        return pulumi.get(self, "entity_guid")
+
+    @entity_guid.setter
+    def entity_guid(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "entity_guid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transactionName")
+    def transaction_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The transaction name associated with the dynamic flow entry.
+        """
+        return pulumi.get(self, "transaction_name")
+
+    @transaction_name.setter
+    def transaction_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "transaction_name", value)
+
+
 class WorkloadEntitySearchQueryArgsDict(TypedDict):
     query: pulumi.Input[_builtins.str]
     """
@@ -342,6 +393,34 @@ class WorkloadEntitySearchQueryArgs:
     @query.setter
     def query(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "query", value)
+
+
+class WorkloadStatusConfigAlertPolicyArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the alert policy status configuration is enabled or not.
+    """
+
+@pulumi.input_type
+class WorkloadStatusConfigAlertPolicyArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether the alert policy status configuration is enabled or not.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the alert policy status configuration is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class WorkloadStatusConfigAutomaticArgsDict(TypedDict):

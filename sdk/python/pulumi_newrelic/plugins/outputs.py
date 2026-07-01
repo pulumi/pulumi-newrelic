@@ -20,7 +20,9 @@ __all__ = [
     'ApplicationSettingsTransactionTracer',
     'ApplicationSettingsTransactionTracerExplainQueryPlan',
     'ApplicationSettingsTransactionTracerSql',
+    'WorkloadDynamicFlow',
     'WorkloadEntitySearchQuery',
+    'WorkloadStatusConfigAlertPolicy',
     'WorkloadStatusConfigAutomatic',
     'WorkloadStatusConfigAutomaticRemainingEntitiesRule',
     'WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup',
@@ -284,6 +286,54 @@ class ApplicationSettingsTransactionTracerSql(dict):
 
 
 @pulumi.output_type
+class WorkloadDynamicFlow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityGuid":
+            suggest = "entity_guid"
+        elif key == "transactionName":
+            suggest = "transaction_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadDynamicFlow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadDynamicFlow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadDynamicFlow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_guid: _builtins.str,
+                 transaction_name: _builtins.str):
+        """
+        :param _builtins.str entity_guid: The unique entity identifier of the dynamic flow entry.
+        :param _builtins.str transaction_name: The transaction name associated with the dynamic flow entry.
+        """
+        pulumi.set(__self__, "entity_guid", entity_guid)
+        pulumi.set(__self__, "transaction_name", transaction_name)
+
+    @_builtins.property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> _builtins.str:
+        """
+        The unique entity identifier of the dynamic flow entry.
+        """
+        return pulumi.get(self, "entity_guid")
+
+    @_builtins.property
+    @pulumi.getter(name="transactionName")
+    def transaction_name(self) -> _builtins.str:
+        """
+        The transaction name associated with the dynamic flow entry.
+        """
+        return pulumi.get(self, "transaction_name")
+
+
+@pulumi.output_type
 class WorkloadEntitySearchQuery(dict):
     def __init__(__self__, *,
                  query: _builtins.str):
@@ -299,6 +349,24 @@ class WorkloadEntitySearchQuery(dict):
         A valid entity search query; empty, and null values are considered invalid.
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class WorkloadStatusConfigAlertPolicy(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool):
+        """
+        :param _builtins.bool enabled: Whether the alert policy status configuration is enabled or not.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether the alert policy status configuration is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

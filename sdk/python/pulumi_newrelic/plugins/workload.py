@@ -23,10 +23,12 @@ class WorkloadArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadDynamicFlowArgs']]]] = None,
                  entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status_config_alert_policy: pulumi.Input[Optional['WorkloadStatusConfigAlertPolicyArgs']] = None,
                  status_config_automatic: pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']] = None,
                  status_config_static: pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']] = None):
         """
@@ -34,17 +36,21 @@ class WorkloadArgs:
 
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[_builtins.str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadDynamicFlowArgs']]] dynamic_flows: A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[_builtins.str] name: The workload's name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input['WorkloadStatusConfigAutomaticArgs'] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
-        :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        :param pulumi.Input['WorkloadStatusConfigAlertPolicyArgs'] status_config_alert_policy: An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
+        :param pulumi.Input['WorkloadStatusConfigAutomaticArgs'] status_config_automatic: An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if dynamic_flows is not None:
+            pulumi.set(__self__, "dynamic_flows", dynamic_flows)
         if entity_guids is not None:
             pulumi.set(__self__, "entity_guids", entity_guids)
         if entity_search_queries is not None:
@@ -53,6 +59,8 @@ class WorkloadArgs:
             pulumi.set(__self__, "name", name)
         if scope_account_ids is not None:
             pulumi.set(__self__, "scope_account_ids", scope_account_ids)
+        if status_config_alert_policy is not None:
+            pulumi.set(__self__, "status_config_alert_policy", status_config_alert_policy)
         if status_config_automatic is not None:
             pulumi.set(__self__, "status_config_automatic", status_config_automatic)
         if status_config_static is not None:
@@ -83,10 +91,22 @@ class WorkloadArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="dynamicFlows")
+    def dynamic_flows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadDynamicFlowArgs']]]]:
+        """
+        A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
+        """
+        return pulumi.get(self, "dynamic_flows")
+
+    @dynamic_flows.setter
+    def dynamic_flows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadDynamicFlowArgs']]]]):
+        pulumi.set(self, "dynamic_flows", value)
+
+    @_builtins.property
     @pulumi.getter(name="entityGuids")
     def entity_guids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        A list of entity GUIDs manually assigned to this workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified.
         """
         return pulumi.get(self, "entity_guids")
 
@@ -98,7 +118,7 @@ class WorkloadArgs:
     @pulumi.getter(name="entitySearchQueries")
     def entity_search_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]:
         """
-        A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
         """
         return pulumi.get(self, "entity_search_queries")
 
@@ -131,10 +151,22 @@ class WorkloadArgs:
         pulumi.set(self, "scope_account_ids", value)
 
     @_builtins.property
+    @pulumi.getter(name="statusConfigAlertPolicy")
+    def status_config_alert_policy(self) -> pulumi.Input[Optional['WorkloadStatusConfigAlertPolicyArgs']]:
+        """
+        An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
+        """
+        return pulumi.get(self, "status_config_alert_policy")
+
+    @status_config_alert_policy.setter
+    def status_config_alert_policy(self, value: pulumi.Input[Optional['WorkloadStatusConfigAlertPolicyArgs']]):
+        pulumi.set(self, "status_config_alert_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="statusConfigAutomatic")
     def status_config_automatic(self) -> pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']]:
         """
-        An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
         """
         return pulumi.get(self, "status_config_automatic")
 
@@ -146,7 +178,7 @@ class WorkloadArgs:
     @pulumi.getter(name="statusConfigStatic")
     def status_config_static(self) -> pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']]:
         """
-        A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
         """
         return pulumi.get(self, "status_config_static")
 
@@ -161,12 +193,14 @@ class _WorkloadState:
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  composite_entity_search_query: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadDynamicFlowArgs']]]] = None,
                  entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]] = None,
                  guid: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  permalink: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status_config_alert_policy: pulumi.Input[Optional['WorkloadStatusConfigAlertPolicyArgs']] = None,
                  status_config_automatic: pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']] = None,
                  status_config_static: pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']] = None,
                  workload_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -176,14 +210,16 @@ class _WorkloadState:
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[_builtins.str] composite_entity_search_query: The composite query used to compose a dynamic workload.
         :param pulumi.Input[_builtins.str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadDynamicFlowArgs']]] dynamic_flows: A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the workload in New Relic.
         :param pulumi.Input[_builtins.str] name: The workload's name.
         :param pulumi.Input[_builtins.str] permalink: The URL of the workload.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input['WorkloadStatusConfigAutomaticArgs'] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
-        :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        :param pulumi.Input['WorkloadStatusConfigAlertPolicyArgs'] status_config_alert_policy: An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
+        :param pulumi.Input['WorkloadStatusConfigAutomaticArgs'] status_config_automatic: An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
         :param pulumi.Input[_builtins.str] workload_id: The unique entity identifier of the workload.
         """
         if account_id is not None:
@@ -192,6 +228,8 @@ class _WorkloadState:
             pulumi.set(__self__, "composite_entity_search_query", composite_entity_search_query)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if dynamic_flows is not None:
+            pulumi.set(__self__, "dynamic_flows", dynamic_flows)
         if entity_guids is not None:
             pulumi.set(__self__, "entity_guids", entity_guids)
         if entity_search_queries is not None:
@@ -204,6 +242,8 @@ class _WorkloadState:
             pulumi.set(__self__, "permalink", permalink)
         if scope_account_ids is not None:
             pulumi.set(__self__, "scope_account_ids", scope_account_ids)
+        if status_config_alert_policy is not None:
+            pulumi.set(__self__, "status_config_alert_policy", status_config_alert_policy)
         if status_config_automatic is not None:
             pulumi.set(__self__, "status_config_automatic", status_config_automatic)
         if status_config_static is not None:
@@ -248,10 +288,22 @@ class _WorkloadState:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="dynamicFlows")
+    def dynamic_flows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadDynamicFlowArgs']]]]:
+        """
+        A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
+        """
+        return pulumi.get(self, "dynamic_flows")
+
+    @dynamic_flows.setter
+    def dynamic_flows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadDynamicFlowArgs']]]]):
+        pulumi.set(self, "dynamic_flows", value)
+
+    @_builtins.property
     @pulumi.getter(name="entityGuids")
     def entity_guids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        A list of entity GUIDs manually assigned to this workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified.
         """
         return pulumi.get(self, "entity_guids")
 
@@ -263,7 +315,7 @@ class _WorkloadState:
     @pulumi.getter(name="entitySearchQueries")
     def entity_search_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]:
         """
-        A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
         """
         return pulumi.get(self, "entity_search_queries")
 
@@ -320,10 +372,22 @@ class _WorkloadState:
         pulumi.set(self, "scope_account_ids", value)
 
     @_builtins.property
+    @pulumi.getter(name="statusConfigAlertPolicy")
+    def status_config_alert_policy(self) -> pulumi.Input[Optional['WorkloadStatusConfigAlertPolicyArgs']]:
+        """
+        An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
+        """
+        return pulumi.get(self, "status_config_alert_policy")
+
+    @status_config_alert_policy.setter
+    def status_config_alert_policy(self, value: pulumi.Input[Optional['WorkloadStatusConfigAlertPolicyArgs']]):
+        pulumi.set(self, "status_config_alert_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="statusConfigAutomatic")
     def status_config_automatic(self) -> pulumi.Input[Optional['WorkloadStatusConfigAutomaticArgs']]:
         """
-        An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
         """
         return pulumi.get(self, "status_config_automatic")
 
@@ -335,7 +399,7 @@ class _WorkloadState:
     @pulumi.getter(name="statusConfigStatic")
     def status_config_static(self) -> pulumi.Input[Optional['WorkloadStatusConfigStaticArgs']]:
         """
-        A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
         """
         return pulumi.get(self, "status_config_static")
 
@@ -364,21 +428,32 @@ class Workload(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]]] = None,
                  entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']]] = None,
                  status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
                  status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete a New Relic One workload.
 
-        A New Relic User API key is required to provision this resource.  Set the `api_key`
+        Workloads let you group related entities — services, hosts, databases, browser apps, and more — into a single operational view to monitor health and triage incidents across a business domain.
+
+        This resource supports two workload modes:
+
+        - **Standard workload** — define membership using entity GUIDs (`entity_guids`) and/or dynamic search queries (`entity_search_query`). Membership updates automatically as query results change. Cannot be used together with `dynamic_flows`.
+        - **Intelligent workload** — use `dynamic_flows` to anchor the workload to a transaction entry point. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. New Relic auto-discovers and refreshes related entities every five minutes using Transaction 360 distributed tracing data. Supports `status_config_alert_policy` in addition to the standard `status_config_automatic` and `status_config_static` options.
+
+        A New Relic User API key is required to provision this resource. Set the `api_key`
         attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
         variable with your User API key.
 
         ## Example Usage
+
+        **Standard Workload**
 
         Include entities with a certain string on the name.
         ```python
@@ -391,21 +466,6 @@ class Workload(pulumi.CustomResource):
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
             entity_search_queries=[{
                 "query": "name like '%Example application%'",
-            }],
-            scope_account_ids=["12345678"])
-        ```
-
-        Include entities with a set of tags.
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.plugins.Workload("foo",
-            name="Example workload with tags",
-            account_id="12345678",
-            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[{
-                "query": "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
             }],
             scope_account_ids=["12345678"])
         ```
@@ -488,6 +548,63 @@ class Workload(pulumi.CustomResource):
                 "enabled": True,
                 "status": "OPERATIONAL",
                 "summary": "summary of the status",
+            })
+        ```
+
+        **Intelligent Workload**
+
+        > An intelligent workload uses `dynamic_flows` to anchor the workload to a transaction entry point. New Relic automatically discovers and refreshes the related entities using Transaction 360 distributed tracing data — no manual entity selection required. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. The `status_config_alert_policy` block derives workload health from the alert state of its entities and requires `dynamic_flows` to be set; `status_config_automatic` and `status_config_static` remain available. [See our docs](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/workloads/create-intelligent-workload/)
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        intelligent = newrelic.plugins.Workload("intelligent",
+            name="Example intelligent workload",
+            account_id="12345678",
+            dynamic_flows=[{
+                "entity_guid": "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+                "transaction_name": "WebTransaction/Action/index",
+            }],
+            scope_account_ids=["12345678"])
+        ```
+
+        **Intelligent Workload with Alert Condition**
+
+        > **BETA PREVIEW:** `target_entity` in `NrqlAlertCondition` is in limited release and only enabled for preview on a per-account basis. Once an intelligent workload is created with `status_config_alert_policy` enabled, alert conditions can be attached by referencing the workload's `guid` (available post-apply as `newrelic_workload.<resource_label>.guid`) as `target_entity`. The workload health is then derived from the alert states of those conditions.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        intelligent = newrelic.plugins.Workload("intelligent",
+            name="Example intelligent workload",
+            account_id="12345678",
+            dynamic_flows=[{
+                "entity_guid": "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+                "transaction_name": "WebTransaction/Action/index",
+            }],
+            scope_account_ids=["12345678"],
+            status_config_alert_policy={
+                "enabled": True,
+            })
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
+            account_id="12345678",
+            policy_id=foo.id,
+            type="static",
+            name="foo",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            target_entity=intelligent.guid,
+            nrql={
+                "query": "SELECT count(*) FROM Transaction WHERE appName = 'Your App'",
+            },
+            critical={
+                "operator": "above",
+                "threshold": 5.5,
+                "threshold_duration": 300,
+                "threshold_occurrences": "ALL",
             })
         ```
 
@@ -505,12 +622,14 @@ class Workload(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[_builtins.str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]] dynamic_flows: A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[_builtins.str] name: The workload's name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
-        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']] status_config_alert_policy: An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']] status_config_automatic: An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']] status_config_static: A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
         """
         ...
     @overload
@@ -521,11 +640,20 @@ class Workload(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a New Relic One workload.
 
-        A New Relic User API key is required to provision this resource.  Set the `api_key`
+        Workloads let you group related entities — services, hosts, databases, browser apps, and more — into a single operational view to monitor health and triage incidents across a business domain.
+
+        This resource supports two workload modes:
+
+        - **Standard workload** — define membership using entity GUIDs (`entity_guids`) and/or dynamic search queries (`entity_search_query`). Membership updates automatically as query results change. Cannot be used together with `dynamic_flows`.
+        - **Intelligent workload** — use `dynamic_flows` to anchor the workload to a transaction entry point. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. New Relic auto-discovers and refreshes related entities every five minutes using Transaction 360 distributed tracing data. Supports `status_config_alert_policy` in addition to the standard `status_config_automatic` and `status_config_static` options.
+
+        A New Relic User API key is required to provision this resource. Set the `api_key`
         attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
         variable with your User API key.
 
         ## Example Usage
+
+        **Standard Workload**
 
         Include entities with a certain string on the name.
         ```python
@@ -538,21 +666,6 @@ class Workload(pulumi.CustomResource):
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
             entity_search_queries=[{
                 "query": "name like '%Example application%'",
-            }],
-            scope_account_ids=["12345678"])
-        ```
-
-        Include entities with a set of tags.
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.plugins.Workload("foo",
-            name="Example workload with tags",
-            account_id="12345678",
-            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[{
-                "query": "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
             }],
             scope_account_ids=["12345678"])
         ```
@@ -635,6 +748,63 @@ class Workload(pulumi.CustomResource):
                 "enabled": True,
                 "status": "OPERATIONAL",
                 "summary": "summary of the status",
+            })
+        ```
+
+        **Intelligent Workload**
+
+        > An intelligent workload uses `dynamic_flows` to anchor the workload to a transaction entry point. New Relic automatically discovers and refreshes the related entities using Transaction 360 distributed tracing data — no manual entity selection required. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. The `status_config_alert_policy` block derives workload health from the alert state of its entities and requires `dynamic_flows` to be set; `status_config_automatic` and `status_config_static` remain available. [See our docs](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/workloads/create-intelligent-workload/)
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        intelligent = newrelic.plugins.Workload("intelligent",
+            name="Example intelligent workload",
+            account_id="12345678",
+            dynamic_flows=[{
+                "entity_guid": "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+                "transaction_name": "WebTransaction/Action/index",
+            }],
+            scope_account_ids=["12345678"])
+        ```
+
+        **Intelligent Workload with Alert Condition**
+
+        > **BETA PREVIEW:** `target_entity` in `NrqlAlertCondition` is in limited release and only enabled for preview on a per-account basis. Once an intelligent workload is created with `status_config_alert_policy` enabled, alert conditions can be attached by referencing the workload's `guid` (available post-apply as `newrelic_workload.<resource_label>.guid`) as `target_entity`. The workload health is then derived from the alert states of those conditions.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        intelligent = newrelic.plugins.Workload("intelligent",
+            name="Example intelligent workload",
+            account_id="12345678",
+            dynamic_flows=[{
+                "entity_guid": "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+                "transaction_name": "WebTransaction/Action/index",
+            }],
+            scope_account_ids=["12345678"],
+            status_config_alert_policy={
+                "enabled": True,
+            })
+        foo = newrelic.AlertPolicy("foo", name="foo")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
+            account_id="12345678",
+            policy_id=foo.id,
+            type="static",
+            name="foo",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            target_entity=intelligent.guid,
+            nrql={
+                "query": "SELECT count(*) FROM Transaction WHERE appName = 'Your App'",
+            },
+            critical={
+                "operator": "above",
+                "threshold": 5.5,
+                "threshold_duration": 300,
+                "threshold_occurrences": "ALL",
             })
         ```
 
@@ -665,10 +835,12 @@ class Workload(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]]] = None,
                  entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']]] = None,
                  status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
                  status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
                  __props__=None):
@@ -682,10 +854,12 @@ class Workload(pulumi.CustomResource):
 
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["description"] = description
+            __props__.__dict__["dynamic_flows"] = dynamic_flows
             __props__.__dict__["entity_guids"] = entity_guids
             __props__.__dict__["entity_search_queries"] = entity_search_queries
             __props__.__dict__["name"] = name
             __props__.__dict__["scope_account_ids"] = scope_account_ids
+            __props__.__dict__["status_config_alert_policy"] = status_config_alert_policy
             __props__.__dict__["status_config_automatic"] = status_config_automatic
             __props__.__dict__["status_config_static"] = status_config_static
             __props__.__dict__["composite_entity_search_query"] = None
@@ -705,12 +879,14 @@ class Workload(pulumi.CustomResource):
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             composite_entity_search_query: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]]] = None,
             entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             permalink: pulumi.Input[Optional[_builtins.str]] = None,
             scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']]] = None,
             status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
             status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
             workload_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workload':
@@ -724,14 +900,16 @@ class Workload(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[_builtins.str] composite_entity_search_query: The composite query used to compose a dynamic workload.
         :param pulumi.Input[_builtins.str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]] dynamic_flows: A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the workload in New Relic.
         :param pulumi.Input[_builtins.str] name: The workload's name.
         :param pulumi.Input[_builtins.str] permalink: The URL of the workload.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
-        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']] status_config_alert_policy: An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']] status_config_automatic: An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']] status_config_static: A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
         :param pulumi.Input[_builtins.str] workload_id: The unique entity identifier of the workload.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -741,12 +919,14 @@ class Workload(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["composite_entity_search_query"] = composite_entity_search_query
         __props__.__dict__["description"] = description
+        __props__.__dict__["dynamic_flows"] = dynamic_flows
         __props__.__dict__["entity_guids"] = entity_guids
         __props__.__dict__["entity_search_queries"] = entity_search_queries
         __props__.__dict__["guid"] = guid
         __props__.__dict__["name"] = name
         __props__.__dict__["permalink"] = permalink
         __props__.__dict__["scope_account_ids"] = scope_account_ids
+        __props__.__dict__["status_config_alert_policy"] = status_config_alert_policy
         __props__.__dict__["status_config_automatic"] = status_config_automatic
         __props__.__dict__["status_config_static"] = status_config_static
         __props__.__dict__["workload_id"] = workload_id
@@ -777,10 +957,18 @@ class Workload(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="dynamicFlows")
+    def dynamic_flows(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadDynamicFlow']]]:
+        """
+        A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
+        """
+        return pulumi.get(self, "dynamic_flows")
+
+    @_builtins.property
     @pulumi.getter(name="entityGuids")
     def entity_guids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        A list of entity GUIDs manually assigned to this workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified.
         """
         return pulumi.get(self, "entity_guids")
 
@@ -788,7 +976,7 @@ class Workload(pulumi.CustomResource):
     @pulumi.getter(name="entitySearchQueries")
     def entity_search_queries(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadEntitySearchQuery']]]:
         """
-        A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
         """
         return pulumi.get(self, "entity_search_queries")
 
@@ -825,10 +1013,18 @@ class Workload(pulumi.CustomResource):
         return pulumi.get(self, "scope_account_ids")
 
     @_builtins.property
+    @pulumi.getter(name="statusConfigAlertPolicy")
+    def status_config_alert_policy(self) -> pulumi.Output[Optional['outputs.WorkloadStatusConfigAlertPolicy']]:
+        """
+        An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
+        """
+        return pulumi.get(self, "status_config_alert_policy")
+
+    @_builtins.property
     @pulumi.getter(name="statusConfigAutomatic")
     def status_config_automatic(self) -> pulumi.Output[Optional['outputs.WorkloadStatusConfigAutomatic']]:
         """
-        An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
         """
         return pulumi.get(self, "status_config_automatic")
 
@@ -836,7 +1032,7 @@ class Workload(pulumi.CustomResource):
     @pulumi.getter(name="statusConfigStatic")
     def status_config_static(self) -> pulumi.Output[Optional['outputs.WorkloadStatusConfigStatic']]:
         """
-        A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
         """
         return pulumi.get(self, "status_config_static")
 
