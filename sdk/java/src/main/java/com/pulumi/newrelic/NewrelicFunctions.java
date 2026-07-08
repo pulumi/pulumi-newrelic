@@ -15,6 +15,8 @@ import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
 import com.pulumi.newrelic.inputs.GetAlertChannelPlainArgs;
 import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
 import com.pulumi.newrelic.inputs.GetAlertPolicyPlainArgs;
+import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+import com.pulumi.newrelic.inputs.GetApiAccessKeyPlainArgs;
 import com.pulumi.newrelic.inputs.GetApplicationArgs;
 import com.pulumi.newrelic.inputs.GetApplicationPlainArgs;
 import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
@@ -44,6 +46,7 @@ import com.pulumi.newrelic.inputs.GetUserPlainArgs;
 import com.pulumi.newrelic.outputs.GetAccountResult;
 import com.pulumi.newrelic.outputs.GetAlertChannelResult;
 import com.pulumi.newrelic.outputs.GetAlertPolicyResult;
+import com.pulumi.newrelic.outputs.GetApiAccessKeyResult;
 import com.pulumi.newrelic.outputs.GetApplicationResult;
 import com.pulumi.newrelic.outputs.GetAuthenticationDomainResult;
 import com.pulumi.newrelic.outputs.GetCloudAccountResult;
@@ -922,6 +925,611 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetAlertPolicyResult> getAlertPolicyPlain(GetAlertPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getAlertPolicy:getAlertPolicy", TypeShape.of(GetAlertPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve details of an existing New Relic API access key, which can be either an [Ingest (license) key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) or a [User API key](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key). A common use case is to fetch the default license key that New Relic creates for every account (for instance, via the `newrelic.AccountManagement` resource) and inject its value into other resources, without having to manage the key itself with the `newrelic.ApiAccessKey` resource.
+     * 
+     * A key may be looked up in one of two ways: directly by its `keyId`, or by searching with a combination of `accountId`, `keyType`, `ingestType`, `userId` and `name`.
+     * 
+     * Refer to the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys) for detailed information.
+     * 
+     * &gt; **WARNING:** If the key being fetched was created for a user other than the one whose API key is being used to run Terraform, the New Relic API returns a &lt;span style=&#34;color:tomato;&#34;&gt;truncated key value&lt;/span&gt; for security reasons. In such a case, the `key` attribute is not populated in state and a warning is emitted. See the Attributes Reference section below, and the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys/#query-keys) for further details.
+     * 
+     * ## Example Usage
+     * 
+     * ### Example: Look up the default license key of an account
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .name("License Key for <Account name>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Look up a key directly by its ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .keyId("131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3")
+     *             .keyType("INGEST")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Inject a license key into another resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ingest = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .build());
+     * 
+     *         ctx.export("licenseKey", ingest.key());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApiAccessKeyResult> getApiAccessKey(GetApiAccessKeyArgs args) {
+        return getApiAccessKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve details of an existing New Relic API access key, which can be either an [Ingest (license) key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) or a [User API key](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key). A common use case is to fetch the default license key that New Relic creates for every account (for instance, via the `newrelic.AccountManagement` resource) and inject its value into other resources, without having to manage the key itself with the `newrelic.ApiAccessKey` resource.
+     * 
+     * A key may be looked up in one of two ways: directly by its `keyId`, or by searching with a combination of `accountId`, `keyType`, `ingestType`, `userId` and `name`.
+     * 
+     * Refer to the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys) for detailed information.
+     * 
+     * &gt; **WARNING:** If the key being fetched was created for a user other than the one whose API key is being used to run Terraform, the New Relic API returns a &lt;span style=&#34;color:tomato;&#34;&gt;truncated key value&lt;/span&gt; for security reasons. In such a case, the `key` attribute is not populated in state and a warning is emitted. See the Attributes Reference section below, and the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys/#query-keys) for further details.
+     * 
+     * ## Example Usage
+     * 
+     * ### Example: Look up the default license key of an account
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .name("License Key for <Account name>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Look up a key directly by its ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .keyId("131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3")
+     *             .keyType("INGEST")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Inject a license key into another resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ingest = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .build());
+     * 
+     *         ctx.export("licenseKey", ingest.key());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetApiAccessKeyResult> getApiAccessKeyPlain(GetApiAccessKeyPlainArgs args) {
+        return getApiAccessKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve details of an existing New Relic API access key, which can be either an [Ingest (license) key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) or a [User API key](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key). A common use case is to fetch the default license key that New Relic creates for every account (for instance, via the `newrelic.AccountManagement` resource) and inject its value into other resources, without having to manage the key itself with the `newrelic.ApiAccessKey` resource.
+     * 
+     * A key may be looked up in one of two ways: directly by its `keyId`, or by searching with a combination of `accountId`, `keyType`, `ingestType`, `userId` and `name`.
+     * 
+     * Refer to the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys) for detailed information.
+     * 
+     * &gt; **WARNING:** If the key being fetched was created for a user other than the one whose API key is being used to run Terraform, the New Relic API returns a &lt;span style=&#34;color:tomato;&#34;&gt;truncated key value&lt;/span&gt; for security reasons. In such a case, the `key` attribute is not populated in state and a warning is emitted. See the Attributes Reference section below, and the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys/#query-keys) for further details.
+     * 
+     * ## Example Usage
+     * 
+     * ### Example: Look up the default license key of an account
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .name("License Key for <Account name>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Look up a key directly by its ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .keyId("131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3")
+     *             .keyType("INGEST")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Inject a license key into another resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ingest = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .build());
+     * 
+     *         ctx.export("licenseKey", ingest.key());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApiAccessKeyResult> getApiAccessKey(GetApiAccessKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getApiAccessKey:getApiAccessKey", TypeShape.of(GetApiAccessKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve details of an existing New Relic API access key, which can be either an [Ingest (license) key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) or a [User API key](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key). A common use case is to fetch the default license key that New Relic creates for every account (for instance, via the `newrelic.AccountManagement` resource) and inject its value into other resources, without having to manage the key itself with the `newrelic.ApiAccessKey` resource.
+     * 
+     * A key may be looked up in one of two ways: directly by its `keyId`, or by searching with a combination of `accountId`, `keyType`, `ingestType`, `userId` and `name`.
+     * 
+     * Refer to the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys) for detailed information.
+     * 
+     * &gt; **WARNING:** If the key being fetched was created for a user other than the one whose API key is being used to run Terraform, the New Relic API returns a &lt;span style=&#34;color:tomato;&#34;&gt;truncated key value&lt;/span&gt; for security reasons. In such a case, the `key` attribute is not populated in state and a warning is emitted. See the Attributes Reference section below, and the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys/#query-keys) for further details.
+     * 
+     * ## Example Usage
+     * 
+     * ### Example: Look up the default license key of an account
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .name("License Key for <Account name>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Look up a key directly by its ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .keyId("131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3")
+     *             .keyType("INGEST")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Inject a license key into another resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ingest = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .build());
+     * 
+     *         ctx.export("licenseKey", ingest.key());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApiAccessKeyResult> getApiAccessKey(GetApiAccessKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getApiAccessKey:getApiAccessKey", TypeShape.of(GetApiAccessKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve details of an existing New Relic API access key, which can be either an [Ingest (license) key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) or a [User API key](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key). A common use case is to fetch the default license key that New Relic creates for every account (for instance, via the `newrelic.AccountManagement` resource) and inject its value into other resources, without having to manage the key itself with the `newrelic.ApiAccessKey` resource.
+     * 
+     * A key may be looked up in one of two ways: directly by its `keyId`, or by searching with a combination of `accountId`, `keyType`, `ingestType`, `userId` and `name`.
+     * 
+     * Refer to the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys) for detailed information.
+     * 
+     * &gt; **WARNING:** If the key being fetched was created for a user other than the one whose API key is being used to run Terraform, the New Relic API returns a &lt;span style=&#34;color:tomato;&#34;&gt;truncated key value&lt;/span&gt; for security reasons. In such a case, the `key` attribute is not populated in state and a warning is emitted. See the Attributes Reference section below, and the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys/#query-keys) for further details.
+     * 
+     * ## Example Usage
+     * 
+     * ### Example: Look up the default license key of an account
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .name("License Key for <Account name>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Look up a key directly by its ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byId = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .keyId("131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3")
+     *             .keyType("INGEST")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Example: Inject a license key into another resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApiAccessKeyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ingest = NewrelicFunctions.getApiAccessKey(GetApiAccessKeyArgs.builder()
+     *             .accountId("1234567")
+     *             .keyType("INGEST")
+     *             .ingestType("LICENSE")
+     *             .build());
+     * 
+     *         ctx.export("licenseKey", ingest.key());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetApiAccessKeyResult> getApiAccessKeyPlain(GetApiAccessKeyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getApiAccessKey:getApiAccessKey", TypeShape.of(GetApiAccessKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * &gt; **DEPRECATED** Use at your own risk. Use the [`newrelic.getEntity`](https://www.terraform.io/docs/providers/newrelic/d/entity.html) data source instead. This feature may be removed in the next major release.
