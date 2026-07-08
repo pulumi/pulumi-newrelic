@@ -2974,6 +2974,10 @@
                 "current": "newrelic:index/getAlertPolicy:getAlertPolicy",
                 "majorVersion": 5
             },
+            "newrelic_api_access_key": {
+                "current": "newrelic:index/getApiAccessKey:getApiAccessKey",
+                "majorVersion": 5
+            },
             "newrelic_application": {
                 "current": "newrelic:index/getApplication:getApplication",
                 "majorVersion": 5,
@@ -5113,6 +5117,11 @@
             ],
             "newrelic_alert_policy": [
                 "account_id"
+            ],
+            "newrelic_api_access_key": [
+                "account_id",
+                "key_id",
+                "user_id"
             ],
             "newrelic_application": [
                 "host_ids",
