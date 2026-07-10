@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-newrelic"
                 packaging = "jar"
-                description = "A Pulumi package for creating and managing New Relic resources."
+                description = $/A Pulumi package for creating and managing New Relic resources./$
 
                 url = "https://github.com/pulumi/pulumi-newrelic"
 

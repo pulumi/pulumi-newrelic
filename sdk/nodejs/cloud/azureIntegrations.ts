@@ -274,7 +274,6 @@ export class AzureIntegrations extends pulumi.CustomResource {
     /**
      * The ID of the linked Azure account in New Relic.
      *
-     *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
     declare public readonly linkedAccountId: pulumi.Output<string>;
@@ -522,7 +521,6 @@ export interface AzureIntegrationsState {
     /**
      * The ID of the linked Azure account in New Relic.
      *
-     *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
     linkedAccountId?: pulumi.Input<string | undefined>;
@@ -676,7 +674,6 @@ export interface AzureIntegrationsArgs {
     keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault | undefined>;
     /**
      * The ID of the linked Azure account in New Relic.
-     *
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */

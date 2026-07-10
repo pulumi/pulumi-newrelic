@@ -159,14 +159,14 @@ class EntityTags(pulumi.CustomResource):
         foo = {str(__key): newrelic.get_entity(name=str(__key),
             type="APPLICATION",
             domain="APM") for __key, __value in enumerate(apps)}
-        foo_entity_tags: list[Any] = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
-            foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",
+        foo_entity_tags: list[newrelic.EntityTags] = []
+        for foo_entity_tags_range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
+            foo_entity_tags.append(newrelic.EntityTags(f"foo-{foo_entity_tags_range['key']}",
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
                 } for entry in [{"key": k, "value": v} for k, v in sorted(custom_tags.items())]],
-                guid=foo[range["key"]].guid))
+                guid=foo[foo_entity_tags_range["key"]].guid))
         ```
 
         ## Import
@@ -242,14 +242,14 @@ class EntityTags(pulumi.CustomResource):
         foo = {str(__key): newrelic.get_entity(name=str(__key),
             type="APPLICATION",
             domain="APM") for __key, __value in enumerate(apps)}
-        foo_entity_tags: list[Any] = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
-            foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",
+        foo_entity_tags: list[newrelic.EntityTags] = []
+        for foo_entity_tags_range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
+            foo_entity_tags.append(newrelic.EntityTags(f"foo-{foo_entity_tags_range['key']}",
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
                 } for entry in [{"key": k, "value": v} for k, v in sorted(custom_tags.items())]],
-                guid=foo[range["key"]].guid))
+                guid=foo[foo_entity_tags_range["key"]].guid))
         ```
 
         ## Import
