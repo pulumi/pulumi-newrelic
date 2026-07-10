@@ -26,7 +26,7 @@ class NrqlDropRuleArgs:
         """
         The set of arguments for constructing a NrqlDropRule resource.
 
-        :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
         :param pulumi.Input[_builtins.str] nrql: A NRQL string that specifies what data types to drop.
         :param pulumi.Input[_builtins.str] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] description: The description of the drop rule.
@@ -42,7 +42,7 @@ class NrqlDropRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
         """
-        An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
         """
         return pulumi.get(self, "action")
 
@@ -100,7 +100,7 @@ class _NrqlDropRuleState:
         Input properties used for looking up and filtering NrqlDropRule resources.
 
         :param pulumi.Input[_builtins.str] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
-        :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
         :param pulumi.Input[_builtins.str] description: The description of the drop rule.
         :param pulumi.Input[_builtins.str] nrql: A NRQL string that specifies what data types to drop.
         :param pulumi.Input[_builtins.str] pipeline_cloud_rule_entity_id: The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
@@ -135,7 +135,7 @@ class _NrqlDropRuleState:
     @pulumi.getter
     def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
         """
         return pulumi.get(self, "action")
 
@@ -261,7 +261,7 @@ class NrqlDropRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
-        :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
         :param pulumi.Input[_builtins.str] description: The description of the drop rule.
         :param pulumi.Input[_builtins.str] nrql: A NRQL string that specifies what data types to drop.
         """
@@ -388,7 +388,7 @@ class NrqlDropRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
-        :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
         :param pulumi.Input[_builtins.str] description: The description of the drop rule.
         :param pulumi.Input[_builtins.str] nrql: A NRQL string that specifies what data types to drop.
         :param pulumi.Input[_builtins.str] pipeline_cloud_rule_entity_id: The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
@@ -418,7 +418,7 @@ class NrqlDropRule(pulumi.CustomResource):
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:
         """
-        An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
+        An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
         """
         return pulumi.get(self, "action")
 

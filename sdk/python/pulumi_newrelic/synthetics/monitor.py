@@ -55,9 +55,9 @@ class MonitorArgs:
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
-        :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
-        :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[_builtins.bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
@@ -200,7 +200,7 @@ class MonitorArgs:
     @pulumi.getter(name="deviceOrientation")
     def device_orientation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_orientation")
@@ -213,7 +213,7 @@ class MonitorArgs:
     @pulumi.getter(name="deviceType")
     def device_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_type")
@@ -442,9 +442,9 @@ class _MonitorState:
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
-        :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
-        :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[_builtins.bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
@@ -573,7 +573,7 @@ class _MonitorState:
     @pulumi.getter(name="deviceOrientation")
     def device_orientation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_orientation")
@@ -586,7 +586,7 @@ class _MonitorState:
     @pulumi.getter(name="deviceType")
     def device_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_type")
@@ -1019,9 +1019,9 @@ class Monitor(pulumi.CustomResource):
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
-        :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
-        :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[_builtins.bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
@@ -1328,9 +1328,9 @@ class Monitor(pulumi.CustomResource):
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
-        :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
-        :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[_builtins.bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
@@ -1423,7 +1423,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="deviceOrientation")
     def device_orientation(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_orientation")
@@ -1432,7 +1432,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="deviceType")
     def device_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_type")

@@ -214,11 +214,11 @@ class MetricPruningRule(pulumi.CustomResource):
             "k8s.pod.cpu.usage",
             "k8s.pod.memory.usage",
         ]).result
-        bulk: list[Any] = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate(metrics_to_prune)]:
-            bulk.append(newrelic.MetricPruningRule(f"bulk-{range['key']}",
-                nrql=f"SELECT {pruned_attribute} FROM Metric WHERE metricName = '{range['value']}'",
-                description=f"Remove {pruned_attribute} from {range['value']} to reduce cardinality"))
+        bulk: list[newrelic.MetricPruningRule] = []
+        for bulk_range in [{"key": k, "value": v} for [k, v] in enumerate(metrics_to_prune)]:
+            bulk.append(newrelic.MetricPruningRule(f"bulk-{bulk_range['key']}",
+                nrql=f"SELECT {pruned_attribute} FROM Metric WHERE metricName = '{bulk_range['value']}'",
+                description=f"Remove {pruned_attribute} from {bulk_range['value']} to reduce cardinality"))
         ```
 
         Each entry in `metrics_to_prune` produces an independent `MetricPruningRule` resource (e.g. `newrelic_metric_pruning_rule.bulk["http.server.duration"]`) that can be inspected, imported, or destroyed individually.
@@ -309,11 +309,11 @@ class MetricPruningRule(pulumi.CustomResource):
             "k8s.pod.cpu.usage",
             "k8s.pod.memory.usage",
         ]).result
-        bulk: list[Any] = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate(metrics_to_prune)]:
-            bulk.append(newrelic.MetricPruningRule(f"bulk-{range['key']}",
-                nrql=f"SELECT {pruned_attribute} FROM Metric WHERE metricName = '{range['value']}'",
-                description=f"Remove {pruned_attribute} from {range['value']} to reduce cardinality"))
+        bulk: list[newrelic.MetricPruningRule] = []
+        for bulk_range in [{"key": k, "value": v} for [k, v] in enumerate(metrics_to_prune)]:
+            bulk.append(newrelic.MetricPruningRule(f"bulk-{bulk_range['key']}",
+                nrql=f"SELECT {pruned_attribute} FROM Metric WHERE metricName = '{bulk_range['value']}'",
+                description=f"Remove {pruned_attribute} from {bulk_range['value']} to reduce cardinality"))
         ```
 
         Each entry in `metrics_to_prune` produces an independent `MetricPruningRule` resource (e.g. `newrelic_metric_pruning_rule.bulk["http.server.duration"]`) that can be inspected, imported, or destroyed individually.

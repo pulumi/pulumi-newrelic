@@ -61,7 +61,6 @@ class AzureIntegrationsArgs:
 
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked Azure account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AzureIntegrationsApiManagementArgs'] api_management: Azure API Management. See Integration blocks below for details.
@@ -179,7 +178,6 @@ class AzureIntegrationsArgs:
     def linked_account_id(self) -> pulumi.Input[_builtins.str]:
         """
         The ID of the linked Azure account in New Relic.
-
 
         The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         """
@@ -662,7 +660,6 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsKeyVaultArgs'] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked Azure account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input['AzureIntegrationsLoadBalancerArgs'] load_balancer: Azure Load Balancer. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: Azure Logic Apps. See Integration blocks below for details.
@@ -946,7 +943,6 @@ class _AzureIntegrationsState:
     def linked_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the linked Azure account in New Relic.
-
 
         The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         """
@@ -1428,7 +1424,6 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict']] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked Azure account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
@@ -1803,7 +1798,6 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict']] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked Azure account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
@@ -1997,7 +1991,6 @@ class AzureIntegrations(pulumi.CustomResource):
     def linked_account_id(self) -> pulumi.Output[_builtins.str]:
         """
         The ID of the linked Azure account in New Relic.
-
 
         The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         """

@@ -213,12 +213,12 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly customHeaders: pulumi.Output<outputs.synthetics.MonitorCustomHeader[] | undefined>;
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     declare public readonly deviceOrientation: pulumi.Output<string | undefined>;
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     declare public readonly deviceType: pulumi.Output<string | undefined>;
@@ -401,12 +401,12 @@ export interface MonitorState {
      */
     customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[] | undefined>;
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceOrientation?: pulumi.Input<string | undefined>;
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceType?: pulumi.Input<string | undefined>;
@@ -513,12 +513,12 @@ export interface MonitorArgs {
      */
     customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[] | undefined>;
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
      * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceOrientation?: pulumi.Input<string | undefined>;
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
      * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceType?: pulumi.Input<string | undefined>;

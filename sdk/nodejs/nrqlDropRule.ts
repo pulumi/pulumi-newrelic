@@ -94,7 +94,7 @@ export class NrqlDropRule extends pulumi.CustomResource {
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or ` dropAttributesFromMetricAggregates`).
+     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
      */
     declare public readonly action: pulumi.Output<string>;
     /**
@@ -162,7 +162,7 @@ export interface NrqlDropRuleState {
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or ` dropAttributesFromMetricAggregates`).
+     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
      */
     action?: pulumi.Input<string | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface NrqlDropRuleArgs {
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or ` dropAttributesFromMetricAggregates`).
+     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
      */
     action: pulumi.Input<string>;
     /**
