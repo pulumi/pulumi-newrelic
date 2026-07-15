@@ -14,6 +14,8 @@ namespace Pulumi.NewRelic
     /// 
     /// &gt; **WARNING:** The `newrelic.AlertChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can set up channels using a combination of the newer resources `newrelic.NotificationDestination` and `newrelic.NotificationChannel`. We **strongly recommend** migrating to these new resources at the earliest. Please refer to this example for a detailed illustration on setting up channels with these resources.
     /// 
+    /// &gt; **A note on the availability of this resource in Japan (JP).** The `newrelic.AlertChannel` resource is backed by the legacy REST v2 Alert Channels API, which was globally deprecated in 2024 - the same reason this resource has been marked deprecated for a while, as noted in the warning above. Because REST v2 is not provisioned on the New Relic Japan region, `newrelic.AlertChannel` simply cannot be used there; a `pulumi preview` against a provider configured with `region = "JP"` fails early with an actionable error message.&lt;br&gt;&lt;br&gt;Moving to the NerdGraph-based `newrelic.NotificationDestination` and `newrelic.NotificationChannel` resources is not a JP-only concern - it is highly essential in every region, so that your alerting keeps working when the REST v2 Alert Channels API is formally sunsetted. See the getting started guide for a walkthrough of wiring alert conditions, alert policies, notification destinations, notification channels, and workflows together in Terraform.
+    /// 
     /// ## Example Usage
     /// 
     /// ##### Email

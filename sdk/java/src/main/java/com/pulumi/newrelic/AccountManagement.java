@@ -16,8 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create and manage New Relic sub accounts.
  * 
- * &gt; **WARNING:** The `newrelic.AccountManagement` resource will only create/update but won&#39;t delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
- * 
  * ## Example Usage
  * 
  * ##### Create Account
@@ -45,7 +43,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new AccountManagement("foo", AccountManagementArgs.builder()
  *             .name("Test Account Name")
- *             .region("us01")
  *             .build());
  * 
  *     }
@@ -67,6 +64,8 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Account.
      * 
+     * &gt; **NOTE** &lt;span style=&#34;color:red;&#34;&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.&lt;br&gt;&lt;br&gt;Setting `region` in your configuration is still accepted for backward compatibility, but it has &lt;b&gt;no effect&lt;/b&gt; on where the account is created. Please &lt;span style=&#34;color:tomato;&#34;&gt;stop setting it in new configurations&lt;/span&gt;, and remove it from existing ones when it&#39;s convenient.
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
@@ -74,19 +73,25 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the Account.
      * 
+     * &gt; **NOTE** &lt;span style=&#34;color:red;&#34;&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.&lt;br&gt;&lt;br&gt;Setting `region` in your configuration is still accepted for backward compatibility, but it has &lt;b&gt;no effect&lt;/b&gt; on where the account is created. Please &lt;span style=&#34;color:tomato;&#34;&gt;stop setting it in new configurations&lt;/span&gt;, and remove it from existing ones when it&#39;s convenient.
+     * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
+     * 
+     * @deprecated
+     * `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
      * 
      */
+    @Deprecated /* `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset. */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The region code of the account.  One of: `us01`, `eu01`.
+     * @return DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
      * 
      */
     public Output<String> region() {
@@ -119,7 +124,7 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccountManagement(java.lang.String name, AccountManagementArgs args) {
+    public AccountManagement(java.lang.String name, @Nullable AccountManagementArgs args) {
         this(name, args, null);
     }
     /**
@@ -128,7 +133,7 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccountManagement(java.lang.String name, AccountManagementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public AccountManagement(java.lang.String name, @Nullable AccountManagementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:index/accountManagement:AccountManagement", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -136,7 +141,7 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
         super("newrelic:index/accountManagement:AccountManagement", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static AccountManagementArgs makeArgs(AccountManagementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static AccountManagementArgs makeArgs(@Nullable AccountManagementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

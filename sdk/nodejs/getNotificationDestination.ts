@@ -153,7 +153,7 @@ export interface GetNotificationDestinationResult {
      * The unique entity identifier of the destination in New Relic.
      */
     readonly guid: string;
-    readonly id?: string;
+    readonly id: string;
     /**
      * The name of the notification destination.
      */

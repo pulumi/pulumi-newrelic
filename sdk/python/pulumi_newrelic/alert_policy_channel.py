@@ -143,6 +143,8 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         > **WARNING:** The `AlertPolicyChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can map channels to policies using the resource `Workflow`, with the channels to be mapped created using a combination of the newer resources `NotificationDestination` and `NotificationChannel`. We **strongly recommend** migrating to these new resources at the earliest. Please refer to this example for a detailed illustration on setting up channels and workflows with these resources.
 
+        > **A note on the availability of this resource in Japan (JP).** Both `AlertPolicyChannel` and its companion `AlertChannel` are backed by the legacy REST v2 Alert Channels API, which was globally deprecated in 2024 - the same reason both resources have been marked deprecated for a while, as noted in the warning above. Because REST v2 is not provisioned on the New Relic Japan region, neither resource can be used there; a `pulumi preview` against a provider configured with `region = "JP"` fails early with an actionable error message.<br><br>Moving to the NerdGraph-based `Workflow` paired with `NotificationDestination` and `NotificationChannel` is not a JP-only concern - it is highly essential in every region, so that your alerting keeps working when the REST v2 Alert Channels API is formally sunsetted. See the getting started guide for a walkthrough of wiring alert conditions, alert policies, notification destinations, notification channels, and workflows together in Terraform.
+
         ## Example Usage
 
         The example below will apply multiple alert channels to an existing New Relic alert policy.
@@ -207,6 +209,8 @@ class AlertPolicyChannel(pulumi.CustomResource):
         Use this resource to map alert policies to alert channels in New Relic.
 
         > **WARNING:** The `AlertPolicyChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can map channels to policies using the resource `Workflow`, with the channels to be mapped created using a combination of the newer resources `NotificationDestination` and `NotificationChannel`. We **strongly recommend** migrating to these new resources at the earliest. Please refer to this example for a detailed illustration on setting up channels and workflows with these resources.
+
+        > **A note on the availability of this resource in Japan (JP).** Both `AlertPolicyChannel` and its companion `AlertChannel` are backed by the legacy REST v2 Alert Channels API, which was globally deprecated in 2024 - the same reason both resources have been marked deprecated for a while, as noted in the warning above. Because REST v2 is not provisioned on the New Relic Japan region, neither resource can be used there; a `pulumi preview` against a provider configured with `region = "JP"` fails early with an actionable error message.<br><br>Moving to the NerdGraph-based `Workflow` paired with `NotificationDestination` and `NotificationChannel` is not a JP-only concern - it is highly essential in every region, so that your alerting keeps working when the REST v2 Alert Channels API is formally sunsetted. See the getting started guide for a walkthrough of wiring alert conditions, alert policies, notification destinations, notification channels, and workflows together in Terraform.
 
         ## Example Usage
 
