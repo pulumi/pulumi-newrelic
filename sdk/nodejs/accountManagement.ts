@@ -7,8 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage New Relic sub accounts.
  *
- * > **WARNING:** The `newrelic.AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
- *
  * ## Example Usage
  *
  * ##### Create Account
@@ -16,10 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.AccountManagement("foo", {
- *     name: "Test Account Name",
- *     region: "us01",
- * });
+ * const foo = new newrelic.AccountManagement("foo", {name: "Test Account Name"});
  * ```
  *
  * ## Import
@@ -60,10 +55,14 @@ export class AccountManagement extends pulumi.CustomResource {
 
     /**
      * The name of the Account.
+     *
+     * > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
+     *
+     * @deprecated `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
@@ -78,7 +77,7 @@ export class AccountManagement extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccountManagementArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: AccountManagementArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountManagementArgs | AccountManagementState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -89,9 +88,6 @@ export class AccountManagement extends pulumi.CustomResource {
             resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as AccountManagementArgs | undefined;
-            if (args?.region === undefined && !opts.urn) {
-                throw new Error("Missing required property 'region'");
-            }
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["status"] = undefined /*out*/;
@@ -107,10 +103,14 @@ export class AccountManagement extends pulumi.CustomResource {
 export interface AccountManagementState {
     /**
      * The name of the Account.
+     *
+     * > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
+     *
+     * @deprecated `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
      */
     region?: pulumi.Input<string | undefined>;
     /**
@@ -125,10 +125,14 @@ export interface AccountManagementState {
 export interface AccountManagementArgs {
     /**
      * The name of the Account.
+     *
+     * > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
+     *
+     * @deprecated `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
      */
-    region: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

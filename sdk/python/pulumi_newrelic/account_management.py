@@ -19,41 +19,50 @@ __all__ = ['AccountManagementArgs', 'AccountManagement']
 @pulumi.input_type
 class AccountManagementArgs:
     def __init__(__self__, *,
-                 region: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountManagement resource.
 
-        :param pulumi.Input[_builtins.str] region: The region code of the account.  One of: `us01`, `eu01`.
         :param pulumi.Input[_builtins.str] name: The name of the Account.
+               
+               > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
+        :param pulumi.Input[_builtins.str] region: DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
         """
-        pulumi.set(__self__, "region", region)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def region(self) -> pulumi.Input[_builtins.str]:
-        """
-        The region code of the account.  One of: `us01`, `eu01`.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "region", value)
+        if region is not None:
+            warnings.warn("""`region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.""")
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Account.
+
+        > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""`region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.""")
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
@@ -66,11 +75,16 @@ class _AccountManagementState:
         Input properties used for looking up and filtering AccountManagement resources.
 
         :param pulumi.Input[_builtins.str] name: The name of the Account.
-        :param pulumi.Input[_builtins.str] region: The region code of the account.  One of: `us01`, `eu01`.
+               
+               > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
+        :param pulumi.Input[_builtins.str] region: DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
         :param pulumi.Input[_builtins.str] status: Status of the account - active or canceled
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            warnings.warn("""`region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
         if status is not None:
@@ -81,6 +95,8 @@ class _AccountManagementState:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Account.
+
+        > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
         """
         return pulumi.get(self, "name")
 
@@ -90,9 +106,10 @@ class _AccountManagementState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""`region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.""")
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The region code of the account.  One of: `us01`, `eu01`.
+        DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
         """
         return pulumi.get(self, "region")
 
@@ -125,8 +142,6 @@ class AccountManagement(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic sub accounts.
 
-        > **WARNING:** The `AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
-
         ## Example Usage
 
         ##### Create Account
@@ -134,9 +149,7 @@ class AccountManagement(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AccountManagement("foo",
-            name="Test Account Name",
-            region="us01")
+        foo = newrelic.AccountManagement("foo", name="Test Account Name")
         ```
 
         ## Import
@@ -151,18 +164,18 @@ class AccountManagement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Account.
-        :param pulumi.Input[_builtins.str] region: The region code of the account.  One of: `us01`, `eu01`.
+               
+               > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
+        :param pulumi.Input[_builtins.str] region: DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountManagementArgs,
+                 args: Optional[AccountManagementArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to create and manage New Relic sub accounts.
-
-        > **WARNING:** The `AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
 
         ## Example Usage
 
@@ -171,9 +184,7 @@ class AccountManagement(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AccountManagement("foo",
-            name="Test Account Name",
-            region="us01")
+        foo = newrelic.AccountManagement("foo", name="Test Account Name")
         ```
 
         ## Import
@@ -212,8 +223,6 @@ class AccountManagement(pulumi.CustomResource):
             __props__ = AccountManagementArgs.__new__(AccountManagementArgs)
 
             __props__.__dict__["name"] = name
-            if region is None and not opts.urn:
-                raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
             __props__.__dict__["status"] = None
         super(AccountManagement, __self__).__init__(
@@ -237,7 +246,9 @@ class AccountManagement(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Account.
-        :param pulumi.Input[_builtins.str] region: The region code of the account.  One of: `us01`, `eu01`.
+               
+               > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
+        :param pulumi.Input[_builtins.str] region: DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
         :param pulumi.Input[_builtins.str] status: Status of the account - active or canceled
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -254,14 +265,17 @@ class AccountManagement(pulumi.CustomResource):
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the Account.
+
+        > **NOTE** <span style="color:red;">Starting <b>v3.95.0</b> of the New Relic Terraform Provider, the `region` argument on `AccountManagement` is deprecated and will be removed in a future major release.</span><br><br>Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.<br><br>Setting `region` in your configuration is still accepted for backward compatibility, but it has <b>no effect</b> on where the account is created. Please <span style="color:tomato;">stop setting it in new configurations</span>, and remove it from existing ones when it's convenient.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""`region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.""")
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        The region code of the account.  One of: `us01`, `eu01`.
+        DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
         """
         return pulumi.get(self, "region")
 

@@ -91,7 +91,7 @@ class GetNotificationDestinationResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
+    def id(self) -> _builtins.str:
         return pulumi.get(self, "id")
 
     @_builtins.property

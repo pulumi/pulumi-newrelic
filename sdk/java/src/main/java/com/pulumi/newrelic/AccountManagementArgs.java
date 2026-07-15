@@ -5,7 +5,6 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,6 +18,8 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
     /**
      * The name of the Account.
      * 
+     * &gt; **NOTE** &lt;span style=&#34;color:red;&#34;&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.&lt;br&gt;&lt;br&gt;Setting `region` in your configuration is still accepted for backward compatibility, but it has &lt;b&gt;no effect&lt;/b&gt; on where the account is created. Please &lt;span style=&#34;color:tomato;&#34;&gt;stop setting it in new configurations&lt;/span&gt;, and remove it from existing ones when it&#39;s convenient.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -26,24 +27,34 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return The name of the Account.
      * 
+     * &gt; **NOTE** &lt;span style=&#34;color:red;&#34;&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.&lt;br&gt;&lt;br&gt;Setting `region` in your configuration is still accepted for backward compatibility, but it has &lt;b&gt;no effect&lt;/b&gt; on where the account is created. Please &lt;span style=&#34;color:tomato;&#34;&gt;stop setting it in new configurations&lt;/span&gt;, and remove it from existing ones when it&#39;s convenient.
+     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
     /**
-     * The region code of the account.  One of: `us01`, `eu01`.
+     * DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
+     * 
+     * @deprecated
+     * `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
      * 
      */
-    @Import(name="region", required=true)
-    private Output<String> region;
+    @Deprecated /* `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset. */
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return The region code of the account.  One of: `us01`, `eu01`.
+     * @return DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
+     * 
+     * @deprecated
+     * `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    @Deprecated /* `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset. */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private AccountManagementArgs() {}
@@ -74,6 +85,8 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param name The name of the Account.
          * 
+         * &gt; **NOTE** &lt;span style=&#34;color:red;&#34;&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.&lt;br&gt;&lt;br&gt;Setting `region` in your configuration is still accepted for backward compatibility, but it has &lt;b&gt;no effect&lt;/b&gt; on where the account is created. Please &lt;span style=&#34;color:tomato;&#34;&gt;stop setting it in new configurations&lt;/span&gt;, and remove it from existing ones when it&#39;s convenient.
+         * 
          * @return builder
          * 
          */
@@ -85,6 +98,8 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param name The name of the Account.
          * 
+         * &gt; **NOTE** &lt;span style=&#34;color:red;&#34;&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.&lt;br&gt;&lt;br&gt;Setting `region` in your configuration is still accepted for backward compatibility, but it has &lt;b&gt;no effect&lt;/b&gt; on where the account is created. Please &lt;span style=&#34;color:tomato;&#34;&gt;stop setting it in new configurations&lt;/span&gt;, and remove it from existing ones when it&#39;s convenient.
+         * 
          * @return builder
          * 
          */
@@ -93,30 +108,35 @@ public final class AccountManagementArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param region The region code of the account.  One of: `us01`, `eu01`.
+         * @param region DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
          * 
          * @return builder
          * 
+         * @deprecated
+         * `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
+         * 
          */
-        public Builder region(Output<String> region) {
+        @Deprecated /* `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset. */
+        public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region The region code of the account.  One of: `us01`, `eu01`.
+         * @param region DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
          * 
          * @return builder
          * 
+         * @deprecated
+         * `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
+         * 
          */
+        @Deprecated /* `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset. */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         public AccountManagementArgs build() {
-            if ($.region == null) {
-                throw new MissingRequiredPropertyException("AccountManagementArgs", "region");
-            }
             return $;
         }
     }
