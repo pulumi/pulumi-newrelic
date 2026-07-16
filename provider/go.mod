@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-newrelic/provider/v5
 
-go 1.25.11
+go 1.26.0
 
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
@@ -159,7 +159,6 @@ require (
 	github.com/muesli/termenv v0.16.0 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/newrelic/go-agent/v3 v3.30.0 // indirect
-	github.com/newrelic/go-insights v1.0.3 // indirect
 	github.com/newrelic/newrelic-client-go/v2 v2.90.0 // indirect
 	github.com/nxadm/tail v1.4.11 // indirect
 	github.com/oklog/run v1.1.0 // indirect
