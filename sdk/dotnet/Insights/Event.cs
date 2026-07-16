@@ -12,6 +12,8 @@ namespace Pulumi.NewRelic.Insights
     /// <summary>
     /// Use this resource to create one or more Insights events during a terraform run.
     /// 
+    /// &gt; **NOTE** &lt;span style="color:red;"&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `InsightsInsertUrl` provider argument is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;The correct Insights collector endpoint is now picked automatically from the provider's `Region` argument, so no manual override is needed. If you were setting `InsightsInsertUrl` as a workaround for the EU or JP region, you can safely remove it - values passed there are ignored with a warning in the logs.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

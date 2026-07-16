@@ -12,8 +12,6 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage New Relic sub accounts.
     /// 
-    /// &gt; **WARNING:** The `newrelic.AccountManagement` resource will only create/update but won't delete a sub account. Please visit our documentation on  [`Account Management`](https://docs.newrelic.com/docs/apis/nerdgraph/examples/manage-accounts-nerdgraph/#delete) for more information .
-    /// 
     /// ## Example Usage
     /// 
     /// ##### Create Account
@@ -28,7 +26,6 @@ namespace Pulumi.NewRelic
     ///     var foo = new NewRelic.AccountManagement("foo", new()
     ///     {
     ///         Name = "Test Account Name",
-    ///         Region = "us01",
     ///     });
     /// 
     /// });
@@ -47,12 +44,14 @@ namespace Pulumi.NewRelic
     {
         /// <summary>
         /// The name of the Account.
+        /// 
+        /// &gt; **NOTE** &lt;span style="color:red;"&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `Region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.&lt;br&gt;&lt;br&gt;Setting `Region` in your configuration is still accepted for backward compatibility, but it has &lt;b&gt;no effect&lt;/b&gt; on where the account is created. Please &lt;span style="color:tomato;"&gt;stop setting it in new configurations&lt;/span&gt;, and remove it from existing ones when it's convenient.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The region code of the account.  One of: `Us01`, `Eu01`.
+        /// DEPRECATED. The `Region` argument is no longer meaningful and has no effect on where the account is created.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -71,7 +70,7 @@ namespace Pulumi.NewRelic
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AccountManagement(string name, AccountManagementArgs args, CustomResourceOptions? options = null)
+        public AccountManagement(string name, AccountManagementArgs? args = null, CustomResourceOptions? options = null)
             : base("newrelic:index/accountManagement:AccountManagement", name, args ?? new AccountManagementArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -111,15 +110,17 @@ namespace Pulumi.NewRelic
     {
         /// <summary>
         /// The name of the Account.
+        /// 
+        /// &gt; **NOTE** &lt;span style="color:red;"&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `Region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.&lt;br&gt;&lt;br&gt;Setting `Region` in your configuration is still accepted for backward compatibility, but it has &lt;b&gt;no effect&lt;/b&gt; on where the account is created. Please &lt;span style="color:tomato;"&gt;stop setting it in new configurations&lt;/span&gt;, and remove it from existing ones when it's convenient.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The region code of the account.  One of: `Us01`, `Eu01`.
+        /// DEPRECATED. The `Region` argument is no longer meaningful and has no effect on where the account is created.
         /// </summary>
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public AccountManagementArgs()
         {
@@ -131,12 +132,14 @@ namespace Pulumi.NewRelic
     {
         /// <summary>
         /// The name of the Account.
+        /// 
+        /// &gt; **NOTE** &lt;span style="color:red;"&gt;Starting &lt;b&gt;v3.95.0&lt;/b&gt; of the New Relic Terraform Provider, the `Region` argument on `newrelic.AccountManagement` is deprecated and will be removed in a future major release.&lt;/span&gt;&lt;br&gt;&lt;br&gt;Every New Relic organization is now tied to a specific region, and any sub-account you create is automatically placed in the region of the organization that owns your API key. The `regionCode` field on the underlying `accountManagementCreateAccount` mutation has been deprecated upstream, and this provider no longer forwards it to the API.&lt;br&gt;&lt;br&gt;Setting `Region` in your configuration is still accepted for backward compatibility, but it has &lt;b&gt;no effect&lt;/b&gt; on where the account is created. Please &lt;span style="color:tomato;"&gt;stop setting it in new configurations&lt;/span&gt;, and remove it from existing ones when it's convenient.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The region code of the account.  One of: `Us01`, `Eu01`.
+        /// DEPRECATED. The `Region` argument is no longer meaningful and has no effect on where the account is created.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

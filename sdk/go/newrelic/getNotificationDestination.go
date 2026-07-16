@@ -186,8 +186,8 @@ type LookupNotificationDestinationResult struct {
 	Active    bool    `pulumi:"active"`
 	ExactName *string `pulumi:"exactName"`
 	// The unique entity identifier of the destination in New Relic.
-	Guid string  `pulumi:"guid"`
-	Id   *string `pulumi:"id"`
+	Guid string `pulumi:"guid"`
+	Id   string `pulumi:"id"`
 	// The name of the notification destination.
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property.
@@ -269,8 +269,8 @@ func (o LookupNotificationDestinationResultOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.Guid }).(pulumi.StringOutput)
 }
 
-func (o LookupNotificationDestinationResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNotificationDestinationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupNotificationDestinationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The name of the notification destination.
