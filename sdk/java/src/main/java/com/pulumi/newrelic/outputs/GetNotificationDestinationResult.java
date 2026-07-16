@@ -29,7 +29,7 @@ public final class GetNotificationDestinationResult {
      * 
      */
     private String guid;
-    private @Nullable String id;
+    private String id;
     /**
      * @return The name of the notification destination.
      * 
@@ -82,8 +82,8 @@ public final class GetNotificationDestinationResult {
     public String guid() {
         return this.guid;
     }
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public String id() {
+        return this.id;
     }
     /**
      * @return The name of the notification destination.
@@ -141,7 +141,7 @@ public final class GetNotificationDestinationResult {
         private Boolean active;
         private @Nullable String exactName;
         private String guid;
-        private @Nullable String id;
+        private String id;
         private @Nullable String name;
         private List<GetNotificationDestinationProperty> properties;
         private @Nullable GetNotificationDestinationScope scope;
@@ -195,8 +195,10 @@ public final class GetNotificationDestinationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(@Nullable String id) {
-
+        public Builder id(String id) {
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "id");
+            }
             this.id = id;
             return this;
         }

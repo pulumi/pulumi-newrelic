@@ -120,6 +120,11 @@ export const getAlertPolicy: typeof import("./getAlertPolicy").getAlertPolicy = 
 export const getAlertPolicyOutput: typeof import("./getAlertPolicy").getAlertPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getAlertPolicy","getAlertPolicyOutput"], () => require("./getAlertPolicy"));
 
+export { GetApiAccessKeyArgs, GetApiAccessKeyResult, GetApiAccessKeyOutputArgs } from "./getApiAccessKey";
+export const getApiAccessKey: typeof import("./getApiAccessKey").getApiAccessKey = null as any;
+export const getApiAccessKeyOutput: typeof import("./getApiAccessKey").getApiAccessKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiAccessKey","getApiAccessKeyOutput"], () => require("./getApiAccessKey"));
+
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;

@@ -518,7 +518,7 @@ namespace Pulumi.NewRelic
         /// The unique entity identifier of the destination in New Relic.
         /// </summary>
         public readonly string Guid;
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// The name of the notification destination.
         /// </summary>
@@ -554,7 +554,7 @@ namespace Pulumi.NewRelic
 
             string guid,
 
-            string? id,
+            string id,
 
             string? name,
 
