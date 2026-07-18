@@ -15265,7 +15265,7 @@ class OneDashboardVariableNrqlQuery(dict):
                  account_ids: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param Sequence[_builtins.str] account_ids: (Required) List of account IDs such as `[12345, 67890]`.
+        :param Sequence[_builtins.str] account_ids: (Optional) List of account IDs to run the variable's NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
         """
         pulumi.set(__self__, "query", query)
         if account_ids is not None:
@@ -15283,7 +15283,7 @@ class OneDashboardVariableNrqlQuery(dict):
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Required) List of account IDs such as `[12345, 67890]`.
+        (Optional) List of account IDs to run the variable's NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
         """
         return pulumi.get(self, "account_ids")
 

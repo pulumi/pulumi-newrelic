@@ -18,14 +18,14 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
     public static final OneDashboardVariableNrqlQueryArgs Empty = new OneDashboardVariableNrqlQueryArgs();
 
     /**
-     * (Required) List of account IDs such as `[12345, 67890]`.
+     * (Optional) List of account IDs to run the variable&#39;s NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
      * 
      */
     @Import(name="accountIds")
     private @Nullable Output<List<String>> accountIds;
 
     /**
-     * @return (Required) List of account IDs such as `[12345, 67890]`.
+     * @return (Optional) List of account IDs to run the variable&#39;s NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
      * 
      */
     public Optional<Output<List<String>>> accountIds() {
@@ -73,7 +73,7 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountIds (Required) List of account IDs such as `[12345, 67890]`.
+         * @param accountIds (Optional) List of account IDs to run the variable&#39;s NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountIds (Required) List of account IDs such as `[12345, 67890]`.
+         * @param accountIds (Optional) List of account IDs to run the variable&#39;s NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountIds (Required) List of account IDs such as `[12345, 67890]`.
+         * @param accountIds (Optional) List of account IDs to run the variable&#39;s NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
          * 
          * @return builder
          * 

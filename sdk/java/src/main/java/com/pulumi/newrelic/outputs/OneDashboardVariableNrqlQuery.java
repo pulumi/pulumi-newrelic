@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardVariableNrqlQuery {
     /**
-     * @return (Required) List of account IDs such as `[12345, 67890]`.
+     * @return (Optional) List of account IDs to run the variable&#39;s NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
      * 
      */
     private @Nullable List<String> accountIds;
@@ -25,7 +25,7 @@ public final class OneDashboardVariableNrqlQuery {
 
     private OneDashboardVariableNrqlQuery() {}
     /**
-     * @return (Required) List of account IDs such as `[12345, 67890]`.
+     * @return (Optional) List of account IDs to run the variable&#39;s NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
      * 
      */
     public List<String> accountIds() {

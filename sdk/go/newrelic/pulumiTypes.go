@@ -33394,7 +33394,7 @@ func (o OneDashboardVariableItemArrayOutput) Index(i pulumi.IntInput) OneDashboa
 }
 
 type OneDashboardVariableNrqlQuery struct {
-	// (Required) List of account IDs such as `[12345, 67890]`.
+	// (Optional) List of account IDs to run the variable's NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
 	AccountIds []string `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -33412,7 +33412,7 @@ type OneDashboardVariableNrqlQueryInput interface {
 }
 
 type OneDashboardVariableNrqlQueryArgs struct {
-	// (Required) List of account IDs such as `[12345, 67890]`.
+	// (Optional) List of account IDs to run the variable's NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
 	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -33495,7 +33495,7 @@ func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryPtrO
 	}).(OneDashboardVariableNrqlQueryPtrOutput)
 }
 
-// (Required) List of account IDs such as `[12345, 67890]`.
+// (Optional) List of account IDs to run the variable's NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
 func (o OneDashboardVariableNrqlQueryOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
@@ -33529,7 +33529,7 @@ func (o OneDashboardVariableNrqlQueryPtrOutput) Elem() OneDashboardVariableNrqlQ
 	}).(OneDashboardVariableNrqlQueryOutput)
 }
 
-// (Required) List of account IDs such as `[12345, 67890]`.
+// (Optional) List of account IDs to run the variable's NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
 func (o OneDashboardVariableNrqlQueryPtrOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) []string {
 		if v == nil {
