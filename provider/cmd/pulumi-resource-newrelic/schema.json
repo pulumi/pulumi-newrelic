@@ -8484,7 +8484,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required) List of account IDs such as `[12345, 67890]`.\n"
+                    "description": "(Optional) List of account IDs to run the variable's NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.\n"
                 },
                 "query": {
                     "type": "string",
