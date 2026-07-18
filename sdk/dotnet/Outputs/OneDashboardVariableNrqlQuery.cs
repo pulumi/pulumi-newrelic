@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardVariableNrqlQuery
     {
         /// <summary>
-        /// (Required) List of account IDs such as `[12345, 67890]`.
+        /// (Optional) List of account IDs to run the variable's NRQL query against, such as `[12345, 67890]`. If omitted, defaults to the account ID the provider is configured with.
         /// </summary>
         public readonly ImmutableArray<string> AccountIds;
         /// <summary>
