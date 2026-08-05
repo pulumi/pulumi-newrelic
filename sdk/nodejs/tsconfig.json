@@ -38,6 +38,7 @@
         "cloud/awsLinkAccount.ts",
         "cloud/azureIntegrations.ts",
         "cloud/azureLinkAccount.ts",
+        "cloud/gcpDmIntegrations.ts",
         "cloud/gcpIntegrations.ts",
         "cloud/gcpLinkAccount.ts",
         "cloud/index.ts",

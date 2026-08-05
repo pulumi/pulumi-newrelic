@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,6 +47,21 @@ public final class GetCloudAccountPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
+     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+     * 
+     */
+    @Import(name="isDimensionalMetrics")
+    private @Nullable Boolean isDimensionalMetrics;
+
+    /**
+     * @return Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> isDimensionalMetrics() {
+        return Optional.ofNullable(this.isDimensionalMetrics);
+    }
+
+    /**
      * The cloud account name in New Relic.
      * 
      */
@@ -65,6 +81,7 @@ public final class GetCloudAccountPlainArgs extends com.pulumi.resources.InvokeA
     private GetCloudAccountPlainArgs(GetCloudAccountPlainArgs $) {
         this.accountId = $.accountId;
         this.cloudProvider = $.cloudProvider;
+        this.isDimensionalMetrics = $.isDimensionalMetrics;
         this.name = $.name;
     }
 
@@ -105,6 +122,17 @@ public final class GetCloudAccountPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder cloudProvider(String cloudProvider) {
             $.cloudProvider = cloudProvider;
+            return this;
+        }
+
+        /**
+         * @param isDimensionalMetrics Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isDimensionalMetrics(@Nullable Boolean isDimensionalMetrics) {
+            $.isDimensionalMetrics = isDimensionalMetrics;
             return this;
         }
 

@@ -6063,6 +6063,244 @@ export namespace cloud {
         resourceGroups?: string[];
     }
 
+    export interface GcpDmIntegrationsAiPlatform {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsAlloyDb {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsApiGateway {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsAppEngine {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsBigQuery {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsBigTable {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsComposer {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsDataFlow {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsDataProc {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsDataStore {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsFirebaseAppHosting {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsFirebaseAuth {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsFirebaseDatabase {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsFirebaseHosting {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsFirebaseStorage {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsFirebaseVertexAi {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsFirestore {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsFunctions {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsInterconnect {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsIstio {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsKubernetes {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsLoadBalancing {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsManagedKafka {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsMemCache {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsMemoryStore {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsPubSub {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsRedis {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsRouter {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsRun {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsSpanner {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsSql {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsStorage {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsVirtualMachines {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
+    export interface GcpDmIntegrationsVpcAccess {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
     export interface GcpIntegrationsAlloyDb {
         /**
          * the data polling interval in seconds

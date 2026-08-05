@@ -235,6 +235,74 @@ __all__ = [
     'AzureIntegrationsVmsArgsDict',
     'AzureIntegrationsVpnGatewayArgs',
     'AzureIntegrationsVpnGatewayArgsDict',
+    'GcpDmIntegrationsAiPlatformArgs',
+    'GcpDmIntegrationsAiPlatformArgsDict',
+    'GcpDmIntegrationsAlloyDbArgs',
+    'GcpDmIntegrationsAlloyDbArgsDict',
+    'GcpDmIntegrationsApiGatewayArgs',
+    'GcpDmIntegrationsApiGatewayArgsDict',
+    'GcpDmIntegrationsAppEngineArgs',
+    'GcpDmIntegrationsAppEngineArgsDict',
+    'GcpDmIntegrationsBigQueryArgs',
+    'GcpDmIntegrationsBigQueryArgsDict',
+    'GcpDmIntegrationsBigTableArgs',
+    'GcpDmIntegrationsBigTableArgsDict',
+    'GcpDmIntegrationsComposerArgs',
+    'GcpDmIntegrationsComposerArgsDict',
+    'GcpDmIntegrationsDataFlowArgs',
+    'GcpDmIntegrationsDataFlowArgsDict',
+    'GcpDmIntegrationsDataProcArgs',
+    'GcpDmIntegrationsDataProcArgsDict',
+    'GcpDmIntegrationsDataStoreArgs',
+    'GcpDmIntegrationsDataStoreArgsDict',
+    'GcpDmIntegrationsFirebaseAppHostingArgs',
+    'GcpDmIntegrationsFirebaseAppHostingArgsDict',
+    'GcpDmIntegrationsFirebaseAuthArgs',
+    'GcpDmIntegrationsFirebaseAuthArgsDict',
+    'GcpDmIntegrationsFirebaseDatabaseArgs',
+    'GcpDmIntegrationsFirebaseDatabaseArgsDict',
+    'GcpDmIntegrationsFirebaseHostingArgs',
+    'GcpDmIntegrationsFirebaseHostingArgsDict',
+    'GcpDmIntegrationsFirebaseStorageArgs',
+    'GcpDmIntegrationsFirebaseStorageArgsDict',
+    'GcpDmIntegrationsFirebaseVertexAiArgs',
+    'GcpDmIntegrationsFirebaseVertexAiArgsDict',
+    'GcpDmIntegrationsFirestoreArgs',
+    'GcpDmIntegrationsFirestoreArgsDict',
+    'GcpDmIntegrationsFunctionsArgs',
+    'GcpDmIntegrationsFunctionsArgsDict',
+    'GcpDmIntegrationsInterconnectArgs',
+    'GcpDmIntegrationsInterconnectArgsDict',
+    'GcpDmIntegrationsIstioArgs',
+    'GcpDmIntegrationsIstioArgsDict',
+    'GcpDmIntegrationsKubernetesArgs',
+    'GcpDmIntegrationsKubernetesArgsDict',
+    'GcpDmIntegrationsLoadBalancingArgs',
+    'GcpDmIntegrationsLoadBalancingArgsDict',
+    'GcpDmIntegrationsManagedKafkaArgs',
+    'GcpDmIntegrationsManagedKafkaArgsDict',
+    'GcpDmIntegrationsMemCacheArgs',
+    'GcpDmIntegrationsMemCacheArgsDict',
+    'GcpDmIntegrationsMemoryStoreArgs',
+    'GcpDmIntegrationsMemoryStoreArgsDict',
+    'GcpDmIntegrationsPubSubArgs',
+    'GcpDmIntegrationsPubSubArgsDict',
+    'GcpDmIntegrationsRedisArgs',
+    'GcpDmIntegrationsRedisArgsDict',
+    'GcpDmIntegrationsRouterArgs',
+    'GcpDmIntegrationsRouterArgsDict',
+    'GcpDmIntegrationsRunArgs',
+    'GcpDmIntegrationsRunArgsDict',
+    'GcpDmIntegrationsSpannerArgs',
+    'GcpDmIntegrationsSpannerArgsDict',
+    'GcpDmIntegrationsSqlArgs',
+    'GcpDmIntegrationsSqlArgsDict',
+    'GcpDmIntegrationsStorageArgs',
+    'GcpDmIntegrationsStorageArgsDict',
+    'GcpDmIntegrationsVirtualMachinesArgs',
+    'GcpDmIntegrationsVirtualMachinesArgsDict',
+    'GcpDmIntegrationsVpcAccessArgs',
+    'GcpDmIntegrationsVpcAccessArgsDict',
     'GcpIntegrationsAlloyDbArgs',
     'GcpIntegrationsAlloyDbArgsDict',
     'GcpIntegrationsAppEngineArgs',
@@ -7937,6 +8005,992 @@ class AzureIntegrationsVpnGatewayArgs:
     @resource_groups.setter
     def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
+
+
+class GcpDmIntegrationsAiPlatformArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsAiPlatformArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsAlloyDbArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsAlloyDbArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsApiGatewayArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsApiGatewayArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsAppEngineArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsAppEngineArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsBigQueryArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsBigQueryArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsBigTableArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsBigTableArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsComposerArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsComposerArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsDataFlowArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsDataFlowArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsDataProcArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsDataProcArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsDataStoreArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsDataStoreArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsFirebaseAppHostingArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsFirebaseAppHostingArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsFirebaseAuthArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsFirebaseAuthArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsFirebaseDatabaseArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsFirebaseDatabaseArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsFirebaseHostingArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsFirebaseHostingArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsFirebaseStorageArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsFirebaseStorageArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsFirebaseVertexAiArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsFirebaseVertexAiArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsFirestoreArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsFirestoreArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsFunctionsArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsFunctionsArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsInterconnectArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsInterconnectArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsIstioArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsIstioArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsKubernetesArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsKubernetesArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsLoadBalancingArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsLoadBalancingArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsManagedKafkaArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsManagedKafkaArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsMemCacheArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsMemCacheArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsMemoryStoreArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsMemoryStoreArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsPubSubArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsPubSubArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsRedisArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsRedisArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsRouterArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsRouterArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsRunArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsRunArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsSpannerArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsSpannerArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsSqlArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsSqlArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsStorageArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsStorageArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsVirtualMachinesArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsVirtualMachinesArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsVpcAccessArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsVpcAccessArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
 
 
 class GcpIntegrationsAlloyDbArgsDict(TypedDict):

@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,6 +48,21 @@ public final class GetCloudAccountArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+     * 
+     */
+    @Import(name="isDimensionalMetrics")
+    private @Nullable Output<Boolean> isDimensionalMetrics;
+
+    /**
+     * @return Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> isDimensionalMetrics() {
+        return Optional.ofNullable(this.isDimensionalMetrics);
+    }
+
+    /**
      * The cloud account name in New Relic.
      * 
      */
@@ -66,6 +82,7 @@ public final class GetCloudAccountArgs extends com.pulumi.resources.InvokeArgs {
     private GetCloudAccountArgs(GetCloudAccountArgs $) {
         this.accountId = $.accountId;
         this.cloudProvider = $.cloudProvider;
+        this.isDimensionalMetrics = $.isDimensionalMetrics;
         this.name = $.name;
     }
 
@@ -127,6 +144,27 @@ public final class GetCloudAccountArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder cloudProvider(String cloudProvider) {
             return cloudProvider(Output.of(cloudProvider));
+        }
+
+        /**
+         * @param isDimensionalMetrics Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isDimensionalMetrics(@Nullable Output<Boolean> isDimensionalMetrics) {
+            $.isDimensionalMetrics = isDimensionalMetrics;
+            return this;
+        }
+
+        /**
+         * @param isDimensionalMetrics Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isDimensionalMetrics(Boolean isDimensionalMetrics) {
+            return isDimensionalMetrics(Output.of(isDimensionalMetrics));
         }
 
         /**

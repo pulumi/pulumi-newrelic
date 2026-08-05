@@ -26,7 +26,7 @@ class GetCloudAccountResult:
     """
     A collection of values returned by getCloudAccount.
     """
-    def __init__(__self__, account_id=None, cloud_provider=None, id=None, name=None):
+    def __init__(__self__, account_id=None, cloud_provider=None, id=None, is_dimensional_metrics=None, name=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -36,6 +36,9 @@ class GetCloudAccountResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_dimensional_metrics and not isinstance(is_dimensional_metrics, bool):
+            raise TypeError("Expected argument 'is_dimensional_metrics' to be a bool")
+        pulumi.set(__self__, "is_dimensional_metrics", is_dimensional_metrics)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -59,6 +62,11 @@ class GetCloudAccountResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="isDimensionalMetrics")
+    def is_dimensional_metrics(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_dimensional_metrics")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
@@ -73,11 +81,13 @@ class AwaitableGetCloudAccountResult(GetCloudAccountResult):
             account_id=self.account_id,
             cloud_provider=self.cloud_provider,
             id=self.id,
+            is_dimensional_metrics=self.is_dimensional_metrics,
             name=self.name)
 
 
 def get_cloud_account(account_id: Optional[_builtins.str] = None,
                       cloud_provider: Optional[_builtins.str] = None,
+                      is_dimensional_metrics: Optional[_builtins.bool] = None,
                       name: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudAccountResult:
     """
@@ -95,14 +105,30 @@ def get_cloud_account(account_id: Optional[_builtins.str] = None,
         name="my aws account")
     ```
 
+    ### GCP Dimensional Metrics account lookup
+
+    To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloud_provider = "gcp"` and `is_dimensional_metrics = true`. These accounts are stored internally under the `gcp_v2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    gcp_dm_account = newrelic.get_cloud_account(account_id="12345",
+        cloud_provider="gcp",
+        name="my gcp dimensional metrics account",
+        is_dimensional_metrics=True)
+    ```
+
 
     :param _builtins.str account_id: The account ID in New Relic.
     :param _builtins.str cloud_provider: The cloud provider of the account (aws, gcp, azure, etc)
+    :param _builtins.bool is_dimensional_metrics: Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcp_v2` provider slug. Can only be used when `cloud_provider` is `"gcp"`. Defaults to `false`.
     :param _builtins.str name: The cloud account name in New Relic.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['cloudProvider'] = cloud_provider
+    __args__['isDimensionalMetrics'] = is_dimensional_metrics
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:index/getCloudAccount:getCloudAccount', __args__, opts=opts, typ=GetCloudAccountResult).value
@@ -111,9 +137,11 @@ def get_cloud_account(account_id: Optional[_builtins.str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         cloud_provider=pulumi.get(__ret__, 'cloud_provider'),
         id=pulumi.get(__ret__, 'id'),
+        is_dimensional_metrics=pulumi.get(__ret__, 'is_dimensional_metrics'),
         name=pulumi.get(__ret__, 'name'))
 def get_cloud_account_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              cloud_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                             is_dimensional_metrics: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                              name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudAccountResult]:
     """
@@ -131,14 +159,30 @@ def get_cloud_account_output(account_id: pulumi.Input[Optional[Optional[_builtin
         name="my aws account")
     ```
 
+    ### GCP Dimensional Metrics account lookup
+
+    To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloud_provider = "gcp"` and `is_dimensional_metrics = true`. These accounts are stored internally under the `gcp_v2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    gcp_dm_account = newrelic.get_cloud_account(account_id="12345",
+        cloud_provider="gcp",
+        name="my gcp dimensional metrics account",
+        is_dimensional_metrics=True)
+    ```
+
 
     :param _builtins.str account_id: The account ID in New Relic.
     :param _builtins.str cloud_provider: The cloud provider of the account (aws, gcp, azure, etc)
+    :param _builtins.bool is_dimensional_metrics: Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcp_v2` provider slug. Can only be used when `cloud_provider` is `"gcp"`. Defaults to `false`.
     :param _builtins.str name: The cloud account name in New Relic.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['cloudProvider'] = cloud_provider
+    __args__['isDimensionalMetrics'] = is_dimensional_metrics
     __args__['name'] = name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getCloudAccount:getCloudAccount', __args__, opts=opts, typ=GetCloudAccountResult)
@@ -146,4 +190,5 @@ def get_cloud_account_output(account_id: pulumi.Input[Optional[Optional[_builtin
         account_id=pulumi.get(__response__, 'account_id'),
         cloud_provider=pulumi.get(__response__, 'cloud_provider'),
         id=pulumi.get(__response__, 'id'),
+        is_dimensional_metrics=pulumi.get(__response__, 'is_dimensional_metrics'),
         name=pulumi.get(__response__, 'name')))

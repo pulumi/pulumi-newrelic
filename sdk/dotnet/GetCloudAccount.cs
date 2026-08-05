@@ -34,6 +34,29 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
+        /// 
+        /// ### GCP Dimensional Metrics account lookup
+        /// 
+        /// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `CloudProvider = "gcp"` and `IsDimensionalMetrics = true`. These accounts are stored internally under the `GcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `Gcp` provider.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var gcpDmAccount = NewRelic.GetCloudAccount.Invoke(new()
+        ///     {
+        ///         AccountId = "12345",
+        ///         CloudProvider = "gcp",
+        ///         Name = "my gcp dimensional metrics account",
+        ///         IsDimensionalMetrics = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetCloudAccountResult> InvokeAsync(GetCloudAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountArgs(), options.WithDefaults());
@@ -57,6 +80,29 @@ namespace Pulumi.NewRelic
         ///         AccountId = "12345",
         ///         CloudProvider = "aws",
         ///         Name = "my aws account",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### GCP Dimensional Metrics account lookup
+        /// 
+        /// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `CloudProvider = "gcp"` and `IsDimensionalMetrics = true`. These accounts are stored internally under the `GcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `Gcp` provider.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var gcpDmAccount = NewRelic.GetCloudAccount.Invoke(new()
+        ///     {
+        ///         AccountId = "12345",
+        ///         CloudProvider = "gcp",
+        ///         Name = "my gcp dimensional metrics account",
+        ///         IsDimensionalMetrics = true,
         ///     });
         /// 
         /// });
@@ -88,6 +134,29 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
+        /// 
+        /// ### GCP Dimensional Metrics account lookup
+        /// 
+        /// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `CloudProvider = "gcp"` and `IsDimensionalMetrics = true`. These accounts are stored internally under the `GcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `Gcp` provider.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var gcpDmAccount = NewRelic.GetCloudAccount.Invoke(new()
+        ///     {
+        ///         AccountId = "12345",
+        ///         CloudProvider = "gcp",
+        ///         Name = "my gcp dimensional metrics account",
+        ///         IsDimensionalMetrics = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCloudAccountResult> Invoke(GetCloudAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountInvokeArgs(), options.WithDefaults());
@@ -107,6 +176,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("cloudProvider", required: true)]
         public string CloudProvider { get; set; } = null!;
+
+        /// <summary>
+        /// Set to `True` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `GcpV2` provider slug. Can only be used when `CloudProvider` is `"gcp"`. Defaults to `False`.
+        /// </summary>
+        [Input("isDimensionalMetrics")]
+        public bool? IsDimensionalMetrics { get; set; }
 
         /// <summary>
         /// The cloud account name in New Relic.
@@ -135,6 +210,12 @@ namespace Pulumi.NewRelic
         public Input<string> CloudProvider { get; set; } = null!;
 
         /// <summary>
+        /// Set to `True` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `GcpV2` provider slug. Can only be used when `CloudProvider` is `"gcp"`. Defaults to `False`.
+        /// </summary>
+        [Input("isDimensionalMetrics")]
+        public Input<bool>? IsDimensionalMetrics { get; set; }
+
+        /// <summary>
         /// The cloud account name in New Relic.
         /// </summary>
         [Input("name", required: true)]
@@ -156,6 +237,7 @@ namespace Pulumi.NewRelic
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool? IsDimensionalMetrics;
         public readonly string Name;
 
         [OutputConstructor]
@@ -166,11 +248,14 @@ namespace Pulumi.NewRelic
 
             string id,
 
+            bool? isDimensionalMetrics,
+
             string name)
         {
             AccountId = accountId;
             CloudProvider = cloudProvider;
             Id = id;
+            IsDimensionalMetrics = isDimensionalMetrics;
             Name = name;
         }
     }
