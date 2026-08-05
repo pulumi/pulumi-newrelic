@@ -1253,6 +1253,114 @@
                 "current": "newrelic:cloud/azureLinkAccount:AzureLinkAccount",
                 "majorVersion": 5
             },
+            "newrelic_cloud_gcp_dm_integrations": {
+                "current": "newrelic:cloud/gcpDmIntegrations:GcpDmIntegrations",
+                "majorVersion": 5,
+                "fields": {
+                    "ai_platform": {
+                        "maxItemsOne": true
+                    },
+                    "alloy_db": {
+                        "maxItemsOne": true
+                    },
+                    "api_gateway": {
+                        "maxItemsOne": true
+                    },
+                    "app_engine": {
+                        "maxItemsOne": true
+                    },
+                    "big_query": {
+                        "maxItemsOne": true
+                    },
+                    "big_table": {
+                        "maxItemsOne": true
+                    },
+                    "composer": {
+                        "maxItemsOne": true
+                    },
+                    "data_flow": {
+                        "maxItemsOne": true
+                    },
+                    "data_proc": {
+                        "maxItemsOne": true
+                    },
+                    "data_store": {
+                        "maxItemsOne": true
+                    },
+                    "firebase_app_hosting": {
+                        "maxItemsOne": true
+                    },
+                    "firebase_auth": {
+                        "maxItemsOne": true
+                    },
+                    "firebase_database": {
+                        "maxItemsOne": true
+                    },
+                    "firebase_hosting": {
+                        "maxItemsOne": true
+                    },
+                    "firebase_storage": {
+                        "maxItemsOne": true
+                    },
+                    "firebase_vertex_ai": {
+                        "maxItemsOne": true
+                    },
+                    "firestore": {
+                        "maxItemsOne": true
+                    },
+                    "functions": {
+                        "maxItemsOne": true
+                    },
+                    "interconnect": {
+                        "maxItemsOne": true
+                    },
+                    "istio": {
+                        "maxItemsOne": true
+                    },
+                    "kubernetes": {
+                        "maxItemsOne": true
+                    },
+                    "load_balancing": {
+                        "maxItemsOne": true
+                    },
+                    "managed_kafka": {
+                        "maxItemsOne": true
+                    },
+                    "mem_cache": {
+                        "maxItemsOne": true
+                    },
+                    "memory_store": {
+                        "maxItemsOne": true
+                    },
+                    "pub_sub": {
+                        "maxItemsOne": true
+                    },
+                    "redis": {
+                        "maxItemsOne": true
+                    },
+                    "router": {
+                        "maxItemsOne": true
+                    },
+                    "run": {
+                        "maxItemsOne": true
+                    },
+                    "spanner": {
+                        "maxItemsOne": true
+                    },
+                    "sql": {
+                        "maxItemsOne": true
+                    },
+                    "storage": {
+                        "maxItemsOne": true
+                    },
+                    "virtual_machines": {
+                        "maxItemsOne": true
+                    },
+                    "vpc_access": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "newrelic_cloud_gcp_integrations": {
                 "current": "newrelic:cloud/gcpIntegrations:GcpIntegrations",
                 "majorVersion": 5,
@@ -4925,6 +5033,10 @@
                 "application_id",
                 "subscription_id",
                 "tenant_id"
+            ],
+            "newrelic_cloud_gcp_dm_integrations": [
+                "account_id",
+                "linked_account_id"
             ],
             "newrelic_cloud_gcp_integrations": [
                 "account_id",
