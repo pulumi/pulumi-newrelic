@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AzureIntegrations{}
 	case "newrelic:cloud/azureLinkAccount:AzureLinkAccount":
 		r = &AzureLinkAccount{}
+	case "newrelic:cloud/gcpDmIntegrations:GcpDmIntegrations":
+		r = &GcpDmIntegrations{}
 	case "newrelic:cloud/gcpIntegrations:GcpIntegrations":
 		r = &GcpIntegrations{}
 	case "newrelic:cloud/gcpLinkAccount:GcpLinkAccount":
@@ -94,6 +96,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"cloud/azureLinkAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"cloud/gcpDmIntegrations",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

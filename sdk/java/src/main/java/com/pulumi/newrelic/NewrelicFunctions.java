@@ -2110,6 +2110,44 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
+     * ### GCP Dimensional Metrics account lookup
+     * 
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcpDmAccount = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
+     *             .accountId("12345")
+     *             .cloudProvider("gcp")
+     *             .name("my gcp dimensional metrics account")
+     *             .isDimensionalMetrics(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCloudAccountResult> getCloudAccount(GetCloudAccountArgs args) {
         return getCloudAccount(args, InvokeOptions.Empty);
@@ -2146,6 +2184,44 @@ public final class NewrelicFunctions {
      *             .accountId("12345")
      *             .cloudProvider("aws")
      *             .name("my aws account")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### GCP Dimensional Metrics account lookup
+     * 
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcpDmAccount = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
+     *             .accountId("12345")
+     *             .cloudProvider("gcp")
+     *             .name("my gcp dimensional metrics account")
+     *             .isDimensionalMetrics(true)
      *             .build());
      * 
      *     }
@@ -2196,6 +2272,44 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
+     * ### GCP Dimensional Metrics account lookup
+     * 
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcpDmAccount = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
+     *             .accountId("12345")
+     *             .cloudProvider("gcp")
+     *             .name("my gcp dimensional metrics account")
+     *             .isDimensionalMetrics(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCloudAccountResult> getCloudAccount(GetCloudAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getCloudAccount:getCloudAccount", TypeShape.of(GetCloudAccountResult.class), args, Utilities.withVersion(options));
@@ -2239,6 +2353,44 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
+     * ### GCP Dimensional Metrics account lookup
+     * 
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcpDmAccount = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
+     *             .accountId("12345")
+     *             .cloudProvider("gcp")
+     *             .name("my gcp dimensional metrics account")
+     *             .isDimensionalMetrics(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCloudAccountResult> getCloudAccount(GetCloudAccountArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getCloudAccount:getCloudAccount", TypeShape.of(GetCloudAccountResult.class), args, Utilities.withVersion(options));
@@ -2275,6 +2427,44 @@ public final class NewrelicFunctions {
      *             .accountId("12345")
      *             .cloudProvider("aws")
      *             .name("my aws account")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### GCP Dimensional Metrics account lookup
+     * 
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcpDmAccount = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
+     *             .accountId("12345")
+     *             .cloudProvider("gcp")
+     *             .name("my gcp dimensional metrics account")
+     *             .isDimensionalMetrics(true)
      *             .build());
      * 
      *     }

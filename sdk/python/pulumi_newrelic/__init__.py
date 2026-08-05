@@ -155,6 +155,14 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
+  "mod": "cloud/gcpDmIntegrations",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/gcpDmIntegrations:GcpDmIntegrations": "GcpDmIntegrations"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "cloud/gcpIntegrations",
   "fqn": "pulumi_newrelic.cloud",
   "classes": {

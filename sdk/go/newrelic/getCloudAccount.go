@@ -41,6 +41,37 @@ import (
 //	}
 //
 // ```
+//
+// ### GCP Dimensional Metrics account lookup
+//
+// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = "gcp"` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.GetCloudAccount(ctx, &newrelic.GetCloudAccountArgs{
+//				AccountId:            pulumi.StringRef("12345"),
+//				CloudProvider:        "gcp",
+//				Name:                 "my gcp dimensional metrics account",
+//				IsDimensionalMetrics: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCloudAccount(ctx *pulumi.Context, args *GetCloudAccountArgs, opts ...pulumi.InvokeOption) (*GetCloudAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCloudAccountResult
@@ -57,6 +88,8 @@ type GetCloudAccountArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// The cloud provider of the account (aws, gcp, azure, etc)
 	CloudProvider string `pulumi:"cloudProvider"`
+	// Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `"gcp"`. Defaults to `false`.
+	IsDimensionalMetrics *bool `pulumi:"isDimensionalMetrics"`
 	// The cloud account name in New Relic.
 	Name string `pulumi:"name"`
 }
@@ -66,8 +99,9 @@ type GetCloudAccountResult struct {
 	AccountId     *string `pulumi:"accountId"`
 	CloudProvider string  `pulumi:"cloudProvider"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id                   string `pulumi:"id"`
+	IsDimensionalMetrics *bool  `pulumi:"isDimensionalMetrics"`
+	Name                 string `pulumi:"name"`
 }
 
 func GetCloudAccountOutput(ctx *pulumi.Context, args GetCloudAccountOutputArgs, opts ...pulumi.InvokeOption) GetCloudAccountResultOutput {
@@ -85,6 +119,8 @@ type GetCloudAccountOutputArgs struct {
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The cloud provider of the account (aws, gcp, azure, etc)
 	CloudProvider pulumi.StringInput `pulumi:"cloudProvider"`
+	// Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `"gcp"`. Defaults to `false`.
+	IsDimensionalMetrics pulumi.BoolPtrInput `pulumi:"isDimensionalMetrics"`
 	// The cloud account name in New Relic.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -119,6 +155,10 @@ func (o GetCloudAccountResultOutput) CloudProvider() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetCloudAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCloudAccountResultOutput) IsDimensionalMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCloudAccountResult) *bool { return v.IsDimensionalMetrics }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetCloudAccountResultOutput) Name() pulumi.StringOutput {

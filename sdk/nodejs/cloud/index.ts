@@ -45,6 +45,11 @@ export type AzureLinkAccount = import("./azureLinkAccount").AzureLinkAccount;
 export const AzureLinkAccount: typeof import("./azureLinkAccount").AzureLinkAccount = null as any;
 utilities.lazyLoad(exports, ["AzureLinkAccount"], () => require("./azureLinkAccount"));
 
+export { GcpDmIntegrationsArgs, GcpDmIntegrationsState } from "./gcpDmIntegrations";
+export type GcpDmIntegrations = import("./gcpDmIntegrations").GcpDmIntegrations;
+export const GcpDmIntegrations: typeof import("./gcpDmIntegrations").GcpDmIntegrations = null as any;
+utilities.lazyLoad(exports, ["GcpDmIntegrations"], () => require("./gcpDmIntegrations"));
+
 export { GcpIntegrationsArgs, GcpIntegrationsState } from "./gcpIntegrations";
 export type GcpIntegrations = import("./gcpIntegrations").GcpIntegrations;
 export const GcpIntegrations: typeof import("./gcpIntegrations").GcpIntegrations = null as any;
@@ -81,6 +86,8 @@ const _module = {
                 return new AzureIntegrations(name, <any>undefined, { urn })
             case "newrelic:cloud/azureLinkAccount:AzureLinkAccount":
                 return new AzureLinkAccount(name, <any>undefined, { urn })
+            case "newrelic:cloud/gcpDmIntegrations:GcpDmIntegrations":
+                return new GcpDmIntegrations(name, <any>undefined, { urn })
             case "newrelic:cloud/gcpIntegrations:GcpIntegrations":
                 return new GcpIntegrations(name, <any>undefined, { urn })
             case "newrelic:cloud/gcpLinkAccount:GcpLinkAccount":
@@ -100,6 +107,7 @@ pulumi.runtime.registerResourceModule("newrelic", "cloud/awsIntegrations", _modu
 pulumi.runtime.registerResourceModule("newrelic", "cloud/awsLinkAccount", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/azureIntegrations", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/azureLinkAccount", _module)
+pulumi.runtime.registerResourceModule("newrelic", "cloud/gcpDmIntegrations", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/gcpIntegrations", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/gcpLinkAccount", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/ociLinkAccount", _module)

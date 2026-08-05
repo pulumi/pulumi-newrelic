@@ -19320,6 +19320,4664 @@ func (o AzureIntegrationsVpnGatewayPtrOutput) ResourceGroups() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+type GcpDmIntegrationsAiPlatform struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsAiPlatformInput is an input type that accepts GcpDmIntegrationsAiPlatformArgs and GcpDmIntegrationsAiPlatformOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsAiPlatformInput` via:
+//
+//	GcpDmIntegrationsAiPlatformArgs{...}
+type GcpDmIntegrationsAiPlatformInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsAiPlatformOutput() GcpDmIntegrationsAiPlatformOutput
+	ToGcpDmIntegrationsAiPlatformOutputWithContext(context.Context) GcpDmIntegrationsAiPlatformOutput
+}
+
+type GcpDmIntegrationsAiPlatformArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsAiPlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsAiPlatform)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsAiPlatformArgs) ToGcpDmIntegrationsAiPlatformOutput() GcpDmIntegrationsAiPlatformOutput {
+	return i.ToGcpDmIntegrationsAiPlatformOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsAiPlatformArgs) ToGcpDmIntegrationsAiPlatformOutputWithContext(ctx context.Context) GcpDmIntegrationsAiPlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsAiPlatformOutput)
+}
+
+func (i GcpDmIntegrationsAiPlatformArgs) ToGcpDmIntegrationsAiPlatformPtrOutput() GcpDmIntegrationsAiPlatformPtrOutput {
+	return i.ToGcpDmIntegrationsAiPlatformPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsAiPlatformArgs) ToGcpDmIntegrationsAiPlatformPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAiPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsAiPlatformOutput).ToGcpDmIntegrationsAiPlatformPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsAiPlatformPtrInput is an input type that accepts GcpDmIntegrationsAiPlatformArgs, GcpDmIntegrationsAiPlatformPtr and GcpDmIntegrationsAiPlatformPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsAiPlatformPtrInput` via:
+//
+//	        GcpDmIntegrationsAiPlatformArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsAiPlatformPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsAiPlatformPtrOutput() GcpDmIntegrationsAiPlatformPtrOutput
+	ToGcpDmIntegrationsAiPlatformPtrOutputWithContext(context.Context) GcpDmIntegrationsAiPlatformPtrOutput
+}
+
+type gcpDmIntegrationsAiPlatformPtrType GcpDmIntegrationsAiPlatformArgs
+
+func GcpDmIntegrationsAiPlatformPtr(v *GcpDmIntegrationsAiPlatformArgs) GcpDmIntegrationsAiPlatformPtrInput {
+	return (*gcpDmIntegrationsAiPlatformPtrType)(v)
+}
+
+func (*gcpDmIntegrationsAiPlatformPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsAiPlatform)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsAiPlatformPtrType) ToGcpDmIntegrationsAiPlatformPtrOutput() GcpDmIntegrationsAiPlatformPtrOutput {
+	return i.ToGcpDmIntegrationsAiPlatformPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsAiPlatformPtrType) ToGcpDmIntegrationsAiPlatformPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAiPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsAiPlatformPtrOutput)
+}
+
+type GcpDmIntegrationsAiPlatformOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsAiPlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsAiPlatform)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsAiPlatformOutput) ToGcpDmIntegrationsAiPlatformOutput() GcpDmIntegrationsAiPlatformOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAiPlatformOutput) ToGcpDmIntegrationsAiPlatformOutputWithContext(ctx context.Context) GcpDmIntegrationsAiPlatformOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAiPlatformOutput) ToGcpDmIntegrationsAiPlatformPtrOutput() GcpDmIntegrationsAiPlatformPtrOutput {
+	return o.ToGcpDmIntegrationsAiPlatformPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsAiPlatformOutput) ToGcpDmIntegrationsAiPlatformPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAiPlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsAiPlatform) *GcpDmIntegrationsAiPlatform {
+		return &v
+	}).(GcpDmIntegrationsAiPlatformPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsAiPlatformOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsAiPlatform) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsAiPlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsAiPlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsAiPlatform)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsAiPlatformPtrOutput) ToGcpDmIntegrationsAiPlatformPtrOutput() GcpDmIntegrationsAiPlatformPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAiPlatformPtrOutput) ToGcpDmIntegrationsAiPlatformPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAiPlatformPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAiPlatformPtrOutput) Elem() GcpDmIntegrationsAiPlatformOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsAiPlatform) GcpDmIntegrationsAiPlatform {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsAiPlatform
+		return ret
+	}).(GcpDmIntegrationsAiPlatformOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsAiPlatformPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsAiPlatform) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsAlloyDb struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsAlloyDbInput is an input type that accepts GcpDmIntegrationsAlloyDbArgs and GcpDmIntegrationsAlloyDbOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsAlloyDbInput` via:
+//
+//	GcpDmIntegrationsAlloyDbArgs{...}
+type GcpDmIntegrationsAlloyDbInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsAlloyDbOutput() GcpDmIntegrationsAlloyDbOutput
+	ToGcpDmIntegrationsAlloyDbOutputWithContext(context.Context) GcpDmIntegrationsAlloyDbOutput
+}
+
+type GcpDmIntegrationsAlloyDbArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsAlloyDbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsAlloyDb)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsAlloyDbArgs) ToGcpDmIntegrationsAlloyDbOutput() GcpDmIntegrationsAlloyDbOutput {
+	return i.ToGcpDmIntegrationsAlloyDbOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsAlloyDbArgs) ToGcpDmIntegrationsAlloyDbOutputWithContext(ctx context.Context) GcpDmIntegrationsAlloyDbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsAlloyDbOutput)
+}
+
+func (i GcpDmIntegrationsAlloyDbArgs) ToGcpDmIntegrationsAlloyDbPtrOutput() GcpDmIntegrationsAlloyDbPtrOutput {
+	return i.ToGcpDmIntegrationsAlloyDbPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsAlloyDbArgs) ToGcpDmIntegrationsAlloyDbPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAlloyDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsAlloyDbOutput).ToGcpDmIntegrationsAlloyDbPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsAlloyDbPtrInput is an input type that accepts GcpDmIntegrationsAlloyDbArgs, GcpDmIntegrationsAlloyDbPtr and GcpDmIntegrationsAlloyDbPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsAlloyDbPtrInput` via:
+//
+//	        GcpDmIntegrationsAlloyDbArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsAlloyDbPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsAlloyDbPtrOutput() GcpDmIntegrationsAlloyDbPtrOutput
+	ToGcpDmIntegrationsAlloyDbPtrOutputWithContext(context.Context) GcpDmIntegrationsAlloyDbPtrOutput
+}
+
+type gcpDmIntegrationsAlloyDbPtrType GcpDmIntegrationsAlloyDbArgs
+
+func GcpDmIntegrationsAlloyDbPtr(v *GcpDmIntegrationsAlloyDbArgs) GcpDmIntegrationsAlloyDbPtrInput {
+	return (*gcpDmIntegrationsAlloyDbPtrType)(v)
+}
+
+func (*gcpDmIntegrationsAlloyDbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsAlloyDb)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsAlloyDbPtrType) ToGcpDmIntegrationsAlloyDbPtrOutput() GcpDmIntegrationsAlloyDbPtrOutput {
+	return i.ToGcpDmIntegrationsAlloyDbPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsAlloyDbPtrType) ToGcpDmIntegrationsAlloyDbPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAlloyDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsAlloyDbPtrOutput)
+}
+
+type GcpDmIntegrationsAlloyDbOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsAlloyDbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsAlloyDb)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsAlloyDbOutput) ToGcpDmIntegrationsAlloyDbOutput() GcpDmIntegrationsAlloyDbOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAlloyDbOutput) ToGcpDmIntegrationsAlloyDbOutputWithContext(ctx context.Context) GcpDmIntegrationsAlloyDbOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAlloyDbOutput) ToGcpDmIntegrationsAlloyDbPtrOutput() GcpDmIntegrationsAlloyDbPtrOutput {
+	return o.ToGcpDmIntegrationsAlloyDbPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsAlloyDbOutput) ToGcpDmIntegrationsAlloyDbPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAlloyDbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsAlloyDb) *GcpDmIntegrationsAlloyDb {
+		return &v
+	}).(GcpDmIntegrationsAlloyDbPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsAlloyDbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsAlloyDb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsAlloyDbPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsAlloyDbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsAlloyDb)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsAlloyDbPtrOutput) ToGcpDmIntegrationsAlloyDbPtrOutput() GcpDmIntegrationsAlloyDbPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAlloyDbPtrOutput) ToGcpDmIntegrationsAlloyDbPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAlloyDbPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAlloyDbPtrOutput) Elem() GcpDmIntegrationsAlloyDbOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsAlloyDb) GcpDmIntegrationsAlloyDb {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsAlloyDb
+		return ret
+	}).(GcpDmIntegrationsAlloyDbOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsAlloyDbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsAlloyDb) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsApiGateway struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsApiGatewayInput is an input type that accepts GcpDmIntegrationsApiGatewayArgs and GcpDmIntegrationsApiGatewayOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsApiGatewayInput` via:
+//
+//	GcpDmIntegrationsApiGatewayArgs{...}
+type GcpDmIntegrationsApiGatewayInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsApiGatewayOutput() GcpDmIntegrationsApiGatewayOutput
+	ToGcpDmIntegrationsApiGatewayOutputWithContext(context.Context) GcpDmIntegrationsApiGatewayOutput
+}
+
+type GcpDmIntegrationsApiGatewayArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsApiGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsApiGateway)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsApiGatewayArgs) ToGcpDmIntegrationsApiGatewayOutput() GcpDmIntegrationsApiGatewayOutput {
+	return i.ToGcpDmIntegrationsApiGatewayOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsApiGatewayArgs) ToGcpDmIntegrationsApiGatewayOutputWithContext(ctx context.Context) GcpDmIntegrationsApiGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsApiGatewayOutput)
+}
+
+func (i GcpDmIntegrationsApiGatewayArgs) ToGcpDmIntegrationsApiGatewayPtrOutput() GcpDmIntegrationsApiGatewayPtrOutput {
+	return i.ToGcpDmIntegrationsApiGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsApiGatewayArgs) ToGcpDmIntegrationsApiGatewayPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsApiGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsApiGatewayOutput).ToGcpDmIntegrationsApiGatewayPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsApiGatewayPtrInput is an input type that accepts GcpDmIntegrationsApiGatewayArgs, GcpDmIntegrationsApiGatewayPtr and GcpDmIntegrationsApiGatewayPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsApiGatewayPtrInput` via:
+//
+//	        GcpDmIntegrationsApiGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsApiGatewayPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsApiGatewayPtrOutput() GcpDmIntegrationsApiGatewayPtrOutput
+	ToGcpDmIntegrationsApiGatewayPtrOutputWithContext(context.Context) GcpDmIntegrationsApiGatewayPtrOutput
+}
+
+type gcpDmIntegrationsApiGatewayPtrType GcpDmIntegrationsApiGatewayArgs
+
+func GcpDmIntegrationsApiGatewayPtr(v *GcpDmIntegrationsApiGatewayArgs) GcpDmIntegrationsApiGatewayPtrInput {
+	return (*gcpDmIntegrationsApiGatewayPtrType)(v)
+}
+
+func (*gcpDmIntegrationsApiGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsApiGateway)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsApiGatewayPtrType) ToGcpDmIntegrationsApiGatewayPtrOutput() GcpDmIntegrationsApiGatewayPtrOutput {
+	return i.ToGcpDmIntegrationsApiGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsApiGatewayPtrType) ToGcpDmIntegrationsApiGatewayPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsApiGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsApiGatewayPtrOutput)
+}
+
+type GcpDmIntegrationsApiGatewayOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsApiGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsApiGateway)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsApiGatewayOutput) ToGcpDmIntegrationsApiGatewayOutput() GcpDmIntegrationsApiGatewayOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsApiGatewayOutput) ToGcpDmIntegrationsApiGatewayOutputWithContext(ctx context.Context) GcpDmIntegrationsApiGatewayOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsApiGatewayOutput) ToGcpDmIntegrationsApiGatewayPtrOutput() GcpDmIntegrationsApiGatewayPtrOutput {
+	return o.ToGcpDmIntegrationsApiGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsApiGatewayOutput) ToGcpDmIntegrationsApiGatewayPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsApiGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsApiGateway) *GcpDmIntegrationsApiGateway {
+		return &v
+	}).(GcpDmIntegrationsApiGatewayPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsApiGatewayOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsApiGateway) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsApiGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsApiGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsApiGateway)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsApiGatewayPtrOutput) ToGcpDmIntegrationsApiGatewayPtrOutput() GcpDmIntegrationsApiGatewayPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsApiGatewayPtrOutput) ToGcpDmIntegrationsApiGatewayPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsApiGatewayPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsApiGatewayPtrOutput) Elem() GcpDmIntegrationsApiGatewayOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsApiGateway) GcpDmIntegrationsApiGateway {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsApiGateway
+		return ret
+	}).(GcpDmIntegrationsApiGatewayOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsApiGatewayPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsApiGateway) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsAppEngine struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsAppEngineInput is an input type that accepts GcpDmIntegrationsAppEngineArgs and GcpDmIntegrationsAppEngineOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsAppEngineInput` via:
+//
+//	GcpDmIntegrationsAppEngineArgs{...}
+type GcpDmIntegrationsAppEngineInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsAppEngineOutput() GcpDmIntegrationsAppEngineOutput
+	ToGcpDmIntegrationsAppEngineOutputWithContext(context.Context) GcpDmIntegrationsAppEngineOutput
+}
+
+type GcpDmIntegrationsAppEngineArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsAppEngineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsAppEngine)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsAppEngineArgs) ToGcpDmIntegrationsAppEngineOutput() GcpDmIntegrationsAppEngineOutput {
+	return i.ToGcpDmIntegrationsAppEngineOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsAppEngineArgs) ToGcpDmIntegrationsAppEngineOutputWithContext(ctx context.Context) GcpDmIntegrationsAppEngineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsAppEngineOutput)
+}
+
+func (i GcpDmIntegrationsAppEngineArgs) ToGcpDmIntegrationsAppEnginePtrOutput() GcpDmIntegrationsAppEnginePtrOutput {
+	return i.ToGcpDmIntegrationsAppEnginePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsAppEngineArgs) ToGcpDmIntegrationsAppEnginePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAppEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsAppEngineOutput).ToGcpDmIntegrationsAppEnginePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsAppEnginePtrInput is an input type that accepts GcpDmIntegrationsAppEngineArgs, GcpDmIntegrationsAppEnginePtr and GcpDmIntegrationsAppEnginePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsAppEnginePtrInput` via:
+//
+//	        GcpDmIntegrationsAppEngineArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsAppEnginePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsAppEnginePtrOutput() GcpDmIntegrationsAppEnginePtrOutput
+	ToGcpDmIntegrationsAppEnginePtrOutputWithContext(context.Context) GcpDmIntegrationsAppEnginePtrOutput
+}
+
+type gcpDmIntegrationsAppEnginePtrType GcpDmIntegrationsAppEngineArgs
+
+func GcpDmIntegrationsAppEnginePtr(v *GcpDmIntegrationsAppEngineArgs) GcpDmIntegrationsAppEnginePtrInput {
+	return (*gcpDmIntegrationsAppEnginePtrType)(v)
+}
+
+func (*gcpDmIntegrationsAppEnginePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsAppEngine)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsAppEnginePtrType) ToGcpDmIntegrationsAppEnginePtrOutput() GcpDmIntegrationsAppEnginePtrOutput {
+	return i.ToGcpDmIntegrationsAppEnginePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsAppEnginePtrType) ToGcpDmIntegrationsAppEnginePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAppEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsAppEnginePtrOutput)
+}
+
+type GcpDmIntegrationsAppEngineOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsAppEngineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsAppEngine)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsAppEngineOutput) ToGcpDmIntegrationsAppEngineOutput() GcpDmIntegrationsAppEngineOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAppEngineOutput) ToGcpDmIntegrationsAppEngineOutputWithContext(ctx context.Context) GcpDmIntegrationsAppEngineOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAppEngineOutput) ToGcpDmIntegrationsAppEnginePtrOutput() GcpDmIntegrationsAppEnginePtrOutput {
+	return o.ToGcpDmIntegrationsAppEnginePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsAppEngineOutput) ToGcpDmIntegrationsAppEnginePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAppEnginePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsAppEngine) *GcpDmIntegrationsAppEngine {
+		return &v
+	}).(GcpDmIntegrationsAppEnginePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsAppEngineOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsAppEngine) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsAppEnginePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsAppEnginePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsAppEngine)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsAppEnginePtrOutput) ToGcpDmIntegrationsAppEnginePtrOutput() GcpDmIntegrationsAppEnginePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAppEnginePtrOutput) ToGcpDmIntegrationsAppEnginePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsAppEnginePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsAppEnginePtrOutput) Elem() GcpDmIntegrationsAppEngineOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsAppEngine) GcpDmIntegrationsAppEngine {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsAppEngine
+		return ret
+	}).(GcpDmIntegrationsAppEngineOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsAppEnginePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsAppEngine) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsBigQuery struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsBigQueryInput is an input type that accepts GcpDmIntegrationsBigQueryArgs and GcpDmIntegrationsBigQueryOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsBigQueryInput` via:
+//
+//	GcpDmIntegrationsBigQueryArgs{...}
+type GcpDmIntegrationsBigQueryInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsBigQueryOutput() GcpDmIntegrationsBigQueryOutput
+	ToGcpDmIntegrationsBigQueryOutputWithContext(context.Context) GcpDmIntegrationsBigQueryOutput
+}
+
+type GcpDmIntegrationsBigQueryArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsBigQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsBigQuery)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsBigQueryArgs) ToGcpDmIntegrationsBigQueryOutput() GcpDmIntegrationsBigQueryOutput {
+	return i.ToGcpDmIntegrationsBigQueryOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsBigQueryArgs) ToGcpDmIntegrationsBigQueryOutputWithContext(ctx context.Context) GcpDmIntegrationsBigQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsBigQueryOutput)
+}
+
+func (i GcpDmIntegrationsBigQueryArgs) ToGcpDmIntegrationsBigQueryPtrOutput() GcpDmIntegrationsBigQueryPtrOutput {
+	return i.ToGcpDmIntegrationsBigQueryPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsBigQueryArgs) ToGcpDmIntegrationsBigQueryPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsBigQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsBigQueryOutput).ToGcpDmIntegrationsBigQueryPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsBigQueryPtrInput is an input type that accepts GcpDmIntegrationsBigQueryArgs, GcpDmIntegrationsBigQueryPtr and GcpDmIntegrationsBigQueryPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsBigQueryPtrInput` via:
+//
+//	        GcpDmIntegrationsBigQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsBigQueryPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsBigQueryPtrOutput() GcpDmIntegrationsBigQueryPtrOutput
+	ToGcpDmIntegrationsBigQueryPtrOutputWithContext(context.Context) GcpDmIntegrationsBigQueryPtrOutput
+}
+
+type gcpDmIntegrationsBigQueryPtrType GcpDmIntegrationsBigQueryArgs
+
+func GcpDmIntegrationsBigQueryPtr(v *GcpDmIntegrationsBigQueryArgs) GcpDmIntegrationsBigQueryPtrInput {
+	return (*gcpDmIntegrationsBigQueryPtrType)(v)
+}
+
+func (*gcpDmIntegrationsBigQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsBigQuery)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsBigQueryPtrType) ToGcpDmIntegrationsBigQueryPtrOutput() GcpDmIntegrationsBigQueryPtrOutput {
+	return i.ToGcpDmIntegrationsBigQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsBigQueryPtrType) ToGcpDmIntegrationsBigQueryPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsBigQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsBigQueryPtrOutput)
+}
+
+type GcpDmIntegrationsBigQueryOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsBigQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsBigQuery)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsBigQueryOutput) ToGcpDmIntegrationsBigQueryOutput() GcpDmIntegrationsBigQueryOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsBigQueryOutput) ToGcpDmIntegrationsBigQueryOutputWithContext(ctx context.Context) GcpDmIntegrationsBigQueryOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsBigQueryOutput) ToGcpDmIntegrationsBigQueryPtrOutput() GcpDmIntegrationsBigQueryPtrOutput {
+	return o.ToGcpDmIntegrationsBigQueryPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsBigQueryOutput) ToGcpDmIntegrationsBigQueryPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsBigQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsBigQuery) *GcpDmIntegrationsBigQuery {
+		return &v
+	}).(GcpDmIntegrationsBigQueryPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsBigQueryOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsBigQuery) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsBigQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsBigQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsBigQuery)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsBigQueryPtrOutput) ToGcpDmIntegrationsBigQueryPtrOutput() GcpDmIntegrationsBigQueryPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsBigQueryPtrOutput) ToGcpDmIntegrationsBigQueryPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsBigQueryPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsBigQueryPtrOutput) Elem() GcpDmIntegrationsBigQueryOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsBigQuery) GcpDmIntegrationsBigQuery {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsBigQuery
+		return ret
+	}).(GcpDmIntegrationsBigQueryOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsBigQueryPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsBigQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsBigTable struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsBigTableInput is an input type that accepts GcpDmIntegrationsBigTableArgs and GcpDmIntegrationsBigTableOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsBigTableInput` via:
+//
+//	GcpDmIntegrationsBigTableArgs{...}
+type GcpDmIntegrationsBigTableInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsBigTableOutput() GcpDmIntegrationsBigTableOutput
+	ToGcpDmIntegrationsBigTableOutputWithContext(context.Context) GcpDmIntegrationsBigTableOutput
+}
+
+type GcpDmIntegrationsBigTableArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsBigTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsBigTable)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsBigTableArgs) ToGcpDmIntegrationsBigTableOutput() GcpDmIntegrationsBigTableOutput {
+	return i.ToGcpDmIntegrationsBigTableOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsBigTableArgs) ToGcpDmIntegrationsBigTableOutputWithContext(ctx context.Context) GcpDmIntegrationsBigTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsBigTableOutput)
+}
+
+func (i GcpDmIntegrationsBigTableArgs) ToGcpDmIntegrationsBigTablePtrOutput() GcpDmIntegrationsBigTablePtrOutput {
+	return i.ToGcpDmIntegrationsBigTablePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsBigTableArgs) ToGcpDmIntegrationsBigTablePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsBigTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsBigTableOutput).ToGcpDmIntegrationsBigTablePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsBigTablePtrInput is an input type that accepts GcpDmIntegrationsBigTableArgs, GcpDmIntegrationsBigTablePtr and GcpDmIntegrationsBigTablePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsBigTablePtrInput` via:
+//
+//	        GcpDmIntegrationsBigTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsBigTablePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsBigTablePtrOutput() GcpDmIntegrationsBigTablePtrOutput
+	ToGcpDmIntegrationsBigTablePtrOutputWithContext(context.Context) GcpDmIntegrationsBigTablePtrOutput
+}
+
+type gcpDmIntegrationsBigTablePtrType GcpDmIntegrationsBigTableArgs
+
+func GcpDmIntegrationsBigTablePtr(v *GcpDmIntegrationsBigTableArgs) GcpDmIntegrationsBigTablePtrInput {
+	return (*gcpDmIntegrationsBigTablePtrType)(v)
+}
+
+func (*gcpDmIntegrationsBigTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsBigTable)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsBigTablePtrType) ToGcpDmIntegrationsBigTablePtrOutput() GcpDmIntegrationsBigTablePtrOutput {
+	return i.ToGcpDmIntegrationsBigTablePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsBigTablePtrType) ToGcpDmIntegrationsBigTablePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsBigTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsBigTablePtrOutput)
+}
+
+type GcpDmIntegrationsBigTableOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsBigTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsBigTable)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsBigTableOutput) ToGcpDmIntegrationsBigTableOutput() GcpDmIntegrationsBigTableOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsBigTableOutput) ToGcpDmIntegrationsBigTableOutputWithContext(ctx context.Context) GcpDmIntegrationsBigTableOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsBigTableOutput) ToGcpDmIntegrationsBigTablePtrOutput() GcpDmIntegrationsBigTablePtrOutput {
+	return o.ToGcpDmIntegrationsBigTablePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsBigTableOutput) ToGcpDmIntegrationsBigTablePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsBigTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsBigTable) *GcpDmIntegrationsBigTable {
+		return &v
+	}).(GcpDmIntegrationsBigTablePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsBigTableOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsBigTable) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsBigTablePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsBigTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsBigTable)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsBigTablePtrOutput) ToGcpDmIntegrationsBigTablePtrOutput() GcpDmIntegrationsBigTablePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsBigTablePtrOutput) ToGcpDmIntegrationsBigTablePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsBigTablePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsBigTablePtrOutput) Elem() GcpDmIntegrationsBigTableOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsBigTable) GcpDmIntegrationsBigTable {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsBigTable
+		return ret
+	}).(GcpDmIntegrationsBigTableOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsBigTablePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsBigTable) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsComposer struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsComposerInput is an input type that accepts GcpDmIntegrationsComposerArgs and GcpDmIntegrationsComposerOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsComposerInput` via:
+//
+//	GcpDmIntegrationsComposerArgs{...}
+type GcpDmIntegrationsComposerInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsComposerOutput() GcpDmIntegrationsComposerOutput
+	ToGcpDmIntegrationsComposerOutputWithContext(context.Context) GcpDmIntegrationsComposerOutput
+}
+
+type GcpDmIntegrationsComposerArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsComposerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsComposer)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsComposerArgs) ToGcpDmIntegrationsComposerOutput() GcpDmIntegrationsComposerOutput {
+	return i.ToGcpDmIntegrationsComposerOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsComposerArgs) ToGcpDmIntegrationsComposerOutputWithContext(ctx context.Context) GcpDmIntegrationsComposerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsComposerOutput)
+}
+
+func (i GcpDmIntegrationsComposerArgs) ToGcpDmIntegrationsComposerPtrOutput() GcpDmIntegrationsComposerPtrOutput {
+	return i.ToGcpDmIntegrationsComposerPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsComposerArgs) ToGcpDmIntegrationsComposerPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsComposerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsComposerOutput).ToGcpDmIntegrationsComposerPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsComposerPtrInput is an input type that accepts GcpDmIntegrationsComposerArgs, GcpDmIntegrationsComposerPtr and GcpDmIntegrationsComposerPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsComposerPtrInput` via:
+//
+//	        GcpDmIntegrationsComposerArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsComposerPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsComposerPtrOutput() GcpDmIntegrationsComposerPtrOutput
+	ToGcpDmIntegrationsComposerPtrOutputWithContext(context.Context) GcpDmIntegrationsComposerPtrOutput
+}
+
+type gcpDmIntegrationsComposerPtrType GcpDmIntegrationsComposerArgs
+
+func GcpDmIntegrationsComposerPtr(v *GcpDmIntegrationsComposerArgs) GcpDmIntegrationsComposerPtrInput {
+	return (*gcpDmIntegrationsComposerPtrType)(v)
+}
+
+func (*gcpDmIntegrationsComposerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsComposer)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsComposerPtrType) ToGcpDmIntegrationsComposerPtrOutput() GcpDmIntegrationsComposerPtrOutput {
+	return i.ToGcpDmIntegrationsComposerPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsComposerPtrType) ToGcpDmIntegrationsComposerPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsComposerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsComposerPtrOutput)
+}
+
+type GcpDmIntegrationsComposerOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsComposerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsComposer)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsComposerOutput) ToGcpDmIntegrationsComposerOutput() GcpDmIntegrationsComposerOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsComposerOutput) ToGcpDmIntegrationsComposerOutputWithContext(ctx context.Context) GcpDmIntegrationsComposerOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsComposerOutput) ToGcpDmIntegrationsComposerPtrOutput() GcpDmIntegrationsComposerPtrOutput {
+	return o.ToGcpDmIntegrationsComposerPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsComposerOutput) ToGcpDmIntegrationsComposerPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsComposerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsComposer) *GcpDmIntegrationsComposer {
+		return &v
+	}).(GcpDmIntegrationsComposerPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsComposerOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsComposer) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsComposerPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsComposerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsComposer)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsComposerPtrOutput) ToGcpDmIntegrationsComposerPtrOutput() GcpDmIntegrationsComposerPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsComposerPtrOutput) ToGcpDmIntegrationsComposerPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsComposerPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsComposerPtrOutput) Elem() GcpDmIntegrationsComposerOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsComposer) GcpDmIntegrationsComposer {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsComposer
+		return ret
+	}).(GcpDmIntegrationsComposerOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsComposerPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsComposer) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsDataFlow struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsDataFlowInput is an input type that accepts GcpDmIntegrationsDataFlowArgs and GcpDmIntegrationsDataFlowOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsDataFlowInput` via:
+//
+//	GcpDmIntegrationsDataFlowArgs{...}
+type GcpDmIntegrationsDataFlowInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsDataFlowOutput() GcpDmIntegrationsDataFlowOutput
+	ToGcpDmIntegrationsDataFlowOutputWithContext(context.Context) GcpDmIntegrationsDataFlowOutput
+}
+
+type GcpDmIntegrationsDataFlowArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsDataFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsDataFlow)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsDataFlowArgs) ToGcpDmIntegrationsDataFlowOutput() GcpDmIntegrationsDataFlowOutput {
+	return i.ToGcpDmIntegrationsDataFlowOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsDataFlowArgs) ToGcpDmIntegrationsDataFlowOutputWithContext(ctx context.Context) GcpDmIntegrationsDataFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsDataFlowOutput)
+}
+
+func (i GcpDmIntegrationsDataFlowArgs) ToGcpDmIntegrationsDataFlowPtrOutput() GcpDmIntegrationsDataFlowPtrOutput {
+	return i.ToGcpDmIntegrationsDataFlowPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsDataFlowArgs) ToGcpDmIntegrationsDataFlowPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataFlowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsDataFlowOutput).ToGcpDmIntegrationsDataFlowPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsDataFlowPtrInput is an input type that accepts GcpDmIntegrationsDataFlowArgs, GcpDmIntegrationsDataFlowPtr and GcpDmIntegrationsDataFlowPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsDataFlowPtrInput` via:
+//
+//	        GcpDmIntegrationsDataFlowArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsDataFlowPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsDataFlowPtrOutput() GcpDmIntegrationsDataFlowPtrOutput
+	ToGcpDmIntegrationsDataFlowPtrOutputWithContext(context.Context) GcpDmIntegrationsDataFlowPtrOutput
+}
+
+type gcpDmIntegrationsDataFlowPtrType GcpDmIntegrationsDataFlowArgs
+
+func GcpDmIntegrationsDataFlowPtr(v *GcpDmIntegrationsDataFlowArgs) GcpDmIntegrationsDataFlowPtrInput {
+	return (*gcpDmIntegrationsDataFlowPtrType)(v)
+}
+
+func (*gcpDmIntegrationsDataFlowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsDataFlow)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsDataFlowPtrType) ToGcpDmIntegrationsDataFlowPtrOutput() GcpDmIntegrationsDataFlowPtrOutput {
+	return i.ToGcpDmIntegrationsDataFlowPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsDataFlowPtrType) ToGcpDmIntegrationsDataFlowPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataFlowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsDataFlowPtrOutput)
+}
+
+type GcpDmIntegrationsDataFlowOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsDataFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsDataFlow)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsDataFlowOutput) ToGcpDmIntegrationsDataFlowOutput() GcpDmIntegrationsDataFlowOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataFlowOutput) ToGcpDmIntegrationsDataFlowOutputWithContext(ctx context.Context) GcpDmIntegrationsDataFlowOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataFlowOutput) ToGcpDmIntegrationsDataFlowPtrOutput() GcpDmIntegrationsDataFlowPtrOutput {
+	return o.ToGcpDmIntegrationsDataFlowPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsDataFlowOutput) ToGcpDmIntegrationsDataFlowPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataFlowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsDataFlow) *GcpDmIntegrationsDataFlow {
+		return &v
+	}).(GcpDmIntegrationsDataFlowPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsDataFlowOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsDataFlow) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsDataFlowPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsDataFlowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsDataFlow)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsDataFlowPtrOutput) ToGcpDmIntegrationsDataFlowPtrOutput() GcpDmIntegrationsDataFlowPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataFlowPtrOutput) ToGcpDmIntegrationsDataFlowPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataFlowPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataFlowPtrOutput) Elem() GcpDmIntegrationsDataFlowOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsDataFlow) GcpDmIntegrationsDataFlow {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsDataFlow
+		return ret
+	}).(GcpDmIntegrationsDataFlowOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsDataFlowPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsDataFlow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsDataProc struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsDataProcInput is an input type that accepts GcpDmIntegrationsDataProcArgs and GcpDmIntegrationsDataProcOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsDataProcInput` via:
+//
+//	GcpDmIntegrationsDataProcArgs{...}
+type GcpDmIntegrationsDataProcInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsDataProcOutput() GcpDmIntegrationsDataProcOutput
+	ToGcpDmIntegrationsDataProcOutputWithContext(context.Context) GcpDmIntegrationsDataProcOutput
+}
+
+type GcpDmIntegrationsDataProcArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsDataProcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsDataProc)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsDataProcArgs) ToGcpDmIntegrationsDataProcOutput() GcpDmIntegrationsDataProcOutput {
+	return i.ToGcpDmIntegrationsDataProcOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsDataProcArgs) ToGcpDmIntegrationsDataProcOutputWithContext(ctx context.Context) GcpDmIntegrationsDataProcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsDataProcOutput)
+}
+
+func (i GcpDmIntegrationsDataProcArgs) ToGcpDmIntegrationsDataProcPtrOutput() GcpDmIntegrationsDataProcPtrOutput {
+	return i.ToGcpDmIntegrationsDataProcPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsDataProcArgs) ToGcpDmIntegrationsDataProcPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataProcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsDataProcOutput).ToGcpDmIntegrationsDataProcPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsDataProcPtrInput is an input type that accepts GcpDmIntegrationsDataProcArgs, GcpDmIntegrationsDataProcPtr and GcpDmIntegrationsDataProcPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsDataProcPtrInput` via:
+//
+//	        GcpDmIntegrationsDataProcArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsDataProcPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsDataProcPtrOutput() GcpDmIntegrationsDataProcPtrOutput
+	ToGcpDmIntegrationsDataProcPtrOutputWithContext(context.Context) GcpDmIntegrationsDataProcPtrOutput
+}
+
+type gcpDmIntegrationsDataProcPtrType GcpDmIntegrationsDataProcArgs
+
+func GcpDmIntegrationsDataProcPtr(v *GcpDmIntegrationsDataProcArgs) GcpDmIntegrationsDataProcPtrInput {
+	return (*gcpDmIntegrationsDataProcPtrType)(v)
+}
+
+func (*gcpDmIntegrationsDataProcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsDataProc)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsDataProcPtrType) ToGcpDmIntegrationsDataProcPtrOutput() GcpDmIntegrationsDataProcPtrOutput {
+	return i.ToGcpDmIntegrationsDataProcPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsDataProcPtrType) ToGcpDmIntegrationsDataProcPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataProcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsDataProcPtrOutput)
+}
+
+type GcpDmIntegrationsDataProcOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsDataProcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsDataProc)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsDataProcOutput) ToGcpDmIntegrationsDataProcOutput() GcpDmIntegrationsDataProcOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataProcOutput) ToGcpDmIntegrationsDataProcOutputWithContext(ctx context.Context) GcpDmIntegrationsDataProcOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataProcOutput) ToGcpDmIntegrationsDataProcPtrOutput() GcpDmIntegrationsDataProcPtrOutput {
+	return o.ToGcpDmIntegrationsDataProcPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsDataProcOutput) ToGcpDmIntegrationsDataProcPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataProcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsDataProc) *GcpDmIntegrationsDataProc {
+		return &v
+	}).(GcpDmIntegrationsDataProcPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsDataProcOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsDataProc) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsDataProcPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsDataProcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsDataProc)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsDataProcPtrOutput) ToGcpDmIntegrationsDataProcPtrOutput() GcpDmIntegrationsDataProcPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataProcPtrOutput) ToGcpDmIntegrationsDataProcPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataProcPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataProcPtrOutput) Elem() GcpDmIntegrationsDataProcOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsDataProc) GcpDmIntegrationsDataProc {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsDataProc
+		return ret
+	}).(GcpDmIntegrationsDataProcOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsDataProcPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsDataProc) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsDataStore struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsDataStoreInput is an input type that accepts GcpDmIntegrationsDataStoreArgs and GcpDmIntegrationsDataStoreOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsDataStoreInput` via:
+//
+//	GcpDmIntegrationsDataStoreArgs{...}
+type GcpDmIntegrationsDataStoreInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsDataStoreOutput() GcpDmIntegrationsDataStoreOutput
+	ToGcpDmIntegrationsDataStoreOutputWithContext(context.Context) GcpDmIntegrationsDataStoreOutput
+}
+
+type GcpDmIntegrationsDataStoreArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsDataStoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsDataStore)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsDataStoreArgs) ToGcpDmIntegrationsDataStoreOutput() GcpDmIntegrationsDataStoreOutput {
+	return i.ToGcpDmIntegrationsDataStoreOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsDataStoreArgs) ToGcpDmIntegrationsDataStoreOutputWithContext(ctx context.Context) GcpDmIntegrationsDataStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsDataStoreOutput)
+}
+
+func (i GcpDmIntegrationsDataStoreArgs) ToGcpDmIntegrationsDataStorePtrOutput() GcpDmIntegrationsDataStorePtrOutput {
+	return i.ToGcpDmIntegrationsDataStorePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsDataStoreArgs) ToGcpDmIntegrationsDataStorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsDataStoreOutput).ToGcpDmIntegrationsDataStorePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsDataStorePtrInput is an input type that accepts GcpDmIntegrationsDataStoreArgs, GcpDmIntegrationsDataStorePtr and GcpDmIntegrationsDataStorePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsDataStorePtrInput` via:
+//
+//	        GcpDmIntegrationsDataStoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsDataStorePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsDataStorePtrOutput() GcpDmIntegrationsDataStorePtrOutput
+	ToGcpDmIntegrationsDataStorePtrOutputWithContext(context.Context) GcpDmIntegrationsDataStorePtrOutput
+}
+
+type gcpDmIntegrationsDataStorePtrType GcpDmIntegrationsDataStoreArgs
+
+func GcpDmIntegrationsDataStorePtr(v *GcpDmIntegrationsDataStoreArgs) GcpDmIntegrationsDataStorePtrInput {
+	return (*gcpDmIntegrationsDataStorePtrType)(v)
+}
+
+func (*gcpDmIntegrationsDataStorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsDataStore)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsDataStorePtrType) ToGcpDmIntegrationsDataStorePtrOutput() GcpDmIntegrationsDataStorePtrOutput {
+	return i.ToGcpDmIntegrationsDataStorePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsDataStorePtrType) ToGcpDmIntegrationsDataStorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsDataStorePtrOutput)
+}
+
+type GcpDmIntegrationsDataStoreOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsDataStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsDataStore)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsDataStoreOutput) ToGcpDmIntegrationsDataStoreOutput() GcpDmIntegrationsDataStoreOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataStoreOutput) ToGcpDmIntegrationsDataStoreOutputWithContext(ctx context.Context) GcpDmIntegrationsDataStoreOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataStoreOutput) ToGcpDmIntegrationsDataStorePtrOutput() GcpDmIntegrationsDataStorePtrOutput {
+	return o.ToGcpDmIntegrationsDataStorePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsDataStoreOutput) ToGcpDmIntegrationsDataStorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataStorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsDataStore) *GcpDmIntegrationsDataStore {
+		return &v
+	}).(GcpDmIntegrationsDataStorePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsDataStoreOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsDataStore) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsDataStorePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsDataStorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsDataStore)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsDataStorePtrOutput) ToGcpDmIntegrationsDataStorePtrOutput() GcpDmIntegrationsDataStorePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataStorePtrOutput) ToGcpDmIntegrationsDataStorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsDataStorePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsDataStorePtrOutput) Elem() GcpDmIntegrationsDataStoreOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsDataStore) GcpDmIntegrationsDataStore {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsDataStore
+		return ret
+	}).(GcpDmIntegrationsDataStoreOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsDataStorePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsDataStore) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseAppHosting struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsFirebaseAppHostingInput is an input type that accepts GcpDmIntegrationsFirebaseAppHostingArgs and GcpDmIntegrationsFirebaseAppHostingOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseAppHostingInput` via:
+//
+//	GcpDmIntegrationsFirebaseAppHostingArgs{...}
+type GcpDmIntegrationsFirebaseAppHostingInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseAppHostingOutput() GcpDmIntegrationsFirebaseAppHostingOutput
+	ToGcpDmIntegrationsFirebaseAppHostingOutputWithContext(context.Context) GcpDmIntegrationsFirebaseAppHostingOutput
+}
+
+type GcpDmIntegrationsFirebaseAppHostingArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsFirebaseAppHostingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseAppHosting)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsFirebaseAppHostingArgs) ToGcpDmIntegrationsFirebaseAppHostingOutput() GcpDmIntegrationsFirebaseAppHostingOutput {
+	return i.ToGcpDmIntegrationsFirebaseAppHostingOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseAppHostingArgs) ToGcpDmIntegrationsFirebaseAppHostingOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAppHostingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseAppHostingOutput)
+}
+
+func (i GcpDmIntegrationsFirebaseAppHostingArgs) ToGcpDmIntegrationsFirebaseAppHostingPtrOutput() GcpDmIntegrationsFirebaseAppHostingPtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseAppHostingPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseAppHostingArgs) ToGcpDmIntegrationsFirebaseAppHostingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAppHostingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseAppHostingOutput).ToGcpDmIntegrationsFirebaseAppHostingPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsFirebaseAppHostingPtrInput is an input type that accepts GcpDmIntegrationsFirebaseAppHostingArgs, GcpDmIntegrationsFirebaseAppHostingPtr and GcpDmIntegrationsFirebaseAppHostingPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseAppHostingPtrInput` via:
+//
+//	        GcpDmIntegrationsFirebaseAppHostingArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsFirebaseAppHostingPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseAppHostingPtrOutput() GcpDmIntegrationsFirebaseAppHostingPtrOutput
+	ToGcpDmIntegrationsFirebaseAppHostingPtrOutputWithContext(context.Context) GcpDmIntegrationsFirebaseAppHostingPtrOutput
+}
+
+type gcpDmIntegrationsFirebaseAppHostingPtrType GcpDmIntegrationsFirebaseAppHostingArgs
+
+func GcpDmIntegrationsFirebaseAppHostingPtr(v *GcpDmIntegrationsFirebaseAppHostingArgs) GcpDmIntegrationsFirebaseAppHostingPtrInput {
+	return (*gcpDmIntegrationsFirebaseAppHostingPtrType)(v)
+}
+
+func (*gcpDmIntegrationsFirebaseAppHostingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseAppHosting)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsFirebaseAppHostingPtrType) ToGcpDmIntegrationsFirebaseAppHostingPtrOutput() GcpDmIntegrationsFirebaseAppHostingPtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseAppHostingPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsFirebaseAppHostingPtrType) ToGcpDmIntegrationsFirebaseAppHostingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAppHostingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseAppHostingPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseAppHostingOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseAppHostingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseAppHosting)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseAppHostingOutput) ToGcpDmIntegrationsFirebaseAppHostingOutput() GcpDmIntegrationsFirebaseAppHostingOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseAppHostingOutput) ToGcpDmIntegrationsFirebaseAppHostingOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAppHostingOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseAppHostingOutput) ToGcpDmIntegrationsFirebaseAppHostingPtrOutput() GcpDmIntegrationsFirebaseAppHostingPtrOutput {
+	return o.ToGcpDmIntegrationsFirebaseAppHostingPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsFirebaseAppHostingOutput) ToGcpDmIntegrationsFirebaseAppHostingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAppHostingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsFirebaseAppHosting) *GcpDmIntegrationsFirebaseAppHosting {
+		return &v
+	}).(GcpDmIntegrationsFirebaseAppHostingPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseAppHostingOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsFirebaseAppHosting) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseAppHostingPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseAppHostingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseAppHosting)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseAppHostingPtrOutput) ToGcpDmIntegrationsFirebaseAppHostingPtrOutput() GcpDmIntegrationsFirebaseAppHostingPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseAppHostingPtrOutput) ToGcpDmIntegrationsFirebaseAppHostingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAppHostingPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseAppHostingPtrOutput) Elem() GcpDmIntegrationsFirebaseAppHostingOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseAppHosting) GcpDmIntegrationsFirebaseAppHosting {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsFirebaseAppHosting
+		return ret
+	}).(GcpDmIntegrationsFirebaseAppHostingOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseAppHostingPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseAppHosting) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseAuth struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsFirebaseAuthInput is an input type that accepts GcpDmIntegrationsFirebaseAuthArgs and GcpDmIntegrationsFirebaseAuthOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseAuthInput` via:
+//
+//	GcpDmIntegrationsFirebaseAuthArgs{...}
+type GcpDmIntegrationsFirebaseAuthInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseAuthOutput() GcpDmIntegrationsFirebaseAuthOutput
+	ToGcpDmIntegrationsFirebaseAuthOutputWithContext(context.Context) GcpDmIntegrationsFirebaseAuthOutput
+}
+
+type GcpDmIntegrationsFirebaseAuthArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsFirebaseAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseAuth)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsFirebaseAuthArgs) ToGcpDmIntegrationsFirebaseAuthOutput() GcpDmIntegrationsFirebaseAuthOutput {
+	return i.ToGcpDmIntegrationsFirebaseAuthOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseAuthArgs) ToGcpDmIntegrationsFirebaseAuthOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseAuthOutput)
+}
+
+func (i GcpDmIntegrationsFirebaseAuthArgs) ToGcpDmIntegrationsFirebaseAuthPtrOutput() GcpDmIntegrationsFirebaseAuthPtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseAuthPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseAuthArgs) ToGcpDmIntegrationsFirebaseAuthPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseAuthOutput).ToGcpDmIntegrationsFirebaseAuthPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsFirebaseAuthPtrInput is an input type that accepts GcpDmIntegrationsFirebaseAuthArgs, GcpDmIntegrationsFirebaseAuthPtr and GcpDmIntegrationsFirebaseAuthPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseAuthPtrInput` via:
+//
+//	        GcpDmIntegrationsFirebaseAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsFirebaseAuthPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseAuthPtrOutput() GcpDmIntegrationsFirebaseAuthPtrOutput
+	ToGcpDmIntegrationsFirebaseAuthPtrOutputWithContext(context.Context) GcpDmIntegrationsFirebaseAuthPtrOutput
+}
+
+type gcpDmIntegrationsFirebaseAuthPtrType GcpDmIntegrationsFirebaseAuthArgs
+
+func GcpDmIntegrationsFirebaseAuthPtr(v *GcpDmIntegrationsFirebaseAuthArgs) GcpDmIntegrationsFirebaseAuthPtrInput {
+	return (*gcpDmIntegrationsFirebaseAuthPtrType)(v)
+}
+
+func (*gcpDmIntegrationsFirebaseAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseAuth)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsFirebaseAuthPtrType) ToGcpDmIntegrationsFirebaseAuthPtrOutput() GcpDmIntegrationsFirebaseAuthPtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsFirebaseAuthPtrType) ToGcpDmIntegrationsFirebaseAuthPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseAuthPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseAuthOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseAuth)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseAuthOutput) ToGcpDmIntegrationsFirebaseAuthOutput() GcpDmIntegrationsFirebaseAuthOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseAuthOutput) ToGcpDmIntegrationsFirebaseAuthOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAuthOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseAuthOutput) ToGcpDmIntegrationsFirebaseAuthPtrOutput() GcpDmIntegrationsFirebaseAuthPtrOutput {
+	return o.ToGcpDmIntegrationsFirebaseAuthPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsFirebaseAuthOutput) ToGcpDmIntegrationsFirebaseAuthPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsFirebaseAuth) *GcpDmIntegrationsFirebaseAuth {
+		return &v
+	}).(GcpDmIntegrationsFirebaseAuthPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseAuthOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsFirebaseAuth) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseAuth)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseAuthPtrOutput) ToGcpDmIntegrationsFirebaseAuthPtrOutput() GcpDmIntegrationsFirebaseAuthPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseAuthPtrOutput) ToGcpDmIntegrationsFirebaseAuthPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseAuthPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseAuthPtrOutput) Elem() GcpDmIntegrationsFirebaseAuthOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseAuth) GcpDmIntegrationsFirebaseAuth {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsFirebaseAuth
+		return ret
+	}).(GcpDmIntegrationsFirebaseAuthOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseAuthPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseAuth) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseDatabase struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsFirebaseDatabaseInput is an input type that accepts GcpDmIntegrationsFirebaseDatabaseArgs and GcpDmIntegrationsFirebaseDatabaseOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseDatabaseInput` via:
+//
+//	GcpDmIntegrationsFirebaseDatabaseArgs{...}
+type GcpDmIntegrationsFirebaseDatabaseInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseDatabaseOutput() GcpDmIntegrationsFirebaseDatabaseOutput
+	ToGcpDmIntegrationsFirebaseDatabaseOutputWithContext(context.Context) GcpDmIntegrationsFirebaseDatabaseOutput
+}
+
+type GcpDmIntegrationsFirebaseDatabaseArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsFirebaseDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseDatabase)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsFirebaseDatabaseArgs) ToGcpDmIntegrationsFirebaseDatabaseOutput() GcpDmIntegrationsFirebaseDatabaseOutput {
+	return i.ToGcpDmIntegrationsFirebaseDatabaseOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseDatabaseArgs) ToGcpDmIntegrationsFirebaseDatabaseOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseDatabaseOutput)
+}
+
+func (i GcpDmIntegrationsFirebaseDatabaseArgs) ToGcpDmIntegrationsFirebaseDatabasePtrOutput() GcpDmIntegrationsFirebaseDatabasePtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseDatabaseArgs) ToGcpDmIntegrationsFirebaseDatabasePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseDatabaseOutput).ToGcpDmIntegrationsFirebaseDatabasePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsFirebaseDatabasePtrInput is an input type that accepts GcpDmIntegrationsFirebaseDatabaseArgs, GcpDmIntegrationsFirebaseDatabasePtr and GcpDmIntegrationsFirebaseDatabasePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseDatabasePtrInput` via:
+//
+//	        GcpDmIntegrationsFirebaseDatabaseArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsFirebaseDatabasePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseDatabasePtrOutput() GcpDmIntegrationsFirebaseDatabasePtrOutput
+	ToGcpDmIntegrationsFirebaseDatabasePtrOutputWithContext(context.Context) GcpDmIntegrationsFirebaseDatabasePtrOutput
+}
+
+type gcpDmIntegrationsFirebaseDatabasePtrType GcpDmIntegrationsFirebaseDatabaseArgs
+
+func GcpDmIntegrationsFirebaseDatabasePtr(v *GcpDmIntegrationsFirebaseDatabaseArgs) GcpDmIntegrationsFirebaseDatabasePtrInput {
+	return (*gcpDmIntegrationsFirebaseDatabasePtrType)(v)
+}
+
+func (*gcpDmIntegrationsFirebaseDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseDatabase)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsFirebaseDatabasePtrType) ToGcpDmIntegrationsFirebaseDatabasePtrOutput() GcpDmIntegrationsFirebaseDatabasePtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsFirebaseDatabasePtrType) ToGcpDmIntegrationsFirebaseDatabasePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseDatabasePtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseDatabaseOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseDatabase)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseDatabaseOutput) ToGcpDmIntegrationsFirebaseDatabaseOutput() GcpDmIntegrationsFirebaseDatabaseOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseDatabaseOutput) ToGcpDmIntegrationsFirebaseDatabaseOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseDatabaseOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseDatabaseOutput) ToGcpDmIntegrationsFirebaseDatabasePtrOutput() GcpDmIntegrationsFirebaseDatabasePtrOutput {
+	return o.ToGcpDmIntegrationsFirebaseDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsFirebaseDatabaseOutput) ToGcpDmIntegrationsFirebaseDatabasePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseDatabasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsFirebaseDatabase) *GcpDmIntegrationsFirebaseDatabase {
+		return &v
+	}).(GcpDmIntegrationsFirebaseDatabasePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseDatabaseOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsFirebaseDatabase) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseDatabase)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseDatabasePtrOutput) ToGcpDmIntegrationsFirebaseDatabasePtrOutput() GcpDmIntegrationsFirebaseDatabasePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseDatabasePtrOutput) ToGcpDmIntegrationsFirebaseDatabasePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseDatabasePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseDatabasePtrOutput) Elem() GcpDmIntegrationsFirebaseDatabaseOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseDatabase) GcpDmIntegrationsFirebaseDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsFirebaseDatabase
+		return ret
+	}).(GcpDmIntegrationsFirebaseDatabaseOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseDatabasePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseDatabase) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseHosting struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsFirebaseHostingInput is an input type that accepts GcpDmIntegrationsFirebaseHostingArgs and GcpDmIntegrationsFirebaseHostingOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseHostingInput` via:
+//
+//	GcpDmIntegrationsFirebaseHostingArgs{...}
+type GcpDmIntegrationsFirebaseHostingInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseHostingOutput() GcpDmIntegrationsFirebaseHostingOutput
+	ToGcpDmIntegrationsFirebaseHostingOutputWithContext(context.Context) GcpDmIntegrationsFirebaseHostingOutput
+}
+
+type GcpDmIntegrationsFirebaseHostingArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsFirebaseHostingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseHosting)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsFirebaseHostingArgs) ToGcpDmIntegrationsFirebaseHostingOutput() GcpDmIntegrationsFirebaseHostingOutput {
+	return i.ToGcpDmIntegrationsFirebaseHostingOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseHostingArgs) ToGcpDmIntegrationsFirebaseHostingOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseHostingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseHostingOutput)
+}
+
+func (i GcpDmIntegrationsFirebaseHostingArgs) ToGcpDmIntegrationsFirebaseHostingPtrOutput() GcpDmIntegrationsFirebaseHostingPtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseHostingPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseHostingArgs) ToGcpDmIntegrationsFirebaseHostingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseHostingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseHostingOutput).ToGcpDmIntegrationsFirebaseHostingPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsFirebaseHostingPtrInput is an input type that accepts GcpDmIntegrationsFirebaseHostingArgs, GcpDmIntegrationsFirebaseHostingPtr and GcpDmIntegrationsFirebaseHostingPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseHostingPtrInput` via:
+//
+//	        GcpDmIntegrationsFirebaseHostingArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsFirebaseHostingPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseHostingPtrOutput() GcpDmIntegrationsFirebaseHostingPtrOutput
+	ToGcpDmIntegrationsFirebaseHostingPtrOutputWithContext(context.Context) GcpDmIntegrationsFirebaseHostingPtrOutput
+}
+
+type gcpDmIntegrationsFirebaseHostingPtrType GcpDmIntegrationsFirebaseHostingArgs
+
+func GcpDmIntegrationsFirebaseHostingPtr(v *GcpDmIntegrationsFirebaseHostingArgs) GcpDmIntegrationsFirebaseHostingPtrInput {
+	return (*gcpDmIntegrationsFirebaseHostingPtrType)(v)
+}
+
+func (*gcpDmIntegrationsFirebaseHostingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseHosting)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsFirebaseHostingPtrType) ToGcpDmIntegrationsFirebaseHostingPtrOutput() GcpDmIntegrationsFirebaseHostingPtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseHostingPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsFirebaseHostingPtrType) ToGcpDmIntegrationsFirebaseHostingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseHostingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseHostingPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseHostingOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseHostingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseHosting)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseHostingOutput) ToGcpDmIntegrationsFirebaseHostingOutput() GcpDmIntegrationsFirebaseHostingOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseHostingOutput) ToGcpDmIntegrationsFirebaseHostingOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseHostingOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseHostingOutput) ToGcpDmIntegrationsFirebaseHostingPtrOutput() GcpDmIntegrationsFirebaseHostingPtrOutput {
+	return o.ToGcpDmIntegrationsFirebaseHostingPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsFirebaseHostingOutput) ToGcpDmIntegrationsFirebaseHostingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseHostingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsFirebaseHosting) *GcpDmIntegrationsFirebaseHosting {
+		return &v
+	}).(GcpDmIntegrationsFirebaseHostingPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseHostingOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsFirebaseHosting) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseHostingPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseHostingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseHosting)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseHostingPtrOutput) ToGcpDmIntegrationsFirebaseHostingPtrOutput() GcpDmIntegrationsFirebaseHostingPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseHostingPtrOutput) ToGcpDmIntegrationsFirebaseHostingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseHostingPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseHostingPtrOutput) Elem() GcpDmIntegrationsFirebaseHostingOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseHosting) GcpDmIntegrationsFirebaseHosting {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsFirebaseHosting
+		return ret
+	}).(GcpDmIntegrationsFirebaseHostingOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseHostingPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseHosting) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseStorage struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsFirebaseStorageInput is an input type that accepts GcpDmIntegrationsFirebaseStorageArgs and GcpDmIntegrationsFirebaseStorageOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseStorageInput` via:
+//
+//	GcpDmIntegrationsFirebaseStorageArgs{...}
+type GcpDmIntegrationsFirebaseStorageInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseStorageOutput() GcpDmIntegrationsFirebaseStorageOutput
+	ToGcpDmIntegrationsFirebaseStorageOutputWithContext(context.Context) GcpDmIntegrationsFirebaseStorageOutput
+}
+
+type GcpDmIntegrationsFirebaseStorageArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsFirebaseStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseStorage)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsFirebaseStorageArgs) ToGcpDmIntegrationsFirebaseStorageOutput() GcpDmIntegrationsFirebaseStorageOutput {
+	return i.ToGcpDmIntegrationsFirebaseStorageOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseStorageArgs) ToGcpDmIntegrationsFirebaseStorageOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseStorageOutput)
+}
+
+func (i GcpDmIntegrationsFirebaseStorageArgs) ToGcpDmIntegrationsFirebaseStoragePtrOutput() GcpDmIntegrationsFirebaseStoragePtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseStoragePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseStorageArgs) ToGcpDmIntegrationsFirebaseStoragePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseStorageOutput).ToGcpDmIntegrationsFirebaseStoragePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsFirebaseStoragePtrInput is an input type that accepts GcpDmIntegrationsFirebaseStorageArgs, GcpDmIntegrationsFirebaseStoragePtr and GcpDmIntegrationsFirebaseStoragePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseStoragePtrInput` via:
+//
+//	        GcpDmIntegrationsFirebaseStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsFirebaseStoragePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseStoragePtrOutput() GcpDmIntegrationsFirebaseStoragePtrOutput
+	ToGcpDmIntegrationsFirebaseStoragePtrOutputWithContext(context.Context) GcpDmIntegrationsFirebaseStoragePtrOutput
+}
+
+type gcpDmIntegrationsFirebaseStoragePtrType GcpDmIntegrationsFirebaseStorageArgs
+
+func GcpDmIntegrationsFirebaseStoragePtr(v *GcpDmIntegrationsFirebaseStorageArgs) GcpDmIntegrationsFirebaseStoragePtrInput {
+	return (*gcpDmIntegrationsFirebaseStoragePtrType)(v)
+}
+
+func (*gcpDmIntegrationsFirebaseStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseStorage)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsFirebaseStoragePtrType) ToGcpDmIntegrationsFirebaseStoragePtrOutput() GcpDmIntegrationsFirebaseStoragePtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsFirebaseStoragePtrType) ToGcpDmIntegrationsFirebaseStoragePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseStoragePtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseStorageOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseStorage)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseStorageOutput) ToGcpDmIntegrationsFirebaseStorageOutput() GcpDmIntegrationsFirebaseStorageOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseStorageOutput) ToGcpDmIntegrationsFirebaseStorageOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseStorageOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseStorageOutput) ToGcpDmIntegrationsFirebaseStoragePtrOutput() GcpDmIntegrationsFirebaseStoragePtrOutput {
+	return o.ToGcpDmIntegrationsFirebaseStoragePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsFirebaseStorageOutput) ToGcpDmIntegrationsFirebaseStoragePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsFirebaseStorage) *GcpDmIntegrationsFirebaseStorage {
+		return &v
+	}).(GcpDmIntegrationsFirebaseStoragePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseStorageOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsFirebaseStorage) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseStorage)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseStoragePtrOutput) ToGcpDmIntegrationsFirebaseStoragePtrOutput() GcpDmIntegrationsFirebaseStoragePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseStoragePtrOutput) ToGcpDmIntegrationsFirebaseStoragePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseStoragePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseStoragePtrOutput) Elem() GcpDmIntegrationsFirebaseStorageOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseStorage) GcpDmIntegrationsFirebaseStorage {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsFirebaseStorage
+		return ret
+	}).(GcpDmIntegrationsFirebaseStorageOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseStoragePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseVertexAi struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsFirebaseVertexAiInput is an input type that accepts GcpDmIntegrationsFirebaseVertexAiArgs and GcpDmIntegrationsFirebaseVertexAiOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseVertexAiInput` via:
+//
+//	GcpDmIntegrationsFirebaseVertexAiArgs{...}
+type GcpDmIntegrationsFirebaseVertexAiInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseVertexAiOutput() GcpDmIntegrationsFirebaseVertexAiOutput
+	ToGcpDmIntegrationsFirebaseVertexAiOutputWithContext(context.Context) GcpDmIntegrationsFirebaseVertexAiOutput
+}
+
+type GcpDmIntegrationsFirebaseVertexAiArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsFirebaseVertexAiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseVertexAi)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsFirebaseVertexAiArgs) ToGcpDmIntegrationsFirebaseVertexAiOutput() GcpDmIntegrationsFirebaseVertexAiOutput {
+	return i.ToGcpDmIntegrationsFirebaseVertexAiOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseVertexAiArgs) ToGcpDmIntegrationsFirebaseVertexAiOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseVertexAiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseVertexAiOutput)
+}
+
+func (i GcpDmIntegrationsFirebaseVertexAiArgs) ToGcpDmIntegrationsFirebaseVertexAiPtrOutput() GcpDmIntegrationsFirebaseVertexAiPtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseVertexAiPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirebaseVertexAiArgs) ToGcpDmIntegrationsFirebaseVertexAiPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseVertexAiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseVertexAiOutput).ToGcpDmIntegrationsFirebaseVertexAiPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsFirebaseVertexAiPtrInput is an input type that accepts GcpDmIntegrationsFirebaseVertexAiArgs, GcpDmIntegrationsFirebaseVertexAiPtr and GcpDmIntegrationsFirebaseVertexAiPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirebaseVertexAiPtrInput` via:
+//
+//	        GcpDmIntegrationsFirebaseVertexAiArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsFirebaseVertexAiPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirebaseVertexAiPtrOutput() GcpDmIntegrationsFirebaseVertexAiPtrOutput
+	ToGcpDmIntegrationsFirebaseVertexAiPtrOutputWithContext(context.Context) GcpDmIntegrationsFirebaseVertexAiPtrOutput
+}
+
+type gcpDmIntegrationsFirebaseVertexAiPtrType GcpDmIntegrationsFirebaseVertexAiArgs
+
+func GcpDmIntegrationsFirebaseVertexAiPtr(v *GcpDmIntegrationsFirebaseVertexAiArgs) GcpDmIntegrationsFirebaseVertexAiPtrInput {
+	return (*gcpDmIntegrationsFirebaseVertexAiPtrType)(v)
+}
+
+func (*gcpDmIntegrationsFirebaseVertexAiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseVertexAi)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsFirebaseVertexAiPtrType) ToGcpDmIntegrationsFirebaseVertexAiPtrOutput() GcpDmIntegrationsFirebaseVertexAiPtrOutput {
+	return i.ToGcpDmIntegrationsFirebaseVertexAiPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsFirebaseVertexAiPtrType) ToGcpDmIntegrationsFirebaseVertexAiPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseVertexAiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirebaseVertexAiPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseVertexAiOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseVertexAiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirebaseVertexAi)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseVertexAiOutput) ToGcpDmIntegrationsFirebaseVertexAiOutput() GcpDmIntegrationsFirebaseVertexAiOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseVertexAiOutput) ToGcpDmIntegrationsFirebaseVertexAiOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseVertexAiOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseVertexAiOutput) ToGcpDmIntegrationsFirebaseVertexAiPtrOutput() GcpDmIntegrationsFirebaseVertexAiPtrOutput {
+	return o.ToGcpDmIntegrationsFirebaseVertexAiPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsFirebaseVertexAiOutput) ToGcpDmIntegrationsFirebaseVertexAiPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseVertexAiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsFirebaseVertexAi) *GcpDmIntegrationsFirebaseVertexAi {
+		return &v
+	}).(GcpDmIntegrationsFirebaseVertexAiPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseVertexAiOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsFirebaseVertexAi) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirebaseVertexAiPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirebaseVertexAiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirebaseVertexAi)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirebaseVertexAiPtrOutput) ToGcpDmIntegrationsFirebaseVertexAiPtrOutput() GcpDmIntegrationsFirebaseVertexAiPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseVertexAiPtrOutput) ToGcpDmIntegrationsFirebaseVertexAiPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirebaseVertexAiPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirebaseVertexAiPtrOutput) Elem() GcpDmIntegrationsFirebaseVertexAiOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseVertexAi) GcpDmIntegrationsFirebaseVertexAi {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsFirebaseVertexAi
+		return ret
+	}).(GcpDmIntegrationsFirebaseVertexAiOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirebaseVertexAiPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirebaseVertexAi) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirestore struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsFirestoreInput is an input type that accepts GcpDmIntegrationsFirestoreArgs and GcpDmIntegrationsFirestoreOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirestoreInput` via:
+//
+//	GcpDmIntegrationsFirestoreArgs{...}
+type GcpDmIntegrationsFirestoreInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirestoreOutput() GcpDmIntegrationsFirestoreOutput
+	ToGcpDmIntegrationsFirestoreOutputWithContext(context.Context) GcpDmIntegrationsFirestoreOutput
+}
+
+type GcpDmIntegrationsFirestoreArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsFirestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirestore)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsFirestoreArgs) ToGcpDmIntegrationsFirestoreOutput() GcpDmIntegrationsFirestoreOutput {
+	return i.ToGcpDmIntegrationsFirestoreOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirestoreArgs) ToGcpDmIntegrationsFirestoreOutputWithContext(ctx context.Context) GcpDmIntegrationsFirestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirestoreOutput)
+}
+
+func (i GcpDmIntegrationsFirestoreArgs) ToGcpDmIntegrationsFirestorePtrOutput() GcpDmIntegrationsFirestorePtrOutput {
+	return i.ToGcpDmIntegrationsFirestorePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFirestoreArgs) ToGcpDmIntegrationsFirestorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirestoreOutput).ToGcpDmIntegrationsFirestorePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsFirestorePtrInput is an input type that accepts GcpDmIntegrationsFirestoreArgs, GcpDmIntegrationsFirestorePtr and GcpDmIntegrationsFirestorePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFirestorePtrInput` via:
+//
+//	        GcpDmIntegrationsFirestoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsFirestorePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFirestorePtrOutput() GcpDmIntegrationsFirestorePtrOutput
+	ToGcpDmIntegrationsFirestorePtrOutputWithContext(context.Context) GcpDmIntegrationsFirestorePtrOutput
+}
+
+type gcpDmIntegrationsFirestorePtrType GcpDmIntegrationsFirestoreArgs
+
+func GcpDmIntegrationsFirestorePtr(v *GcpDmIntegrationsFirestoreArgs) GcpDmIntegrationsFirestorePtrInput {
+	return (*gcpDmIntegrationsFirestorePtrType)(v)
+}
+
+func (*gcpDmIntegrationsFirestorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirestore)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsFirestorePtrType) ToGcpDmIntegrationsFirestorePtrOutput() GcpDmIntegrationsFirestorePtrOutput {
+	return i.ToGcpDmIntegrationsFirestorePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsFirestorePtrType) ToGcpDmIntegrationsFirestorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFirestorePtrOutput)
+}
+
+type GcpDmIntegrationsFirestoreOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFirestore)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirestoreOutput) ToGcpDmIntegrationsFirestoreOutput() GcpDmIntegrationsFirestoreOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirestoreOutput) ToGcpDmIntegrationsFirestoreOutputWithContext(ctx context.Context) GcpDmIntegrationsFirestoreOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirestoreOutput) ToGcpDmIntegrationsFirestorePtrOutput() GcpDmIntegrationsFirestorePtrOutput {
+	return o.ToGcpDmIntegrationsFirestorePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsFirestoreOutput) ToGcpDmIntegrationsFirestorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirestorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsFirestore) *GcpDmIntegrationsFirestore {
+		return &v
+	}).(GcpDmIntegrationsFirestorePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirestoreOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsFirestore) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFirestorePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFirestorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFirestore)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFirestorePtrOutput) ToGcpDmIntegrationsFirestorePtrOutput() GcpDmIntegrationsFirestorePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirestorePtrOutput) ToGcpDmIntegrationsFirestorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFirestorePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFirestorePtrOutput) Elem() GcpDmIntegrationsFirestoreOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirestore) GcpDmIntegrationsFirestore {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsFirestore
+		return ret
+	}).(GcpDmIntegrationsFirestoreOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFirestorePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFirestore) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFunctions struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsFunctionsInput is an input type that accepts GcpDmIntegrationsFunctionsArgs and GcpDmIntegrationsFunctionsOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFunctionsInput` via:
+//
+//	GcpDmIntegrationsFunctionsArgs{...}
+type GcpDmIntegrationsFunctionsInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFunctionsOutput() GcpDmIntegrationsFunctionsOutput
+	ToGcpDmIntegrationsFunctionsOutputWithContext(context.Context) GcpDmIntegrationsFunctionsOutput
+}
+
+type GcpDmIntegrationsFunctionsArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsFunctionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFunctions)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsFunctionsArgs) ToGcpDmIntegrationsFunctionsOutput() GcpDmIntegrationsFunctionsOutput {
+	return i.ToGcpDmIntegrationsFunctionsOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFunctionsArgs) ToGcpDmIntegrationsFunctionsOutputWithContext(ctx context.Context) GcpDmIntegrationsFunctionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFunctionsOutput)
+}
+
+func (i GcpDmIntegrationsFunctionsArgs) ToGcpDmIntegrationsFunctionsPtrOutput() GcpDmIntegrationsFunctionsPtrOutput {
+	return i.ToGcpDmIntegrationsFunctionsPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsFunctionsArgs) ToGcpDmIntegrationsFunctionsPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFunctionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFunctionsOutput).ToGcpDmIntegrationsFunctionsPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsFunctionsPtrInput is an input type that accepts GcpDmIntegrationsFunctionsArgs, GcpDmIntegrationsFunctionsPtr and GcpDmIntegrationsFunctionsPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsFunctionsPtrInput` via:
+//
+//	        GcpDmIntegrationsFunctionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsFunctionsPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsFunctionsPtrOutput() GcpDmIntegrationsFunctionsPtrOutput
+	ToGcpDmIntegrationsFunctionsPtrOutputWithContext(context.Context) GcpDmIntegrationsFunctionsPtrOutput
+}
+
+type gcpDmIntegrationsFunctionsPtrType GcpDmIntegrationsFunctionsArgs
+
+func GcpDmIntegrationsFunctionsPtr(v *GcpDmIntegrationsFunctionsArgs) GcpDmIntegrationsFunctionsPtrInput {
+	return (*gcpDmIntegrationsFunctionsPtrType)(v)
+}
+
+func (*gcpDmIntegrationsFunctionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFunctions)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsFunctionsPtrType) ToGcpDmIntegrationsFunctionsPtrOutput() GcpDmIntegrationsFunctionsPtrOutput {
+	return i.ToGcpDmIntegrationsFunctionsPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsFunctionsPtrType) ToGcpDmIntegrationsFunctionsPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFunctionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsFunctionsPtrOutput)
+}
+
+type GcpDmIntegrationsFunctionsOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFunctionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsFunctions)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFunctionsOutput) ToGcpDmIntegrationsFunctionsOutput() GcpDmIntegrationsFunctionsOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFunctionsOutput) ToGcpDmIntegrationsFunctionsOutputWithContext(ctx context.Context) GcpDmIntegrationsFunctionsOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFunctionsOutput) ToGcpDmIntegrationsFunctionsPtrOutput() GcpDmIntegrationsFunctionsPtrOutput {
+	return o.ToGcpDmIntegrationsFunctionsPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsFunctionsOutput) ToGcpDmIntegrationsFunctionsPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFunctionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsFunctions) *GcpDmIntegrationsFunctions {
+		return &v
+	}).(GcpDmIntegrationsFunctionsPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFunctionsOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsFunctions) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsFunctionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsFunctionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsFunctions)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsFunctionsPtrOutput) ToGcpDmIntegrationsFunctionsPtrOutput() GcpDmIntegrationsFunctionsPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFunctionsPtrOutput) ToGcpDmIntegrationsFunctionsPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsFunctionsPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsFunctionsPtrOutput) Elem() GcpDmIntegrationsFunctionsOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFunctions) GcpDmIntegrationsFunctions {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsFunctions
+		return ret
+	}).(GcpDmIntegrationsFunctionsOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsFunctionsPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsFunctions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsInterconnect struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsInterconnectInput is an input type that accepts GcpDmIntegrationsInterconnectArgs and GcpDmIntegrationsInterconnectOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsInterconnectInput` via:
+//
+//	GcpDmIntegrationsInterconnectArgs{...}
+type GcpDmIntegrationsInterconnectInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsInterconnectOutput() GcpDmIntegrationsInterconnectOutput
+	ToGcpDmIntegrationsInterconnectOutputWithContext(context.Context) GcpDmIntegrationsInterconnectOutput
+}
+
+type GcpDmIntegrationsInterconnectArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsInterconnectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsInterconnect)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsInterconnectArgs) ToGcpDmIntegrationsInterconnectOutput() GcpDmIntegrationsInterconnectOutput {
+	return i.ToGcpDmIntegrationsInterconnectOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsInterconnectArgs) ToGcpDmIntegrationsInterconnectOutputWithContext(ctx context.Context) GcpDmIntegrationsInterconnectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsInterconnectOutput)
+}
+
+func (i GcpDmIntegrationsInterconnectArgs) ToGcpDmIntegrationsInterconnectPtrOutput() GcpDmIntegrationsInterconnectPtrOutput {
+	return i.ToGcpDmIntegrationsInterconnectPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsInterconnectArgs) ToGcpDmIntegrationsInterconnectPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsInterconnectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsInterconnectOutput).ToGcpDmIntegrationsInterconnectPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsInterconnectPtrInput is an input type that accepts GcpDmIntegrationsInterconnectArgs, GcpDmIntegrationsInterconnectPtr and GcpDmIntegrationsInterconnectPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsInterconnectPtrInput` via:
+//
+//	        GcpDmIntegrationsInterconnectArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsInterconnectPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsInterconnectPtrOutput() GcpDmIntegrationsInterconnectPtrOutput
+	ToGcpDmIntegrationsInterconnectPtrOutputWithContext(context.Context) GcpDmIntegrationsInterconnectPtrOutput
+}
+
+type gcpDmIntegrationsInterconnectPtrType GcpDmIntegrationsInterconnectArgs
+
+func GcpDmIntegrationsInterconnectPtr(v *GcpDmIntegrationsInterconnectArgs) GcpDmIntegrationsInterconnectPtrInput {
+	return (*gcpDmIntegrationsInterconnectPtrType)(v)
+}
+
+func (*gcpDmIntegrationsInterconnectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsInterconnect)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsInterconnectPtrType) ToGcpDmIntegrationsInterconnectPtrOutput() GcpDmIntegrationsInterconnectPtrOutput {
+	return i.ToGcpDmIntegrationsInterconnectPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsInterconnectPtrType) ToGcpDmIntegrationsInterconnectPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsInterconnectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsInterconnectPtrOutput)
+}
+
+type GcpDmIntegrationsInterconnectOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsInterconnectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsInterconnect)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsInterconnectOutput) ToGcpDmIntegrationsInterconnectOutput() GcpDmIntegrationsInterconnectOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsInterconnectOutput) ToGcpDmIntegrationsInterconnectOutputWithContext(ctx context.Context) GcpDmIntegrationsInterconnectOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsInterconnectOutput) ToGcpDmIntegrationsInterconnectPtrOutput() GcpDmIntegrationsInterconnectPtrOutput {
+	return o.ToGcpDmIntegrationsInterconnectPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsInterconnectOutput) ToGcpDmIntegrationsInterconnectPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsInterconnectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsInterconnect) *GcpDmIntegrationsInterconnect {
+		return &v
+	}).(GcpDmIntegrationsInterconnectPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsInterconnectOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsInterconnect) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsInterconnectPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsInterconnectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsInterconnect)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsInterconnectPtrOutput) ToGcpDmIntegrationsInterconnectPtrOutput() GcpDmIntegrationsInterconnectPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsInterconnectPtrOutput) ToGcpDmIntegrationsInterconnectPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsInterconnectPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsInterconnectPtrOutput) Elem() GcpDmIntegrationsInterconnectOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsInterconnect) GcpDmIntegrationsInterconnect {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsInterconnect
+		return ret
+	}).(GcpDmIntegrationsInterconnectOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsInterconnectPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsInterconnect) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsIstio struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsIstioInput is an input type that accepts GcpDmIntegrationsIstioArgs and GcpDmIntegrationsIstioOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsIstioInput` via:
+//
+//	GcpDmIntegrationsIstioArgs{...}
+type GcpDmIntegrationsIstioInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsIstioOutput() GcpDmIntegrationsIstioOutput
+	ToGcpDmIntegrationsIstioOutputWithContext(context.Context) GcpDmIntegrationsIstioOutput
+}
+
+type GcpDmIntegrationsIstioArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsIstioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsIstio)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsIstioArgs) ToGcpDmIntegrationsIstioOutput() GcpDmIntegrationsIstioOutput {
+	return i.ToGcpDmIntegrationsIstioOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsIstioArgs) ToGcpDmIntegrationsIstioOutputWithContext(ctx context.Context) GcpDmIntegrationsIstioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsIstioOutput)
+}
+
+func (i GcpDmIntegrationsIstioArgs) ToGcpDmIntegrationsIstioPtrOutput() GcpDmIntegrationsIstioPtrOutput {
+	return i.ToGcpDmIntegrationsIstioPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsIstioArgs) ToGcpDmIntegrationsIstioPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsIstioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsIstioOutput).ToGcpDmIntegrationsIstioPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsIstioPtrInput is an input type that accepts GcpDmIntegrationsIstioArgs, GcpDmIntegrationsIstioPtr and GcpDmIntegrationsIstioPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsIstioPtrInput` via:
+//
+//	        GcpDmIntegrationsIstioArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsIstioPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsIstioPtrOutput() GcpDmIntegrationsIstioPtrOutput
+	ToGcpDmIntegrationsIstioPtrOutputWithContext(context.Context) GcpDmIntegrationsIstioPtrOutput
+}
+
+type gcpDmIntegrationsIstioPtrType GcpDmIntegrationsIstioArgs
+
+func GcpDmIntegrationsIstioPtr(v *GcpDmIntegrationsIstioArgs) GcpDmIntegrationsIstioPtrInput {
+	return (*gcpDmIntegrationsIstioPtrType)(v)
+}
+
+func (*gcpDmIntegrationsIstioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsIstio)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsIstioPtrType) ToGcpDmIntegrationsIstioPtrOutput() GcpDmIntegrationsIstioPtrOutput {
+	return i.ToGcpDmIntegrationsIstioPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsIstioPtrType) ToGcpDmIntegrationsIstioPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsIstioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsIstioPtrOutput)
+}
+
+type GcpDmIntegrationsIstioOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsIstioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsIstio)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsIstioOutput) ToGcpDmIntegrationsIstioOutput() GcpDmIntegrationsIstioOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsIstioOutput) ToGcpDmIntegrationsIstioOutputWithContext(ctx context.Context) GcpDmIntegrationsIstioOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsIstioOutput) ToGcpDmIntegrationsIstioPtrOutput() GcpDmIntegrationsIstioPtrOutput {
+	return o.ToGcpDmIntegrationsIstioPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsIstioOutput) ToGcpDmIntegrationsIstioPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsIstioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsIstio) *GcpDmIntegrationsIstio {
+		return &v
+	}).(GcpDmIntegrationsIstioPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsIstioOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsIstio) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsIstioPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsIstioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsIstio)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsIstioPtrOutput) ToGcpDmIntegrationsIstioPtrOutput() GcpDmIntegrationsIstioPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsIstioPtrOutput) ToGcpDmIntegrationsIstioPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsIstioPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsIstioPtrOutput) Elem() GcpDmIntegrationsIstioOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsIstio) GcpDmIntegrationsIstio {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsIstio
+		return ret
+	}).(GcpDmIntegrationsIstioOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsIstioPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsIstio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsKubernetes struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsKubernetesInput is an input type that accepts GcpDmIntegrationsKubernetesArgs and GcpDmIntegrationsKubernetesOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsKubernetesInput` via:
+//
+//	GcpDmIntegrationsKubernetesArgs{...}
+type GcpDmIntegrationsKubernetesInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsKubernetesOutput() GcpDmIntegrationsKubernetesOutput
+	ToGcpDmIntegrationsKubernetesOutputWithContext(context.Context) GcpDmIntegrationsKubernetesOutput
+}
+
+type GcpDmIntegrationsKubernetesArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsKubernetesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsKubernetes)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsKubernetesArgs) ToGcpDmIntegrationsKubernetesOutput() GcpDmIntegrationsKubernetesOutput {
+	return i.ToGcpDmIntegrationsKubernetesOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsKubernetesArgs) ToGcpDmIntegrationsKubernetesOutputWithContext(ctx context.Context) GcpDmIntegrationsKubernetesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsKubernetesOutput)
+}
+
+func (i GcpDmIntegrationsKubernetesArgs) ToGcpDmIntegrationsKubernetesPtrOutput() GcpDmIntegrationsKubernetesPtrOutput {
+	return i.ToGcpDmIntegrationsKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsKubernetesArgs) ToGcpDmIntegrationsKubernetesPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsKubernetesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsKubernetesOutput).ToGcpDmIntegrationsKubernetesPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsKubernetesPtrInput is an input type that accepts GcpDmIntegrationsKubernetesArgs, GcpDmIntegrationsKubernetesPtr and GcpDmIntegrationsKubernetesPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsKubernetesPtrInput` via:
+//
+//	        GcpDmIntegrationsKubernetesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsKubernetesPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsKubernetesPtrOutput() GcpDmIntegrationsKubernetesPtrOutput
+	ToGcpDmIntegrationsKubernetesPtrOutputWithContext(context.Context) GcpDmIntegrationsKubernetesPtrOutput
+}
+
+type gcpDmIntegrationsKubernetesPtrType GcpDmIntegrationsKubernetesArgs
+
+func GcpDmIntegrationsKubernetesPtr(v *GcpDmIntegrationsKubernetesArgs) GcpDmIntegrationsKubernetesPtrInput {
+	return (*gcpDmIntegrationsKubernetesPtrType)(v)
+}
+
+func (*gcpDmIntegrationsKubernetesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsKubernetes)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsKubernetesPtrType) ToGcpDmIntegrationsKubernetesPtrOutput() GcpDmIntegrationsKubernetesPtrOutput {
+	return i.ToGcpDmIntegrationsKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsKubernetesPtrType) ToGcpDmIntegrationsKubernetesPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsKubernetesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsKubernetesPtrOutput)
+}
+
+type GcpDmIntegrationsKubernetesOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsKubernetesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsKubernetes)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsKubernetesOutput) ToGcpDmIntegrationsKubernetesOutput() GcpDmIntegrationsKubernetesOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsKubernetesOutput) ToGcpDmIntegrationsKubernetesOutputWithContext(ctx context.Context) GcpDmIntegrationsKubernetesOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsKubernetesOutput) ToGcpDmIntegrationsKubernetesPtrOutput() GcpDmIntegrationsKubernetesPtrOutput {
+	return o.ToGcpDmIntegrationsKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsKubernetesOutput) ToGcpDmIntegrationsKubernetesPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsKubernetesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsKubernetes) *GcpDmIntegrationsKubernetes {
+		return &v
+	}).(GcpDmIntegrationsKubernetesPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsKubernetesOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsKubernetes) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsKubernetesPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsKubernetesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsKubernetes)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsKubernetesPtrOutput) ToGcpDmIntegrationsKubernetesPtrOutput() GcpDmIntegrationsKubernetesPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsKubernetesPtrOutput) ToGcpDmIntegrationsKubernetesPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsKubernetesPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsKubernetesPtrOutput) Elem() GcpDmIntegrationsKubernetesOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsKubernetes) GcpDmIntegrationsKubernetes {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsKubernetes
+		return ret
+	}).(GcpDmIntegrationsKubernetesOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsKubernetesPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsKubernetes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsLoadBalancing struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsLoadBalancingInput is an input type that accepts GcpDmIntegrationsLoadBalancingArgs and GcpDmIntegrationsLoadBalancingOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsLoadBalancingInput` via:
+//
+//	GcpDmIntegrationsLoadBalancingArgs{...}
+type GcpDmIntegrationsLoadBalancingInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsLoadBalancingOutput() GcpDmIntegrationsLoadBalancingOutput
+	ToGcpDmIntegrationsLoadBalancingOutputWithContext(context.Context) GcpDmIntegrationsLoadBalancingOutput
+}
+
+type GcpDmIntegrationsLoadBalancingArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsLoadBalancingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsLoadBalancing)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsLoadBalancingArgs) ToGcpDmIntegrationsLoadBalancingOutput() GcpDmIntegrationsLoadBalancingOutput {
+	return i.ToGcpDmIntegrationsLoadBalancingOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsLoadBalancingArgs) ToGcpDmIntegrationsLoadBalancingOutputWithContext(ctx context.Context) GcpDmIntegrationsLoadBalancingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsLoadBalancingOutput)
+}
+
+func (i GcpDmIntegrationsLoadBalancingArgs) ToGcpDmIntegrationsLoadBalancingPtrOutput() GcpDmIntegrationsLoadBalancingPtrOutput {
+	return i.ToGcpDmIntegrationsLoadBalancingPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsLoadBalancingArgs) ToGcpDmIntegrationsLoadBalancingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsLoadBalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsLoadBalancingOutput).ToGcpDmIntegrationsLoadBalancingPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsLoadBalancingPtrInput is an input type that accepts GcpDmIntegrationsLoadBalancingArgs, GcpDmIntegrationsLoadBalancingPtr and GcpDmIntegrationsLoadBalancingPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsLoadBalancingPtrInput` via:
+//
+//	        GcpDmIntegrationsLoadBalancingArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsLoadBalancingPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsLoadBalancingPtrOutput() GcpDmIntegrationsLoadBalancingPtrOutput
+	ToGcpDmIntegrationsLoadBalancingPtrOutputWithContext(context.Context) GcpDmIntegrationsLoadBalancingPtrOutput
+}
+
+type gcpDmIntegrationsLoadBalancingPtrType GcpDmIntegrationsLoadBalancingArgs
+
+func GcpDmIntegrationsLoadBalancingPtr(v *GcpDmIntegrationsLoadBalancingArgs) GcpDmIntegrationsLoadBalancingPtrInput {
+	return (*gcpDmIntegrationsLoadBalancingPtrType)(v)
+}
+
+func (*gcpDmIntegrationsLoadBalancingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsLoadBalancing)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsLoadBalancingPtrType) ToGcpDmIntegrationsLoadBalancingPtrOutput() GcpDmIntegrationsLoadBalancingPtrOutput {
+	return i.ToGcpDmIntegrationsLoadBalancingPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsLoadBalancingPtrType) ToGcpDmIntegrationsLoadBalancingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsLoadBalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsLoadBalancingPtrOutput)
+}
+
+type GcpDmIntegrationsLoadBalancingOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsLoadBalancingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsLoadBalancing)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsLoadBalancingOutput) ToGcpDmIntegrationsLoadBalancingOutput() GcpDmIntegrationsLoadBalancingOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsLoadBalancingOutput) ToGcpDmIntegrationsLoadBalancingOutputWithContext(ctx context.Context) GcpDmIntegrationsLoadBalancingOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsLoadBalancingOutput) ToGcpDmIntegrationsLoadBalancingPtrOutput() GcpDmIntegrationsLoadBalancingPtrOutput {
+	return o.ToGcpDmIntegrationsLoadBalancingPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsLoadBalancingOutput) ToGcpDmIntegrationsLoadBalancingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsLoadBalancingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsLoadBalancing) *GcpDmIntegrationsLoadBalancing {
+		return &v
+	}).(GcpDmIntegrationsLoadBalancingPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsLoadBalancingOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsLoadBalancing) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsLoadBalancingPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsLoadBalancingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsLoadBalancing)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsLoadBalancingPtrOutput) ToGcpDmIntegrationsLoadBalancingPtrOutput() GcpDmIntegrationsLoadBalancingPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsLoadBalancingPtrOutput) ToGcpDmIntegrationsLoadBalancingPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsLoadBalancingPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsLoadBalancingPtrOutput) Elem() GcpDmIntegrationsLoadBalancingOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsLoadBalancing) GcpDmIntegrationsLoadBalancing {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsLoadBalancing
+		return ret
+	}).(GcpDmIntegrationsLoadBalancingOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsLoadBalancingPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsLoadBalancing) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsManagedKafka struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsManagedKafkaInput is an input type that accepts GcpDmIntegrationsManagedKafkaArgs and GcpDmIntegrationsManagedKafkaOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsManagedKafkaInput` via:
+//
+//	GcpDmIntegrationsManagedKafkaArgs{...}
+type GcpDmIntegrationsManagedKafkaInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsManagedKafkaOutput() GcpDmIntegrationsManagedKafkaOutput
+	ToGcpDmIntegrationsManagedKafkaOutputWithContext(context.Context) GcpDmIntegrationsManagedKafkaOutput
+}
+
+type GcpDmIntegrationsManagedKafkaArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsManagedKafkaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsManagedKafka)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsManagedKafkaArgs) ToGcpDmIntegrationsManagedKafkaOutput() GcpDmIntegrationsManagedKafkaOutput {
+	return i.ToGcpDmIntegrationsManagedKafkaOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsManagedKafkaArgs) ToGcpDmIntegrationsManagedKafkaOutputWithContext(ctx context.Context) GcpDmIntegrationsManagedKafkaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsManagedKafkaOutput)
+}
+
+func (i GcpDmIntegrationsManagedKafkaArgs) ToGcpDmIntegrationsManagedKafkaPtrOutput() GcpDmIntegrationsManagedKafkaPtrOutput {
+	return i.ToGcpDmIntegrationsManagedKafkaPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsManagedKafkaArgs) ToGcpDmIntegrationsManagedKafkaPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsManagedKafkaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsManagedKafkaOutput).ToGcpDmIntegrationsManagedKafkaPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsManagedKafkaPtrInput is an input type that accepts GcpDmIntegrationsManagedKafkaArgs, GcpDmIntegrationsManagedKafkaPtr and GcpDmIntegrationsManagedKafkaPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsManagedKafkaPtrInput` via:
+//
+//	        GcpDmIntegrationsManagedKafkaArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsManagedKafkaPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsManagedKafkaPtrOutput() GcpDmIntegrationsManagedKafkaPtrOutput
+	ToGcpDmIntegrationsManagedKafkaPtrOutputWithContext(context.Context) GcpDmIntegrationsManagedKafkaPtrOutput
+}
+
+type gcpDmIntegrationsManagedKafkaPtrType GcpDmIntegrationsManagedKafkaArgs
+
+func GcpDmIntegrationsManagedKafkaPtr(v *GcpDmIntegrationsManagedKafkaArgs) GcpDmIntegrationsManagedKafkaPtrInput {
+	return (*gcpDmIntegrationsManagedKafkaPtrType)(v)
+}
+
+func (*gcpDmIntegrationsManagedKafkaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsManagedKafka)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsManagedKafkaPtrType) ToGcpDmIntegrationsManagedKafkaPtrOutput() GcpDmIntegrationsManagedKafkaPtrOutput {
+	return i.ToGcpDmIntegrationsManagedKafkaPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsManagedKafkaPtrType) ToGcpDmIntegrationsManagedKafkaPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsManagedKafkaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsManagedKafkaPtrOutput)
+}
+
+type GcpDmIntegrationsManagedKafkaOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsManagedKafkaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsManagedKafka)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsManagedKafkaOutput) ToGcpDmIntegrationsManagedKafkaOutput() GcpDmIntegrationsManagedKafkaOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsManagedKafkaOutput) ToGcpDmIntegrationsManagedKafkaOutputWithContext(ctx context.Context) GcpDmIntegrationsManagedKafkaOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsManagedKafkaOutput) ToGcpDmIntegrationsManagedKafkaPtrOutput() GcpDmIntegrationsManagedKafkaPtrOutput {
+	return o.ToGcpDmIntegrationsManagedKafkaPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsManagedKafkaOutput) ToGcpDmIntegrationsManagedKafkaPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsManagedKafkaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsManagedKafka) *GcpDmIntegrationsManagedKafka {
+		return &v
+	}).(GcpDmIntegrationsManagedKafkaPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsManagedKafkaOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsManagedKafka) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsManagedKafkaPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsManagedKafkaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsManagedKafka)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsManagedKafkaPtrOutput) ToGcpDmIntegrationsManagedKafkaPtrOutput() GcpDmIntegrationsManagedKafkaPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsManagedKafkaPtrOutput) ToGcpDmIntegrationsManagedKafkaPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsManagedKafkaPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsManagedKafkaPtrOutput) Elem() GcpDmIntegrationsManagedKafkaOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsManagedKafka) GcpDmIntegrationsManagedKafka {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsManagedKafka
+		return ret
+	}).(GcpDmIntegrationsManagedKafkaOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsManagedKafkaPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsManagedKafka) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsMemCache struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsMemCacheInput is an input type that accepts GcpDmIntegrationsMemCacheArgs and GcpDmIntegrationsMemCacheOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsMemCacheInput` via:
+//
+//	GcpDmIntegrationsMemCacheArgs{...}
+type GcpDmIntegrationsMemCacheInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsMemCacheOutput() GcpDmIntegrationsMemCacheOutput
+	ToGcpDmIntegrationsMemCacheOutputWithContext(context.Context) GcpDmIntegrationsMemCacheOutput
+}
+
+type GcpDmIntegrationsMemCacheArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsMemCacheArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsMemCache)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsMemCacheArgs) ToGcpDmIntegrationsMemCacheOutput() GcpDmIntegrationsMemCacheOutput {
+	return i.ToGcpDmIntegrationsMemCacheOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsMemCacheArgs) ToGcpDmIntegrationsMemCacheOutputWithContext(ctx context.Context) GcpDmIntegrationsMemCacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsMemCacheOutput)
+}
+
+func (i GcpDmIntegrationsMemCacheArgs) ToGcpDmIntegrationsMemCachePtrOutput() GcpDmIntegrationsMemCachePtrOutput {
+	return i.ToGcpDmIntegrationsMemCachePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsMemCacheArgs) ToGcpDmIntegrationsMemCachePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsMemCachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsMemCacheOutput).ToGcpDmIntegrationsMemCachePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsMemCachePtrInput is an input type that accepts GcpDmIntegrationsMemCacheArgs, GcpDmIntegrationsMemCachePtr and GcpDmIntegrationsMemCachePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsMemCachePtrInput` via:
+//
+//	        GcpDmIntegrationsMemCacheArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsMemCachePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsMemCachePtrOutput() GcpDmIntegrationsMemCachePtrOutput
+	ToGcpDmIntegrationsMemCachePtrOutputWithContext(context.Context) GcpDmIntegrationsMemCachePtrOutput
+}
+
+type gcpDmIntegrationsMemCachePtrType GcpDmIntegrationsMemCacheArgs
+
+func GcpDmIntegrationsMemCachePtr(v *GcpDmIntegrationsMemCacheArgs) GcpDmIntegrationsMemCachePtrInput {
+	return (*gcpDmIntegrationsMemCachePtrType)(v)
+}
+
+func (*gcpDmIntegrationsMemCachePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsMemCache)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsMemCachePtrType) ToGcpDmIntegrationsMemCachePtrOutput() GcpDmIntegrationsMemCachePtrOutput {
+	return i.ToGcpDmIntegrationsMemCachePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsMemCachePtrType) ToGcpDmIntegrationsMemCachePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsMemCachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsMemCachePtrOutput)
+}
+
+type GcpDmIntegrationsMemCacheOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsMemCacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsMemCache)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsMemCacheOutput) ToGcpDmIntegrationsMemCacheOutput() GcpDmIntegrationsMemCacheOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsMemCacheOutput) ToGcpDmIntegrationsMemCacheOutputWithContext(ctx context.Context) GcpDmIntegrationsMemCacheOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsMemCacheOutput) ToGcpDmIntegrationsMemCachePtrOutput() GcpDmIntegrationsMemCachePtrOutput {
+	return o.ToGcpDmIntegrationsMemCachePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsMemCacheOutput) ToGcpDmIntegrationsMemCachePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsMemCachePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsMemCache) *GcpDmIntegrationsMemCache {
+		return &v
+	}).(GcpDmIntegrationsMemCachePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsMemCacheOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsMemCache) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsMemCachePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsMemCachePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsMemCache)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsMemCachePtrOutput) ToGcpDmIntegrationsMemCachePtrOutput() GcpDmIntegrationsMemCachePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsMemCachePtrOutput) ToGcpDmIntegrationsMemCachePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsMemCachePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsMemCachePtrOutput) Elem() GcpDmIntegrationsMemCacheOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsMemCache) GcpDmIntegrationsMemCache {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsMemCache
+		return ret
+	}).(GcpDmIntegrationsMemCacheOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsMemCachePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsMemCache) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsMemoryStore struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsMemoryStoreInput is an input type that accepts GcpDmIntegrationsMemoryStoreArgs and GcpDmIntegrationsMemoryStoreOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsMemoryStoreInput` via:
+//
+//	GcpDmIntegrationsMemoryStoreArgs{...}
+type GcpDmIntegrationsMemoryStoreInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsMemoryStoreOutput() GcpDmIntegrationsMemoryStoreOutput
+	ToGcpDmIntegrationsMemoryStoreOutputWithContext(context.Context) GcpDmIntegrationsMemoryStoreOutput
+}
+
+type GcpDmIntegrationsMemoryStoreArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsMemoryStoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsMemoryStore)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsMemoryStoreArgs) ToGcpDmIntegrationsMemoryStoreOutput() GcpDmIntegrationsMemoryStoreOutput {
+	return i.ToGcpDmIntegrationsMemoryStoreOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsMemoryStoreArgs) ToGcpDmIntegrationsMemoryStoreOutputWithContext(ctx context.Context) GcpDmIntegrationsMemoryStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsMemoryStoreOutput)
+}
+
+func (i GcpDmIntegrationsMemoryStoreArgs) ToGcpDmIntegrationsMemoryStorePtrOutput() GcpDmIntegrationsMemoryStorePtrOutput {
+	return i.ToGcpDmIntegrationsMemoryStorePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsMemoryStoreArgs) ToGcpDmIntegrationsMemoryStorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsMemoryStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsMemoryStoreOutput).ToGcpDmIntegrationsMemoryStorePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsMemoryStorePtrInput is an input type that accepts GcpDmIntegrationsMemoryStoreArgs, GcpDmIntegrationsMemoryStorePtr and GcpDmIntegrationsMemoryStorePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsMemoryStorePtrInput` via:
+//
+//	        GcpDmIntegrationsMemoryStoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsMemoryStorePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsMemoryStorePtrOutput() GcpDmIntegrationsMemoryStorePtrOutput
+	ToGcpDmIntegrationsMemoryStorePtrOutputWithContext(context.Context) GcpDmIntegrationsMemoryStorePtrOutput
+}
+
+type gcpDmIntegrationsMemoryStorePtrType GcpDmIntegrationsMemoryStoreArgs
+
+func GcpDmIntegrationsMemoryStorePtr(v *GcpDmIntegrationsMemoryStoreArgs) GcpDmIntegrationsMemoryStorePtrInput {
+	return (*gcpDmIntegrationsMemoryStorePtrType)(v)
+}
+
+func (*gcpDmIntegrationsMemoryStorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsMemoryStore)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsMemoryStorePtrType) ToGcpDmIntegrationsMemoryStorePtrOutput() GcpDmIntegrationsMemoryStorePtrOutput {
+	return i.ToGcpDmIntegrationsMemoryStorePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsMemoryStorePtrType) ToGcpDmIntegrationsMemoryStorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsMemoryStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsMemoryStorePtrOutput)
+}
+
+type GcpDmIntegrationsMemoryStoreOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsMemoryStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsMemoryStore)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsMemoryStoreOutput) ToGcpDmIntegrationsMemoryStoreOutput() GcpDmIntegrationsMemoryStoreOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsMemoryStoreOutput) ToGcpDmIntegrationsMemoryStoreOutputWithContext(ctx context.Context) GcpDmIntegrationsMemoryStoreOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsMemoryStoreOutput) ToGcpDmIntegrationsMemoryStorePtrOutput() GcpDmIntegrationsMemoryStorePtrOutput {
+	return o.ToGcpDmIntegrationsMemoryStorePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsMemoryStoreOutput) ToGcpDmIntegrationsMemoryStorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsMemoryStorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsMemoryStore) *GcpDmIntegrationsMemoryStore {
+		return &v
+	}).(GcpDmIntegrationsMemoryStorePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsMemoryStoreOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsMemoryStore) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsMemoryStorePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsMemoryStorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsMemoryStore)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsMemoryStorePtrOutput) ToGcpDmIntegrationsMemoryStorePtrOutput() GcpDmIntegrationsMemoryStorePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsMemoryStorePtrOutput) ToGcpDmIntegrationsMemoryStorePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsMemoryStorePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsMemoryStorePtrOutput) Elem() GcpDmIntegrationsMemoryStoreOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsMemoryStore) GcpDmIntegrationsMemoryStore {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsMemoryStore
+		return ret
+	}).(GcpDmIntegrationsMemoryStoreOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsMemoryStorePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsMemoryStore) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsPubSub struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsPubSubInput is an input type that accepts GcpDmIntegrationsPubSubArgs and GcpDmIntegrationsPubSubOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsPubSubInput` via:
+//
+//	GcpDmIntegrationsPubSubArgs{...}
+type GcpDmIntegrationsPubSubInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsPubSubOutput() GcpDmIntegrationsPubSubOutput
+	ToGcpDmIntegrationsPubSubOutputWithContext(context.Context) GcpDmIntegrationsPubSubOutput
+}
+
+type GcpDmIntegrationsPubSubArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsPubSubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsPubSub)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsPubSubArgs) ToGcpDmIntegrationsPubSubOutput() GcpDmIntegrationsPubSubOutput {
+	return i.ToGcpDmIntegrationsPubSubOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsPubSubArgs) ToGcpDmIntegrationsPubSubOutputWithContext(ctx context.Context) GcpDmIntegrationsPubSubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsPubSubOutput)
+}
+
+func (i GcpDmIntegrationsPubSubArgs) ToGcpDmIntegrationsPubSubPtrOutput() GcpDmIntegrationsPubSubPtrOutput {
+	return i.ToGcpDmIntegrationsPubSubPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsPubSubArgs) ToGcpDmIntegrationsPubSubPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsPubSubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsPubSubOutput).ToGcpDmIntegrationsPubSubPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsPubSubPtrInput is an input type that accepts GcpDmIntegrationsPubSubArgs, GcpDmIntegrationsPubSubPtr and GcpDmIntegrationsPubSubPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsPubSubPtrInput` via:
+//
+//	        GcpDmIntegrationsPubSubArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsPubSubPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsPubSubPtrOutput() GcpDmIntegrationsPubSubPtrOutput
+	ToGcpDmIntegrationsPubSubPtrOutputWithContext(context.Context) GcpDmIntegrationsPubSubPtrOutput
+}
+
+type gcpDmIntegrationsPubSubPtrType GcpDmIntegrationsPubSubArgs
+
+func GcpDmIntegrationsPubSubPtr(v *GcpDmIntegrationsPubSubArgs) GcpDmIntegrationsPubSubPtrInput {
+	return (*gcpDmIntegrationsPubSubPtrType)(v)
+}
+
+func (*gcpDmIntegrationsPubSubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsPubSub)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsPubSubPtrType) ToGcpDmIntegrationsPubSubPtrOutput() GcpDmIntegrationsPubSubPtrOutput {
+	return i.ToGcpDmIntegrationsPubSubPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsPubSubPtrType) ToGcpDmIntegrationsPubSubPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsPubSubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsPubSubPtrOutput)
+}
+
+type GcpDmIntegrationsPubSubOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsPubSubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsPubSub)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsPubSubOutput) ToGcpDmIntegrationsPubSubOutput() GcpDmIntegrationsPubSubOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsPubSubOutput) ToGcpDmIntegrationsPubSubOutputWithContext(ctx context.Context) GcpDmIntegrationsPubSubOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsPubSubOutput) ToGcpDmIntegrationsPubSubPtrOutput() GcpDmIntegrationsPubSubPtrOutput {
+	return o.ToGcpDmIntegrationsPubSubPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsPubSubOutput) ToGcpDmIntegrationsPubSubPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsPubSubPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsPubSub) *GcpDmIntegrationsPubSub {
+		return &v
+	}).(GcpDmIntegrationsPubSubPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsPubSubOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsPubSub) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsPubSubPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsPubSubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsPubSub)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsPubSubPtrOutput) ToGcpDmIntegrationsPubSubPtrOutput() GcpDmIntegrationsPubSubPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsPubSubPtrOutput) ToGcpDmIntegrationsPubSubPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsPubSubPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsPubSubPtrOutput) Elem() GcpDmIntegrationsPubSubOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsPubSub) GcpDmIntegrationsPubSub {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsPubSub
+		return ret
+	}).(GcpDmIntegrationsPubSubOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsPubSubPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsPubSub) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsRedis struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsRedisInput is an input type that accepts GcpDmIntegrationsRedisArgs and GcpDmIntegrationsRedisOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsRedisInput` via:
+//
+//	GcpDmIntegrationsRedisArgs{...}
+type GcpDmIntegrationsRedisInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsRedisOutput() GcpDmIntegrationsRedisOutput
+	ToGcpDmIntegrationsRedisOutputWithContext(context.Context) GcpDmIntegrationsRedisOutput
+}
+
+type GcpDmIntegrationsRedisArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsRedisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsRedis)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsRedisArgs) ToGcpDmIntegrationsRedisOutput() GcpDmIntegrationsRedisOutput {
+	return i.ToGcpDmIntegrationsRedisOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsRedisArgs) ToGcpDmIntegrationsRedisOutputWithContext(ctx context.Context) GcpDmIntegrationsRedisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsRedisOutput)
+}
+
+func (i GcpDmIntegrationsRedisArgs) ToGcpDmIntegrationsRedisPtrOutput() GcpDmIntegrationsRedisPtrOutput {
+	return i.ToGcpDmIntegrationsRedisPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsRedisArgs) ToGcpDmIntegrationsRedisPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRedisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsRedisOutput).ToGcpDmIntegrationsRedisPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsRedisPtrInput is an input type that accepts GcpDmIntegrationsRedisArgs, GcpDmIntegrationsRedisPtr and GcpDmIntegrationsRedisPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsRedisPtrInput` via:
+//
+//	        GcpDmIntegrationsRedisArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsRedisPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsRedisPtrOutput() GcpDmIntegrationsRedisPtrOutput
+	ToGcpDmIntegrationsRedisPtrOutputWithContext(context.Context) GcpDmIntegrationsRedisPtrOutput
+}
+
+type gcpDmIntegrationsRedisPtrType GcpDmIntegrationsRedisArgs
+
+func GcpDmIntegrationsRedisPtr(v *GcpDmIntegrationsRedisArgs) GcpDmIntegrationsRedisPtrInput {
+	return (*gcpDmIntegrationsRedisPtrType)(v)
+}
+
+func (*gcpDmIntegrationsRedisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsRedis)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsRedisPtrType) ToGcpDmIntegrationsRedisPtrOutput() GcpDmIntegrationsRedisPtrOutput {
+	return i.ToGcpDmIntegrationsRedisPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsRedisPtrType) ToGcpDmIntegrationsRedisPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRedisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsRedisPtrOutput)
+}
+
+type GcpDmIntegrationsRedisOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsRedisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsRedis)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsRedisOutput) ToGcpDmIntegrationsRedisOutput() GcpDmIntegrationsRedisOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRedisOutput) ToGcpDmIntegrationsRedisOutputWithContext(ctx context.Context) GcpDmIntegrationsRedisOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRedisOutput) ToGcpDmIntegrationsRedisPtrOutput() GcpDmIntegrationsRedisPtrOutput {
+	return o.ToGcpDmIntegrationsRedisPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsRedisOutput) ToGcpDmIntegrationsRedisPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRedisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsRedis) *GcpDmIntegrationsRedis {
+		return &v
+	}).(GcpDmIntegrationsRedisPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsRedisOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsRedis) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsRedisPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsRedisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsRedis)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsRedisPtrOutput) ToGcpDmIntegrationsRedisPtrOutput() GcpDmIntegrationsRedisPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRedisPtrOutput) ToGcpDmIntegrationsRedisPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRedisPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRedisPtrOutput) Elem() GcpDmIntegrationsRedisOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsRedis) GcpDmIntegrationsRedis {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsRedis
+		return ret
+	}).(GcpDmIntegrationsRedisOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsRedisPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsRedis) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsRouter struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsRouterInput is an input type that accepts GcpDmIntegrationsRouterArgs and GcpDmIntegrationsRouterOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsRouterInput` via:
+//
+//	GcpDmIntegrationsRouterArgs{...}
+type GcpDmIntegrationsRouterInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsRouterOutput() GcpDmIntegrationsRouterOutput
+	ToGcpDmIntegrationsRouterOutputWithContext(context.Context) GcpDmIntegrationsRouterOutput
+}
+
+type GcpDmIntegrationsRouterArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsRouterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsRouter)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsRouterArgs) ToGcpDmIntegrationsRouterOutput() GcpDmIntegrationsRouterOutput {
+	return i.ToGcpDmIntegrationsRouterOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsRouterArgs) ToGcpDmIntegrationsRouterOutputWithContext(ctx context.Context) GcpDmIntegrationsRouterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsRouterOutput)
+}
+
+func (i GcpDmIntegrationsRouterArgs) ToGcpDmIntegrationsRouterPtrOutput() GcpDmIntegrationsRouterPtrOutput {
+	return i.ToGcpDmIntegrationsRouterPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsRouterArgs) ToGcpDmIntegrationsRouterPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRouterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsRouterOutput).ToGcpDmIntegrationsRouterPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsRouterPtrInput is an input type that accepts GcpDmIntegrationsRouterArgs, GcpDmIntegrationsRouterPtr and GcpDmIntegrationsRouterPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsRouterPtrInput` via:
+//
+//	        GcpDmIntegrationsRouterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsRouterPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsRouterPtrOutput() GcpDmIntegrationsRouterPtrOutput
+	ToGcpDmIntegrationsRouterPtrOutputWithContext(context.Context) GcpDmIntegrationsRouterPtrOutput
+}
+
+type gcpDmIntegrationsRouterPtrType GcpDmIntegrationsRouterArgs
+
+func GcpDmIntegrationsRouterPtr(v *GcpDmIntegrationsRouterArgs) GcpDmIntegrationsRouterPtrInput {
+	return (*gcpDmIntegrationsRouterPtrType)(v)
+}
+
+func (*gcpDmIntegrationsRouterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsRouter)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsRouterPtrType) ToGcpDmIntegrationsRouterPtrOutput() GcpDmIntegrationsRouterPtrOutput {
+	return i.ToGcpDmIntegrationsRouterPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsRouterPtrType) ToGcpDmIntegrationsRouterPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRouterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsRouterPtrOutput)
+}
+
+type GcpDmIntegrationsRouterOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsRouterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsRouter)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsRouterOutput) ToGcpDmIntegrationsRouterOutput() GcpDmIntegrationsRouterOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRouterOutput) ToGcpDmIntegrationsRouterOutputWithContext(ctx context.Context) GcpDmIntegrationsRouterOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRouterOutput) ToGcpDmIntegrationsRouterPtrOutput() GcpDmIntegrationsRouterPtrOutput {
+	return o.ToGcpDmIntegrationsRouterPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsRouterOutput) ToGcpDmIntegrationsRouterPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRouterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsRouter) *GcpDmIntegrationsRouter {
+		return &v
+	}).(GcpDmIntegrationsRouterPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsRouterOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsRouter) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsRouterPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsRouterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsRouter)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsRouterPtrOutput) ToGcpDmIntegrationsRouterPtrOutput() GcpDmIntegrationsRouterPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRouterPtrOutput) ToGcpDmIntegrationsRouterPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRouterPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRouterPtrOutput) Elem() GcpDmIntegrationsRouterOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsRouter) GcpDmIntegrationsRouter {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsRouter
+		return ret
+	}).(GcpDmIntegrationsRouterOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsRouterPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsRouter) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsRun struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsRunInput is an input type that accepts GcpDmIntegrationsRunArgs and GcpDmIntegrationsRunOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsRunInput` via:
+//
+//	GcpDmIntegrationsRunArgs{...}
+type GcpDmIntegrationsRunInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsRunOutput() GcpDmIntegrationsRunOutput
+	ToGcpDmIntegrationsRunOutputWithContext(context.Context) GcpDmIntegrationsRunOutput
+}
+
+type GcpDmIntegrationsRunArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsRunArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsRun)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsRunArgs) ToGcpDmIntegrationsRunOutput() GcpDmIntegrationsRunOutput {
+	return i.ToGcpDmIntegrationsRunOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsRunArgs) ToGcpDmIntegrationsRunOutputWithContext(ctx context.Context) GcpDmIntegrationsRunOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsRunOutput)
+}
+
+func (i GcpDmIntegrationsRunArgs) ToGcpDmIntegrationsRunPtrOutput() GcpDmIntegrationsRunPtrOutput {
+	return i.ToGcpDmIntegrationsRunPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsRunArgs) ToGcpDmIntegrationsRunPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRunPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsRunOutput).ToGcpDmIntegrationsRunPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsRunPtrInput is an input type that accepts GcpDmIntegrationsRunArgs, GcpDmIntegrationsRunPtr and GcpDmIntegrationsRunPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsRunPtrInput` via:
+//
+//	        GcpDmIntegrationsRunArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsRunPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsRunPtrOutput() GcpDmIntegrationsRunPtrOutput
+	ToGcpDmIntegrationsRunPtrOutputWithContext(context.Context) GcpDmIntegrationsRunPtrOutput
+}
+
+type gcpDmIntegrationsRunPtrType GcpDmIntegrationsRunArgs
+
+func GcpDmIntegrationsRunPtr(v *GcpDmIntegrationsRunArgs) GcpDmIntegrationsRunPtrInput {
+	return (*gcpDmIntegrationsRunPtrType)(v)
+}
+
+func (*gcpDmIntegrationsRunPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsRun)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsRunPtrType) ToGcpDmIntegrationsRunPtrOutput() GcpDmIntegrationsRunPtrOutput {
+	return i.ToGcpDmIntegrationsRunPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsRunPtrType) ToGcpDmIntegrationsRunPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRunPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsRunPtrOutput)
+}
+
+type GcpDmIntegrationsRunOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsRunOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsRun)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsRunOutput) ToGcpDmIntegrationsRunOutput() GcpDmIntegrationsRunOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRunOutput) ToGcpDmIntegrationsRunOutputWithContext(ctx context.Context) GcpDmIntegrationsRunOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRunOutput) ToGcpDmIntegrationsRunPtrOutput() GcpDmIntegrationsRunPtrOutput {
+	return o.ToGcpDmIntegrationsRunPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsRunOutput) ToGcpDmIntegrationsRunPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRunPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsRun) *GcpDmIntegrationsRun {
+		return &v
+	}).(GcpDmIntegrationsRunPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsRunOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsRun) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsRunPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsRunPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsRun)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsRunPtrOutput) ToGcpDmIntegrationsRunPtrOutput() GcpDmIntegrationsRunPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRunPtrOutput) ToGcpDmIntegrationsRunPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsRunPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsRunPtrOutput) Elem() GcpDmIntegrationsRunOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsRun) GcpDmIntegrationsRun {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsRun
+		return ret
+	}).(GcpDmIntegrationsRunOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsRunPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsRun) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsSpanner struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsSpannerInput is an input type that accepts GcpDmIntegrationsSpannerArgs and GcpDmIntegrationsSpannerOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsSpannerInput` via:
+//
+//	GcpDmIntegrationsSpannerArgs{...}
+type GcpDmIntegrationsSpannerInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsSpannerOutput() GcpDmIntegrationsSpannerOutput
+	ToGcpDmIntegrationsSpannerOutputWithContext(context.Context) GcpDmIntegrationsSpannerOutput
+}
+
+type GcpDmIntegrationsSpannerArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsSpannerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsSpanner)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsSpannerArgs) ToGcpDmIntegrationsSpannerOutput() GcpDmIntegrationsSpannerOutput {
+	return i.ToGcpDmIntegrationsSpannerOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsSpannerArgs) ToGcpDmIntegrationsSpannerOutputWithContext(ctx context.Context) GcpDmIntegrationsSpannerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsSpannerOutput)
+}
+
+func (i GcpDmIntegrationsSpannerArgs) ToGcpDmIntegrationsSpannerPtrOutput() GcpDmIntegrationsSpannerPtrOutput {
+	return i.ToGcpDmIntegrationsSpannerPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsSpannerArgs) ToGcpDmIntegrationsSpannerPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsSpannerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsSpannerOutput).ToGcpDmIntegrationsSpannerPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsSpannerPtrInput is an input type that accepts GcpDmIntegrationsSpannerArgs, GcpDmIntegrationsSpannerPtr and GcpDmIntegrationsSpannerPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsSpannerPtrInput` via:
+//
+//	        GcpDmIntegrationsSpannerArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsSpannerPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsSpannerPtrOutput() GcpDmIntegrationsSpannerPtrOutput
+	ToGcpDmIntegrationsSpannerPtrOutputWithContext(context.Context) GcpDmIntegrationsSpannerPtrOutput
+}
+
+type gcpDmIntegrationsSpannerPtrType GcpDmIntegrationsSpannerArgs
+
+func GcpDmIntegrationsSpannerPtr(v *GcpDmIntegrationsSpannerArgs) GcpDmIntegrationsSpannerPtrInput {
+	return (*gcpDmIntegrationsSpannerPtrType)(v)
+}
+
+func (*gcpDmIntegrationsSpannerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsSpanner)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsSpannerPtrType) ToGcpDmIntegrationsSpannerPtrOutput() GcpDmIntegrationsSpannerPtrOutput {
+	return i.ToGcpDmIntegrationsSpannerPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsSpannerPtrType) ToGcpDmIntegrationsSpannerPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsSpannerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsSpannerPtrOutput)
+}
+
+type GcpDmIntegrationsSpannerOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsSpannerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsSpanner)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsSpannerOutput) ToGcpDmIntegrationsSpannerOutput() GcpDmIntegrationsSpannerOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsSpannerOutput) ToGcpDmIntegrationsSpannerOutputWithContext(ctx context.Context) GcpDmIntegrationsSpannerOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsSpannerOutput) ToGcpDmIntegrationsSpannerPtrOutput() GcpDmIntegrationsSpannerPtrOutput {
+	return o.ToGcpDmIntegrationsSpannerPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsSpannerOutput) ToGcpDmIntegrationsSpannerPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsSpannerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsSpanner) *GcpDmIntegrationsSpanner {
+		return &v
+	}).(GcpDmIntegrationsSpannerPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsSpannerOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsSpanner) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsSpannerPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsSpannerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsSpanner)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsSpannerPtrOutput) ToGcpDmIntegrationsSpannerPtrOutput() GcpDmIntegrationsSpannerPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsSpannerPtrOutput) ToGcpDmIntegrationsSpannerPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsSpannerPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsSpannerPtrOutput) Elem() GcpDmIntegrationsSpannerOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsSpanner) GcpDmIntegrationsSpanner {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsSpanner
+		return ret
+	}).(GcpDmIntegrationsSpannerOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsSpannerPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsSpanner) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsSql struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsSqlInput is an input type that accepts GcpDmIntegrationsSqlArgs and GcpDmIntegrationsSqlOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsSqlInput` via:
+//
+//	GcpDmIntegrationsSqlArgs{...}
+type GcpDmIntegrationsSqlInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsSqlOutput() GcpDmIntegrationsSqlOutput
+	ToGcpDmIntegrationsSqlOutputWithContext(context.Context) GcpDmIntegrationsSqlOutput
+}
+
+type GcpDmIntegrationsSqlArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsSqlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsSql)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsSqlArgs) ToGcpDmIntegrationsSqlOutput() GcpDmIntegrationsSqlOutput {
+	return i.ToGcpDmIntegrationsSqlOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsSqlArgs) ToGcpDmIntegrationsSqlOutputWithContext(ctx context.Context) GcpDmIntegrationsSqlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsSqlOutput)
+}
+
+func (i GcpDmIntegrationsSqlArgs) ToGcpDmIntegrationsSqlPtrOutput() GcpDmIntegrationsSqlPtrOutput {
+	return i.ToGcpDmIntegrationsSqlPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsSqlArgs) ToGcpDmIntegrationsSqlPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsSqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsSqlOutput).ToGcpDmIntegrationsSqlPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsSqlPtrInput is an input type that accepts GcpDmIntegrationsSqlArgs, GcpDmIntegrationsSqlPtr and GcpDmIntegrationsSqlPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsSqlPtrInput` via:
+//
+//	        GcpDmIntegrationsSqlArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsSqlPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsSqlPtrOutput() GcpDmIntegrationsSqlPtrOutput
+	ToGcpDmIntegrationsSqlPtrOutputWithContext(context.Context) GcpDmIntegrationsSqlPtrOutput
+}
+
+type gcpDmIntegrationsSqlPtrType GcpDmIntegrationsSqlArgs
+
+func GcpDmIntegrationsSqlPtr(v *GcpDmIntegrationsSqlArgs) GcpDmIntegrationsSqlPtrInput {
+	return (*gcpDmIntegrationsSqlPtrType)(v)
+}
+
+func (*gcpDmIntegrationsSqlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsSql)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsSqlPtrType) ToGcpDmIntegrationsSqlPtrOutput() GcpDmIntegrationsSqlPtrOutput {
+	return i.ToGcpDmIntegrationsSqlPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsSqlPtrType) ToGcpDmIntegrationsSqlPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsSqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsSqlPtrOutput)
+}
+
+type GcpDmIntegrationsSqlOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsSqlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsSql)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsSqlOutput) ToGcpDmIntegrationsSqlOutput() GcpDmIntegrationsSqlOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsSqlOutput) ToGcpDmIntegrationsSqlOutputWithContext(ctx context.Context) GcpDmIntegrationsSqlOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsSqlOutput) ToGcpDmIntegrationsSqlPtrOutput() GcpDmIntegrationsSqlPtrOutput {
+	return o.ToGcpDmIntegrationsSqlPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsSqlOutput) ToGcpDmIntegrationsSqlPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsSqlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsSql) *GcpDmIntegrationsSql {
+		return &v
+	}).(GcpDmIntegrationsSqlPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsSqlOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsSql) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsSqlPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsSqlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsSql)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsSqlPtrOutput) ToGcpDmIntegrationsSqlPtrOutput() GcpDmIntegrationsSqlPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsSqlPtrOutput) ToGcpDmIntegrationsSqlPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsSqlPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsSqlPtrOutput) Elem() GcpDmIntegrationsSqlOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsSql) GcpDmIntegrationsSql {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsSql
+		return ret
+	}).(GcpDmIntegrationsSqlOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsSqlPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsSql) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsStorage struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsStorageInput is an input type that accepts GcpDmIntegrationsStorageArgs and GcpDmIntegrationsStorageOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsStorageInput` via:
+//
+//	GcpDmIntegrationsStorageArgs{...}
+type GcpDmIntegrationsStorageInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsStorageOutput() GcpDmIntegrationsStorageOutput
+	ToGcpDmIntegrationsStorageOutputWithContext(context.Context) GcpDmIntegrationsStorageOutput
+}
+
+type GcpDmIntegrationsStorageArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsStorage)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsStorageArgs) ToGcpDmIntegrationsStorageOutput() GcpDmIntegrationsStorageOutput {
+	return i.ToGcpDmIntegrationsStorageOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsStorageArgs) ToGcpDmIntegrationsStorageOutputWithContext(ctx context.Context) GcpDmIntegrationsStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsStorageOutput)
+}
+
+func (i GcpDmIntegrationsStorageArgs) ToGcpDmIntegrationsStoragePtrOutput() GcpDmIntegrationsStoragePtrOutput {
+	return i.ToGcpDmIntegrationsStoragePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsStorageArgs) ToGcpDmIntegrationsStoragePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsStorageOutput).ToGcpDmIntegrationsStoragePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsStoragePtrInput is an input type that accepts GcpDmIntegrationsStorageArgs, GcpDmIntegrationsStoragePtr and GcpDmIntegrationsStoragePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsStoragePtrInput` via:
+//
+//	        GcpDmIntegrationsStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsStoragePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsStoragePtrOutput() GcpDmIntegrationsStoragePtrOutput
+	ToGcpDmIntegrationsStoragePtrOutputWithContext(context.Context) GcpDmIntegrationsStoragePtrOutput
+}
+
+type gcpDmIntegrationsStoragePtrType GcpDmIntegrationsStorageArgs
+
+func GcpDmIntegrationsStoragePtr(v *GcpDmIntegrationsStorageArgs) GcpDmIntegrationsStoragePtrInput {
+	return (*gcpDmIntegrationsStoragePtrType)(v)
+}
+
+func (*gcpDmIntegrationsStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsStorage)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsStoragePtrType) ToGcpDmIntegrationsStoragePtrOutput() GcpDmIntegrationsStoragePtrOutput {
+	return i.ToGcpDmIntegrationsStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsStoragePtrType) ToGcpDmIntegrationsStoragePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsStoragePtrOutput)
+}
+
+type GcpDmIntegrationsStorageOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsStorage)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsStorageOutput) ToGcpDmIntegrationsStorageOutput() GcpDmIntegrationsStorageOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsStorageOutput) ToGcpDmIntegrationsStorageOutputWithContext(ctx context.Context) GcpDmIntegrationsStorageOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsStorageOutput) ToGcpDmIntegrationsStoragePtrOutput() GcpDmIntegrationsStoragePtrOutput {
+	return o.ToGcpDmIntegrationsStoragePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsStorageOutput) ToGcpDmIntegrationsStoragePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsStorage) *GcpDmIntegrationsStorage {
+		return &v
+	}).(GcpDmIntegrationsStoragePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsStorageOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsStorage) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsStorage)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsStoragePtrOutput) ToGcpDmIntegrationsStoragePtrOutput() GcpDmIntegrationsStoragePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsStoragePtrOutput) ToGcpDmIntegrationsStoragePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsStoragePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsStoragePtrOutput) Elem() GcpDmIntegrationsStorageOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsStorage) GcpDmIntegrationsStorage {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsStorage
+		return ret
+	}).(GcpDmIntegrationsStorageOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsStoragePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsVirtualMachines struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsVirtualMachinesInput is an input type that accepts GcpDmIntegrationsVirtualMachinesArgs and GcpDmIntegrationsVirtualMachinesOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsVirtualMachinesInput` via:
+//
+//	GcpDmIntegrationsVirtualMachinesArgs{...}
+type GcpDmIntegrationsVirtualMachinesInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsVirtualMachinesOutput() GcpDmIntegrationsVirtualMachinesOutput
+	ToGcpDmIntegrationsVirtualMachinesOutputWithContext(context.Context) GcpDmIntegrationsVirtualMachinesOutput
+}
+
+type GcpDmIntegrationsVirtualMachinesArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsVirtualMachinesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsVirtualMachines)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsVirtualMachinesArgs) ToGcpDmIntegrationsVirtualMachinesOutput() GcpDmIntegrationsVirtualMachinesOutput {
+	return i.ToGcpDmIntegrationsVirtualMachinesOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsVirtualMachinesArgs) ToGcpDmIntegrationsVirtualMachinesOutputWithContext(ctx context.Context) GcpDmIntegrationsVirtualMachinesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsVirtualMachinesOutput)
+}
+
+func (i GcpDmIntegrationsVirtualMachinesArgs) ToGcpDmIntegrationsVirtualMachinesPtrOutput() GcpDmIntegrationsVirtualMachinesPtrOutput {
+	return i.ToGcpDmIntegrationsVirtualMachinesPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsVirtualMachinesArgs) ToGcpDmIntegrationsVirtualMachinesPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsVirtualMachinesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsVirtualMachinesOutput).ToGcpDmIntegrationsVirtualMachinesPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsVirtualMachinesPtrInput is an input type that accepts GcpDmIntegrationsVirtualMachinesArgs, GcpDmIntegrationsVirtualMachinesPtr and GcpDmIntegrationsVirtualMachinesPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsVirtualMachinesPtrInput` via:
+//
+//	        GcpDmIntegrationsVirtualMachinesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsVirtualMachinesPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsVirtualMachinesPtrOutput() GcpDmIntegrationsVirtualMachinesPtrOutput
+	ToGcpDmIntegrationsVirtualMachinesPtrOutputWithContext(context.Context) GcpDmIntegrationsVirtualMachinesPtrOutput
+}
+
+type gcpDmIntegrationsVirtualMachinesPtrType GcpDmIntegrationsVirtualMachinesArgs
+
+func GcpDmIntegrationsVirtualMachinesPtr(v *GcpDmIntegrationsVirtualMachinesArgs) GcpDmIntegrationsVirtualMachinesPtrInput {
+	return (*gcpDmIntegrationsVirtualMachinesPtrType)(v)
+}
+
+func (*gcpDmIntegrationsVirtualMachinesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsVirtualMachines)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsVirtualMachinesPtrType) ToGcpDmIntegrationsVirtualMachinesPtrOutput() GcpDmIntegrationsVirtualMachinesPtrOutput {
+	return i.ToGcpDmIntegrationsVirtualMachinesPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsVirtualMachinesPtrType) ToGcpDmIntegrationsVirtualMachinesPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsVirtualMachinesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsVirtualMachinesPtrOutput)
+}
+
+type GcpDmIntegrationsVirtualMachinesOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsVirtualMachinesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsVirtualMachines)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsVirtualMachinesOutput) ToGcpDmIntegrationsVirtualMachinesOutput() GcpDmIntegrationsVirtualMachinesOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsVirtualMachinesOutput) ToGcpDmIntegrationsVirtualMachinesOutputWithContext(ctx context.Context) GcpDmIntegrationsVirtualMachinesOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsVirtualMachinesOutput) ToGcpDmIntegrationsVirtualMachinesPtrOutput() GcpDmIntegrationsVirtualMachinesPtrOutput {
+	return o.ToGcpDmIntegrationsVirtualMachinesPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsVirtualMachinesOutput) ToGcpDmIntegrationsVirtualMachinesPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsVirtualMachinesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsVirtualMachines) *GcpDmIntegrationsVirtualMachines {
+		return &v
+	}).(GcpDmIntegrationsVirtualMachinesPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsVirtualMachinesOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsVirtualMachines) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsVirtualMachinesPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsVirtualMachinesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsVirtualMachines)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsVirtualMachinesPtrOutput) ToGcpDmIntegrationsVirtualMachinesPtrOutput() GcpDmIntegrationsVirtualMachinesPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsVirtualMachinesPtrOutput) ToGcpDmIntegrationsVirtualMachinesPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsVirtualMachinesPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsVirtualMachinesPtrOutput) Elem() GcpDmIntegrationsVirtualMachinesOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsVirtualMachines) GcpDmIntegrationsVirtualMachines {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsVirtualMachines
+		return ret
+	}).(GcpDmIntegrationsVirtualMachinesOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsVirtualMachinesPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsVirtualMachines) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsVpcAccess struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsVpcAccessInput is an input type that accepts GcpDmIntegrationsVpcAccessArgs and GcpDmIntegrationsVpcAccessOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsVpcAccessInput` via:
+//
+//	GcpDmIntegrationsVpcAccessArgs{...}
+type GcpDmIntegrationsVpcAccessInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsVpcAccessOutput() GcpDmIntegrationsVpcAccessOutput
+	ToGcpDmIntegrationsVpcAccessOutputWithContext(context.Context) GcpDmIntegrationsVpcAccessOutput
+}
+
+type GcpDmIntegrationsVpcAccessArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsVpcAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsVpcAccess)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsVpcAccessArgs) ToGcpDmIntegrationsVpcAccessOutput() GcpDmIntegrationsVpcAccessOutput {
+	return i.ToGcpDmIntegrationsVpcAccessOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsVpcAccessArgs) ToGcpDmIntegrationsVpcAccessOutputWithContext(ctx context.Context) GcpDmIntegrationsVpcAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsVpcAccessOutput)
+}
+
+func (i GcpDmIntegrationsVpcAccessArgs) ToGcpDmIntegrationsVpcAccessPtrOutput() GcpDmIntegrationsVpcAccessPtrOutput {
+	return i.ToGcpDmIntegrationsVpcAccessPtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsVpcAccessArgs) ToGcpDmIntegrationsVpcAccessPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsVpcAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsVpcAccessOutput).ToGcpDmIntegrationsVpcAccessPtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsVpcAccessPtrInput is an input type that accepts GcpDmIntegrationsVpcAccessArgs, GcpDmIntegrationsVpcAccessPtr and GcpDmIntegrationsVpcAccessPtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsVpcAccessPtrInput` via:
+//
+//	        GcpDmIntegrationsVpcAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsVpcAccessPtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsVpcAccessPtrOutput() GcpDmIntegrationsVpcAccessPtrOutput
+	ToGcpDmIntegrationsVpcAccessPtrOutputWithContext(context.Context) GcpDmIntegrationsVpcAccessPtrOutput
+}
+
+type gcpDmIntegrationsVpcAccessPtrType GcpDmIntegrationsVpcAccessArgs
+
+func GcpDmIntegrationsVpcAccessPtr(v *GcpDmIntegrationsVpcAccessArgs) GcpDmIntegrationsVpcAccessPtrInput {
+	return (*gcpDmIntegrationsVpcAccessPtrType)(v)
+}
+
+func (*gcpDmIntegrationsVpcAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsVpcAccess)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsVpcAccessPtrType) ToGcpDmIntegrationsVpcAccessPtrOutput() GcpDmIntegrationsVpcAccessPtrOutput {
+	return i.ToGcpDmIntegrationsVpcAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsVpcAccessPtrType) ToGcpDmIntegrationsVpcAccessPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsVpcAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsVpcAccessPtrOutput)
+}
+
+type GcpDmIntegrationsVpcAccessOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsVpcAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsVpcAccess)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsVpcAccessOutput) ToGcpDmIntegrationsVpcAccessOutput() GcpDmIntegrationsVpcAccessOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsVpcAccessOutput) ToGcpDmIntegrationsVpcAccessOutputWithContext(ctx context.Context) GcpDmIntegrationsVpcAccessOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsVpcAccessOutput) ToGcpDmIntegrationsVpcAccessPtrOutput() GcpDmIntegrationsVpcAccessPtrOutput {
+	return o.ToGcpDmIntegrationsVpcAccessPtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsVpcAccessOutput) ToGcpDmIntegrationsVpcAccessPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsVpcAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsVpcAccess) *GcpDmIntegrationsVpcAccess {
+		return &v
+	}).(GcpDmIntegrationsVpcAccessPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsVpcAccessOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsVpcAccess) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsVpcAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsVpcAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsVpcAccess)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsVpcAccessPtrOutput) ToGcpDmIntegrationsVpcAccessPtrOutput() GcpDmIntegrationsVpcAccessPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsVpcAccessPtrOutput) ToGcpDmIntegrationsVpcAccessPtrOutputWithContext(ctx context.Context) GcpDmIntegrationsVpcAccessPtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsVpcAccessPtrOutput) Elem() GcpDmIntegrationsVpcAccessOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsVpcAccess) GcpDmIntegrationsVpcAccess {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsVpcAccess
+		return ret
+	}).(GcpDmIntegrationsVpcAccessOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsVpcAccessPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsVpcAccess) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
 type GcpIntegrationsAlloyDb struct {
 	// the data polling interval in seconds
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
@@ -23179,6 +27837,74 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsVmsPtrInput)(nil)).Elem(), AzureIntegrationsVmsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsVpnGatewayInput)(nil)).Elem(), AzureIntegrationsVpnGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsVpnGatewayPtrInput)(nil)).Elem(), AzureIntegrationsVpnGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsAiPlatformInput)(nil)).Elem(), GcpDmIntegrationsAiPlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsAiPlatformPtrInput)(nil)).Elem(), GcpDmIntegrationsAiPlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsAlloyDbInput)(nil)).Elem(), GcpDmIntegrationsAlloyDbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsAlloyDbPtrInput)(nil)).Elem(), GcpDmIntegrationsAlloyDbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsApiGatewayInput)(nil)).Elem(), GcpDmIntegrationsApiGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsApiGatewayPtrInput)(nil)).Elem(), GcpDmIntegrationsApiGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsAppEngineInput)(nil)).Elem(), GcpDmIntegrationsAppEngineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsAppEnginePtrInput)(nil)).Elem(), GcpDmIntegrationsAppEngineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsBigQueryInput)(nil)).Elem(), GcpDmIntegrationsBigQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsBigQueryPtrInput)(nil)).Elem(), GcpDmIntegrationsBigQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsBigTableInput)(nil)).Elem(), GcpDmIntegrationsBigTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsBigTablePtrInput)(nil)).Elem(), GcpDmIntegrationsBigTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsComposerInput)(nil)).Elem(), GcpDmIntegrationsComposerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsComposerPtrInput)(nil)).Elem(), GcpDmIntegrationsComposerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsDataFlowInput)(nil)).Elem(), GcpDmIntegrationsDataFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsDataFlowPtrInput)(nil)).Elem(), GcpDmIntegrationsDataFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsDataProcInput)(nil)).Elem(), GcpDmIntegrationsDataProcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsDataProcPtrInput)(nil)).Elem(), GcpDmIntegrationsDataProcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsDataStoreInput)(nil)).Elem(), GcpDmIntegrationsDataStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsDataStorePtrInput)(nil)).Elem(), GcpDmIntegrationsDataStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseAppHostingInput)(nil)).Elem(), GcpDmIntegrationsFirebaseAppHostingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseAppHostingPtrInput)(nil)).Elem(), GcpDmIntegrationsFirebaseAppHostingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseAuthInput)(nil)).Elem(), GcpDmIntegrationsFirebaseAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseAuthPtrInput)(nil)).Elem(), GcpDmIntegrationsFirebaseAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseDatabaseInput)(nil)).Elem(), GcpDmIntegrationsFirebaseDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseDatabasePtrInput)(nil)).Elem(), GcpDmIntegrationsFirebaseDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseHostingInput)(nil)).Elem(), GcpDmIntegrationsFirebaseHostingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseHostingPtrInput)(nil)).Elem(), GcpDmIntegrationsFirebaseHostingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseStorageInput)(nil)).Elem(), GcpDmIntegrationsFirebaseStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseStoragePtrInput)(nil)).Elem(), GcpDmIntegrationsFirebaseStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseVertexAiInput)(nil)).Elem(), GcpDmIntegrationsFirebaseVertexAiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirebaseVertexAiPtrInput)(nil)).Elem(), GcpDmIntegrationsFirebaseVertexAiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirestoreInput)(nil)).Elem(), GcpDmIntegrationsFirestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirestorePtrInput)(nil)).Elem(), GcpDmIntegrationsFirestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFunctionsInput)(nil)).Elem(), GcpDmIntegrationsFunctionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFunctionsPtrInput)(nil)).Elem(), GcpDmIntegrationsFunctionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsInterconnectInput)(nil)).Elem(), GcpDmIntegrationsInterconnectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsInterconnectPtrInput)(nil)).Elem(), GcpDmIntegrationsInterconnectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsIstioInput)(nil)).Elem(), GcpDmIntegrationsIstioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsIstioPtrInput)(nil)).Elem(), GcpDmIntegrationsIstioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsKubernetesInput)(nil)).Elem(), GcpDmIntegrationsKubernetesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsKubernetesPtrInput)(nil)).Elem(), GcpDmIntegrationsKubernetesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsLoadBalancingInput)(nil)).Elem(), GcpDmIntegrationsLoadBalancingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsLoadBalancingPtrInput)(nil)).Elem(), GcpDmIntegrationsLoadBalancingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsManagedKafkaInput)(nil)).Elem(), GcpDmIntegrationsManagedKafkaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsManagedKafkaPtrInput)(nil)).Elem(), GcpDmIntegrationsManagedKafkaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsMemCacheInput)(nil)).Elem(), GcpDmIntegrationsMemCacheArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsMemCachePtrInput)(nil)).Elem(), GcpDmIntegrationsMemCacheArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsMemoryStoreInput)(nil)).Elem(), GcpDmIntegrationsMemoryStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsMemoryStorePtrInput)(nil)).Elem(), GcpDmIntegrationsMemoryStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsPubSubInput)(nil)).Elem(), GcpDmIntegrationsPubSubArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsPubSubPtrInput)(nil)).Elem(), GcpDmIntegrationsPubSubArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsRedisInput)(nil)).Elem(), GcpDmIntegrationsRedisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsRedisPtrInput)(nil)).Elem(), GcpDmIntegrationsRedisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsRouterInput)(nil)).Elem(), GcpDmIntegrationsRouterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsRouterPtrInput)(nil)).Elem(), GcpDmIntegrationsRouterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsRunInput)(nil)).Elem(), GcpDmIntegrationsRunArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsRunPtrInput)(nil)).Elem(), GcpDmIntegrationsRunArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsSpannerInput)(nil)).Elem(), GcpDmIntegrationsSpannerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsSpannerPtrInput)(nil)).Elem(), GcpDmIntegrationsSpannerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsSqlInput)(nil)).Elem(), GcpDmIntegrationsSqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsSqlPtrInput)(nil)).Elem(), GcpDmIntegrationsSqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsStorageInput)(nil)).Elem(), GcpDmIntegrationsStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsStoragePtrInput)(nil)).Elem(), GcpDmIntegrationsStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsVirtualMachinesInput)(nil)).Elem(), GcpDmIntegrationsVirtualMachinesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsVirtualMachinesPtrInput)(nil)).Elem(), GcpDmIntegrationsVirtualMachinesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsVpcAccessInput)(nil)).Elem(), GcpDmIntegrationsVpcAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsVpcAccessPtrInput)(nil)).Elem(), GcpDmIntegrationsVpcAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsAlloyDbInput)(nil)).Elem(), GcpIntegrationsAlloyDbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsAlloyDbPtrInput)(nil)).Elem(), GcpIntegrationsAlloyDbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsAppEngineInput)(nil)).Elem(), GcpIntegrationsAppEngineArgs{})
@@ -23451,6 +28177,74 @@ func init() {
 	pulumi.RegisterOutputType(AzureIntegrationsVmsPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsVpnGatewayOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsVpnGatewayPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsAiPlatformOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsAiPlatformPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsAlloyDbOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsAlloyDbPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsApiGatewayOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsApiGatewayPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsAppEngineOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsAppEnginePtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsBigQueryOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsBigQueryPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsBigTableOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsBigTablePtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsComposerOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsComposerPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsDataFlowOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsDataFlowPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsDataProcOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsDataProcPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsDataStoreOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsDataStorePtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseAppHostingOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseAppHostingPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseAuthOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseAuthPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseDatabaseOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseDatabasePtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseHostingOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseHostingPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseStorageOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseStoragePtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseVertexAiOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirebaseVertexAiPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirestoreOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFirestorePtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFunctionsOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsFunctionsPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsInterconnectOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsInterconnectPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsIstioOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsIstioPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsKubernetesOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsKubernetesPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsLoadBalancingOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsLoadBalancingPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsManagedKafkaOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsManagedKafkaPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsMemCacheOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsMemCachePtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsMemoryStoreOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsMemoryStorePtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsPubSubOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsPubSubPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsRedisOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsRedisPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsRouterOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsRouterPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsRunOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsRunPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsSpannerOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsSpannerPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsSqlOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsSqlPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsStorageOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsStoragePtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsVirtualMachinesOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsVirtualMachinesPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsVpcAccessOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsVpcAccessPtrOutput{})
 	pulumi.RegisterOutputType(GcpIntegrationsAlloyDbOutput{})
 	pulumi.RegisterOutputType(GcpIntegrationsAlloyDbPtrOutput{})
 	pulumi.RegisterOutputType(GcpIntegrationsAppEngineOutput{})

@@ -14,6 +14,7 @@ from .aws_integrations import *
 from .aws_link_account import *
 from .azure_integrations import *
 from .azure_link_account import *
+from .gcp_dm_integrations import *
 from .gcp_integrations import *
 from .gcp_link_account import *
 from .oci_link_account import *

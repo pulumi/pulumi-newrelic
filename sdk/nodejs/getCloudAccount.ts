@@ -20,12 +20,29 @@ import * as utilities from "./utilities";
  *     name: "my aws account",
  * });
  * ```
+ *
+ * ### GCP Dimensional Metrics account lookup
+ *
+ * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = "gcp"` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const gcpDmAccount = newrelic.getCloudAccount({
+ *     accountId: "12345",
+ *     cloudProvider: "gcp",
+ *     name: "my gcp dimensional metrics account",
+ *     isDimensionalMetrics: true,
+ * });
+ * ```
  */
 export function getCloudAccount(args: GetCloudAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getCloudAccount:getCloudAccount", {
         "accountId": args.accountId,
         "cloudProvider": args.cloudProvider,
+        "isDimensionalMetrics": args.isDimensionalMetrics,
         "name": args.name,
     }, opts);
 }
@@ -43,6 +60,10 @@ export interface GetCloudAccountArgs {
      */
     cloudProvider: string;
     /**
+     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `"gcp"`. Defaults to `false`.
+     */
+    isDimensionalMetrics?: boolean;
+    /**
      * The cloud account name in New Relic.
      */
     name: string;
@@ -58,6 +79,7 @@ export interface GetCloudAccountResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly isDimensionalMetrics?: boolean;
     readonly name: string;
 }
 /**
@@ -76,12 +98,29 @@ export interface GetCloudAccountResult {
  *     name: "my aws account",
  * });
  * ```
+ *
+ * ### GCP Dimensional Metrics account lookup
+ *
+ * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = "gcp"` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const gcpDmAccount = newrelic.getCloudAccount({
+ *     accountId: "12345",
+ *     cloudProvider: "gcp",
+ *     name: "my gcp dimensional metrics account",
+ *     isDimensionalMetrics: true,
+ * });
+ * ```
  */
 export function getCloudAccountOutput(args: GetCloudAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getCloudAccount:getCloudAccount", {
         "accountId": args.accountId,
         "cloudProvider": args.cloudProvider,
+        "isDimensionalMetrics": args.isDimensionalMetrics,
         "name": args.name,
     }, opts);
 }
@@ -98,6 +137,10 @@ export interface GetCloudAccountOutputArgs {
      * The cloud provider of the account (aws, gcp, azure, etc)
      */
     cloudProvider: pulumi.Input<string>;
+    /**
+     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `"gcp"`. Defaults to `false`.
+     */
+    isDimensionalMetrics?: pulumi.Input<boolean | undefined>;
     /**
      * The cloud account name in New Relic.
      */

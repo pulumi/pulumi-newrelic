@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,6 +20,7 @@ public final class GetCloudAccountResult {
      * 
      */
     private String id;
+    private @Nullable Boolean isDimensionalMetrics;
     private String name;
 
     private GetCloudAccountResult() {}
@@ -34,6 +36,9 @@ public final class GetCloudAccountResult {
      */
     public String id() {
         return this.id;
+    }
+    public Optional<Boolean> isDimensionalMetrics() {
+        return Optional.ofNullable(this.isDimensionalMetrics);
     }
     public String name() {
         return this.name;
@@ -51,6 +56,7 @@ public final class GetCloudAccountResult {
         private @Nullable String accountId;
         private String cloudProvider;
         private String id;
+        private @Nullable Boolean isDimensionalMetrics;
         private String name;
         public Builder() {}
         public Builder(GetCloudAccountResult defaults) {
@@ -58,6 +64,7 @@ public final class GetCloudAccountResult {
     	      this.accountId = defaults.accountId;
     	      this.cloudProvider = defaults.cloudProvider;
     	      this.id = defaults.id;
+    	      this.isDimensionalMetrics = defaults.isDimensionalMetrics;
     	      this.name = defaults.name;
         }
 
@@ -84,6 +91,12 @@ public final class GetCloudAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder isDimensionalMetrics(@Nullable Boolean isDimensionalMetrics) {
+
+            this.isDimensionalMetrics = isDimensionalMetrics;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetCloudAccountResult", "name");
@@ -96,6 +109,7 @@ public final class GetCloudAccountResult {
             _resultValue.accountId = accountId;
             _resultValue.cloudProvider = cloudProvider;
             _resultValue.id = id;
+            _resultValue.isDimensionalMetrics = isDimensionalMetrics;
             _resultValue.name = name;
             return _resultValue;
         }

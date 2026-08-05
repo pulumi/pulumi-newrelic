@@ -21,21 +21,35 @@ class GcpLinkAccountArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_workload_identity_federation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GcpLinkAccount resource.
 
         :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
+        :param pulumi.Input[_builtins.str] audience: The Workload Identity Federation pool provider audience URI. Format: `//iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}/providers/{PROVIDER_ID}`. Required when `use_workload_identity_federation = true`.
         :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[_builtins.str] service_account_email: The GCP service account email New Relic impersonates to collect metrics when linking via WIF. The service account must grant the WIF pool the `roles/iam.workloadIdentityUser` binding. Required when `use_workload_identity_federation = true`.
+               
+               > **NOTE:** `audience` and `service_account_email` are write-only, `ForceNew` fields used to construct the WIF credential internally; they are never returned by the API and are retained from state. When importing a WIF-linked account, also set `use_workload_identity_federation = true` in your configuration (it is not returned by the API and defaults to `false`), and add `audience` and `service_account_email` to `ImportStateVerifyIgnore` (or run `pulumi up` afterwards to reconcile them).
                
                > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+        :param pulumi.Input[_builtins.bool] use_workload_identity_federation: Set to `true` to link the GCP account for **GCP Dimensional Metrics** using keyless Workload Identity Federation (WIF) instead of a service-account key. When `true`, `audience` and `service_account_email` are required. Defaults to `false` (legacy service-account-key linking).
         """
         pulumi.set(__self__, "project_id", project_id)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if service_account_email is not None:
+            pulumi.set(__self__, "service_account_email", service_account_email)
+        if use_workload_identity_federation is not None:
+            pulumi.set(__self__, "use_workload_identity_federation", use_workload_identity_federation)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
@@ -63,11 +77,21 @@ class GcpLinkAccountArgs:
 
     @_builtins.property
     @pulumi.getter
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Workload Identity Federation pool provider audience URI. Format: `//iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}/providers/{PROVIDER_ID}`. Required when `use_workload_identity_federation = true`.
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "audience", value)
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the GCP account in New Relic.
-
-        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         return pulumi.get(self, "name")
 
@@ -75,28 +99,70 @@ class GcpLinkAccountArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The GCP service account email New Relic impersonates to collect metrics when linking via WIF. The service account must grant the WIF pool the `roles/iam.workloadIdentityUser` binding. Required when `use_workload_identity_federation = true`.
+
+        > **NOTE:** `audience` and `service_account_email` are write-only, `ForceNew` fields used to construct the WIF credential internally; they are never returned by the API and are retained from state. When importing a WIF-linked account, also set `use_workload_identity_federation = true` in your configuration (it is not returned by the API and defaults to `false`), and add `audience` and `service_account_email` to `ImportStateVerifyIgnore` (or run `pulumi up` afterwards to reconcile them).
+
+        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+        """
+        return pulumi.get(self, "service_account_email")
+
+    @service_account_email.setter
+    def service_account_email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_account_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useWorkloadIdentityFederation")
+    def use_workload_identity_federation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set to `true` to link the GCP account for **GCP Dimensional Metrics** using keyless Workload Identity Federation (WIF) instead of a service-account key. When `true`, `audience` and `service_account_email` are required. Defaults to `false` (legacy service-account-key linking).
+        """
+        return pulumi.get(self, "use_workload_identity_federation")
+
+    @use_workload_identity_federation.setter
+    def use_workload_identity_federation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_workload_identity_federation", value)
+
 
 @pulumi.input_type
 class _GcpLinkAccountState:
     def __init__(__self__, *,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_workload_identity_federation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GcpLinkAccount resources.
 
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
+        :param pulumi.Input[_builtins.str] audience: The Workload Identity Federation pool provider audience URI. Format: `//iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}/providers/{PROVIDER_ID}`. Required when `use_workload_identity_federation = true`.
         :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
+        :param pulumi.Input[_builtins.str] service_account_email: The GCP service account email New Relic impersonates to collect metrics when linking via WIF. The service account must grant the WIF pool the `roles/iam.workloadIdentityUser` binding. Required when `use_workload_identity_federation = true`.
+               
+               > **NOTE:** `audience` and `service_account_email` are write-only, `ForceNew` fields used to construct the WIF credential internally; they are never returned by the API and are retained from state. When importing a WIF-linked account, also set `use_workload_identity_federation = true` in your configuration (it is not returned by the API and defaults to `false`), and add `audience` and `service_account_email` to `ImportStateVerifyIgnore` (or run `pulumi up` afterwards to reconcile them).
                
                > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
-        :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
+        :param pulumi.Input[_builtins.bool] use_workload_identity_federation: Set to `true` to link the GCP account for **GCP Dimensional Metrics** using keyless Workload Identity Federation (WIF) instead of a service-account key. When `true`, `audience` and `service_account_email` are required. Defaults to `false` (legacy service-account-key linking).
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
+        if service_account_email is not None:
+            pulumi.set(__self__, "service_account_email", service_account_email)
+        if use_workload_identity_federation is not None:
+            pulumi.set(__self__, "use_workload_identity_federation", use_workload_identity_federation)
 
     @_builtins.property
     @pulumi.getter(name="accountId")
@@ -112,11 +178,21 @@ class _GcpLinkAccountState:
 
     @_builtins.property
     @pulumi.getter
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Workload Identity Federation pool provider audience URI. Format: `//iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}/providers/{PROVIDER_ID}`. Required when `use_workload_identity_federation = true`.
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "audience", value)
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the GCP account in New Relic.
-
-        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         return pulumi.get(self, "name")
 
@@ -136,6 +212,34 @@ class _GcpLinkAccountState:
     def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The GCP service account email New Relic impersonates to collect metrics when linking via WIF. The service account must grant the WIF pool the `roles/iam.workloadIdentityUser` binding. Required when `use_workload_identity_federation = true`.
+
+        > **NOTE:** `audience` and `service_account_email` are write-only, `ForceNew` fields used to construct the WIF credential internally; they are never returned by the API and are retained from state. When importing a WIF-linked account, also set `use_workload_identity_federation = true` in your configuration (it is not returned by the API and defaults to `false`), and add `audience` and `service_account_email` to `ImportStateVerifyIgnore` (or run `pulumi up` afterwards to reconcile them).
+
+        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+        """
+        return pulumi.get(self, "service_account_email")
+
+    @service_account_email.setter
+    def service_account_email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_account_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useWorkloadIdentityFederation")
+    def use_workload_identity_federation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set to `true` to link the GCP account for **GCP Dimensional Metrics** using keyless Workload Identity Federation (WIF) instead of a service-account key. When `true`, `audience` and `service_account_email` are required. Defaults to `false` (legacy service-account-key linking).
+        """
+        return pulumi.get(self, "use_workload_identity_federation")
+
+    @use_workload_identity_federation.setter
+    def use_workload_identity_federation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_workload_identity_federation", value)
+
 
 @pulumi.type_token("newrelic:cloud/gcpLinkAccount:GcpLinkAccount")
 class GcpLinkAccount(pulumi.CustomResource):
@@ -144,8 +248,11 @@ class GcpLinkAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_workload_identity_federation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Use this resource to link a GCP account to New Relic.
@@ -176,6 +283,23 @@ class GcpLinkAccount(pulumi.CustomResource):
             name="account name")
         ```
 
+        ### GCP Dimensional Metrics (keyless / WIF) linking
+
+        To link a GCP project for **GCP Dimensional Metrics** using keyless authentication via Workload Identity Federation (WIF) instead of a service-account key, set `use_workload_identity_federation = true` and provide `audience` and `service_account_email`. When enabled, the resource authenticates via WIF and links the project under the Dimensional Metrics (`gcp_v2`) provider. Use this linked account with the `cloud.GcpDmIntegrations` resource.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        dm = newrelic.cloud.GcpLinkAccount("dm",
+            account_id="account id of newrelic account",
+            name="account name",
+            project_id="id of the Project",
+            use_workload_identity_federation=True,
+            audience="//iam.googleapis.com/projects/123456789/locations/global/workloadIdentityPools/newrelic-wif-pool/providers/newrelic-oidc-provider",
+            service_account_email="newrelic-integration@my-project.iam.gserviceaccount.com")
+        ```
+
         ## Import
 
         Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
@@ -190,10 +314,15 @@ class GcpLinkAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
+        :param pulumi.Input[_builtins.str] audience: The Workload Identity Federation pool provider audience URI. Format: `//iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}/providers/{PROVIDER_ID}`. Required when `use_workload_identity_federation = true`.
         :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
+        :param pulumi.Input[_builtins.str] service_account_email: The GCP service account email New Relic impersonates to collect metrics when linking via WIF. The service account must grant the WIF pool the `roles/iam.workloadIdentityUser` binding. Required when `use_workload_identity_federation = true`.
+               
+               > **NOTE:** `audience` and `service_account_email` are write-only, `ForceNew` fields used to construct the WIF credential internally; they are never returned by the API and are retained from state. When importing a WIF-linked account, also set `use_workload_identity_federation = true` in your configuration (it is not returned by the API and defaults to `false`), and add `audience` and `service_account_email` to `ImportStateVerifyIgnore` (or run `pulumi up` afterwards to reconcile them).
                
                > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
-        :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
+        :param pulumi.Input[_builtins.bool] use_workload_identity_federation: Set to `true` to link the GCP account for **GCP Dimensional Metrics** using keyless Workload Identity Federation (WIF) instead of a service-account key. When `true`, `audience` and `service_account_email` are required. Defaults to `false` (legacy service-account-key linking).
         """
         ...
     @overload
@@ -230,6 +359,23 @@ class GcpLinkAccount(pulumi.CustomResource):
             name="account name")
         ```
 
+        ### GCP Dimensional Metrics (keyless / WIF) linking
+
+        To link a GCP project for **GCP Dimensional Metrics** using keyless authentication via Workload Identity Federation (WIF) instead of a service-account key, set `use_workload_identity_federation = true` and provide `audience` and `service_account_email`. When enabled, the resource authenticates via WIF and links the project under the Dimensional Metrics (`gcp_v2`) provider. Use this linked account with the `cloud.GcpDmIntegrations` resource.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        dm = newrelic.cloud.GcpLinkAccount("dm",
+            account_id="account id of newrelic account",
+            name="account name",
+            project_id="id of the Project",
+            use_workload_identity_federation=True,
+            audience="//iam.googleapis.com/projects/123456789/locations/global/workloadIdentityPools/newrelic-wif-pool/providers/newrelic-oidc-provider",
+            service_account_email="newrelic-integration@my-project.iam.gserviceaccount.com")
+        ```
+
         ## Import
 
         Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
@@ -257,8 +403,11 @@ class GcpLinkAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_workload_identity_federation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,10 +418,13 @@ class GcpLinkAccount(pulumi.CustomResource):
             __props__ = GcpLinkAccountArgs.__new__(GcpLinkAccountArgs)
 
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["audience"] = audience
             __props__.__dict__["name"] = name
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
+            __props__.__dict__["service_account_email"] = service_account_email
+            __props__.__dict__["use_workload_identity_federation"] = use_workload_identity_federation
         super(GcpLinkAccount, __self__).__init__(
             'newrelic:cloud/gcpLinkAccount:GcpLinkAccount',
             resource_name,
@@ -284,8 +436,11 @@ class GcpLinkAccount(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            audience: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            project_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'GcpLinkAccount':
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account_email: pulumi.Input[Optional[_builtins.str]] = None,
+            use_workload_identity_federation: pulumi.Input[Optional[_builtins.bool]] = None) -> 'GcpLinkAccount':
         """
         Get an existing GcpLinkAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -294,18 +449,26 @@ class GcpLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
+        :param pulumi.Input[_builtins.str] audience: The Workload Identity Federation pool provider audience URI. Format: `//iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}/providers/{PROVIDER_ID}`. Required when `use_workload_identity_federation = true`.
         :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
+        :param pulumi.Input[_builtins.str] service_account_email: The GCP service account email New Relic impersonates to collect metrics when linking via WIF. The service account must grant the WIF pool the `roles/iam.workloadIdentityUser` binding. Required when `use_workload_identity_federation = true`.
+               
+               > **NOTE:** `audience` and `service_account_email` are write-only, `ForceNew` fields used to construct the WIF credential internally; they are never returned by the API and are retained from state. When importing a WIF-linked account, also set `use_workload_identity_federation = true` in your configuration (it is not returned by the API and defaults to `false`), and add `audience` and `service_account_email` to `ImportStateVerifyIgnore` (or run `pulumi up` afterwards to reconcile them).
                
                > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
-        :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
+        :param pulumi.Input[_builtins.bool] use_workload_identity_federation: Set to `true` to link the GCP account for **GCP Dimensional Metrics** using keyless Workload Identity Federation (WIF) instead of a service-account key. When `true`, `audience` and `service_account_email` are required. Defaults to `false` (legacy service-account-key linking).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _GcpLinkAccountState.__new__(_GcpLinkAccountState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["audience"] = audience
         __props__.__dict__["name"] = name
         __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["service_account_email"] = service_account_email
+        __props__.__dict__["use_workload_identity_federation"] = use_workload_identity_federation
         return GcpLinkAccount(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -318,11 +481,17 @@ class GcpLinkAccount(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    def audience(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Workload Identity Federation pool provider audience URI. Format: `//iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}/providers/{PROVIDER_ID}`. Required when `use_workload_identity_federation = true`.
+        """
+        return pulumi.get(self, "audience")
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the GCP account in New Relic.
-
-        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         return pulumi.get(self, "name")
 
@@ -333,4 +502,24 @@ class GcpLinkAccount(pulumi.CustomResource):
         Project ID of the GCP account.
         """
         return pulumi.get(self, "project_id")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The GCP service account email New Relic impersonates to collect metrics when linking via WIF. The service account must grant the WIF pool the `roles/iam.workloadIdentityUser` binding. Required when `use_workload_identity_federation = true`.
+
+        > **NOTE:** `audience` and `service_account_email` are write-only, `ForceNew` fields used to construct the WIF credential internally; they are never returned by the API and are retained from state. When importing a WIF-linked account, also set `use_workload_identity_federation = true` in your configuration (it is not returned by the API and defaults to `false`), and add `audience` and `service_account_email` to `ImportStateVerifyIgnore` (or run `pulumi up` afterwards to reconcile them).
+
+        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+        """
+        return pulumi.get(self, "service_account_email")
+
+    @_builtins.property
+    @pulumi.getter(name="useWorkloadIdentityFederation")
+    def use_workload_identity_federation(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Set to `true` to link the GCP account for **GCP Dimensional Metrics** using keyless Workload Identity Federation (WIF) instead of a service-account key. When `true`, `audience` and `service_account_email` are required. Defaults to `false` (legacy service-account-key linking).
+        """
+        return pulumi.get(self, "use_workload_identity_federation")
 
