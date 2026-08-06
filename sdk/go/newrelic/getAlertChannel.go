@@ -45,7 +45,7 @@ import (
 //			}
 //			// Using the data source and resource together
 //			_, err = newrelic.NewAlertPolicyChannel(ctx, "foo", &newrelic.AlertPolicyChannelArgs{
-//				PolicyId:  fooAlertPolicy.ID(),
+//				PolicyId:  fooAlertPolicy.ID().ToIDOutput().ToStringOutput(),
 //				ChannelId: foo.Id,
 //			})
 //			if err != nil {

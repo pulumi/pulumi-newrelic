@@ -123,7 +123,7 @@ import (
 //				},
 //				LocationPrivates: synthetics.StepMonitorLocationPrivateArray{
 //					&synthetics.StepMonitorLocationPrivateArgs{
-//						Guid:        foo.ID(),
+//						Guid:        foo.ID().ToIDOutput().ToStringOutput(),
 //						VsePassword: pulumi.String("secret"),
 //					},
 //				},

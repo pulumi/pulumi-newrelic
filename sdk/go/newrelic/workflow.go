@@ -105,7 +105,7 @@ import (
 //			webhook_channel, err := newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
 //				Name:          pulumi.String("channel-webhook"),
 //				Type:          pulumi.String("WEBHOOK"),
-//				DestinationId: webhook_destination.ID(),
+//				DestinationId: webhook_destination.ID().ToIDOutput().ToStringOutput(),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
 //					&newrelic.NotificationChannelPropertyArgs{
@@ -130,14 +130,14 @@ import (
 //							Attribute: pulumi.String("labels.policyIds"),
 //							Operator:  pulumi.String("EXACTLY_MATCHES"),
 //							Values: pulumi.StringArray{
-//								my_policy.ID(),
+//								my_policy.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
 //				},
 //				Destinations: newrelic.WorkflowDestinationArray{
 //					&newrelic.WorkflowDestinationArgs{
-//						ChannelId: webhook_channel.ID(),
+//						ChannelId: webhook_channel.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

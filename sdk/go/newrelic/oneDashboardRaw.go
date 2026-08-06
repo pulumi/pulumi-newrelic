@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"facet": map[string]interface{}{
+//				"facet": map[string]bool{
 //					"showOtherSeries": false,
 //				},
 //				"nrqlQueries": []map[string]interface{}{

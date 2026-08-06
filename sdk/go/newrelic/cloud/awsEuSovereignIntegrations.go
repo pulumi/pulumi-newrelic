@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = cloud.NewAwsEuSovereignIntegrations(ctx, "bar", &cloud.AwsEuSovereignIntegrationsArgs{
-//				LinkedAccountId: foo.ID(),
+//				LinkedAccountId: foo.ID().ToIDOutput().ToStringOutput(),
 //				Billing: &cloud.AwsEuSovereignIntegrationsBillingArgs{
 //					MetricsPollingInterval: pulumi.Int(3600),
 //				},
