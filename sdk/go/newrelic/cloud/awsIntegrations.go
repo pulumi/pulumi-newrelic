@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = cloud.NewAwsIntegrations(ctx, "bar", &cloud.AwsIntegrationsArgs{
-//				LinkedAccountId: foo.ID(),
+//				LinkedAccountId: foo.ID().ToIDOutput().ToStringOutput(),
 //				Cloudtrail: &cloud.AwsIntegrationsCloudtrailArgs{
 //					MetricsPollingInterval: pulumi.Int(300),
 //					AwsRegions: pulumi.StringArray{

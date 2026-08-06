@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewAlertCondition(ctx, "foo", &newrelic.AlertConditionArgs{
-//				PolicyId: foo.ID(),
+//				PolicyId: foo.ID().ToIDOutput().ToStringOutput(),
 //				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.StringArray{
@@ -112,7 +112,7 @@ import (
 //				return err
 //			}
 //			fooAlertCondition, err := newrelic.NewAlertCondition(ctx, "foo", &newrelic.AlertConditionArgs{
-//				PolicyId: fooAlertPolicy.ID(),
+//				PolicyId: fooAlertPolicy.ID().ToIDOutput().ToStringOutput(),
 //				Name:     pulumi.String("foo condition"),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.StringArray{

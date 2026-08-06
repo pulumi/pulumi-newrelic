@@ -41,7 +41,7 @@ import (
 //			}
 //			_, err = newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                   pulumi.String("12345678"),
-//				PolicyId:                    foo.ID(),
+//				PolicyId:                    foo.ID().ToIDOutput().ToStringOutput(),
 //				Type:                        pulumi.String("static"),
 //				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
@@ -178,7 +178,7 @@ import (
 //				Type:                      pulumi.String("baseline"),
 //				AccountId:                 pulumi.String("12345678"),
 //				Name:                      pulumi.String("foo"),
-//				PolicyId:                  foo.ID(),
+//				PolicyId:                  foo.ID().ToIDOutput().ToStringOutput(),
 //				Description:               pulumi.String("Alert when transactions are taking too long"),
 //				Enabled:                   pulumi.Bool(true),
 //				RunbookUrl:                pulumi.String("https://www.example.com"),
@@ -240,7 +240,7 @@ import (
 //			}
 //			_, err = newrelic.NewNrqlAlertCondition(ctx, "outlier_condition", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                 pulumi.String("12345678"),
-//				PolicyId:                  outlierPolicy.ID(),
+//				PolicyId:                  outlierPolicy.ID().ToIDOutput().ToStringOutput(),
 //				Type:                      pulumi.String("outlier"),
 //				Name:                      pulumi.String("Outlier duration anomaly"),
 //				Description:               pulumi.String("Detect hosts with anomalous average duration"),
@@ -300,7 +300,7 @@ import (
 //			}
 //			fooNrqlAlertCondition, err := newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                   pulumi.String("12345678"),
-//				PolicyId:                    foo.ID(),
+//				PolicyId:                    foo.ID().ToIDOutput().ToStringOutput(),
 //				Type:                        pulumi.String("static"),
 //				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),

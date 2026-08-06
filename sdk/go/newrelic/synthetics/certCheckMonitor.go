@@ -94,7 +94,7 @@ import (
 //				Name:   pulumi.String("Sample Cert Check Monitor"),
 //				Domain: pulumi.String("www.one.example.com"),
 //				LocationsPrivates: pulumi.StringArray{
-//					foo.ID(),
+//					foo.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				CertificateExpiration: pulumi.Int(10),
 //				Period:                pulumi.String("EVERY_6_HOURS"),

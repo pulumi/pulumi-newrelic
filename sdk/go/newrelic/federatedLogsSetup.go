@@ -54,8 +54,8 @@ import (
 //				Storage: &newrelic.FederatedLogsSetupStorageArgs{
 //					DataLocationBucket:     pulumi.String("my-app-fed-logs"),
 //					Database:               pulumi.String("my_app_fed_logs_db"),
-//					DataIngestConnectionId: ingest.ID(),
-//					QueryConnectionId:      query.ID(),
+//					DataIngestConnectionId: ingest.ID().ToIDOutput().ToStringOutput(),
+//					QueryConnectionId:      query.ID().ToIDOutput().ToStringOutput(),
 //					CloudProviderConfiguration: &newrelic.FederatedLogsSetupStorageCloudProviderConfigurationArgs{
 //						Provider: pulumi.String("AWS"),
 //						Region:   pulumi.String("us-east-1"),

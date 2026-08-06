@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = cloud.NewAzureIntegrations(ctx, "foo", &cloud.AzureIntegrationsArgs{
-//				LinkedAccountId: foo.ID(),
+//				LinkedAccountId: foo.ID().ToIDOutput().ToStringOutput(),
 //				AccountId:       pulumi.String("The New Relic account ID"),
 //				ApiManagement: &cloud.AzureIntegrationsApiManagementArgs{
 //					MetricsPollingInterval: pulumi.Int(300),

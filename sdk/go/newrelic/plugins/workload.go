@@ -300,7 +300,7 @@ import (
 //			}
 //			_, err = newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
 //				AccountId:                 pulumi.String("12345678"),
-//				PolicyId:                  foo.ID(),
+//				PolicyId:                  foo.ID().ToIDOutput().ToStringOutput(),
 //				Type:                      pulumi.String("static"),
 //				Name:                      pulumi.String("foo"),
 //				Enabled:                   pulumi.Bool(true),

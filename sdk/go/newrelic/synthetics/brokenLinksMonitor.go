@@ -93,7 +93,7 @@ import (
 //				Name: pulumi.String("Sample Broken Links Monitor"),
 //				Uri:  pulumi.String("https://www.one.example.com"),
 //				LocationsPrivates: pulumi.StringArray{
-//					foo.ID(),
+//					foo.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Period: pulumi.String("EVERY_6_HOURS"),
 //				Status: pulumi.String("ENABLED"),

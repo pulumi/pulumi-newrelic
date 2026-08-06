@@ -155,7 +155,7 @@ import (
 //				Type:   pulumi.String("SCRIPT_API"),
 //				LocationPrivates: synthetics.ScriptMonitorLocationPrivateArray{
 //					&synthetics.ScriptMonitorLocationPrivateArgs{
-//						Guid:        location.ID(),
+//						Guid:        location.ID().ToIDOutput().ToStringOutput(),
 //						VsePassword: pulumi.String("secret"),
 //					},
 //				},
@@ -223,7 +223,7 @@ import (
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(false),
 //				LocationPrivates: synthetics.ScriptMonitorLocationPrivateArray{
 //					&synthetics.ScriptMonitorLocationPrivateArgs{
-//						Guid:        location.ID(),
+//						Guid:        location.ID().ToIDOutput().ToStringOutput(),
 //						VsePassword: pulumi.String("secret"),
 //					},
 //				},

@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewInfraAlertCondition(ctx, "high_disk_usage", &newrelic.InfraAlertConditionArgs{
-//				PolicyId:    foo.ID(),
+//				PolicyId:    foo.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("High disk usage"),
 //				Description: pulumi.String("Warning if disk usage goes above 80% and critical alert if goes above 90%"),
 //				Type:        pulumi.String("infra_metric"),
@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewInfraAlertCondition(ctx, "high_db_conn_count", &newrelic.InfraAlertConditionArgs{
-//				PolicyId:            foo.ID(),
+//				PolicyId:            foo.ID().ToIDOutput().ToStringOutput(),
 //				Name:                pulumi.String("High database connection count"),
 //				Description:         pulumi.String("Critical alert when the number of database connections goes above 90"),
 //				Type:                pulumi.String("infra_metric"),
@@ -79,7 +79,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewInfraAlertCondition(ctx, "process_not_running", &newrelic.InfraAlertConditionArgs{
-//				PolicyId:     foo.ID(),
+//				PolicyId:     foo.ID().ToIDOutput().ToStringOutput(),
 //				Name:         pulumi.String("Process not running (/usr/bin/ruby)"),
 //				Description:  pulumi.String("Critical alert when ruby isn't running"),
 //				Type:         pulumi.String("infra_process_running"),
@@ -95,7 +95,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewInfraAlertCondition(ctx, "host_not_reporting", &newrelic.InfraAlertConditionArgs{
-//				PolicyId:    foo.ID(),
+//				PolicyId:    foo.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Host not reporting"),
 //				Description: pulumi.String("Critical alert when the host is not reporting"),
 //				Type:        pulumi.String("infra_host_not_reporting"),
@@ -144,7 +144,7 @@ import (
 //				return err
 //			}
 //			fooInfraAlertCondition, err := newrelic.NewInfraAlertCondition(ctx, "foo", &newrelic.InfraAlertConditionArgs{
-//				PolicyId:    foo.ID(),
+//				PolicyId:    foo.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("foo infra condition"),
 //				Description: pulumi.String("Warning if disk usage goes above 80% and critical alert if goes above 90%"),
 //				Type:        pulumi.String("infra_metric"),

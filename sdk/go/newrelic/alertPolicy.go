@@ -85,8 +85,8 @@ import (
 //				Name:               pulumi.String("example-with-channels"),
 //				IncidentPreference: pulumi.String("PER_CONDITION"),
 //				ChannelIds: pulumi.StringArray{
-//					slackChannel.ID(),
-//					emailChannel.ID(),
+//					slackChannel.ID().ToIDOutput().ToStringOutput(),
+//					emailChannel.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

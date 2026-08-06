@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = cloud.NewGcpIntegrations(ctx, "foo1", &cloud.GcpIntegrationsArgs{
-//				LinkedAccountId: foo.ID(),
+//				LinkedAccountId: foo.ID().ToIDOutput().ToStringOutput(),
 //				AppEngine: &cloud.GcpIntegrationsAppEngineArgs{
 //					MetricsPollingInterval: pulumi.Int(300),
 //				},

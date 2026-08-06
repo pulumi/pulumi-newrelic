@@ -167,7 +167,7 @@ import (
 //				Uri:    pulumi.String("https://www.one.newrelic.com"),
 //				Type:   pulumi.String("SIMPLE"),
 //				LocationsPrivates: pulumi.StringArray{
-//					location.ID(),
+//					location.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				CustomHeaders: synthetics.MonitorCustomHeaderArray{
 //					&synthetics.MonitorCustomHeaderArgs{
@@ -225,7 +225,7 @@ import (
 //				Name:   pulumi.String("monitor"),
 //				Period: pulumi.String("EVERY_MINUTE"),
 //				LocationsPrivates: pulumi.StringArray{
-//					location.ID(),
+//					location.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
 //				ValidationString:                   pulumi.String("success"),
