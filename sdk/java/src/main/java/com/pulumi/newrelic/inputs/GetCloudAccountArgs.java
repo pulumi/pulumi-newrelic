@@ -48,14 +48,14 @@ public final class GetCloudAccountArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
      * 
      */
     @Import(name="isDimensionalMetrics")
     private @Nullable Output<Boolean> isDimensionalMetrics;
 
     /**
-     * @return Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+     * @return Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> isDimensionalMetrics() {
@@ -147,7 +147,7 @@ public final class GetCloudAccountArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param isDimensionalMetrics Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+         * @param isDimensionalMetrics Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class GetCloudAccountArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param isDimensionalMetrics Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
+         * @param isDimensionalMetrics Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `cloudProvider` is `&#34;gcp&#34;`. Defaults to `false`.
          * 
          * @return builder
          * 

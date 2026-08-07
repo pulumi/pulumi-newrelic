@@ -37,7 +37,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ### GCP Dimensional Metrics account lookup
         /// 
-        /// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `CloudProvider = "gcp"` and `IsDimensionalMetrics = true`. These accounts are stored internally under the `GcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `Gcp` provider.
+        /// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `CloudProvider = "gcp"` and `IsDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -87,7 +87,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ### GCP Dimensional Metrics account lookup
         /// 
-        /// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `CloudProvider = "gcp"` and `IsDimensionalMetrics = true`. These accounts are stored internally under the `GcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `Gcp` provider.
+        /// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `CloudProvider = "gcp"` and `IsDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -137,7 +137,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ### GCP Dimensional Metrics account lookup
         /// 
-        /// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `CloudProvider = "gcp"` and `IsDimensionalMetrics = true`. These accounts are stored internally under the `GcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `Gcp` provider.
+        /// To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `CloudProvider = "gcp"` and `IsDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -178,7 +178,7 @@ namespace Pulumi.NewRelic
         public string CloudProvider { get; set; } = null!;
 
         /// <summary>
-        /// Set to `True` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `GcpV2` provider slug. Can only be used when `CloudProvider` is `"gcp"`. Defaults to `False`.
+        /// Set to `True` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `CloudProvider` is `"gcp"`. Defaults to `False`.
         /// </summary>
         [Input("isDimensionalMetrics")]
         public bool? IsDimensionalMetrics { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.NewRelic
         public Input<string> CloudProvider { get; set; } = null!;
 
         /// <summary>
-        /// Set to `True` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `GcpV2` provider slug. Can only be used when `CloudProvider` is `"gcp"`. Defaults to `False`.
+        /// Set to `True` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `CloudProvider` is `"gcp"`. Defaults to `False`.
         /// </summary>
         [Input("isDimensionalMetrics")]
         public Input<bool>? IsDimensionalMetrics { get; set; }

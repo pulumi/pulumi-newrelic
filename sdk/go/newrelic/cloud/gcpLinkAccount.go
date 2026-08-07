@@ -58,7 +58,7 @@ import (
 //
 // ### GCP Dimensional Metrics (keyless / WIF) linking
 //
-// To link a GCP project for **GCP Dimensional Metrics** using keyless authentication via Workload Identity Federation (WIF) instead of a service-account key, set `useWorkloadIdentityFederation = true` and provide `audience` and `serviceAccountEmail`. When enabled, the resource authenticates via WIF and links the project under the Dimensional Metrics (`gcpV2`) provider. Use this linked account with the `cloud.GcpDmIntegrations` resource.
+// To link a GCP project for **GCP Dimensional Metrics** using keyless authentication via Workload Identity Federation (WIF) instead of a service-account key, set `useWorkloadIdentityFederation = true` and provide `audience` and `serviceAccountEmail`. When enabled, the resource authenticates via WIF and links the project as a Dimensional Metrics account. Use this linked account with the `cloud.GcpDmIntegrations` resource.
 //
 // ```go
 // package main

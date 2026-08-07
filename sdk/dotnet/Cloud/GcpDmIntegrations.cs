@@ -96,10 +96,6 @@ namespace Pulumi.NewRelic.Cloud
     ///         {
     ///             MetricsPollingInterval = 300,
     ///         },
-    ///         Kubernetes = new NewRelic.Cloud.Inputs.GcpDmIntegrationsKubernetesArgs
-    ///         {
-    ///             MetricsPollingInterval = 300,
-    ///         },
     ///         MemCache = new NewRelic.Cloud.Inputs.GcpDmIntegrationsMemCacheArgs
     ///         {
     ///             MetricsPollingInterval = 300,
@@ -153,6 +149,10 @@ namespace Pulumi.NewRelic.Cloud
     ///             MetricsPollingInterval = 60,
     ///         },
     ///         DataProc = new NewRelic.Cloud.Inputs.GcpDmIntegrationsDataProcArgs
+    ///         {
+    ///             MetricsPollingInterval = 60,
+    ///         },
+    ///         Kubernetes = new NewRelic.Cloud.Inputs.GcpDmIntegrationsKubernetesArgs
     ///         {
     ///             MetricsPollingInterval = 60,
     ///         },

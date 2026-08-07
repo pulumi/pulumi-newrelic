@@ -48,7 +48,7 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// ### GCP Dimensional Metrics (keyless / WIF) linking
     /// 
-    /// To link a GCP project for **GCP Dimensional Metrics** using keyless authentication via Workload Identity Federation (WIF) instead of a service-account key, set `UseWorkloadIdentityFederation = true` and provide `Audience` and `ServiceAccountEmail`. When enabled, the resource authenticates via WIF and links the project under the Dimensional Metrics (`GcpV2`) provider. Use this linked account with the `newrelic.cloud.GcpDmIntegrations` resource.
+    /// To link a GCP project for **GCP Dimensional Metrics** using keyless authentication via Workload Identity Federation (WIF) instead of a service-account key, set `UseWorkloadIdentityFederation = true` and provide `Audience` and `ServiceAccountEmail`. When enabled, the resource authenticates via WIF and links the project as a Dimensional Metrics account. Use this linked account with the `newrelic.cloud.GcpDmIntegrations` resource.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

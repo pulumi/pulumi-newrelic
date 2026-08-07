@@ -107,7 +107,7 @@ def get_cloud_account(account_id: Optional[_builtins.str] = None,
 
     ### GCP Dimensional Metrics account lookup
 
-    To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloud_provider = "gcp"` and `is_dimensional_metrics = true`. These accounts are stored internally under the `gcp_v2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+    To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloud_provider = "gcp"` and `is_dimensional_metrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
 
     ```python
     import pulumi
@@ -122,7 +122,7 @@ def get_cloud_account(account_id: Optional[_builtins.str] = None,
 
     :param _builtins.str account_id: The account ID in New Relic.
     :param _builtins.str cloud_provider: The cloud provider of the account (aws, gcp, azure, etc)
-    :param _builtins.bool is_dimensional_metrics: Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcp_v2` provider slug. Can only be used when `cloud_provider` is `"gcp"`. Defaults to `false`.
+    :param _builtins.bool is_dimensional_metrics: Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `cloud_provider` is `"gcp"`. Defaults to `false`.
     :param _builtins.str name: The cloud account name in New Relic.
     """
     __args__ = dict()
@@ -161,7 +161,7 @@ def get_cloud_account_output(account_id: pulumi.Input[Optional[Optional[_builtin
 
     ### GCP Dimensional Metrics account lookup
 
-    To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloud_provider = "gcp"` and `is_dimensional_metrics = true`. These accounts are stored internally under the `gcp_v2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+    To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloud_provider = "gcp"` and `is_dimensional_metrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
 
     ```python
     import pulumi
@@ -176,7 +176,7 @@ def get_cloud_account_output(account_id: pulumi.Input[Optional[Optional[_builtin
 
     :param _builtins.str account_id: The account ID in New Relic.
     :param _builtins.str cloud_provider: The cloud provider of the account (aws, gcp, azure, etc)
-    :param _builtins.bool is_dimensional_metrics: Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcp_v2` provider slug. Can only be used when `cloud_provider` is `"gcp"`. Defaults to `false`.
+    :param _builtins.bool is_dimensional_metrics: Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `cloud_provider` is `"gcp"`. Defaults to `false`.
     :param _builtins.str name: The cloud account name in New Relic.
     """
     __args__ = dict()

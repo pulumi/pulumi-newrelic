@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  *
  * ### GCP Dimensional Metrics account lookup
  *
- * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = "gcp"` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+ * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = "gcp"` and `isDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -60,7 +60,7 @@ export interface GetCloudAccountArgs {
      */
     cloudProvider: string;
     /**
-     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `"gcp"`. Defaults to `false`.
+     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `cloudProvider` is `"gcp"`. Defaults to `false`.
      */
     isDimensionalMetrics?: boolean;
     /**
@@ -101,7 +101,7 @@ export interface GetCloudAccountResult {
  *
  * ### GCP Dimensional Metrics account lookup
  *
- * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = "gcp"` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+ * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = "gcp"` and `isDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -138,7 +138,7 @@ export interface GetCloudAccountOutputArgs {
      */
     cloudProvider: pulumi.Input<string>;
     /**
-     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, which is stored internally under the `gcpV2` provider slug. Can only be used when `cloudProvider` is `"gcp"`. Defaults to `false`.
+     * Set to `true` to look up a GCP **Dimensional Metrics** (keyless / Workload Identity Federation) linked account, as opposed to a legacy GCP integration account of the same name. Can only be used when `cloudProvider` is `"gcp"`. Defaults to `false`.
      */
     isDimensionalMetrics?: pulumi.Input<boolean | undefined>;
     /**
