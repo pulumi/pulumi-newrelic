@@ -2112,7 +2112,7 @@ public final class NewrelicFunctions {
      * 
      * ### GCP Dimensional Metrics account lookup
      * 
-     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
      * 
      * <pre>
      * {@code
@@ -2193,7 +2193,7 @@ public final class NewrelicFunctions {
      * 
      * ### GCP Dimensional Metrics account lookup
      * 
-     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
      * 
      * <pre>
      * {@code
@@ -2274,7 +2274,7 @@ public final class NewrelicFunctions {
      * 
      * ### GCP Dimensional Metrics account lookup
      * 
-     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
      * 
      * <pre>
      * {@code
@@ -2355,7 +2355,7 @@ public final class NewrelicFunctions {
      * 
      * ### GCP Dimensional Metrics account lookup
      * 
-     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
      * 
      * <pre>
      * {@code
@@ -2436,7 +2436,7 @@ public final class NewrelicFunctions {
      * 
      * ### GCP Dimensional Metrics account lookup
      * 
-     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. These accounts are stored internally under the `gcpV2` provider slug, and this flag tells the data source to look them up there instead of under the legacy `gcp` provider.
+     * To look up a GCP account linked for **GCP Dimensional Metrics** (keyless / Workload Identity Federation), set `cloudProvider = &#34;gcp&#34;` and `isDimensionalMetrics = true`. This flag tells the data source to match only Dimensional Metrics linked accounts, distinguishing them from legacy GCP integration accounts of the same name.
      * 
      * <pre>
      * {@code

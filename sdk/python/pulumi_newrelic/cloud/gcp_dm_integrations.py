@@ -1295,9 +1295,6 @@ class GcpDmIntegrations(pulumi.CustomResource):
             istio={
                 "metrics_polling_interval": 300,
             },
-            kubernetes={
-                "metrics_polling_interval": 300,
-            },
             mem_cache={
                 "metrics_polling_interval": 300,
             },
@@ -1338,6 +1335,9 @@ class GcpDmIntegrations(pulumi.CustomResource):
                 "metrics_polling_interval": 60,
             },
             data_proc={
+                "metrics_polling_interval": 60,
+            },
+            kubernetes={
                 "metrics_polling_interval": 60,
             },
             load_balancing={
@@ -1476,9 +1476,6 @@ class GcpDmIntegrations(pulumi.CustomResource):
             istio={
                 "metrics_polling_interval": 300,
             },
-            kubernetes={
-                "metrics_polling_interval": 300,
-            },
             mem_cache={
                 "metrics_polling_interval": 300,
             },
@@ -1519,6 +1516,9 @@ class GcpDmIntegrations(pulumi.CustomResource):
                 "metrics_polling_interval": 60,
             },
             data_proc={
+                "metrics_polling_interval": 60,
+            },
+            kubernetes={
                 "metrics_polling_interval": 60,
             },
             load_balancing={

@@ -82,7 +82,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFunctionsArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsInterconnectArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsIstioArgs;
- * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsKubernetesArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsMemCacheArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsMemoryStoreArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsRedisArgs;
@@ -97,6 +96,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsBigQueryArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsDataFlowArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsDataProcArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsKubernetesArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsLoadBalancingArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsManagedKafkaArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsPubSubArgs;
@@ -169,9 +169,6 @@ import javax.annotation.Nullable;
  *             .istio(GcpDmIntegrationsIstioArgs.builder()
  *                 .metricsPollingInterval(300)
  *                 .build())
- *             .kubernetes(GcpDmIntegrationsKubernetesArgs.builder()
- *                 .metricsPollingInterval(300)
- *                 .build())
  *             .memCache(GcpDmIntegrationsMemCacheArgs.builder()
  *                 .metricsPollingInterval(300)
  *                 .build())
@@ -212,6 +209,9 @@ import javax.annotation.Nullable;
  *                 .metricsPollingInterval(60)
  *                 .build())
  *             .dataProc(GcpDmIntegrationsDataProcArgs.builder()
+ *                 .metricsPollingInterval(60)
+ *                 .build())
+ *             .kubernetes(GcpDmIntegrationsKubernetesArgs.builder()
  *                 .metricsPollingInterval(60)
  *                 .build())
  *             .loadBalancing(GcpDmIntegrationsLoadBalancingArgs.builder()

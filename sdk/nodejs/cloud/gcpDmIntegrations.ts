@@ -72,9 +72,6 @@ import * as utilities from "../utilities";
  *     istio: {
  *         metricsPollingInterval: 300,
  *     },
- *     kubernetes: {
- *         metricsPollingInterval: 300,
- *     },
  *     memCache: {
  *         metricsPollingInterval: 300,
  *     },
@@ -115,6 +112,9 @@ import * as utilities from "../utilities";
  *         metricsPollingInterval: 60,
  *     },
  *     dataProc: {
+ *         metricsPollingInterval: 60,
+ *     },
+ *     kubernetes: {
  *         metricsPollingInterval: 60,
  *     },
  *     loadBalancing: {

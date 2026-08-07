@@ -88,9 +88,6 @@ import (
 //				Istio: &cloud.GcpDmIntegrationsIstioArgs{
 //					MetricsPollingInterval: pulumi.Int(300),
 //				},
-//				Kubernetes: &cloud.GcpDmIntegrationsKubernetesArgs{
-//					MetricsPollingInterval: pulumi.Int(300),
-//				},
 //				MemCache: &cloud.GcpDmIntegrationsMemCacheArgs{
 //					MetricsPollingInterval: pulumi.Int(300),
 //				},
@@ -131,6 +128,9 @@ import (
 //					MetricsPollingInterval: pulumi.Int(60),
 //				},
 //				DataProc: &cloud.GcpDmIntegrationsDataProcArgs{
+//					MetricsPollingInterval: pulumi.Int(60),
+//				},
+//				Kubernetes: &cloud.GcpDmIntegrationsKubernetesArgs{
 //					MetricsPollingInterval: pulumi.Int(60),
 //				},
 //				LoadBalancing: &cloud.GcpDmIntegrationsLoadBalancingArgs{
