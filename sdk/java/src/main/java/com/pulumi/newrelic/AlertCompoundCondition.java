@@ -371,6 +371,20 @@ public class AlertCompoundCondition extends com.pulumi.resources.CustomResource 
         return this.componentConditions;
     }
     /**
+     * **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+     * 
+     */
+    @Export(name="description", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> description;
+
+    /**
+     * @return **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+     * 
+     */
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
+    }
+    /**
      * Whether or not the compound alert condition is enabled. Defaults to `true`.
      * 
      */
@@ -471,6 +485,20 @@ public class AlertCompoundCondition extends com.pulumi.resources.CustomResource 
      */
     public Output<Integer> thresholdDuration() {
         return this.thresholdDuration;
+    }
+    /**
+     * **BETA PREVIEW: the `titleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+     * 
+     */
+    @Export(name="titleTemplate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> titleTemplate;
+
+    /**
+     * @return **BETA PREVIEW: the `titleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+     * 
+     */
+    public Output<Optional<String>> titleTemplate() {
+        return Codegen.optional(this.titleTemplate);
     }
     /**
      * Expression that defines how component condition evaluations are combined. Valid operators are &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39;. For more complex expressions, use parentheses. Use the aliases from `componentConditions` to build expressions like `&#34;A AND B&#34;`, `&#34;A OR B&#34;`, `&#34;(A AND B) OR C&#34;`, or `&#34;A AND (B OR C) AND NOT (D AND E)&#34;`.

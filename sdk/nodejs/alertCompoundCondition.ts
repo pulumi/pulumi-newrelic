@@ -274,6 +274,10 @@ export class AlertCompoundCondition extends pulumi.CustomResource {
      */
     declare public readonly componentConditions: pulumi.Output<outputs.AlertCompoundConditionComponentCondition[]>;
     /**
+     * **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+     */
+    declare public readonly description: pulumi.Output<string | undefined>;
+    /**
      * Whether or not the compound alert condition is enabled. Defaults to `true`.
      */
     declare public readonly enabled: pulumi.Output<boolean>;
@@ -304,6 +308,10 @@ export class AlertCompoundCondition extends pulumi.CustomResource {
      */
     declare public readonly thresholdDuration: pulumi.Output<number>;
     /**
+     * **BETA PREVIEW: the `titleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+     */
+    declare public readonly titleTemplate: pulumi.Output<string | undefined>;
+    /**
      * Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `componentConditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
      */
     declare public readonly triggerExpression: pulumi.Output<string>;
@@ -323,6 +331,7 @@ export class AlertCompoundCondition extends pulumi.CustomResource {
             const state = argsOrState as AlertCompoundConditionState | undefined;
             resourceInputs["accountId"] = state?.accountId;
             resourceInputs["componentConditions"] = state?.componentConditions;
+            resourceInputs["description"] = state?.description;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["entityGuid"] = state?.entityGuid;
             resourceInputs["facetMatchingBehavior"] = state?.facetMatchingBehavior;
@@ -330,6 +339,7 @@ export class AlertCompoundCondition extends pulumi.CustomResource {
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["runbookUrl"] = state?.runbookUrl;
             resourceInputs["thresholdDuration"] = state?.thresholdDuration;
+            resourceInputs["titleTemplate"] = state?.titleTemplate;
             resourceInputs["triggerExpression"] = state?.triggerExpression;
         } else {
             const args = argsOrState as AlertCompoundConditionArgs | undefined;
@@ -347,12 +357,14 @@ export class AlertCompoundCondition extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args?.accountId;
             resourceInputs["componentConditions"] = args?.componentConditions;
+            resourceInputs["description"] = args?.description;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["facetMatchingBehavior"] = args?.facetMatchingBehavior;
             resourceInputs["name"] = args?.name;
             resourceInputs["policyId"] = args?.policyId;
             resourceInputs["runbookUrl"] = args?.runbookUrl;
             resourceInputs["thresholdDuration"] = args?.thresholdDuration;
+            resourceInputs["titleTemplate"] = args?.titleTemplate;
             resourceInputs["triggerExpression"] = args?.triggerExpression;
             resourceInputs["entityGuid"] = undefined /*out*/;
         }
@@ -373,6 +385,10 @@ export interface AlertCompoundConditionState {
      * The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
      */
     componentConditions?: pulumi.Input<pulumi.Input<inputs.AlertCompoundConditionComponentCondition>[] | undefined>;
+    /**
+     * **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+     */
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether or not the compound alert condition is enabled. Defaults to `true`.
      */
@@ -404,6 +420,10 @@ export interface AlertCompoundConditionState {
      */
     thresholdDuration?: pulumi.Input<number | undefined>;
     /**
+     * **BETA PREVIEW: the `titleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+     */
+    titleTemplate?: pulumi.Input<string | undefined>;
+    /**
      * Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `componentConditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
      */
     triggerExpression?: pulumi.Input<string | undefined>;
@@ -421,6 +441,10 @@ export interface AlertCompoundConditionArgs {
      * The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
      */
     componentConditions: pulumi.Input<pulumi.Input<inputs.AlertCompoundConditionComponentCondition>[]>;
+    /**
+     * **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+     */
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether or not the compound alert condition is enabled. Defaults to `true`.
      */
@@ -447,6 +471,10 @@ export interface AlertCompoundConditionArgs {
      * The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
      */
     thresholdDuration?: pulumi.Input<number | undefined>;
+    /**
+     * **BETA PREVIEW: the `titleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+     */
+    titleTemplate?: pulumi.Input<string | undefined>;
     /**
      * Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `componentConditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
      */
