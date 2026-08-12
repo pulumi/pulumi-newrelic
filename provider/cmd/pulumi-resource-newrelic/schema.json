@@ -13441,6 +13441,10 @@
                     },
                     "description": "The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.\n"
                 },
+                "description": {
+                    "type": "string",
+                    "description": "**BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`description`\" pulumi-lang-dotnet=\"`Description`\" pulumi-lang-go=\"`description`\" pulumi-lang-python=\"`description`\" pulumi-lang-yaml=\"`description`\" pulumi-lang-java=\"`description`\" pulumi-lang-hcl=\"`description`\"\u003e`description`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.\n"
+                },
                 "enabled": {
                     "type": "boolean",
                     "description": "Whether or not the compound alert condition is enabled. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
@@ -13468,6 +13472,10 @@
                 "thresholdDuration": {
                     "type": "integer",
                     "description": "The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.\n"
+                },
+                "titleTemplate": {
+                    "type": "string",
+                    "description": "**BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`titleTemplate`\" pulumi-lang-dotnet=\"`TitleTemplate`\" pulumi-lang-go=\"`titleTemplate`\" pulumi-lang-python=\"`title_template`\" pulumi-lang-yaml=\"`titleTemplate`\" pulumi-lang-java=\"`titleTemplate`\" pulumi-lang-hcl=\"`title_template`\"\u003e`titleTemplate`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).\n"
                 },
                 "triggerExpression": {
                     "type": "string",
@@ -13497,6 +13505,10 @@
                     },
                     "description": "The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.\n"
                 },
+                "description": {
+                    "type": "string",
+                    "description": "**BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`description`\" pulumi-lang-dotnet=\"`Description`\" pulumi-lang-go=\"`description`\" pulumi-lang-python=\"`description`\" pulumi-lang-yaml=\"`description`\" pulumi-lang-java=\"`description`\" pulumi-lang-hcl=\"`description`\"\u003e`description`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.\n"
+                },
                 "enabled": {
                     "type": "boolean",
                     "description": "Whether or not the compound alert condition is enabled. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
@@ -13520,6 +13532,10 @@
                 "thresholdDuration": {
                     "type": "integer",
                     "description": "The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.\n"
+                },
+                "titleTemplate": {
+                    "type": "string",
+                    "description": "**BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`titleTemplate`\" pulumi-lang-dotnet=\"`TitleTemplate`\" pulumi-lang-go=\"`titleTemplate`\" pulumi-lang-python=\"`title_template`\" pulumi-lang-yaml=\"`titleTemplate`\" pulumi-lang-java=\"`titleTemplate`\" pulumi-lang-hcl=\"`title_template`\"\u003e`titleTemplate`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).\n"
                 },
                 "triggerExpression": {
                     "type": "string",
@@ -13545,6 +13561,10 @@
                             "$ref": "#/types/newrelic:index/AlertCompoundConditionComponentCondition:AlertCompoundConditionComponentCondition"
                         },
                         "description": "The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "**BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`description`\" pulumi-lang-dotnet=\"`Description`\" pulumi-lang-go=\"`description`\" pulumi-lang-python=\"`description`\" pulumi-lang-yaml=\"`description`\" pulumi-lang-java=\"`description`\" pulumi-lang-hcl=\"`description`\"\u003e`description`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.\n"
                     },
                     "enabled": {
                         "type": "boolean",
@@ -13573,6 +13593,10 @@
                     "thresholdDuration": {
                         "type": "integer",
                         "description": "The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.\n"
+                    },
+                    "titleTemplate": {
+                        "type": "string",
+                        "description": "**BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`titleTemplate`\" pulumi-lang-dotnet=\"`TitleTemplate`\" pulumi-lang-go=\"`titleTemplate`\" pulumi-lang-python=\"`title_template`\" pulumi-lang-yaml=\"`titleTemplate`\" pulumi-lang-java=\"`titleTemplate`\" pulumi-lang-hcl=\"`title_template`\"\u003e`titleTemplate`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).\n"
                     },
                     "triggerExpression": {
                         "type": "string",
