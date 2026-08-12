@@ -26,10 +26,12 @@ class AlertCompoundConditionArgs:
                  policy_id: pulumi.Input[_builtins.str],
                  trigger_expression: pulumi.Input[_builtins.str],
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 threshold_duration: pulumi.Input[Optional[_builtins.int]] = None):
+                 threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 title_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertCompoundCondition resource.
 
@@ -38,12 +40,14 @@ class AlertCompoundConditionArgs:
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this alert compound condition should be used.
         :param pulumi.Input[_builtins.str] trigger_expression: Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `component_conditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[_builtins.str] description: **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
         :param pulumi.Input[_builtins.str] facet_matching_behavior: How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
                - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
                - `FACETS_MATCH` - The compound alert condition will activate only when shared facets have matching values
         :param pulumi.Input[_builtins.str] name: The title of the compound alert condition.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.int] threshold_duration: The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
+        :param pulumi.Input[_builtins.str] title_template: **BETA PREVIEW: the `title_template` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
         """
         pulumi.set(__self__, "component_conditions", component_conditions)
         pulumi.set(__self__, "enabled", enabled)
@@ -51,6 +55,8 @@ class AlertCompoundConditionArgs:
         pulumi.set(__self__, "trigger_expression", trigger_expression)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if facet_matching_behavior is not None:
             pulumi.set(__self__, "facet_matching_behavior", facet_matching_behavior)
         if name is not None:
@@ -59,6 +65,8 @@ class AlertCompoundConditionArgs:
             pulumi.set(__self__, "runbook_url", runbook_url)
         if threshold_duration is not None:
             pulumi.set(__self__, "threshold_duration", threshold_duration)
+        if title_template is not None:
+            pulumi.set(__self__, "title_template", title_template)
 
     @_builtins.property
     @pulumi.getter(name="componentConditions")
@@ -121,6 +129,18 @@ class AlertCompoundConditionArgs:
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
     @pulumi.getter(name="facetMatchingBehavior")
     def facet_matching_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -170,12 +190,25 @@ class AlertCompoundConditionArgs:
     def threshold_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold_duration", value)
 
+    @_builtins.property
+    @pulumi.getter(name="titleTemplate")
+    def title_template(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **BETA PREVIEW: the `title_template` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+        """
+        return pulumi.get(self, "title_template")
+
+    @title_template.setter
+    def title_template(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title_template", value)
+
 
 @pulumi.input_type
 class _AlertCompoundConditionState:
     def __init__(__self__, *,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
                  facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
@@ -183,12 +216,14 @@ class _AlertCompoundConditionState:
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
                  threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 title_template: pulumi.Input[Optional[_builtins.str]] = None,
                  trigger_expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertCompoundCondition resources.
 
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
+        :param pulumi.Input[_builtins.str] description: **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the compound alert condition is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the compound alert condition in New Relic.
         :param pulumi.Input[_builtins.str] facet_matching_behavior: How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
@@ -198,12 +233,15 @@ class _AlertCompoundConditionState:
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this alert compound condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.int] threshold_duration: The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
+        :param pulumi.Input[_builtins.str] title_template: **BETA PREVIEW: the `title_template` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
         :param pulumi.Input[_builtins.str] trigger_expression: Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `component_conditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if component_conditions is not None:
             pulumi.set(__self__, "component_conditions", component_conditions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if entity_guid is not None:
@@ -218,6 +256,8 @@ class _AlertCompoundConditionState:
             pulumi.set(__self__, "runbook_url", runbook_url)
         if threshold_duration is not None:
             pulumi.set(__self__, "threshold_duration", threshold_duration)
+        if title_template is not None:
+            pulumi.set(__self__, "title_template", title_template)
         if trigger_expression is not None:
             pulumi.set(__self__, "trigger_expression", trigger_expression)
 
@@ -244,6 +284,18 @@ class _AlertCompoundConditionState:
     @component_conditions.setter
     def component_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]]]):
         pulumi.set(self, "component_conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
@@ -332,6 +384,18 @@ class _AlertCompoundConditionState:
         pulumi.set(self, "threshold_duration", value)
 
     @_builtins.property
+    @pulumi.getter(name="titleTemplate")
+    def title_template(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **BETA PREVIEW: the `title_template` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+        """
+        return pulumi.get(self, "title_template")
+
+    @title_template.setter
+    def title_template(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title_template", value)
+
+    @_builtins.property
     @pulumi.getter(name="triggerExpression")
     def trigger_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -352,12 +416,14 @@ class AlertCompoundCondition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
                  threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 title_template: pulumi.Input[Optional[_builtins.str]] = None,
                  trigger_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -586,6 +652,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
+        :param pulumi.Input[_builtins.str] description: **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the compound alert condition is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] facet_matching_behavior: How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
                - `FACETS_IGNORED` - (Default) Facets are not taken into consideration when determining when the compound alert condition activates
@@ -594,6 +661,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this alert compound condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.int] threshold_duration: The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
+        :param pulumi.Input[_builtins.str] title_template: **BETA PREVIEW: the `title_template` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
         :param pulumi.Input[_builtins.str] trigger_expression: Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `component_conditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
         """
         ...
@@ -841,12 +909,14 @@ class AlertCompoundCondition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
                  threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 title_template: pulumi.Input[Optional[_builtins.str]] = None,
                  trigger_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -861,6 +931,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             if component_conditions is None and not opts.urn:
                 raise TypeError("Missing required property 'component_conditions'")
             __props__.__dict__["component_conditions"] = component_conditions
+            __props__.__dict__["description"] = description
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
@@ -871,6 +942,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["runbook_url"] = runbook_url
             __props__.__dict__["threshold_duration"] = threshold_duration
+            __props__.__dict__["title_template"] = title_template
             if trigger_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_expression'")
             __props__.__dict__["trigger_expression"] = trigger_expression
@@ -887,6 +959,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
             facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
@@ -894,6 +967,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
             threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            title_template: pulumi.Input[Optional[_builtins.str]] = None,
             trigger_expression: pulumi.Input[Optional[_builtins.str]] = None) -> 'AlertCompoundCondition':
         """
         Get an existing AlertCompoundCondition resource's state with the given name, id, and optional extra
@@ -904,6 +978,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
+        :param pulumi.Input[_builtins.str] description: **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the compound alert condition is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the compound alert condition in New Relic.
         :param pulumi.Input[_builtins.str] facet_matching_behavior: How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
@@ -913,6 +988,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this alert compound condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.int] threshold_duration: The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
+        :param pulumi.Input[_builtins.str] title_template: **BETA PREVIEW: the `title_template` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
         :param pulumi.Input[_builtins.str] trigger_expression: Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `component_conditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -921,6 +997,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
 
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["component_conditions"] = component_conditions
+        __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["entity_guid"] = entity_guid
         __props__.__dict__["facet_matching_behavior"] = facet_matching_behavior
@@ -928,6 +1005,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["runbook_url"] = runbook_url
         __props__.__dict__["threshold_duration"] = threshold_duration
+        __props__.__dict__["title_template"] = title_template
         __props__.__dict__["trigger_expression"] = trigger_expression
         return AlertCompoundCondition(resource_name, opts=opts, __props__=__props__)
 
@@ -946,6 +1024,14 @@ class AlertCompoundCondition(pulumi.CustomResource):
         The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
         """
         return pulumi.get(self, "component_conditions")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+        """
+        return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
@@ -1004,6 +1090,14 @@ class AlertCompoundCondition(pulumi.CustomResource):
         The duration, in seconds, that the trigger expression must be true before the compound alert condition will activate. Between 30-86400 seconds.
         """
         return pulumi.get(self, "threshold_duration")
+
+    @_builtins.property
+    @pulumi.getter(name="titleTemplate")
+    def title_template(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **BETA PREVIEW: the `title_template` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+        """
+        return pulumi.get(self, "title_template")
 
     @_builtins.property
     @pulumi.getter(name="triggerExpression")

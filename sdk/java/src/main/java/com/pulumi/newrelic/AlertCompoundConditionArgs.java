@@ -51,6 +51,21 @@ public final class AlertCompoundConditionArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Whether or not the compound alert condition is enabled. Defaults to `true`.
      * 
      */
@@ -145,6 +160,21 @@ public final class AlertCompoundConditionArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * **BETA PREVIEW: the `titleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+     * 
+     */
+    @Import(name="titleTemplate")
+    private @Nullable Output<String> titleTemplate;
+
+    /**
+     * @return **BETA PREVIEW: the `titleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+     * 
+     */
+    public Optional<Output<String>> titleTemplate() {
+        return Optional.ofNullable(this.titleTemplate);
+    }
+
+    /**
      * Expression that defines how component condition evaluations are combined. Valid operators are &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39;. For more complex expressions, use parentheses. Use the aliases from `componentConditions` to build expressions like `&#34;A AND B&#34;`, `&#34;A OR B&#34;`, `&#34;(A AND B) OR C&#34;`, or `&#34;A AND (B OR C) AND NOT (D AND E)&#34;`.
      * 
      */
@@ -164,12 +194,14 @@ public final class AlertCompoundConditionArgs extends com.pulumi.resources.Resou
     private AlertCompoundConditionArgs(AlertCompoundConditionArgs $) {
         this.accountId = $.accountId;
         this.componentConditions = $.componentConditions;
+        this.description = $.description;
         this.enabled = $.enabled;
         this.facetMatchingBehavior = $.facetMatchingBehavior;
         this.name = $.name;
         this.policyId = $.policyId;
         this.runbookUrl = $.runbookUrl;
         this.thresholdDuration = $.thresholdDuration;
+        this.titleTemplate = $.titleTemplate;
         this.triggerExpression = $.triggerExpression;
     }
 
@@ -241,6 +273,27 @@ public final class AlertCompoundConditionArgs extends com.pulumi.resources.Resou
          */
         public Builder componentConditions(AlertCompoundConditionComponentConditionArgs... componentConditions) {
             return componentConditions(List.of(componentConditions));
+        }
+
+        /**
+         * @param description **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**
@@ -371,6 +424,27 @@ public final class AlertCompoundConditionArgs extends com.pulumi.resources.Resou
          */
         public Builder thresholdDuration(Integer thresholdDuration) {
             return thresholdDuration(Output.of(thresholdDuration));
+        }
+
+        /**
+         * @param titleTemplate **BETA PREVIEW: the `titleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleTemplate(@Nullable Output<String> titleTemplate) {
+            $.titleTemplate = titleTemplate;
+            return this;
+        }
+
+        /**
+         * @param titleTemplate **BETA PREVIEW: the `titleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleTemplate(String titleTemplate) {
+            return titleTemplate(Output.of(titleTemplate));
         }
 
         /**

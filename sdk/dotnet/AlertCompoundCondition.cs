@@ -319,6 +319,12 @@ namespace Pulumi.NewRelic
         public Output<ImmutableArray<Outputs.AlertCompoundConditionComponentCondition>> ComponentConditions { get; private set; } = null!;
 
         /// <summary>
+        /// **BETA PREVIEW: the `Description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Whether or not the compound alert condition is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
@@ -361,6 +367,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("thresholdDuration")]
         public Output<int> ThresholdDuration { get; private set; } = null!;
+
+        /// <summary>
+        /// **BETA PREVIEW: the `TitleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+        /// </summary>
+        [Output("titleTemplate")]
+        public Output<string?> TitleTemplate { get; private set; } = null!;
 
         /// <summary>
         /// Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `ComponentConditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
@@ -433,6 +445,12 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
+        /// **BETA PREVIEW: the `Description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Whether or not the compound alert condition is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled", required: true)]
@@ -471,6 +489,12 @@ namespace Pulumi.NewRelic
         public Input<int>? ThresholdDuration { get; set; }
 
         /// <summary>
+        /// **BETA PREVIEW: the `TitleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+        /// </summary>
+        [Input("titleTemplate")]
+        public Input<string>? TitleTemplate { get; set; }
+
+        /// <summary>
         /// Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `ComponentConditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
         /// </summary>
         [Input("triggerExpression", required: true)]
@@ -501,6 +525,12 @@ namespace Pulumi.NewRelic
             get => _componentConditions ?? (_componentConditions = new InputList<Inputs.AlertCompoundConditionComponentConditionGetArgs>());
             set => _componentConditions = value;
         }
+
+        /// <summary>
+        /// **BETA PREVIEW: the `Description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// Whether or not the compound alert condition is enabled. Defaults to `True`.
@@ -545,6 +575,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("thresholdDuration")]
         public Input<int>? ThresholdDuration { get; set; }
+
+        /// <summary>
+        /// **BETA PREVIEW: the `TitleTemplate` field is in limited release and only enabled for preview on a per-account basis.** This field allows you to create a custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars format](https://handlebarsjs.com/guide/).
+        /// </summary>
+        [Input("titleTemplate")]
+        public Input<string>? TitleTemplate { get; set; }
 
         /// <summary>
         /// Expression that defines how component condition evaluations are combined. Valid operators are 'AND', 'OR', 'NOT'. For more complex expressions, use parentheses. Use the aliases from `ComponentConditions` to build expressions like `"A AND B"`, `"A OR B"`, `"(A AND B) OR C"`, or `"A AND (B OR C) AND NOT (D AND E)"`.
