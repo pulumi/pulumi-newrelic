@@ -81,7 +81,9 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** We support all properties. The mentioned properties are just an example.
  * 
- * #### [WORKFLOW_AUTOMATION]
+ * #### WORKFLOW_AUTOMATION
+ * 
+ * &gt; **NOTE:** For `WORKFLOW_AUTOMATION` destinations, all authentication is handled through `authCustomHeader` — no property values are needed. The `property` block &lt;u&gt;must&lt;/u&gt; still be included because the provider requires it for all destination types; use empty strings for both `key` and `value` as shown.
  * 
  * <pre>
  * {@code
@@ -564,14 +566,14 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.authBasic);
     }
     /**
-     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
      * 
      */
     @Export(name="authCustomHeaders", refs={List.class,NotificationDestinationAuthCustomHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationDestinationAuthCustomHeader>> authCustomHeaders;
 
     /**
-     * @return A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+     * @return A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
      * 
      */
     public Output<Optional<List<NotificationDestinationAuthCustomHeader>>> authCustomHeaders() {
@@ -635,7 +637,6 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
     }
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
-     * *
      * 
      */
     @Export(name="properties", refs={List.class,NotificationDestinationProperty.class}, tree="[0,1]")
@@ -643,7 +644,6 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
 
     /**
      * @return A nested block that describes a notification destination property. See Nested property blocks below for details.
-     * *
      * 
      */
     public Output<List<NotificationDestinationProperty>> properties() {

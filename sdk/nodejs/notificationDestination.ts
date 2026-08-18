@@ -40,7 +40,9 @@ import * as utilities from "./utilities";
  *
  * > **NOTE:** We support all properties. The mentioned properties are just an example.
  *
- * #### [WORKFLOW_AUTOMATION]
+ * #### WORKFLOW_AUTOMATION
+ *
+ * > **NOTE:** For `WORKFLOW_AUTOMATION` destinations, all authentication is handled through `authCustomHeader` — no property values are needed. The `property` block <u>must</u> still be included because the provider requires it for all destination types; use empty strings for both `key` and `value` as shown.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -287,7 +289,7 @@ export class NotificationDestination extends pulumi.CustomResource {
      */
     declare public readonly authBasic: pulumi.Output<outputs.NotificationDestinationAuthBasic | undefined>;
     /**
-     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
      */
     declare public readonly authCustomHeaders: pulumi.Output<outputs.NotificationDestinationAuthCustomHeader[] | undefined>;
     /**
@@ -308,7 +310,6 @@ export class NotificationDestination extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
-     * *
      */
     declare public readonly properties: pulumi.Output<outputs.NotificationDestinationProperty[]>;
     /**
@@ -398,7 +399,7 @@ export interface NotificationDestinationState {
      */
     authBasic?: pulumi.Input<inputs.NotificationDestinationAuthBasic | undefined>;
     /**
-     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
      */
     authCustomHeaders?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationAuthCustomHeader>[] | undefined>;
     /**
@@ -419,7 +420,6 @@ export interface NotificationDestinationState {
     name?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
-     * *
      */
     properties?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[] | undefined>;
     /**
@@ -457,7 +457,7 @@ export interface NotificationDestinationArgs {
      */
     authBasic?: pulumi.Input<inputs.NotificationDestinationAuthBasic | undefined>;
     /**
-     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
      */
     authCustomHeaders?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationAuthCustomHeader>[] | undefined>;
     /**
@@ -470,7 +470,6 @@ export interface NotificationDestinationArgs {
     name?: pulumi.Input<string | undefined>;
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
-     * *
      */
     properties: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[]>;
     /**

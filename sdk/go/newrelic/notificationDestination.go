@@ -64,7 +64,9 @@ import (
 //
 // > **NOTE:** We support all properties. The mentioned properties are just an example.
 //
-// #### [WORKFLOW_AUTOMATION]
+// #### WORKFLOW_AUTOMATION
+//
+// > **NOTE:** For `WORKFLOW_AUTOMATION` destinations, all authentication is handled through `authCustomHeader` — no property values are needed. The `property` block <u>must</u> still be included because the provider requires it for all destination types; use empty strings for both `key` and `value` as shown.
 //
 // ```go
 // package main
@@ -444,7 +446,7 @@ type NotificationDestination struct {
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic NotificationDestinationAuthBasicPtrOutput `pulumi:"authBasic"`
-	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders NotificationDestinationAuthCustomHeaderArrayOutput `pulumi:"authCustomHeaders"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrOutput `pulumi:"authToken"`
@@ -455,7 +457,6 @@ type NotificationDestination struct {
 	// The name of the destination.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
-	// *
 	Properties NotificationDestinationPropertyArrayOutput `pulumi:"properties"`
 	// Scope of the destination
 	Scope NotificationDestinationScopeOutput `pulumi:"scope"`
@@ -509,7 +510,7 @@ type notificationDestinationState struct {
 	Active *bool `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic *NotificationDestinationAuthBasic `pulumi:"authBasic"`
-	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders []NotificationDestinationAuthCustomHeader `pulumi:"authCustomHeaders"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken *NotificationDestinationAuthToken `pulumi:"authToken"`
@@ -520,7 +521,6 @@ type notificationDestinationState struct {
 	// The name of the destination.
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
-	// *
 	Properties []NotificationDestinationProperty `pulumi:"properties"`
 	// Scope of the destination
 	Scope *NotificationDestinationScope `pulumi:"scope"`
@@ -539,7 +539,7 @@ type NotificationDestinationState struct {
 	Active pulumi.BoolPtrInput
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic NotificationDestinationAuthBasicPtrInput
-	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders NotificationDestinationAuthCustomHeaderArrayInput
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrInput
@@ -550,7 +550,6 @@ type NotificationDestinationState struct {
 	// The name of the destination.
 	Name pulumi.StringPtrInput
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
-	// *
 	Properties NotificationDestinationPropertyArrayInput
 	// Scope of the destination
 	Scope NotificationDestinationScopePtrInput
@@ -573,14 +572,13 @@ type notificationDestinationArgs struct {
 	Active *bool `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic *NotificationDestinationAuthBasic `pulumi:"authBasic"`
-	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders []NotificationDestinationAuthCustomHeader `pulumi:"authCustomHeaders"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken *NotificationDestinationAuthToken `pulumi:"authToken"`
 	// The name of the destination.
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
-	// *
 	Properties []NotificationDestinationProperty `pulumi:"properties"`
 	// Scope of the destination
 	Scope *NotificationDestinationScope `pulumi:"scope"`
@@ -598,14 +596,13 @@ type NotificationDestinationArgs struct {
 	Active pulumi.BoolPtrInput
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic NotificationDestinationAuthBasicPtrInput
-	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders NotificationDestinationAuthCustomHeaderArrayInput
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrInput
 	// The name of the destination.
 	Name pulumi.StringPtrInput
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
-	// *
 	Properties NotificationDestinationPropertyArrayInput
 	// Scope of the destination
 	Scope NotificationDestinationScopePtrInput
@@ -717,7 +714,7 @@ func (o NotificationDestinationOutput) AuthBasic() NotificationDestinationAuthBa
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationAuthBasicPtrOutput { return v.AuthBasic }).(NotificationDestinationAuthBasicPtrOutput)
 }
 
-// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested authCustomHeader blocks below for details.
 func (o NotificationDestinationOutput) AuthCustomHeaders() NotificationDestinationAuthCustomHeaderArrayOutput {
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationAuthCustomHeaderArrayOutput {
 		return v.AuthCustomHeaders
@@ -745,7 +742,6 @@ func (o NotificationDestinationOutput) Name() pulumi.StringOutput {
 }
 
 // A nested block that describes a notification destination property. See Nested property blocks below for details.
-// *
 func (o NotificationDestinationOutput) Properties() NotificationDestinationPropertyArrayOutput {
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationPropertyArrayOutput { return v.Properties }).(NotificationDestinationPropertyArrayOutput)
 }

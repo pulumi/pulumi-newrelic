@@ -59,7 +59,9 @@ namespace Pulumi.NewRelic
     /// 
     /// &gt; **NOTE:** We support all properties. The mentioned properties are just an example.
     /// 
-    /// #### [WORKFLOW_AUTOMATION]
+    /// #### WORKFLOW_AUTOMATION
+    /// 
+    /// &gt; **NOTE:** For `WORKFLOW_AUTOMATION` destinations, all authentication is handled through `AuthCustomHeader` — no property values are needed. The `Property` block &lt;u&gt;must&lt;/u&gt; still be included because the provider requires it for all destination types; use empty strings for both `Key` and `Value` as shown.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -398,7 +400,7 @@ namespace Pulumi.NewRelic
         public Output<Outputs.NotificationDestinationAuthBasic?> AuthBasic { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested AuthCustomHeader blocks below for details.
+        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested AuthCustomHeader blocks below for details.
         /// </summary>
         [Output("authCustomHeaders")]
         public Output<ImmutableArray<Outputs.NotificationDestinationAuthCustomHeader>> AuthCustomHeaders { get; private set; } = null!;
@@ -429,7 +431,6 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// A nested block that describes a notification destination property. See Nested property blocks below for details.
-        /// *
         /// </summary>
         [Output("properties")]
         public Output<ImmutableArray<Outputs.NotificationDestinationProperty>> Properties { get; private set; } = null!;
@@ -526,7 +527,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationDestinationAuthCustomHeaderArgs>? _authCustomHeaders;
 
         /// <summary>
-        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested AuthCustomHeader blocks below for details.
+        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested AuthCustomHeader blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationDestinationAuthCustomHeaderArgs> AuthCustomHeaders
         {
@@ -551,7 +552,6 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// A nested block that describes a notification destination property. See Nested property blocks below for details.
-        /// *
         /// </summary>
         public InputList<Inputs.NotificationDestinationPropertyArgs> Properties
         {
@@ -607,7 +607,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationDestinationAuthCustomHeaderGetArgs>? _authCustomHeaders;
 
         /// <summary>
-        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested AuthCustomHeader blocks below for details.
+        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested AuthCustomHeader blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationDestinationAuthCustomHeaderGetArgs> AuthCustomHeaders
         {
@@ -644,7 +644,6 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// A nested block that describes a notification destination property. See Nested property blocks below for details.
-        /// *
         /// </summary>
         public InputList<Inputs.NotificationDestinationPropertyGetArgs> Properties
         {
