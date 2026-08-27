@@ -208,12 +208,8 @@ type GetEntityResult struct {
 }
 
 func GetEntityOutput(ctx *pulumi.Context, args GetEntityOutputArgs, opts ...pulumi.InvokeOption) GetEntityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEntityResultOutput, error) {
-			args := v.(GetEntityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("newrelic:index/getEntity:getEntity", args, GetEntityResultOutput{}, options).(GetEntityResultOutput), nil
-		}).(GetEntityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("newrelic:index/getEntity:getEntity", args, GetEntityResultOutput{}, options).(GetEntityResultOutput)
 }
 
 // A collection of arguments for invoking getEntity.

@@ -229,12 +229,8 @@ type GetServiceLevelAlertHelperResult struct {
 }
 
 func GetServiceLevelAlertHelperOutput(ctx *pulumi.Context, args GetServiceLevelAlertHelperOutputArgs, opts ...pulumi.InvokeOption) GetServiceLevelAlertHelperResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceLevelAlertHelperResultOutput, error) {
-			args := v.(GetServiceLevelAlertHelperArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args, GetServiceLevelAlertHelperResultOutput{}, options).(GetServiceLevelAlertHelperResultOutput), nil
-		}).(GetServiceLevelAlertHelperResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args, GetServiceLevelAlertHelperResultOutput{}, options).(GetServiceLevelAlertHelperResultOutput)
 }
 
 // A collection of arguments for invoking getServiceLevelAlertHelper.

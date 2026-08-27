@@ -146,12 +146,8 @@ type LookupFleetConfigurationResult struct {
 }
 
 func LookupFleetConfigurationOutput(ctx *pulumi.Context, args LookupFleetConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupFleetConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFleetConfigurationResultOutput, error) {
-			args := v.(LookupFleetConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("newrelic:index/getFleetConfiguration:getFleetConfiguration", args, LookupFleetConfigurationResultOutput{}, options).(LookupFleetConfigurationResultOutput), nil
-		}).(LookupFleetConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("newrelic:index/getFleetConfiguration:getFleetConfiguration", args, LookupFleetConfigurationResultOutput{}, options).(LookupFleetConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getFleetConfiguration.

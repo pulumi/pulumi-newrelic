@@ -71,12 +71,8 @@ type LookupSecureCredentialResult struct {
 }
 
 func LookupSecureCredentialOutput(ctx *pulumi.Context, args LookupSecureCredentialOutputArgs, opts ...pulumi.InvokeOption) LookupSecureCredentialResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecureCredentialResultOutput, error) {
-			args := v.(LookupSecureCredentialArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("newrelic:synthetics/getSecureCredential:getSecureCredential", args, LookupSecureCredentialResultOutput{}, options).(LookupSecureCredentialResultOutput), nil
-		}).(LookupSecureCredentialResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("newrelic:synthetics/getSecureCredential:getSecureCredential", args, LookupSecureCredentialResultOutput{}, options).(LookupSecureCredentialResultOutput)
 }
 
 // A collection of arguments for invoking getSecureCredential.

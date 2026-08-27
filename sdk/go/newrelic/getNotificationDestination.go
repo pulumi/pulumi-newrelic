@@ -203,12 +203,8 @@ type LookupNotificationDestinationResult struct {
 }
 
 func LookupNotificationDestinationOutput(ctx *pulumi.Context, args LookupNotificationDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationDestinationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNotificationDestinationResultOutput, error) {
-			args := v.(LookupNotificationDestinationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("newrelic:index/getNotificationDestination:getNotificationDestination", args, LookupNotificationDestinationResultOutput{}, options).(LookupNotificationDestinationResultOutput), nil
-		}).(LookupNotificationDestinationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("newrelic:index/getNotificationDestination:getNotificationDestination", args, LookupNotificationDestinationResultOutput{}, options).(LookupNotificationDestinationResultOutput)
 }
 
 // A collection of arguments for invoking getNotificationDestination.
