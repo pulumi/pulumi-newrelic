@@ -72,12 +72,8 @@ type GetAccountResult struct {
 }
 
 func GetAccountOutput(ctx *pulumi.Context, args GetAccountOutputArgs, opts ...pulumi.InvokeOption) GetAccountResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAccountResultOutput, error) {
-			args := v.(GetAccountArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("newrelic:index/getAccount:getAccount", args, GetAccountResultOutput{}, options).(GetAccountResultOutput), nil
-		}).(GetAccountResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("newrelic:index/getAccount:getAccount", args, GetAccountResultOutput{}, options).(GetAccountResultOutput)
 }
 
 // A collection of arguments for invoking getAccount.

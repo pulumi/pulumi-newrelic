@@ -158,12 +158,8 @@ type LookupApiAccessKeyResult struct {
 }
 
 func LookupApiAccessKeyOutput(ctx *pulumi.Context, args LookupApiAccessKeyOutputArgs, opts ...pulumi.InvokeOption) LookupApiAccessKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApiAccessKeyResultOutput, error) {
-			args := v.(LookupApiAccessKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("newrelic:index/getApiAccessKey:getApiAccessKey", args, LookupApiAccessKeyResultOutput{}, options).(LookupApiAccessKeyResultOutput), nil
-		}).(LookupApiAccessKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("newrelic:index/getApiAccessKey:getApiAccessKey", args, LookupApiAccessKeyResultOutput{}, options).(LookupApiAccessKeyResultOutput)
 }
 
 // A collection of arguments for invoking getApiAccessKey.

@@ -103,12 +103,8 @@ type LookupKeyTransactionResult struct {
 }
 
 func LookupKeyTransactionOutput(ctx *pulumi.Context, args LookupKeyTransactionOutputArgs, opts ...pulumi.InvokeOption) LookupKeyTransactionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupKeyTransactionResultOutput, error) {
-			args := v.(LookupKeyTransactionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("newrelic:index/getKeyTransaction:getKeyTransaction", args, LookupKeyTransactionResultOutput{}, options).(LookupKeyTransactionResultOutput), nil
-		}).(LookupKeyTransactionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("newrelic:index/getKeyTransaction:getKeyTransaction", args, LookupKeyTransactionResultOutput{}, options).(LookupKeyTransactionResultOutput)
 }
 
 // A collection of arguments for invoking getKeyTransaction.

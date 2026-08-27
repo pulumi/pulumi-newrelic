@@ -89,12 +89,8 @@ type LookupAlertChannelResult struct {
 }
 
 func LookupAlertChannelOutput(ctx *pulumi.Context, args LookupAlertChannelOutputArgs, opts ...pulumi.InvokeOption) LookupAlertChannelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAlertChannelResultOutput, error) {
-			args := v.(LookupAlertChannelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("newrelic:index/getAlertChannel:getAlertChannel", args, LookupAlertChannelResultOutput{}, options).(LookupAlertChannelResultOutput), nil
-		}).(LookupAlertChannelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("newrelic:index/getAlertChannel:getAlertChannel", args, LookupAlertChannelResultOutput{}, options).(LookupAlertChannelResultOutput)
 }
 
 // A collection of arguments for invoking getAlertChannel.
