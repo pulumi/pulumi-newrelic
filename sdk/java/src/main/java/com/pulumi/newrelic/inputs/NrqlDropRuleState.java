@@ -16,14 +16,14 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
     public static final NrqlDropRuleState Empty = new NrqlDropRuleState();
 
     /**
-     * Account where the drop rule will be put. Defaults to the account associated with the API key used.
+     * Account with the NRQL drop rule will be put.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return Account where the drop rule will be put. Defaults to the account associated with the API key used.
+     * @return Account with the NRQL drop rule will be put.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -31,14 +31,14 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
+     * The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
+     * @return The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
      * 
      */
     public Optional<Output<String>> action() {
@@ -46,14 +46,14 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the drop rule.
+     * Provides additional information about the rule.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the drop rule.
+     * @return Provides additional information about the rule.
      * 
      */
     public Optional<Output<String>> description() {
@@ -61,14 +61,14 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A NRQL string that specifies what data types to drop.
+     * Explains which data to apply the drop rule to.
      * 
      */
     @Import(name="nrql")
     private @Nullable Output<String> nrql;
 
     /**
-     * @return A NRQL string that specifies what data types to drop.
+     * @return Explains which data to apply the drop rule to.
      * 
      */
     public Optional<Output<String>> nrql() {
@@ -76,14 +76,14 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+     * The GUID of the corresponding Pipeline Cloud Rule, migrated upstream by New Relic. Use this to import the rule as a newrelic.PipelineCloudRule resource.
      * 
      */
     @Import(name="pipelineCloudRuleEntityId")
     private @Nullable Output<String> pipelineCloudRuleEntityId;
 
     /**
-     * @return The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+     * @return The GUID of the corresponding Pipeline Cloud Rule, migrated upstream by New Relic. Use this to import the rule as a newrelic.PipelineCloudRule resource.
      * 
      */
     public Optional<Output<String>> pipelineCloudRuleEntityId() {
@@ -135,7 +135,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId Account where the drop rule will be put. Defaults to the account associated with the API key used.
+         * @param accountId Account with the NRQL drop rule will be put.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId Account where the drop rule will be put. Defaults to the account associated with the API key used.
+         * @param accountId Account with the NRQL drop rule will be put.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
+         * @param action The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
+         * @param action The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the drop rule.
+         * @param description Provides additional information about the rule.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the drop rule.
+         * @param description Provides additional information about the rule.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nrql A NRQL string that specifies what data types to drop.
+         * @param nrql Explains which data to apply the drop rule to.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nrql A NRQL string that specifies what data types to drop.
+         * @param nrql Explains which data to apply the drop rule to.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineCloudRuleEntityId The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+         * @param pipelineCloudRuleEntityId The GUID of the corresponding Pipeline Cloud Rule, migrated upstream by New Relic. Use this to import the rule as a newrelic.PipelineCloudRule resource.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineCloudRuleEntityId The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+         * @param pipelineCloudRuleEntityId The GUID of the corresponding Pipeline Cloud Rule, migrated upstream by New Relic. Use this to import the rule as a newrelic.PipelineCloudRule resource.
          * 
          * @return builder
          * 
