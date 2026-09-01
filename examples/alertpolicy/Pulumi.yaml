@@ -1,3 +1,0 @@
-name: alert-policy-newrelic
-description: A simple alert policy on New Relic.
-runtime: nodejs
