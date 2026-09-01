@@ -12,7 +12,9 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage metric pruning rules for a New Relic account.
     /// 
-    /// A metric pruning rule strips specific high-cardinality attributes from dimensional metric aggregates before they are stored. Unlike dropping a metric entirely, pruning keeps the metric signal intact while removing the nominated attributes — reducing cardinality without any loss of the metric itself.
+    /// A metric pruning rule strips specific high-cardinality attributes from dimensional metric aggregates before they are stored. Unlike dropping a metric entirely, pruning keeps the metric signal intact while removing the nominated attributes, reducing cardinality without any loss of the metric itself.
+    /// 
+    /// &gt; **Migrating from `newrelic.NrqlDropRule`?** If you are migrating [`newrelic.NrqlDropRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/nrql_drop_rule) resources with `action = "DropAttributesFromMetricAggregates"`, `newrelic.MetricPruningRule` is the recommended replacement. Please refer to the [Drop Rules EOL Migration Guide](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/drop_rules_eol_guide) for more details.
     /// 
     /// ***
     /// 
