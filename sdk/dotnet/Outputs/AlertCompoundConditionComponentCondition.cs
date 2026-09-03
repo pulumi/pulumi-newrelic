@@ -15,6 +15,8 @@ namespace Pulumi.NewRelic.Outputs
     {
         /// <summary>
         /// The identifier that will be used in the compound alert condition's `TriggerExpression` (e.g., 'a', 'b', 'c', 'd', 'e').
+        /// 
+        /// &gt; **NOTE:** `newrelic_nrql_alert_condition.&lt;name&gt;.id` is a composite identifier in the format `&lt;policyID&gt;:&lt;conditionID&gt;`. You can assign it to `Id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
         /// </summary>
         public readonly string Alias;
         /// <summary>

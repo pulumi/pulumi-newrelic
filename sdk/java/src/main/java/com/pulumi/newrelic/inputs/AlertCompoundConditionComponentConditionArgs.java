@@ -17,12 +17,16 @@ public final class AlertCompoundConditionComponentConditionArgs extends com.pulu
     /**
      * The identifier that will be used in the compound alert condition&#39;s `triggerExpression` (e.g., &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;).
      * 
+     * &gt; **NOTE:** `newrelic_nrql_alert_condition.&lt;name&gt;.id` is a composite identifier in the format `&lt;policyID&gt;:&lt;conditionID&gt;`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
+     * 
      */
     @Import(name="alias", required=true)
     private Output<String> alias;
 
     /**
      * @return The identifier that will be used in the compound alert condition&#39;s `triggerExpression` (e.g., &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;).
+     * 
+     * &gt; **NOTE:** `newrelic_nrql_alert_condition.&lt;name&gt;.id` is a composite identifier in the format `&lt;policyID&gt;:&lt;conditionID&gt;`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
      * 
      */
     public Output<String> alias() {
@@ -72,6 +76,8 @@ public final class AlertCompoundConditionComponentConditionArgs extends com.pulu
         /**
          * @param alias The identifier that will be used in the compound alert condition&#39;s `triggerExpression` (e.g., &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;).
          * 
+         * &gt; **NOTE:** `newrelic_nrql_alert_condition.&lt;name&gt;.id` is a composite identifier in the format `&lt;policyID&gt;:&lt;conditionID&gt;`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
+         * 
          * @return builder
          * 
          */
@@ -82,6 +88,8 @@ public final class AlertCompoundConditionComponentConditionArgs extends com.pulu
 
         /**
          * @param alias The identifier that will be used in the compound alert condition&#39;s `triggerExpression` (e.g., &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;).
+         * 
+         * &gt; **NOTE:** `newrelic_nrql_alert_condition.&lt;name&gt;.id` is a composite identifier in the format `&lt;policyID&gt;:&lt;conditionID&gt;`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
          * 
          * @return builder
          * 

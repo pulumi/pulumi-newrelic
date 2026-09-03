@@ -95,6 +95,8 @@ export interface AlertChannelConfig {
 export interface AlertCompoundConditionComponentCondition {
     /**
      * The identifier that will be used in the compound alert condition's `triggerExpression` (e.g., 'a', 'b', 'c', 'd', 'e').
+     *
+     * > **NOTE:** `newrelic_nrql_alert_condition.<name>.id` is a composite identifier in the format `<policyID>:<conditionID>`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
      */
     alias: pulumi.Input<string>;
     /**

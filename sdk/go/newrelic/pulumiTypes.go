@@ -532,6 +532,8 @@ func (o AlertChannelConfigPtrOutput) UserId() pulumi.StringPtrOutput {
 
 type AlertCompoundConditionComponentCondition struct {
 	// The identifier that will be used in the compound alert condition's `triggerExpression` (e.g., 'a', 'b', 'c', 'd', 'e').
+	//
+	// > **NOTE:** `newrelic_nrql_alert_condition.<name>.id` is a composite identifier in the format `<policyID>:<conditionID>`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
 	Alias string `pulumi:"alias"`
 	// The ID of the existing alert condition to use as a component.
 	Id string `pulumi:"id"`
@@ -550,6 +552,8 @@ type AlertCompoundConditionComponentConditionInput interface {
 
 type AlertCompoundConditionComponentConditionArgs struct {
 	// The identifier that will be used in the compound alert condition's `triggerExpression` (e.g., 'a', 'b', 'c', 'd', 'e').
+	//
+	// > **NOTE:** `newrelic_nrql_alert_condition.<name>.id` is a composite identifier in the format `<policyID>:<conditionID>`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
 	Alias pulumi.StringInput `pulumi:"alias"`
 	// The ID of the existing alert condition to use as a component.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -607,6 +611,8 @@ func (o AlertCompoundConditionComponentConditionOutput) ToAlertCompoundCondition
 }
 
 // The identifier that will be used in the compound alert condition's `triggerExpression` (e.g., 'a', 'b', 'c', 'd', 'e').
+//
+// > **NOTE:** `newrelic_nrql_alert_condition.<name>.id` is a composite identifier in the format `<policyID>:<conditionID>`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
 func (o AlertCompoundConditionComponentConditionOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertCompoundConditionComponentCondition) string { return v.Alias }).(pulumi.StringOutput)
 }
