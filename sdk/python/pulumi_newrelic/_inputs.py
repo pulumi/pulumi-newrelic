@@ -970,6 +970,8 @@ class AlertCompoundConditionComponentConditionArgsDict(TypedDict):
     alias: pulumi.Input[_builtins.str]
     """
     The identifier that will be used in the compound alert condition's `trigger_expression` (e.g., 'a', 'b', 'c', 'd', 'e').
+
+    > **NOTE:** `newrelic_nrql_alert_condition.<name>.id` is a composite identifier in the format `<policyID>:<conditionID>`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
     """
     id: pulumi.Input[_builtins.str]
     """
@@ -983,6 +985,8 @@ class AlertCompoundConditionComponentConditionArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] alias: The identifier that will be used in the compound alert condition's `trigger_expression` (e.g., 'a', 'b', 'c', 'd', 'e').
+               
+               > **NOTE:** `newrelic_nrql_alert_condition.<name>.id` is a composite identifier in the format `<policyID>:<conditionID>`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
         :param pulumi.Input[_builtins.str] id: The ID of the existing alert condition to use as a component.
         """
         pulumi.set(__self__, "alias", alias)
@@ -993,6 +997,8 @@ class AlertCompoundConditionComponentConditionArgs:
     def alias(self) -> pulumi.Input[_builtins.str]:
         """
         The identifier that will be used in the compound alert condition's `trigger_expression` (e.g., 'a', 'b', 'c', 'd', 'e').
+
+        > **NOTE:** `newrelic_nrql_alert_condition.<name>.id` is a composite identifier in the format `<policyID>:<conditionID>`. You can assign it to `id` directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.
         """
         return pulumi.get(self, "alias")
 

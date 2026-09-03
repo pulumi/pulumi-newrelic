@@ -3251,7 +3251,7 @@
             "properties": {
                 "alias": {
                     "type": "string",
-                    "description": "The identifier that will be used in the compound alert condition's \u003cspan pulumi-lang-nodejs=\"`triggerExpression`\" pulumi-lang-dotnet=\"`TriggerExpression`\" pulumi-lang-go=\"`triggerExpression`\" pulumi-lang-python=\"`trigger_expression`\" pulumi-lang-yaml=\"`triggerExpression`\" pulumi-lang-java=\"`triggerExpression`\" pulumi-lang-hcl=\"`trigger_expression`\"\u003e`triggerExpression`\u003c/span\u003e (e.g., 'a', 'b', 'c', 'd', 'e').\n"
+                    "description": "The identifier that will be used in the compound alert condition's \u003cspan pulumi-lang-nodejs=\"`triggerExpression`\" pulumi-lang-dotnet=\"`TriggerExpression`\" pulumi-lang-go=\"`triggerExpression`\" pulumi-lang-python=\"`trigger_expression`\" pulumi-lang-yaml=\"`triggerExpression`\" pulumi-lang-java=\"`triggerExpression`\" pulumi-lang-hcl=\"`trigger_expression`\"\u003e`triggerExpression`\u003c/span\u003e (e.g., 'a', 'b', 'c', 'd', 'e').\n\n\u003e **NOTE:** `newrelic_nrql_alert_condition.\u003cname\u003e.id` is a composite identifier in the format `\u003cpolicyID\u003e:\u003cconditionID\u003e`. You can assign it to \u003cspan pulumi-lang-nodejs=\"`id`\" pulumi-lang-dotnet=\"`Id`\" pulumi-lang-go=\"`id`\" pulumi-lang-python=\"`id`\" pulumi-lang-yaml=\"`id`\" pulumi-lang-java=\"`id`\" pulumi-lang-hcl=\"`id`\"\u003e`id`\u003c/span\u003e directly — the provider extracts the condition ID before calling the API and stores the normalized value in state.\n"
                 },
                 "id": {
                     "type": "string",
