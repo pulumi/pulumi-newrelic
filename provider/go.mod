@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
 	github.com/pulumi/providertest v0.7.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.138.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.139.0
 	github.com/pulumi/pulumi/sdk/v3 v3.259.0
 	github.com/stretchr/testify v1.11.1
 )
