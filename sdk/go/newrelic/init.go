@@ -73,6 +73,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MetricPruningRule{}
 	case "newrelic:index/monitorDowntime:MonitorDowntime":
 		r = &MonitorDowntime{}
+	case "newrelic:index/notebook:Notebook":
+		r = &Notebook{}
 	case "newrelic:index/notificationChannel:NotificationChannel":
 		r = &NotificationChannel{}
 	case "newrelic:index/notificationDestination:NotificationDestination":
@@ -260,6 +262,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/monitorDowntime",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/notebook",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

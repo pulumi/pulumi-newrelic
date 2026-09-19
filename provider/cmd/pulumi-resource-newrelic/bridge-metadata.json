@@ -1707,6 +1707,10 @@
                     }
                 }
             },
+            "newrelic_notebook": {
+                "current": "newrelic:index/notebook:Notebook",
+                "majorVersion": 5
+            },
             "newrelic_notification_channel": {
                 "current": "newrelic:index/notificationChannel:NotificationChannel",
                 "majorVersion": 5,
@@ -3144,6 +3148,10 @@
             },
             "newrelic_key_transaction": {
                 "current": "newrelic:index/getKeyTransaction:getKeyTransaction",
+                "majorVersion": 5
+            },
+            "newrelic_notebook": {
+                "current": "newrelic:index/getNotebook:getNotebook",
                 "majorVersion": 5
             },
             "newrelic_notification_destination": {
@@ -5105,6 +5113,10 @@
             "newrelic_monitor_downtime": [
                 "account_id"
             ],
+            "newrelic_notebook": [
+                "blob_id",
+                "organization_id"
+            ],
             "newrelic_notification_channel": [
                 "account_id",
                 "destination_id"
@@ -5263,6 +5275,10 @@
             ],
             "newrelic_key_transaction": [
                 "account_id"
+            ],
+            "newrelic_notebook": [
+                "blob_id",
+                "organization_id"
             ],
             "newrelic_notification_destination": [
                 "account_id"

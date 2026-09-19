@@ -38,6 +38,7 @@ from .get_fleet_configuration import *
 from .get_fleet_members import *
 from .get_group import *
 from .get_key_transaction import *
+from .get_notebook import *
 from .get_notification_destination import *
 from .get_obfuscation_expression import *
 from .get_service_level_alert_helper import *
@@ -49,6 +50,7 @@ from .key_transaction import *
 from .log_parsing_rule import *
 from .metric_pruning_rule import *
 from .monitor_downtime import *
+from .notebook import *
 from .notification_channel import *
 from .notification_destination import *
 from .nrql_alert_condition import *
@@ -391,6 +393,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/monitorDowntime:MonitorDowntime": "MonitorDowntime"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/notebook",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/notebook:Notebook": "Notebook"
   }
  },
  {
