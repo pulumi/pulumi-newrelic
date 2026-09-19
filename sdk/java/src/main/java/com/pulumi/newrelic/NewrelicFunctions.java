@@ -33,6 +33,8 @@ import com.pulumi.newrelic.inputs.GetGroupArgs;
 import com.pulumi.newrelic.inputs.GetGroupPlainArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionPlainArgs;
+import com.pulumi.newrelic.inputs.GetNotebookArgs;
+import com.pulumi.newrelic.inputs.GetNotebookPlainArgs;
 import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
 import com.pulumi.newrelic.inputs.GetNotificationDestinationPlainArgs;
 import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
@@ -55,6 +57,7 @@ import com.pulumi.newrelic.outputs.GetFleetConfigurationResult;
 import com.pulumi.newrelic.outputs.GetFleetMembersResult;
 import com.pulumi.newrelic.outputs.GetGroupResult;
 import com.pulumi.newrelic.outputs.GetKeyTransactionResult;
+import com.pulumi.newrelic.outputs.GetNotebookResult;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationResult;
 import com.pulumi.newrelic.outputs.GetObfuscationExpressionResult;
 import com.pulumi.newrelic.outputs.GetServiceLevelAlertHelperResult;
@@ -5228,6 +5231,216 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetKeyTransactionResult> getKeyTransactionPlain(GetKeyTransactionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getKeyTransaction:getKeyTransaction", TypeShape.of(GetKeyTransactionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up an existing [New Relic Notebook](https://docs.newrelic.com/docs/query-your-data/explore-query-data/notebooks/introduction-notebooks/) by its entity GUID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotebookArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NewrelicFunctions.getNotebook(GetNotebookArgs.builder()
+     *             .guid("MTIxOTEy...")
+     *             .fetchContent(true)
+     *             .build());
+     * 
+     *         ctx.export("notebookContent", example.content());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotebookResult> getNotebook(GetNotebookArgs args) {
+        return getNotebook(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up an existing [New Relic Notebook](https://docs.newrelic.com/docs/query-your-data/explore-query-data/notebooks/introduction-notebooks/) by its entity GUID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotebookArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NewrelicFunctions.getNotebook(GetNotebookArgs.builder()
+     *             .guid("MTIxOTEy...")
+     *             .fetchContent(true)
+     *             .build());
+     * 
+     *         ctx.export("notebookContent", example.content());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotebookResult> getNotebookPlain(GetNotebookPlainArgs args) {
+        return getNotebookPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up an existing [New Relic Notebook](https://docs.newrelic.com/docs/query-your-data/explore-query-data/notebooks/introduction-notebooks/) by its entity GUID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotebookArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NewrelicFunctions.getNotebook(GetNotebookArgs.builder()
+     *             .guid("MTIxOTEy...")
+     *             .fetchContent(true)
+     *             .build());
+     * 
+     *         ctx.export("notebookContent", example.content());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotebookResult> getNotebook(GetNotebookArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getNotebook:getNotebook", TypeShape.of(GetNotebookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up an existing [New Relic Notebook](https://docs.newrelic.com/docs/query-your-data/explore-query-data/notebooks/introduction-notebooks/) by its entity GUID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotebookArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NewrelicFunctions.getNotebook(GetNotebookArgs.builder()
+     *             .guid("MTIxOTEy...")
+     *             .fetchContent(true)
+     *             .build());
+     * 
+     *         ctx.export("notebookContent", example.content());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetNotebookResult> getNotebook(GetNotebookArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getNotebook:getNotebook", TypeShape.of(GetNotebookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up an existing [New Relic Notebook](https://docs.newrelic.com/docs/query-your-data/explore-query-data/notebooks/introduction-notebooks/) by its entity GUID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotebookArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NewrelicFunctions.getNotebook(GetNotebookArgs.builder()
+     *             .guid("MTIxOTEy...")
+     *             .fetchContent(true)
+     *             .build());
+     * 
+     *         ctx.export("notebookContent", example.content());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetNotebookResult> getNotebookPlain(GetNotebookPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getNotebook:getNotebook", TypeShape.of(GetNotebookResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform&#39;s data sources can be found here.

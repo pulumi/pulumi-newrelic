@@ -165,6 +165,11 @@ export const getKeyTransaction: typeof import("./getKeyTransaction").getKeyTrans
 export const getKeyTransactionOutput: typeof import("./getKeyTransaction").getKeyTransactionOutput = null as any;
 utilities.lazyLoad(exports, ["getKeyTransaction","getKeyTransactionOutput"], () => require("./getKeyTransaction"));
 
+export { GetNotebookArgs, GetNotebookResult, GetNotebookOutputArgs } from "./getNotebook";
+export const getNotebook: typeof import("./getNotebook").getNotebook = null as any;
+export const getNotebookOutput: typeof import("./getNotebook").getNotebookOutput = null as any;
+utilities.lazyLoad(exports, ["getNotebook","getNotebookOutput"], () => require("./getNotebook"));
+
 export { GetNotificationDestinationArgs, GetNotificationDestinationResult, GetNotificationDestinationOutputArgs } from "./getNotificationDestination";
 export const getNotificationDestination: typeof import("./getNotificationDestination").getNotificationDestination = null as any;
 export const getNotificationDestinationOutput: typeof import("./getNotificationDestination").getNotificationDestinationOutput = null as any;
@@ -219,6 +224,11 @@ export { MonitorDowntimeArgs, MonitorDowntimeState } from "./monitorDowntime";
 export type MonitorDowntime = import("./monitorDowntime").MonitorDowntime;
 export const MonitorDowntime: typeof import("./monitorDowntime").MonitorDowntime = null as any;
 utilities.lazyLoad(exports, ["MonitorDowntime"], () => require("./monitorDowntime"));
+
+export { NotebookArgs, NotebookState } from "./notebook";
+export type Notebook = import("./notebook").Notebook;
+export const Notebook: typeof import("./notebook").Notebook = null as any;
+utilities.lazyLoad(exports, ["Notebook"], () => require("./notebook"));
 
 export { NotificationChannelArgs, NotificationChannelState } from "./notificationChannel";
 export type NotificationChannel = import("./notificationChannel").NotificationChannel;
@@ -367,6 +377,8 @@ const _module = {
                 return new MetricPruningRule(name, <any>undefined, { urn })
             case "newrelic:index/monitorDowntime:MonitorDowntime":
                 return new MonitorDowntime(name, <any>undefined, { urn })
+            case "newrelic:index/notebook:Notebook":
+                return new Notebook(name, <any>undefined, { urn })
             case "newrelic:index/notificationChannel:NotificationChannel":
                 return new NotificationChannel(name, <any>undefined, { urn })
             case "newrelic:index/notificationDestination:NotificationDestination":
@@ -426,6 +438,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/keyTransaction", _modul
 pulumi.runtime.registerResourceModule("newrelic", "index/logParsingRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/metricPruningRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/monitorDowntime", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/notebook", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationDestination", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlAlertCondition", _module)
