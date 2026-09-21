@@ -585,7 +585,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comparison: pulumi.Input[Optional[_builtins.str]] = None,
-                 critical: pulumi.Input[Optional[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']]] = None,
+                 critical: pulumi.Input[Optional[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict', 'outputs.InfraAlertConditionCritical']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  event: pulumi.Input[Optional[_builtins.str]] = None,
@@ -597,7 +597,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  select: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None,
-                 warning: pulumi.Input[Optional[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']]] = None,
+                 warning: pulumi.Input[Optional[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict', 'outputs.InfraAlertConditionWarning']]] = None,
                  where: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -734,7 +734,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
-        :param pulumi.Input[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
+        :param pulumi.Input[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict', 'outputs.InfraAlertConditionCritical']] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
         :param pulumi.Input[_builtins.str] description: The description of the Infrastructure alert condition.
         :param pulumi.Input[_builtins.bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         :param pulumi.Input[_builtins.str] event: The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
@@ -750,7 +750,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                ```
                Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
                ```
-        :param pulumi.Input[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
+        :param pulumi.Input[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict', 'outputs.InfraAlertConditionWarning']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
         :param pulumi.Input[_builtins.str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         ...
@@ -906,7 +906,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comparison: pulumi.Input[Optional[_builtins.str]] = None,
-                 critical: pulumi.Input[Optional[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']]] = None,
+                 critical: pulumi.Input[Optional[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict', 'outputs.InfraAlertConditionCritical']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  event: pulumi.Input[Optional[_builtins.str]] = None,
@@ -918,7 +918,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  select: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None,
-                 warning: pulumi.Input[Optional[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']]] = None,
+                 warning: pulumi.Input[Optional[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict', 'outputs.InfraAlertConditionWarning']]] = None,
                  where: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -963,7 +963,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comparison: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.int]] = None,
-            critical: pulumi.Input[Optional[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']]] = None,
+            critical: pulumi.Input[Optional[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict', 'outputs.InfraAlertConditionCritical']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
@@ -977,7 +977,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             type: pulumi.Input[Optional[_builtins.str]] = None,
             updated_at: pulumi.Input[Optional[_builtins.int]] = None,
             violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None,
-            warning: pulumi.Input[Optional[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']]] = None,
+            warning: pulumi.Input[Optional[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict', 'outputs.InfraAlertConditionWarning']]] = None,
             where: pulumi.Input[Optional[_builtins.str]] = None) -> 'InfraAlertCondition':
         """
         Get an existing InfraAlertCondition resource's state with the given name, id, and optional extra
@@ -988,7 +988,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
         :param pulumi.Input[_builtins.int] created_at: The timestamp the alert condition was created.
-        :param pulumi.Input[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
+        :param pulumi.Input[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict', 'outputs.InfraAlertConditionCritical']] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
         :param pulumi.Input[_builtins.str] description: The description of the Infrastructure alert condition.
         :param pulumi.Input[_builtins.bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the condition in New Relic.
@@ -1006,7 +1006,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                ```
                Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
                ```
-        :param pulumi.Input[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
+        :param pulumi.Input[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict', 'outputs.InfraAlertConditionWarning']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
         :param pulumi.Input[_builtins.str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

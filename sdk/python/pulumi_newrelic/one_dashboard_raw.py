@@ -236,7 +236,7 @@ class OneDashboardRaw(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict', 'outputs.OneDashboardRawPage']]]]] = None,
                  permissions: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -326,7 +326,7 @@ class OneDashboardRaw(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] description: Brief text describing the dashboard.
         :param pulumi.Input[_builtins.str] name: The title of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict', 'outputs.OneDashboardRawPage']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[_builtins.str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`. Defaults to `public_read_only`.
         """
         ...
@@ -435,7 +435,7 @@ class OneDashboardRaw(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict', 'outputs.OneDashboardRawPage']]]]] = None,
                  permissions: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -469,7 +469,7 @@ class OneDashboardRaw(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict', 'outputs.OneDashboardRawPage']]]]] = None,
             permalink: pulumi.Input[Optional[_builtins.str]] = None,
             permissions: pulumi.Input[Optional[_builtins.str]] = None) -> 'OneDashboardRaw':
         """
@@ -483,7 +483,7 @@ class OneDashboardRaw(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Brief text describing the dashboard.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the dashboard page in New Relic.
         :param pulumi.Input[_builtins.str] name: The title of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardRawPageArgs', 'OneDashboardRawPageArgsDict', 'outputs.OneDashboardRawPage']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[_builtins.str] permalink: The URL for viewing the dashboard.
         :param pulumi.Input[_builtins.str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`. Defaults to `public_read_only`.
         """

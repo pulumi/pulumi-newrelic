@@ -346,11 +346,11 @@ class FederatedLogsSetup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 default_partition: pulumi.Input[Optional[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict']]] = None,
+                 default_partition: pulumi.Input[Optional[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict', 'outputs.FederatedLogsSetupDefaultPartition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 forwarder: pulumi.Input[Optional[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict']]] = None,
+                 forwarder: pulumi.Input[Optional[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict', 'outputs.FederatedLogsSetupForwarder']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage: pulumi.Input[Optional[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict', 'outputs.FederatedLogsSetupStorage']]] = None,
                  __props__=None):
         """
         Use this resource to create and manage a Federated Logs setup.
@@ -417,11 +417,11 @@ class FederatedLogsSetup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the federated logs setup will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API.
         :param pulumi.Input[_builtins.bool] active: Whether the setup is active.
-        :param pulumi.Input[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict']] default_partition: Default partition created alongside the setup. See Nested default_partition block below.
+        :param pulumi.Input[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict', 'outputs.FederatedLogsSetupDefaultPartition']] default_partition: Default partition created alongside the setup. See Nested default_partition block below.
         :param pulumi.Input[_builtins.str] description: A description for federated logs setup.
-        :param pulumi.Input[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict']] forwarder: Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.
+        :param pulumi.Input[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict', 'outputs.FederatedLogsSetupForwarder']] forwarder: Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.
         :param pulumi.Input[_builtins.str] name: The name of the federated log setup.
-        :param pulumi.Input[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict']] storage: Storage configuration. Cannot be changed after creation. See Nested storage block below.
+        :param pulumi.Input[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict', 'outputs.FederatedLogsSetupStorage']] storage: Storage configuration. Cannot be changed after creation. See Nested storage block below.
         """
         ...
     @overload
@@ -507,11 +507,11 @@ class FederatedLogsSetup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 default_partition: pulumi.Input[Optional[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict']]] = None,
+                 default_partition: pulumi.Input[Optional[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict', 'outputs.FederatedLogsSetupDefaultPartition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 forwarder: pulumi.Input[Optional[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict']]] = None,
+                 forwarder: pulumi.Input[Optional[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict', 'outputs.FederatedLogsSetupForwarder']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage: pulumi.Input[Optional[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict', 'outputs.FederatedLogsSetupStorage']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -550,14 +550,14 @@ class FederatedLogsSetup(pulumi.CustomResource):
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             active: pulumi.Input[Optional[_builtins.bool]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
-            default_partition: pulumi.Input[Optional[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict']]] = None,
+            default_partition: pulumi.Input[Optional[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict', 'outputs.FederatedLogsSetupDefaultPartition']]] = None,
             default_partition_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            forwarder: pulumi.Input[Optional[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict']]] = None,
-            health_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsSetupHealthCheckArgs', 'FederatedLogsSetupHealthCheckArgsDict']]]]] = None,
-            lifecycle_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsSetupLifecycleStatusArgs', 'FederatedLogsSetupLifecycleStatusArgsDict']]]]] = None,
+            forwarder: pulumi.Input[Optional[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict', 'outputs.FederatedLogsSetupForwarder']]] = None,
+            health_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsSetupHealthCheckArgs', 'FederatedLogsSetupHealthCheckArgsDict', 'outputs.FederatedLogsSetupHealthCheck']]]]] = None,
+            lifecycle_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsSetupLifecycleStatusArgs', 'FederatedLogsSetupLifecycleStatusArgsDict', 'outputs.FederatedLogsSetupLifecycleStatus']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            storage: pulumi.Input[Optional[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict']]] = None,
+            storage: pulumi.Input[Optional[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict', 'outputs.FederatedLogsSetupStorage']]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'FederatedLogsSetup':
         """
         Get an existing FederatedLogsSetup resource's state with the given name, id, and optional extra
@@ -569,14 +569,14 @@ class FederatedLogsSetup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the federated logs setup will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API.
         :param pulumi.Input[_builtins.bool] active: Whether the setup is active.
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp.
-        :param pulumi.Input[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict']] default_partition: Default partition created alongside the setup. See Nested default_partition block below.
+        :param pulumi.Input[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict', 'outputs.FederatedLogsSetupDefaultPartition']] default_partition: Default partition created alongside the setup. See Nested default_partition block below.
         :param pulumi.Input[_builtins.str] default_partition_id: The entity GUID of the default partition created alongside this setup.
         :param pulumi.Input[_builtins.str] description: A description for federated logs setup.
-        :param pulumi.Input[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict']] forwarder: Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsSetupHealthCheckArgs', 'FederatedLogsSetupHealthCheckArgsDict']]]] health_checks: Aggregate health check status for the setup.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsSetupLifecycleStatusArgs', 'FederatedLogsSetupLifecycleStatusArgsDict']]]] lifecycle_statuses: Current lifecycle status of the setup.
+        :param pulumi.Input[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict', 'outputs.FederatedLogsSetupForwarder']] forwarder: Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsSetupHealthCheckArgs', 'FederatedLogsSetupHealthCheckArgsDict', 'outputs.FederatedLogsSetupHealthCheck']]]] health_checks: Aggregate health check status for the setup.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsSetupLifecycleStatusArgs', 'FederatedLogsSetupLifecycleStatusArgsDict', 'outputs.FederatedLogsSetupLifecycleStatus']]]] lifecycle_statuses: Current lifecycle status of the setup.
         :param pulumi.Input[_builtins.str] name: The name of the federated log setup.
-        :param pulumi.Input[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict']] storage: Storage configuration. Cannot be changed after creation. See Nested storage block below.
+        :param pulumi.Input[Union['FederatedLogsSetupStorageArgs', 'FederatedLogsSetupStorageArgsDict', 'outputs.FederatedLogsSetupStorage']] storage: Storage configuration. Cannot be changed after creation. See Nested storage block below.
         :param pulumi.Input[_builtins.str] updated_at: Last-updated timestamp.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

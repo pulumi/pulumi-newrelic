@@ -146,7 +146,7 @@ class CardinalityManagement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cardinality_limit: pulumi.Input[Optional[_builtins.int]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict']]]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict', 'outputs.CardinalityManagementMetric']]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -320,7 +320,7 @@ class CardinalityManagement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cardinality_limit: The account-wide cardinality limit — the maximum number of unique dimension-value combinations allowed per metric per day. Required when `mode` is `"DEFAULT"`; must not be set when `mode` is `"PER_METRIC"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict']]]] metrics: One or more metric override blocks. Required when `mode` is `"PER_METRIC"`; must not be set when `mode` is `"DEFAULT"`. Each block supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict', 'outputs.CardinalityManagementMetric']]]] metrics: One or more metric override blocks. Required when `mode` is `"PER_METRIC"`; must not be set when `mode` is `"DEFAULT"`. Each block supports:
         :param pulumi.Input[_builtins.str] mode: The override mode. Accepted values: `"DEFAULT"` or `"PER_METRIC"`. Forces re-creation when changed.
                * `DEFAULT` — sets an account-wide limit for all metrics. `cardinality_limit` is required; `metric` blocks must not be set.
                * `PER_METRIC` — sets individual limits for named metrics. At least one `metric` block is required; `cardinality_limit` must not be set at the top level.
@@ -515,7 +515,7 @@ class CardinalityManagement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cardinality_limit: pulumi.Input[Optional[_builtins.int]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict']]]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict', 'outputs.CardinalityManagementMetric']]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -542,7 +542,7 @@ class CardinalityManagement(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cardinality_limit: pulumi.Input[Optional[_builtins.int]] = None,
-            metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict']]]]] = None,
+            metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict', 'outputs.CardinalityManagementMetric']]]]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None) -> 'CardinalityManagement':
         """
         Get an existing CardinalityManagement resource's state with the given name, id, and optional extra
@@ -552,7 +552,7 @@ class CardinalityManagement(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cardinality_limit: The account-wide cardinality limit — the maximum number of unique dimension-value combinations allowed per metric per day. Required when `mode` is `"DEFAULT"`; must not be set when `mode` is `"PER_METRIC"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict']]]] metrics: One or more metric override blocks. Required when `mode` is `"PER_METRIC"`; must not be set when `mode` is `"DEFAULT"`. Each block supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CardinalityManagementMetricArgs', 'CardinalityManagementMetricArgsDict', 'outputs.CardinalityManagementMetric']]]] metrics: One or more metric override blocks. Required when `mode` is `"PER_METRIC"`; must not be set when `mode` is `"DEFAULT"`. Each block supports:
         :param pulumi.Input[_builtins.str] mode: The override mode. Accepted values: `"DEFAULT"` or `"PER_METRIC"`. Forces re-creation when changed.
                * `DEFAULT` — sets an account-wide limit for all metrics. `cardinality_limit` is required; `metric` blocks must not be set.
                * `PER_METRIC` — sets individual limits for named metrics. At least one `metric` block is required; `cardinality_limit` must not be set at the top level.

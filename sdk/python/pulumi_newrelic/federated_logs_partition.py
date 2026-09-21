@@ -378,12 +378,12 @@ class FederatedLogsPartition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 data_retention_policy: pulumi.Input[Optional[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict']]] = None,
+                 data_retention_policy: pulumi.Input[Optional[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict', 'outputs.FederatedLogsPartitionDataRetentionPolicy']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 forwarder_configuration: pulumi.Input[Optional[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict']]] = None,
+                 forwarder_configuration: pulumi.Input[Optional[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict', 'outputs.FederatedLogsPartitionForwarderConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  setup_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage: pulumi.Input[Optional[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict', 'outputs.FederatedLogsPartitionStorage']]] = None,
                  __props__=None):
         """
         Use this resource to create and manage an additional partition under an existing `FederatedLogsSetup`.
@@ -429,12 +429,12 @@ class FederatedLogsPartition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the federated logs partition will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API.
         :param pulumi.Input[_builtins.bool] active: Whether the partition is active.
-        :param pulumi.Input[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict']] data_retention_policy: Retention policy for logs in this partition. See Nested data_retention_policy block below.
+        :param pulumi.Input[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict', 'outputs.FederatedLogsPartitionDataRetentionPolicy']] data_retention_policy: Retention policy for logs in this partition. See Nested data_retention_policy block below.
         :param pulumi.Input[_builtins.str] description: A description for partition.
-        :param pulumi.Input[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict']] forwarder_configuration: Forwarder configuration for routing specific logs to this partition. See Nested forwarder_configuration block below.
+        :param pulumi.Input[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict', 'outputs.FederatedLogsPartitionForwarderConfiguration']] forwarder_configuration: Forwarder configuration for routing specific logs to this partition. See Nested forwarder_configuration block below.
         :param pulumi.Input[_builtins.str] name: The name of the partition.
         :param pulumi.Input[_builtins.str] setup_id: Entity GUID of the setup.
-        :param pulumi.Input[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict']] storage: Storage details for this partition. See Nested storage block below.
+        :param pulumi.Input[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict', 'outputs.FederatedLogsPartitionStorage']] storage: Storage details for this partition. See Nested storage block below.
         """
         ...
     @overload
@@ -499,12 +499,12 @@ class FederatedLogsPartition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 data_retention_policy: pulumi.Input[Optional[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict']]] = None,
+                 data_retention_policy: pulumi.Input[Optional[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict', 'outputs.FederatedLogsPartitionDataRetentionPolicy']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 forwarder_configuration: pulumi.Input[Optional[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict']]] = None,
+                 forwarder_configuration: pulumi.Input[Optional[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict', 'outputs.FederatedLogsPartitionForwarderConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  setup_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage: pulumi.Input[Optional[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict', 'outputs.FederatedLogsPartitionStorage']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -544,15 +544,15 @@ class FederatedLogsPartition(pulumi.CustomResource):
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             active: pulumi.Input[Optional[_builtins.bool]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
-            data_retention_policy: pulumi.Input[Optional[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict']]] = None,
+            data_retention_policy: pulumi.Input[Optional[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict', 'outputs.FederatedLogsPartitionDataRetentionPolicy']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            forwarder_configuration: pulumi.Input[Optional[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict']]] = None,
-            health_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsPartitionHealthCheckArgs', 'FederatedLogsPartitionHealthCheckArgsDict']]]]] = None,
+            forwarder_configuration: pulumi.Input[Optional[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict', 'outputs.FederatedLogsPartitionForwarderConfiguration']]] = None,
+            health_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsPartitionHealthCheckArgs', 'FederatedLogsPartitionHealthCheckArgsDict', 'outputs.FederatedLogsPartitionHealthCheck']]]]] = None,
             is_default: pulumi.Input[Optional[_builtins.bool]] = None,
-            lifecycle_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsPartitionLifecycleStatusArgs', 'FederatedLogsPartitionLifecycleStatusArgsDict']]]]] = None,
+            lifecycle_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsPartitionLifecycleStatusArgs', 'FederatedLogsPartitionLifecycleStatusArgsDict', 'outputs.FederatedLogsPartitionLifecycleStatus']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             setup_id: pulumi.Input[Optional[_builtins.str]] = None,
-            storage: pulumi.Input[Optional[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict']]] = None,
+            storage: pulumi.Input[Optional[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict', 'outputs.FederatedLogsPartitionStorage']]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'FederatedLogsPartition':
         """
         Get an existing FederatedLogsPartition resource's state with the given name, id, and optional extra
@@ -564,15 +564,15 @@ class FederatedLogsPartition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the federated logs partition will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API.
         :param pulumi.Input[_builtins.bool] active: Whether the partition is active.
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp.
-        :param pulumi.Input[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict']] data_retention_policy: Retention policy for logs in this partition. See Nested data_retention_policy block below.
+        :param pulumi.Input[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict', 'outputs.FederatedLogsPartitionDataRetentionPolicy']] data_retention_policy: Retention policy for logs in this partition. See Nested data_retention_policy block below.
         :param pulumi.Input[_builtins.str] description: A description for partition.
-        :param pulumi.Input[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict']] forwarder_configuration: Forwarder configuration for routing specific logs to this partition. See Nested forwarder_configuration block below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsPartitionHealthCheckArgs', 'FederatedLogsPartitionHealthCheckArgsDict']]]] health_checks: Aggregate health check status for the partition.
+        :param pulumi.Input[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict', 'outputs.FederatedLogsPartitionForwarderConfiguration']] forwarder_configuration: Forwarder configuration for routing specific logs to this partition. See Nested forwarder_configuration block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsPartitionHealthCheckArgs', 'FederatedLogsPartitionHealthCheckArgsDict', 'outputs.FederatedLogsPartitionHealthCheck']]]] health_checks: Aggregate health check status for the partition.
         :param pulumi.Input[_builtins.bool] is_default: Whether this is the default partition for the parent setup.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsPartitionLifecycleStatusArgs', 'FederatedLogsPartitionLifecycleStatusArgsDict']]]] lifecycle_statuses: Current lifecycle status of the partition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsPartitionLifecycleStatusArgs', 'FederatedLogsPartitionLifecycleStatusArgsDict', 'outputs.FederatedLogsPartitionLifecycleStatus']]]] lifecycle_statuses: Current lifecycle status of the partition.
         :param pulumi.Input[_builtins.str] name: The name of the partition.
         :param pulumi.Input[_builtins.str] setup_id: Entity GUID of the setup.
-        :param pulumi.Input[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict']] storage: Storage details for this partition. See Nested storage block below.
+        :param pulumi.Input[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict', 'outputs.FederatedLogsPartitionStorage']] storage: Storage details for this partition. See Nested storage block below.
         :param pulumi.Input[_builtins.str] updated_at: Last-updated timestamp.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

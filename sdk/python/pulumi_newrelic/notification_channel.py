@@ -283,7 +283,7 @@ class NotificationChannel(pulumi.CustomResource):
                  destination_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  product: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict', 'outputs.NotificationChannelProperty']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -644,7 +644,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination_id: The id of the destination.
         :param pulumi.Input[_builtins.str] name: The name of the channel.
         :param pulumi.Input[_builtins.str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict', 'outputs.NotificationChannelProperty']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
         :param pulumi.Input[_builtins.str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
         """
         ...
@@ -1024,7 +1024,7 @@ class NotificationChannel(pulumi.CustomResource):
                  destination_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  product: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict', 'outputs.NotificationChannelProperty']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1066,7 +1066,7 @@ class NotificationChannel(pulumi.CustomResource):
             destination_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             product: pulumi.Input[Optional[_builtins.str]] = None,
-            properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict']]]]] = None,
+            properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict', 'outputs.NotificationChannelProperty']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'NotificationChannel':
         """
@@ -1081,7 +1081,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination_id: The id of the destination.
         :param pulumi.Input[_builtins.str] name: The name of the channel.
         :param pulumi.Input[_builtins.str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict', 'outputs.NotificationChannelProperty']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
         :param pulumi.Input[_builtins.str] status: The status of the channel.
         :param pulumi.Input[_builtins.str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
         """

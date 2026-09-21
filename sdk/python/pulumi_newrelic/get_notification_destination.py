@@ -166,8 +166,8 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
                                  exact_name: Optional[_builtins.str] = None,
                                  id: Optional[_builtins.str] = None,
                                  name: Optional[_builtins.str] = None,
-                                 scope: Optional[Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict']] = None,
-                                 secure_urls: Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]] = None,
+                                 scope: Optional[Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict', 'outputs.GetNotificationDestinationScopeResult']] = None,
+                                 secure_urls: Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict', 'outputs.GetNotificationDestinationSecureUrlResult']]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationDestinationResult:
     """
     Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
@@ -252,11 +252,11 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
            Optional:
     :param _builtins.str id: The id of the notification destination in New Relic.
     :param _builtins.str name: The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
-    :param Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict'] scope: The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
+    :param Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict', 'outputs.GetNotificationDestinationScopeResult'] scope: The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
            
            Note:
            By Default account scope is considered for the destination until unless it is mentioned explicitly in the arguments. If you want to get a cross account destination, then you need to provide the scope of destination in the arguments.
-    :param Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+    :param Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict', 'outputs.GetNotificationDestinationSecureUrlResult']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -284,8 +284,8 @@ def get_notification_destination_output(account_id: pulumi.Input[Optional[Option
                                         exact_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                        scope: pulumi.Input[Optional[Optional[Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict']]]] = None,
-                                        secure_urls: pulumi.Input[Optional[Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]]]] = None,
+                                        scope: pulumi.Input[Optional[Optional[Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict', 'outputs.GetNotificationDestinationScopeResult']]]] = None,
+                                        secure_urls: pulumi.Input[Optional[Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict', 'outputs.GetNotificationDestinationSecureUrlResult']]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationDestinationResult]:
     """
     Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
@@ -370,11 +370,11 @@ def get_notification_destination_output(account_id: pulumi.Input[Optional[Option
            Optional:
     :param _builtins.str id: The id of the notification destination in New Relic.
     :param _builtins.str name: The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
-    :param Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict'] scope: The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
+    :param Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict', 'outputs.GetNotificationDestinationScopeResult'] scope: The scope of destination which has two parameters scope type and ID. This is required when trying to get  either account scoped or cross account destination. The scope type can be either `ORGANIZATION` or `ACCOUNT`. If the scope type is `ORGANIZATION`, then the scope ID should be the Organization UUID. If the scope type is `ACCOUNT`, then the scope ID should be the New Relic account ID.
            
            Note:
            By Default account scope is considered for the destination until unless it is mentioned explicitly in the arguments. If you want to get a cross account destination, then you need to provide the scope of destination in the arguments.
-    :param Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+    :param Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict', 'outputs.GetNotificationDestinationSecureUrlResult']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
     """
     __args__ = dict()
     __args__['accountId'] = account_id

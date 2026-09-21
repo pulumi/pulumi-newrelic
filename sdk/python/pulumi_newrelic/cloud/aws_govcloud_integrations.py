@@ -746,27 +746,27 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 alb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict']]] = None,
-                 api_gateway: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict']]] = None,
-                 auto_scaling: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict']]] = None,
-                 aws_direct_connect: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict']]] = None,
-                 aws_states: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict']]] = None,
-                 cloudtrail: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict']]] = None,
-                 dynamo_db: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict']]] = None,
-                 ebs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict']]] = None,
-                 ec2: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict']]] = None,
-                 elastic_search: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict']]] = None,
-                 elb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict']]] = None,
-                 emr: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict']]] = None,
-                 iam: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict']]] = None,
-                 lambda_: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict']]] = None,
+                 alb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict', 'outputs.AwsGovcloudIntegrationsAlb']]] = None,
+                 api_gateway: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict', 'outputs.AwsGovcloudIntegrationsApiGateway']]] = None,
+                 auto_scaling: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict', 'outputs.AwsGovcloudIntegrationsAutoScaling']]] = None,
+                 aws_direct_connect: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsGovcloudIntegrationsAwsDirectConnect']]] = None,
+                 aws_states: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict', 'outputs.AwsGovcloudIntegrationsAwsStates']]] = None,
+                 cloudtrail: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict', 'outputs.AwsGovcloudIntegrationsCloudtrail']]] = None,
+                 dynamo_db: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict', 'outputs.AwsGovcloudIntegrationsDynamoDb']]] = None,
+                 ebs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict', 'outputs.AwsGovcloudIntegrationsEbs']]] = None,
+                 ec2: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict', 'outputs.AwsGovcloudIntegrationsEc2']]] = None,
+                 elastic_search: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict', 'outputs.AwsGovcloudIntegrationsElasticSearch']]] = None,
+                 elb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict', 'outputs.AwsGovcloudIntegrationsElb']]] = None,
+                 emr: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict', 'outputs.AwsGovcloudIntegrationsEmr']]] = None,
+                 iam: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict', 'outputs.AwsGovcloudIntegrationsIam']]] = None,
+                 lambda_: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict', 'outputs.AwsGovcloudIntegrationsLambda']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rds: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict']]] = None,
-                 red_shift: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict']]] = None,
-                 route53: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict']]] = None,
-                 s3: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict']]] = None,
-                 sns: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict']]] = None,
-                 sqs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict']]] = None,
+                 rds: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict', 'outputs.AwsGovcloudIntegrationsRds']]] = None,
+                 red_shift: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict', 'outputs.AwsGovcloudIntegrationsRedShift']]] = None,
+                 route53: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict', 'outputs.AwsGovcloudIntegrationsRoute53']]] = None,
+                 s3: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict', 'outputs.AwsGovcloudIntegrationsS3']]] = None,
+                 sns: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict', 'outputs.AwsGovcloudIntegrationsSns']]] = None,
+                 sqs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict', 'outputs.AwsGovcloudIntegrationsSqs']]] = None,
                  __props__=None):
         """
         > **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.
@@ -795,27 +795,27 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict']] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict']] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict']] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict']] aws_direct_connect: Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict']] aws_states: Aws States AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict']] cloudtrail: Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict']] dynamo_db: Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict']] ebs: Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict']] ec2: EC2 AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict']] elastic_search: Elastic search AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict']] elb: Elb AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict']] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict']] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict']] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict', 'outputs.AwsGovcloudIntegrationsAlb']] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict', 'outputs.AwsGovcloudIntegrationsApiGateway']] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict', 'outputs.AwsGovcloudIntegrationsAutoScaling']] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsGovcloudIntegrationsAwsDirectConnect']] aws_direct_connect: Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict', 'outputs.AwsGovcloudIntegrationsAwsStates']] aws_states: Aws States AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict', 'outputs.AwsGovcloudIntegrationsCloudtrail']] cloudtrail: Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict', 'outputs.AwsGovcloudIntegrationsDynamoDb']] dynamo_db: Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict', 'outputs.AwsGovcloudIntegrationsEbs']] ebs: Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict', 'outputs.AwsGovcloudIntegrationsEc2']] ec2: EC2 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict', 'outputs.AwsGovcloudIntegrationsElasticSearch']] elastic_search: Elastic search AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict', 'outputs.AwsGovcloudIntegrationsElb']] elb: Elb AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict', 'outputs.AwsGovcloudIntegrationsEmr']] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict', 'outputs.AwsGovcloudIntegrationsIam']] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict', 'outputs.AwsGovcloudIntegrationsLambda']] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[_builtins.str] linked_account_id: The access key of the AwsGovCloud.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict']] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict']] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict']] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict']] s3: The s3 integration
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict']] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict']] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict', 'outputs.AwsGovcloudIntegrationsRds']] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict', 'outputs.AwsGovcloudIntegrationsRedShift']] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict', 'outputs.AwsGovcloudIntegrationsRoute53']] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict', 'outputs.AwsGovcloudIntegrationsS3']] s3: The s3 integration
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict', 'outputs.AwsGovcloudIntegrationsSns']] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict', 'outputs.AwsGovcloudIntegrationsSqs']] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
         """
         ...
     @overload
@@ -863,27 +863,27 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 alb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict']]] = None,
-                 api_gateway: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict']]] = None,
-                 auto_scaling: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict']]] = None,
-                 aws_direct_connect: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict']]] = None,
-                 aws_states: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict']]] = None,
-                 cloudtrail: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict']]] = None,
-                 dynamo_db: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict']]] = None,
-                 ebs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict']]] = None,
-                 ec2: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict']]] = None,
-                 elastic_search: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict']]] = None,
-                 elb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict']]] = None,
-                 emr: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict']]] = None,
-                 iam: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict']]] = None,
-                 lambda_: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict']]] = None,
+                 alb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict', 'outputs.AwsGovcloudIntegrationsAlb']]] = None,
+                 api_gateway: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict', 'outputs.AwsGovcloudIntegrationsApiGateway']]] = None,
+                 auto_scaling: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict', 'outputs.AwsGovcloudIntegrationsAutoScaling']]] = None,
+                 aws_direct_connect: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsGovcloudIntegrationsAwsDirectConnect']]] = None,
+                 aws_states: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict', 'outputs.AwsGovcloudIntegrationsAwsStates']]] = None,
+                 cloudtrail: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict', 'outputs.AwsGovcloudIntegrationsCloudtrail']]] = None,
+                 dynamo_db: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict', 'outputs.AwsGovcloudIntegrationsDynamoDb']]] = None,
+                 ebs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict', 'outputs.AwsGovcloudIntegrationsEbs']]] = None,
+                 ec2: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict', 'outputs.AwsGovcloudIntegrationsEc2']]] = None,
+                 elastic_search: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict', 'outputs.AwsGovcloudIntegrationsElasticSearch']]] = None,
+                 elb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict', 'outputs.AwsGovcloudIntegrationsElb']]] = None,
+                 emr: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict', 'outputs.AwsGovcloudIntegrationsEmr']]] = None,
+                 iam: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict', 'outputs.AwsGovcloudIntegrationsIam']]] = None,
+                 lambda_: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict', 'outputs.AwsGovcloudIntegrationsLambda']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rds: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict']]] = None,
-                 red_shift: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict']]] = None,
-                 route53: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict']]] = None,
-                 s3: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict']]] = None,
-                 sns: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict']]] = None,
-                 sqs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict']]] = None,
+                 rds: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict', 'outputs.AwsGovcloudIntegrationsRds']]] = None,
+                 red_shift: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict', 'outputs.AwsGovcloudIntegrationsRedShift']]] = None,
+                 route53: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict', 'outputs.AwsGovcloudIntegrationsRoute53']]] = None,
+                 s3: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict', 'outputs.AwsGovcloudIntegrationsS3']]] = None,
+                 sns: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict', 'outputs.AwsGovcloudIntegrationsSns']]] = None,
+                 sqs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict', 'outputs.AwsGovcloudIntegrationsSqs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -928,27 +928,27 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            alb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict']]] = None,
-            api_gateway: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict']]] = None,
-            auto_scaling: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict']]] = None,
-            aws_direct_connect: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict']]] = None,
-            aws_states: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict']]] = None,
-            cloudtrail: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict']]] = None,
-            dynamo_db: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict']]] = None,
-            ebs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict']]] = None,
-            ec2: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict']]] = None,
-            elastic_search: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict']]] = None,
-            elb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict']]] = None,
-            emr: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict']]] = None,
-            iam: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict']]] = None,
-            lambda_: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict']]] = None,
+            alb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict', 'outputs.AwsGovcloudIntegrationsAlb']]] = None,
+            api_gateway: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict', 'outputs.AwsGovcloudIntegrationsApiGateway']]] = None,
+            auto_scaling: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict', 'outputs.AwsGovcloudIntegrationsAutoScaling']]] = None,
+            aws_direct_connect: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsGovcloudIntegrationsAwsDirectConnect']]] = None,
+            aws_states: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict', 'outputs.AwsGovcloudIntegrationsAwsStates']]] = None,
+            cloudtrail: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict', 'outputs.AwsGovcloudIntegrationsCloudtrail']]] = None,
+            dynamo_db: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict', 'outputs.AwsGovcloudIntegrationsDynamoDb']]] = None,
+            ebs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict', 'outputs.AwsGovcloudIntegrationsEbs']]] = None,
+            ec2: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict', 'outputs.AwsGovcloudIntegrationsEc2']]] = None,
+            elastic_search: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict', 'outputs.AwsGovcloudIntegrationsElasticSearch']]] = None,
+            elb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict', 'outputs.AwsGovcloudIntegrationsElb']]] = None,
+            emr: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict', 'outputs.AwsGovcloudIntegrationsEmr']]] = None,
+            iam: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict', 'outputs.AwsGovcloudIntegrationsIam']]] = None,
+            lambda_: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict', 'outputs.AwsGovcloudIntegrationsLambda']]] = None,
             linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            rds: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict']]] = None,
-            red_shift: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict']]] = None,
-            route53: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict']]] = None,
-            s3: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict']]] = None,
-            sns: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict']]] = None,
-            sqs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict']]] = None) -> 'AwsGovcloudIntegrations':
+            rds: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict', 'outputs.AwsGovcloudIntegrationsRds']]] = None,
+            red_shift: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict', 'outputs.AwsGovcloudIntegrationsRedShift']]] = None,
+            route53: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict', 'outputs.AwsGovcloudIntegrationsRoute53']]] = None,
+            s3: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict', 'outputs.AwsGovcloudIntegrationsS3']]] = None,
+            sns: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict', 'outputs.AwsGovcloudIntegrationsSns']]] = None,
+            sqs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict', 'outputs.AwsGovcloudIntegrationsSqs']]] = None) -> 'AwsGovcloudIntegrations':
         """
         Get an existing AwsGovcloudIntegrations resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -957,27 +957,27 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict']] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict']] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict']] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict']] aws_direct_connect: Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict']] aws_states: Aws States AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict']] cloudtrail: Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict']] dynamo_db: Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict']] ebs: Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict']] ec2: EC2 AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict']] elastic_search: Elastic search AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict']] elb: Elb AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict']] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict']] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict']] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict', 'outputs.AwsGovcloudIntegrationsAlb']] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict', 'outputs.AwsGovcloudIntegrationsApiGateway']] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict', 'outputs.AwsGovcloudIntegrationsAutoScaling']] auto_scaling: Autoscaling AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsGovcloudIntegrationsAwsDirectConnect']] aws_direct_connect: Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict', 'outputs.AwsGovcloudIntegrationsAwsStates']] aws_states: Aws States AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict', 'outputs.AwsGovcloudIntegrationsCloudtrail']] cloudtrail: Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict', 'outputs.AwsGovcloudIntegrationsDynamoDb']] dynamo_db: Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict', 'outputs.AwsGovcloudIntegrationsEbs']] ebs: Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict', 'outputs.AwsGovcloudIntegrationsEc2']] ec2: EC2 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict', 'outputs.AwsGovcloudIntegrationsElasticSearch']] elastic_search: Elastic search AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict', 'outputs.AwsGovcloudIntegrationsElb']] elb: Elb AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict', 'outputs.AwsGovcloudIntegrationsEmr']] emr: Emr AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict', 'outputs.AwsGovcloudIntegrationsIam']] iam: IAM AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict', 'outputs.AwsGovcloudIntegrationsLambda']] lambda_: Lambda AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input[_builtins.str] linked_account_id: The access key of the AwsGovCloud.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict']] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict']] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict']] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict']] s3: The s3 integration
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict']] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
-        :param pulumi.Input[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict']] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict', 'outputs.AwsGovcloudIntegrationsRds']] rds: RDS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict', 'outputs.AwsGovcloudIntegrationsRedShift']] red_shift: Redshift AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict', 'outputs.AwsGovcloudIntegrationsRoute53']] route53: Route53 AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict', 'outputs.AwsGovcloudIntegrationsS3']] s3: The s3 integration
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict', 'outputs.AwsGovcloudIntegrationsSns']] sns: SNS AwsGovCloud integration.See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict', 'outputs.AwsGovcloudIntegrationsSqs']] sqs: SQS AwsGovCloud integration.See Integration blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

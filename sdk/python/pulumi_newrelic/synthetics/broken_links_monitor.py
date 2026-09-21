@@ -479,7 +479,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                  runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict', 'outputs.BrokenLinksMonitorTag']]]]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
                  use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -566,7 +566,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                <br><br>
                You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict', 'outputs.BrokenLinksMonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[_builtins.str] uri: The URI the monitor runs against.
         :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
@@ -664,7 +664,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                  runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict', 'outputs.BrokenLinksMonitorTag']]]]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
                  use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -717,7 +717,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
             runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict', 'outputs.BrokenLinksMonitorTag']]]]] = None,
             uri: pulumi.Input[Optional[_builtins.str]] = None,
             use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None) -> 'BrokenLinksMonitor':
         """
@@ -746,7 +746,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                <br><br>
                You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict', 'outputs.BrokenLinksMonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[_builtins.str] uri: The URI the monitor runs against.
         :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """

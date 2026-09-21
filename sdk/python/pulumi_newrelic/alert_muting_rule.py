@@ -266,11 +266,11 @@ class AlertMutingRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  action_on_muting_rule_window_ended: pulumi.Input[Optional[_builtins.str]] = None,
-                 condition: pulumi.Input[Optional[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict', 'outputs.AlertMutingRuleCondition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict', 'outputs.AlertMutingRuleSchedule']]] = None,
                  __props__=None):
         """
         Use this resource to create a muting rule for New Relic Alerts incidents.
@@ -333,11 +333,11 @@ class AlertMutingRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id of the MutingRule.
         :param pulumi.Input[_builtins.str] action_on_muting_rule_window_ended: The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
-        :param pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
+        :param pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict', 'outputs.AlertMutingRuleCondition']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[_builtins.str] description: The description of the MutingRule.
         :param pulumi.Input[_builtins.bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the MutingRule.
-        :param pulumi.Input[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
+        :param pulumi.Input[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict', 'outputs.AlertMutingRuleSchedule']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
         """
         ...
     @overload
@@ -419,11 +419,11 @@ class AlertMutingRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  action_on_muting_rule_window_ended: pulumi.Input[Optional[_builtins.str]] = None,
-                 condition: pulumi.Input[Optional[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict', 'outputs.AlertMutingRuleCondition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict', 'outputs.AlertMutingRuleSchedule']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -456,11 +456,11 @@ class AlertMutingRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             action_on_muting_rule_window_ended: pulumi.Input[Optional[_builtins.str]] = None,
-            condition: pulumi.Input[Optional[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']]] = None,
+            condition: pulumi.Input[Optional[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict', 'outputs.AlertMutingRuleCondition']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            schedule: pulumi.Input[Optional[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']]] = None) -> 'AlertMutingRule':
+            schedule: pulumi.Input[Optional[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict', 'outputs.AlertMutingRuleSchedule']]] = None) -> 'AlertMutingRule':
         """
         Get an existing AlertMutingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -470,11 +470,11 @@ class AlertMutingRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id of the MutingRule.
         :param pulumi.Input[_builtins.str] action_on_muting_rule_window_ended: The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
-        :param pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
+        :param pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict', 'outputs.AlertMutingRuleCondition']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[_builtins.str] description: The description of the MutingRule.
         :param pulumi.Input[_builtins.bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the MutingRule.
-        :param pulumi.Input[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
+        :param pulumi.Input[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict', 'outputs.AlertMutingRuleSchedule']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

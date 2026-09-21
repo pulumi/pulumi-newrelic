@@ -415,7 +415,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
+                 component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict', 'outputs.AlertCompoundConditionComponentCondition']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
@@ -651,7 +651,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict', 'outputs.AlertCompoundConditionComponentCondition']]]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
         :param pulumi.Input[_builtins.str] description: **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the compound alert condition is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] facet_matching_behavior: How the compound condition will take into account the component conditions' facets during evaluation. Valid values are:
@@ -908,7 +908,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
+                 component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict', 'outputs.AlertCompoundConditionComponentCondition']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
@@ -958,7 +958,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]]] = None,
+            component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict', 'outputs.AlertCompoundConditionComponentCondition']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
@@ -977,7 +977,7 @@ class AlertCompoundCondition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict']]]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict', 'outputs.AlertCompoundConditionComponentCondition']]]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
         :param pulumi.Input[_builtins.str] description: **BETA PREVIEW: the `description` field is in limited release and only enabled for preview on a per-account basis.** The custom violation description.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the compound alert condition is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the compound alert condition in New Relic.

@@ -319,14 +319,14 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']]] = None,
+                 critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict', 'outputs.MultiLocationAlertConditionCritical']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
                  violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']]] = None,
+                 warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict', 'outputs.MultiLocationAlertConditionWarning']]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
@@ -431,14 +431,14 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']] critical: A condition term with the priority set to critical.
+        :param pulumi.Input[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict', 'outputs.MultiLocationAlertConditionCritical']] critical: A condition term with the priority set to critical.
         :param pulumi.Input[_builtins.bool] enabled: Set whether to enable the alert condition.  Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
         :param pulumi.Input[_builtins.str] name: The title of the condition.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
-        :param pulumi.Input[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']] warning: A condition term with the priority set to warning.
+        :param pulumi.Input[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict', 'outputs.MultiLocationAlertConditionWarning']] warning: A condition term with the priority set to warning.
                
                > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         """
@@ -564,14 +564,14 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']]] = None,
+                 critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict', 'outputs.MultiLocationAlertConditionCritical']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
                  violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']]] = None,
+                 warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict', 'outputs.MultiLocationAlertConditionWarning']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -606,7 +606,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']]] = None,
+            critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict', 'outputs.MultiLocationAlertConditionCritical']]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
@@ -614,7 +614,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
             violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-            warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']]] = None) -> 'MultiLocationAlertCondition':
+            warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict', 'outputs.MultiLocationAlertConditionWarning']]] = None) -> 'MultiLocationAlertCondition':
         """
         Get an existing MultiLocationAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -622,7 +622,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']] critical: A condition term with the priority set to critical.
+        :param pulumi.Input[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict', 'outputs.MultiLocationAlertConditionCritical']] critical: A condition term with the priority set to critical.
         :param pulumi.Input[_builtins.bool] enabled: Set whether to enable the alert condition.  Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
         :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the condition in New Relic.
@@ -630,7 +630,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
-        :param pulumi.Input[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict']] warning: A condition term with the priority set to warning.
+        :param pulumi.Input[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict', 'outputs.MultiLocationAlertConditionWarning']] warning: A condition term with the priority set to warning.
                
                > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         """

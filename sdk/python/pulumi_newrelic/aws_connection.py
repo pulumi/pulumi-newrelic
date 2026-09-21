@@ -394,7 +394,7 @@ class AwsConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 credential: pulumi.Input[Optional[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict']]] = None,
+                 credential: pulumi.Input[Optional[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict', 'outputs.AwsConnectionCredential']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -402,8 +402,8 @@ class AwsConnection(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict']]]]] = None,
+                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict', 'outputs.AwsConnectionSetting']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict', 'outputs.AwsConnectionTag']]]]] = None,
                  __props__=None):
         """
         Use this resource to create and manage an AWS Connection entity in New Relic.
@@ -441,7 +441,7 @@ class AwsConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: New Relic account ID where the connection will be created. Used when `scope_type = ACCOUNT`.
-        :param pulumi.Input[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict']] credential: Credentials block describing how New Relic should authenticate into the AWS account. See Nested credential block below.
+        :param pulumi.Input[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict', 'outputs.AwsConnectionCredential']] credential: Credentials block describing how New Relic should authenticate into the AWS account. See Nested credential block below.
         :param pulumi.Input[_builtins.str] description: A description of the AWS Connection.
         :param pulumi.Input[_builtins.bool] enabled: Flag to indicate whether the connection is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] external_id: Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
@@ -449,8 +449,8 @@ class AwsConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: AWS region for this connection (e.g. `us-east-1`).
         :param pulumi.Input[_builtins.str] scope_id: Scope ID matching `scope_type` — a New Relic account ID for `ACCOUNT` scope, or an organization ID for `ORGANIZATION` scope.
         :param pulumi.Input[_builtins.str] scope_type: Scope type for the connection. Valid values: `ACCOUNT`, `ORGANIZATION`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict']]]] settings: Optional list of connection settings. Each entry takes:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict']]]] tags: Tags applied to the AWS Connection entity. Each entry takes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict', 'outputs.AwsConnectionSetting']]]] settings: Optional list of connection settings. Each entry takes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict', 'outputs.AwsConnectionTag']]]] tags: Tags applied to the AWS Connection entity. Each entry takes:
         """
         ...
     @overload
@@ -507,7 +507,7 @@ class AwsConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 credential: pulumi.Input[Optional[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict']]] = None,
+                 credential: pulumi.Input[Optional[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict', 'outputs.AwsConnectionCredential']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -515,8 +515,8 @@ class AwsConnection(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict']]]]] = None,
+                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict', 'outputs.AwsConnectionSetting']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict', 'outputs.AwsConnectionTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -550,7 +550,7 @@ class AwsConnection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            credential: pulumi.Input[Optional[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict']]] = None,
+            credential: pulumi.Input[Optional[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict', 'outputs.AwsConnectionCredential']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             external_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -558,8 +558,8 @@ class AwsConnection(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             scope_id: pulumi.Input[Optional[_builtins.str]] = None,
             scope_type: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict']]]]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict']]]]] = None) -> 'AwsConnection':
+            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict', 'outputs.AwsConnectionSetting']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict', 'outputs.AwsConnectionTag']]]]] = None) -> 'AwsConnection':
         """
         Get an existing AwsConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -568,7 +568,7 @@ class AwsConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: New Relic account ID where the connection will be created. Used when `scope_type = ACCOUNT`.
-        :param pulumi.Input[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict']] credential: Credentials block describing how New Relic should authenticate into the AWS account. See Nested credential block below.
+        :param pulumi.Input[Union['AwsConnectionCredentialArgs', 'AwsConnectionCredentialArgsDict', 'outputs.AwsConnectionCredential']] credential: Credentials block describing how New Relic should authenticate into the AWS account. See Nested credential block below.
         :param pulumi.Input[_builtins.str] description: A description of the AWS Connection.
         :param pulumi.Input[_builtins.bool] enabled: Flag to indicate whether the connection is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] external_id: Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
@@ -576,8 +576,8 @@ class AwsConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: AWS region for this connection (e.g. `us-east-1`).
         :param pulumi.Input[_builtins.str] scope_id: Scope ID matching `scope_type` — a New Relic account ID for `ACCOUNT` scope, or an organization ID for `ORGANIZATION` scope.
         :param pulumi.Input[_builtins.str] scope_type: Scope type for the connection. Valid values: `ACCOUNT`, `ORGANIZATION`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict']]]] settings: Optional list of connection settings. Each entry takes:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict']]]] tags: Tags applied to the AWS Connection entity. Each entry takes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AwsConnectionSettingArgs', 'AwsConnectionSettingArgsDict', 'outputs.AwsConnectionSetting']]]] settings: Optional list of connection settings. Each entry takes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AwsConnectionTagArgs', 'AwsConnectionTagArgsDict', 'outputs.AwsConnectionTag']]]] tags: Tags applied to the AWS Connection entity. Each entry takes:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -946,33 +946,33 @@ class GcpIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
-                 app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
-                 big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
-                 big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
-                 composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
-                 data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
-                 data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
-                 data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
-                 fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
-                 fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
-                 fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
-                 fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
-                 functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
-                 interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
-                 kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
+                 alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict', 'outputs.GcpIntegrationsAlloyDb']]] = None,
+                 app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict', 'outputs.GcpIntegrationsAppEngine']]] = None,
+                 big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict', 'outputs.GcpIntegrationsBigQuery']]] = None,
+                 big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict', 'outputs.GcpIntegrationsBigTable']]] = None,
+                 composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict', 'outputs.GcpIntegrationsComposer']]] = None,
+                 data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict', 'outputs.GcpIntegrationsDataFlow']]] = None,
+                 data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict', 'outputs.GcpIntegrationsDataProc']]] = None,
+                 data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict', 'outputs.GcpIntegrationsDataStore']]] = None,
+                 fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict', 'outputs.GcpIntegrationsFireBaseDatabase']]] = None,
+                 fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict', 'outputs.GcpIntegrationsFireBaseHosting']]] = None,
+                 fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict', 'outputs.GcpIntegrationsFireBaseStorage']]] = None,
+                 fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict', 'outputs.GcpIntegrationsFireStore']]] = None,
+                 functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict', 'outputs.GcpIntegrationsFunctions']]] = None,
+                 interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict', 'outputs.GcpIntegrationsInterconnect']]] = None,
+                 kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict', 'outputs.GcpIntegrationsKubernetes']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
-                 mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
-                 pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
-                 redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
-                 router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
-                 run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
-                 spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
-                 sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
-                 storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
-                 virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
-                 vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None,
+                 load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict', 'outputs.GcpIntegrationsLoadBalancing']]] = None,
+                 mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict', 'outputs.GcpIntegrationsMemCache']]] = None,
+                 pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict', 'outputs.GcpIntegrationsPubSub']]] = None,
+                 redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict', 'outputs.GcpIntegrationsRedis']]] = None,
+                 router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict', 'outputs.GcpIntegrationsRouter']]] = None,
+                 run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict', 'outputs.GcpIntegrationsRun']]] = None,
+                 spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict', 'outputs.GcpIntegrationsSpanner']]] = None,
+                 sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict', 'outputs.GcpIntegrationsSql']]] = None,
+                 storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict', 'outputs.GcpIntegrationsStorage']]] = None,
+                 virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict', 'outputs.GcpIntegrationsVirtualMachines']]] = None,
+                 vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict', 'outputs.GcpIntegrationsVpcAccess']]] = None,
                  __props__=None):
         """
         Use this resource to integrate GCP services with New Relic.
@@ -1089,35 +1089,35 @@ class GcpIntegrations(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']] alloy_db: Alloy DB integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']] app_engine: App Engine integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']] big_query: Biq Query integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']] big_table: Big Table. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']] composer: Composer integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']] data_flow: Data Flow integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']] data_proc: Data Proc integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']] data_store: Data Store integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']] fire_base_database: Fire Base Database integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']] fire_base_hosting: Fire Base Hosting integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']] fire_base_storage: Fire Base Storage integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']] fire_store: Fire Store integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']] functions: Functions integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']] interconnect: Interconnect integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']] kubernetes: Kubernetes integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict', 'outputs.GcpIntegrationsAlloyDb']] alloy_db: Alloy DB integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict', 'outputs.GcpIntegrationsAppEngine']] app_engine: App Engine integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict', 'outputs.GcpIntegrationsBigQuery']] big_query: Biq Query integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict', 'outputs.GcpIntegrationsBigTable']] big_table: Big Table. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict', 'outputs.GcpIntegrationsComposer']] composer: Composer integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict', 'outputs.GcpIntegrationsDataFlow']] data_flow: Data Flow integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict', 'outputs.GcpIntegrationsDataProc']] data_proc: Data Proc integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict', 'outputs.GcpIntegrationsDataStore']] data_store: Data Store integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict', 'outputs.GcpIntegrationsFireBaseDatabase']] fire_base_database: Fire Base Database integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict', 'outputs.GcpIntegrationsFireBaseHosting']] fire_base_hosting: Fire Base Hosting integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict', 'outputs.GcpIntegrationsFireBaseStorage']] fire_base_storage: Fire Base Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict', 'outputs.GcpIntegrationsFireStore']] fire_store: Fire Store integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict', 'outputs.GcpIntegrationsFunctions']] functions: Functions integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict', 'outputs.GcpIntegrationsInterconnect']] interconnect: Interconnect integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict', 'outputs.GcpIntegrationsKubernetes']] kubernetes: Kubernetes integration. See Integration blocks below for details.
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked GCP account in New Relic.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-        :param pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']] load_balancing: Load Balancing integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']] mem_cache: Mem cache integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']] redis: Redis integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']] router: Router integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']] run: Run integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']] spanner: Spanner integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']] sql: SQL integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']] storage: Storage integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']] vpc_access: VPC Access integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict', 'outputs.GcpIntegrationsLoadBalancing']] load_balancing: Load Balancing integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict', 'outputs.GcpIntegrationsMemCache']] mem_cache: Mem cache integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict', 'outputs.GcpIntegrationsPubSub']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict', 'outputs.GcpIntegrationsRedis']] redis: Redis integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict', 'outputs.GcpIntegrationsRouter']] router: Router integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict', 'outputs.GcpIntegrationsRun']] run: Run integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict', 'outputs.GcpIntegrationsSpanner']] spanner: Spanner integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict', 'outputs.GcpIntegrationsSql']] sql: SQL integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict', 'outputs.GcpIntegrationsStorage']] storage: Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict', 'outputs.GcpIntegrationsVirtualMachines']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict', 'outputs.GcpIntegrationsVpcAccess']] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
         ...
     @overload
@@ -1253,33 +1253,33 @@ class GcpIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
-                 app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
-                 big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
-                 big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
-                 composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
-                 data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
-                 data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
-                 data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
-                 fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
-                 fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
-                 fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
-                 fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
-                 functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
-                 interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
-                 kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
+                 alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict', 'outputs.GcpIntegrationsAlloyDb']]] = None,
+                 app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict', 'outputs.GcpIntegrationsAppEngine']]] = None,
+                 big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict', 'outputs.GcpIntegrationsBigQuery']]] = None,
+                 big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict', 'outputs.GcpIntegrationsBigTable']]] = None,
+                 composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict', 'outputs.GcpIntegrationsComposer']]] = None,
+                 data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict', 'outputs.GcpIntegrationsDataFlow']]] = None,
+                 data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict', 'outputs.GcpIntegrationsDataProc']]] = None,
+                 data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict', 'outputs.GcpIntegrationsDataStore']]] = None,
+                 fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict', 'outputs.GcpIntegrationsFireBaseDatabase']]] = None,
+                 fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict', 'outputs.GcpIntegrationsFireBaseHosting']]] = None,
+                 fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict', 'outputs.GcpIntegrationsFireBaseStorage']]] = None,
+                 fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict', 'outputs.GcpIntegrationsFireStore']]] = None,
+                 functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict', 'outputs.GcpIntegrationsFunctions']]] = None,
+                 interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict', 'outputs.GcpIntegrationsInterconnect']]] = None,
+                 kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict', 'outputs.GcpIntegrationsKubernetes']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
-                 mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
-                 pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
-                 redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
-                 router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
-                 run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
-                 spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
-                 sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
-                 storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
-                 virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
-                 vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None,
+                 load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict', 'outputs.GcpIntegrationsLoadBalancing']]] = None,
+                 mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict', 'outputs.GcpIntegrationsMemCache']]] = None,
+                 pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict', 'outputs.GcpIntegrationsPubSub']]] = None,
+                 redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict', 'outputs.GcpIntegrationsRedis']]] = None,
+                 router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict', 'outputs.GcpIntegrationsRouter']]] = None,
+                 run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict', 'outputs.GcpIntegrationsRun']]] = None,
+                 spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict', 'outputs.GcpIntegrationsSpanner']]] = None,
+                 sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict', 'outputs.GcpIntegrationsSql']]] = None,
+                 storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict', 'outputs.GcpIntegrationsStorage']]] = None,
+                 virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict', 'outputs.GcpIntegrationsVirtualMachines']]] = None,
+                 vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict', 'outputs.GcpIntegrationsVpcAccess']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1330,33 +1330,33 @@ class GcpIntegrations(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
-            app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
-            big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
-            big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
-            composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
-            data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
-            data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
-            data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
-            fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
-            fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
-            fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
-            fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
-            functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
-            interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
-            kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
+            alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict', 'outputs.GcpIntegrationsAlloyDb']]] = None,
+            app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict', 'outputs.GcpIntegrationsAppEngine']]] = None,
+            big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict', 'outputs.GcpIntegrationsBigQuery']]] = None,
+            big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict', 'outputs.GcpIntegrationsBigTable']]] = None,
+            composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict', 'outputs.GcpIntegrationsComposer']]] = None,
+            data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict', 'outputs.GcpIntegrationsDataFlow']]] = None,
+            data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict', 'outputs.GcpIntegrationsDataProc']]] = None,
+            data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict', 'outputs.GcpIntegrationsDataStore']]] = None,
+            fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict', 'outputs.GcpIntegrationsFireBaseDatabase']]] = None,
+            fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict', 'outputs.GcpIntegrationsFireBaseHosting']]] = None,
+            fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict', 'outputs.GcpIntegrationsFireBaseStorage']]] = None,
+            fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict', 'outputs.GcpIntegrationsFireStore']]] = None,
+            functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict', 'outputs.GcpIntegrationsFunctions']]] = None,
+            interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict', 'outputs.GcpIntegrationsInterconnect']]] = None,
+            kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict', 'outputs.GcpIntegrationsKubernetes']]] = None,
             linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
-            mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
-            pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
-            redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
-            router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
-            run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
-            spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
-            sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
-            storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
-            virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
-            vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None) -> 'GcpIntegrations':
+            load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict', 'outputs.GcpIntegrationsLoadBalancing']]] = None,
+            mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict', 'outputs.GcpIntegrationsMemCache']]] = None,
+            pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict', 'outputs.GcpIntegrationsPubSub']]] = None,
+            redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict', 'outputs.GcpIntegrationsRedis']]] = None,
+            router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict', 'outputs.GcpIntegrationsRouter']]] = None,
+            run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict', 'outputs.GcpIntegrationsRun']]] = None,
+            spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict', 'outputs.GcpIntegrationsSpanner']]] = None,
+            sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict', 'outputs.GcpIntegrationsSql']]] = None,
+            storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict', 'outputs.GcpIntegrationsStorage']]] = None,
+            virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict', 'outputs.GcpIntegrationsVirtualMachines']]] = None,
+            vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict', 'outputs.GcpIntegrationsVpcAccess']]] = None) -> 'GcpIntegrations':
         """
         Get an existing GcpIntegrations resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1365,35 +1365,35 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']] alloy_db: Alloy DB integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']] app_engine: App Engine integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']] big_query: Biq Query integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']] big_table: Big Table. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']] composer: Composer integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']] data_flow: Data Flow integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']] data_proc: Data Proc integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']] data_store: Data Store integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']] fire_base_database: Fire Base Database integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']] fire_base_hosting: Fire Base Hosting integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']] fire_base_storage: Fire Base Storage integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']] fire_store: Fire Store integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']] functions: Functions integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']] interconnect: Interconnect integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']] kubernetes: Kubernetes integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict', 'outputs.GcpIntegrationsAlloyDb']] alloy_db: Alloy DB integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict', 'outputs.GcpIntegrationsAppEngine']] app_engine: App Engine integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict', 'outputs.GcpIntegrationsBigQuery']] big_query: Biq Query integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict', 'outputs.GcpIntegrationsBigTable']] big_table: Big Table. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict', 'outputs.GcpIntegrationsComposer']] composer: Composer integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict', 'outputs.GcpIntegrationsDataFlow']] data_flow: Data Flow integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict', 'outputs.GcpIntegrationsDataProc']] data_proc: Data Proc integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict', 'outputs.GcpIntegrationsDataStore']] data_store: Data Store integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict', 'outputs.GcpIntegrationsFireBaseDatabase']] fire_base_database: Fire Base Database integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict', 'outputs.GcpIntegrationsFireBaseHosting']] fire_base_hosting: Fire Base Hosting integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict', 'outputs.GcpIntegrationsFireBaseStorage']] fire_base_storage: Fire Base Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict', 'outputs.GcpIntegrationsFireStore']] fire_store: Fire Store integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict', 'outputs.GcpIntegrationsFunctions']] functions: Functions integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict', 'outputs.GcpIntegrationsInterconnect']] interconnect: Interconnect integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict', 'outputs.GcpIntegrationsKubernetes']] kubernetes: Kubernetes integration. See Integration blocks below for details.
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked GCP account in New Relic.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-        :param pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']] load_balancing: Load Balancing integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']] mem_cache: Mem cache integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']] redis: Redis integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']] router: Router integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']] run: Run integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']] spanner: Spanner integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']] sql: SQL integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']] storage: Storage integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
-        :param pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']] vpc_access: VPC Access integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict', 'outputs.GcpIntegrationsLoadBalancing']] load_balancing: Load Balancing integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict', 'outputs.GcpIntegrationsMemCache']] mem_cache: Mem cache integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict', 'outputs.GcpIntegrationsPubSub']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict', 'outputs.GcpIntegrationsRedis']] redis: Redis integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict', 'outputs.GcpIntegrationsRouter']] router: Router integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict', 'outputs.GcpIntegrationsRun']] run: Run integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict', 'outputs.GcpIntegrationsSpanner']] spanner: Spanner integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict', 'outputs.GcpIntegrationsSql']] sql: SQL integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict', 'outputs.GcpIntegrationsStorage']] storage: Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict', 'outputs.GcpIntegrationsVirtualMachines']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict', 'outputs.GcpIntegrationsVpcAccess']] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

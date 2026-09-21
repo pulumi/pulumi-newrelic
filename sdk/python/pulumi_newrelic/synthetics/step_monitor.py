@@ -571,15 +571,15 @@ class StepMonitor(pulumi.CustomResource):
                  browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
-                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]]] = None,
+                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict', 'outputs.StepMonitorLocationPrivate']]]]] = None,
                  locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  period: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict', 'outputs.StepMonitorStep']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict', 'outputs.StepMonitorTag']]]]] = None,
                  use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -682,7 +682,7 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[_builtins.bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict', 'outputs.StepMonitorLocationPrivate']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[_builtins.str] name: The name for the monitor.
         :param pulumi.Input[_builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -697,8 +697,8 @@ class StepMonitor(pulumi.CustomResource):
                <br><br>
                You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict', 'outputs.StepMonitorStep']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict', 'outputs.StepMonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         ...
@@ -820,15 +820,15 @@ class StepMonitor(pulumi.CustomResource):
                  browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
-                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]]] = None,
+                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict', 'outputs.StepMonitorLocationPrivate']]]]] = None,
                  locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  period: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict', 'outputs.StepMonitorStep']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict', 'outputs.StepMonitorTag']]]]] = None,
                  use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -877,7 +877,7 @@ class StepMonitor(pulumi.CustomResource):
             devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
-            location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]]] = None,
+            location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict', 'outputs.StepMonitorLocationPrivate']]]]] = None,
             locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -886,8 +886,8 @@ class StepMonitor(pulumi.CustomResource):
             runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
             runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict', 'outputs.StepMonitorStep']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict', 'outputs.StepMonitorTag']]]]] = None,
             use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None) -> 'StepMonitor':
         """
         Get an existing StepMonitor resource's state with the given name, id, and optional extra
@@ -901,7 +901,7 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[_builtins.bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the monitor in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict', 'outputs.StepMonitorLocationPrivate']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[_builtins.str] monitor_id: The monitor id of the synthetics step monitor (not to be confused with the GUID of the monitor).
         :param pulumi.Input[_builtins.str] name: The name for the monitor.
@@ -918,8 +918,8 @@ class StepMonitor(pulumi.CustomResource):
                <br><br>
                You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict', 'outputs.StepMonitorStep']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict', 'outputs.StepMonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
