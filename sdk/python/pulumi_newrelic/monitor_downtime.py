@@ -359,9 +359,9 @@ class MonitorDowntime(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
+                 end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict', 'outputs.MonitorDowntimeEndRepeat']]] = None,
                  end_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
+                 frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict', 'outputs.MonitorDowntimeFrequency']]] = None,
                  maintenance_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -541,9 +541,9 @@ class MonitorDowntime(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
-        :param pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']] end_repeat: A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
+        :param pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict', 'outputs.MonitorDowntimeEndRepeat']] end_repeat: A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         :param pulumi.Input[_builtins.str] end_time: A datetime stamp signifying the end of the Monitor Downtime.
-        :param pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']] frequency: Configuration options for which days of the month a monitor downtime will occur
+        :param pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict', 'outputs.MonitorDowntimeFrequency']] frequency: Configuration options for which days of the month a monitor downtime will occur
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] maintenance_days: A list of maintenance days to be included with the created weekly Monitor Downtime.
         :param pulumi.Input[_builtins.str] mode: An identifier of the type of Monitor Downtime to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitor_guids: A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
@@ -742,9 +742,9 @@ class MonitorDowntime(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
+                 end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict', 'outputs.MonitorDowntimeEndRepeat']]] = None,
                  end_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
+                 frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict', 'outputs.MonitorDowntimeFrequency']]] = None,
                  maintenance_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -789,9 +789,9 @@ class MonitorDowntime(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
+            end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict', 'outputs.MonitorDowntimeEndRepeat']]] = None,
             end_time: pulumi.Input[Optional[_builtins.str]] = None,
-            frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
+            frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict', 'outputs.MonitorDowntimeFrequency']]] = None,
             maintenance_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None,
             monitor_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -806,9 +806,9 @@ class MonitorDowntime(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
-        :param pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']] end_repeat: A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
+        :param pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict', 'outputs.MonitorDowntimeEndRepeat']] end_repeat: A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         :param pulumi.Input[_builtins.str] end_time: A datetime stamp signifying the end of the Monitor Downtime.
-        :param pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']] frequency: Configuration options for which days of the month a monitor downtime will occur
+        :param pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict', 'outputs.MonitorDowntimeFrequency']] frequency: Configuration options for which days of the month a monitor downtime will occur
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] maintenance_days: A list of maintenance days to be included with the created weekly Monitor Downtime.
         :param pulumi.Input[_builtins.str] mode: An identifier of the type of Monitor Downtime to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitor_guids: A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.

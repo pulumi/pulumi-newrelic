@@ -428,14 +428,14 @@ class Workload(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]]] = None,
+                 dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict', 'outputs.WorkloadDynamicFlow']]]]] = None,
                  entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
+                 entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict', 'outputs.WorkloadEntitySearchQuery']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']]] = None,
-                 status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
-                 status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
+                 status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict', 'outputs.WorkloadStatusConfigAlertPolicy']]] = None,
+                 status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict', 'outputs.WorkloadStatusConfigAutomatic']]] = None,
+                 status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict', 'outputs.WorkloadStatusConfigStatic']]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete a New Relic One workload.
@@ -622,14 +622,14 @@ class Workload(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[_builtins.str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]] dynamic_flows: A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict', 'outputs.WorkloadDynamicFlow']]]] dynamic_flows: A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict', 'outputs.WorkloadEntitySearchQuery']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[_builtins.str] name: The workload's name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']] status_config_alert_policy: An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
-        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']] status_config_automatic: An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
-        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']] status_config_static: A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict', 'outputs.WorkloadStatusConfigAlertPolicy']] status_config_alert_policy: An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict', 'outputs.WorkloadStatusConfigAutomatic']] status_config_automatic: An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict', 'outputs.WorkloadStatusConfigStatic']] status_config_static: A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
         """
         ...
     @overload
@@ -835,14 +835,14 @@ class Workload(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]]] = None,
+                 dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict', 'outputs.WorkloadDynamicFlow']]]]] = None,
                  entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
+                 entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict', 'outputs.WorkloadEntitySearchQuery']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']]] = None,
-                 status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
-                 status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
+                 status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict', 'outputs.WorkloadStatusConfigAlertPolicy']]] = None,
+                 status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict', 'outputs.WorkloadStatusConfigAutomatic']]] = None,
+                 status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict', 'outputs.WorkloadStatusConfigStatic']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -879,16 +879,16 @@ class Workload(pulumi.CustomResource):
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             composite_entity_search_query: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]]] = None,
+            dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict', 'outputs.WorkloadDynamicFlow']]]]] = None,
             entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
+            entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict', 'outputs.WorkloadEntitySearchQuery']]]]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             permalink: pulumi.Input[Optional[_builtins.str]] = None,
             scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']]] = None,
-            status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
-            status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
+            status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict', 'outputs.WorkloadStatusConfigAlertPolicy']]] = None,
+            status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict', 'outputs.WorkloadStatusConfigAutomatic']]] = None,
+            status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict', 'outputs.WorkloadStatusConfigStatic']]] = None,
             workload_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workload':
         """
         Get an existing Workload resource's state with the given name, id, and optional extra
@@ -900,16 +900,16 @@ class Workload(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[_builtins.str] composite_entity_search_query: The composite query used to compose a dynamic workload.
         :param pulumi.Input[_builtins.str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict']]]] dynamic_flows: A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict', 'outputs.WorkloadDynamicFlow']]]] dynamic_flows: A list of dynamic flow entries that define an **intelligent workload**. If it is set alongside `entity_guids` or `entity_search_query`, `dynamic_flows` takes precedence and an intelligent workload is created. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested dynamic_flows blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict', 'outputs.WorkloadEntitySearchQuery']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of `entity_guids`, `entity_search_query`, or `dynamic_flows` must be specified. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the workload in New Relic.
         :param pulumi.Input[_builtins.str] name: The workload's name.
         :param pulumi.Input[_builtins.str] permalink: The URL of the workload.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict']] status_config_alert_policy: An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
-        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']] status_config_automatic: An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
-        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']] status_config_static: A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict', 'outputs.WorkloadStatusConfigAlertPolicy']] status_config_alert_policy: An alert policy status configuration for intelligent workloads. Requires `dynamic_flows` to be set. See Nested status_config_alert_policy blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict', 'outputs.WorkloadStatusConfigAutomatic']] status_config_automatic: An input object used to represent an automatic status configuration. See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict', 'outputs.WorkloadStatusConfigStatic']] status_config_static: A list of static status configurations. You can only configure one static status for a workload. See Nested status_config_static blocks below for details.
         :param pulumi.Input[_builtins.str] workload_id: The unique entity identifier of the workload.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

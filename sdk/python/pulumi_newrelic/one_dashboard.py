@@ -268,9 +268,9 @@ class OneDashboard(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict', 'outputs.OneDashboardPage']]]]] = None,
                  permissions: pulumi.Input[Optional[_builtins.str]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict', 'outputs.OneDashboardVariable']]]]] = None,
                  __props__=None):
         """
         > **IMPORTANT!**
@@ -585,9 +585,9 @@ class OneDashboard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] description: Brief text describing the dashboard.
         :param pulumi.Input[_builtins.str] name: The title of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict', 'outputs.OneDashboardPage']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[_builtins.str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict', 'outputs.OneDashboardVariable']]]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         """
         ...
     @overload
@@ -921,9 +921,9 @@ class OneDashboard(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict', 'outputs.OneDashboardPage']]]]] = None,
                  permissions: pulumi.Input[Optional[_builtins.str]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict', 'outputs.OneDashboardVariable']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -957,10 +957,10 @@ class OneDashboard(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict', 'outputs.OneDashboardPage']]]]] = None,
             permalink: pulumi.Input[Optional[_builtins.str]] = None,
             permissions: pulumi.Input[Optional[_builtins.str]] = None,
-            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None) -> 'OneDashboard':
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict', 'outputs.OneDashboardVariable']]]]] = None) -> 'OneDashboard':
         """
         Get an existing OneDashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -972,10 +972,10 @@ class OneDashboard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Brief text describing the dashboard.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the dashboard page in New Relic.
         :param pulumi.Input[_builtins.str] name: The title of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardPageArgs', 'OneDashboardPageArgsDict', 'outputs.OneDashboardPage']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[_builtins.str] permalink: The URL for viewing the dashboard.
         :param pulumi.Input[_builtins.str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict', 'outputs.OneDashboardVariable']]]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

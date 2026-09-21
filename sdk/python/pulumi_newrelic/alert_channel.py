@@ -170,7 +170,7 @@ class AlertChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 config: pulumi.Input[Optional[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict', 'outputs.AlertChannelConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -316,7 +316,7 @@ class AlertChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict', 'outputs.AlertChannelConfig']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[_builtins.str] name: The name of the channel.
         :param pulumi.Input[_builtins.str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
@@ -481,7 +481,7 @@ class AlertChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 config: pulumi.Input[Optional[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict', 'outputs.AlertChannelConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -510,7 +510,7 @@ class AlertChannel(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            config: pulumi.Input[Optional[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
+            config: pulumi.Input[Optional[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict', 'outputs.AlertChannelConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'AlertChannel':
         """
@@ -521,7 +521,7 @@ class AlertChannel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict', 'outputs.AlertChannelConfig']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[_builtins.str] name: The name of the channel.
         :param pulumi.Input[_builtins.str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """

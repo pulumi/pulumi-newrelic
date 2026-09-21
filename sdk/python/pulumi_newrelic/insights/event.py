@@ -73,7 +73,7 @@ class Event(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict']]]]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict', 'outputs.EventEvent']]]]] = None,
                  __props__=None):
         """
         Use this resource to create one or more Insights events during a terraform run.
@@ -127,7 +127,7 @@ class Event(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict', 'outputs.EventEvent']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         ...
     @overload
@@ -200,7 +200,7 @@ class Event(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict']]]]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict', 'outputs.EventEvent']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -223,7 +223,7 @@ class Event(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict']]]]] = None) -> 'Event':
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict', 'outputs.EventEvent']]]]] = None) -> 'Event':
         """
         Get an existing Event resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -231,7 +231,7 @@ class Event(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict', 'outputs.EventEvent']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

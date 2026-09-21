@@ -717,7 +717,7 @@ class ScriptMonitor(pulumi.CustomResource):
                  device_type: pulumi.Input[Optional[_builtins.str]] = None,
                  devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
-                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
+                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict', 'outputs.ScriptMonitorLocationPrivate']]]]] = None,
                  locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  period: pulumi.Input[Optional[_builtins.str]] = None,
@@ -726,7 +726,7 @@ class ScriptMonitor(pulumi.CustomResource):
                  script: pulumi.Input[Optional[_builtins.str]] = None,
                  script_language: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict', 'outputs.ScriptMonitorTag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -926,7 +926,7 @@ class ScriptMonitor(pulumi.CustomResource):
                **Important — Scripted Monitor Specific Behavior:** Unlike non-scripted monitors, the Terraform Provider does **not** automatically enforce a runtime version upgrade for scripted monitors (`SCRIPT_API` and `SCRIPT_BROWSER`). If you do not update your Terraform configuration before the respective force upgrade date, the Synthetics API will force-upgrade these monitors to the latest runtime (`CHROME_BROWSER LATEST` for `SCRIPT_BROWSER` on Aug 18, 2026; `NODE_API 22.20.0` for `SCRIPT_API` on Nov 18, 2026). This will cause your Terraform state to drift — `pulumi preview` will show the runtime has changed, and a `pulumi up` without updating the configuration will fail with an API error. Update your configuration before these dates to avoid interruption.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[_builtins.bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict', 'outputs.ScriptMonitorLocationPrivate']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[_builtins.str] name: The name for the monitor.
         :param pulumi.Input[_builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -935,7 +935,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] script: The script that the monitor runs.
         :param pulumi.Input[_builtins.str] script_language: The programing language that should execute the script.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict', 'outputs.ScriptMonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[_builtins.str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
@@ -1146,7 +1146,7 @@ class ScriptMonitor(pulumi.CustomResource):
                  device_type: pulumi.Input[Optional[_builtins.str]] = None,
                  devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
-                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
+                 location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict', 'outputs.ScriptMonitorLocationPrivate']]]]] = None,
                  locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  period: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1155,7 +1155,7 @@ class ScriptMonitor(pulumi.CustomResource):
                  script: pulumi.Input[Optional[_builtins.str]] = None,
                  script_language: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict', 'outputs.ScriptMonitorTag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -1211,7 +1211,7 @@ class ScriptMonitor(pulumi.CustomResource):
             devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
-            location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
+            location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict', 'outputs.ScriptMonitorLocationPrivate']]]]] = None,
             locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1222,7 +1222,7 @@ class ScriptMonitor(pulumi.CustomResource):
             script: pulumi.Input[Optional[_builtins.str]] = None,
             script_language: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict', 'outputs.ScriptMonitorTag']]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ScriptMonitor':
         """
@@ -1249,7 +1249,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[_builtins.bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the monitor in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict', 'outputs.ScriptMonitorLocationPrivate']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[_builtins.str] monitor_id: The monitor id of the Synthetics script monitor (not to be confused with the GUID of the monitor).
         :param pulumi.Input[_builtins.str] name: The name for the monitor.
@@ -1260,7 +1260,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] script: The script that the monitor runs.
         :param pulumi.Input[_builtins.str] script_language: The programing language that should execute the script.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict', 'outputs.ScriptMonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[_builtins.str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API

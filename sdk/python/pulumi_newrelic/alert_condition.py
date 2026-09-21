@@ -509,7 +509,7 @@ class AlertCondition(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
+                 terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict', 'outputs.AlertConditionTerm']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_defined_metric: pulumi.Input[Optional[_builtins.str]] = None,
                  user_defined_value_function: pulumi.Input[Optional[_builtins.str]] = None,
@@ -618,7 +618,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict', 'outputs.AlertConditionTerm']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[_builtins.str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[_builtins.str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
@@ -754,7 +754,7 @@ class AlertCondition(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
+                 terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict', 'outputs.AlertConditionTerm']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_defined_metric: pulumi.Input[Optional[_builtins.str]] = None,
                  user_defined_value_function: pulumi.Input[Optional[_builtins.str]] = None,
@@ -811,7 +811,7 @@ class AlertCondition(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
-            terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
+            terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict', 'outputs.AlertConditionTerm']]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             user_defined_metric: pulumi.Input[Optional[_builtins.str]] = None,
             user_defined_value_function: pulumi.Input[Optional[_builtins.str]] = None,
@@ -832,7 +832,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict', 'outputs.AlertConditionTerm']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[_builtins.str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[_builtins.str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.

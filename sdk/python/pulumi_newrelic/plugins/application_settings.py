@@ -427,11 +427,11 @@ class ApplicationSettings(pulumi.CustomResource):
                  enable_slow_sql: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_thread_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  end_user_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
-                 error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
+                 error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict', 'outputs.ApplicationSettingsErrorCollector']]]]] = None,
                  guid: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tracer_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
+                 transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict', 'outputs.ApplicationSettingsTransactionTracer']]]]] = None,
                  use_server_side_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -494,7 +494,7 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_slow_sql: Enable or disable the collection of slowest database queries in your traces.
         :param pulumi.Input[_builtins.bool] enable_thread_profiler: Enable or disable the collection of thread profiling data.
         :param pulumi.Input[_builtins.float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict', 'outputs.ApplicationSettingsErrorCollector']]]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
         :param pulumi.Input[_builtins.str] guid: The GUID of the application in New Relic APM.
                
                > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
@@ -502,7 +502,7 @@ class ApplicationSettings(pulumi.CustomResource):
                
                > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         :param pulumi.Input[_builtins.str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict', 'outputs.ApplicationSettingsTransactionTracer']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[_builtins.bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
         """
         ...
@@ -584,11 +584,11 @@ class ApplicationSettings(pulumi.CustomResource):
                  enable_slow_sql: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_thread_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  end_user_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
-                 error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
+                 error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict', 'outputs.ApplicationSettingsErrorCollector']]]]] = None,
                  guid: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tracer_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
+                 transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict', 'outputs.ApplicationSettingsTransactionTracer']]]]] = None,
                  use_server_side_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -626,12 +626,12 @@ class ApplicationSettings(pulumi.CustomResource):
             enable_slow_sql: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_thread_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
             end_user_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
-            error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
+            error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict', 'outputs.ApplicationSettingsErrorCollector']]]]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
             is_imported: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tracer_type: pulumi.Input[Optional[_builtins.str]] = None,
-            transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
+            transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict', 'outputs.ApplicationSettingsTransactionTracer']]]]] = None,
             use_server_side_config: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ApplicationSettings':
         """
         Get an existing ApplicationSettings resource's state with the given name, id, and optional extra
@@ -645,7 +645,7 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_slow_sql: Enable or disable the collection of slowest database queries in your traces.
         :param pulumi.Input[_builtins.bool] enable_thread_profiler: Enable or disable the collection of thread profiling data.
         :param pulumi.Input[_builtins.float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict', 'outputs.ApplicationSettingsErrorCollector']]]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
         :param pulumi.Input[_builtins.str] guid: The GUID of the application in New Relic APM.
                
                > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
@@ -653,7 +653,7 @@ class ApplicationSettings(pulumi.CustomResource):
                
                > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         :param pulumi.Input[_builtins.str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict', 'outputs.ApplicationSettingsTransactionTracer']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[_builtins.bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

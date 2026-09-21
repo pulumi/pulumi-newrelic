@@ -105,7 +105,7 @@ class EntityTags(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  guid: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict', 'outputs.EntityTagsTag']]]]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete tags for a New Relic One entity.
@@ -182,7 +182,7 @@ class EntityTags(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] guid: The guid of the entity to tag.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict', 'outputs.EntityTagsTag']]]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
         ...
     @overload
@@ -278,7 +278,7 @@ class EntityTags(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  guid: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict', 'outputs.EntityTagsTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -305,7 +305,7 @@ class EntityTags(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None) -> 'EntityTags':
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict', 'outputs.EntityTagsTag']]]]] = None) -> 'EntityTags':
         """
         Get an existing EntityTags resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -314,7 +314,7 @@ class EntityTags(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] guid: The guid of the entity to tag.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict', 'outputs.EntityTagsTag']]]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

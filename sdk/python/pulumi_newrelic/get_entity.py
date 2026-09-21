@@ -169,7 +169,7 @@ def get_entity(account_id: Optional[_builtins.str] = None,
                ignore_case: Optional[_builtins.bool] = None,
                ignore_not_found: Optional[_builtins.bool] = None,
                name: Optional[_builtins.str] = None,
-               tags: Optional[Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict']]] = None,
+               tags: Optional[Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict', 'outputs.GetEntityTagResult']]] = None,
                type: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
@@ -266,7 +266,7 @@ def get_entity(account_id: Optional[_builtins.str] = None,
            
            > **WARNING:** Setting the `ignore_not_found` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
     :param _builtins.str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
-    :param Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict']] tags: A tag applied to the entity. See Nested tag blocks below for details.
+    :param Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict', 'outputs.GetEntityTagResult']] tags: A tag applied to the entity. See Nested tag blocks below for details.
     :param _builtins.str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
     """
     __args__ = dict()
@@ -300,7 +300,7 @@ def get_entity_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]
                       ignore_case: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                       ignore_not_found: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                       name: pulumi.Input[Optional[_builtins.str]] = None,
-                      tags: pulumi.Input[Optional[Optional[Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict']]]]] = None,
+                      tags: pulumi.Input[Optional[Optional[Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict', 'outputs.GetEntityTagResult']]]]] = None,
                       type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityResult]:
     """
@@ -397,7 +397,7 @@ def get_entity_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]
            
            > **WARNING:** Setting the `ignore_not_found` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
     :param _builtins.str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
-    :param Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict']] tags: A tag applied to the entity. See Nested tag blocks below for details.
+    :param Sequence[Union['GetEntityTagArgs', 'GetEntityTagArgsDict', 'outputs.GetEntityTagResult']] tags: A tag applied to the entity. See Nested tag blocks below for details.
     :param _builtins.str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
     """
     __args__ = dict()

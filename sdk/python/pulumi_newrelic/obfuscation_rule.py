@@ -232,7 +232,7 @@ class ObfuscationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict', 'outputs.ObfuscationRuleAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  filter: pulumi.Input[Optional[_builtins.str]] = None,
@@ -275,7 +275,7 @@ class ObfuscationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict', 'outputs.ObfuscationRuleAction']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[_builtins.str] description: Description of rule.
         :param pulumi.Input[_builtins.bool] enabled: Whether the rule should be applied or not to incoming data.
         :param pulumi.Input[_builtins.str] filter: NRQL for determining whether a given log record should have obfuscation actions applied.
@@ -337,7 +337,7 @@ class ObfuscationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict', 'outputs.ObfuscationRuleAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  filter: pulumi.Input[Optional[_builtins.str]] = None,
@@ -374,7 +374,7 @@ class ObfuscationRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict', 'outputs.ObfuscationRuleAction']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             filter: pulumi.Input[Optional[_builtins.str]] = None,
@@ -387,7 +387,7 @@ class ObfuscationRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict', 'outputs.ObfuscationRuleAction']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[_builtins.str] description: Description of rule.
         :param pulumi.Input[_builtins.bool] enabled: Whether the rule should be applied or not to incoming data.
         :param pulumi.Input[_builtins.str] filter: NRQL for determining whether a given log record should have obfuscation actions applied.

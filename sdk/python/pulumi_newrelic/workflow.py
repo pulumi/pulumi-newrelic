@@ -388,12 +388,12 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict', 'outputs.WorkflowDestination']]]]] = None,
                  destinations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enrichments: pulumi.Input[Optional[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']]] = None,
+                 enrichments: pulumi.Input[Optional[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict', 'outputs.WorkflowEnrichments']]] = None,
                  enrichments_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 issues_filter: pulumi.Input[Optional[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']]] = None,
+                 issues_filter: pulumi.Input[Optional[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict', 'outputs.WorkflowIssuesFilter']]] = None,
                  muting_rules_handling: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -565,13 +565,13 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]] destinations: Notification configuration. See Nested destination blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict', 'outputs.WorkflowDestination']]]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[_builtins.bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
         :param pulumi.Input[_builtins.bool] enabled: Whether workflow is enabled. Defaults to true.
-        :param pulumi.Input[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
+        :param pulumi.Input[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict', 'outputs.WorkflowEnrichments']] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[_builtins.bool] enrichments_enabled: Whether enrichments are enabled. Defaults to true.
-        :param pulumi.Input[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+        :param pulumi.Input[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict', 'outputs.WorkflowIssuesFilter']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[_builtins.str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
         :param pulumi.Input[_builtins.str] name: The name of the workflow.
         """
@@ -762,12 +762,12 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict', 'outputs.WorkflowDestination']]]]] = None,
                  destinations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enrichments: pulumi.Input[Optional[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']]] = None,
+                 enrichments: pulumi.Input[Optional[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict', 'outputs.WorkflowEnrichments']]] = None,
                  enrichments_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 issues_filter: pulumi.Input[Optional[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']]] = None,
+                 issues_filter: pulumi.Input[Optional[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict', 'outputs.WorkflowIssuesFilter']]] = None,
                  muting_rules_handling: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -808,13 +808,13 @@ class Workflow(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]]] = None,
+            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict', 'outputs.WorkflowDestination']]]]] = None,
             destinations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            enrichments: pulumi.Input[Optional[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']]] = None,
+            enrichments: pulumi.Input[Optional[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict', 'outputs.WorkflowEnrichments']]] = None,
             enrichments_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
-            issues_filter: pulumi.Input[Optional[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']]] = None,
+            issues_filter: pulumi.Input[Optional[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict', 'outputs.WorkflowIssuesFilter']]] = None,
             last_run: pulumi.Input[Optional[_builtins.str]] = None,
             muting_rules_handling: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -827,14 +827,14 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]] destinations: Notification configuration. See Nested destination blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict', 'outputs.WorkflowDestination']]]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[_builtins.bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
         :param pulumi.Input[_builtins.bool] enabled: Whether workflow is enabled. Defaults to true.
-        :param pulumi.Input[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
+        :param pulumi.Input[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict', 'outputs.WorkflowEnrichments']] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[_builtins.bool] enrichments_enabled: Whether enrichments are enabled. Defaults to true.
         :param pulumi.Input[_builtins.str] guid: Workflow entity GUID
-        :param pulumi.Input[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+        :param pulumi.Input[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict', 'outputs.WorkflowIssuesFilter']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[_builtins.str] last_run: The last time notification was sent for this workflow.
         :param pulumi.Input[_builtins.str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
         :param pulumi.Input[_builtins.str] name: The name of the workflow.

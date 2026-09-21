@@ -240,10 +240,10 @@ class ServiceLevel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 events: pulumi.Input[Optional[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
+                 events: pulumi.Input[Optional[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict', 'outputs.ServiceLevelEvents']]] = None,
                  guid: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 objective: pulumi.Input[Optional[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
+                 objective: pulumi.Input[Optional[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict', 'outputs.ServiceLevelObjective']]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
@@ -395,11 +395,11 @@ class ServiceLevel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the SLI.
-        :param pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']] events: The events that define the NRDB data for the SLI/SLO calculations.
+        :param pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict', 'outputs.ServiceLevelEvents']] events: The events that define the NRDB data for the SLI/SLO calculations.
                See Events below for details.
         :param pulumi.Input[_builtins.str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[_builtins.str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']] objective: The objective of the SLI, only one can be defined.
+        :param pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict', 'outputs.ServiceLevelObjective']] objective: The objective of the SLI, only one can be defined.
                See Objective below for details.
         """
         ...
@@ -571,10 +571,10 @@ class ServiceLevel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 events: pulumi.Input[Optional[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
+                 events: pulumi.Input[Optional[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict', 'outputs.ServiceLevelEvents']]] = None,
                  guid: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 objective: pulumi.Input[Optional[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
+                 objective: pulumi.Input[Optional[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict', 'outputs.ServiceLevelObjective']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -608,10 +608,10 @@ class ServiceLevel(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            events: pulumi.Input[Optional[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
+            events: pulumi.Input[Optional[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict', 'outputs.ServiceLevelEvents']]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            objective: pulumi.Input[Optional[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
+            objective: pulumi.Input[Optional[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict', 'outputs.ServiceLevelObjective']]] = None,
             sli_guid: pulumi.Input[Optional[_builtins.str]] = None,
             sli_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceLevel':
         """
@@ -622,11 +622,11 @@ class ServiceLevel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the SLI.
-        :param pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']] events: The events that define the NRDB data for the SLI/SLO calculations.
+        :param pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict', 'outputs.ServiceLevelEvents']] events: The events that define the NRDB data for the SLI/SLO calculations.
                See Events below for details.
         :param pulumi.Input[_builtins.str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[_builtins.str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']] objective: The objective of the SLI, only one can be defined.
+        :param pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict', 'outputs.ServiceLevelObjective']] objective: The objective of the SLI, only one can be defined.
                See Objective below for details.
         :param pulumi.Input[_builtins.str] sli_guid: The unique entity identifier of the Service Level Indicator in New Relic.
         :param pulumi.Input[_builtins.str] sli_id: The unique entity identifier of the Service Level Indicator.

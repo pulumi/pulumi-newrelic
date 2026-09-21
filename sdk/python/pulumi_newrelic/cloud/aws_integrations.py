@@ -1834,61 +1834,61 @@ class AwsIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 alb: pulumi.Input[Optional[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']]] = None,
-                 api_gateway: pulumi.Input[Optional[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']]] = None,
-                 auto_scaling: pulumi.Input[Optional[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']]] = None,
-                 aws_app_sync: pulumi.Input[Optional[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']]] = None,
-                 aws_athena: pulumi.Input[Optional[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']]] = None,
-                 aws_auto_discovery: pulumi.Input[Optional[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']]] = None,
-                 aws_cognito: pulumi.Input[Optional[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']]] = None,
-                 aws_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']]] = None,
-                 aws_direct_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']]] = None,
-                 aws_fsx: pulumi.Input[Optional[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']]] = None,
-                 aws_glue: pulumi.Input[Optional[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']]] = None,
-                 aws_kinesis_analytics: pulumi.Input[Optional[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']]] = None,
-                 aws_media_convert: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']]] = None,
-                 aws_media_package_vod: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']]] = None,
-                 aws_mq: pulumi.Input[Optional[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']]] = None,
-                 aws_msk: pulumi.Input[Optional[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']]] = None,
-                 aws_neptune: pulumi.Input[Optional[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']]] = None,
-                 aws_qldb: pulumi.Input[Optional[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']]] = None,
-                 aws_route53resolver: pulumi.Input[Optional[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']]] = None,
-                 aws_states: pulumi.Input[Optional[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']]] = None,
-                 aws_transit_gateway: pulumi.Input[Optional[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']]] = None,
-                 aws_waf: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']]] = None,
-                 aws_wafv2: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']]] = None,
-                 billing: pulumi.Input[Optional[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']]] = None,
-                 cloudfront: pulumi.Input[Optional[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']]] = None,
-                 cloudtrail: pulumi.Input[Optional[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']]] = None,
-                 doc_db: pulumi.Input[Optional[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']]] = None,
-                 dynamodb: pulumi.Input[Optional[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']]] = None,
-                 ebs: pulumi.Input[Optional[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']]] = None,
-                 ec2: pulumi.Input[Optional[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']]] = None,
-                 ecs: pulumi.Input[Optional[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']]] = None,
-                 efs: pulumi.Input[Optional[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']]] = None,
-                 elasticache: pulumi.Input[Optional[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']]] = None,
-                 elasticbeanstalk: pulumi.Input[Optional[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']]] = None,
-                 elasticsearch: pulumi.Input[Optional[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']]] = None,
-                 elb: pulumi.Input[Optional[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']]] = None,
-                 emr: pulumi.Input[Optional[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']]] = None,
-                 health: pulumi.Input[Optional[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']]] = None,
-                 iam: pulumi.Input[Optional[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']]] = None,
-                 iot: pulumi.Input[Optional[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']]] = None,
-                 kinesis: pulumi.Input[Optional[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']]] = None,
-                 kinesis_firehose: pulumi.Input[Optional[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']]] = None,
-                 lambda_: pulumi.Input[Optional[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']]] = None,
+                 alb: pulumi.Input[Optional[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict', 'outputs.AwsIntegrationsAlb']]] = None,
+                 api_gateway: pulumi.Input[Optional[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict', 'outputs.AwsIntegrationsApiGateway']]] = None,
+                 auto_scaling: pulumi.Input[Optional[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict', 'outputs.AwsIntegrationsAutoScaling']]] = None,
+                 aws_app_sync: pulumi.Input[Optional[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict', 'outputs.AwsIntegrationsAwsAppSync']]] = None,
+                 aws_athena: pulumi.Input[Optional[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict', 'outputs.AwsIntegrationsAwsAthena']]] = None,
+                 aws_auto_discovery: pulumi.Input[Optional[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict', 'outputs.AwsIntegrationsAwsAutoDiscovery']]] = None,
+                 aws_cognito: pulumi.Input[Optional[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict', 'outputs.AwsIntegrationsAwsCognito']]] = None,
+                 aws_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict', 'outputs.AwsIntegrationsAwsConnect']]] = None,
+                 aws_direct_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsIntegrationsAwsDirectConnect']]] = None,
+                 aws_fsx: pulumi.Input[Optional[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict', 'outputs.AwsIntegrationsAwsFsx']]] = None,
+                 aws_glue: pulumi.Input[Optional[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict', 'outputs.AwsIntegrationsAwsGlue']]] = None,
+                 aws_kinesis_analytics: pulumi.Input[Optional[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict', 'outputs.AwsIntegrationsAwsKinesisAnalytics']]] = None,
+                 aws_media_convert: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict', 'outputs.AwsIntegrationsAwsMediaConvert']]] = None,
+                 aws_media_package_vod: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict', 'outputs.AwsIntegrationsAwsMediaPackageVod']]] = None,
+                 aws_mq: pulumi.Input[Optional[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict', 'outputs.AwsIntegrationsAwsMq']]] = None,
+                 aws_msk: pulumi.Input[Optional[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict', 'outputs.AwsIntegrationsAwsMsk']]] = None,
+                 aws_neptune: pulumi.Input[Optional[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict', 'outputs.AwsIntegrationsAwsNeptune']]] = None,
+                 aws_qldb: pulumi.Input[Optional[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict', 'outputs.AwsIntegrationsAwsQldb']]] = None,
+                 aws_route53resolver: pulumi.Input[Optional[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict', 'outputs.AwsIntegrationsAwsRoute53resolver']]] = None,
+                 aws_states: pulumi.Input[Optional[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict', 'outputs.AwsIntegrationsAwsStates']]] = None,
+                 aws_transit_gateway: pulumi.Input[Optional[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict', 'outputs.AwsIntegrationsAwsTransitGateway']]] = None,
+                 aws_waf: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict', 'outputs.AwsIntegrationsAwsWaf']]] = None,
+                 aws_wafv2: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict', 'outputs.AwsIntegrationsAwsWafv2']]] = None,
+                 billing: pulumi.Input[Optional[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict', 'outputs.AwsIntegrationsBilling']]] = None,
+                 cloudfront: pulumi.Input[Optional[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict', 'outputs.AwsIntegrationsCloudfront']]] = None,
+                 cloudtrail: pulumi.Input[Optional[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict', 'outputs.AwsIntegrationsCloudtrail']]] = None,
+                 doc_db: pulumi.Input[Optional[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict', 'outputs.AwsIntegrationsDocDb']]] = None,
+                 dynamodb: pulumi.Input[Optional[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict', 'outputs.AwsIntegrationsDynamodb']]] = None,
+                 ebs: pulumi.Input[Optional[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict', 'outputs.AwsIntegrationsEbs']]] = None,
+                 ec2: pulumi.Input[Optional[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict', 'outputs.AwsIntegrationsEc2']]] = None,
+                 ecs: pulumi.Input[Optional[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict', 'outputs.AwsIntegrationsEcs']]] = None,
+                 efs: pulumi.Input[Optional[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict', 'outputs.AwsIntegrationsEfs']]] = None,
+                 elasticache: pulumi.Input[Optional[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict', 'outputs.AwsIntegrationsElasticache']]] = None,
+                 elasticbeanstalk: pulumi.Input[Optional[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict', 'outputs.AwsIntegrationsElasticbeanstalk']]] = None,
+                 elasticsearch: pulumi.Input[Optional[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict', 'outputs.AwsIntegrationsElasticsearch']]] = None,
+                 elb: pulumi.Input[Optional[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict', 'outputs.AwsIntegrationsElb']]] = None,
+                 emr: pulumi.Input[Optional[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict', 'outputs.AwsIntegrationsEmr']]] = None,
+                 health: pulumi.Input[Optional[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict', 'outputs.AwsIntegrationsHealth']]] = None,
+                 iam: pulumi.Input[Optional[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict', 'outputs.AwsIntegrationsIam']]] = None,
+                 iot: pulumi.Input[Optional[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict', 'outputs.AwsIntegrationsIot']]] = None,
+                 kinesis: pulumi.Input[Optional[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict', 'outputs.AwsIntegrationsKinesis']]] = None,
+                 kinesis_firehose: pulumi.Input[Optional[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict', 'outputs.AwsIntegrationsKinesisFirehose']]] = None,
+                 lambda_: pulumi.Input[Optional[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict', 'outputs.AwsIntegrationsLambda']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rds: pulumi.Input[Optional[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']]] = None,
-                 redshift: pulumi.Input[Optional[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']]] = None,
-                 route53: pulumi.Input[Optional[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']]] = None,
-                 s3: pulumi.Input[Optional[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']]] = None,
-                 security_hub: pulumi.Input[Optional[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']]] = None,
-                 ses: pulumi.Input[Optional[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']]] = None,
-                 sns: pulumi.Input[Optional[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']]] = None,
-                 sqs: pulumi.Input[Optional[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']]] = None,
-                 trusted_advisor: pulumi.Input[Optional[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']]] = None,
-                 vpc: pulumi.Input[Optional[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']]] = None,
-                 x_ray: pulumi.Input[Optional[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']]] = None,
+                 rds: pulumi.Input[Optional[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict', 'outputs.AwsIntegrationsRds']]] = None,
+                 redshift: pulumi.Input[Optional[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict', 'outputs.AwsIntegrationsRedshift']]] = None,
+                 route53: pulumi.Input[Optional[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict', 'outputs.AwsIntegrationsRoute53']]] = None,
+                 s3: pulumi.Input[Optional[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict', 'outputs.AwsIntegrationsS3']]] = None,
+                 security_hub: pulumi.Input[Optional[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict', 'outputs.AwsIntegrationsSecurityHub']]] = None,
+                 ses: pulumi.Input[Optional[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict', 'outputs.AwsIntegrationsSes']]] = None,
+                 sns: pulumi.Input[Optional[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict', 'outputs.AwsIntegrationsSns']]] = None,
+                 sqs: pulumi.Input[Optional[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict', 'outputs.AwsIntegrationsSqs']]] = None,
+                 trusted_advisor: pulumi.Input[Optional[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict', 'outputs.AwsIntegrationsTrustedAdvisor']]] = None,
+                 vpc: pulumi.Input[Optional[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict', 'outputs.AwsIntegrationsVpc']]] = None,
+                 x_ray: pulumi.Input[Optional[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict', 'outputs.AwsIntegrationsXRay']]] = None,
                  __props__=None):
         """
         Use this resource to integrate AWS services with New Relic.
@@ -2726,61 +2726,61 @@ class AwsIntegrations(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']] alb: ALB integration
-        :param pulumi.Input[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']] api_gateway: API Gateway integration
-        :param pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']] auto_scaling: AutoScaling integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']] aws_app_sync: Aws Appsync integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']] aws_athena: Aws Athena integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']] aws_auto_discovery: Aws Auto Discovery Integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']] aws_cognito: Aws Cognito integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']] aws_connect: Aws Connect integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']] aws_direct_connect: Aws Direct Connect integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']] aws_fsx: Aws Fsx integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']] aws_glue: Aws Glue integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']] aws_kinesis_analytics: Aws Kinesis Analytics integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']] aws_media_convert: Aws Media Convert integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']] aws_media_package_vod: Aws Media PackageVod integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']] aws_mq: Aws Mq integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']] aws_msk: Aws Msk integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']] aws_neptune: Aws Neptune integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']] aws_qldb: Aws Qldb integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']] aws_route53resolver: Aws Route53resolver integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']] aws_states: Aws states integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']] aws_transit_gateway: Aws Transit Gateway integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']] aws_waf: Aws Waf integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']] aws_wafv2: Aws Wafv2 integration
-        :param pulumi.Input[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']] billing: Billing integration
-        :param pulumi.Input[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']] cloudfront: Cloudfront integration
-        :param pulumi.Input[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']] cloudtrail: CloudTrail integration
-        :param pulumi.Input[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']] doc_db: Doc DB integration
-        :param pulumi.Input[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']] dynamodb: Dynamo DB integration
-        :param pulumi.Input[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']] ebs: EBS integration
-        :param pulumi.Input[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']] ec2: Ec2 integration
-        :param pulumi.Input[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']] ecs: Ecs integration
-        :param pulumi.Input[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']] efs: Efs integration
-        :param pulumi.Input[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']] elasticache: Elasticache integration
-        :param pulumi.Input[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']] elasticbeanstalk: Elastic Bean Stalk integration
-        :param pulumi.Input[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']] elasticsearch: Elastic Search integration
-        :param pulumi.Input[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']] elb: Elb integration
-        :param pulumi.Input[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']] emr: Emr integration
-        :param pulumi.Input[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']] health: Health integration
-        :param pulumi.Input[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']] iam: Iam integration
-        :param pulumi.Input[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']] iot: Iot integration
-        :param pulumi.Input[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']] kinesis: Kinesis integration
-        :param pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']] kinesis_firehose: Kinesis Firehose integration
-        :param pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']] lambda_: Lambda integration
+        :param pulumi.Input[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict', 'outputs.AwsIntegrationsAlb']] alb: ALB integration
+        :param pulumi.Input[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict', 'outputs.AwsIntegrationsApiGateway']] api_gateway: API Gateway integration
+        :param pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict', 'outputs.AwsIntegrationsAutoScaling']] auto_scaling: AutoScaling integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict', 'outputs.AwsIntegrationsAwsAppSync']] aws_app_sync: Aws Appsync integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict', 'outputs.AwsIntegrationsAwsAthena']] aws_athena: Aws Athena integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict', 'outputs.AwsIntegrationsAwsAutoDiscovery']] aws_auto_discovery: Aws Auto Discovery Integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict', 'outputs.AwsIntegrationsAwsCognito']] aws_cognito: Aws Cognito integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict', 'outputs.AwsIntegrationsAwsConnect']] aws_connect: Aws Connect integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsIntegrationsAwsDirectConnect']] aws_direct_connect: Aws Direct Connect integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict', 'outputs.AwsIntegrationsAwsFsx']] aws_fsx: Aws Fsx integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict', 'outputs.AwsIntegrationsAwsGlue']] aws_glue: Aws Glue integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict', 'outputs.AwsIntegrationsAwsKinesisAnalytics']] aws_kinesis_analytics: Aws Kinesis Analytics integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict', 'outputs.AwsIntegrationsAwsMediaConvert']] aws_media_convert: Aws Media Convert integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict', 'outputs.AwsIntegrationsAwsMediaPackageVod']] aws_media_package_vod: Aws Media PackageVod integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict', 'outputs.AwsIntegrationsAwsMq']] aws_mq: Aws Mq integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict', 'outputs.AwsIntegrationsAwsMsk']] aws_msk: Aws Msk integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict', 'outputs.AwsIntegrationsAwsNeptune']] aws_neptune: Aws Neptune integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict', 'outputs.AwsIntegrationsAwsQldb']] aws_qldb: Aws Qldb integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict', 'outputs.AwsIntegrationsAwsRoute53resolver']] aws_route53resolver: Aws Route53resolver integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict', 'outputs.AwsIntegrationsAwsStates']] aws_states: Aws states integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict', 'outputs.AwsIntegrationsAwsTransitGateway']] aws_transit_gateway: Aws Transit Gateway integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict', 'outputs.AwsIntegrationsAwsWaf']] aws_waf: Aws Waf integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict', 'outputs.AwsIntegrationsAwsWafv2']] aws_wafv2: Aws Wafv2 integration
+        :param pulumi.Input[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict', 'outputs.AwsIntegrationsBilling']] billing: Billing integration
+        :param pulumi.Input[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict', 'outputs.AwsIntegrationsCloudfront']] cloudfront: Cloudfront integration
+        :param pulumi.Input[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict', 'outputs.AwsIntegrationsCloudtrail']] cloudtrail: CloudTrail integration
+        :param pulumi.Input[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict', 'outputs.AwsIntegrationsDocDb']] doc_db: Doc DB integration
+        :param pulumi.Input[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict', 'outputs.AwsIntegrationsDynamodb']] dynamodb: Dynamo DB integration
+        :param pulumi.Input[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict', 'outputs.AwsIntegrationsEbs']] ebs: EBS integration
+        :param pulumi.Input[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict', 'outputs.AwsIntegrationsEc2']] ec2: Ec2 integration
+        :param pulumi.Input[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict', 'outputs.AwsIntegrationsEcs']] ecs: Ecs integration
+        :param pulumi.Input[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict', 'outputs.AwsIntegrationsEfs']] efs: Efs integration
+        :param pulumi.Input[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict', 'outputs.AwsIntegrationsElasticache']] elasticache: Elasticache integration
+        :param pulumi.Input[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict', 'outputs.AwsIntegrationsElasticbeanstalk']] elasticbeanstalk: Elastic Bean Stalk integration
+        :param pulumi.Input[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict', 'outputs.AwsIntegrationsElasticsearch']] elasticsearch: Elastic Search integration
+        :param pulumi.Input[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict', 'outputs.AwsIntegrationsElb']] elb: Elb integration
+        :param pulumi.Input[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict', 'outputs.AwsIntegrationsEmr']] emr: Emr integration
+        :param pulumi.Input[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict', 'outputs.AwsIntegrationsHealth']] health: Health integration
+        :param pulumi.Input[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict', 'outputs.AwsIntegrationsIam']] iam: Iam integration
+        :param pulumi.Input[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict', 'outputs.AwsIntegrationsIot']] iot: Iot integration
+        :param pulumi.Input[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict', 'outputs.AwsIntegrationsKinesis']] kinesis: Kinesis integration
+        :param pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict', 'outputs.AwsIntegrationsKinesisFirehose']] kinesis_firehose: Kinesis Firehose integration
+        :param pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict', 'outputs.AwsIntegrationsLambda']] lambda_: Lambda integration
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked AWS account in New Relic.
-        :param pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']] rds: Rds integration
-        :param pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']] redshift: Redshift integration
-        :param pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']] route53: Route53 integration
-        :param pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']] s3: S3 integration
-        :param pulumi.Input[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']] security_hub: Security Hub integration
-        :param pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']] ses: Ses integration
-        :param pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']] sns: Sns integration
-        :param pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']] sqs: SQS integration
-        :param pulumi.Input[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']] trusted_advisor: Trusted Advisor integration
-        :param pulumi.Input[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']] vpc: VPC integration
-        :param pulumi.Input[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']] x_ray: X-Ray integration
+        :param pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict', 'outputs.AwsIntegrationsRds']] rds: Rds integration
+        :param pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict', 'outputs.AwsIntegrationsRedshift']] redshift: Redshift integration
+        :param pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict', 'outputs.AwsIntegrationsRoute53']] route53: Route53 integration
+        :param pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict', 'outputs.AwsIntegrationsS3']] s3: S3 integration
+        :param pulumi.Input[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict', 'outputs.AwsIntegrationsSecurityHub']] security_hub: Security Hub integration
+        :param pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict', 'outputs.AwsIntegrationsSes']] ses: Ses integration
+        :param pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict', 'outputs.AwsIntegrationsSns']] sns: Sns integration
+        :param pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict', 'outputs.AwsIntegrationsSqs']] sqs: SQS integration
+        :param pulumi.Input[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict', 'outputs.AwsIntegrationsTrustedAdvisor']] trusted_advisor: Trusted Advisor integration
+        :param pulumi.Input[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict', 'outputs.AwsIntegrationsVpc']] vpc: VPC integration
+        :param pulumi.Input[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict', 'outputs.AwsIntegrationsXRay']] x_ray: X-Ray integration
         """
         ...
     @overload
@@ -3637,61 +3637,61 @@ class AwsIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 alb: pulumi.Input[Optional[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']]] = None,
-                 api_gateway: pulumi.Input[Optional[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']]] = None,
-                 auto_scaling: pulumi.Input[Optional[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']]] = None,
-                 aws_app_sync: pulumi.Input[Optional[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']]] = None,
-                 aws_athena: pulumi.Input[Optional[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']]] = None,
-                 aws_auto_discovery: pulumi.Input[Optional[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']]] = None,
-                 aws_cognito: pulumi.Input[Optional[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']]] = None,
-                 aws_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']]] = None,
-                 aws_direct_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']]] = None,
-                 aws_fsx: pulumi.Input[Optional[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']]] = None,
-                 aws_glue: pulumi.Input[Optional[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']]] = None,
-                 aws_kinesis_analytics: pulumi.Input[Optional[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']]] = None,
-                 aws_media_convert: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']]] = None,
-                 aws_media_package_vod: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']]] = None,
-                 aws_mq: pulumi.Input[Optional[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']]] = None,
-                 aws_msk: pulumi.Input[Optional[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']]] = None,
-                 aws_neptune: pulumi.Input[Optional[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']]] = None,
-                 aws_qldb: pulumi.Input[Optional[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']]] = None,
-                 aws_route53resolver: pulumi.Input[Optional[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']]] = None,
-                 aws_states: pulumi.Input[Optional[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']]] = None,
-                 aws_transit_gateway: pulumi.Input[Optional[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']]] = None,
-                 aws_waf: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']]] = None,
-                 aws_wafv2: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']]] = None,
-                 billing: pulumi.Input[Optional[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']]] = None,
-                 cloudfront: pulumi.Input[Optional[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']]] = None,
-                 cloudtrail: pulumi.Input[Optional[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']]] = None,
-                 doc_db: pulumi.Input[Optional[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']]] = None,
-                 dynamodb: pulumi.Input[Optional[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']]] = None,
-                 ebs: pulumi.Input[Optional[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']]] = None,
-                 ec2: pulumi.Input[Optional[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']]] = None,
-                 ecs: pulumi.Input[Optional[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']]] = None,
-                 efs: pulumi.Input[Optional[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']]] = None,
-                 elasticache: pulumi.Input[Optional[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']]] = None,
-                 elasticbeanstalk: pulumi.Input[Optional[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']]] = None,
-                 elasticsearch: pulumi.Input[Optional[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']]] = None,
-                 elb: pulumi.Input[Optional[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']]] = None,
-                 emr: pulumi.Input[Optional[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']]] = None,
-                 health: pulumi.Input[Optional[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']]] = None,
-                 iam: pulumi.Input[Optional[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']]] = None,
-                 iot: pulumi.Input[Optional[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']]] = None,
-                 kinesis: pulumi.Input[Optional[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']]] = None,
-                 kinesis_firehose: pulumi.Input[Optional[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']]] = None,
-                 lambda_: pulumi.Input[Optional[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']]] = None,
+                 alb: pulumi.Input[Optional[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict', 'outputs.AwsIntegrationsAlb']]] = None,
+                 api_gateway: pulumi.Input[Optional[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict', 'outputs.AwsIntegrationsApiGateway']]] = None,
+                 auto_scaling: pulumi.Input[Optional[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict', 'outputs.AwsIntegrationsAutoScaling']]] = None,
+                 aws_app_sync: pulumi.Input[Optional[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict', 'outputs.AwsIntegrationsAwsAppSync']]] = None,
+                 aws_athena: pulumi.Input[Optional[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict', 'outputs.AwsIntegrationsAwsAthena']]] = None,
+                 aws_auto_discovery: pulumi.Input[Optional[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict', 'outputs.AwsIntegrationsAwsAutoDiscovery']]] = None,
+                 aws_cognito: pulumi.Input[Optional[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict', 'outputs.AwsIntegrationsAwsCognito']]] = None,
+                 aws_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict', 'outputs.AwsIntegrationsAwsConnect']]] = None,
+                 aws_direct_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsIntegrationsAwsDirectConnect']]] = None,
+                 aws_fsx: pulumi.Input[Optional[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict', 'outputs.AwsIntegrationsAwsFsx']]] = None,
+                 aws_glue: pulumi.Input[Optional[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict', 'outputs.AwsIntegrationsAwsGlue']]] = None,
+                 aws_kinesis_analytics: pulumi.Input[Optional[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict', 'outputs.AwsIntegrationsAwsKinesisAnalytics']]] = None,
+                 aws_media_convert: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict', 'outputs.AwsIntegrationsAwsMediaConvert']]] = None,
+                 aws_media_package_vod: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict', 'outputs.AwsIntegrationsAwsMediaPackageVod']]] = None,
+                 aws_mq: pulumi.Input[Optional[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict', 'outputs.AwsIntegrationsAwsMq']]] = None,
+                 aws_msk: pulumi.Input[Optional[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict', 'outputs.AwsIntegrationsAwsMsk']]] = None,
+                 aws_neptune: pulumi.Input[Optional[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict', 'outputs.AwsIntegrationsAwsNeptune']]] = None,
+                 aws_qldb: pulumi.Input[Optional[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict', 'outputs.AwsIntegrationsAwsQldb']]] = None,
+                 aws_route53resolver: pulumi.Input[Optional[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict', 'outputs.AwsIntegrationsAwsRoute53resolver']]] = None,
+                 aws_states: pulumi.Input[Optional[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict', 'outputs.AwsIntegrationsAwsStates']]] = None,
+                 aws_transit_gateway: pulumi.Input[Optional[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict', 'outputs.AwsIntegrationsAwsTransitGateway']]] = None,
+                 aws_waf: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict', 'outputs.AwsIntegrationsAwsWaf']]] = None,
+                 aws_wafv2: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict', 'outputs.AwsIntegrationsAwsWafv2']]] = None,
+                 billing: pulumi.Input[Optional[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict', 'outputs.AwsIntegrationsBilling']]] = None,
+                 cloudfront: pulumi.Input[Optional[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict', 'outputs.AwsIntegrationsCloudfront']]] = None,
+                 cloudtrail: pulumi.Input[Optional[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict', 'outputs.AwsIntegrationsCloudtrail']]] = None,
+                 doc_db: pulumi.Input[Optional[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict', 'outputs.AwsIntegrationsDocDb']]] = None,
+                 dynamodb: pulumi.Input[Optional[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict', 'outputs.AwsIntegrationsDynamodb']]] = None,
+                 ebs: pulumi.Input[Optional[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict', 'outputs.AwsIntegrationsEbs']]] = None,
+                 ec2: pulumi.Input[Optional[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict', 'outputs.AwsIntegrationsEc2']]] = None,
+                 ecs: pulumi.Input[Optional[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict', 'outputs.AwsIntegrationsEcs']]] = None,
+                 efs: pulumi.Input[Optional[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict', 'outputs.AwsIntegrationsEfs']]] = None,
+                 elasticache: pulumi.Input[Optional[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict', 'outputs.AwsIntegrationsElasticache']]] = None,
+                 elasticbeanstalk: pulumi.Input[Optional[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict', 'outputs.AwsIntegrationsElasticbeanstalk']]] = None,
+                 elasticsearch: pulumi.Input[Optional[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict', 'outputs.AwsIntegrationsElasticsearch']]] = None,
+                 elb: pulumi.Input[Optional[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict', 'outputs.AwsIntegrationsElb']]] = None,
+                 emr: pulumi.Input[Optional[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict', 'outputs.AwsIntegrationsEmr']]] = None,
+                 health: pulumi.Input[Optional[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict', 'outputs.AwsIntegrationsHealth']]] = None,
+                 iam: pulumi.Input[Optional[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict', 'outputs.AwsIntegrationsIam']]] = None,
+                 iot: pulumi.Input[Optional[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict', 'outputs.AwsIntegrationsIot']]] = None,
+                 kinesis: pulumi.Input[Optional[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict', 'outputs.AwsIntegrationsKinesis']]] = None,
+                 kinesis_firehose: pulumi.Input[Optional[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict', 'outputs.AwsIntegrationsKinesisFirehose']]] = None,
+                 lambda_: pulumi.Input[Optional[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict', 'outputs.AwsIntegrationsLambda']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rds: pulumi.Input[Optional[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']]] = None,
-                 redshift: pulumi.Input[Optional[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']]] = None,
-                 route53: pulumi.Input[Optional[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']]] = None,
-                 s3: pulumi.Input[Optional[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']]] = None,
-                 security_hub: pulumi.Input[Optional[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']]] = None,
-                 ses: pulumi.Input[Optional[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']]] = None,
-                 sns: pulumi.Input[Optional[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']]] = None,
-                 sqs: pulumi.Input[Optional[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']]] = None,
-                 trusted_advisor: pulumi.Input[Optional[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']]] = None,
-                 vpc: pulumi.Input[Optional[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']]] = None,
-                 x_ray: pulumi.Input[Optional[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']]] = None,
+                 rds: pulumi.Input[Optional[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict', 'outputs.AwsIntegrationsRds']]] = None,
+                 redshift: pulumi.Input[Optional[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict', 'outputs.AwsIntegrationsRedshift']]] = None,
+                 route53: pulumi.Input[Optional[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict', 'outputs.AwsIntegrationsRoute53']]] = None,
+                 s3: pulumi.Input[Optional[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict', 'outputs.AwsIntegrationsS3']]] = None,
+                 security_hub: pulumi.Input[Optional[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict', 'outputs.AwsIntegrationsSecurityHub']]] = None,
+                 ses: pulumi.Input[Optional[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict', 'outputs.AwsIntegrationsSes']]] = None,
+                 sns: pulumi.Input[Optional[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict', 'outputs.AwsIntegrationsSns']]] = None,
+                 sqs: pulumi.Input[Optional[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict', 'outputs.AwsIntegrationsSqs']]] = None,
+                 trusted_advisor: pulumi.Input[Optional[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict', 'outputs.AwsIntegrationsTrustedAdvisor']]] = None,
+                 vpc: pulumi.Input[Optional[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict', 'outputs.AwsIntegrationsVpc']]] = None,
+                 x_ray: pulumi.Input[Optional[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict', 'outputs.AwsIntegrationsXRay']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -3770,61 +3770,61 @@ class AwsIntegrations(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            alb: pulumi.Input[Optional[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']]] = None,
-            api_gateway: pulumi.Input[Optional[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']]] = None,
-            auto_scaling: pulumi.Input[Optional[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']]] = None,
-            aws_app_sync: pulumi.Input[Optional[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']]] = None,
-            aws_athena: pulumi.Input[Optional[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']]] = None,
-            aws_auto_discovery: pulumi.Input[Optional[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']]] = None,
-            aws_cognito: pulumi.Input[Optional[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']]] = None,
-            aws_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']]] = None,
-            aws_direct_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']]] = None,
-            aws_fsx: pulumi.Input[Optional[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']]] = None,
-            aws_glue: pulumi.Input[Optional[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']]] = None,
-            aws_kinesis_analytics: pulumi.Input[Optional[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']]] = None,
-            aws_media_convert: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']]] = None,
-            aws_media_package_vod: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']]] = None,
-            aws_mq: pulumi.Input[Optional[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']]] = None,
-            aws_msk: pulumi.Input[Optional[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']]] = None,
-            aws_neptune: pulumi.Input[Optional[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']]] = None,
-            aws_qldb: pulumi.Input[Optional[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']]] = None,
-            aws_route53resolver: pulumi.Input[Optional[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']]] = None,
-            aws_states: pulumi.Input[Optional[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']]] = None,
-            aws_transit_gateway: pulumi.Input[Optional[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']]] = None,
-            aws_waf: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']]] = None,
-            aws_wafv2: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']]] = None,
-            billing: pulumi.Input[Optional[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']]] = None,
-            cloudfront: pulumi.Input[Optional[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']]] = None,
-            cloudtrail: pulumi.Input[Optional[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']]] = None,
-            doc_db: pulumi.Input[Optional[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']]] = None,
-            dynamodb: pulumi.Input[Optional[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']]] = None,
-            ebs: pulumi.Input[Optional[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']]] = None,
-            ec2: pulumi.Input[Optional[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']]] = None,
-            ecs: pulumi.Input[Optional[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']]] = None,
-            efs: pulumi.Input[Optional[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']]] = None,
-            elasticache: pulumi.Input[Optional[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']]] = None,
-            elasticbeanstalk: pulumi.Input[Optional[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']]] = None,
-            elasticsearch: pulumi.Input[Optional[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']]] = None,
-            elb: pulumi.Input[Optional[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']]] = None,
-            emr: pulumi.Input[Optional[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']]] = None,
-            health: pulumi.Input[Optional[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']]] = None,
-            iam: pulumi.Input[Optional[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']]] = None,
-            iot: pulumi.Input[Optional[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']]] = None,
-            kinesis: pulumi.Input[Optional[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']]] = None,
-            kinesis_firehose: pulumi.Input[Optional[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']]] = None,
-            lambda_: pulumi.Input[Optional[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']]] = None,
+            alb: pulumi.Input[Optional[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict', 'outputs.AwsIntegrationsAlb']]] = None,
+            api_gateway: pulumi.Input[Optional[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict', 'outputs.AwsIntegrationsApiGateway']]] = None,
+            auto_scaling: pulumi.Input[Optional[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict', 'outputs.AwsIntegrationsAutoScaling']]] = None,
+            aws_app_sync: pulumi.Input[Optional[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict', 'outputs.AwsIntegrationsAwsAppSync']]] = None,
+            aws_athena: pulumi.Input[Optional[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict', 'outputs.AwsIntegrationsAwsAthena']]] = None,
+            aws_auto_discovery: pulumi.Input[Optional[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict', 'outputs.AwsIntegrationsAwsAutoDiscovery']]] = None,
+            aws_cognito: pulumi.Input[Optional[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict', 'outputs.AwsIntegrationsAwsCognito']]] = None,
+            aws_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict', 'outputs.AwsIntegrationsAwsConnect']]] = None,
+            aws_direct_connect: pulumi.Input[Optional[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsIntegrationsAwsDirectConnect']]] = None,
+            aws_fsx: pulumi.Input[Optional[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict', 'outputs.AwsIntegrationsAwsFsx']]] = None,
+            aws_glue: pulumi.Input[Optional[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict', 'outputs.AwsIntegrationsAwsGlue']]] = None,
+            aws_kinesis_analytics: pulumi.Input[Optional[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict', 'outputs.AwsIntegrationsAwsKinesisAnalytics']]] = None,
+            aws_media_convert: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict', 'outputs.AwsIntegrationsAwsMediaConvert']]] = None,
+            aws_media_package_vod: pulumi.Input[Optional[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict', 'outputs.AwsIntegrationsAwsMediaPackageVod']]] = None,
+            aws_mq: pulumi.Input[Optional[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict', 'outputs.AwsIntegrationsAwsMq']]] = None,
+            aws_msk: pulumi.Input[Optional[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict', 'outputs.AwsIntegrationsAwsMsk']]] = None,
+            aws_neptune: pulumi.Input[Optional[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict', 'outputs.AwsIntegrationsAwsNeptune']]] = None,
+            aws_qldb: pulumi.Input[Optional[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict', 'outputs.AwsIntegrationsAwsQldb']]] = None,
+            aws_route53resolver: pulumi.Input[Optional[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict', 'outputs.AwsIntegrationsAwsRoute53resolver']]] = None,
+            aws_states: pulumi.Input[Optional[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict', 'outputs.AwsIntegrationsAwsStates']]] = None,
+            aws_transit_gateway: pulumi.Input[Optional[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict', 'outputs.AwsIntegrationsAwsTransitGateway']]] = None,
+            aws_waf: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict', 'outputs.AwsIntegrationsAwsWaf']]] = None,
+            aws_wafv2: pulumi.Input[Optional[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict', 'outputs.AwsIntegrationsAwsWafv2']]] = None,
+            billing: pulumi.Input[Optional[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict', 'outputs.AwsIntegrationsBilling']]] = None,
+            cloudfront: pulumi.Input[Optional[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict', 'outputs.AwsIntegrationsCloudfront']]] = None,
+            cloudtrail: pulumi.Input[Optional[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict', 'outputs.AwsIntegrationsCloudtrail']]] = None,
+            doc_db: pulumi.Input[Optional[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict', 'outputs.AwsIntegrationsDocDb']]] = None,
+            dynamodb: pulumi.Input[Optional[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict', 'outputs.AwsIntegrationsDynamodb']]] = None,
+            ebs: pulumi.Input[Optional[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict', 'outputs.AwsIntegrationsEbs']]] = None,
+            ec2: pulumi.Input[Optional[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict', 'outputs.AwsIntegrationsEc2']]] = None,
+            ecs: pulumi.Input[Optional[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict', 'outputs.AwsIntegrationsEcs']]] = None,
+            efs: pulumi.Input[Optional[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict', 'outputs.AwsIntegrationsEfs']]] = None,
+            elasticache: pulumi.Input[Optional[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict', 'outputs.AwsIntegrationsElasticache']]] = None,
+            elasticbeanstalk: pulumi.Input[Optional[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict', 'outputs.AwsIntegrationsElasticbeanstalk']]] = None,
+            elasticsearch: pulumi.Input[Optional[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict', 'outputs.AwsIntegrationsElasticsearch']]] = None,
+            elb: pulumi.Input[Optional[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict', 'outputs.AwsIntegrationsElb']]] = None,
+            emr: pulumi.Input[Optional[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict', 'outputs.AwsIntegrationsEmr']]] = None,
+            health: pulumi.Input[Optional[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict', 'outputs.AwsIntegrationsHealth']]] = None,
+            iam: pulumi.Input[Optional[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict', 'outputs.AwsIntegrationsIam']]] = None,
+            iot: pulumi.Input[Optional[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict', 'outputs.AwsIntegrationsIot']]] = None,
+            kinesis: pulumi.Input[Optional[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict', 'outputs.AwsIntegrationsKinesis']]] = None,
+            kinesis_firehose: pulumi.Input[Optional[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict', 'outputs.AwsIntegrationsKinesisFirehose']]] = None,
+            lambda_: pulumi.Input[Optional[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict', 'outputs.AwsIntegrationsLambda']]] = None,
             linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            rds: pulumi.Input[Optional[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']]] = None,
-            redshift: pulumi.Input[Optional[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']]] = None,
-            route53: pulumi.Input[Optional[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']]] = None,
-            s3: pulumi.Input[Optional[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']]] = None,
-            security_hub: pulumi.Input[Optional[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']]] = None,
-            ses: pulumi.Input[Optional[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']]] = None,
-            sns: pulumi.Input[Optional[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']]] = None,
-            sqs: pulumi.Input[Optional[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']]] = None,
-            trusted_advisor: pulumi.Input[Optional[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']]] = None,
-            vpc: pulumi.Input[Optional[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']]] = None,
-            x_ray: pulumi.Input[Optional[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']]] = None) -> 'AwsIntegrations':
+            rds: pulumi.Input[Optional[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict', 'outputs.AwsIntegrationsRds']]] = None,
+            redshift: pulumi.Input[Optional[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict', 'outputs.AwsIntegrationsRedshift']]] = None,
+            route53: pulumi.Input[Optional[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict', 'outputs.AwsIntegrationsRoute53']]] = None,
+            s3: pulumi.Input[Optional[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict', 'outputs.AwsIntegrationsS3']]] = None,
+            security_hub: pulumi.Input[Optional[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict', 'outputs.AwsIntegrationsSecurityHub']]] = None,
+            ses: pulumi.Input[Optional[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict', 'outputs.AwsIntegrationsSes']]] = None,
+            sns: pulumi.Input[Optional[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict', 'outputs.AwsIntegrationsSns']]] = None,
+            sqs: pulumi.Input[Optional[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict', 'outputs.AwsIntegrationsSqs']]] = None,
+            trusted_advisor: pulumi.Input[Optional[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict', 'outputs.AwsIntegrationsTrustedAdvisor']]] = None,
+            vpc: pulumi.Input[Optional[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict', 'outputs.AwsIntegrationsVpc']]] = None,
+            x_ray: pulumi.Input[Optional[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict', 'outputs.AwsIntegrationsXRay']]] = None) -> 'AwsIntegrations':
         """
         Get an existing AwsIntegrations resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -3833,61 +3833,61 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']] alb: ALB integration
-        :param pulumi.Input[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']] api_gateway: API Gateway integration
-        :param pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']] auto_scaling: AutoScaling integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']] aws_app_sync: Aws Appsync integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']] aws_athena: Aws Athena integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']] aws_auto_discovery: Aws Auto Discovery Integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']] aws_cognito: Aws Cognito integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']] aws_connect: Aws Connect integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']] aws_direct_connect: Aws Direct Connect integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']] aws_fsx: Aws Fsx integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']] aws_glue: Aws Glue integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']] aws_kinesis_analytics: Aws Kinesis Analytics integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']] aws_media_convert: Aws Media Convert integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']] aws_media_package_vod: Aws Media PackageVod integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']] aws_mq: Aws Mq integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']] aws_msk: Aws Msk integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']] aws_neptune: Aws Neptune integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']] aws_qldb: Aws Qldb integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']] aws_route53resolver: Aws Route53resolver integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']] aws_states: Aws states integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']] aws_transit_gateway: Aws Transit Gateway integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']] aws_waf: Aws Waf integration
-        :param pulumi.Input[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']] aws_wafv2: Aws Wafv2 integration
-        :param pulumi.Input[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']] billing: Billing integration
-        :param pulumi.Input[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']] cloudfront: Cloudfront integration
-        :param pulumi.Input[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']] cloudtrail: CloudTrail integration
-        :param pulumi.Input[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']] doc_db: Doc DB integration
-        :param pulumi.Input[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']] dynamodb: Dynamo DB integration
-        :param pulumi.Input[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']] ebs: EBS integration
-        :param pulumi.Input[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']] ec2: Ec2 integration
-        :param pulumi.Input[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']] ecs: Ecs integration
-        :param pulumi.Input[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']] efs: Efs integration
-        :param pulumi.Input[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']] elasticache: Elasticache integration
-        :param pulumi.Input[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']] elasticbeanstalk: Elastic Bean Stalk integration
-        :param pulumi.Input[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']] elasticsearch: Elastic Search integration
-        :param pulumi.Input[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']] elb: Elb integration
-        :param pulumi.Input[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']] emr: Emr integration
-        :param pulumi.Input[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']] health: Health integration
-        :param pulumi.Input[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']] iam: Iam integration
-        :param pulumi.Input[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']] iot: Iot integration
-        :param pulumi.Input[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']] kinesis: Kinesis integration
-        :param pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']] kinesis_firehose: Kinesis Firehose integration
-        :param pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']] lambda_: Lambda integration
+        :param pulumi.Input[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict', 'outputs.AwsIntegrationsAlb']] alb: ALB integration
+        :param pulumi.Input[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict', 'outputs.AwsIntegrationsApiGateway']] api_gateway: API Gateway integration
+        :param pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict', 'outputs.AwsIntegrationsAutoScaling']] auto_scaling: AutoScaling integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict', 'outputs.AwsIntegrationsAwsAppSync']] aws_app_sync: Aws Appsync integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict', 'outputs.AwsIntegrationsAwsAthena']] aws_athena: Aws Athena integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict', 'outputs.AwsIntegrationsAwsAutoDiscovery']] aws_auto_discovery: Aws Auto Discovery Integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict', 'outputs.AwsIntegrationsAwsCognito']] aws_cognito: Aws Cognito integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict', 'outputs.AwsIntegrationsAwsConnect']] aws_connect: Aws Connect integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsIntegrationsAwsDirectConnect']] aws_direct_connect: Aws Direct Connect integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict', 'outputs.AwsIntegrationsAwsFsx']] aws_fsx: Aws Fsx integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict', 'outputs.AwsIntegrationsAwsGlue']] aws_glue: Aws Glue integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict', 'outputs.AwsIntegrationsAwsKinesisAnalytics']] aws_kinesis_analytics: Aws Kinesis Analytics integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict', 'outputs.AwsIntegrationsAwsMediaConvert']] aws_media_convert: Aws Media Convert integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict', 'outputs.AwsIntegrationsAwsMediaPackageVod']] aws_media_package_vod: Aws Media PackageVod integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict', 'outputs.AwsIntegrationsAwsMq']] aws_mq: Aws Mq integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict', 'outputs.AwsIntegrationsAwsMsk']] aws_msk: Aws Msk integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict', 'outputs.AwsIntegrationsAwsNeptune']] aws_neptune: Aws Neptune integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict', 'outputs.AwsIntegrationsAwsQldb']] aws_qldb: Aws Qldb integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict', 'outputs.AwsIntegrationsAwsRoute53resolver']] aws_route53resolver: Aws Route53resolver integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict', 'outputs.AwsIntegrationsAwsStates']] aws_states: Aws states integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict', 'outputs.AwsIntegrationsAwsTransitGateway']] aws_transit_gateway: Aws Transit Gateway integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict', 'outputs.AwsIntegrationsAwsWaf']] aws_waf: Aws Waf integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict', 'outputs.AwsIntegrationsAwsWafv2']] aws_wafv2: Aws Wafv2 integration
+        :param pulumi.Input[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict', 'outputs.AwsIntegrationsBilling']] billing: Billing integration
+        :param pulumi.Input[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict', 'outputs.AwsIntegrationsCloudfront']] cloudfront: Cloudfront integration
+        :param pulumi.Input[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict', 'outputs.AwsIntegrationsCloudtrail']] cloudtrail: CloudTrail integration
+        :param pulumi.Input[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict', 'outputs.AwsIntegrationsDocDb']] doc_db: Doc DB integration
+        :param pulumi.Input[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict', 'outputs.AwsIntegrationsDynamodb']] dynamodb: Dynamo DB integration
+        :param pulumi.Input[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict', 'outputs.AwsIntegrationsEbs']] ebs: EBS integration
+        :param pulumi.Input[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict', 'outputs.AwsIntegrationsEc2']] ec2: Ec2 integration
+        :param pulumi.Input[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict', 'outputs.AwsIntegrationsEcs']] ecs: Ecs integration
+        :param pulumi.Input[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict', 'outputs.AwsIntegrationsEfs']] efs: Efs integration
+        :param pulumi.Input[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict', 'outputs.AwsIntegrationsElasticache']] elasticache: Elasticache integration
+        :param pulumi.Input[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict', 'outputs.AwsIntegrationsElasticbeanstalk']] elasticbeanstalk: Elastic Bean Stalk integration
+        :param pulumi.Input[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict', 'outputs.AwsIntegrationsElasticsearch']] elasticsearch: Elastic Search integration
+        :param pulumi.Input[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict', 'outputs.AwsIntegrationsElb']] elb: Elb integration
+        :param pulumi.Input[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict', 'outputs.AwsIntegrationsEmr']] emr: Emr integration
+        :param pulumi.Input[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict', 'outputs.AwsIntegrationsHealth']] health: Health integration
+        :param pulumi.Input[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict', 'outputs.AwsIntegrationsIam']] iam: Iam integration
+        :param pulumi.Input[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict', 'outputs.AwsIntegrationsIot']] iot: Iot integration
+        :param pulumi.Input[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict', 'outputs.AwsIntegrationsKinesis']] kinesis: Kinesis integration
+        :param pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict', 'outputs.AwsIntegrationsKinesisFirehose']] kinesis_firehose: Kinesis Firehose integration
+        :param pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict', 'outputs.AwsIntegrationsLambda']] lambda_: Lambda integration
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked AWS account in New Relic.
-        :param pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']] rds: Rds integration
-        :param pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']] redshift: Redshift integration
-        :param pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']] route53: Route53 integration
-        :param pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']] s3: S3 integration
-        :param pulumi.Input[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']] security_hub: Security Hub integration
-        :param pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']] ses: Ses integration
-        :param pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']] sns: Sns integration
-        :param pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']] sqs: SQS integration
-        :param pulumi.Input[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']] trusted_advisor: Trusted Advisor integration
-        :param pulumi.Input[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']] vpc: VPC integration
-        :param pulumi.Input[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']] x_ray: X-Ray integration
+        :param pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict', 'outputs.AwsIntegrationsRds']] rds: Rds integration
+        :param pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict', 'outputs.AwsIntegrationsRedshift']] redshift: Redshift integration
+        :param pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict', 'outputs.AwsIntegrationsRoute53']] route53: Route53 integration
+        :param pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict', 'outputs.AwsIntegrationsS3']] s3: S3 integration
+        :param pulumi.Input[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict', 'outputs.AwsIntegrationsSecurityHub']] security_hub: Security Hub integration
+        :param pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict', 'outputs.AwsIntegrationsSes']] ses: Ses integration
+        :param pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict', 'outputs.AwsIntegrationsSns']] sns: Sns integration
+        :param pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict', 'outputs.AwsIntegrationsSqs']] sqs: SQS integration
+        :param pulumi.Input[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict', 'outputs.AwsIntegrationsTrustedAdvisor']] trusted_advisor: Trusted Advisor integration
+        :param pulumi.Input[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict', 'outputs.AwsIntegrationsVpc']] vpc: VPC integration
+        :param pulumi.Input[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict', 'outputs.AwsIntegrationsXRay']] x_ray: X-Ray integration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

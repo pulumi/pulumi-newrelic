@@ -1194,40 +1194,40 @@ class AzureIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 api_management: pulumi.Input[Optional[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']]] = None,
-                 app_gateway: pulumi.Input[Optional[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']]] = None,
-                 app_service: pulumi.Input[Optional[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']]] = None,
-                 auto_discovery: pulumi.Input[Optional[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']]] = None,
-                 containers: pulumi.Input[Optional[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']]] = None,
-                 cosmos_db: pulumi.Input[Optional[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']]] = None,
-                 cost_management: pulumi.Input[Optional[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']]] = None,
-                 data_factory: pulumi.Input[Optional[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict']]] = None,
-                 event_hub: pulumi.Input[Optional[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict']]] = None,
-                 express_route: pulumi.Input[Optional[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict']]] = None,
-                 firewalls: pulumi.Input[Optional[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict']]] = None,
-                 front_door: pulumi.Input[Optional[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict']]] = None,
-                 functions: pulumi.Input[Optional[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict']]] = None,
-                 key_vault: pulumi.Input[Optional[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict']]] = None,
+                 api_management: pulumi.Input[Optional[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict', 'outputs.AzureIntegrationsApiManagement']]] = None,
+                 app_gateway: pulumi.Input[Optional[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict', 'outputs.AzureIntegrationsAppGateway']]] = None,
+                 app_service: pulumi.Input[Optional[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict', 'outputs.AzureIntegrationsAppService']]] = None,
+                 auto_discovery: pulumi.Input[Optional[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict', 'outputs.AzureIntegrationsAutoDiscovery']]] = None,
+                 containers: pulumi.Input[Optional[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict', 'outputs.AzureIntegrationsContainers']]] = None,
+                 cosmos_db: pulumi.Input[Optional[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict', 'outputs.AzureIntegrationsCosmosDb']]] = None,
+                 cost_management: pulumi.Input[Optional[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict', 'outputs.AzureIntegrationsCostManagement']]] = None,
+                 data_factory: pulumi.Input[Optional[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict', 'outputs.AzureIntegrationsDataFactory']]] = None,
+                 event_hub: pulumi.Input[Optional[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict', 'outputs.AzureIntegrationsEventHub']]] = None,
+                 express_route: pulumi.Input[Optional[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict', 'outputs.AzureIntegrationsExpressRoute']]] = None,
+                 firewalls: pulumi.Input[Optional[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict', 'outputs.AzureIntegrationsFirewalls']]] = None,
+                 front_door: pulumi.Input[Optional[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict', 'outputs.AzureIntegrationsFrontDoor']]] = None,
+                 functions: pulumi.Input[Optional[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict', 'outputs.AzureIntegrationsFunctions']]] = None,
+                 key_vault: pulumi.Input[Optional[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict', 'outputs.AzureIntegrationsKeyVault']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancer: pulumi.Input[Optional[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict']]] = None,
-                 logic_apps: pulumi.Input[Optional[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict']]] = None,
-                 machine_learning: pulumi.Input[Optional[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict']]] = None,
-                 maria_db: pulumi.Input[Optional[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict']]] = None,
-                 monitor: pulumi.Input[Optional[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict']]] = None,
-                 mysql: pulumi.Input[Optional[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict']]] = None,
-                 mysql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict']]] = None,
-                 postgresql: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict']]] = None,
-                 postgresql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict']]] = None,
-                 power_bi_dedicated: pulumi.Input[Optional[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict']]] = None,
-                 redis_cache: pulumi.Input[Optional[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict']]] = None,
-                 service_bus: pulumi.Input[Optional[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict']]] = None,
-                 sql: pulumi.Input[Optional[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict']]] = None,
-                 sql_managed: pulumi.Input[Optional[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict']]] = None,
-                 storage: pulumi.Input[Optional[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict']]] = None,
-                 virtual_machine: pulumi.Input[Optional[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict']]] = None,
-                 virtual_networks: pulumi.Input[Optional[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict']]] = None,
-                 vms: pulumi.Input[Optional[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict']]] = None,
-                 vpn_gateway: pulumi.Input[Optional[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict']]] = None,
+                 load_balancer: pulumi.Input[Optional[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict', 'outputs.AzureIntegrationsLoadBalancer']]] = None,
+                 logic_apps: pulumi.Input[Optional[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict', 'outputs.AzureIntegrationsLogicApps']]] = None,
+                 machine_learning: pulumi.Input[Optional[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict', 'outputs.AzureIntegrationsMachineLearning']]] = None,
+                 maria_db: pulumi.Input[Optional[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict', 'outputs.AzureIntegrationsMariaDb']]] = None,
+                 monitor: pulumi.Input[Optional[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict', 'outputs.AzureIntegrationsMonitor']]] = None,
+                 mysql: pulumi.Input[Optional[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict', 'outputs.AzureIntegrationsMysql']]] = None,
+                 mysql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict', 'outputs.AzureIntegrationsMysqlFlexible']]] = None,
+                 postgresql: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict', 'outputs.AzureIntegrationsPostgresql']]] = None,
+                 postgresql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict', 'outputs.AzureIntegrationsPostgresqlFlexible']]] = None,
+                 power_bi_dedicated: pulumi.Input[Optional[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict', 'outputs.AzureIntegrationsPowerBiDedicated']]] = None,
+                 redis_cache: pulumi.Input[Optional[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict', 'outputs.AzureIntegrationsRedisCache']]] = None,
+                 service_bus: pulumi.Input[Optional[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict', 'outputs.AzureIntegrationsServiceBus']]] = None,
+                 sql: pulumi.Input[Optional[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict', 'outputs.AzureIntegrationsSql']]] = None,
+                 sql_managed: pulumi.Input[Optional[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict', 'outputs.AzureIntegrationsSqlManaged']]] = None,
+                 storage: pulumi.Input[Optional[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict', 'outputs.AzureIntegrationsStorage']]] = None,
+                 virtual_machine: pulumi.Input[Optional[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict', 'outputs.AzureIntegrationsVirtualMachine']]] = None,
+                 virtual_networks: pulumi.Input[Optional[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict', 'outputs.AzureIntegrationsVirtualNetworks']]] = None,
+                 vms: pulumi.Input[Optional[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict', 'outputs.AzureIntegrationsVms']]] = None,
+                 vpn_gateway: pulumi.Input[Optional[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict', 'outputs.AzureIntegrationsVpnGateway']]] = None,
                  __props__=None):
         """
         Use this resource to integrate Azure services with New Relic.
@@ -1408,46 +1408,46 @@ class AzureIntegrations(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']] api_management: Azure API Management. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']] app_gateway: Azure App Gateway. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']] app_service: Azure App Service. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']] auto_discovery: Azure Auto Discovery
-        :param pulumi.Input[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']] containers: Azure Containers. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']] cost_management: Azure Cost Management. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict']] data_factory: Azure Data Factory. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict']] event_hub: Azure Event Hub. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict']] express_route: Azure Express Route. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict']] firewalls: Azure Firewalls. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict']] front_door: Azure Front Door. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict']] functions: Azure Functions. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict']] key_vault: Azure Key Vault. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict', 'outputs.AzureIntegrationsApiManagement']] api_management: Azure API Management. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict', 'outputs.AzureIntegrationsAppGateway']] app_gateway: Azure App Gateway. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict', 'outputs.AzureIntegrationsAppService']] app_service: Azure App Service. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict', 'outputs.AzureIntegrationsAutoDiscovery']] auto_discovery: Azure Auto Discovery
+        :param pulumi.Input[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict', 'outputs.AzureIntegrationsContainers']] containers: Azure Containers. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict', 'outputs.AzureIntegrationsCosmosDb']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict', 'outputs.AzureIntegrationsCostManagement']] cost_management: Azure Cost Management. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict', 'outputs.AzureIntegrationsDataFactory']] data_factory: Azure Data Factory. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict', 'outputs.AzureIntegrationsEventHub']] event_hub: Azure Event Hub. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict', 'outputs.AzureIntegrationsExpressRoute']] express_route: Azure Express Route. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict', 'outputs.AzureIntegrationsFirewalls']] firewalls: Azure Firewalls. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict', 'outputs.AzureIntegrationsFrontDoor']] front_door: Azure Front Door. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict', 'outputs.AzureIntegrationsFunctions']] functions: Azure Functions. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict', 'outputs.AzureIntegrationsKeyVault']] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked Azure account in New Relic.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
-        :param pulumi.Input[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict']] maria_db: Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict']] monitor: Azure Monitor. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict', 'outputs.AzureIntegrationsLoadBalancer']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict', 'outputs.AzureIntegrationsLogicApps']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict', 'outputs.AzureIntegrationsMachineLearning']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict', 'outputs.AzureIntegrationsMariaDb']] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict', 'outputs.AzureIntegrationsMonitor']] monitor: Azure Monitor. See Integration blocks below for details.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-        :param pulumi.Input[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict']] mysql: Azure MySQL. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict']] postgresql_flexible: Azure PostgreSQL Flexible Server. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict']] power_bi_dedicated: Azure Power BI Dedicated. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict']] redis_cache: Azure Redis Cache. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict']] service_bus: Azure Service Bus. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict']] sql: Azure SQL. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict']] sql_managed: Azure SQL Managed. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict']] storage: for Azure Storage. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict', 'outputs.AzureIntegrationsMysql']] mysql: Azure MySQL. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict', 'outputs.AzureIntegrationsMysqlFlexible']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict', 'outputs.AzureIntegrationsPostgresql']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict', 'outputs.AzureIntegrationsPostgresqlFlexible']] postgresql_flexible: Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict', 'outputs.AzureIntegrationsPowerBiDedicated']] power_bi_dedicated: Azure Power BI Dedicated. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict', 'outputs.AzureIntegrationsRedisCache']] redis_cache: Azure Redis Cache. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict', 'outputs.AzureIntegrationsServiceBus']] service_bus: Azure Service Bus. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict', 'outputs.AzureIntegrationsSql']] sql: Azure SQL. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict', 'outputs.AzureIntegrationsSqlManaged']] sql_managed: Azure SQL Managed. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict', 'outputs.AzureIntegrationsStorage']] storage: for Azure Storage. See Integration blocks below for details.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
-        :param pulumi.Input[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict']] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict']] vms: Azure VMs. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict']] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict', 'outputs.AzureIntegrationsVirtualMachine']] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict', 'outputs.AzureIntegrationsVirtualNetworks']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict', 'outputs.AzureIntegrationsVms']] vms: Azure VMs. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict', 'outputs.AzureIntegrationsVpnGateway']] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         """
@@ -1649,40 +1649,40 @@ class AzureIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 api_management: pulumi.Input[Optional[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']]] = None,
-                 app_gateway: pulumi.Input[Optional[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']]] = None,
-                 app_service: pulumi.Input[Optional[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']]] = None,
-                 auto_discovery: pulumi.Input[Optional[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']]] = None,
-                 containers: pulumi.Input[Optional[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']]] = None,
-                 cosmos_db: pulumi.Input[Optional[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']]] = None,
-                 cost_management: pulumi.Input[Optional[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']]] = None,
-                 data_factory: pulumi.Input[Optional[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict']]] = None,
-                 event_hub: pulumi.Input[Optional[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict']]] = None,
-                 express_route: pulumi.Input[Optional[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict']]] = None,
-                 firewalls: pulumi.Input[Optional[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict']]] = None,
-                 front_door: pulumi.Input[Optional[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict']]] = None,
-                 functions: pulumi.Input[Optional[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict']]] = None,
-                 key_vault: pulumi.Input[Optional[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict']]] = None,
+                 api_management: pulumi.Input[Optional[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict', 'outputs.AzureIntegrationsApiManagement']]] = None,
+                 app_gateway: pulumi.Input[Optional[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict', 'outputs.AzureIntegrationsAppGateway']]] = None,
+                 app_service: pulumi.Input[Optional[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict', 'outputs.AzureIntegrationsAppService']]] = None,
+                 auto_discovery: pulumi.Input[Optional[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict', 'outputs.AzureIntegrationsAutoDiscovery']]] = None,
+                 containers: pulumi.Input[Optional[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict', 'outputs.AzureIntegrationsContainers']]] = None,
+                 cosmos_db: pulumi.Input[Optional[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict', 'outputs.AzureIntegrationsCosmosDb']]] = None,
+                 cost_management: pulumi.Input[Optional[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict', 'outputs.AzureIntegrationsCostManagement']]] = None,
+                 data_factory: pulumi.Input[Optional[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict', 'outputs.AzureIntegrationsDataFactory']]] = None,
+                 event_hub: pulumi.Input[Optional[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict', 'outputs.AzureIntegrationsEventHub']]] = None,
+                 express_route: pulumi.Input[Optional[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict', 'outputs.AzureIntegrationsExpressRoute']]] = None,
+                 firewalls: pulumi.Input[Optional[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict', 'outputs.AzureIntegrationsFirewalls']]] = None,
+                 front_door: pulumi.Input[Optional[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict', 'outputs.AzureIntegrationsFrontDoor']]] = None,
+                 functions: pulumi.Input[Optional[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict', 'outputs.AzureIntegrationsFunctions']]] = None,
+                 key_vault: pulumi.Input[Optional[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict', 'outputs.AzureIntegrationsKeyVault']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancer: pulumi.Input[Optional[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict']]] = None,
-                 logic_apps: pulumi.Input[Optional[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict']]] = None,
-                 machine_learning: pulumi.Input[Optional[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict']]] = None,
-                 maria_db: pulumi.Input[Optional[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict']]] = None,
-                 monitor: pulumi.Input[Optional[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict']]] = None,
-                 mysql: pulumi.Input[Optional[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict']]] = None,
-                 mysql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict']]] = None,
-                 postgresql: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict']]] = None,
-                 postgresql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict']]] = None,
-                 power_bi_dedicated: pulumi.Input[Optional[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict']]] = None,
-                 redis_cache: pulumi.Input[Optional[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict']]] = None,
-                 service_bus: pulumi.Input[Optional[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict']]] = None,
-                 sql: pulumi.Input[Optional[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict']]] = None,
-                 sql_managed: pulumi.Input[Optional[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict']]] = None,
-                 storage: pulumi.Input[Optional[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict']]] = None,
-                 virtual_machine: pulumi.Input[Optional[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict']]] = None,
-                 virtual_networks: pulumi.Input[Optional[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict']]] = None,
-                 vms: pulumi.Input[Optional[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict']]] = None,
-                 vpn_gateway: pulumi.Input[Optional[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict']]] = None,
+                 load_balancer: pulumi.Input[Optional[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict', 'outputs.AzureIntegrationsLoadBalancer']]] = None,
+                 logic_apps: pulumi.Input[Optional[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict', 'outputs.AzureIntegrationsLogicApps']]] = None,
+                 machine_learning: pulumi.Input[Optional[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict', 'outputs.AzureIntegrationsMachineLearning']]] = None,
+                 maria_db: pulumi.Input[Optional[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict', 'outputs.AzureIntegrationsMariaDb']]] = None,
+                 monitor: pulumi.Input[Optional[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict', 'outputs.AzureIntegrationsMonitor']]] = None,
+                 mysql: pulumi.Input[Optional[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict', 'outputs.AzureIntegrationsMysql']]] = None,
+                 mysql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict', 'outputs.AzureIntegrationsMysqlFlexible']]] = None,
+                 postgresql: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict', 'outputs.AzureIntegrationsPostgresql']]] = None,
+                 postgresql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict', 'outputs.AzureIntegrationsPostgresqlFlexible']]] = None,
+                 power_bi_dedicated: pulumi.Input[Optional[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict', 'outputs.AzureIntegrationsPowerBiDedicated']]] = None,
+                 redis_cache: pulumi.Input[Optional[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict', 'outputs.AzureIntegrationsRedisCache']]] = None,
+                 service_bus: pulumi.Input[Optional[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict', 'outputs.AzureIntegrationsServiceBus']]] = None,
+                 sql: pulumi.Input[Optional[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict', 'outputs.AzureIntegrationsSql']]] = None,
+                 sql_managed: pulumi.Input[Optional[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict', 'outputs.AzureIntegrationsSqlManaged']]] = None,
+                 storage: pulumi.Input[Optional[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict', 'outputs.AzureIntegrationsStorage']]] = None,
+                 virtual_machine: pulumi.Input[Optional[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict', 'outputs.AzureIntegrationsVirtualMachine']]] = None,
+                 virtual_networks: pulumi.Input[Optional[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict', 'outputs.AzureIntegrationsVirtualNetworks']]] = None,
+                 vms: pulumi.Input[Optional[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict', 'outputs.AzureIntegrationsVms']]] = None,
+                 vpn_gateway: pulumi.Input[Optional[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict', 'outputs.AzureIntegrationsVpnGateway']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1740,40 +1740,40 @@ class AzureIntegrations(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            api_management: pulumi.Input[Optional[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']]] = None,
-            app_gateway: pulumi.Input[Optional[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']]] = None,
-            app_service: pulumi.Input[Optional[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']]] = None,
-            auto_discovery: pulumi.Input[Optional[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']]] = None,
-            containers: pulumi.Input[Optional[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']]] = None,
-            cosmos_db: pulumi.Input[Optional[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']]] = None,
-            cost_management: pulumi.Input[Optional[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']]] = None,
-            data_factory: pulumi.Input[Optional[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict']]] = None,
-            event_hub: pulumi.Input[Optional[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict']]] = None,
-            express_route: pulumi.Input[Optional[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict']]] = None,
-            firewalls: pulumi.Input[Optional[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict']]] = None,
-            front_door: pulumi.Input[Optional[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict']]] = None,
-            functions: pulumi.Input[Optional[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict']]] = None,
-            key_vault: pulumi.Input[Optional[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict']]] = None,
+            api_management: pulumi.Input[Optional[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict', 'outputs.AzureIntegrationsApiManagement']]] = None,
+            app_gateway: pulumi.Input[Optional[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict', 'outputs.AzureIntegrationsAppGateway']]] = None,
+            app_service: pulumi.Input[Optional[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict', 'outputs.AzureIntegrationsAppService']]] = None,
+            auto_discovery: pulumi.Input[Optional[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict', 'outputs.AzureIntegrationsAutoDiscovery']]] = None,
+            containers: pulumi.Input[Optional[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict', 'outputs.AzureIntegrationsContainers']]] = None,
+            cosmos_db: pulumi.Input[Optional[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict', 'outputs.AzureIntegrationsCosmosDb']]] = None,
+            cost_management: pulumi.Input[Optional[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict', 'outputs.AzureIntegrationsCostManagement']]] = None,
+            data_factory: pulumi.Input[Optional[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict', 'outputs.AzureIntegrationsDataFactory']]] = None,
+            event_hub: pulumi.Input[Optional[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict', 'outputs.AzureIntegrationsEventHub']]] = None,
+            express_route: pulumi.Input[Optional[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict', 'outputs.AzureIntegrationsExpressRoute']]] = None,
+            firewalls: pulumi.Input[Optional[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict', 'outputs.AzureIntegrationsFirewalls']]] = None,
+            front_door: pulumi.Input[Optional[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict', 'outputs.AzureIntegrationsFrontDoor']]] = None,
+            functions: pulumi.Input[Optional[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict', 'outputs.AzureIntegrationsFunctions']]] = None,
+            key_vault: pulumi.Input[Optional[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict', 'outputs.AzureIntegrationsKeyVault']]] = None,
             linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            load_balancer: pulumi.Input[Optional[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict']]] = None,
-            logic_apps: pulumi.Input[Optional[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict']]] = None,
-            machine_learning: pulumi.Input[Optional[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict']]] = None,
-            maria_db: pulumi.Input[Optional[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict']]] = None,
-            monitor: pulumi.Input[Optional[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict']]] = None,
-            mysql: pulumi.Input[Optional[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict']]] = None,
-            mysql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict']]] = None,
-            postgresql: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict']]] = None,
-            postgresql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict']]] = None,
-            power_bi_dedicated: pulumi.Input[Optional[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict']]] = None,
-            redis_cache: pulumi.Input[Optional[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict']]] = None,
-            service_bus: pulumi.Input[Optional[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict']]] = None,
-            sql: pulumi.Input[Optional[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict']]] = None,
-            sql_managed: pulumi.Input[Optional[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict']]] = None,
-            storage: pulumi.Input[Optional[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict']]] = None,
-            virtual_machine: pulumi.Input[Optional[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict']]] = None,
-            virtual_networks: pulumi.Input[Optional[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict']]] = None,
-            vms: pulumi.Input[Optional[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict']]] = None,
-            vpn_gateway: pulumi.Input[Optional[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict']]] = None) -> 'AzureIntegrations':
+            load_balancer: pulumi.Input[Optional[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict', 'outputs.AzureIntegrationsLoadBalancer']]] = None,
+            logic_apps: pulumi.Input[Optional[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict', 'outputs.AzureIntegrationsLogicApps']]] = None,
+            machine_learning: pulumi.Input[Optional[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict', 'outputs.AzureIntegrationsMachineLearning']]] = None,
+            maria_db: pulumi.Input[Optional[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict', 'outputs.AzureIntegrationsMariaDb']]] = None,
+            monitor: pulumi.Input[Optional[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict', 'outputs.AzureIntegrationsMonitor']]] = None,
+            mysql: pulumi.Input[Optional[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict', 'outputs.AzureIntegrationsMysql']]] = None,
+            mysql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict', 'outputs.AzureIntegrationsMysqlFlexible']]] = None,
+            postgresql: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict', 'outputs.AzureIntegrationsPostgresql']]] = None,
+            postgresql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict', 'outputs.AzureIntegrationsPostgresqlFlexible']]] = None,
+            power_bi_dedicated: pulumi.Input[Optional[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict', 'outputs.AzureIntegrationsPowerBiDedicated']]] = None,
+            redis_cache: pulumi.Input[Optional[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict', 'outputs.AzureIntegrationsRedisCache']]] = None,
+            service_bus: pulumi.Input[Optional[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict', 'outputs.AzureIntegrationsServiceBus']]] = None,
+            sql: pulumi.Input[Optional[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict', 'outputs.AzureIntegrationsSql']]] = None,
+            sql_managed: pulumi.Input[Optional[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict', 'outputs.AzureIntegrationsSqlManaged']]] = None,
+            storage: pulumi.Input[Optional[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict', 'outputs.AzureIntegrationsStorage']]] = None,
+            virtual_machine: pulumi.Input[Optional[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict', 'outputs.AzureIntegrationsVirtualMachine']]] = None,
+            virtual_networks: pulumi.Input[Optional[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict', 'outputs.AzureIntegrationsVirtualNetworks']]] = None,
+            vms: pulumi.Input[Optional[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict', 'outputs.AzureIntegrationsVms']]] = None,
+            vpn_gateway: pulumi.Input[Optional[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict', 'outputs.AzureIntegrationsVpnGateway']]] = None) -> 'AzureIntegrations':
         """
         Get an existing AzureIntegrations resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1782,46 +1782,46 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']] api_management: Azure API Management. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']] app_gateway: Azure App Gateway. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']] app_service: Azure App Service. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']] auto_discovery: Azure Auto Discovery
-        :param pulumi.Input[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']] containers: Azure Containers. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']] cost_management: Azure Cost Management. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict']] data_factory: Azure Data Factory. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict']] event_hub: Azure Event Hub. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict']] express_route: Azure Express Route. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict']] firewalls: Azure Firewalls. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict']] front_door: Azure Front Door. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict']] functions: Azure Functions. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict']] key_vault: Azure Key Vault. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict', 'outputs.AzureIntegrationsApiManagement']] api_management: Azure API Management. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict', 'outputs.AzureIntegrationsAppGateway']] app_gateway: Azure App Gateway. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict', 'outputs.AzureIntegrationsAppService']] app_service: Azure App Service. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict', 'outputs.AzureIntegrationsAutoDiscovery']] auto_discovery: Azure Auto Discovery
+        :param pulumi.Input[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict', 'outputs.AzureIntegrationsContainers']] containers: Azure Containers. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict', 'outputs.AzureIntegrationsCosmosDb']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict', 'outputs.AzureIntegrationsCostManagement']] cost_management: Azure Cost Management. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict', 'outputs.AzureIntegrationsDataFactory']] data_factory: Azure Data Factory. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict', 'outputs.AzureIntegrationsEventHub']] event_hub: Azure Event Hub. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict', 'outputs.AzureIntegrationsExpressRoute']] express_route: Azure Express Route. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict', 'outputs.AzureIntegrationsFirewalls']] firewalls: Azure Firewalls. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict', 'outputs.AzureIntegrationsFrontDoor']] front_door: Azure Front Door. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict', 'outputs.AzureIntegrationsFunctions']] functions: Azure Functions. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict', 'outputs.AzureIntegrationsKeyVault']] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked Azure account in New Relic.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
-        :param pulumi.Input[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict']] maria_db: Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict']] monitor: Azure Monitor. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict', 'outputs.AzureIntegrationsLoadBalancer']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict', 'outputs.AzureIntegrationsLogicApps']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict', 'outputs.AzureIntegrationsMachineLearning']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict', 'outputs.AzureIntegrationsMariaDb']] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict', 'outputs.AzureIntegrationsMonitor']] monitor: Azure Monitor. See Integration blocks below for details.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-        :param pulumi.Input[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict']] mysql: Azure MySQL. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict']] postgresql_flexible: Azure PostgreSQL Flexible Server. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict']] power_bi_dedicated: Azure Power BI Dedicated. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict']] redis_cache: Azure Redis Cache. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict']] service_bus: Azure Service Bus. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict']] sql: Azure SQL. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict']] sql_managed: Azure SQL Managed. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict']] storage: for Azure Storage. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict', 'outputs.AzureIntegrationsMysql']] mysql: Azure MySQL. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict', 'outputs.AzureIntegrationsMysqlFlexible']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict', 'outputs.AzureIntegrationsPostgresql']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict', 'outputs.AzureIntegrationsPostgresqlFlexible']] postgresql_flexible: Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict', 'outputs.AzureIntegrationsPowerBiDedicated']] power_bi_dedicated: Azure Power BI Dedicated. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict', 'outputs.AzureIntegrationsRedisCache']] redis_cache: Azure Redis Cache. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict', 'outputs.AzureIntegrationsServiceBus']] service_bus: Azure Service Bus. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict', 'outputs.AzureIntegrationsSql']] sql: Azure SQL. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict', 'outputs.AzureIntegrationsSqlManaged']] sql_managed: Azure SQL Managed. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict', 'outputs.AzureIntegrationsStorage']] storage: for Azure Storage. See Integration blocks below for details.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
-        :param pulumi.Input[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict']] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict']] vms: Azure VMs. See Integration blocks below for details.
-        :param pulumi.Input[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict']] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict', 'outputs.AzureIntegrationsVirtualMachine']] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict', 'outputs.AzureIntegrationsVirtualNetworks']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict', 'outputs.AzureIntegrationsVms']] vms: Azure VMs. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict', 'outputs.AzureIntegrationsVpnGateway']] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         """

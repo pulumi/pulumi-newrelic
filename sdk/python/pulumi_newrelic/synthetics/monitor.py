@@ -835,7 +835,7 @@ class Monitor(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bypass_head_request: pulumi.Input[Optional[_builtins.bool]] = None,
-                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict', 'outputs.MonitorCustomHeader']]]]] = None,
                  device_orientation: pulumi.Input[Optional[_builtins.str]] = None,
                  device_type: pulumi.Input[Optional[_builtins.str]] = None,
                  devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -848,7 +848,7 @@ class Monitor(pulumi.CustomResource):
                  runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  script_language: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict', 'outputs.MonitorTag']]]]] = None,
                  treat_redirect_as_failure: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1018,7 +1018,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict', 'outputs.MonitorCustomHeader']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
@@ -1033,7 +1033,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtime_type_version = "LATEST"` in your configuration to avoid drift.
         :param pulumi.Input[_builtins.str] script_language: The programing language that should execute the script.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict', 'outputs.MonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
         :param pulumi.Input[_builtins.bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
@@ -1222,7 +1222,7 @@ class Monitor(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bypass_head_request: pulumi.Input[Optional[_builtins.bool]] = None,
-                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict', 'outputs.MonitorCustomHeader']]]]] = None,
                  device_orientation: pulumi.Input[Optional[_builtins.str]] = None,
                  device_type: pulumi.Input[Optional[_builtins.str]] = None,
                  devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1235,7 +1235,7 @@ class Monitor(pulumi.CustomResource):
                  runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  script_language: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict', 'outputs.MonitorTag']]]]] = None,
                  treat_redirect_as_failure: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1293,7 +1293,7 @@ class Monitor(pulumi.CustomResource):
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             bypass_head_request: pulumi.Input[Optional[_builtins.bool]] = None,
-            custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]]] = None,
+            custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict', 'outputs.MonitorCustomHeader']]]]] = None,
             device_orientation: pulumi.Input[Optional[_builtins.str]] = None,
             device_type: pulumi.Input[Optional[_builtins.str]] = None,
             devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1308,7 +1308,7 @@ class Monitor(pulumi.CustomResource):
             runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
             script_language: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict', 'outputs.MonitorTag']]]]] = None,
             treat_redirect_as_failure: pulumi.Input[Optional[_builtins.bool]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1327,7 +1327,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict', 'outputs.MonitorCustomHeader']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
                * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[_builtins.str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
@@ -1344,7 +1344,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] runtime_type_version: The specific version of the runtime type selected. Use `LATEST` to automatically use the latest Chrome version (currently 146, will be automatically upgraded to Chrome 147 or higher on Aug 18, 2026, updated automatically as new versions are released). **Note:** The Terraform Provider enforces `LATEST` for this non-scripted monitor type in alignment with the New Relic UI — even if a specific version is hard-coded in your configuration, the provider will override it to `LATEST`. We recommend explicitly setting `runtime_type_version = "LATEST"` in your configuration to avoid drift.
         :param pulumi.Input[_builtins.str] script_language: The programing language that should execute the script.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict', 'outputs.MonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
         :param pulumi.Input[_builtins.bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.

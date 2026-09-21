@@ -105,7 +105,7 @@ class FleetMembers(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict']]]]] = None,
+                 rings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict', 'outputs.FleetMembersRing']]]]] = None,
                  __props__=None):
         """
         Use this resource to manage entity assignments across one or more rings of a New Relic Fleet. Each resource instance is scoped to a single fleet and may declare any number of `ring` blocks, one per ring to manage.
@@ -227,7 +227,7 @@ class FleetMembers(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fleet_id: The GUID of the fleet to manage entity assignments for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict']]]] rings: One or more ring blocks. Each block declares which entities Terraform should maintain in that ring. At least one `ring` block must be specified. The following arguments are supported within each `ring` block:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict', 'outputs.FleetMembersRing']]]] rings: One or more ring blocks. Each block declares which entities Terraform should maintain in that ring. At least one `ring` block must be specified. The following arguments are supported within each `ring` block:
         """
         ...
     @overload
@@ -368,7 +368,7 @@ class FleetMembers(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict']]]]] = None,
+                 rings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict', 'outputs.FleetMembersRing']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,7 +395,7 @@ class FleetMembers(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
-            rings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict']]]]] = None) -> 'FleetMembers':
+            rings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict', 'outputs.FleetMembersRing']]]]] = None) -> 'FleetMembers':
         """
         Get an existing FleetMembers resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -404,7 +404,7 @@ class FleetMembers(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fleet_id: The GUID of the fleet to manage entity assignments for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict']]]] rings: One or more ring blocks. Each block declares which entities Terraform should maintain in that ring. At least one `ring` block must be specified. The following arguments are supported within each `ring` block:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict', 'outputs.FleetMembersRing']]]] rings: One or more ring blocks. Each block declares which entities Terraform should maintain in that ring. At least one `ring` block must be specified. The following arguments are supported within each `ring` block:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

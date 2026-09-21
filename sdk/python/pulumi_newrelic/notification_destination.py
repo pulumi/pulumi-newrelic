@@ -410,13 +410,13 @@ class NotificationDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 auth_basic: pulumi.Input[Optional[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict']]] = None,
-                 auth_custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict']]]]] = None,
-                 auth_token: pulumi.Input[Optional[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']]] = None,
+                 auth_basic: pulumi.Input[Optional[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict', 'outputs.NotificationDestinationAuthBasic']]] = None,
+                 auth_custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict', 'outputs.NotificationDestinationAuthCustomHeader']]]]] = None,
+                 auth_token: pulumi.Input[Optional[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict', 'outputs.NotificationDestinationAuthToken']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]]] = None,
-                 scope: pulumi.Input[Optional[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']]] = None,
-                 secure_url: pulumi.Input[Optional[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict', 'outputs.NotificationDestinationProperty']]]]] = None,
+                 scope: pulumi.Input[Optional[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict', 'outputs.NotificationDestinationScope']]] = None,
+                 secure_url: pulumi.Input[Optional[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict', 'outputs.NotificationDestinationSecureUrl']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -656,13 +656,13 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.bool] active: Indicates whether the destination is active.
-        :param pulumi.Input[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested auth_custom_header blocks below for details.
-        :param pulumi.Input[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+        :param pulumi.Input[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict', 'outputs.NotificationDestinationAuthBasic']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict', 'outputs.NotificationDestinationAuthCustomHeader']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested auth_custom_header blocks below for details.
+        :param pulumi.Input[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict', 'outputs.NotificationDestinationAuthToken']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[_builtins.str] name: The name of the destination.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
-        :param pulumi.Input[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']] scope: Scope of the destination
-        :param pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict', 'outputs.NotificationDestinationProperty']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
+        :param pulumi.Input[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict', 'outputs.NotificationDestinationScope']] scope: Scope of the destination
+        :param pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict', 'outputs.NotificationDestinationSecureUrl']] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         :param pulumi.Input[_builtins.str] type: The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
         """
         ...
@@ -921,13 +921,13 @@ class NotificationDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 auth_basic: pulumi.Input[Optional[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict']]] = None,
-                 auth_custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict']]]]] = None,
-                 auth_token: pulumi.Input[Optional[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']]] = None,
+                 auth_basic: pulumi.Input[Optional[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict', 'outputs.NotificationDestinationAuthBasic']]] = None,
+                 auth_custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict', 'outputs.NotificationDestinationAuthCustomHeader']]]]] = None,
+                 auth_token: pulumi.Input[Optional[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict', 'outputs.NotificationDestinationAuthToken']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]]] = None,
-                 scope: pulumi.Input[Optional[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']]] = None,
-                 secure_url: pulumi.Input[Optional[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict', 'outputs.NotificationDestinationProperty']]]]] = None,
+                 scope: pulumi.Input[Optional[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict', 'outputs.NotificationDestinationScope']]] = None,
+                 secure_url: pulumi.Input[Optional[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict', 'outputs.NotificationDestinationSecureUrl']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -967,15 +967,15 @@ class NotificationDestination(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             active: pulumi.Input[Optional[_builtins.bool]] = None,
-            auth_basic: pulumi.Input[Optional[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict']]] = None,
-            auth_custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict']]]]] = None,
-            auth_token: pulumi.Input[Optional[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']]] = None,
+            auth_basic: pulumi.Input[Optional[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict', 'outputs.NotificationDestinationAuthBasic']]] = None,
+            auth_custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict', 'outputs.NotificationDestinationAuthCustomHeader']]]]] = None,
+            auth_token: pulumi.Input[Optional[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict', 'outputs.NotificationDestinationAuthToken']]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
             last_sent: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]]] = None,
-            scope: pulumi.Input[Optional[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']]] = None,
-            secure_url: pulumi.Input[Optional[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']]] = None,
+            properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict', 'outputs.NotificationDestinationProperty']]]]] = None,
+            scope: pulumi.Input[Optional[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict', 'outputs.NotificationDestinationScope']]] = None,
+            secure_url: pulumi.Input[Optional[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict', 'outputs.NotificationDestinationSecureUrl']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'NotificationDestination':
         """
@@ -987,15 +987,15 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.bool] active: Indicates whether the destination is active.
-        :param pulumi.Input[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested auth_custom_header blocks below for details.
-        :param pulumi.Input[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+        :param pulumi.Input[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict', 'outputs.NotificationDestinationAuthBasic']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict', 'outputs.NotificationDestinationAuthCustomHeader']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. See Nested auth_custom_header blocks below for details.
+        :param pulumi.Input[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict', 'outputs.NotificationDestinationAuthToken']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the destination in New Relic.
         :param pulumi.Input[_builtins.str] last_sent: The last time a notification was sent.
         :param pulumi.Input[_builtins.str] name: The name of the destination.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
-        :param pulumi.Input[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']] scope: Scope of the destination
-        :param pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict', 'outputs.NotificationDestinationProperty']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
+        :param pulumi.Input[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict', 'outputs.NotificationDestinationScope']] scope: Scope of the destination
+        :param pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict', 'outputs.NotificationDestinationSecureUrl']] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         :param pulumi.Input[_builtins.str] status: The status of the destination.
         :param pulumi.Input[_builtins.str] type: The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
         """

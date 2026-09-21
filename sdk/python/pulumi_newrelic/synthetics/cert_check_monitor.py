@@ -496,7 +496,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                  runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict', 'outputs.CertCheckMonitorTag']]]]] = None,
                  use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -586,7 +586,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                <br><br>
                You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict', 'outputs.CertCheckMonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         ...
@@ -687,7 +687,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                  runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict', 'outputs.CertCheckMonitorTag']]]]] = None,
                  use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -742,7 +742,7 @@ class CertCheckMonitor(pulumi.CustomResource):
             runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
             runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict', 'outputs.CertCheckMonitorTag']]]]] = None,
             use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None) -> 'CertCheckMonitor':
         """
         Get an existing CertCheckMonitor resource's state with the given name, id, and optional extra
@@ -771,7 +771,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                <br><br>
                You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict', 'outputs.CertCheckMonitorTag']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
