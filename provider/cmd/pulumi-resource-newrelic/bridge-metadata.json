@@ -2717,6 +2717,102 @@
                     }
                 }
             },
+            "newrelic_pathpoint_flow": {
+                "current": "newrelic:index/pathpointFlow:PathpointFlow",
+                "majorVersion": 5,
+                "fields": {
+                    "kpis": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "query": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "select": {
+                                                "maxItemsOne": true
+                                            },
+                                            "time_window": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "relative_range": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "stages": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "levels": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "steps": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "config": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "entity_search_query": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "scoped_accounts": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "signals": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "related": {
+                                    "maxItemsOne": true
+                                },
+                                "stage_kpis": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "query": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "select": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "time_window": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "relative_range": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "newrelic_pipeline_cloud_rule": {
                 "current": "newrelic:index/pipelineCloudRule:PipelineCloudRule",
                 "majorVersion": 5
@@ -5164,6 +5260,11 @@
             "newrelic_one_dashboard_raw": [
                 "account_id",
                 "page.$.widget.$.visualization_id"
+            ],
+            "newrelic_pathpoint_flow": [
+                "account_id",
+                "kpis.$.account_id",
+                "stages.$.stage_kpis.$.account_id"
             ],
             "newrelic_pipeline_cloud_rule": [
                 "account_id"

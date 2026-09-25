@@ -9057,6 +9057,487 @@
             },
             "type": "object"
         },
+        "newrelic:index/PathpointFlowKpi:PathpointFlowKpi": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.\n"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "A category used to group flows (e.g. `Marketing`, `Checkout`).\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A brief description of the flow.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the KPI.\n"
+                },
+                "metricQuery": {
+                    "type": "string",
+                    "description": "NRQL query using Metric, derived after processing event-to-metric rules. Read-only.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the Pathpoint flow.\n"
+                },
+                "query": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowKpiQuery:PathpointFlowKpiQuery",
+                    "description": "NRQL query definition for this KPI.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountId",
+                        "id",
+                        "metricQuery",
+                        "name",
+                        "query"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/PathpointFlowKpiQuery:PathpointFlowKpiQuery": {
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "Data source to query from (e.g., Transaction, Metric, Log).\n"
+                },
+                "select": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowKpiQuerySelect:PathpointFlowKpiQuerySelect",
+                    "description": "SELECT clause defining what to aggregate.\n"
+                },
+                "timeWindow": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowKpiQueryTimeWindow:PathpointFlowKpiQueryTimeWindow",
+                    "description": "Time window for KPI evaluation.\n"
+                },
+                "where": {
+                    "type": "string",
+                    "description": "Optional WHERE clause to filter data.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "from",
+                "select"
+            ]
+        },
+        "newrelic:index/PathpointFlowKpiQuerySelect:PathpointFlowKpiQuerySelect": {
+            "properties": {
+                "aggregationType": {
+                    "type": "string",
+                    "description": "Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.\n"
+                },
+                "alias": {
+                    "type": "string",
+                    "description": "Optional alias for the aggregated value.\n"
+                },
+                "attribute": {
+                    "type": "string",
+                    "description": "Attribute name to aggregate. Required for all functions except COUNT.\n"
+                },
+                "threshold": {
+                    "type": "number",
+                    "description": "Threshold used in the selected function.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregationType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "aggregationType",
+                        "alias",
+                        "attribute"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/PathpointFlowKpiQueryTimeWindow:PathpointFlowKpiQueryTimeWindow": {
+            "properties": {
+                "customRange": {
+                    "type": "string",
+                    "description": "Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.\n"
+                },
+                "relativeRange": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowKpiQueryTimeWindowRelativeRange:PathpointFlowKpiQueryTimeWindowRelativeRange",
+                    "description": "Relative time window. Mutually exclusive with custom_range.\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/PathpointFlowKpiQueryTimeWindowRelativeRange:PathpointFlowKpiQueryTimeWindowRelativeRange": {
+            "properties": {
+                "compareAgainst": {
+                    "type": "string",
+                    "description": "The earlier window to compare against.\n"
+                },
+                "since": {
+                    "type": "string",
+                    "description": "How far back the KPI is evaluated.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "since"
+            ]
+        },
+        "newrelic:index/PathpointFlowStage:PathpointFlowStage": {
+            "properties": {
+                "healthRollup": {
+                    "type": "string",
+                    "description": "Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Internal stage workload ID, used for updates.\n"
+                },
+                "isExcluded": {
+                    "type": "boolean",
+                    "description": "When true, this stage is excluded from flow health calculation.\n"
+                },
+                "levels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/PathpointFlowStageLevel:PathpointFlowStageLevel"
+                    },
+                    "description": "Ordered list of levels within this stage.\n"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "Optional URL to an external resource.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the Pathpoint flow.\n"
+                },
+                "related": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowStageRelated:PathpointFlowStageRelated",
+                    "description": "Relationship role of this stage within the flow.\n"
+                },
+                "stageKpis": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/PathpointFlowStageStageKpi:PathpointFlowStageStageKpi"
+                    },
+                    "description": "KPIs tracked at the stage level.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "name"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/PathpointFlowStageLevel:PathpointFlowStageLevel": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Internal level workload ID, used for updates.\n"
+                },
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/PathpointFlowStageLevelStep:PathpointFlowStageLevelStep"
+                    },
+                    "description": "Ordered list of steps within this level.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/PathpointFlowStageLevelStep:PathpointFlowStageLevelStep": {
+            "properties": {
+                "config": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowStageLevelStepConfig:PathpointFlowStageLevelStepConfig",
+                    "description": "Health evaluation configuration for this step.\n"
+                },
+                "entitySearchQuery": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowStageLevelStepEntitySearchQuery:PathpointFlowStageLevelStepEntitySearchQuery",
+                    "description": "Filter query used to fetch signals for this step.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Internal step workload ID, used for updates.\n"
+                },
+                "isExcluded": {
+                    "type": "boolean",
+                    "description": "When true, this step is excluded from level health calculation.\n"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "Optional URL to an external resource.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the Pathpoint flow.\n"
+                },
+                "scopedAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "Account IDs whose data is scoped to this step.\n"
+                },
+                "signals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/PathpointFlowStageLevelStepSignal:PathpointFlowStageLevelStepSignal"
+                    },
+                    "description": "Entity signals associated with this step.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "config",
+                        "id",
+                        "name",
+                        "scopedAccounts"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/PathpointFlowStageLevelStepConfig:PathpointFlowStageLevelStepConfig": {
+            "properties": {
+                "healthRollup": {
+                    "type": "string",
+                    "description": "Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.\n"
+                },
+                "thresholdType": {
+                    "type": "string",
+                    "description": "Whether threshold is FIXED or PERCENTAGE.\n"
+                },
+                "thresholdValue": {
+                    "type": "integer",
+                    "description": "Numeric threshold value for step health evaluation.\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/PathpointFlowStageLevelStepEntitySearchQuery:PathpointFlowStageLevelStepEntitySearchQuery": {
+            "properties": {
+                "isExcluded": {
+                    "type": "boolean",
+                    "description": "When true, this query is excluded from health calculation.\n"
+                },
+                "query": {
+                    "type": "string",
+                    "description": "Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "newrelic:index/PathpointFlowStageLevelStepSignal:PathpointFlowStageLevelStepSignal": {
+            "properties": {
+                "guid": {
+                    "type": "string",
+                    "description": "The entity GUID assigned to this Pathpoint flow in New Relic.\n"
+                },
+                "isExcluded": {
+                    "type": "boolean",
+                    "description": "When true, this signal is excluded from step health calculation.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the Pathpoint flow.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Whether this GUID belongs to an entity or an alert condition: ENTITY or ALERT.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "guid"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "guid",
+                        "name"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/PathpointFlowStageRelated:PathpointFlowStageRelated": {
+            "properties": {
+                "source": {
+                    "type": "boolean",
+                    "description": "When true, this stage acts as a source to other stages.\n"
+                },
+                "target": {
+                    "type": "boolean",
+                    "description": "When true, this stage acts as a target to other stages.\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/PathpointFlowStageStageKpi:PathpointFlowStageStageKpi": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.\n"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "A category used to group flows (e.g. `Marketing`, `Checkout`).\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A brief description of the flow.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the KPI.\n"
+                },
+                "metricQuery": {
+                    "type": "string",
+                    "description": "NRQL query using Metric, derived after processing event-to-metric rules. Read-only.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the Pathpoint flow.\n"
+                },
+                "query": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowStageStageKpiQuery:PathpointFlowStageStageKpiQuery",
+                    "description": "NRQL query definition for this KPI.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountId",
+                        "id",
+                        "metricQuery",
+                        "name",
+                        "query"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/PathpointFlowStageStageKpiQuery:PathpointFlowStageStageKpiQuery": {
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "Data source to query from (e.g., Transaction, Metric, Log).\n"
+                },
+                "select": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowStageStageKpiQuerySelect:PathpointFlowStageStageKpiQuerySelect",
+                    "description": "SELECT clause defining what to aggregate.\n"
+                },
+                "timeWindow": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowStageStageKpiQueryTimeWindow:PathpointFlowStageStageKpiQueryTimeWindow",
+                    "description": "Time window for KPI evaluation.\n"
+                },
+                "where": {
+                    "type": "string",
+                    "description": "Optional WHERE clause to filter data.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "from",
+                "select"
+            ]
+        },
+        "newrelic:index/PathpointFlowStageStageKpiQuerySelect:PathpointFlowStageStageKpiQuerySelect": {
+            "properties": {
+                "aggregationType": {
+                    "type": "string",
+                    "description": "Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.\n"
+                },
+                "alias": {
+                    "type": "string",
+                    "description": "Optional alias for the aggregated value.\n"
+                },
+                "attribute": {
+                    "type": "string",
+                    "description": "Attribute name to aggregate. Required for all functions except COUNT.\n"
+                },
+                "threshold": {
+                    "type": "number",
+                    "description": "Threshold used in the selected function.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregationType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "aggregationType",
+                        "alias",
+                        "attribute"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/PathpointFlowStageStageKpiQueryTimeWindow:PathpointFlowStageStageKpiQueryTimeWindow": {
+            "properties": {
+                "customRange": {
+                    "type": "string",
+                    "description": "Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.\n"
+                },
+                "relativeRange": {
+                    "$ref": "#/types/newrelic:index/PathpointFlowStageStageKpiQueryTimeWindowRelativeRange:PathpointFlowStageStageKpiQueryTimeWindowRelativeRange",
+                    "description": "Relative time window. Mutually exclusive with custom_range.\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/PathpointFlowStageStageKpiQueryTimeWindowRelativeRange:PathpointFlowStageStageKpiQueryTimeWindowRelativeRange": {
+            "properties": {
+                "compareAgainst": {
+                    "type": "string",
+                    "description": "The earlier window to compare against.\n"
+                },
+                "since": {
+                    "type": "string",
+                    "description": "How far back the KPI is evaluated.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "since"
+            ]
+        },
         "newrelic:index/ServiceLevelEvents:ServiceLevelEvents": {
             "properties": {
                 "accountId": {
@@ -17777,6 +18258,155 @@
                     "permissions": {
                         "type": "string",
                         "description": "Determines who can see the dashboard in an account. Valid values are \u003cspan pulumi-lang-nodejs=\"`private`\" pulumi-lang-dotnet=\"`Private`\" pulumi-lang-go=\"`private`\" pulumi-lang-python=\"`private`\" pulumi-lang-yaml=\"`private`\" pulumi-lang-java=\"`private`\" pulumi-lang-hcl=\"`private`\"\u003e`private`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`publicReadOnly`\" pulumi-lang-dotnet=\"`PublicReadOnly`\" pulumi-lang-go=\"`publicReadOnly`\" pulumi-lang-python=\"`public_read_only`\" pulumi-lang-yaml=\"`publicReadOnly`\" pulumi-lang-java=\"`publicReadOnly`\" pulumi-lang-hcl=\"`public_read_only`\"\u003e`publicReadOnly`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`publicReadWrite`\" pulumi-lang-dotnet=\"`PublicReadWrite`\" pulumi-lang-go=\"`publicReadWrite`\" pulumi-lang-python=\"`public_read_write`\" pulumi-lang-yaml=\"`publicReadWrite`\" pulumi-lang-java=\"`publicReadWrite`\" pulumi-lang-hcl=\"`public_read_write`\"\u003e`publicReadWrite`\u003c/span\u003e. Defaults to \u003cspan pulumi-lang-nodejs=\"`publicReadOnly`\" pulumi-lang-dotnet=\"`PublicReadOnly`\" pulumi-lang-go=\"`publicReadOnly`\" pulumi-lang-python=\"`public_read_only`\" pulumi-lang-yaml=\"`publicReadOnly`\" pulumi-lang-java=\"`publicReadOnly`\" pulumi-lang-hcl=\"`public_read_only`\"\u003e`publicReadOnly`\u003c/span\u003e.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/pathpointFlow:PathpointFlow": {
+            "description": "\u003e **Beta Preview:** This resource is not yet available to the general public. Once public preview goes live, opted-in users will receive access.\n\nPathpoint maps the health of your technical systems onto the business journeys they support. Each Flow in Pathpoint represents one journey — checkout, authentication, or onboarding — broken into stages, so when something goes wrong you can see which part of the customer journey the problem affects.\n\nUse this resource to create, read, update, and delete a New Relic Pathpoint flow.\n\n\n\nA New Relic User API key is required to provision this resource. Set the \u003cspan pulumi-lang-nodejs=\"`apiKey`\" pulumi-lang-dotnet=\"`ApiKey`\" pulumi-lang-go=\"`apiKey`\" pulumi-lang-python=\"`api_key`\" pulumi-lang-yaml=\"`apiKey`\" pulumi-lang-java=\"`apiKey`\" pulumi-lang-hcl=\"`api_key`\"\u003e`apiKey`\u003c/span\u003e attribute in the \u003cspan pulumi-lang-nodejs=\"`provider`\" pulumi-lang-dotnet=\"`Provider`\" pulumi-lang-go=\"`provider`\" pulumi-lang-python=\"`provider`\" pulumi-lang-yaml=\"`provider`\" pulumi-lang-java=\"`provider`\" pulumi-lang-hcl=\"`provider`\"\u003e`provider`\u003c/span\u003e block or the `NEW_RELIC_API_KEY` environment variable with your User API key.\n\n\u003e **NOTE:** Any manual changes made outside Terraform (e.g., via the New Relic UI) will be automatically overridden on the next pulumi up. Review your plan output carefully, if you want to keep external changes, export the existing flow\n\n## Example Usage\n\nA flow is made up of \u003cspan pulumi-lang-nodejs=\"`stages`\" pulumi-lang-dotnet=\"`Stages`\" pulumi-lang-go=\"`stages`\" pulumi-lang-python=\"`stages`\" pulumi-lang-yaml=\"`stages`\" pulumi-lang-java=\"`stages`\" pulumi-lang-hcl=\"`stages`\"\u003e`stages`\u003c/span\u003e, each stage made up of \u003cspan pulumi-lang-nodejs=\"`levels`\" pulumi-lang-dotnet=\"`Levels`\" pulumi-lang-go=\"`levels`\" pulumi-lang-python=\"`levels`\" pulumi-lang-yaml=\"`levels`\" pulumi-lang-java=\"`levels`\" pulumi-lang-hcl=\"`levels`\"\u003e`levels`\u003c/span\u003e, each level made up of \u003cspan pulumi-lang-nodejs=\"`steps`\" pulumi-lang-dotnet=\"`Steps`\" pulumi-lang-go=\"`steps`\" pulumi-lang-python=\"`steps`\" pulumi-lang-yaml=\"`steps`\" pulumi-lang-java=\"`steps`\" pulumi-lang-hcl=\"`steps`\"\u003e`steps`\u003c/span\u003e. Each step contains \u003cspan pulumi-lang-nodejs=\"`signals`\" pulumi-lang-dotnet=\"`Signals`\" pulumi-lang-go=\"`signals`\" pulumi-lang-python=\"`signals`\" pulumi-lang-yaml=\"`signals`\" pulumi-lang-java=\"`signals`\" pulumi-lang-hcl=\"`signals`\"\u003e`signals`\u003c/span\u003e — entities, alerts, or entities discovered dynamically via \u003cspan pulumi-lang-nodejs=\"`entitySearchQuery`\" pulumi-lang-dotnet=\"`EntitySearchQuery`\" pulumi-lang-go=\"`entitySearchQuery`\" pulumi-lang-python=\"`entity_search_query`\" pulumi-lang-yaml=\"`entitySearchQuery`\" pulumi-lang-java=\"`entitySearchQuery`\" pulumi-lang-hcl=\"`entity_search_query`\"\u003e`entitySearchQuery`\u003c/span\u003e — and its health is derived from those signals.\n\n### Flow-level health\n\n\u003cspan pulumi-lang-nodejs=\"`healthRollup`\" pulumi-lang-dotnet=\"`HealthRollup`\" pulumi-lang-go=\"`healthRollup`\" pulumi-lang-python=\"`health_rollup`\" pulumi-lang-yaml=\"`healthRollup`\" pulumi-lang-java=\"`healthRollup`\" pulumi-lang-hcl=\"`health_rollup`\"\u003e`healthRollup`\u003c/span\u003e on the flow controls how the flow's overall health is derived:\n\n- `AUTOMATIC_ROLL_UP` (the default) — health rolls up automatically from the flow's stages.\n\n  - \u003cspan pulumi-lang-nodejs=\"`isExcluded`\" pulumi-lang-dotnet=\"`IsExcluded`\" pulumi-lang-go=\"`isExcluded`\" pulumi-lang-python=\"`is_excluded`\" pulumi-lang-yaml=\"`isExcluded`\" pulumi-lang-java=\"`isExcluded`\" pulumi-lang-hcl=\"`is_excluded`\"\u003e`isExcluded`\u003c/span\u003e controls whether the stage contributes to the flow's overall health calculation:\n    - \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e — the stage is excluded from the flow's health rollup. Its levels, steps, and signals are still evaluated and shown in the Pathpoint UI, but the stage does not affect the flow's overall health status. Useful for stages under construction or temporarily removed from the scope.\n    - \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e (default) — the stage participates in the flow's health rollup normally.\n\n- `ALERT_CONDITIONS` — health is tied directly to the flow's KPI alert conditions instead of stage rollup. Typically paired with flow-level \u003cspan pulumi-lang-nodejs=\"`kpis`\" pulumi-lang-dotnet=\"`Kpis`\" pulumi-lang-go=\"`kpis`\" pulumi-lang-python=\"`kpis`\" pulumi-lang-yaml=\"`kpis`\" pulumi-lang-java=\"`kpis`\" pulumi-lang-hcl=\"`kpis`\"\u003e`kpis`\u003c/span\u003e.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst checkout = new newrelic.PathpointFlow(\"checkout\", {\n    name: \"Checkout Flow\",\n    healthRollup: \"AUTOMATIC_ROLL_UP\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\ncheckout = newrelic.PathpointFlow(\"checkout\",\n    name=\"Checkout Flow\",\n    health_rollup=\"AUTOMATIC_ROLL_UP\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var checkout = new NewRelic.PathpointFlow(\"checkout\", new()\n    {\n        Name = \"Checkout Flow\",\n        HealthRollup = \"AUTOMATIC_ROLL_UP\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewPathpointFlow(ctx, \"checkout\", \u0026newrelic.PathpointFlowArgs{\n\t\t\tName:         pulumi.String(\"Checkout Flow\"),\n\t\t\tHealthRollup: pulumi.String(\"AUTOMATIC_ROLL_UP\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    newrelic = {\n      source = \"pulumi/newrelic\"\n    }\n  }\n}\n\nresource \"newrelic_pathpointflow\" \"checkout\" {\n  name          = \"Checkout Flow\"\n  health_rollup = \"AUTOMATIC_ROLL_UP\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.PathpointFlow;\nimport com.pulumi.newrelic.PathpointFlowArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var checkout = new PathpointFlow(\"checkout\", PathpointFlowArgs.builder()\n            .name(\"Checkout Flow\")\n            .healthRollup(\"AUTOMATIC_ROLL_UP\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  checkout:\n    type: newrelic:PathpointFlow\n    properties:\n      name: Checkout Flow\n      healthRollup: AUTOMATIC_ROLL_UP\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example\n\nThe example below is a **Checkout** flow with 2 stages (`Revenue` and `Frontend`), a flow-level KPI (`Order Success Rate`), a stage-level KPI (`Payment Errors`), and a step that uses all three signal types — an entity signal (`GUID1`), an alert signal (`GUID2`), and a dynamic \u003cspan pulumi-lang-nodejs=\"`entitySearchQuery`\" pulumi-lang-dotnet=\"`EntitySearchQuery`\" pulumi-lang-go=\"`entitySearchQuery`\" pulumi-lang-python=\"`entity_search_query`\" pulumi-lang-yaml=\"`entitySearchQuery`\" pulumi-lang-java=\"`entitySearchQuery`\" pulumi-lang-hcl=\"`entity_search_query`\"\u003e`entitySearchQuery`\u003c/span\u003e.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst checkout = new newrelic.PathpointFlow(\"checkout\", {\n    accountId: \"1234\",\n    name: \"Checkout Flow\",\n    description: \"End-to-end checkout pipeline\",\n    refreshInterval: \"ONE_MINUTE\",\n    kpis: [{\n        name: \"Order Success Rate\",\n        description: \"Percentage of orders completed successfully\",\n        category: \"Revenue\",\n        query: {\n            from: \"Transaction\",\n            where: \"name='checkout'\",\n            select: {\n                aggregationType: \"COUNT\",\n                alias: \"orders\",\n            },\n        },\n    }],\n    stages: [\n        {\n            name: \"Revenue\",\n            healthRollup: \"ALERT_CONDITIONS\",\n            link: \"https://runbooks.example.com/checkout/revenue\",\n            related: {\n                source: false,\n                target: true,\n            },\n            stageKpis: [{\n                name: \"Payment Errors\",\n                category: \"Reliability\",\n                query: {\n                    from: \"TransactionError\",\n                    select: {\n                        aggregationType: \"COUNT\",\n                        alias: \"errors\",\n                    },\n                },\n            }],\n            levels: [{\n                steps: [{\n                    name: \"Order Service\",\n                    entitySearchQuery: {\n                        query: \"accountId=123 AND domain='APM' AND name='OrderService'\",\n                    },\n                }],\n            }],\n        },\n        {\n            name: \"Frontend\",\n            link: \"https://runbooks.example.com/checkout/frontend\",\n            related: {\n                source: true,\n                target: false,\n            },\n            levels: [{\n                steps: [{\n                    name: \"Login Page\",\n                    signals: [\n                        {\n                            guid: \"GUID1\",\n                            name: \"Cart Service\",\n                            type: \"ENTITY\",\n                        },\n                        {\n                            guid: \"GUID2\",\n                            name: \"Checkout Error Rate\",\n                            type: \"ALERT\",\n                        },\n                    ],\n                    entitySearchQuery: {\n                        query: \"accountId=1234 AND domain='BROWSER' AND name='Login'\",\n                    },\n                }],\n            }],\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\ncheckout = newrelic.PathpointFlow(\"checkout\",\n    account_id=\"1234\",\n    name=\"Checkout Flow\",\n    description=\"End-to-end checkout pipeline\",\n    refresh_interval=\"ONE_MINUTE\",\n    kpis=[{\n        \"name\": \"Order Success Rate\",\n        \"description\": \"Percentage of orders completed successfully\",\n        \"category\": \"Revenue\",\n        \"query\": {\n            \"from_\": \"Transaction\",\n            \"where\": \"name='checkout'\",\n            \"select\": {\n                \"aggregation_type\": \"COUNT\",\n                \"alias\": \"orders\",\n            },\n        },\n    }],\n    stages=[\n        {\n            \"name\": \"Revenue\",\n            \"health_rollup\": \"ALERT_CONDITIONS\",\n            \"link\": \"https://runbooks.example.com/checkout/revenue\",\n            \"related\": {\n                \"source\": False,\n                \"target\": True,\n            },\n            \"stage_kpis\": [{\n                \"name\": \"Payment Errors\",\n                \"category\": \"Reliability\",\n                \"query\": {\n                    \"from_\": \"TransactionError\",\n                    \"select\": {\n                        \"aggregation_type\": \"COUNT\",\n                        \"alias\": \"errors\",\n                    },\n                },\n            }],\n            \"levels\": [{\n                \"steps\": [{\n                    \"name\": \"Order Service\",\n                    \"entity_search_query\": {\n                        \"query\": \"accountId=123 AND domain='APM' AND name='OrderService'\",\n                    },\n                }],\n            }],\n        },\n        {\n            \"name\": \"Frontend\",\n            \"link\": \"https://runbooks.example.com/checkout/frontend\",\n            \"related\": {\n                \"source\": True,\n                \"target\": False,\n            },\n            \"levels\": [{\n                \"steps\": [{\n                    \"name\": \"Login Page\",\n                    \"signals\": [\n                        {\n                            \"guid\": \"GUID1\",\n                            \"name\": \"Cart Service\",\n                            \"type\": \"ENTITY\",\n                        },\n                        {\n                            \"guid\": \"GUID2\",\n                            \"name\": \"Checkout Error Rate\",\n                            \"type\": \"ALERT\",\n                        },\n                    ],\n                    \"entity_search_query\": {\n                        \"query\": \"accountId=1234 AND domain='BROWSER' AND name='Login'\",\n                    },\n                }],\n            }],\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var checkout = new NewRelic.PathpointFlow(\"checkout\", new()\n    {\n        AccountId = \"1234\",\n        Name = \"Checkout Flow\",\n        Description = \"End-to-end checkout pipeline\",\n        RefreshInterval = \"ONE_MINUTE\",\n        Kpis = new[]\n        {\n            new NewRelic.Inputs.PathpointFlowKpiArgs\n            {\n                Name = \"Order Success Rate\",\n                Description = \"Percentage of orders completed successfully\",\n                Category = \"Revenue\",\n                Query = new NewRelic.Inputs.PathpointFlowKpiQueryArgs\n                {\n                    From = \"Transaction\",\n                    Where = \"name='checkout'\",\n                    Select = new NewRelic.Inputs.PathpointFlowKpiQuerySelectArgs\n                    {\n                        AggregationType = \"COUNT\",\n                        Alias = \"orders\",\n                    },\n                },\n            },\n        },\n        Stages = new[]\n        {\n            new NewRelic.Inputs.PathpointFlowStageArgs\n            {\n                Name = \"Revenue\",\n                HealthRollup = \"ALERT_CONDITIONS\",\n                Link = \"https://runbooks.example.com/checkout/revenue\",\n                Related = new NewRelic.Inputs.PathpointFlowStageRelatedArgs\n                {\n                    Source = false,\n                    Target = true,\n                },\n                StageKpis = new[]\n                {\n                    new NewRelic.Inputs.PathpointFlowStageStageKpiArgs\n                    {\n                        Name = \"Payment Errors\",\n                        Category = \"Reliability\",\n                        Query = new NewRelic.Inputs.PathpointFlowStageStageKpiQueryArgs\n                        {\n                            From = \"TransactionError\",\n                            Select = new NewRelic.Inputs.PathpointFlowStageStageKpiQuerySelectArgs\n                            {\n                                AggregationType = \"COUNT\",\n                                Alias = \"errors\",\n                            },\n                        },\n                    },\n                },\n                Levels = new[]\n                {\n                    new NewRelic.Inputs.PathpointFlowStageLevelArgs\n                    {\n                        Steps = new[]\n                        {\n                            new NewRelic.Inputs.PathpointFlowStageLevelStepArgs\n                            {\n                                Name = \"Order Service\",\n                                EntitySearchQuery = new NewRelic.Inputs.PathpointFlowStageLevelStepEntitySearchQueryArgs\n                                {\n                                    Query = \"accountId=123 AND domain='APM' AND name='OrderService'\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n            new NewRelic.Inputs.PathpointFlowStageArgs\n            {\n                Name = \"Frontend\",\n                Link = \"https://runbooks.example.com/checkout/frontend\",\n                Related = new NewRelic.Inputs.PathpointFlowStageRelatedArgs\n                {\n                    Source = true,\n                    Target = false,\n                },\n                Levels = new[]\n                {\n                    new NewRelic.Inputs.PathpointFlowStageLevelArgs\n                    {\n                        Steps = new[]\n                        {\n                            new NewRelic.Inputs.PathpointFlowStageLevelStepArgs\n                            {\n                                Name = \"Login Page\",\n                                Signals = new[]\n                                {\n                                    new NewRelic.Inputs.PathpointFlowStageLevelStepSignalArgs\n                                    {\n                                        Guid = \"GUID1\",\n                                        Name = \"Cart Service\",\n                                        Type = \"ENTITY\",\n                                    },\n                                    new NewRelic.Inputs.PathpointFlowStageLevelStepSignalArgs\n                                    {\n                                        Guid = \"GUID2\",\n                                        Name = \"Checkout Error Rate\",\n                                        Type = \"ALERT\",\n                                    },\n                                },\n                                EntitySearchQuery = new NewRelic.Inputs.PathpointFlowStageLevelStepEntitySearchQueryArgs\n                                {\n                                    Query = \"accountId=1234 AND domain='BROWSER' AND name='Login'\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewPathpointFlow(ctx, \"checkout\", \u0026newrelic.PathpointFlowArgs{\n\t\t\tAccountId:       pulumi.String(\"1234\"),\n\t\t\tName:            pulumi.String(\"Checkout Flow\"),\n\t\t\tDescription:     pulumi.String(\"End-to-end checkout pipeline\"),\n\t\t\tRefreshInterval: pulumi.String(\"ONE_MINUTE\"),\n\t\t\tKpis: newrelic.PathpointFlowKpiArray{\n\t\t\t\t\u0026newrelic.PathpointFlowKpiArgs{\n\t\t\t\t\tName:        pulumi.String(\"Order Success Rate\"),\n\t\t\t\t\tDescription: pulumi.String(\"Percentage of orders completed successfully\"),\n\t\t\t\t\tCategory:    pulumi.String(\"Revenue\"),\n\t\t\t\t\tQuery: \u0026newrelic.PathpointFlowKpiQueryArgs{\n\t\t\t\t\t\tFrom:  pulumi.String(\"Transaction\"),\n\t\t\t\t\t\tWhere: pulumi.String(\"name='checkout'\"),\n\t\t\t\t\t\tSelect: \u0026newrelic.PathpointFlowKpiQuerySelectArgs{\n\t\t\t\t\t\t\tAggregationType: pulumi.String(\"COUNT\"),\n\t\t\t\t\t\t\tAlias:           pulumi.String(\"orders\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tStages: newrelic.PathpointFlowStageArray{\n\t\t\t\t\u0026newrelic.PathpointFlowStageArgs{\n\t\t\t\t\tName:         pulumi.String(\"Revenue\"),\n\t\t\t\t\tHealthRollup: pulumi.String(\"ALERT_CONDITIONS\"),\n\t\t\t\t\tLink:         pulumi.String(\"https://runbooks.example.com/checkout/revenue\"),\n\t\t\t\t\tRelated: \u0026newrelic.PathpointFlowStageRelatedArgs{\n\t\t\t\t\t\tSource: pulumi.Bool(false),\n\t\t\t\t\t\tTarget: pulumi.Bool(true),\n\t\t\t\t\t},\n\t\t\t\t\tStageKpis: newrelic.PathpointFlowStageStageKpiArray{\n\t\t\t\t\t\t\u0026newrelic.PathpointFlowStageStageKpiArgs{\n\t\t\t\t\t\t\tName:     pulumi.String(\"Payment Errors\"),\n\t\t\t\t\t\t\tCategory: pulumi.String(\"Reliability\"),\n\t\t\t\t\t\t\tQuery: \u0026newrelic.PathpointFlowStageStageKpiQueryArgs{\n\t\t\t\t\t\t\t\tFrom: pulumi.String(\"TransactionError\"),\n\t\t\t\t\t\t\t\tSelect: \u0026newrelic.PathpointFlowStageStageKpiQuerySelectArgs{\n\t\t\t\t\t\t\t\t\tAggregationType: pulumi.String(\"COUNT\"),\n\t\t\t\t\t\t\t\t\tAlias:           pulumi.String(\"errors\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tLevels: newrelic.PathpointFlowStageLevelArray{\n\t\t\t\t\t\t\u0026newrelic.PathpointFlowStageLevelArgs{\n\t\t\t\t\t\t\tSteps: newrelic.PathpointFlowStageLevelStepArray{\n\t\t\t\t\t\t\t\t\u0026newrelic.PathpointFlowStageLevelStepArgs{\n\t\t\t\t\t\t\t\t\tName: pulumi.String(\"Order Service\"),\n\t\t\t\t\t\t\t\t\tEntitySearchQuery: \u0026newrelic.PathpointFlowStageLevelStepEntitySearchQueryArgs{\n\t\t\t\t\t\t\t\t\t\tQuery: pulumi.String(\"accountId=123 AND domain='APM' AND name='OrderService'\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026newrelic.PathpointFlowStageArgs{\n\t\t\t\t\tName: pulumi.String(\"Frontend\"),\n\t\t\t\t\tLink: pulumi.String(\"https://runbooks.example.com/checkout/frontend\"),\n\t\t\t\t\tRelated: \u0026newrelic.PathpointFlowStageRelatedArgs{\n\t\t\t\t\t\tSource: pulumi.Bool(true),\n\t\t\t\t\t\tTarget: pulumi.Bool(false),\n\t\t\t\t\t},\n\t\t\t\t\tLevels: newrelic.PathpointFlowStageLevelArray{\n\t\t\t\t\t\t\u0026newrelic.PathpointFlowStageLevelArgs{\n\t\t\t\t\t\t\tSteps: newrelic.PathpointFlowStageLevelStepArray{\n\t\t\t\t\t\t\t\t\u0026newrelic.PathpointFlowStageLevelStepArgs{\n\t\t\t\t\t\t\t\t\tName: pulumi.String(\"Login Page\"),\n\t\t\t\t\t\t\t\t\tSignals: newrelic.PathpointFlowStageLevelStepSignalArray{\n\t\t\t\t\t\t\t\t\t\t\u0026newrelic.PathpointFlowStageLevelStepSignalArgs{\n\t\t\t\t\t\t\t\t\t\t\tGuid: pulumi.String(\"GUID1\"),\n\t\t\t\t\t\t\t\t\t\t\tName: pulumi.String(\"Cart Service\"),\n\t\t\t\t\t\t\t\t\t\t\tType: pulumi.String(\"ENTITY\"),\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\u0026newrelic.PathpointFlowStageLevelStepSignalArgs{\n\t\t\t\t\t\t\t\t\t\t\tGuid: pulumi.String(\"GUID2\"),\n\t\t\t\t\t\t\t\t\t\t\tName: pulumi.String(\"Checkout Error Rate\"),\n\t\t\t\t\t\t\t\t\t\t\tType: pulumi.String(\"ALERT\"),\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\tEntitySearchQuery: \u0026newrelic.PathpointFlowStageLevelStepEntitySearchQueryArgs{\n\t\t\t\t\t\t\t\t\t\tQuery: pulumi.String(\"accountId=1234 AND domain='BROWSER' AND name='Login'\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    newrelic = {\n      source = \"pulumi/newrelic\"\n    }\n  }\n}\n\nresource \"newrelic_pathpointflow\" \"checkout\" {\n  account_id       = 1234\n  name             = \"Checkout Flow\"\n  description      = \"End-to-end checkout pipeline\"\n  refresh_interval = \"ONE_MINUTE\"\n  kpis {\n    name        = \"Order Success Rate\"\n    description = \"Percentage of orders completed successfully\"\n    category    = \"Revenue\"\n    query = {\n      from  = \"Transaction\"\n      where = \"name='checkout'\"\n      select = {\n        aggregation_type = \"COUNT\"\n        alias            = \"orders\"\n      }\n    }\n  }\n  stages {\n    name          = \"Revenue\"\n    health_rollup = \"ALERT_CONDITIONS\"\n    link          = \"https://runbooks.example.com/checkout/revenue\"\n    related = {\n      source = false\n      target = true\n    }\n    stage_kpis {\n      name     = \"Payment Errors\"\n      category = \"Reliability\"\n      query = {\n        from = \"TransactionError\"\n        select = {\n          aggregation_type = \"COUNT\"\n          alias            = \"errors\"\n        }\n      }\n    }\n    levels {\n      steps {\n        name = \"Order Service\"\n        entity_search_query = {\n          query = \"accountId=123 AND domain='APM' AND name='OrderService'\"\n        }\n      }\n    }\n  }\n  stages {\n    name = \"Frontend\"\n    link = \"https://runbooks.example.com/checkout/frontend\"\n    related = {\n      source = true\n      target = false\n    }\n    levels {\n      steps {\n        name = \"Login Page\"\n        signals {\n          guid = \"GUID1\"\n          name = \"Cart Service\"\n          type = \"ENTITY\"\n        }\n        signals {\n          guid = \"GUID2\"\n          name = \"Checkout Error Rate\"\n          type = \"ALERT\"\n        }\n        entity_search_query = {\n          query = \"accountId=1234 AND domain='BROWSER' AND name='Login'\"\n        }\n      }\n    }\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.PathpointFlow;\nimport com.pulumi.newrelic.PathpointFlowArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowKpiArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowKpiQueryArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowKpiQuerySelectArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowStageArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowStageRelatedArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowStageStageKpiArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowStageStageKpiQueryArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowStageStageKpiQuerySelectArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowStageLevelArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowStageLevelStepArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowStageLevelStepEntitySearchQueryArgs;\nimport com.pulumi.newrelic.inputs.PathpointFlowStageLevelStepSignalArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var checkout = new PathpointFlow(\"checkout\", PathpointFlowArgs.builder()\n            .accountId(\"1234\")\n            .name(\"Checkout Flow\")\n            .description(\"End-to-end checkout pipeline\")\n            .refreshInterval(\"ONE_MINUTE\")\n            .kpis(PathpointFlowKpiArgs.builder()\n                .name(\"Order Success Rate\")\n                .description(\"Percentage of orders completed successfully\")\n                .category(\"Revenue\")\n                .query(PathpointFlowKpiQueryArgs.builder()\n                    .from(\"Transaction\")\n                    .where(\"name='checkout'\")\n                    .select(PathpointFlowKpiQuerySelectArgs.builder()\n                        .aggregationType(\"COUNT\")\n                        .alias(\"orders\")\n                        .build())\n                    .build())\n                .build())\n            .stages(            \n                PathpointFlowStageArgs.builder()\n                    .name(\"Revenue\")\n                    .healthRollup(\"ALERT_CONDITIONS\")\n                    .link(\"https://runbooks.example.com/checkout/revenue\")\n                    .related(PathpointFlowStageRelatedArgs.builder()\n                        .source(false)\n                        .target(true)\n                        .build())\n                    .stageKpis(PathpointFlowStageStageKpiArgs.builder()\n                        .name(\"Payment Errors\")\n                        .category(\"Reliability\")\n                        .query(PathpointFlowStageStageKpiQueryArgs.builder()\n                            .from(\"TransactionError\")\n                            .select(PathpointFlowStageStageKpiQuerySelectArgs.builder()\n                                .aggregationType(\"COUNT\")\n                                .alias(\"errors\")\n                                .build())\n                            .build())\n                        .build())\n                    .levels(PathpointFlowStageLevelArgs.builder()\n                        .steps(PathpointFlowStageLevelStepArgs.builder()\n                            .name(\"Order Service\")\n                            .entitySearchQuery(PathpointFlowStageLevelStepEntitySearchQueryArgs.builder()\n                                .query(\"accountId=123 AND domain='APM' AND name='OrderService'\")\n                                .build())\n                            .build())\n                        .build())\n                    .build(),\n                PathpointFlowStageArgs.builder()\n                    .name(\"Frontend\")\n                    .link(\"https://runbooks.example.com/checkout/frontend\")\n                    .related(PathpointFlowStageRelatedArgs.builder()\n                        .source(true)\n                        .target(false)\n                        .build())\n                    .levels(PathpointFlowStageLevelArgs.builder()\n                        .steps(PathpointFlowStageLevelStepArgs.builder()\n                            .name(\"Login Page\")\n                            .signals(                            \n                                PathpointFlowStageLevelStepSignalArgs.builder()\n                                    .guid(\"GUID1\")\n                                    .name(\"Cart Service\")\n                                    .type(\"ENTITY\")\n                                    .build(),\n                                PathpointFlowStageLevelStepSignalArgs.builder()\n                                    .guid(\"GUID2\")\n                                    .name(\"Checkout Error Rate\")\n                                    .type(\"ALERT\")\n                                    .build())\n                            .entitySearchQuery(PathpointFlowStageLevelStepEntitySearchQueryArgs.builder()\n                                .query(\"accountId=1234 AND domain='BROWSER' AND name='Login'\")\n                                .build())\n                            .build())\n                        .build())\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  checkout:\n    type: newrelic:PathpointFlow\n    properties:\n      accountId: 1234\n      name: Checkout Flow\n      description: End-to-end checkout pipeline\n      refreshInterval: ONE_MINUTE\n      kpis:\n        - name: Order Success Rate\n          description: Percentage of orders completed successfully\n          category: Revenue\n          query:\n            from: Transaction\n            where: name='checkout'\n            select:\n              aggregationType: COUNT\n              alias: orders\n      stages:\n        - name: Revenue\n          healthRollup: ALERT_CONDITIONS\n          link: https://runbooks.example.com/checkout/revenue\n          related:\n            source: false\n            target: true\n          stageKpis:\n            - name: Payment Errors\n              category: Reliability\n              query:\n                from: TransactionError\n                select:\n                  aggregationType: COUNT\n                  alias: errors\n          levels:\n            - steps:\n                - name: Order Service\n                  entitySearchQuery:\n                    query: accountId=123 AND domain='APM' AND name='OrderService'\n        - name: Frontend\n          link: https://runbooks.example.com/checkout/frontend\n          related:\n            source: true\n            target: false\n          levels:\n            - steps:\n                - name: Login Page\n                  signals:\n                    - guid: GUID1\n                      name: Cart Service\n                      type: ENTITY\n                    - guid: GUID2\n                      name: Checkout Error Rate\n                      type: ALERT\n                  entitySearchQuery:\n                    query: accountId=1234 AND domain='BROWSER' AND name='Login'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Exporting an Existing Flow\n\nIf a flow already exists in your account (created through the UI, or by another user), you can pull its Terraform configuration directly from the Pathpoint UI instead of hand-writing it:\n\n1. Open the flow in the Pathpoint UI.\n2. Click the overflow menu (**•••**) in the flow view\n3. Select **View as code** to get the full \u003cspan pulumi-lang-nodejs=\"`newrelic.PathpointFlow`\" pulumi-lang-dotnet=\"`newrelic.PathpointFlow`\" pulumi-lang-go=\"`PathpointFlow`\" pulumi-lang-python=\"`PathpointFlow`\" pulumi-lang-yaml=\"`newrelic.PathpointFlow`\" pulumi-lang-java=\"`newrelic.PathpointFlow`\" pulumi-lang-hcl=\"`newrelic_pathpoint_flow`\"\u003e`newrelic.PathpointFlow`\u003c/span\u003e resource block for that pathpoint flow.\n\n\u003e **TIP:** Treat the exported configuration as a starting point. Pair it with `pulumi import` using the flow's GUID so Terraform state matches the live resource before your next \u003cspan pulumi-lang-nodejs=\"`apply`\" pulumi-lang-dotnet=\"`Apply`\" pulumi-lang-go=\"`apply`\" pulumi-lang-python=\"`apply`\" pulumi-lang-yaml=\"`apply`\" pulumi-lang-java=\"`apply`\" pulumi-lang-hcl=\"`apply`\"\u003e`apply`\u003c/span\u003e — otherwise Terraform will try to recreate what already exists.\n\n## Import\n\nNew Relic Pathpoint flows can be imported using the flow's entity GUID, e.g.\n\n```sh\n$ pulumi import newrelic:index/pathpointFlow:PathpointFlow checkout GUID1\n```\n\u003e **NOTE:** After importing, run `pulumi preview` to verify the state matches the existing configuration. The provider will read the current flow configuration from the API and populate all attributes in state.\n\n",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.\n"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "A category used to group flows (e.g. `Marketing`, `Checkout`).\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A brief description of the flow.\n"
+                },
+                "guid": {
+                    "type": "string",
+                    "description": "The entity GUID assigned to this Pathpoint flow in New Relic.\n"
+                },
+                "healthRollup": {
+                    "type": "string",
+                    "description": "Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.\n"
+                },
+                "kpis": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/PathpointFlowKpi:PathpointFlowKpi"
+                    },
+                    "description": "A list of Key Performance Indicators tracked at the flow level. See Nested \u003cspan pulumi-lang-nodejs=\"`kpis`\" pulumi-lang-dotnet=\"`Kpis`\" pulumi-lang-go=\"`kpis`\" pulumi-lang-python=\"`kpis`\" pulumi-lang-yaml=\"`kpis`\" pulumi-lang-java=\"`kpis`\" pulumi-lang-hcl=\"`kpis`\"\u003e`kpis`\u003c/span\u003e blocks below for details.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the Pathpoint flow.\n"
+                },
+                "refreshInterval": {
+                    "type": "string",
+                    "description": "How often the flow, stage, level, and step health statuses are refreshed. Defaults to `ONE_MINUTE` if not set. Valid values: `ONE_MINUTE`, `FIVE_MINUTES`, `TEN_MINUTES`, `FIFTEEN_MINUTES`, `THIRTY_MINUTES`.\n"
+                },
+                "stages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/PathpointFlowStage:PathpointFlowStage"
+                    },
+                    "description": "An ordered list of stages that make up this flow. Maximum 50 stages. A flow can be created without stages and stages can be added later. See Nested \u003cspan pulumi-lang-nodejs=\"`stages`\" pulumi-lang-dotnet=\"`Stages`\" pulumi-lang-go=\"`stages`\" pulumi-lang-python=\"`stages`\" pulumi-lang-yaml=\"`stages`\" pulumi-lang-java=\"`stages`\" pulumi-lang-hcl=\"`stages`\"\u003e`stages`\u003c/span\u003e blocks below for details.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The last-updated epoch-millisecond timestamp used for optimistic concurrency control. This is managed automatically and must not be modified. It is persisted to state after every create/update and sent to the API on each subsequent update.\n* `stages.#.id` - The internal workload ID of the stage. Populated after creation and used to identify stages on updates.\n* `stages.#.levels.#.id` - The internal workload ID of the level. Populated after creation and used to identify levels on updates.\n* `stages.#.levels.#.steps.#.id` - The internal workload ID of the step. Populated after creation and used to identify steps on updates.\n* `kpis.#.id` - The internal ID of the flow-level KPI. Populated after creation.\n* `kpis.#.metric_query` - The resolved NRQL metric query string synthesized from the KPI's \u003cspan pulumi-lang-nodejs=\"`query`\" pulumi-lang-dotnet=\"`Query`\" pulumi-lang-go=\"`query`\" pulumi-lang-python=\"`query`\" pulumi-lang-yaml=\"`query`\" pulumi-lang-java=\"`query`\" pulumi-lang-hcl=\"`query`\"\u003e`query`\u003c/span\u003e block. This is a read-only computed value set by the API.\n* `stages.#.stage_kpis.#.id` - The internal ID of the stage-level KPI. Populated after creation.\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "guid",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.\n"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "A category used to group flows (e.g. `Marketing`, `Checkout`).\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A brief description of the flow.\n"
+                },
+                "healthRollup": {
+                    "type": "string",
+                    "description": "Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.\n"
+                },
+                "kpis": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/PathpointFlowKpi:PathpointFlowKpi"
+                    },
+                    "description": "A list of Key Performance Indicators tracked at the flow level. See Nested \u003cspan pulumi-lang-nodejs=\"`kpis`\" pulumi-lang-dotnet=\"`Kpis`\" pulumi-lang-go=\"`kpis`\" pulumi-lang-python=\"`kpis`\" pulumi-lang-yaml=\"`kpis`\" pulumi-lang-java=\"`kpis`\" pulumi-lang-hcl=\"`kpis`\"\u003e`kpis`\u003c/span\u003e blocks below for details.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the Pathpoint flow.\n"
+                },
+                "refreshInterval": {
+                    "type": "string",
+                    "description": "How often the flow, stage, level, and step health statuses are refreshed. Defaults to `ONE_MINUTE` if not set. Valid values: `ONE_MINUTE`, `FIVE_MINUTES`, `TEN_MINUTES`, `FIFTEEN_MINUTES`, `THIRTY_MINUTES`.\n"
+                },
+                "stages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/PathpointFlowStage:PathpointFlowStage"
+                    },
+                    "description": "An ordered list of stages that make up this flow. Maximum 50 stages. A flow can be created without stages and stages can be added later. See Nested \u003cspan pulumi-lang-nodejs=\"`stages`\" pulumi-lang-dotnet=\"`Stages`\" pulumi-lang-go=\"`stages`\" pulumi-lang-python=\"`stages`\" pulumi-lang-yaml=\"`stages`\" pulumi-lang-java=\"`stages`\" pulumi-lang-hcl=\"`stages`\"\u003e`stages`\u003c/span\u003e blocks below for details.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PathpointFlow resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.\n"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "A category used to group flows (e.g. `Marketing`, `Checkout`).\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A brief description of the flow.\n"
+                    },
+                    "guid": {
+                        "type": "string",
+                        "description": "The entity GUID assigned to this Pathpoint flow in New Relic.\n"
+                    },
+                    "healthRollup": {
+                        "type": "string",
+                        "description": "Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.\n"
+                    },
+                    "kpis": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/PathpointFlowKpi:PathpointFlowKpi"
+                        },
+                        "description": "A list of Key Performance Indicators tracked at the flow level. See Nested \u003cspan pulumi-lang-nodejs=\"`kpis`\" pulumi-lang-dotnet=\"`Kpis`\" pulumi-lang-go=\"`kpis`\" pulumi-lang-python=\"`kpis`\" pulumi-lang-yaml=\"`kpis`\" pulumi-lang-java=\"`kpis`\" pulumi-lang-hcl=\"`kpis`\"\u003e`kpis`\u003c/span\u003e blocks below for details.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The display name of the Pathpoint flow.\n"
+                    },
+                    "refreshInterval": {
+                        "type": "string",
+                        "description": "How often the flow, stage, level, and step health statuses are refreshed. Defaults to `ONE_MINUTE` if not set. Valid values: `ONE_MINUTE`, `FIVE_MINUTES`, `TEN_MINUTES`, `FIFTEEN_MINUTES`, `THIRTY_MINUTES`.\n"
+                    },
+                    "stages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/PathpointFlowStage:PathpointFlowStage"
+                        },
+                        "description": "An ordered list of stages that make up this flow. Maximum 50 stages. A flow can be created without stages and stages can be added later. See Nested \u003cspan pulumi-lang-nodejs=\"`stages`\" pulumi-lang-dotnet=\"`Stages`\" pulumi-lang-go=\"`stages`\" pulumi-lang-python=\"`stages`\" pulumi-lang-yaml=\"`stages`\" pulumi-lang-java=\"`stages`\" pulumi-lang-hcl=\"`stages`\"\u003e`stages`\u003c/span\u003e blocks below for details.\n"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The last-updated epoch-millisecond timestamp used for optimistic concurrency control. This is managed automatically and must not be modified. It is persisted to state after every create/update and sent to the API on each subsequent update.\n* `stages.#.id` - The internal workload ID of the stage. Populated after creation and used to identify stages on updates.\n* `stages.#.levels.#.id` - The internal workload ID of the level. Populated after creation and used to identify levels on updates.\n* `stages.#.levels.#.steps.#.id` - The internal workload ID of the step. Populated after creation and used to identify steps on updates.\n* `kpis.#.id` - The internal ID of the flow-level KPI. Populated after creation.\n* `kpis.#.metric_query` - The resolved NRQL metric query string synthesized from the KPI's \u003cspan pulumi-lang-nodejs=\"`query`\" pulumi-lang-dotnet=\"`Query`\" pulumi-lang-go=\"`query`\" pulumi-lang-python=\"`query`\" pulumi-lang-yaml=\"`query`\" pulumi-lang-java=\"`query`\" pulumi-lang-hcl=\"`query`\"\u003e`query`\u003c/span\u003e block. This is a read-only computed value set by the API.\n* `stages.#.stage_kpis.#.id` - The internal ID of the stage-level KPI. Populated after creation.\n"
                     }
                 },
                 "type": "object"
