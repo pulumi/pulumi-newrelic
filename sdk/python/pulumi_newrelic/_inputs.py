@@ -497,6 +497,40 @@ __all__ = [
     'OneDashboardVariableNrqlQueryArgsDict',
     'OneDashboardVariableOptionArgs',
     'OneDashboardVariableOptionArgsDict',
+    'PathpointFlowKpiArgs',
+    'PathpointFlowKpiArgsDict',
+    'PathpointFlowKpiQueryArgs',
+    'PathpointFlowKpiQueryArgsDict',
+    'PathpointFlowKpiQuerySelectArgs',
+    'PathpointFlowKpiQuerySelectArgsDict',
+    'PathpointFlowKpiQueryTimeWindowArgs',
+    'PathpointFlowKpiQueryTimeWindowArgsDict',
+    'PathpointFlowKpiQueryTimeWindowRelativeRangeArgs',
+    'PathpointFlowKpiQueryTimeWindowRelativeRangeArgsDict',
+    'PathpointFlowStageArgs',
+    'PathpointFlowStageArgsDict',
+    'PathpointFlowStageLevelArgs',
+    'PathpointFlowStageLevelArgsDict',
+    'PathpointFlowStageLevelStepArgs',
+    'PathpointFlowStageLevelStepArgsDict',
+    'PathpointFlowStageLevelStepConfigArgs',
+    'PathpointFlowStageLevelStepConfigArgsDict',
+    'PathpointFlowStageLevelStepEntitySearchQueryArgs',
+    'PathpointFlowStageLevelStepEntitySearchQueryArgsDict',
+    'PathpointFlowStageLevelStepSignalArgs',
+    'PathpointFlowStageLevelStepSignalArgsDict',
+    'PathpointFlowStageRelatedArgs',
+    'PathpointFlowStageRelatedArgsDict',
+    'PathpointFlowStageStageKpiArgs',
+    'PathpointFlowStageStageKpiArgsDict',
+    'PathpointFlowStageStageKpiQueryArgs',
+    'PathpointFlowStageStageKpiQueryArgsDict',
+    'PathpointFlowStageStageKpiQuerySelectArgs',
+    'PathpointFlowStageStageKpiQuerySelectArgsDict',
+    'PathpointFlowStageStageKpiQueryTimeWindowArgs',
+    'PathpointFlowStageStageKpiQueryTimeWindowArgsDict',
+    'PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs',
+    'PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgsDict',
     'ServiceLevelEventsArgs',
     'ServiceLevelEventsArgsDict',
     'ServiceLevelEventsBadEventsArgs',
@@ -19366,6 +19400,1483 @@ class OneDashboardVariableOptionArgs:
     @show_apply_action.setter
     def show_apply_action(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "show_apply_action", value)
+
+
+class PathpointFlowKpiArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The display name of the Pathpoint flow.
+    """
+    query: pulumi.Input['PathpointFlowKpiQueryArgsDict']
+    """
+    NRQL query definition for this KPI.
+    """
+    account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+    """
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A category used to group flows (e.g. `Marketing`, `Checkout`).
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A brief description of the flow.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The unique identifier of the KPI.
+    """
+    metric_query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+    """
+
+@pulumi.input_type
+class PathpointFlowKpiArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 query: pulumi.Input['PathpointFlowKpiQueryArgs'],
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_query: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The display name of the Pathpoint flow.
+        :param pulumi.Input['PathpointFlowKpiQueryArgs'] query: NRQL query definition for this KPI.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+        :param pulumi.Input[_builtins.str] category: A category used to group flows (e.g. `Marketing`, `Checkout`).
+        :param pulumi.Input[_builtins.str] description: A brief description of the flow.
+        :param pulumi.Input[_builtins.str] id: The unique identifier of the KPI.
+        :param pulumi.Input[_builtins.str] metric_query: NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if metric_query is not None:
+            pulumi.set(__self__, "metric_query", metric_query)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The display name of the Pathpoint flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input['PathpointFlowKpiQueryArgs']:
+        """
+        NRQL query definition for this KPI.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input['PathpointFlowKpiQueryArgs']):
+        pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A category used to group flows (e.g. `Marketing`, `Checkout`).
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A brief description of the flow.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique identifier of the KPI.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricQuery")
+    def metric_query(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+        """
+        return pulumi.get(self, "metric_query")
+
+    @metric_query.setter
+    def metric_query(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metric_query", value)
+
+
+class PathpointFlowKpiQueryArgsDict(TypedDict):
+    from_: pulumi.Input[_builtins.str]
+    """
+    Data source to query from (e.g., Transaction, Metric, Log).
+    """
+    select: pulumi.Input['PathpointFlowKpiQuerySelectArgsDict']
+    """
+    SELECT clause defining what to aggregate.
+    """
+    time_window: NotRequired[pulumi.Input[Optional['PathpointFlowKpiQueryTimeWindowArgsDict']]]
+    """
+    Time window for KPI evaluation.
+    """
+    where: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional WHERE clause to filter data.
+    """
+
+@pulumi.input_type
+class PathpointFlowKpiQueryArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[_builtins.str],
+                 select: pulumi.Input['PathpointFlowKpiQuerySelectArgs'],
+                 time_window: pulumi.Input[Optional['PathpointFlowKpiQueryTimeWindowArgs']] = None,
+                 where: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] from_: Data source to query from (e.g., Transaction, Metric, Log).
+        :param pulumi.Input['PathpointFlowKpiQuerySelectArgs'] select: SELECT clause defining what to aggregate.
+        :param pulumi.Input['PathpointFlowKpiQueryTimeWindowArgs'] time_window: Time window for KPI evaluation.
+        :param pulumi.Input[_builtins.str] where: Optional WHERE clause to filter data.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "select", select)
+        if time_window is not None:
+            pulumi.set(__self__, "time_window", time_window)
+        if where is not None:
+            pulumi.set(__self__, "where", where)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data source to query from (e.g., Transaction, Metric, Log).
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def select(self) -> pulumi.Input['PathpointFlowKpiQuerySelectArgs']:
+        """
+        SELECT clause defining what to aggregate.
+        """
+        return pulumi.get(self, "select")
+
+    @select.setter
+    def select(self, value: pulumi.Input['PathpointFlowKpiQuerySelectArgs']):
+        pulumi.set(self, "select", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeWindow")
+    def time_window(self) -> pulumi.Input[Optional['PathpointFlowKpiQueryTimeWindowArgs']]:
+        """
+        Time window for KPI evaluation.
+        """
+        return pulumi.get(self, "time_window")
+
+    @time_window.setter
+    def time_window(self, value: pulumi.Input[Optional['PathpointFlowKpiQueryTimeWindowArgs']]):
+        pulumi.set(self, "time_window", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def where(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional WHERE clause to filter data.
+        """
+        return pulumi.get(self, "where")
+
+    @where.setter
+    def where(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "where", value)
+
+
+class PathpointFlowKpiQuerySelectArgsDict(TypedDict):
+    aggregation_type: pulumi.Input[_builtins.str]
+    """
+    Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+    """
+    alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional alias for the aggregated value.
+    """
+    attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Attribute name to aggregate. Required for all functions except COUNT.
+    """
+    threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Threshold used in the selected function.
+    """
+
+@pulumi.input_type
+class PathpointFlowKpiQuerySelectArgs:
+    def __init__(__self__, *,
+                 aggregation_type: pulumi.Input[_builtins.str],
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.str] aggregation_type: Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+        :param pulumi.Input[_builtins.str] alias: Optional alias for the aggregated value.
+        :param pulumi.Input[_builtins.str] attribute: Attribute name to aggregate. Required for all functions except COUNT.
+        :param pulumi.Input[_builtins.float] threshold: Threshold used in the selected function.
+        """
+        pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="aggregationType")
+    def aggregation_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+        """
+        return pulumi.get(self, "aggregation_type")
+
+    @aggregation_type.setter
+    def aggregation_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "aggregation_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional alias for the aggregated value.
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "alias", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Attribute name to aggregate. Required for all functions except COUNT.
+        """
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "attribute", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Threshold used in the selected function.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "threshold", value)
+
+
+class PathpointFlowKpiQueryTimeWindowArgsDict(TypedDict):
+    custom_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+    """
+    relative_range: NotRequired[pulumi.Input[Optional['PathpointFlowKpiQueryTimeWindowRelativeRangeArgsDict']]]
+    """
+    Relative time window. Mutually exclusive with custom_range.
+    """
+
+@pulumi.input_type
+class PathpointFlowKpiQueryTimeWindowArgs:
+    def __init__(__self__, *,
+                 custom_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_range: pulumi.Input[Optional['PathpointFlowKpiQueryTimeWindowRelativeRangeArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] custom_range: Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+        :param pulumi.Input['PathpointFlowKpiQueryTimeWindowRelativeRangeArgs'] relative_range: Relative time window. Mutually exclusive with custom_range.
+        """
+        if custom_range is not None:
+            pulumi.set(__self__, "custom_range", custom_range)
+        if relative_range is not None:
+            pulumi.set(__self__, "relative_range", relative_range)
+
+    @_builtins.property
+    @pulumi.getter(name="customRange")
+    def custom_range(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+        """
+        return pulumi.get(self, "custom_range")
+
+    @custom_range.setter
+    def custom_range(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_range", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relativeRange")
+    def relative_range(self) -> pulumi.Input[Optional['PathpointFlowKpiQueryTimeWindowRelativeRangeArgs']]:
+        """
+        Relative time window. Mutually exclusive with custom_range.
+        """
+        return pulumi.get(self, "relative_range")
+
+    @relative_range.setter
+    def relative_range(self, value: pulumi.Input[Optional['PathpointFlowKpiQueryTimeWindowRelativeRangeArgs']]):
+        pulumi.set(self, "relative_range", value)
+
+
+class PathpointFlowKpiQueryTimeWindowRelativeRangeArgsDict(TypedDict):
+    since: pulumi.Input[_builtins.str]
+    """
+    How far back the KPI is evaluated.
+    """
+    compare_against: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The earlier window to compare against.
+    """
+
+@pulumi.input_type
+class PathpointFlowKpiQueryTimeWindowRelativeRangeArgs:
+    def __init__(__self__, *,
+                 since: pulumi.Input[_builtins.str],
+                 compare_against: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] since: How far back the KPI is evaluated.
+        :param pulumi.Input[_builtins.str] compare_against: The earlier window to compare against.
+        """
+        pulumi.set(__self__, "since", since)
+        if compare_against is not None:
+            pulumi.set(__self__, "compare_against", compare_against)
+
+    @_builtins.property
+    @pulumi.getter
+    def since(self) -> pulumi.Input[_builtins.str]:
+        """
+        How far back the KPI is evaluated.
+        """
+        return pulumi.get(self, "since")
+
+    @since.setter
+    def since(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "since", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compareAgainst")
+    def compare_against(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The earlier window to compare against.
+        """
+        return pulumi.get(self, "compare_against")
+
+    @compare_against.setter
+    def compare_against(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "compare_against", value)
+
+
+class PathpointFlowStageArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The display name of the Pathpoint flow.
+    """
+    health_rollup: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Internal stage workload ID, used for updates.
+    """
+    is_excluded: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, this stage is excluded from flow health calculation.
+    """
+    levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelArgsDict']]]]]
+    """
+    Ordered list of levels within this stage.
+    """
+    link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional URL to an external resource.
+    """
+    related: NotRequired[pulumi.Input[Optional['PathpointFlowStageRelatedArgsDict']]]
+    """
+    Relationship role of this stage within the flow.
+    """
+    stage_kpis: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageStageKpiArgsDict']]]]]
+    """
+    KPIs tracked at the stage level.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 health_rollup: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_excluded: pulumi.Input[Optional[_builtins.bool]] = None,
+                 levels: pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelArgs']]]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 related: pulumi.Input[Optional['PathpointFlowStageRelatedArgs']] = None,
+                 stage_kpis: pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageStageKpiArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The display name of the Pathpoint flow.
+        :param pulumi.Input[_builtins.str] health_rollup: Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+        :param pulumi.Input[_builtins.str] id: Internal stage workload ID, used for updates.
+        :param pulumi.Input[_builtins.bool] is_excluded: When true, this stage is excluded from flow health calculation.
+        :param pulumi.Input[Sequence[pulumi.Input['PathpointFlowStageLevelArgs']]] levels: Ordered list of levels within this stage.
+        :param pulumi.Input[_builtins.str] link: Optional URL to an external resource.
+        :param pulumi.Input['PathpointFlowStageRelatedArgs'] related: Relationship role of this stage within the flow.
+        :param pulumi.Input[Sequence[pulumi.Input['PathpointFlowStageStageKpiArgs']]] stage_kpis: KPIs tracked at the stage level.
+        """
+        pulumi.set(__self__, "name", name)
+        if health_rollup is not None:
+            pulumi.set(__self__, "health_rollup", health_rollup)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if is_excluded is not None:
+            pulumi.set(__self__, "is_excluded", is_excluded)
+        if levels is not None:
+            pulumi.set(__self__, "levels", levels)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if related is not None:
+            pulumi.set(__self__, "related", related)
+        if stage_kpis is not None:
+            pulumi.set(__self__, "stage_kpis", stage_kpis)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The display name of the Pathpoint flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthRollup")
+    def health_rollup(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+        """
+        return pulumi.get(self, "health_rollup")
+
+    @health_rollup.setter
+    def health_rollup(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "health_rollup", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Internal stage workload ID, used for updates.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isExcluded")
+    def is_excluded(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, this stage is excluded from flow health calculation.
+        """
+        return pulumi.get(self, "is_excluded")
+
+    @is_excluded.setter
+    def is_excluded(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_excluded", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def levels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelArgs']]]]:
+        """
+        Ordered list of levels within this stage.
+        """
+        return pulumi.get(self, "levels")
+
+    @levels.setter
+    def levels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelArgs']]]]):
+        pulumi.set(self, "levels", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional URL to an external resource.
+        """
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def related(self) -> pulumi.Input[Optional['PathpointFlowStageRelatedArgs']]:
+        """
+        Relationship role of this stage within the flow.
+        """
+        return pulumi.get(self, "related")
+
+    @related.setter
+    def related(self, value: pulumi.Input[Optional['PathpointFlowStageRelatedArgs']]):
+        pulumi.set(self, "related", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stageKpis")
+    def stage_kpis(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageStageKpiArgs']]]]:
+        """
+        KPIs tracked at the stage level.
+        """
+        return pulumi.get(self, "stage_kpis")
+
+    @stage_kpis.setter
+    def stage_kpis(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageStageKpiArgs']]]]):
+        pulumi.set(self, "stage_kpis", value)
+
+
+class PathpointFlowStageLevelArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Internal level workload ID, used for updates.
+    """
+    steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelStepArgsDict']]]]]
+    """
+    Ordered list of steps within this level.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageLevelArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelStepArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: Internal level workload ID, used for updates.
+        :param pulumi.Input[Sequence[pulumi.Input['PathpointFlowStageLevelStepArgs']]] steps: Ordered list of steps within this level.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if steps is not None:
+            pulumi.set(__self__, "steps", steps)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Internal level workload ID, used for updates.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelStepArgs']]]]:
+        """
+        Ordered list of steps within this level.
+        """
+        return pulumi.get(self, "steps")
+
+    @steps.setter
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelStepArgs']]]]):
+        pulumi.set(self, "steps", value)
+
+
+class PathpointFlowStageLevelStepArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The display name of the Pathpoint flow.
+    """
+    config: NotRequired[pulumi.Input[Optional['PathpointFlowStageLevelStepConfigArgsDict']]]
+    """
+    Health evaluation configuration for this step.
+    """
+    entity_search_query: NotRequired[pulumi.Input[Optional['PathpointFlowStageLevelStepEntitySearchQueryArgsDict']]]
+    """
+    Filter query used to fetch signals for this step.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Internal step workload ID, used for updates.
+    """
+    is_excluded: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, this step is excluded from level health calculation.
+    """
+    link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional URL to an external resource.
+    """
+    scoped_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
+    """
+    Account IDs whose data is scoped to this step.
+    """
+    signals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelStepSignalArgsDict']]]]]
+    """
+    Entity signals associated with this step.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageLevelStepArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 config: pulumi.Input[Optional['PathpointFlowStageLevelStepConfigArgs']] = None,
+                 entity_search_query: pulumi.Input[Optional['PathpointFlowStageLevelStepEntitySearchQueryArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_excluded: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 scoped_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 signals: pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelStepSignalArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The display name of the Pathpoint flow.
+        :param pulumi.Input['PathpointFlowStageLevelStepConfigArgs'] config: Health evaluation configuration for this step.
+        :param pulumi.Input['PathpointFlowStageLevelStepEntitySearchQueryArgs'] entity_search_query: Filter query used to fetch signals for this step.
+        :param pulumi.Input[_builtins.str] id: Internal step workload ID, used for updates.
+        :param pulumi.Input[_builtins.bool] is_excluded: When true, this step is excluded from level health calculation.
+        :param pulumi.Input[_builtins.str] link: Optional URL to an external resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] scoped_accounts: Account IDs whose data is scoped to this step.
+        :param pulumi.Input[Sequence[pulumi.Input['PathpointFlowStageLevelStepSignalArgs']]] signals: Entity signals associated with this step.
+        """
+        pulumi.set(__self__, "name", name)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if entity_search_query is not None:
+            pulumi.set(__self__, "entity_search_query", entity_search_query)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if is_excluded is not None:
+            pulumi.set(__self__, "is_excluded", is_excluded)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if scoped_accounts is not None:
+            pulumi.set(__self__, "scoped_accounts", scoped_accounts)
+        if signals is not None:
+            pulumi.set(__self__, "signals", signals)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The display name of the Pathpoint flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def config(self) -> pulumi.Input[Optional['PathpointFlowStageLevelStepConfigArgs']]:
+        """
+        Health evaluation configuration for this step.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: pulumi.Input[Optional['PathpointFlowStageLevelStepConfigArgs']]):
+        pulumi.set(self, "config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entitySearchQuery")
+    def entity_search_query(self) -> pulumi.Input[Optional['PathpointFlowStageLevelStepEntitySearchQueryArgs']]:
+        """
+        Filter query used to fetch signals for this step.
+        """
+        return pulumi.get(self, "entity_search_query")
+
+    @entity_search_query.setter
+    def entity_search_query(self, value: pulumi.Input[Optional['PathpointFlowStageLevelStepEntitySearchQueryArgs']]):
+        pulumi.set(self, "entity_search_query", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Internal step workload ID, used for updates.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isExcluded")
+    def is_excluded(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, this step is excluded from level health calculation.
+        """
+        return pulumi.get(self, "is_excluded")
+
+    @is_excluded.setter
+    def is_excluded(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_excluded", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional URL to an external resource.
+        """
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopedAccounts")
+    def scoped_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        Account IDs whose data is scoped to this step.
+        """
+        return pulumi.get(self, "scoped_accounts")
+
+    @scoped_accounts.setter
+    def scoped_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
+        pulumi.set(self, "scoped_accounts", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def signals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelStepSignalArgs']]]]:
+        """
+        Entity signals associated with this step.
+        """
+        return pulumi.get(self, "signals")
+
+    @signals.setter
+    def signals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PathpointFlowStageLevelStepSignalArgs']]]]):
+        pulumi.set(self, "signals", value)
+
+
+class PathpointFlowStageLevelStepConfigArgsDict(TypedDict):
+    health_rollup: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+    """
+    threshold_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether threshold is FIXED or PERCENTAGE.
+    """
+    threshold_value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Numeric threshold value for step health evaluation.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageLevelStepConfigArgs:
+    def __init__(__self__, *,
+                 health_rollup: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold_value: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] health_rollup: Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+        :param pulumi.Input[_builtins.str] threshold_type: Whether threshold is FIXED or PERCENTAGE.
+        :param pulumi.Input[_builtins.int] threshold_value: Numeric threshold value for step health evaluation.
+        """
+        if health_rollup is not None:
+            pulumi.set(__self__, "health_rollup", health_rollup)
+        if threshold_type is not None:
+            pulumi.set(__self__, "threshold_type", threshold_type)
+        if threshold_value is not None:
+            pulumi.set(__self__, "threshold_value", threshold_value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthRollup")
+    def health_rollup(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+        """
+        return pulumi.get(self, "health_rollup")
+
+    @health_rollup.setter
+    def health_rollup(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "health_rollup", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether threshold is FIXED or PERCENTAGE.
+        """
+        return pulumi.get(self, "threshold_type")
+
+    @threshold_type.setter
+    def threshold_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "threshold_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdValue")
+    def threshold_value(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Numeric threshold value for step health evaluation.
+        """
+        return pulumi.get(self, "threshold_value")
+
+    @threshold_value.setter
+    def threshold_value(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "threshold_value", value)
+
+
+class PathpointFlowStageLevelStepEntitySearchQueryArgsDict(TypedDict):
+    query: pulumi.Input[_builtins.str]
+    """
+    Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.
+    """
+    is_excluded: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, this query is excluded from health calculation.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageLevelStepEntitySearchQueryArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[_builtins.str],
+                 is_excluded: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] query: Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.
+        :param pulumi.Input[_builtins.bool] is_excluded: When true, this query is excluded from health calculation.
+        """
+        pulumi.set(__self__, "query", query)
+        if is_excluded is not None:
+            pulumi.set(__self__, "is_excluded", is_excluded)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[_builtins.str]:
+        """
+        Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isExcluded")
+    def is_excluded(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, this query is excluded from health calculation.
+        """
+        return pulumi.get(self, "is_excluded")
+
+    @is_excluded.setter
+    def is_excluded(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_excluded", value)
+
+
+class PathpointFlowStageLevelStepSignalArgsDict(TypedDict):
+    guid: pulumi.Input[_builtins.str]
+    """
+    The entity GUID assigned to this Pathpoint flow in New Relic.
+    """
+    is_excluded: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, this signal is excluded from step health calculation.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The display name of the Pathpoint flow.
+    """
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether this GUID belongs to an entity or an alert condition: ENTITY or ALERT.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageLevelStepSignalArgs:
+    def __init__(__self__, *,
+                 guid: pulumi.Input[_builtins.str],
+                 is_excluded: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] guid: The entity GUID assigned to this Pathpoint flow in New Relic.
+        :param pulumi.Input[_builtins.bool] is_excluded: When true, this signal is excluded from step health calculation.
+        :param pulumi.Input[_builtins.str] name: The display name of the Pathpoint flow.
+        :param pulumi.Input[_builtins.str] type: Whether this GUID belongs to an entity or an alert condition: ENTITY or ALERT.
+        """
+        pulumi.set(__self__, "guid", guid)
+        if is_excluded is not None:
+            pulumi.set(__self__, "is_excluded", is_excluded)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def guid(self) -> pulumi.Input[_builtins.str]:
+        """
+        The entity GUID assigned to this Pathpoint flow in New Relic.
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "guid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isExcluded")
+    def is_excluded(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, this signal is excluded from step health calculation.
+        """
+        return pulumi.get(self, "is_excluded")
+
+    @is_excluded.setter
+    def is_excluded(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_excluded", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The display name of the Pathpoint flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether this GUID belongs to an entity or an alert condition: ENTITY or ALERT.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class PathpointFlowStageRelatedArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, this stage acts as a source to other stages.
+    """
+    target: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, this stage acts as a target to other stages.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageRelatedArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] source: When true, this stage acts as a source to other stages.
+        :param pulumi.Input[_builtins.bool] target: When true, this stage acts as a target to other stages.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, this stage acts as a source to other stages.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, this stage acts as a target to other stages.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "target", value)
+
+
+class PathpointFlowStageStageKpiArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The display name of the Pathpoint flow.
+    """
+    query: pulumi.Input['PathpointFlowStageStageKpiQueryArgsDict']
+    """
+    NRQL query definition for this KPI.
+    """
+    account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+    """
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A category used to group flows (e.g. `Marketing`, `Checkout`).
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A brief description of the flow.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The unique identifier of the KPI.
+    """
+    metric_query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageStageKpiArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 query: pulumi.Input['PathpointFlowStageStageKpiQueryArgs'],
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_query: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The display name of the Pathpoint flow.
+        :param pulumi.Input['PathpointFlowStageStageKpiQueryArgs'] query: NRQL query definition for this KPI.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+        :param pulumi.Input[_builtins.str] category: A category used to group flows (e.g. `Marketing`, `Checkout`).
+        :param pulumi.Input[_builtins.str] description: A brief description of the flow.
+        :param pulumi.Input[_builtins.str] id: The unique identifier of the KPI.
+        :param pulumi.Input[_builtins.str] metric_query: NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if metric_query is not None:
+            pulumi.set(__self__, "metric_query", metric_query)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The display name of the Pathpoint flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input['PathpointFlowStageStageKpiQueryArgs']:
+        """
+        NRQL query definition for this KPI.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input['PathpointFlowStageStageKpiQueryArgs']):
+        pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A category used to group flows (e.g. `Marketing`, `Checkout`).
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A brief description of the flow.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique identifier of the KPI.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricQuery")
+    def metric_query(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+        """
+        return pulumi.get(self, "metric_query")
+
+    @metric_query.setter
+    def metric_query(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metric_query", value)
+
+
+class PathpointFlowStageStageKpiQueryArgsDict(TypedDict):
+    from_: pulumi.Input[_builtins.str]
+    """
+    Data source to query from (e.g., Transaction, Metric, Log).
+    """
+    select: pulumi.Input['PathpointFlowStageStageKpiQuerySelectArgsDict']
+    """
+    SELECT clause defining what to aggregate.
+    """
+    time_window: NotRequired[pulumi.Input[Optional['PathpointFlowStageStageKpiQueryTimeWindowArgsDict']]]
+    """
+    Time window for KPI evaluation.
+    """
+    where: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional WHERE clause to filter data.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageStageKpiQueryArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[_builtins.str],
+                 select: pulumi.Input['PathpointFlowStageStageKpiQuerySelectArgs'],
+                 time_window: pulumi.Input[Optional['PathpointFlowStageStageKpiQueryTimeWindowArgs']] = None,
+                 where: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] from_: Data source to query from (e.g., Transaction, Metric, Log).
+        :param pulumi.Input['PathpointFlowStageStageKpiQuerySelectArgs'] select: SELECT clause defining what to aggregate.
+        :param pulumi.Input['PathpointFlowStageStageKpiQueryTimeWindowArgs'] time_window: Time window for KPI evaluation.
+        :param pulumi.Input[_builtins.str] where: Optional WHERE clause to filter data.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "select", select)
+        if time_window is not None:
+            pulumi.set(__self__, "time_window", time_window)
+        if where is not None:
+            pulumi.set(__self__, "where", where)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data source to query from (e.g., Transaction, Metric, Log).
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def select(self) -> pulumi.Input['PathpointFlowStageStageKpiQuerySelectArgs']:
+        """
+        SELECT clause defining what to aggregate.
+        """
+        return pulumi.get(self, "select")
+
+    @select.setter
+    def select(self, value: pulumi.Input['PathpointFlowStageStageKpiQuerySelectArgs']):
+        pulumi.set(self, "select", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeWindow")
+    def time_window(self) -> pulumi.Input[Optional['PathpointFlowStageStageKpiQueryTimeWindowArgs']]:
+        """
+        Time window for KPI evaluation.
+        """
+        return pulumi.get(self, "time_window")
+
+    @time_window.setter
+    def time_window(self, value: pulumi.Input[Optional['PathpointFlowStageStageKpiQueryTimeWindowArgs']]):
+        pulumi.set(self, "time_window", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def where(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional WHERE clause to filter data.
+        """
+        return pulumi.get(self, "where")
+
+    @where.setter
+    def where(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "where", value)
+
+
+class PathpointFlowStageStageKpiQuerySelectArgsDict(TypedDict):
+    aggregation_type: pulumi.Input[_builtins.str]
+    """
+    Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+    """
+    alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional alias for the aggregated value.
+    """
+    attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Attribute name to aggregate. Required for all functions except COUNT.
+    """
+    threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Threshold used in the selected function.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageStageKpiQuerySelectArgs:
+    def __init__(__self__, *,
+                 aggregation_type: pulumi.Input[_builtins.str],
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.str] aggregation_type: Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+        :param pulumi.Input[_builtins.str] alias: Optional alias for the aggregated value.
+        :param pulumi.Input[_builtins.str] attribute: Attribute name to aggregate. Required for all functions except COUNT.
+        :param pulumi.Input[_builtins.float] threshold: Threshold used in the selected function.
+        """
+        pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="aggregationType")
+    def aggregation_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+        """
+        return pulumi.get(self, "aggregation_type")
+
+    @aggregation_type.setter
+    def aggregation_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "aggregation_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional alias for the aggregated value.
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "alias", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Attribute name to aggregate. Required for all functions except COUNT.
+        """
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "attribute", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Threshold used in the selected function.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "threshold", value)
+
+
+class PathpointFlowStageStageKpiQueryTimeWindowArgsDict(TypedDict):
+    custom_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+    """
+    relative_range: NotRequired[pulumi.Input[Optional['PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgsDict']]]
+    """
+    Relative time window. Mutually exclusive with custom_range.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageStageKpiQueryTimeWindowArgs:
+    def __init__(__self__, *,
+                 custom_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_range: pulumi.Input[Optional['PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] custom_range: Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+        :param pulumi.Input['PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs'] relative_range: Relative time window. Mutually exclusive with custom_range.
+        """
+        if custom_range is not None:
+            pulumi.set(__self__, "custom_range", custom_range)
+        if relative_range is not None:
+            pulumi.set(__self__, "relative_range", relative_range)
+
+    @_builtins.property
+    @pulumi.getter(name="customRange")
+    def custom_range(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+        """
+        return pulumi.get(self, "custom_range")
+
+    @custom_range.setter
+    def custom_range(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_range", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relativeRange")
+    def relative_range(self) -> pulumi.Input[Optional['PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs']]:
+        """
+        Relative time window. Mutually exclusive with custom_range.
+        """
+        return pulumi.get(self, "relative_range")
+
+    @relative_range.setter
+    def relative_range(self, value: pulumi.Input[Optional['PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs']]):
+        pulumi.set(self, "relative_range", value)
+
+
+class PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgsDict(TypedDict):
+    since: pulumi.Input[_builtins.str]
+    """
+    How far back the KPI is evaluated.
+    """
+    compare_against: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The earlier window to compare against.
+    """
+
+@pulumi.input_type
+class PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs:
+    def __init__(__self__, *,
+                 since: pulumi.Input[_builtins.str],
+                 compare_against: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] since: How far back the KPI is evaluated.
+        :param pulumi.Input[_builtins.str] compare_against: The earlier window to compare against.
+        """
+        pulumi.set(__self__, "since", since)
+        if compare_against is not None:
+            pulumi.set(__self__, "compare_against", compare_against)
+
+    @_builtins.property
+    @pulumi.getter
+    def since(self) -> pulumi.Input[_builtins.str]:
+        """
+        How far back the KPI is evaluated.
+        """
+        return pulumi.get(self, "since")
+
+    @since.setter
+    def since(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "since", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compareAgainst")
+    def compare_against(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The earlier window to compare against.
+        """
+        return pulumi.get(self, "compare_against")
+
+    @compare_against.setter
+    def compare_against(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "compare_against", value)
 
 
 class ServiceLevelEventsArgsDict(TypedDict):

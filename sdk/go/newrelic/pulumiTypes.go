@@ -33670,6 +33670,2293 @@ func (o OneDashboardVariableOptionArrayOutput) Index(i pulumi.IntInput) OneDashb
 	}).(OneDashboardVariableOptionOutput)
 }
 
+type PathpointFlowKpi struct {
+	// The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+	AccountId *string `pulumi:"accountId"`
+	// A category used to group flows (e.g. `Marketing`, `Checkout`).
+	Category *string `pulumi:"category"`
+	// A brief description of the flow.
+	Description *string `pulumi:"description"`
+	// The unique identifier of the KPI.
+	Id *string `pulumi:"id"`
+	// NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+	MetricQuery *string `pulumi:"metricQuery"`
+	// The display name of the Pathpoint flow.
+	Name string `pulumi:"name"`
+	// NRQL query definition for this KPI.
+	Query PathpointFlowKpiQuery `pulumi:"query"`
+}
+
+// PathpointFlowKpiInput is an input type that accepts PathpointFlowKpiArgs and PathpointFlowKpiOutput values.
+// You can construct a concrete instance of `PathpointFlowKpiInput` via:
+//
+//	PathpointFlowKpiArgs{...}
+type PathpointFlowKpiInput interface {
+	pulumi.Input
+
+	ToPathpointFlowKpiOutput() PathpointFlowKpiOutput
+	ToPathpointFlowKpiOutputWithContext(context.Context) PathpointFlowKpiOutput
+}
+
+type PathpointFlowKpiArgs struct {
+	// The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// A category used to group flows (e.g. `Marketing`, `Checkout`).
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// A brief description of the flow.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The unique identifier of the KPI.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+	MetricQuery pulumi.StringPtrInput `pulumi:"metricQuery"`
+	// The display name of the Pathpoint flow.
+	Name pulumi.StringInput `pulumi:"name"`
+	// NRQL query definition for this KPI.
+	Query PathpointFlowKpiQueryInput `pulumi:"query"`
+}
+
+func (PathpointFlowKpiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpi)(nil)).Elem()
+}
+
+func (i PathpointFlowKpiArgs) ToPathpointFlowKpiOutput() PathpointFlowKpiOutput {
+	return i.ToPathpointFlowKpiOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowKpiArgs) ToPathpointFlowKpiOutputWithContext(ctx context.Context) PathpointFlowKpiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiOutput)
+}
+
+// PathpointFlowKpiArrayInput is an input type that accepts PathpointFlowKpiArray and PathpointFlowKpiArrayOutput values.
+// You can construct a concrete instance of `PathpointFlowKpiArrayInput` via:
+//
+//	PathpointFlowKpiArray{ PathpointFlowKpiArgs{...} }
+type PathpointFlowKpiArrayInput interface {
+	pulumi.Input
+
+	ToPathpointFlowKpiArrayOutput() PathpointFlowKpiArrayOutput
+	ToPathpointFlowKpiArrayOutputWithContext(context.Context) PathpointFlowKpiArrayOutput
+}
+
+type PathpointFlowKpiArray []PathpointFlowKpiInput
+
+func (PathpointFlowKpiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowKpi)(nil)).Elem()
+}
+
+func (i PathpointFlowKpiArray) ToPathpointFlowKpiArrayOutput() PathpointFlowKpiArrayOutput {
+	return i.ToPathpointFlowKpiArrayOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowKpiArray) ToPathpointFlowKpiArrayOutputWithContext(ctx context.Context) PathpointFlowKpiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiArrayOutput)
+}
+
+type PathpointFlowKpiOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowKpiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpi)(nil)).Elem()
+}
+
+func (o PathpointFlowKpiOutput) ToPathpointFlowKpiOutput() PathpointFlowKpiOutput {
+	return o
+}
+
+func (o PathpointFlowKpiOutput) ToPathpointFlowKpiOutputWithContext(ctx context.Context) PathpointFlowKpiOutput {
+	return o
+}
+
+// The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+func (o PathpointFlowKpiOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpi) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// A category used to group flows (e.g. `Marketing`, `Checkout`).
+func (o PathpointFlowKpiOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpi) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// A brief description of the flow.
+func (o PathpointFlowKpiOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpi) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of the KPI.
+func (o PathpointFlowKpiOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpi) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+func (o PathpointFlowKpiOutput) MetricQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpi) *string { return v.MetricQuery }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the Pathpoint flow.
+func (o PathpointFlowKpiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowKpi) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// NRQL query definition for this KPI.
+func (o PathpointFlowKpiOutput) Query() PathpointFlowKpiQueryOutput {
+	return o.ApplyT(func(v PathpointFlowKpi) PathpointFlowKpiQuery { return v.Query }).(PathpointFlowKpiQueryOutput)
+}
+
+type PathpointFlowKpiArrayOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowKpiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowKpi)(nil)).Elem()
+}
+
+func (o PathpointFlowKpiArrayOutput) ToPathpointFlowKpiArrayOutput() PathpointFlowKpiArrayOutput {
+	return o
+}
+
+func (o PathpointFlowKpiArrayOutput) ToPathpointFlowKpiArrayOutputWithContext(ctx context.Context) PathpointFlowKpiArrayOutput {
+	return o
+}
+
+func (o PathpointFlowKpiArrayOutput) Index(i pulumi.IntInput) PathpointFlowKpiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathpointFlowKpi {
+		return vs[0].([]PathpointFlowKpi)[vs[1].(int)]
+	}).(PathpointFlowKpiOutput)
+}
+
+type PathpointFlowKpiQuery struct {
+	// Data source to query from (e.g., Transaction, Metric, Log).
+	From string `pulumi:"from"`
+	// SELECT clause defining what to aggregate.
+	Select PathpointFlowKpiQuerySelect `pulumi:"select"`
+	// Time window for KPI evaluation.
+	TimeWindow *PathpointFlowKpiQueryTimeWindow `pulumi:"timeWindow"`
+	// Optional WHERE clause to filter data.
+	Where *string `pulumi:"where"`
+}
+
+// PathpointFlowKpiQueryInput is an input type that accepts PathpointFlowKpiQueryArgs and PathpointFlowKpiQueryOutput values.
+// You can construct a concrete instance of `PathpointFlowKpiQueryInput` via:
+//
+//	PathpointFlowKpiQueryArgs{...}
+type PathpointFlowKpiQueryInput interface {
+	pulumi.Input
+
+	ToPathpointFlowKpiQueryOutput() PathpointFlowKpiQueryOutput
+	ToPathpointFlowKpiQueryOutputWithContext(context.Context) PathpointFlowKpiQueryOutput
+}
+
+type PathpointFlowKpiQueryArgs struct {
+	// Data source to query from (e.g., Transaction, Metric, Log).
+	From pulumi.StringInput `pulumi:"from"`
+	// SELECT clause defining what to aggregate.
+	Select PathpointFlowKpiQuerySelectInput `pulumi:"select"`
+	// Time window for KPI evaluation.
+	TimeWindow PathpointFlowKpiQueryTimeWindowPtrInput `pulumi:"timeWindow"`
+	// Optional WHERE clause to filter data.
+	Where pulumi.StringPtrInput `pulumi:"where"`
+}
+
+func (PathpointFlowKpiQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpiQuery)(nil)).Elem()
+}
+
+func (i PathpointFlowKpiQueryArgs) ToPathpointFlowKpiQueryOutput() PathpointFlowKpiQueryOutput {
+	return i.ToPathpointFlowKpiQueryOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowKpiQueryArgs) ToPathpointFlowKpiQueryOutputWithContext(ctx context.Context) PathpointFlowKpiQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiQueryOutput)
+}
+
+type PathpointFlowKpiQueryOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowKpiQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpiQuery)(nil)).Elem()
+}
+
+func (o PathpointFlowKpiQueryOutput) ToPathpointFlowKpiQueryOutput() PathpointFlowKpiQueryOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQueryOutput) ToPathpointFlowKpiQueryOutputWithContext(ctx context.Context) PathpointFlowKpiQueryOutput {
+	return o
+}
+
+// Data source to query from (e.g., Transaction, Metric, Log).
+func (o PathpointFlowKpiQueryOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQuery) string { return v.From }).(pulumi.StringOutput)
+}
+
+// SELECT clause defining what to aggregate.
+func (o PathpointFlowKpiQueryOutput) Select() PathpointFlowKpiQuerySelectOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQuery) PathpointFlowKpiQuerySelect { return v.Select }).(PathpointFlowKpiQuerySelectOutput)
+}
+
+// Time window for KPI evaluation.
+func (o PathpointFlowKpiQueryOutput) TimeWindow() PathpointFlowKpiQueryTimeWindowPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQuery) *PathpointFlowKpiQueryTimeWindow { return v.TimeWindow }).(PathpointFlowKpiQueryTimeWindowPtrOutput)
+}
+
+// Optional WHERE clause to filter data.
+func (o PathpointFlowKpiQueryOutput) Where() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQuery) *string { return v.Where }).(pulumi.StringPtrOutput)
+}
+
+type PathpointFlowKpiQuerySelect struct {
+	// Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+	AggregationType string `pulumi:"aggregationType"`
+	// Optional alias for the aggregated value.
+	Alias *string `pulumi:"alias"`
+	// Attribute name to aggregate. Required for all functions except COUNT.
+	Attribute *string `pulumi:"attribute"`
+	// Threshold used in the selected function.
+	Threshold *float64 `pulumi:"threshold"`
+}
+
+// PathpointFlowKpiQuerySelectInput is an input type that accepts PathpointFlowKpiQuerySelectArgs and PathpointFlowKpiQuerySelectOutput values.
+// You can construct a concrete instance of `PathpointFlowKpiQuerySelectInput` via:
+//
+//	PathpointFlowKpiQuerySelectArgs{...}
+type PathpointFlowKpiQuerySelectInput interface {
+	pulumi.Input
+
+	ToPathpointFlowKpiQuerySelectOutput() PathpointFlowKpiQuerySelectOutput
+	ToPathpointFlowKpiQuerySelectOutputWithContext(context.Context) PathpointFlowKpiQuerySelectOutput
+}
+
+type PathpointFlowKpiQuerySelectArgs struct {
+	// Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+	AggregationType pulumi.StringInput `pulumi:"aggregationType"`
+	// Optional alias for the aggregated value.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// Attribute name to aggregate. Required for all functions except COUNT.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// Threshold used in the selected function.
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
+}
+
+func (PathpointFlowKpiQuerySelectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpiQuerySelect)(nil)).Elem()
+}
+
+func (i PathpointFlowKpiQuerySelectArgs) ToPathpointFlowKpiQuerySelectOutput() PathpointFlowKpiQuerySelectOutput {
+	return i.ToPathpointFlowKpiQuerySelectOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowKpiQuerySelectArgs) ToPathpointFlowKpiQuerySelectOutputWithContext(ctx context.Context) PathpointFlowKpiQuerySelectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiQuerySelectOutput)
+}
+
+type PathpointFlowKpiQuerySelectOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowKpiQuerySelectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpiQuerySelect)(nil)).Elem()
+}
+
+func (o PathpointFlowKpiQuerySelectOutput) ToPathpointFlowKpiQuerySelectOutput() PathpointFlowKpiQuerySelectOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQuerySelectOutput) ToPathpointFlowKpiQuerySelectOutputWithContext(ctx context.Context) PathpointFlowKpiQuerySelectOutput {
+	return o
+}
+
+// Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+func (o PathpointFlowKpiQuerySelectOutput) AggregationType() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQuerySelect) string { return v.AggregationType }).(pulumi.StringOutput)
+}
+
+// Optional alias for the aggregated value.
+func (o PathpointFlowKpiQuerySelectOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQuerySelect) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// Attribute name to aggregate. Required for all functions except COUNT.
+func (o PathpointFlowKpiQuerySelectOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQuerySelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// Threshold used in the selected function.
+func (o PathpointFlowKpiQuerySelectOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQuerySelect) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+type PathpointFlowKpiQueryTimeWindow struct {
+	// Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+	CustomRange *string `pulumi:"customRange"`
+	// Relative time window. Mutually exclusive with custom_range.
+	RelativeRange *PathpointFlowKpiQueryTimeWindowRelativeRange `pulumi:"relativeRange"`
+}
+
+// PathpointFlowKpiQueryTimeWindowInput is an input type that accepts PathpointFlowKpiQueryTimeWindowArgs and PathpointFlowKpiQueryTimeWindowOutput values.
+// You can construct a concrete instance of `PathpointFlowKpiQueryTimeWindowInput` via:
+//
+//	PathpointFlowKpiQueryTimeWindowArgs{...}
+type PathpointFlowKpiQueryTimeWindowInput interface {
+	pulumi.Input
+
+	ToPathpointFlowKpiQueryTimeWindowOutput() PathpointFlowKpiQueryTimeWindowOutput
+	ToPathpointFlowKpiQueryTimeWindowOutputWithContext(context.Context) PathpointFlowKpiQueryTimeWindowOutput
+}
+
+type PathpointFlowKpiQueryTimeWindowArgs struct {
+	// Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+	CustomRange pulumi.StringPtrInput `pulumi:"customRange"`
+	// Relative time window. Mutually exclusive with custom_range.
+	RelativeRange PathpointFlowKpiQueryTimeWindowRelativeRangePtrInput `pulumi:"relativeRange"`
+}
+
+func (PathpointFlowKpiQueryTimeWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpiQueryTimeWindow)(nil)).Elem()
+}
+
+func (i PathpointFlowKpiQueryTimeWindowArgs) ToPathpointFlowKpiQueryTimeWindowOutput() PathpointFlowKpiQueryTimeWindowOutput {
+	return i.ToPathpointFlowKpiQueryTimeWindowOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowKpiQueryTimeWindowArgs) ToPathpointFlowKpiQueryTimeWindowOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiQueryTimeWindowOutput)
+}
+
+func (i PathpointFlowKpiQueryTimeWindowArgs) ToPathpointFlowKpiQueryTimeWindowPtrOutput() PathpointFlowKpiQueryTimeWindowPtrOutput {
+	return i.ToPathpointFlowKpiQueryTimeWindowPtrOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowKpiQueryTimeWindowArgs) ToPathpointFlowKpiQueryTimeWindowPtrOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiQueryTimeWindowOutput).ToPathpointFlowKpiQueryTimeWindowPtrOutputWithContext(ctx)
+}
+
+// PathpointFlowKpiQueryTimeWindowPtrInput is an input type that accepts PathpointFlowKpiQueryTimeWindowArgs, PathpointFlowKpiQueryTimeWindowPtr and PathpointFlowKpiQueryTimeWindowPtrOutput values.
+// You can construct a concrete instance of `PathpointFlowKpiQueryTimeWindowPtrInput` via:
+//
+//	        PathpointFlowKpiQueryTimeWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type PathpointFlowKpiQueryTimeWindowPtrInput interface {
+	pulumi.Input
+
+	ToPathpointFlowKpiQueryTimeWindowPtrOutput() PathpointFlowKpiQueryTimeWindowPtrOutput
+	ToPathpointFlowKpiQueryTimeWindowPtrOutputWithContext(context.Context) PathpointFlowKpiQueryTimeWindowPtrOutput
+}
+
+type pathpointFlowKpiQueryTimeWindowPtrType PathpointFlowKpiQueryTimeWindowArgs
+
+func PathpointFlowKpiQueryTimeWindowPtr(v *PathpointFlowKpiQueryTimeWindowArgs) PathpointFlowKpiQueryTimeWindowPtrInput {
+	return (*pathpointFlowKpiQueryTimeWindowPtrType)(v)
+}
+
+func (*pathpointFlowKpiQueryTimeWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowKpiQueryTimeWindow)(nil)).Elem()
+}
+
+func (i *pathpointFlowKpiQueryTimeWindowPtrType) ToPathpointFlowKpiQueryTimeWindowPtrOutput() PathpointFlowKpiQueryTimeWindowPtrOutput {
+	return i.ToPathpointFlowKpiQueryTimeWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *pathpointFlowKpiQueryTimeWindowPtrType) ToPathpointFlowKpiQueryTimeWindowPtrOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiQueryTimeWindowPtrOutput)
+}
+
+type PathpointFlowKpiQueryTimeWindowOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowKpiQueryTimeWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpiQueryTimeWindow)(nil)).Elem()
+}
+
+func (o PathpointFlowKpiQueryTimeWindowOutput) ToPathpointFlowKpiQueryTimeWindowOutput() PathpointFlowKpiQueryTimeWindowOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQueryTimeWindowOutput) ToPathpointFlowKpiQueryTimeWindowOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQueryTimeWindowOutput) ToPathpointFlowKpiQueryTimeWindowPtrOutput() PathpointFlowKpiQueryTimeWindowPtrOutput {
+	return o.ToPathpointFlowKpiQueryTimeWindowPtrOutputWithContext(context.Background())
+}
+
+func (o PathpointFlowKpiQueryTimeWindowOutput) ToPathpointFlowKpiQueryTimeWindowPtrOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PathpointFlowKpiQueryTimeWindow) *PathpointFlowKpiQueryTimeWindow {
+		return &v
+	}).(PathpointFlowKpiQueryTimeWindowPtrOutput)
+}
+
+// Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+func (o PathpointFlowKpiQueryTimeWindowOutput) CustomRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQueryTimeWindow) *string { return v.CustomRange }).(pulumi.StringPtrOutput)
+}
+
+// Relative time window. Mutually exclusive with custom_range.
+func (o PathpointFlowKpiQueryTimeWindowOutput) RelativeRange() PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQueryTimeWindow) *PathpointFlowKpiQueryTimeWindowRelativeRange {
+		return v.RelativeRange
+	}).(PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput)
+}
+
+type PathpointFlowKpiQueryTimeWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowKpiQueryTimeWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowKpiQueryTimeWindow)(nil)).Elem()
+}
+
+func (o PathpointFlowKpiQueryTimeWindowPtrOutput) ToPathpointFlowKpiQueryTimeWindowPtrOutput() PathpointFlowKpiQueryTimeWindowPtrOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQueryTimeWindowPtrOutput) ToPathpointFlowKpiQueryTimeWindowPtrOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowPtrOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQueryTimeWindowPtrOutput) Elem() PathpointFlowKpiQueryTimeWindowOutput {
+	return o.ApplyT(func(v *PathpointFlowKpiQueryTimeWindow) PathpointFlowKpiQueryTimeWindow {
+		if v != nil {
+			return *v
+		}
+		var ret PathpointFlowKpiQueryTimeWindow
+		return ret
+	}).(PathpointFlowKpiQueryTimeWindowOutput)
+}
+
+// Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+func (o PathpointFlowKpiQueryTimeWindowPtrOutput) CustomRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowKpiQueryTimeWindow) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRange
+	}).(pulumi.StringPtrOutput)
+}
+
+// Relative time window. Mutually exclusive with custom_range.
+func (o PathpointFlowKpiQueryTimeWindowPtrOutput) RelativeRange() PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o.ApplyT(func(v *PathpointFlowKpiQueryTimeWindow) *PathpointFlowKpiQueryTimeWindowRelativeRange {
+		if v == nil {
+			return nil
+		}
+		return v.RelativeRange
+	}).(PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput)
+}
+
+type PathpointFlowKpiQueryTimeWindowRelativeRange struct {
+	// The earlier window to compare against.
+	CompareAgainst *string `pulumi:"compareAgainst"`
+	// How far back the KPI is evaluated.
+	Since string `pulumi:"since"`
+}
+
+// PathpointFlowKpiQueryTimeWindowRelativeRangeInput is an input type that accepts PathpointFlowKpiQueryTimeWindowRelativeRangeArgs and PathpointFlowKpiQueryTimeWindowRelativeRangeOutput values.
+// You can construct a concrete instance of `PathpointFlowKpiQueryTimeWindowRelativeRangeInput` via:
+//
+//	PathpointFlowKpiQueryTimeWindowRelativeRangeArgs{...}
+type PathpointFlowKpiQueryTimeWindowRelativeRangeInput interface {
+	pulumi.Input
+
+	ToPathpointFlowKpiQueryTimeWindowRelativeRangeOutput() PathpointFlowKpiQueryTimeWindowRelativeRangeOutput
+	ToPathpointFlowKpiQueryTimeWindowRelativeRangeOutputWithContext(context.Context) PathpointFlowKpiQueryTimeWindowRelativeRangeOutput
+}
+
+type PathpointFlowKpiQueryTimeWindowRelativeRangeArgs struct {
+	// The earlier window to compare against.
+	CompareAgainst pulumi.StringPtrInput `pulumi:"compareAgainst"`
+	// How far back the KPI is evaluated.
+	Since pulumi.StringInput `pulumi:"since"`
+}
+
+func (PathpointFlowKpiQueryTimeWindowRelativeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpiQueryTimeWindowRelativeRange)(nil)).Elem()
+}
+
+func (i PathpointFlowKpiQueryTimeWindowRelativeRangeArgs) ToPathpointFlowKpiQueryTimeWindowRelativeRangeOutput() PathpointFlowKpiQueryTimeWindowRelativeRangeOutput {
+	return i.ToPathpointFlowKpiQueryTimeWindowRelativeRangeOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowKpiQueryTimeWindowRelativeRangeArgs) ToPathpointFlowKpiQueryTimeWindowRelativeRangeOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowRelativeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiQueryTimeWindowRelativeRangeOutput)
+}
+
+func (i PathpointFlowKpiQueryTimeWindowRelativeRangeArgs) ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return i.ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowKpiQueryTimeWindowRelativeRangeArgs) ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiQueryTimeWindowRelativeRangeOutput).ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx)
+}
+
+// PathpointFlowKpiQueryTimeWindowRelativeRangePtrInput is an input type that accepts PathpointFlowKpiQueryTimeWindowRelativeRangeArgs, PathpointFlowKpiQueryTimeWindowRelativeRangePtr and PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput values.
+// You can construct a concrete instance of `PathpointFlowKpiQueryTimeWindowRelativeRangePtrInput` via:
+//
+//	        PathpointFlowKpiQueryTimeWindowRelativeRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PathpointFlowKpiQueryTimeWindowRelativeRangePtrInput interface {
+	pulumi.Input
+
+	ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput
+	ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutputWithContext(context.Context) PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput
+}
+
+type pathpointFlowKpiQueryTimeWindowRelativeRangePtrType PathpointFlowKpiQueryTimeWindowRelativeRangeArgs
+
+func PathpointFlowKpiQueryTimeWindowRelativeRangePtr(v *PathpointFlowKpiQueryTimeWindowRelativeRangeArgs) PathpointFlowKpiQueryTimeWindowRelativeRangePtrInput {
+	return (*pathpointFlowKpiQueryTimeWindowRelativeRangePtrType)(v)
+}
+
+func (*pathpointFlowKpiQueryTimeWindowRelativeRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowKpiQueryTimeWindowRelativeRange)(nil)).Elem()
+}
+
+func (i *pathpointFlowKpiQueryTimeWindowRelativeRangePtrType) ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return i.ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutputWithContext(context.Background())
+}
+
+func (i *pathpointFlowKpiQueryTimeWindowRelativeRangePtrType) ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput)
+}
+
+type PathpointFlowKpiQueryTimeWindowRelativeRangeOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowKpiQueryTimeWindowRelativeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowKpiQueryTimeWindowRelativeRange)(nil)).Elem()
+}
+
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangeOutput) ToPathpointFlowKpiQueryTimeWindowRelativeRangeOutput() PathpointFlowKpiQueryTimeWindowRelativeRangeOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangeOutput) ToPathpointFlowKpiQueryTimeWindowRelativeRangeOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowRelativeRangeOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangeOutput) ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o.ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutputWithContext(context.Background())
+}
+
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangeOutput) ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PathpointFlowKpiQueryTimeWindowRelativeRange) *PathpointFlowKpiQueryTimeWindowRelativeRange {
+		return &v
+	}).(PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput)
+}
+
+// The earlier window to compare against.
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangeOutput) CompareAgainst() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQueryTimeWindowRelativeRange) *string { return v.CompareAgainst }).(pulumi.StringPtrOutput)
+}
+
+// How far back the KPI is evaluated.
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangeOutput) Since() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowKpiQueryTimeWindowRelativeRange) string { return v.Since }).(pulumi.StringOutput)
+}
+
+type PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowKpiQueryTimeWindowRelativeRange)(nil)).Elem()
+}
+
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput) ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput) ToPathpointFlowKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx context.Context) PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o
+}
+
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput) Elem() PathpointFlowKpiQueryTimeWindowRelativeRangeOutput {
+	return o.ApplyT(func(v *PathpointFlowKpiQueryTimeWindowRelativeRange) PathpointFlowKpiQueryTimeWindowRelativeRange {
+		if v != nil {
+			return *v
+		}
+		var ret PathpointFlowKpiQueryTimeWindowRelativeRange
+		return ret
+	}).(PathpointFlowKpiQueryTimeWindowRelativeRangeOutput)
+}
+
+// The earlier window to compare against.
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput) CompareAgainst() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowKpiQueryTimeWindowRelativeRange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompareAgainst
+	}).(pulumi.StringPtrOutput)
+}
+
+// How far back the KPI is evaluated.
+func (o PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput) Since() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowKpiQueryTimeWindowRelativeRange) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Since
+	}).(pulumi.StringPtrOutput)
+}
+
+type PathpointFlowStage struct {
+	// Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+	HealthRollup *string `pulumi:"healthRollup"`
+	// Internal stage workload ID, used for updates.
+	Id *string `pulumi:"id"`
+	// When true, this stage is excluded from flow health calculation.
+	IsExcluded *bool `pulumi:"isExcluded"`
+	// Ordered list of levels within this stage.
+	Levels []PathpointFlowStageLevel `pulumi:"levels"`
+	// Optional URL to an external resource.
+	Link *string `pulumi:"link"`
+	// The display name of the Pathpoint flow.
+	Name string `pulumi:"name"`
+	// Relationship role of this stage within the flow.
+	Related *PathpointFlowStageRelated `pulumi:"related"`
+	// KPIs tracked at the stage level.
+	StageKpis []PathpointFlowStageStageKpi `pulumi:"stageKpis"`
+}
+
+// PathpointFlowStageInput is an input type that accepts PathpointFlowStageArgs and PathpointFlowStageOutput values.
+// You can construct a concrete instance of `PathpointFlowStageInput` via:
+//
+//	PathpointFlowStageArgs{...}
+type PathpointFlowStageInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageOutput() PathpointFlowStageOutput
+	ToPathpointFlowStageOutputWithContext(context.Context) PathpointFlowStageOutput
+}
+
+type PathpointFlowStageArgs struct {
+	// Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+	HealthRollup pulumi.StringPtrInput `pulumi:"healthRollup"`
+	// Internal stage workload ID, used for updates.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// When true, this stage is excluded from flow health calculation.
+	IsExcluded pulumi.BoolPtrInput `pulumi:"isExcluded"`
+	// Ordered list of levels within this stage.
+	Levels PathpointFlowStageLevelArrayInput `pulumi:"levels"`
+	// Optional URL to an external resource.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// The display name of the Pathpoint flow.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Relationship role of this stage within the flow.
+	Related PathpointFlowStageRelatedPtrInput `pulumi:"related"`
+	// KPIs tracked at the stage level.
+	StageKpis PathpointFlowStageStageKpiArrayInput `pulumi:"stageKpis"`
+}
+
+func (PathpointFlowStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStage)(nil)).Elem()
+}
+
+func (i PathpointFlowStageArgs) ToPathpointFlowStageOutput() PathpointFlowStageOutput {
+	return i.ToPathpointFlowStageOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageArgs) ToPathpointFlowStageOutputWithContext(ctx context.Context) PathpointFlowStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageOutput)
+}
+
+// PathpointFlowStageArrayInput is an input type that accepts PathpointFlowStageArray and PathpointFlowStageArrayOutput values.
+// You can construct a concrete instance of `PathpointFlowStageArrayInput` via:
+//
+//	PathpointFlowStageArray{ PathpointFlowStageArgs{...} }
+type PathpointFlowStageArrayInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageArrayOutput() PathpointFlowStageArrayOutput
+	ToPathpointFlowStageArrayOutputWithContext(context.Context) PathpointFlowStageArrayOutput
+}
+
+type PathpointFlowStageArray []PathpointFlowStageInput
+
+func (PathpointFlowStageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStage)(nil)).Elem()
+}
+
+func (i PathpointFlowStageArray) ToPathpointFlowStageArrayOutput() PathpointFlowStageArrayOutput {
+	return i.ToPathpointFlowStageArrayOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageArray) ToPathpointFlowStageArrayOutputWithContext(ctx context.Context) PathpointFlowStageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageArrayOutput)
+}
+
+type PathpointFlowStageOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStage)(nil)).Elem()
+}
+
+func (o PathpointFlowStageOutput) ToPathpointFlowStageOutput() PathpointFlowStageOutput {
+	return o
+}
+
+func (o PathpointFlowStageOutput) ToPathpointFlowStageOutputWithContext(ctx context.Context) PathpointFlowStageOutput {
+	return o
+}
+
+// Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+func (o PathpointFlowStageOutput) HealthRollup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStage) *string { return v.HealthRollup }).(pulumi.StringPtrOutput)
+}
+
+// Internal stage workload ID, used for updates.
+func (o PathpointFlowStageOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStage) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// When true, this stage is excluded from flow health calculation.
+func (o PathpointFlowStageOutput) IsExcluded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStage) *bool { return v.IsExcluded }).(pulumi.BoolPtrOutput)
+}
+
+// Ordered list of levels within this stage.
+func (o PathpointFlowStageOutput) Levels() PathpointFlowStageLevelArrayOutput {
+	return o.ApplyT(func(v PathpointFlowStage) []PathpointFlowStageLevel { return v.Levels }).(PathpointFlowStageLevelArrayOutput)
+}
+
+// Optional URL to an external resource.
+func (o PathpointFlowStageOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStage) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the Pathpoint flow.
+func (o PathpointFlowStageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowStage) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Relationship role of this stage within the flow.
+func (o PathpointFlowStageOutput) Related() PathpointFlowStageRelatedPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStage) *PathpointFlowStageRelated { return v.Related }).(PathpointFlowStageRelatedPtrOutput)
+}
+
+// KPIs tracked at the stage level.
+func (o PathpointFlowStageOutput) StageKpis() PathpointFlowStageStageKpiArrayOutput {
+	return o.ApplyT(func(v PathpointFlowStage) []PathpointFlowStageStageKpi { return v.StageKpis }).(PathpointFlowStageStageKpiArrayOutput)
+}
+
+type PathpointFlowStageArrayOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStage)(nil)).Elem()
+}
+
+func (o PathpointFlowStageArrayOutput) ToPathpointFlowStageArrayOutput() PathpointFlowStageArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageArrayOutput) ToPathpointFlowStageArrayOutputWithContext(ctx context.Context) PathpointFlowStageArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageArrayOutput) Index(i pulumi.IntInput) PathpointFlowStageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathpointFlowStage {
+		return vs[0].([]PathpointFlowStage)[vs[1].(int)]
+	}).(PathpointFlowStageOutput)
+}
+
+type PathpointFlowStageLevel struct {
+	// Internal level workload ID, used for updates.
+	Id *string `pulumi:"id"`
+	// Ordered list of steps within this level.
+	Steps []PathpointFlowStageLevelStep `pulumi:"steps"`
+}
+
+// PathpointFlowStageLevelInput is an input type that accepts PathpointFlowStageLevelArgs and PathpointFlowStageLevelOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelInput` via:
+//
+//	PathpointFlowStageLevelArgs{...}
+type PathpointFlowStageLevelInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelOutput() PathpointFlowStageLevelOutput
+	ToPathpointFlowStageLevelOutputWithContext(context.Context) PathpointFlowStageLevelOutput
+}
+
+type PathpointFlowStageLevelArgs struct {
+	// Internal level workload ID, used for updates.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Ordered list of steps within this level.
+	Steps PathpointFlowStageLevelStepArrayInput `pulumi:"steps"`
+}
+
+func (PathpointFlowStageLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevel)(nil)).Elem()
+}
+
+func (i PathpointFlowStageLevelArgs) ToPathpointFlowStageLevelOutput() PathpointFlowStageLevelOutput {
+	return i.ToPathpointFlowStageLevelOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelArgs) ToPathpointFlowStageLevelOutputWithContext(ctx context.Context) PathpointFlowStageLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelOutput)
+}
+
+// PathpointFlowStageLevelArrayInput is an input type that accepts PathpointFlowStageLevelArray and PathpointFlowStageLevelArrayOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelArrayInput` via:
+//
+//	PathpointFlowStageLevelArray{ PathpointFlowStageLevelArgs{...} }
+type PathpointFlowStageLevelArrayInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelArrayOutput() PathpointFlowStageLevelArrayOutput
+	ToPathpointFlowStageLevelArrayOutputWithContext(context.Context) PathpointFlowStageLevelArrayOutput
+}
+
+type PathpointFlowStageLevelArray []PathpointFlowStageLevelInput
+
+func (PathpointFlowStageLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStageLevel)(nil)).Elem()
+}
+
+func (i PathpointFlowStageLevelArray) ToPathpointFlowStageLevelArrayOutput() PathpointFlowStageLevelArrayOutput {
+	return i.ToPathpointFlowStageLevelArrayOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelArray) ToPathpointFlowStageLevelArrayOutputWithContext(ctx context.Context) PathpointFlowStageLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelArrayOutput)
+}
+
+type PathpointFlowStageLevelOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevel)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelOutput) ToPathpointFlowStageLevelOutput() PathpointFlowStageLevelOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelOutput) ToPathpointFlowStageLevelOutputWithContext(ctx context.Context) PathpointFlowStageLevelOutput {
+	return o
+}
+
+// Internal level workload ID, used for updates.
+func (o PathpointFlowStageLevelOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevel) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Ordered list of steps within this level.
+func (o PathpointFlowStageLevelOutput) Steps() PathpointFlowStageLevelStepArrayOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevel) []PathpointFlowStageLevelStep { return v.Steps }).(PathpointFlowStageLevelStepArrayOutput)
+}
+
+type PathpointFlowStageLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStageLevel)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelArrayOutput) ToPathpointFlowStageLevelArrayOutput() PathpointFlowStageLevelArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelArrayOutput) ToPathpointFlowStageLevelArrayOutputWithContext(ctx context.Context) PathpointFlowStageLevelArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelArrayOutput) Index(i pulumi.IntInput) PathpointFlowStageLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathpointFlowStageLevel {
+		return vs[0].([]PathpointFlowStageLevel)[vs[1].(int)]
+	}).(PathpointFlowStageLevelOutput)
+}
+
+type PathpointFlowStageLevelStep struct {
+	// Health evaluation configuration for this step.
+	Config *PathpointFlowStageLevelStepConfig `pulumi:"config"`
+	// Filter query used to fetch signals for this step.
+	EntitySearchQuery *PathpointFlowStageLevelStepEntitySearchQuery `pulumi:"entitySearchQuery"`
+	// Internal step workload ID, used for updates.
+	Id *string `pulumi:"id"`
+	// When true, this step is excluded from level health calculation.
+	IsExcluded *bool `pulumi:"isExcluded"`
+	// Optional URL to an external resource.
+	Link *string `pulumi:"link"`
+	// The display name of the Pathpoint flow.
+	Name string `pulumi:"name"`
+	// Account IDs whose data is scoped to this step.
+	ScopedAccounts []int `pulumi:"scopedAccounts"`
+	// Entity signals associated with this step.
+	Signals []PathpointFlowStageLevelStepSignal `pulumi:"signals"`
+}
+
+// PathpointFlowStageLevelStepInput is an input type that accepts PathpointFlowStageLevelStepArgs and PathpointFlowStageLevelStepOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelStepInput` via:
+//
+//	PathpointFlowStageLevelStepArgs{...}
+type PathpointFlowStageLevelStepInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelStepOutput() PathpointFlowStageLevelStepOutput
+	ToPathpointFlowStageLevelStepOutputWithContext(context.Context) PathpointFlowStageLevelStepOutput
+}
+
+type PathpointFlowStageLevelStepArgs struct {
+	// Health evaluation configuration for this step.
+	Config PathpointFlowStageLevelStepConfigPtrInput `pulumi:"config"`
+	// Filter query used to fetch signals for this step.
+	EntitySearchQuery PathpointFlowStageLevelStepEntitySearchQueryPtrInput `pulumi:"entitySearchQuery"`
+	// Internal step workload ID, used for updates.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// When true, this step is excluded from level health calculation.
+	IsExcluded pulumi.BoolPtrInput `pulumi:"isExcluded"`
+	// Optional URL to an external resource.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// The display name of the Pathpoint flow.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Account IDs whose data is scoped to this step.
+	ScopedAccounts pulumi.IntArrayInput `pulumi:"scopedAccounts"`
+	// Entity signals associated with this step.
+	Signals PathpointFlowStageLevelStepSignalArrayInput `pulumi:"signals"`
+}
+
+func (PathpointFlowStageLevelStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevelStep)(nil)).Elem()
+}
+
+func (i PathpointFlowStageLevelStepArgs) ToPathpointFlowStageLevelStepOutput() PathpointFlowStageLevelStepOutput {
+	return i.ToPathpointFlowStageLevelStepOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelStepArgs) ToPathpointFlowStageLevelStepOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepOutput)
+}
+
+// PathpointFlowStageLevelStepArrayInput is an input type that accepts PathpointFlowStageLevelStepArray and PathpointFlowStageLevelStepArrayOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelStepArrayInput` via:
+//
+//	PathpointFlowStageLevelStepArray{ PathpointFlowStageLevelStepArgs{...} }
+type PathpointFlowStageLevelStepArrayInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelStepArrayOutput() PathpointFlowStageLevelStepArrayOutput
+	ToPathpointFlowStageLevelStepArrayOutputWithContext(context.Context) PathpointFlowStageLevelStepArrayOutput
+}
+
+type PathpointFlowStageLevelStepArray []PathpointFlowStageLevelStepInput
+
+func (PathpointFlowStageLevelStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStageLevelStep)(nil)).Elem()
+}
+
+func (i PathpointFlowStageLevelStepArray) ToPathpointFlowStageLevelStepArrayOutput() PathpointFlowStageLevelStepArrayOutput {
+	return i.ToPathpointFlowStageLevelStepArrayOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelStepArray) ToPathpointFlowStageLevelStepArrayOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepArrayOutput)
+}
+
+type PathpointFlowStageLevelStepOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevelStep)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelStepOutput) ToPathpointFlowStageLevelStepOutput() PathpointFlowStageLevelStepOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepOutput) ToPathpointFlowStageLevelStepOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepOutput {
+	return o
+}
+
+// Health evaluation configuration for this step.
+func (o PathpointFlowStageLevelStepOutput) Config() PathpointFlowStageLevelStepConfigPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStep) *PathpointFlowStageLevelStepConfig { return v.Config }).(PathpointFlowStageLevelStepConfigPtrOutput)
+}
+
+// Filter query used to fetch signals for this step.
+func (o PathpointFlowStageLevelStepOutput) EntitySearchQuery() PathpointFlowStageLevelStepEntitySearchQueryPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStep) *PathpointFlowStageLevelStepEntitySearchQuery {
+		return v.EntitySearchQuery
+	}).(PathpointFlowStageLevelStepEntitySearchQueryPtrOutput)
+}
+
+// Internal step workload ID, used for updates.
+func (o PathpointFlowStageLevelStepOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStep) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// When true, this step is excluded from level health calculation.
+func (o PathpointFlowStageLevelStepOutput) IsExcluded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStep) *bool { return v.IsExcluded }).(pulumi.BoolPtrOutput)
+}
+
+// Optional URL to an external resource.
+func (o PathpointFlowStageLevelStepOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStep) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the Pathpoint flow.
+func (o PathpointFlowStageLevelStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStep) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Account IDs whose data is scoped to this step.
+func (o PathpointFlowStageLevelStepOutput) ScopedAccounts() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStep) []int { return v.ScopedAccounts }).(pulumi.IntArrayOutput)
+}
+
+// Entity signals associated with this step.
+func (o PathpointFlowStageLevelStepOutput) Signals() PathpointFlowStageLevelStepSignalArrayOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStep) []PathpointFlowStageLevelStepSignal { return v.Signals }).(PathpointFlowStageLevelStepSignalArrayOutput)
+}
+
+type PathpointFlowStageLevelStepArrayOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStageLevelStep)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelStepArrayOutput) ToPathpointFlowStageLevelStepArrayOutput() PathpointFlowStageLevelStepArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepArrayOutput) ToPathpointFlowStageLevelStepArrayOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepArrayOutput) Index(i pulumi.IntInput) PathpointFlowStageLevelStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathpointFlowStageLevelStep {
+		return vs[0].([]PathpointFlowStageLevelStep)[vs[1].(int)]
+	}).(PathpointFlowStageLevelStepOutput)
+}
+
+type PathpointFlowStageLevelStepConfig struct {
+	// Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+	HealthRollup *string `pulumi:"healthRollup"`
+	// Whether threshold is FIXED or PERCENTAGE.
+	ThresholdType *string `pulumi:"thresholdType"`
+	// Numeric threshold value for step health evaluation.
+	ThresholdValue *int `pulumi:"thresholdValue"`
+}
+
+// PathpointFlowStageLevelStepConfigInput is an input type that accepts PathpointFlowStageLevelStepConfigArgs and PathpointFlowStageLevelStepConfigOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelStepConfigInput` via:
+//
+//	PathpointFlowStageLevelStepConfigArgs{...}
+type PathpointFlowStageLevelStepConfigInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelStepConfigOutput() PathpointFlowStageLevelStepConfigOutput
+	ToPathpointFlowStageLevelStepConfigOutputWithContext(context.Context) PathpointFlowStageLevelStepConfigOutput
+}
+
+type PathpointFlowStageLevelStepConfigArgs struct {
+	// Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+	HealthRollup pulumi.StringPtrInput `pulumi:"healthRollup"`
+	// Whether threshold is FIXED or PERCENTAGE.
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
+	// Numeric threshold value for step health evaluation.
+	ThresholdValue pulumi.IntPtrInput `pulumi:"thresholdValue"`
+}
+
+func (PathpointFlowStageLevelStepConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevelStepConfig)(nil)).Elem()
+}
+
+func (i PathpointFlowStageLevelStepConfigArgs) ToPathpointFlowStageLevelStepConfigOutput() PathpointFlowStageLevelStepConfigOutput {
+	return i.ToPathpointFlowStageLevelStepConfigOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelStepConfigArgs) ToPathpointFlowStageLevelStepConfigOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepConfigOutput)
+}
+
+func (i PathpointFlowStageLevelStepConfigArgs) ToPathpointFlowStageLevelStepConfigPtrOutput() PathpointFlowStageLevelStepConfigPtrOutput {
+	return i.ToPathpointFlowStageLevelStepConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelStepConfigArgs) ToPathpointFlowStageLevelStepConfigPtrOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepConfigOutput).ToPathpointFlowStageLevelStepConfigPtrOutputWithContext(ctx)
+}
+
+// PathpointFlowStageLevelStepConfigPtrInput is an input type that accepts PathpointFlowStageLevelStepConfigArgs, PathpointFlowStageLevelStepConfigPtr and PathpointFlowStageLevelStepConfigPtrOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelStepConfigPtrInput` via:
+//
+//	        PathpointFlowStageLevelStepConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type PathpointFlowStageLevelStepConfigPtrInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelStepConfigPtrOutput() PathpointFlowStageLevelStepConfigPtrOutput
+	ToPathpointFlowStageLevelStepConfigPtrOutputWithContext(context.Context) PathpointFlowStageLevelStepConfigPtrOutput
+}
+
+type pathpointFlowStageLevelStepConfigPtrType PathpointFlowStageLevelStepConfigArgs
+
+func PathpointFlowStageLevelStepConfigPtr(v *PathpointFlowStageLevelStepConfigArgs) PathpointFlowStageLevelStepConfigPtrInput {
+	return (*pathpointFlowStageLevelStepConfigPtrType)(v)
+}
+
+func (*pathpointFlowStageLevelStepConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageLevelStepConfig)(nil)).Elem()
+}
+
+func (i *pathpointFlowStageLevelStepConfigPtrType) ToPathpointFlowStageLevelStepConfigPtrOutput() PathpointFlowStageLevelStepConfigPtrOutput {
+	return i.ToPathpointFlowStageLevelStepConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *pathpointFlowStageLevelStepConfigPtrType) ToPathpointFlowStageLevelStepConfigPtrOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepConfigPtrOutput)
+}
+
+type PathpointFlowStageLevelStepConfigOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelStepConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevelStepConfig)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelStepConfigOutput) ToPathpointFlowStageLevelStepConfigOutput() PathpointFlowStageLevelStepConfigOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepConfigOutput) ToPathpointFlowStageLevelStepConfigOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepConfigOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepConfigOutput) ToPathpointFlowStageLevelStepConfigPtrOutput() PathpointFlowStageLevelStepConfigPtrOutput {
+	return o.ToPathpointFlowStageLevelStepConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PathpointFlowStageLevelStepConfigOutput) ToPathpointFlowStageLevelStepConfigPtrOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PathpointFlowStageLevelStepConfig) *PathpointFlowStageLevelStepConfig {
+		return &v
+	}).(PathpointFlowStageLevelStepConfigPtrOutput)
+}
+
+// Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+func (o PathpointFlowStageLevelStepConfigOutput) HealthRollup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStepConfig) *string { return v.HealthRollup }).(pulumi.StringPtrOutput)
+}
+
+// Whether threshold is FIXED or PERCENTAGE.
+func (o PathpointFlowStageLevelStepConfigOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStepConfig) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
+}
+
+// Numeric threshold value for step health evaluation.
+func (o PathpointFlowStageLevelStepConfigOutput) ThresholdValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStepConfig) *int { return v.ThresholdValue }).(pulumi.IntPtrOutput)
+}
+
+type PathpointFlowStageLevelStepConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelStepConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageLevelStepConfig)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelStepConfigPtrOutput) ToPathpointFlowStageLevelStepConfigPtrOutput() PathpointFlowStageLevelStepConfigPtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepConfigPtrOutput) ToPathpointFlowStageLevelStepConfigPtrOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepConfigPtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepConfigPtrOutput) Elem() PathpointFlowStageLevelStepConfigOutput {
+	return o.ApplyT(func(v *PathpointFlowStageLevelStepConfig) PathpointFlowStageLevelStepConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PathpointFlowStageLevelStepConfig
+		return ret
+	}).(PathpointFlowStageLevelStepConfigOutput)
+}
+
+// Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+func (o PathpointFlowStageLevelStepConfigPtrOutput) HealthRollup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageLevelStepConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthRollup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether threshold is FIXED or PERCENTAGE.
+func (o PathpointFlowStageLevelStepConfigPtrOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageLevelStepConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Numeric threshold value for step health evaluation.
+func (o PathpointFlowStageLevelStepConfigPtrOutput) ThresholdValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageLevelStepConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdValue
+	}).(pulumi.IntPtrOutput)
+}
+
+type PathpointFlowStageLevelStepEntitySearchQuery struct {
+	// When true, this query is excluded from health calculation.
+	IsExcluded *bool `pulumi:"isExcluded"`
+	// Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.
+	Query string `pulumi:"query"`
+}
+
+// PathpointFlowStageLevelStepEntitySearchQueryInput is an input type that accepts PathpointFlowStageLevelStepEntitySearchQueryArgs and PathpointFlowStageLevelStepEntitySearchQueryOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelStepEntitySearchQueryInput` via:
+//
+//	PathpointFlowStageLevelStepEntitySearchQueryArgs{...}
+type PathpointFlowStageLevelStepEntitySearchQueryInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelStepEntitySearchQueryOutput() PathpointFlowStageLevelStepEntitySearchQueryOutput
+	ToPathpointFlowStageLevelStepEntitySearchQueryOutputWithContext(context.Context) PathpointFlowStageLevelStepEntitySearchQueryOutput
+}
+
+type PathpointFlowStageLevelStepEntitySearchQueryArgs struct {
+	// When true, this query is excluded from health calculation.
+	IsExcluded pulumi.BoolPtrInput `pulumi:"isExcluded"`
+	// Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (PathpointFlowStageLevelStepEntitySearchQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevelStepEntitySearchQuery)(nil)).Elem()
+}
+
+func (i PathpointFlowStageLevelStepEntitySearchQueryArgs) ToPathpointFlowStageLevelStepEntitySearchQueryOutput() PathpointFlowStageLevelStepEntitySearchQueryOutput {
+	return i.ToPathpointFlowStageLevelStepEntitySearchQueryOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelStepEntitySearchQueryArgs) ToPathpointFlowStageLevelStepEntitySearchQueryOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepEntitySearchQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepEntitySearchQueryOutput)
+}
+
+func (i PathpointFlowStageLevelStepEntitySearchQueryArgs) ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutput() PathpointFlowStageLevelStepEntitySearchQueryPtrOutput {
+	return i.ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelStepEntitySearchQueryArgs) ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepEntitySearchQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepEntitySearchQueryOutput).ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutputWithContext(ctx)
+}
+
+// PathpointFlowStageLevelStepEntitySearchQueryPtrInput is an input type that accepts PathpointFlowStageLevelStepEntitySearchQueryArgs, PathpointFlowStageLevelStepEntitySearchQueryPtr and PathpointFlowStageLevelStepEntitySearchQueryPtrOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelStepEntitySearchQueryPtrInput` via:
+//
+//	        PathpointFlowStageLevelStepEntitySearchQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PathpointFlowStageLevelStepEntitySearchQueryPtrInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutput() PathpointFlowStageLevelStepEntitySearchQueryPtrOutput
+	ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutputWithContext(context.Context) PathpointFlowStageLevelStepEntitySearchQueryPtrOutput
+}
+
+type pathpointFlowStageLevelStepEntitySearchQueryPtrType PathpointFlowStageLevelStepEntitySearchQueryArgs
+
+func PathpointFlowStageLevelStepEntitySearchQueryPtr(v *PathpointFlowStageLevelStepEntitySearchQueryArgs) PathpointFlowStageLevelStepEntitySearchQueryPtrInput {
+	return (*pathpointFlowStageLevelStepEntitySearchQueryPtrType)(v)
+}
+
+func (*pathpointFlowStageLevelStepEntitySearchQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageLevelStepEntitySearchQuery)(nil)).Elem()
+}
+
+func (i *pathpointFlowStageLevelStepEntitySearchQueryPtrType) ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutput() PathpointFlowStageLevelStepEntitySearchQueryPtrOutput {
+	return i.ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *pathpointFlowStageLevelStepEntitySearchQueryPtrType) ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepEntitySearchQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepEntitySearchQueryPtrOutput)
+}
+
+type PathpointFlowStageLevelStepEntitySearchQueryOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelStepEntitySearchQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevelStepEntitySearchQuery)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelStepEntitySearchQueryOutput) ToPathpointFlowStageLevelStepEntitySearchQueryOutput() PathpointFlowStageLevelStepEntitySearchQueryOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepEntitySearchQueryOutput) ToPathpointFlowStageLevelStepEntitySearchQueryOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepEntitySearchQueryOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepEntitySearchQueryOutput) ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutput() PathpointFlowStageLevelStepEntitySearchQueryPtrOutput {
+	return o.ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PathpointFlowStageLevelStepEntitySearchQueryOutput) ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepEntitySearchQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PathpointFlowStageLevelStepEntitySearchQuery) *PathpointFlowStageLevelStepEntitySearchQuery {
+		return &v
+	}).(PathpointFlowStageLevelStepEntitySearchQueryPtrOutput)
+}
+
+// When true, this query is excluded from health calculation.
+func (o PathpointFlowStageLevelStepEntitySearchQueryOutput) IsExcluded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStepEntitySearchQuery) *bool { return v.IsExcluded }).(pulumi.BoolPtrOutput)
+}
+
+// Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.
+func (o PathpointFlowStageLevelStepEntitySearchQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStepEntitySearchQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type PathpointFlowStageLevelStepEntitySearchQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelStepEntitySearchQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageLevelStepEntitySearchQuery)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelStepEntitySearchQueryPtrOutput) ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutput() PathpointFlowStageLevelStepEntitySearchQueryPtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepEntitySearchQueryPtrOutput) ToPathpointFlowStageLevelStepEntitySearchQueryPtrOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepEntitySearchQueryPtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepEntitySearchQueryPtrOutput) Elem() PathpointFlowStageLevelStepEntitySearchQueryOutput {
+	return o.ApplyT(func(v *PathpointFlowStageLevelStepEntitySearchQuery) PathpointFlowStageLevelStepEntitySearchQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PathpointFlowStageLevelStepEntitySearchQuery
+		return ret
+	}).(PathpointFlowStageLevelStepEntitySearchQueryOutput)
+}
+
+// When true, this query is excluded from health calculation.
+func (o PathpointFlowStageLevelStepEntitySearchQueryPtrOutput) IsExcluded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageLevelStepEntitySearchQuery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsExcluded
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.
+func (o PathpointFlowStageLevelStepEntitySearchQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageLevelStepEntitySearchQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type PathpointFlowStageLevelStepSignal struct {
+	// The entity GUID assigned to this Pathpoint flow in New Relic.
+	Guid string `pulumi:"guid"`
+	// When true, this signal is excluded from step health calculation.
+	IsExcluded *bool `pulumi:"isExcluded"`
+	// The display name of the Pathpoint flow.
+	Name *string `pulumi:"name"`
+	// Whether this GUID belongs to an entity or an alert condition: ENTITY or ALERT.
+	Type *string `pulumi:"type"`
+}
+
+// PathpointFlowStageLevelStepSignalInput is an input type that accepts PathpointFlowStageLevelStepSignalArgs and PathpointFlowStageLevelStepSignalOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelStepSignalInput` via:
+//
+//	PathpointFlowStageLevelStepSignalArgs{...}
+type PathpointFlowStageLevelStepSignalInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelStepSignalOutput() PathpointFlowStageLevelStepSignalOutput
+	ToPathpointFlowStageLevelStepSignalOutputWithContext(context.Context) PathpointFlowStageLevelStepSignalOutput
+}
+
+type PathpointFlowStageLevelStepSignalArgs struct {
+	// The entity GUID assigned to this Pathpoint flow in New Relic.
+	Guid pulumi.StringInput `pulumi:"guid"`
+	// When true, this signal is excluded from step health calculation.
+	IsExcluded pulumi.BoolPtrInput `pulumi:"isExcluded"`
+	// The display name of the Pathpoint flow.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Whether this GUID belongs to an entity or an alert condition: ENTITY or ALERT.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PathpointFlowStageLevelStepSignalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevelStepSignal)(nil)).Elem()
+}
+
+func (i PathpointFlowStageLevelStepSignalArgs) ToPathpointFlowStageLevelStepSignalOutput() PathpointFlowStageLevelStepSignalOutput {
+	return i.ToPathpointFlowStageLevelStepSignalOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelStepSignalArgs) ToPathpointFlowStageLevelStepSignalOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepSignalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepSignalOutput)
+}
+
+// PathpointFlowStageLevelStepSignalArrayInput is an input type that accepts PathpointFlowStageLevelStepSignalArray and PathpointFlowStageLevelStepSignalArrayOutput values.
+// You can construct a concrete instance of `PathpointFlowStageLevelStepSignalArrayInput` via:
+//
+//	PathpointFlowStageLevelStepSignalArray{ PathpointFlowStageLevelStepSignalArgs{...} }
+type PathpointFlowStageLevelStepSignalArrayInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageLevelStepSignalArrayOutput() PathpointFlowStageLevelStepSignalArrayOutput
+	ToPathpointFlowStageLevelStepSignalArrayOutputWithContext(context.Context) PathpointFlowStageLevelStepSignalArrayOutput
+}
+
+type PathpointFlowStageLevelStepSignalArray []PathpointFlowStageLevelStepSignalInput
+
+func (PathpointFlowStageLevelStepSignalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStageLevelStepSignal)(nil)).Elem()
+}
+
+func (i PathpointFlowStageLevelStepSignalArray) ToPathpointFlowStageLevelStepSignalArrayOutput() PathpointFlowStageLevelStepSignalArrayOutput {
+	return i.ToPathpointFlowStageLevelStepSignalArrayOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageLevelStepSignalArray) ToPathpointFlowStageLevelStepSignalArrayOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepSignalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageLevelStepSignalArrayOutput)
+}
+
+type PathpointFlowStageLevelStepSignalOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelStepSignalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageLevelStepSignal)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelStepSignalOutput) ToPathpointFlowStageLevelStepSignalOutput() PathpointFlowStageLevelStepSignalOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepSignalOutput) ToPathpointFlowStageLevelStepSignalOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepSignalOutput {
+	return o
+}
+
+// The entity GUID assigned to this Pathpoint flow in New Relic.
+func (o PathpointFlowStageLevelStepSignalOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStepSignal) string { return v.Guid }).(pulumi.StringOutput)
+}
+
+// When true, this signal is excluded from step health calculation.
+func (o PathpointFlowStageLevelStepSignalOutput) IsExcluded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStepSignal) *bool { return v.IsExcluded }).(pulumi.BoolPtrOutput)
+}
+
+// The display name of the Pathpoint flow.
+func (o PathpointFlowStageLevelStepSignalOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStepSignal) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Whether this GUID belongs to an entity or an alert condition: ENTITY or ALERT.
+func (o PathpointFlowStageLevelStepSignalOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageLevelStepSignal) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PathpointFlowStageLevelStepSignalArrayOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageLevelStepSignalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStageLevelStepSignal)(nil)).Elem()
+}
+
+func (o PathpointFlowStageLevelStepSignalArrayOutput) ToPathpointFlowStageLevelStepSignalArrayOutput() PathpointFlowStageLevelStepSignalArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepSignalArrayOutput) ToPathpointFlowStageLevelStepSignalArrayOutputWithContext(ctx context.Context) PathpointFlowStageLevelStepSignalArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageLevelStepSignalArrayOutput) Index(i pulumi.IntInput) PathpointFlowStageLevelStepSignalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathpointFlowStageLevelStepSignal {
+		return vs[0].([]PathpointFlowStageLevelStepSignal)[vs[1].(int)]
+	}).(PathpointFlowStageLevelStepSignalOutput)
+}
+
+type PathpointFlowStageRelated struct {
+	// When true, this stage acts as a source to other stages.
+	Source *bool `pulumi:"source"`
+	// When true, this stage acts as a target to other stages.
+	Target *bool `pulumi:"target"`
+}
+
+// PathpointFlowStageRelatedInput is an input type that accepts PathpointFlowStageRelatedArgs and PathpointFlowStageRelatedOutput values.
+// You can construct a concrete instance of `PathpointFlowStageRelatedInput` via:
+//
+//	PathpointFlowStageRelatedArgs{...}
+type PathpointFlowStageRelatedInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageRelatedOutput() PathpointFlowStageRelatedOutput
+	ToPathpointFlowStageRelatedOutputWithContext(context.Context) PathpointFlowStageRelatedOutput
+}
+
+type PathpointFlowStageRelatedArgs struct {
+	// When true, this stage acts as a source to other stages.
+	Source pulumi.BoolPtrInput `pulumi:"source"`
+	// When true, this stage acts as a target to other stages.
+	Target pulumi.BoolPtrInput `pulumi:"target"`
+}
+
+func (PathpointFlowStageRelatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageRelated)(nil)).Elem()
+}
+
+func (i PathpointFlowStageRelatedArgs) ToPathpointFlowStageRelatedOutput() PathpointFlowStageRelatedOutput {
+	return i.ToPathpointFlowStageRelatedOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageRelatedArgs) ToPathpointFlowStageRelatedOutputWithContext(ctx context.Context) PathpointFlowStageRelatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageRelatedOutput)
+}
+
+func (i PathpointFlowStageRelatedArgs) ToPathpointFlowStageRelatedPtrOutput() PathpointFlowStageRelatedPtrOutput {
+	return i.ToPathpointFlowStageRelatedPtrOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageRelatedArgs) ToPathpointFlowStageRelatedPtrOutputWithContext(ctx context.Context) PathpointFlowStageRelatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageRelatedOutput).ToPathpointFlowStageRelatedPtrOutputWithContext(ctx)
+}
+
+// PathpointFlowStageRelatedPtrInput is an input type that accepts PathpointFlowStageRelatedArgs, PathpointFlowStageRelatedPtr and PathpointFlowStageRelatedPtrOutput values.
+// You can construct a concrete instance of `PathpointFlowStageRelatedPtrInput` via:
+//
+//	        PathpointFlowStageRelatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type PathpointFlowStageRelatedPtrInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageRelatedPtrOutput() PathpointFlowStageRelatedPtrOutput
+	ToPathpointFlowStageRelatedPtrOutputWithContext(context.Context) PathpointFlowStageRelatedPtrOutput
+}
+
+type pathpointFlowStageRelatedPtrType PathpointFlowStageRelatedArgs
+
+func PathpointFlowStageRelatedPtr(v *PathpointFlowStageRelatedArgs) PathpointFlowStageRelatedPtrInput {
+	return (*pathpointFlowStageRelatedPtrType)(v)
+}
+
+func (*pathpointFlowStageRelatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageRelated)(nil)).Elem()
+}
+
+func (i *pathpointFlowStageRelatedPtrType) ToPathpointFlowStageRelatedPtrOutput() PathpointFlowStageRelatedPtrOutput {
+	return i.ToPathpointFlowStageRelatedPtrOutputWithContext(context.Background())
+}
+
+func (i *pathpointFlowStageRelatedPtrType) ToPathpointFlowStageRelatedPtrOutputWithContext(ctx context.Context) PathpointFlowStageRelatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageRelatedPtrOutput)
+}
+
+type PathpointFlowStageRelatedOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageRelatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageRelated)(nil)).Elem()
+}
+
+func (o PathpointFlowStageRelatedOutput) ToPathpointFlowStageRelatedOutput() PathpointFlowStageRelatedOutput {
+	return o
+}
+
+func (o PathpointFlowStageRelatedOutput) ToPathpointFlowStageRelatedOutputWithContext(ctx context.Context) PathpointFlowStageRelatedOutput {
+	return o
+}
+
+func (o PathpointFlowStageRelatedOutput) ToPathpointFlowStageRelatedPtrOutput() PathpointFlowStageRelatedPtrOutput {
+	return o.ToPathpointFlowStageRelatedPtrOutputWithContext(context.Background())
+}
+
+func (o PathpointFlowStageRelatedOutput) ToPathpointFlowStageRelatedPtrOutputWithContext(ctx context.Context) PathpointFlowStageRelatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PathpointFlowStageRelated) *PathpointFlowStageRelated {
+		return &v
+	}).(PathpointFlowStageRelatedPtrOutput)
+}
+
+// When true, this stage acts as a source to other stages.
+func (o PathpointFlowStageRelatedOutput) Source() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageRelated) *bool { return v.Source }).(pulumi.BoolPtrOutput)
+}
+
+// When true, this stage acts as a target to other stages.
+func (o PathpointFlowStageRelatedOutput) Target() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageRelated) *bool { return v.Target }).(pulumi.BoolPtrOutput)
+}
+
+type PathpointFlowStageRelatedPtrOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageRelatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageRelated)(nil)).Elem()
+}
+
+func (o PathpointFlowStageRelatedPtrOutput) ToPathpointFlowStageRelatedPtrOutput() PathpointFlowStageRelatedPtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageRelatedPtrOutput) ToPathpointFlowStageRelatedPtrOutputWithContext(ctx context.Context) PathpointFlowStageRelatedPtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageRelatedPtrOutput) Elem() PathpointFlowStageRelatedOutput {
+	return o.ApplyT(func(v *PathpointFlowStageRelated) PathpointFlowStageRelated {
+		if v != nil {
+			return *v
+		}
+		var ret PathpointFlowStageRelated
+		return ret
+	}).(PathpointFlowStageRelatedOutput)
+}
+
+// When true, this stage acts as a source to other stages.
+func (o PathpointFlowStageRelatedPtrOutput) Source() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageRelated) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When true, this stage acts as a target to other stages.
+func (o PathpointFlowStageRelatedPtrOutput) Target() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageRelated) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PathpointFlowStageStageKpi struct {
+	// The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+	AccountId *string `pulumi:"accountId"`
+	// A category used to group flows (e.g. `Marketing`, `Checkout`).
+	Category *string `pulumi:"category"`
+	// A brief description of the flow.
+	Description *string `pulumi:"description"`
+	// The unique identifier of the KPI.
+	Id *string `pulumi:"id"`
+	// NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+	MetricQuery *string `pulumi:"metricQuery"`
+	// The display name of the Pathpoint flow.
+	Name string `pulumi:"name"`
+	// NRQL query definition for this KPI.
+	Query PathpointFlowStageStageKpiQuery `pulumi:"query"`
+}
+
+// PathpointFlowStageStageKpiInput is an input type that accepts PathpointFlowStageStageKpiArgs and PathpointFlowStageStageKpiOutput values.
+// You can construct a concrete instance of `PathpointFlowStageStageKpiInput` via:
+//
+//	PathpointFlowStageStageKpiArgs{...}
+type PathpointFlowStageStageKpiInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageStageKpiOutput() PathpointFlowStageStageKpiOutput
+	ToPathpointFlowStageStageKpiOutputWithContext(context.Context) PathpointFlowStageStageKpiOutput
+}
+
+type PathpointFlowStageStageKpiArgs struct {
+	// The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// A category used to group flows (e.g. `Marketing`, `Checkout`).
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// A brief description of the flow.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The unique identifier of the KPI.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+	MetricQuery pulumi.StringPtrInput `pulumi:"metricQuery"`
+	// The display name of the Pathpoint flow.
+	Name pulumi.StringInput `pulumi:"name"`
+	// NRQL query definition for this KPI.
+	Query PathpointFlowStageStageKpiQueryInput `pulumi:"query"`
+}
+
+func (PathpointFlowStageStageKpiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpi)(nil)).Elem()
+}
+
+func (i PathpointFlowStageStageKpiArgs) ToPathpointFlowStageStageKpiOutput() PathpointFlowStageStageKpiOutput {
+	return i.ToPathpointFlowStageStageKpiOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageStageKpiArgs) ToPathpointFlowStageStageKpiOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiOutput)
+}
+
+// PathpointFlowStageStageKpiArrayInput is an input type that accepts PathpointFlowStageStageKpiArray and PathpointFlowStageStageKpiArrayOutput values.
+// You can construct a concrete instance of `PathpointFlowStageStageKpiArrayInput` via:
+//
+//	PathpointFlowStageStageKpiArray{ PathpointFlowStageStageKpiArgs{...} }
+type PathpointFlowStageStageKpiArrayInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageStageKpiArrayOutput() PathpointFlowStageStageKpiArrayOutput
+	ToPathpointFlowStageStageKpiArrayOutputWithContext(context.Context) PathpointFlowStageStageKpiArrayOutput
+}
+
+type PathpointFlowStageStageKpiArray []PathpointFlowStageStageKpiInput
+
+func (PathpointFlowStageStageKpiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStageStageKpi)(nil)).Elem()
+}
+
+func (i PathpointFlowStageStageKpiArray) ToPathpointFlowStageStageKpiArrayOutput() PathpointFlowStageStageKpiArrayOutput {
+	return i.ToPathpointFlowStageStageKpiArrayOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageStageKpiArray) ToPathpointFlowStageStageKpiArrayOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiArrayOutput)
+}
+
+type PathpointFlowStageStageKpiOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageStageKpiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpi)(nil)).Elem()
+}
+
+func (o PathpointFlowStageStageKpiOutput) ToPathpointFlowStageStageKpiOutput() PathpointFlowStageStageKpiOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiOutput) ToPathpointFlowStageStageKpiOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiOutput {
+	return o
+}
+
+// The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+func (o PathpointFlowStageStageKpiOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpi) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// A category used to group flows (e.g. `Marketing`, `Checkout`).
+func (o PathpointFlowStageStageKpiOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpi) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// A brief description of the flow.
+func (o PathpointFlowStageStageKpiOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpi) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of the KPI.
+func (o PathpointFlowStageStageKpiOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpi) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+func (o PathpointFlowStageStageKpiOutput) MetricQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpi) *string { return v.MetricQuery }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the Pathpoint flow.
+func (o PathpointFlowStageStageKpiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpi) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// NRQL query definition for this KPI.
+func (o PathpointFlowStageStageKpiOutput) Query() PathpointFlowStageStageKpiQueryOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpi) PathpointFlowStageStageKpiQuery { return v.Query }).(PathpointFlowStageStageKpiQueryOutput)
+}
+
+type PathpointFlowStageStageKpiArrayOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageStageKpiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathpointFlowStageStageKpi)(nil)).Elem()
+}
+
+func (o PathpointFlowStageStageKpiArrayOutput) ToPathpointFlowStageStageKpiArrayOutput() PathpointFlowStageStageKpiArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiArrayOutput) ToPathpointFlowStageStageKpiArrayOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiArrayOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiArrayOutput) Index(i pulumi.IntInput) PathpointFlowStageStageKpiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathpointFlowStageStageKpi {
+		return vs[0].([]PathpointFlowStageStageKpi)[vs[1].(int)]
+	}).(PathpointFlowStageStageKpiOutput)
+}
+
+type PathpointFlowStageStageKpiQuery struct {
+	// Data source to query from (e.g., Transaction, Metric, Log).
+	From string `pulumi:"from"`
+	// SELECT clause defining what to aggregate.
+	Select PathpointFlowStageStageKpiQuerySelect `pulumi:"select"`
+	// Time window for KPI evaluation.
+	TimeWindow *PathpointFlowStageStageKpiQueryTimeWindow `pulumi:"timeWindow"`
+	// Optional WHERE clause to filter data.
+	Where *string `pulumi:"where"`
+}
+
+// PathpointFlowStageStageKpiQueryInput is an input type that accepts PathpointFlowStageStageKpiQueryArgs and PathpointFlowStageStageKpiQueryOutput values.
+// You can construct a concrete instance of `PathpointFlowStageStageKpiQueryInput` via:
+//
+//	PathpointFlowStageStageKpiQueryArgs{...}
+type PathpointFlowStageStageKpiQueryInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageStageKpiQueryOutput() PathpointFlowStageStageKpiQueryOutput
+	ToPathpointFlowStageStageKpiQueryOutputWithContext(context.Context) PathpointFlowStageStageKpiQueryOutput
+}
+
+type PathpointFlowStageStageKpiQueryArgs struct {
+	// Data source to query from (e.g., Transaction, Metric, Log).
+	From pulumi.StringInput `pulumi:"from"`
+	// SELECT clause defining what to aggregate.
+	Select PathpointFlowStageStageKpiQuerySelectInput `pulumi:"select"`
+	// Time window for KPI evaluation.
+	TimeWindow PathpointFlowStageStageKpiQueryTimeWindowPtrInput `pulumi:"timeWindow"`
+	// Optional WHERE clause to filter data.
+	Where pulumi.StringPtrInput `pulumi:"where"`
+}
+
+func (PathpointFlowStageStageKpiQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpiQuery)(nil)).Elem()
+}
+
+func (i PathpointFlowStageStageKpiQueryArgs) ToPathpointFlowStageStageKpiQueryOutput() PathpointFlowStageStageKpiQueryOutput {
+	return i.ToPathpointFlowStageStageKpiQueryOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageStageKpiQueryArgs) ToPathpointFlowStageStageKpiQueryOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiQueryOutput)
+}
+
+type PathpointFlowStageStageKpiQueryOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageStageKpiQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpiQuery)(nil)).Elem()
+}
+
+func (o PathpointFlowStageStageKpiQueryOutput) ToPathpointFlowStageStageKpiQueryOutput() PathpointFlowStageStageKpiQueryOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQueryOutput) ToPathpointFlowStageStageKpiQueryOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryOutput {
+	return o
+}
+
+// Data source to query from (e.g., Transaction, Metric, Log).
+func (o PathpointFlowStageStageKpiQueryOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQuery) string { return v.From }).(pulumi.StringOutput)
+}
+
+// SELECT clause defining what to aggregate.
+func (o PathpointFlowStageStageKpiQueryOutput) Select() PathpointFlowStageStageKpiQuerySelectOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQuery) PathpointFlowStageStageKpiQuerySelect { return v.Select }).(PathpointFlowStageStageKpiQuerySelectOutput)
+}
+
+// Time window for KPI evaluation.
+func (o PathpointFlowStageStageKpiQueryOutput) TimeWindow() PathpointFlowStageStageKpiQueryTimeWindowPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQuery) *PathpointFlowStageStageKpiQueryTimeWindow {
+		return v.TimeWindow
+	}).(PathpointFlowStageStageKpiQueryTimeWindowPtrOutput)
+}
+
+// Optional WHERE clause to filter data.
+func (o PathpointFlowStageStageKpiQueryOutput) Where() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQuery) *string { return v.Where }).(pulumi.StringPtrOutput)
+}
+
+type PathpointFlowStageStageKpiQuerySelect struct {
+	// Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+	AggregationType string `pulumi:"aggregationType"`
+	// Optional alias for the aggregated value.
+	Alias *string `pulumi:"alias"`
+	// Attribute name to aggregate. Required for all functions except COUNT.
+	Attribute *string `pulumi:"attribute"`
+	// Threshold used in the selected function.
+	Threshold *float64 `pulumi:"threshold"`
+}
+
+// PathpointFlowStageStageKpiQuerySelectInput is an input type that accepts PathpointFlowStageStageKpiQuerySelectArgs and PathpointFlowStageStageKpiQuerySelectOutput values.
+// You can construct a concrete instance of `PathpointFlowStageStageKpiQuerySelectInput` via:
+//
+//	PathpointFlowStageStageKpiQuerySelectArgs{...}
+type PathpointFlowStageStageKpiQuerySelectInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageStageKpiQuerySelectOutput() PathpointFlowStageStageKpiQuerySelectOutput
+	ToPathpointFlowStageStageKpiQuerySelectOutputWithContext(context.Context) PathpointFlowStageStageKpiQuerySelectOutput
+}
+
+type PathpointFlowStageStageKpiQuerySelectArgs struct {
+	// Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+	AggregationType pulumi.StringInput `pulumi:"aggregationType"`
+	// Optional alias for the aggregated value.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// Attribute name to aggregate. Required for all functions except COUNT.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// Threshold used in the selected function.
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
+}
+
+func (PathpointFlowStageStageKpiQuerySelectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpiQuerySelect)(nil)).Elem()
+}
+
+func (i PathpointFlowStageStageKpiQuerySelectArgs) ToPathpointFlowStageStageKpiQuerySelectOutput() PathpointFlowStageStageKpiQuerySelectOutput {
+	return i.ToPathpointFlowStageStageKpiQuerySelectOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageStageKpiQuerySelectArgs) ToPathpointFlowStageStageKpiQuerySelectOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQuerySelectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiQuerySelectOutput)
+}
+
+type PathpointFlowStageStageKpiQuerySelectOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageStageKpiQuerySelectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpiQuerySelect)(nil)).Elem()
+}
+
+func (o PathpointFlowStageStageKpiQuerySelectOutput) ToPathpointFlowStageStageKpiQuerySelectOutput() PathpointFlowStageStageKpiQuerySelectOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQuerySelectOutput) ToPathpointFlowStageStageKpiQuerySelectOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQuerySelectOutput {
+	return o
+}
+
+// Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+func (o PathpointFlowStageStageKpiQuerySelectOutput) AggregationType() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQuerySelect) string { return v.AggregationType }).(pulumi.StringOutput)
+}
+
+// Optional alias for the aggregated value.
+func (o PathpointFlowStageStageKpiQuerySelectOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQuerySelect) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// Attribute name to aggregate. Required for all functions except COUNT.
+func (o PathpointFlowStageStageKpiQuerySelectOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQuerySelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// Threshold used in the selected function.
+func (o PathpointFlowStageStageKpiQuerySelectOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQuerySelect) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+type PathpointFlowStageStageKpiQueryTimeWindow struct {
+	// Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+	CustomRange *string `pulumi:"customRange"`
+	// Relative time window. Mutually exclusive with custom_range.
+	RelativeRange *PathpointFlowStageStageKpiQueryTimeWindowRelativeRange `pulumi:"relativeRange"`
+}
+
+// PathpointFlowStageStageKpiQueryTimeWindowInput is an input type that accepts PathpointFlowStageStageKpiQueryTimeWindowArgs and PathpointFlowStageStageKpiQueryTimeWindowOutput values.
+// You can construct a concrete instance of `PathpointFlowStageStageKpiQueryTimeWindowInput` via:
+//
+//	PathpointFlowStageStageKpiQueryTimeWindowArgs{...}
+type PathpointFlowStageStageKpiQueryTimeWindowInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageStageKpiQueryTimeWindowOutput() PathpointFlowStageStageKpiQueryTimeWindowOutput
+	ToPathpointFlowStageStageKpiQueryTimeWindowOutputWithContext(context.Context) PathpointFlowStageStageKpiQueryTimeWindowOutput
+}
+
+type PathpointFlowStageStageKpiQueryTimeWindowArgs struct {
+	// Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+	CustomRange pulumi.StringPtrInput `pulumi:"customRange"`
+	// Relative time window. Mutually exclusive with custom_range.
+	RelativeRange PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrInput `pulumi:"relativeRange"`
+}
+
+func (PathpointFlowStageStageKpiQueryTimeWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindow)(nil)).Elem()
+}
+
+func (i PathpointFlowStageStageKpiQueryTimeWindowArgs) ToPathpointFlowStageStageKpiQueryTimeWindowOutput() PathpointFlowStageStageKpiQueryTimeWindowOutput {
+	return i.ToPathpointFlowStageStageKpiQueryTimeWindowOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageStageKpiQueryTimeWindowArgs) ToPathpointFlowStageStageKpiQueryTimeWindowOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiQueryTimeWindowOutput)
+}
+
+func (i PathpointFlowStageStageKpiQueryTimeWindowArgs) ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutput() PathpointFlowStageStageKpiQueryTimeWindowPtrOutput {
+	return i.ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageStageKpiQueryTimeWindowArgs) ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiQueryTimeWindowOutput).ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutputWithContext(ctx)
+}
+
+// PathpointFlowStageStageKpiQueryTimeWindowPtrInput is an input type that accepts PathpointFlowStageStageKpiQueryTimeWindowArgs, PathpointFlowStageStageKpiQueryTimeWindowPtr and PathpointFlowStageStageKpiQueryTimeWindowPtrOutput values.
+// You can construct a concrete instance of `PathpointFlowStageStageKpiQueryTimeWindowPtrInput` via:
+//
+//	        PathpointFlowStageStageKpiQueryTimeWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type PathpointFlowStageStageKpiQueryTimeWindowPtrInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutput() PathpointFlowStageStageKpiQueryTimeWindowPtrOutput
+	ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutputWithContext(context.Context) PathpointFlowStageStageKpiQueryTimeWindowPtrOutput
+}
+
+type pathpointFlowStageStageKpiQueryTimeWindowPtrType PathpointFlowStageStageKpiQueryTimeWindowArgs
+
+func PathpointFlowStageStageKpiQueryTimeWindowPtr(v *PathpointFlowStageStageKpiQueryTimeWindowArgs) PathpointFlowStageStageKpiQueryTimeWindowPtrInput {
+	return (*pathpointFlowStageStageKpiQueryTimeWindowPtrType)(v)
+}
+
+func (*pathpointFlowStageStageKpiQueryTimeWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageStageKpiQueryTimeWindow)(nil)).Elem()
+}
+
+func (i *pathpointFlowStageStageKpiQueryTimeWindowPtrType) ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutput() PathpointFlowStageStageKpiQueryTimeWindowPtrOutput {
+	return i.ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *pathpointFlowStageStageKpiQueryTimeWindowPtrType) ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiQueryTimeWindowPtrOutput)
+}
+
+type PathpointFlowStageStageKpiQueryTimeWindowOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageStageKpiQueryTimeWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindow)(nil)).Elem()
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowOutput) ToPathpointFlowStageStageKpiQueryTimeWindowOutput() PathpointFlowStageStageKpiQueryTimeWindowOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowOutput) ToPathpointFlowStageStageKpiQueryTimeWindowOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowOutput) ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutput() PathpointFlowStageStageKpiQueryTimeWindowPtrOutput {
+	return o.ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutputWithContext(context.Background())
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowOutput) ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PathpointFlowStageStageKpiQueryTimeWindow) *PathpointFlowStageStageKpiQueryTimeWindow {
+		return &v
+	}).(PathpointFlowStageStageKpiQueryTimeWindowPtrOutput)
+}
+
+// Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+func (o PathpointFlowStageStageKpiQueryTimeWindowOutput) CustomRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQueryTimeWindow) *string { return v.CustomRange }).(pulumi.StringPtrOutput)
+}
+
+// Relative time window. Mutually exclusive with custom_range.
+func (o PathpointFlowStageStageKpiQueryTimeWindowOutput) RelativeRange() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQueryTimeWindow) *PathpointFlowStageStageKpiQueryTimeWindowRelativeRange {
+		return v.RelativeRange
+	}).(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput)
+}
+
+type PathpointFlowStageStageKpiQueryTimeWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageStageKpiQueryTimeWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageStageKpiQueryTimeWindow)(nil)).Elem()
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowPtrOutput) ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutput() PathpointFlowStageStageKpiQueryTimeWindowPtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowPtrOutput) ToPathpointFlowStageStageKpiQueryTimeWindowPtrOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowPtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowPtrOutput) Elem() PathpointFlowStageStageKpiQueryTimeWindowOutput {
+	return o.ApplyT(func(v *PathpointFlowStageStageKpiQueryTimeWindow) PathpointFlowStageStageKpiQueryTimeWindow {
+		if v != nil {
+			return *v
+		}
+		var ret PathpointFlowStageStageKpiQueryTimeWindow
+		return ret
+	}).(PathpointFlowStageStageKpiQueryTimeWindowOutput)
+}
+
+// Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+func (o PathpointFlowStageStageKpiQueryTimeWindowPtrOutput) CustomRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageStageKpiQueryTimeWindow) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRange
+	}).(pulumi.StringPtrOutput)
+}
+
+// Relative time window. Mutually exclusive with custom_range.
+func (o PathpointFlowStageStageKpiQueryTimeWindowPtrOutput) RelativeRange() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageStageKpiQueryTimeWindow) *PathpointFlowStageStageKpiQueryTimeWindowRelativeRange {
+		if v == nil {
+			return nil
+		}
+		return v.RelativeRange
+	}).(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput)
+}
+
+type PathpointFlowStageStageKpiQueryTimeWindowRelativeRange struct {
+	// The earlier window to compare against.
+	CompareAgainst *string `pulumi:"compareAgainst"`
+	// How far back the KPI is evaluated.
+	Since string `pulumi:"since"`
+}
+
+// PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeInput is an input type that accepts PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs and PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput values.
+// You can construct a concrete instance of `PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeInput` via:
+//
+//	PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs{...}
+type PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput
+	ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutputWithContext(context.Context) PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput
+}
+
+type PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs struct {
+	// The earlier window to compare against.
+	CompareAgainst pulumi.StringPtrInput `pulumi:"compareAgainst"`
+	// How far back the KPI is evaluated.
+	Since pulumi.StringInput `pulumi:"since"`
+}
+
+func (PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindowRelativeRange)(nil)).Elem()
+}
+
+func (i PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput {
+	return i.ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput)
+}
+
+func (i PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return i.ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutputWithContext(context.Background())
+}
+
+func (i PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput).ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx)
+}
+
+// PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrInput is an input type that accepts PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs, PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtr and PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput values.
+// You can construct a concrete instance of `PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrInput` via:
+//
+//	        PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrInput interface {
+	pulumi.Input
+
+	ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput
+	ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutputWithContext(context.Context) PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput
+}
+
+type pathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrType PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs
+
+func PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtr(v *PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs) PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrInput {
+	return (*pathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrType)(v)
+}
+
+func (*pathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageStageKpiQueryTimeWindowRelativeRange)(nil)).Elem()
+}
+
+func (i *pathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrType) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return i.ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutputWithContext(context.Background())
+}
+
+func (i *pathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrType) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput)
+}
+
+type PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindowRelativeRange)(nil)).Elem()
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o.ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutputWithContext(context.Background())
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PathpointFlowStageStageKpiQueryTimeWindowRelativeRange) *PathpointFlowStageStageKpiQueryTimeWindowRelativeRange {
+		return &v
+	}).(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput)
+}
+
+// The earlier window to compare against.
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput) CompareAgainst() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQueryTimeWindowRelativeRange) *string { return v.CompareAgainst }).(pulumi.StringPtrOutput)
+}
+
+// How far back the KPI is evaluated.
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput) Since() pulumi.StringOutput {
+	return o.ApplyT(func(v PathpointFlowStageStageKpiQueryTimeWindowRelativeRange) string { return v.Since }).(pulumi.StringOutput)
+}
+
+type PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput struct{ *pulumi.OutputState }
+
+func (PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathpointFlowStageStageKpiQueryTimeWindowRelativeRange)(nil)).Elem()
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput) ToPathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutputWithContext(ctx context.Context) PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput {
+	return o
+}
+
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput) Elem() PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput {
+	return o.ApplyT(func(v *PathpointFlowStageStageKpiQueryTimeWindowRelativeRange) PathpointFlowStageStageKpiQueryTimeWindowRelativeRange {
+		if v != nil {
+			return *v
+		}
+		var ret PathpointFlowStageStageKpiQueryTimeWindowRelativeRange
+		return ret
+	}).(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput)
+}
+
+// The earlier window to compare against.
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput) CompareAgainst() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageStageKpiQueryTimeWindowRelativeRange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompareAgainst
+	}).(pulumi.StringPtrOutput)
+}
+
+// How far back the KPI is evaluated.
+func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput) Since() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PathpointFlowStageStageKpiQueryTimeWindowRelativeRange) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Since
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceLevelEvents struct {
 	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
 	// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
@@ -37684,6 +39971,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardVariableNrqlQueryPtrInput)(nil)).Elem(), OneDashboardVariableNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardVariableOptionInput)(nil)).Elem(), OneDashboardVariableOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardVariableOptionArrayInput)(nil)).Elem(), OneDashboardVariableOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowKpiInput)(nil)).Elem(), PathpointFlowKpiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowKpiArrayInput)(nil)).Elem(), PathpointFlowKpiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowKpiQueryInput)(nil)).Elem(), PathpointFlowKpiQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowKpiQuerySelectInput)(nil)).Elem(), PathpointFlowKpiQuerySelectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowKpiQueryTimeWindowInput)(nil)).Elem(), PathpointFlowKpiQueryTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowKpiQueryTimeWindowPtrInput)(nil)).Elem(), PathpointFlowKpiQueryTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowKpiQueryTimeWindowRelativeRangeInput)(nil)).Elem(), PathpointFlowKpiQueryTimeWindowRelativeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowKpiQueryTimeWindowRelativeRangePtrInput)(nil)).Elem(), PathpointFlowKpiQueryTimeWindowRelativeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageInput)(nil)).Elem(), PathpointFlowStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageArrayInput)(nil)).Elem(), PathpointFlowStageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelInput)(nil)).Elem(), PathpointFlowStageLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelArrayInput)(nil)).Elem(), PathpointFlowStageLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelStepInput)(nil)).Elem(), PathpointFlowStageLevelStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelStepArrayInput)(nil)).Elem(), PathpointFlowStageLevelStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelStepConfigInput)(nil)).Elem(), PathpointFlowStageLevelStepConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelStepConfigPtrInput)(nil)).Elem(), PathpointFlowStageLevelStepConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelStepEntitySearchQueryInput)(nil)).Elem(), PathpointFlowStageLevelStepEntitySearchQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelStepEntitySearchQueryPtrInput)(nil)).Elem(), PathpointFlowStageLevelStepEntitySearchQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelStepSignalInput)(nil)).Elem(), PathpointFlowStageLevelStepSignalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageLevelStepSignalArrayInput)(nil)).Elem(), PathpointFlowStageLevelStepSignalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageRelatedInput)(nil)).Elem(), PathpointFlowStageRelatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageRelatedPtrInput)(nil)).Elem(), PathpointFlowStageRelatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiInput)(nil)).Elem(), PathpointFlowStageStageKpiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiArrayInput)(nil)).Elem(), PathpointFlowStageStageKpiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiQueryInput)(nil)).Elem(), PathpointFlowStageStageKpiQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiQuerySelectInput)(nil)).Elem(), PathpointFlowStageStageKpiQuerySelectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindowInput)(nil)).Elem(), PathpointFlowStageStageKpiQueryTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindowPtrInput)(nil)).Elem(), PathpointFlowStageStageKpiQueryTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeInput)(nil)).Elem(), PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrInput)(nil)).Elem(), PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsInput)(nil)).Elem(), ServiceLevelEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsPtrInput)(nil)).Elem(), ServiceLevelEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsBadEventsInput)(nil)).Elem(), ServiceLevelEventsBadEventsArgs{})
@@ -38213,6 +40530,36 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardVariableNrqlQueryPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardVariableOptionOutput{})
 	pulumi.RegisterOutputType(OneDashboardVariableOptionArrayOutput{})
+	pulumi.RegisterOutputType(PathpointFlowKpiOutput{})
+	pulumi.RegisterOutputType(PathpointFlowKpiArrayOutput{})
+	pulumi.RegisterOutputType(PathpointFlowKpiQueryOutput{})
+	pulumi.RegisterOutputType(PathpointFlowKpiQuerySelectOutput{})
+	pulumi.RegisterOutputType(PathpointFlowKpiQueryTimeWindowOutput{})
+	pulumi.RegisterOutputType(PathpointFlowKpiQueryTimeWindowPtrOutput{})
+	pulumi.RegisterOutputType(PathpointFlowKpiQueryTimeWindowRelativeRangeOutput{})
+	pulumi.RegisterOutputType(PathpointFlowKpiQueryTimeWindowRelativeRangePtrOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageArrayOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelArrayOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelStepOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelStepArrayOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelStepConfigOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelStepConfigPtrOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelStepEntitySearchQueryOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelStepEntitySearchQueryPtrOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelStepSignalOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageLevelStepSignalArrayOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageRelatedOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageRelatedPtrOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageStageKpiOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageStageKpiArrayOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageStageKpiQueryOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageStageKpiQuerySelectOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageStageKpiQueryTimeWindowOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageStageKpiQueryTimeWindowPtrOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput{})
+	pulumi.RegisterOutputType(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsBadEventsOutput{})
