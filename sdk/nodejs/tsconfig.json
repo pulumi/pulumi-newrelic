@@ -91,6 +91,7 @@
         "oneDashboard.ts",
         "oneDashboardJson.ts",
         "oneDashboardRaw.ts",
+        "pathpointFlow.ts",
         "pipelineCloudRule.ts",
         "plugins/applicationSettings.ts",
         "plugins/index.ts",

@@ -275,6 +275,11 @@ export type OneDashboardRaw = import("./oneDashboardRaw").OneDashboardRaw;
 export const OneDashboardRaw: typeof import("./oneDashboardRaw").OneDashboardRaw = null as any;
 utilities.lazyLoad(exports, ["OneDashboardRaw"], () => require("./oneDashboardRaw"));
 
+export { PathpointFlowArgs, PathpointFlowState } from "./pathpointFlow";
+export type PathpointFlow = import("./pathpointFlow").PathpointFlow;
+export const PathpointFlow: typeof import("./pathpointFlow").PathpointFlow = null as any;
+utilities.lazyLoad(exports, ["PathpointFlow"], () => require("./pathpointFlow"));
+
 export { PipelineCloudRuleArgs, PipelineCloudRuleState } from "./pipelineCloudRule";
 export type PipelineCloudRule = import("./pipelineCloudRule").PipelineCloudRule;
 export const PipelineCloudRule: typeof import("./pipelineCloudRule").PipelineCloudRule = null as any;
@@ -397,6 +402,8 @@ const _module = {
                 return new OneDashboardJson(name, <any>undefined, { urn })
             case "newrelic:index/oneDashboardRaw:OneDashboardRaw":
                 return new OneDashboardRaw(name, <any>undefined, { urn })
+            case "newrelic:index/pathpointFlow:PathpointFlow":
+                return new PathpointFlow(name, <any>undefined, { urn })
             case "newrelic:index/pipelineCloudRule:PipelineCloudRule":
                 return new PipelineCloudRule(name, <any>undefined, { urn })
             case "newrelic:index/serviceLevel:ServiceLevel":
@@ -448,6 +455,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/obfuscationRule", _modu
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboard", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardJson", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardRaw", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/pathpointFlow", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/pipelineCloudRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/serviceLevel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/user", _module)

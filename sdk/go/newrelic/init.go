@@ -93,6 +93,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OneDashboardJson{}
 	case "newrelic:index/oneDashboardRaw:OneDashboardRaw":
 		r = &OneDashboardRaw{}
+	case "newrelic:index/pathpointFlow:PathpointFlow":
+		r = &PathpointFlow{}
 	case "newrelic:index/pipelineCloudRule:PipelineCloudRule":
 		r = &PipelineCloudRule{}
 	case "newrelic:index/serviceLevel:ServiceLevel":
@@ -312,6 +314,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/oneDashboardRaw",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/pathpointFlow",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

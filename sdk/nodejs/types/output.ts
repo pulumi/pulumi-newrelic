@@ -4159,6 +4159,325 @@ export interface OneDashboardVariableOption {
     showApplyAction?: boolean;
 }
 
+export interface PathpointFlowKpi {
+    /**
+     * The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+     */
+    accountId: string;
+    /**
+     * A category used to group flows (e.g. `Marketing`, `Checkout`).
+     */
+    category?: string;
+    /**
+     * A brief description of the flow.
+     */
+    description?: string;
+    /**
+     * The unique identifier of the KPI.
+     */
+    id: string;
+    /**
+     * NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+     */
+    metricQuery: string;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name: string;
+    /**
+     * NRQL query definition for this KPI.
+     */
+    query: outputs.PathpointFlowKpiQuery;
+}
+
+export interface PathpointFlowKpiQuery {
+    /**
+     * Data source to query from (e.g., Transaction, Metric, Log).
+     */
+    from: string;
+    /**
+     * SELECT clause defining what to aggregate.
+     */
+    select: outputs.PathpointFlowKpiQuerySelect;
+    /**
+     * Time window for KPI evaluation.
+     */
+    timeWindow?: outputs.PathpointFlowKpiQueryTimeWindow;
+    /**
+     * Optional WHERE clause to filter data.
+     */
+    where?: string;
+}
+
+export interface PathpointFlowKpiQuerySelect {
+    /**
+     * Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+     */
+    aggregationType: string;
+    /**
+     * Optional alias for the aggregated value.
+     */
+    alias: string;
+    /**
+     * Attribute name to aggregate. Required for all functions except COUNT.
+     */
+    attribute: string;
+    /**
+     * Threshold used in the selected function.
+     */
+    threshold?: number;
+}
+
+export interface PathpointFlowKpiQueryTimeWindow {
+    /**
+     * Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+     */
+    customRange?: string;
+    /**
+     * Relative time window. Mutually exclusive with custom_range.
+     */
+    relativeRange?: outputs.PathpointFlowKpiQueryTimeWindowRelativeRange;
+}
+
+export interface PathpointFlowKpiQueryTimeWindowRelativeRange {
+    /**
+     * The earlier window to compare against.
+     */
+    compareAgainst?: string;
+    /**
+     * How far back the KPI is evaluated.
+     */
+    since: string;
+}
+
+export interface PathpointFlowStage {
+    /**
+     * Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+     */
+    healthRollup?: string;
+    /**
+     * Internal stage workload ID, used for updates.
+     */
+    id: string;
+    /**
+     * When true, this stage is excluded from flow health calculation.
+     */
+    isExcluded?: boolean;
+    /**
+     * Ordered list of levels within this stage.
+     */
+    levels?: outputs.PathpointFlowStageLevel[];
+    /**
+     * Optional URL to an external resource.
+     */
+    link?: string;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name: string;
+    /**
+     * Relationship role of this stage within the flow.
+     */
+    related?: outputs.PathpointFlowStageRelated;
+    /**
+     * KPIs tracked at the stage level.
+     */
+    stageKpis?: outputs.PathpointFlowStageStageKpi[];
+}
+
+export interface PathpointFlowStageLevel {
+    /**
+     * Internal level workload ID, used for updates.
+     */
+    id: string;
+    /**
+     * Ordered list of steps within this level.
+     */
+    steps?: outputs.PathpointFlowStageLevelStep[];
+}
+
+export interface PathpointFlowStageLevelStep {
+    /**
+     * Health evaluation configuration for this step.
+     */
+    config: outputs.PathpointFlowStageLevelStepConfig;
+    /**
+     * Filter query used to fetch signals for this step.
+     */
+    entitySearchQuery?: outputs.PathpointFlowStageLevelStepEntitySearchQuery;
+    /**
+     * Internal step workload ID, used for updates.
+     */
+    id: string;
+    /**
+     * When true, this step is excluded from level health calculation.
+     */
+    isExcluded?: boolean;
+    /**
+     * Optional URL to an external resource.
+     */
+    link?: string;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name: string;
+    /**
+     * Account IDs whose data is scoped to this step.
+     */
+    scopedAccounts: number[];
+    /**
+     * Entity signals associated with this step.
+     */
+    signals?: outputs.PathpointFlowStageLevelStepSignal[];
+}
+
+export interface PathpointFlowStageLevelStepConfig {
+    /**
+     * Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+     */
+    healthRollup?: string;
+    /**
+     * Whether threshold is FIXED or PERCENTAGE.
+     */
+    thresholdType?: string;
+    /**
+     * Numeric threshold value for step health evaluation.
+     */
+    thresholdValue?: number;
+}
+
+export interface PathpointFlowStageLevelStepEntitySearchQuery {
+    /**
+     * When true, this query is excluded from health calculation.
+     */
+    isExcluded?: boolean;
+    /**
+     * Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.
+     */
+    query: string;
+}
+
+export interface PathpointFlowStageLevelStepSignal {
+    /**
+     * The entity GUID assigned to this Pathpoint flow in New Relic.
+     */
+    guid: string;
+    /**
+     * When true, this signal is excluded from step health calculation.
+     */
+    isExcluded?: boolean;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name: string;
+    /**
+     * Whether this GUID belongs to an entity or an alert condition: ENTITY or ALERT.
+     */
+    type?: string;
+}
+
+export interface PathpointFlowStageRelated {
+    /**
+     * When true, this stage acts as a source to other stages.
+     */
+    source?: boolean;
+    /**
+     * When true, this stage acts as a target to other stages.
+     */
+    target?: boolean;
+}
+
+export interface PathpointFlowStageStageKpi {
+    /**
+     * The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+     */
+    accountId: string;
+    /**
+     * A category used to group flows (e.g. `Marketing`, `Checkout`).
+     */
+    category?: string;
+    /**
+     * A brief description of the flow.
+     */
+    description?: string;
+    /**
+     * The unique identifier of the KPI.
+     */
+    id: string;
+    /**
+     * NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+     */
+    metricQuery: string;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name: string;
+    /**
+     * NRQL query definition for this KPI.
+     */
+    query: outputs.PathpointFlowStageStageKpiQuery;
+}
+
+export interface PathpointFlowStageStageKpiQuery {
+    /**
+     * Data source to query from (e.g., Transaction, Metric, Log).
+     */
+    from: string;
+    /**
+     * SELECT clause defining what to aggregate.
+     */
+    select: outputs.PathpointFlowStageStageKpiQuerySelect;
+    /**
+     * Time window for KPI evaluation.
+     */
+    timeWindow?: outputs.PathpointFlowStageStageKpiQueryTimeWindow;
+    /**
+     * Optional WHERE clause to filter data.
+     */
+    where?: string;
+}
+
+export interface PathpointFlowStageStageKpiQuerySelect {
+    /**
+     * Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+     */
+    aggregationType: string;
+    /**
+     * Optional alias for the aggregated value.
+     */
+    alias: string;
+    /**
+     * Attribute name to aggregate. Required for all functions except COUNT.
+     */
+    attribute: string;
+    /**
+     * Threshold used in the selected function.
+     */
+    threshold?: number;
+}
+
+export interface PathpointFlowStageStageKpiQueryTimeWindow {
+    /**
+     * Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+     */
+    customRange?: string;
+    /**
+     * Relative time window. Mutually exclusive with custom_range.
+     */
+    relativeRange?: outputs.PathpointFlowStageStageKpiQueryTimeWindowRelativeRange;
+}
+
+export interface PathpointFlowStageStageKpiQueryTimeWindowRelativeRange {
+    /**
+     * The earlier window to compare against.
+     */
+    compareAgainst?: string;
+    /**
+     * How far back the KPI is evaluated.
+     */
+    since: string;
+}
+
 export interface ServiceLevelEvents {
     /**
      * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,

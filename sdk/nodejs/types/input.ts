@@ -4102,6 +4102,325 @@ export interface OneDashboardVariableOption {
     showApplyAction?: pulumi.Input<boolean | undefined>;
 }
 
+export interface PathpointFlowKpi {
+    /**
+     * The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+     */
+    accountId?: pulumi.Input<string | undefined>;
+    /**
+     * A category used to group flows (e.g. `Marketing`, `Checkout`).
+     */
+    category?: pulumi.Input<string | undefined>;
+    /**
+     * A brief description of the flow.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * The unique identifier of the KPI.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+     */
+    metricQuery?: pulumi.Input<string | undefined>;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * NRQL query definition for this KPI.
+     */
+    query: pulumi.Input<inputs.PathpointFlowKpiQuery>;
+}
+
+export interface PathpointFlowKpiQuery {
+    /**
+     * Data source to query from (e.g., Transaction, Metric, Log).
+     */
+    from: pulumi.Input<string>;
+    /**
+     * SELECT clause defining what to aggregate.
+     */
+    select: pulumi.Input<inputs.PathpointFlowKpiQuerySelect>;
+    /**
+     * Time window for KPI evaluation.
+     */
+    timeWindow?: pulumi.Input<inputs.PathpointFlowKpiQueryTimeWindow | undefined>;
+    /**
+     * Optional WHERE clause to filter data.
+     */
+    where?: pulumi.Input<string | undefined>;
+}
+
+export interface PathpointFlowKpiQuerySelect {
+    /**
+     * Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+     */
+    aggregationType: pulumi.Input<string>;
+    /**
+     * Optional alias for the aggregated value.
+     */
+    alias?: pulumi.Input<string | undefined>;
+    /**
+     * Attribute name to aggregate. Required for all functions except COUNT.
+     */
+    attribute?: pulumi.Input<string | undefined>;
+    /**
+     * Threshold used in the selected function.
+     */
+    threshold?: pulumi.Input<number | undefined>;
+}
+
+export interface PathpointFlowKpiQueryTimeWindow {
+    /**
+     * Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+     */
+    customRange?: pulumi.Input<string | undefined>;
+    /**
+     * Relative time window. Mutually exclusive with custom_range.
+     */
+    relativeRange?: pulumi.Input<inputs.PathpointFlowKpiQueryTimeWindowRelativeRange | undefined>;
+}
+
+export interface PathpointFlowKpiQueryTimeWindowRelativeRange {
+    /**
+     * The earlier window to compare against.
+     */
+    compareAgainst?: pulumi.Input<string | undefined>;
+    /**
+     * How far back the KPI is evaluated.
+     */
+    since: pulumi.Input<string>;
+}
+
+export interface PathpointFlowStage {
+    /**
+     * Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+     */
+    healthRollup?: pulumi.Input<string | undefined>;
+    /**
+     * Internal stage workload ID, used for updates.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * When true, this stage is excluded from flow health calculation.
+     */
+    isExcluded?: pulumi.Input<boolean | undefined>;
+    /**
+     * Ordered list of levels within this stage.
+     */
+    levels?: pulumi.Input<pulumi.Input<inputs.PathpointFlowStageLevel>[] | undefined>;
+    /**
+     * Optional URL to an external resource.
+     */
+    link?: pulumi.Input<string | undefined>;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Relationship role of this stage within the flow.
+     */
+    related?: pulumi.Input<inputs.PathpointFlowStageRelated | undefined>;
+    /**
+     * KPIs tracked at the stage level.
+     */
+    stageKpis?: pulumi.Input<pulumi.Input<inputs.PathpointFlowStageStageKpi>[] | undefined>;
+}
+
+export interface PathpointFlowStageLevel {
+    /**
+     * Internal level workload ID, used for updates.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * Ordered list of steps within this level.
+     */
+    steps?: pulumi.Input<pulumi.Input<inputs.PathpointFlowStageLevelStep>[] | undefined>;
+}
+
+export interface PathpointFlowStageLevelStep {
+    /**
+     * Health evaluation configuration for this step.
+     */
+    config?: pulumi.Input<inputs.PathpointFlowStageLevelStepConfig | undefined>;
+    /**
+     * Filter query used to fetch signals for this step.
+     */
+    entitySearchQuery?: pulumi.Input<inputs.PathpointFlowStageLevelStepEntitySearchQuery | undefined>;
+    /**
+     * Internal step workload ID, used for updates.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * When true, this step is excluded from level health calculation.
+     */
+    isExcluded?: pulumi.Input<boolean | undefined>;
+    /**
+     * Optional URL to an external resource.
+     */
+    link?: pulumi.Input<string | undefined>;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Account IDs whose data is scoped to this step.
+     */
+    scopedAccounts?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+    /**
+     * Entity signals associated with this step.
+     */
+    signals?: pulumi.Input<pulumi.Input<inputs.PathpointFlowStageLevelStepSignal>[] | undefined>;
+}
+
+export interface PathpointFlowStageLevelStepConfig {
+    /**
+     * Health rollup strategy for the flow, derived from its stages. Valid values: `ALERT_CONDITIONS`, `AUTOMATIC_ROLL_UP`.
+     */
+    healthRollup?: pulumi.Input<string | undefined>;
+    /**
+     * Whether threshold is FIXED or PERCENTAGE.
+     */
+    thresholdType?: pulumi.Input<string | undefined>;
+    /**
+     * Numeric threshold value for step health evaluation.
+     */
+    thresholdValue?: pulumi.Input<number | undefined>;
+}
+
+export interface PathpointFlowStageLevelStepEntitySearchQuery {
+    /**
+     * When true, this query is excluded from health calculation.
+     */
+    isExcluded?: pulumi.Input<boolean | undefined>;
+    /**
+     * Filter query for signals, e.g. domain='NR1' AND type='APPLICATION'.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface PathpointFlowStageLevelStepSignal {
+    /**
+     * The entity GUID assigned to this Pathpoint flow in New Relic.
+     */
+    guid: pulumi.Input<string>;
+    /**
+     * When true, this signal is excluded from step health calculation.
+     */
+    isExcluded?: pulumi.Input<boolean | undefined>;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * Whether this GUID belongs to an entity or an alert condition: ENTITY or ALERT.
+     */
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface PathpointFlowStageRelated {
+    /**
+     * When true, this stage acts as a source to other stages.
+     */
+    source?: pulumi.Input<boolean | undefined>;
+    /**
+     * When true, this stage acts as a target to other stages.
+     */
+    target?: pulumi.Input<boolean | undefined>;
+}
+
+export interface PathpointFlowStageStageKpi {
+    /**
+     * The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
+     */
+    accountId?: pulumi.Input<string | undefined>;
+    /**
+     * A category used to group flows (e.g. `Marketing`, `Checkout`).
+     */
+    category?: pulumi.Input<string | undefined>;
+    /**
+     * A brief description of the flow.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * The unique identifier of the KPI.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * NRQL query using Metric, derived after processing event-to-metric rules. Read-only.
+     */
+    metricQuery?: pulumi.Input<string | undefined>;
+    /**
+     * The display name of the Pathpoint flow.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * NRQL query definition for this KPI.
+     */
+    query: pulumi.Input<inputs.PathpointFlowStageStageKpiQuery>;
+}
+
+export interface PathpointFlowStageStageKpiQuery {
+    /**
+     * Data source to query from (e.g., Transaction, Metric, Log).
+     */
+    from: pulumi.Input<string>;
+    /**
+     * SELECT clause defining what to aggregate.
+     */
+    select: pulumi.Input<inputs.PathpointFlowStageStageKpiQuerySelect>;
+    /**
+     * Time window for KPI evaluation.
+     */
+    timeWindow?: pulumi.Input<inputs.PathpointFlowStageStageKpiQueryTimeWindow | undefined>;
+    /**
+     * Optional WHERE clause to filter data.
+     */
+    where?: pulumi.Input<string | undefined>;
+}
+
+export interface PathpointFlowStageStageKpiQuerySelect {
+    /**
+     * Aggregation function: AVERAGE, COUNT, HISTOGRAM, MAX, MIN, PERCENTILE, SUM, UNIQUE_COUNT.
+     */
+    aggregationType: pulumi.Input<string>;
+    /**
+     * Optional alias for the aggregated value.
+     */
+    alias?: pulumi.Input<string | undefined>;
+    /**
+     * Attribute name to aggregate. Required for all functions except COUNT.
+     */
+    attribute?: pulumi.Input<string | undefined>;
+    /**
+     * Threshold used in the selected function.
+     */
+    threshold?: pulumi.Input<number | undefined>;
+}
+
+export interface PathpointFlowStageStageKpiQueryTimeWindow {
+    /**
+     * Raw NRQL time fragment, e.g. 'SINCE 3 days ago COMPARE WITH 1 day ago'. Mutually exclusive with relative_range.
+     */
+    customRange?: pulumi.Input<string | undefined>;
+    /**
+     * Relative time window. Mutually exclusive with custom_range.
+     */
+    relativeRange?: pulumi.Input<inputs.PathpointFlowStageStageKpiQueryTimeWindowRelativeRange | undefined>;
+}
+
+export interface PathpointFlowStageStageKpiQueryTimeWindowRelativeRange {
+    /**
+     * The earlier window to compare against.
+     */
+    compareAgainst?: pulumi.Input<string | undefined>;
+    /**
+     * How far back the KPI is evaluated.
+     */
+    since: pulumi.Input<string>;
+}
+
 export interface ServiceLevelEvents {
     /**
      * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
