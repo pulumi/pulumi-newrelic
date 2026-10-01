@@ -33,6 +33,7 @@ class GcpDmIntegrationsArgs:
                  data_flow: pulumi.Input[Optional['GcpDmIntegrationsDataFlowArgs']] = None,
                  data_proc: pulumi.Input[Optional['GcpDmIntegrationsDataProcArgs']] = None,
                  data_store: pulumi.Input[Optional['GcpDmIntegrationsDataStoreArgs']] = None,
+                 edge_container: pulumi.Input[Optional['GcpDmIntegrationsEdgeContainerArgs']] = None,
                  firebase_app_hosting: pulumi.Input[Optional['GcpDmIntegrationsFirebaseAppHostingArgs']] = None,
                  firebase_auth: pulumi.Input[Optional['GcpDmIntegrationsFirebaseAuthArgs']] = None,
                  firebase_database: pulumi.Input[Optional['GcpDmIntegrationsFirebaseDatabaseArgs']] = None,
@@ -72,6 +73,7 @@ class GcpDmIntegrationsArgs:
         :param pulumi.Input['GcpDmIntegrationsDataFlowArgs'] data_flow: GCP Cloud Dataflow.
         :param pulumi.Input['GcpDmIntegrationsDataProcArgs'] data_proc: GCP Cloud Dataproc.
         :param pulumi.Input['GcpDmIntegrationsDataStoreArgs'] data_store: GCP Cloud Datastore.
+        :param pulumi.Input['GcpDmIntegrationsEdgeContainerArgs'] edge_container: GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input['GcpDmIntegrationsFirebaseAppHostingArgs'] firebase_app_hosting: Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input['GcpDmIntegrationsFirebaseAuthArgs'] firebase_auth: Firebase Authentication (Dimensional Metrics only).
         :param pulumi.Input['GcpDmIntegrationsFirebaseDatabaseArgs'] firebase_database: GCP Firebase Realtime Database.
@@ -120,6 +122,8 @@ class GcpDmIntegrationsArgs:
             pulumi.set(__self__, "data_proc", data_proc)
         if data_store is not None:
             pulumi.set(__self__, "data_store", data_store)
+        if edge_container is not None:
+            pulumi.set(__self__, "edge_container", edge_container)
         if firebase_app_hosting is not None:
             pulumi.set(__self__, "firebase_app_hosting", firebase_app_hosting)
         if firebase_auth is not None:
@@ -312,6 +316,18 @@ class GcpDmIntegrationsArgs:
     @data_store.setter
     def data_store(self, value: pulumi.Input[Optional['GcpDmIntegrationsDataStoreArgs']]):
         pulumi.set(self, "data_store", value)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeContainer")
+    def edge_container(self) -> pulumi.Input[Optional['GcpDmIntegrationsEdgeContainerArgs']]:
+        """
+        GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+        """
+        return pulumi.get(self, "edge_container")
+
+    @edge_container.setter
+    def edge_container(self, value: pulumi.Input[Optional['GcpDmIntegrationsEdgeContainerArgs']]):
+        pulumi.set(self, "edge_container", value)
 
     @_builtins.property
     @pulumi.getter(name="firebaseAppHosting")
@@ -616,6 +632,7 @@ class _GcpDmIntegrationsState:
                  data_flow: pulumi.Input[Optional['GcpDmIntegrationsDataFlowArgs']] = None,
                  data_proc: pulumi.Input[Optional['GcpDmIntegrationsDataProcArgs']] = None,
                  data_store: pulumi.Input[Optional['GcpDmIntegrationsDataStoreArgs']] = None,
+                 edge_container: pulumi.Input[Optional['GcpDmIntegrationsEdgeContainerArgs']] = None,
                  firebase_app_hosting: pulumi.Input[Optional['GcpDmIntegrationsFirebaseAppHostingArgs']] = None,
                  firebase_auth: pulumi.Input[Optional['GcpDmIntegrationsFirebaseAuthArgs']] = None,
                  firebase_database: pulumi.Input[Optional['GcpDmIntegrationsFirebaseDatabaseArgs']] = None,
@@ -655,6 +672,7 @@ class _GcpDmIntegrationsState:
         :param pulumi.Input['GcpDmIntegrationsDataFlowArgs'] data_flow: GCP Cloud Dataflow.
         :param pulumi.Input['GcpDmIntegrationsDataProcArgs'] data_proc: GCP Cloud Dataproc.
         :param pulumi.Input['GcpDmIntegrationsDataStoreArgs'] data_store: GCP Cloud Datastore.
+        :param pulumi.Input['GcpDmIntegrationsEdgeContainerArgs'] edge_container: GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input['GcpDmIntegrationsFirebaseAppHostingArgs'] firebase_app_hosting: Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input['GcpDmIntegrationsFirebaseAuthArgs'] firebase_auth: Firebase Authentication (Dimensional Metrics only).
         :param pulumi.Input['GcpDmIntegrationsFirebaseDatabaseArgs'] firebase_database: GCP Firebase Realtime Database.
@@ -703,6 +721,8 @@ class _GcpDmIntegrationsState:
             pulumi.set(__self__, "data_proc", data_proc)
         if data_store is not None:
             pulumi.set(__self__, "data_store", data_store)
+        if edge_container is not None:
+            pulumi.set(__self__, "edge_container", edge_container)
         if firebase_app_hosting is not None:
             pulumi.set(__self__, "firebase_app_hosting", firebase_app_hosting)
         if firebase_auth is not None:
@@ -885,6 +905,18 @@ class _GcpDmIntegrationsState:
     @data_store.setter
     def data_store(self, value: pulumi.Input[Optional['GcpDmIntegrationsDataStoreArgs']]):
         pulumi.set(self, "data_store", value)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeContainer")
+    def edge_container(self) -> pulumi.Input[Optional['GcpDmIntegrationsEdgeContainerArgs']]:
+        """
+        GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+        """
+        return pulumi.get(self, "edge_container")
+
+    @edge_container.setter
+    def edge_container(self, value: pulumi.Input[Optional['GcpDmIntegrationsEdgeContainerArgs']]):
+        pulumi.set(self, "edge_container", value)
 
     @_builtins.property
     @pulumi.getter(name="firebaseAppHosting")
@@ -1204,6 +1236,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
                  data_flow: pulumi.Input[Optional[Union['GcpDmIntegrationsDataFlowArgs', 'GcpDmIntegrationsDataFlowArgsDict', 'outputs.GcpDmIntegrationsDataFlow']]] = None,
                  data_proc: pulumi.Input[Optional[Union['GcpDmIntegrationsDataProcArgs', 'GcpDmIntegrationsDataProcArgsDict', 'outputs.GcpDmIntegrationsDataProc']]] = None,
                  data_store: pulumi.Input[Optional[Union['GcpDmIntegrationsDataStoreArgs', 'GcpDmIntegrationsDataStoreArgsDict', 'outputs.GcpDmIntegrationsDataStore']]] = None,
+                 edge_container: pulumi.Input[Optional[Union['GcpDmIntegrationsEdgeContainerArgs', 'GcpDmIntegrationsEdgeContainerArgsDict', 'outputs.GcpDmIntegrationsEdgeContainer']]] = None,
                  firebase_app_hosting: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseAppHostingArgs', 'GcpDmIntegrationsFirebaseAppHostingArgsDict', 'outputs.GcpDmIntegrationsFirebaseAppHosting']]] = None,
                  firebase_auth: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseAuthArgs', 'GcpDmIntegrationsFirebaseAuthArgsDict', 'outputs.GcpDmIntegrationsFirebaseAuth']]] = None,
                  firebase_database: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseDatabaseArgs', 'GcpDmIntegrationsFirebaseDatabaseArgsDict', 'outputs.GcpDmIntegrationsFirebaseDatabase']]] = None,
@@ -1325,6 +1358,9 @@ class GcpDmIntegrations(pulumi.CustomResource):
             firebase_vertex_ai={
                 "metrics_polling_interval": 300,
             },
+            edge_container={
+                "metrics_polling_interval": 300,
+            },
             alloy_db={
                 "metrics_polling_interval": 60,
             },
@@ -1379,6 +1415,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['GcpDmIntegrationsDataFlowArgs', 'GcpDmIntegrationsDataFlowArgsDict', 'outputs.GcpDmIntegrationsDataFlow']] data_flow: GCP Cloud Dataflow.
         :param pulumi.Input[Union['GcpDmIntegrationsDataProcArgs', 'GcpDmIntegrationsDataProcArgsDict', 'outputs.GcpDmIntegrationsDataProc']] data_proc: GCP Cloud Dataproc.
         :param pulumi.Input[Union['GcpDmIntegrationsDataStoreArgs', 'GcpDmIntegrationsDataStoreArgsDict', 'outputs.GcpDmIntegrationsDataStore']] data_store: GCP Cloud Datastore.
+        :param pulumi.Input[Union['GcpDmIntegrationsEdgeContainerArgs', 'GcpDmIntegrationsEdgeContainerArgsDict', 'outputs.GcpDmIntegrationsEdgeContainer']] edge_container: GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input[Union['GcpDmIntegrationsFirebaseAppHostingArgs', 'GcpDmIntegrationsFirebaseAppHostingArgsDict', 'outputs.GcpDmIntegrationsFirebaseAppHosting']] firebase_app_hosting: Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input[Union['GcpDmIntegrationsFirebaseAuthArgs', 'GcpDmIntegrationsFirebaseAuthArgsDict', 'outputs.GcpDmIntegrationsFirebaseAuth']] firebase_auth: Firebase Authentication (Dimensional Metrics only).
         :param pulumi.Input[Union['GcpDmIntegrationsFirebaseDatabaseArgs', 'GcpDmIntegrationsFirebaseDatabaseArgsDict', 'outputs.GcpDmIntegrationsFirebaseDatabase']] firebase_database: GCP Firebase Realtime Database.
@@ -1506,6 +1543,9 @@ class GcpDmIntegrations(pulumi.CustomResource):
             firebase_vertex_ai={
                 "metrics_polling_interval": 300,
             },
+            edge_container={
+                "metrics_polling_interval": 300,
+            },
             alloy_db={
                 "metrics_polling_interval": 60,
             },
@@ -1573,6 +1613,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
                  data_flow: pulumi.Input[Optional[Union['GcpDmIntegrationsDataFlowArgs', 'GcpDmIntegrationsDataFlowArgsDict', 'outputs.GcpDmIntegrationsDataFlow']]] = None,
                  data_proc: pulumi.Input[Optional[Union['GcpDmIntegrationsDataProcArgs', 'GcpDmIntegrationsDataProcArgsDict', 'outputs.GcpDmIntegrationsDataProc']]] = None,
                  data_store: pulumi.Input[Optional[Union['GcpDmIntegrationsDataStoreArgs', 'GcpDmIntegrationsDataStoreArgsDict', 'outputs.GcpDmIntegrationsDataStore']]] = None,
+                 edge_container: pulumi.Input[Optional[Union['GcpDmIntegrationsEdgeContainerArgs', 'GcpDmIntegrationsEdgeContainerArgsDict', 'outputs.GcpDmIntegrationsEdgeContainer']]] = None,
                  firebase_app_hosting: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseAppHostingArgs', 'GcpDmIntegrationsFirebaseAppHostingArgsDict', 'outputs.GcpDmIntegrationsFirebaseAppHosting']]] = None,
                  firebase_auth: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseAuthArgs', 'GcpDmIntegrationsFirebaseAuthArgsDict', 'outputs.GcpDmIntegrationsFirebaseAuth']]] = None,
                  firebase_database: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseDatabaseArgs', 'GcpDmIntegrationsFirebaseDatabaseArgsDict', 'outputs.GcpDmIntegrationsFirebaseDatabase']]] = None,
@@ -1618,6 +1659,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
             __props__.__dict__["data_flow"] = data_flow
             __props__.__dict__["data_proc"] = data_proc
             __props__.__dict__["data_store"] = data_store
+            __props__.__dict__["edge_container"] = edge_container
             __props__.__dict__["firebase_app_hosting"] = firebase_app_hosting
             __props__.__dict__["firebase_auth"] = firebase_auth
             __props__.__dict__["firebase_database"] = firebase_database
@@ -1666,6 +1708,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
             data_flow: pulumi.Input[Optional[Union['GcpDmIntegrationsDataFlowArgs', 'GcpDmIntegrationsDataFlowArgsDict', 'outputs.GcpDmIntegrationsDataFlow']]] = None,
             data_proc: pulumi.Input[Optional[Union['GcpDmIntegrationsDataProcArgs', 'GcpDmIntegrationsDataProcArgsDict', 'outputs.GcpDmIntegrationsDataProc']]] = None,
             data_store: pulumi.Input[Optional[Union['GcpDmIntegrationsDataStoreArgs', 'GcpDmIntegrationsDataStoreArgsDict', 'outputs.GcpDmIntegrationsDataStore']]] = None,
+            edge_container: pulumi.Input[Optional[Union['GcpDmIntegrationsEdgeContainerArgs', 'GcpDmIntegrationsEdgeContainerArgsDict', 'outputs.GcpDmIntegrationsEdgeContainer']]] = None,
             firebase_app_hosting: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseAppHostingArgs', 'GcpDmIntegrationsFirebaseAppHostingArgsDict', 'outputs.GcpDmIntegrationsFirebaseAppHosting']]] = None,
             firebase_auth: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseAuthArgs', 'GcpDmIntegrationsFirebaseAuthArgsDict', 'outputs.GcpDmIntegrationsFirebaseAuth']]] = None,
             firebase_database: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseDatabaseArgs', 'GcpDmIntegrationsFirebaseDatabaseArgsDict', 'outputs.GcpDmIntegrationsFirebaseDatabase']]] = None,
@@ -1709,6 +1752,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['GcpDmIntegrationsDataFlowArgs', 'GcpDmIntegrationsDataFlowArgsDict', 'outputs.GcpDmIntegrationsDataFlow']] data_flow: GCP Cloud Dataflow.
         :param pulumi.Input[Union['GcpDmIntegrationsDataProcArgs', 'GcpDmIntegrationsDataProcArgsDict', 'outputs.GcpDmIntegrationsDataProc']] data_proc: GCP Cloud Dataproc.
         :param pulumi.Input[Union['GcpDmIntegrationsDataStoreArgs', 'GcpDmIntegrationsDataStoreArgsDict', 'outputs.GcpDmIntegrationsDataStore']] data_store: GCP Cloud Datastore.
+        :param pulumi.Input[Union['GcpDmIntegrationsEdgeContainerArgs', 'GcpDmIntegrationsEdgeContainerArgsDict', 'outputs.GcpDmIntegrationsEdgeContainer']] edge_container: GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input[Union['GcpDmIntegrationsFirebaseAppHostingArgs', 'GcpDmIntegrationsFirebaseAppHostingArgsDict', 'outputs.GcpDmIntegrationsFirebaseAppHosting']] firebase_app_hosting: Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input[Union['GcpDmIntegrationsFirebaseAuthArgs', 'GcpDmIntegrationsFirebaseAuthArgsDict', 'outputs.GcpDmIntegrationsFirebaseAuth']] firebase_auth: Firebase Authentication (Dimensional Metrics only).
         :param pulumi.Input[Union['GcpDmIntegrationsFirebaseDatabaseArgs', 'GcpDmIntegrationsFirebaseDatabaseArgsDict', 'outputs.GcpDmIntegrationsFirebaseDatabase']] firebase_database: GCP Firebase Realtime Database.
@@ -1750,6 +1794,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
         __props__.__dict__["data_flow"] = data_flow
         __props__.__dict__["data_proc"] = data_proc
         __props__.__dict__["data_store"] = data_store
+        __props__.__dict__["edge_container"] = edge_container
         __props__.__dict__["firebase_app_hosting"] = firebase_app_hosting
         __props__.__dict__["firebase_auth"] = firebase_auth
         __props__.__dict__["firebase_database"] = firebase_database
@@ -1864,6 +1909,14 @@ class GcpDmIntegrations(pulumi.CustomResource):
         GCP Cloud Datastore.
         """
         return pulumi.get(self, "data_store")
+
+    @_builtins.property
+    @pulumi.getter(name="edgeContainer")
+    def edge_container(self) -> pulumi.Output[Optional['outputs.GcpDmIntegrationsEdgeContainer']]:
+        """
+        GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+        """
+        return pulumi.get(self, "edge_container")
 
     @_builtins.property
     @pulumi.getter(name="firebaseAppHosting")

@@ -135,6 +135,7 @@ __all__ = [
     'GcpDmIntegrationsDataFlow',
     'GcpDmIntegrationsDataProc',
     'GcpDmIntegrationsDataStore',
+    'GcpDmIntegrationsEdgeContainer',
     'GcpDmIntegrationsFirebaseAppHosting',
     'GcpDmIntegrationsFirebaseAuth',
     'GcpDmIntegrationsFirebaseDatabase',
@@ -7608,6 +7609,42 @@ class GcpDmIntegrationsDataStore(dict):
 
     def get(self, key: str, default = None) -> Any:
         GcpDmIntegrationsDataStore.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[_builtins.int]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+
+@pulumi.output_type
+class GcpDmIntegrationsEdgeContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GcpDmIntegrationsEdgeContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GcpDmIntegrationsEdgeContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GcpDmIntegrationsEdgeContainer.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -6454,6 +6454,13 @@ export namespace cloud {
         metricsPollingInterval: number;
     }
 
+    export interface GcpDmIntegrationsEdgeContainer {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
     export interface GcpDmIntegrationsFirebaseAppHosting {
         /**
          * The data polling interval in seconds.

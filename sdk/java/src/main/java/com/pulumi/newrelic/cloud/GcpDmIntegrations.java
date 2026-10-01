@@ -20,6 +20,7 @@ import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsComposer;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsDataFlow;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsDataProc;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsDataStore;
+import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsEdgeContainer;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsFirebaseAppHosting;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsFirebaseAuth;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsFirebaseDatabase;
@@ -92,6 +93,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsVpcAccessArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirebaseAppHostingArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirebaseVertexAiArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsEdgeContainerArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsAlloyDbArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsBigQueryArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsDataFlowArgs;
@@ -197,6 +199,9 @@ import javax.annotation.Nullable;
  *                 .metricsPollingInterval(300)
  *                 .build())
  *             .firebaseVertexAi(GcpDmIntegrationsFirebaseVertexAiArgs.builder()
+ *                 .metricsPollingInterval(300)
+ *                 .build())
+ *             .edgeContainer(GcpDmIntegrationsEdgeContainerArgs.builder()
  *                 .metricsPollingInterval(300)
  *                 .build())
  *             .alloyDb(GcpDmIntegrationsAlloyDbArgs.builder()
@@ -400,6 +405,20 @@ public class GcpDmIntegrations extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<GcpDmIntegrationsDataStore>> dataStore() {
         return Codegen.optional(this.dataStore);
+    }
+    /**
+     * GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+     * 
+     */
+    @Export(name="edgeContainer", refs={GcpDmIntegrationsEdgeContainer.class}, tree="[0]")
+    private Output</* @Nullable */ GcpDmIntegrationsEdgeContainer> edgeContainer;
+
+    /**
+     * @return GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+     * 
+     */
+    public Output<Optional<GcpDmIntegrationsEdgeContainer>> edgeContainer() {
+        return Codegen.optional(this.edgeContainer);
     }
     /**
      * Firebase App Hosting (Dimensional Metrics only; no entity synthesis).

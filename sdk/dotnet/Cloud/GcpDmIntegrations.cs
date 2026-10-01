@@ -136,6 +136,10 @@ namespace Pulumi.NewRelic.Cloud
     ///         {
     ///             MetricsPollingInterval = 300,
     ///         },
+    ///         EdgeContainer = new NewRelic.Cloud.Inputs.GcpDmIntegrationsEdgeContainerArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///         },
     ///         AlloyDb = new NewRelic.Cloud.Inputs.GcpDmIntegrationsAlloyDbArgs
     ///         {
     ///             MetricsPollingInterval = 60,
@@ -257,6 +261,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Output("dataStore")]
         public Output<Outputs.GcpDmIntegrationsDataStore?> DataStore { get; private set; } = null!;
+
+        /// <summary>
+        /// GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+        /// </summary>
+        [Output("edgeContainer")]
+        public Output<Outputs.GcpDmIntegrationsEdgeContainer?> EdgeContainer { get; private set; } = null!;
 
         /// <summary>
         /// Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
@@ -521,6 +531,12 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpDmIntegrationsDataStoreArgs>? DataStore { get; set; }
 
         /// <summary>
+        /// GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+        /// </summary>
+        [Input("edgeContainer")]
+        public Input<Inputs.GcpDmIntegrationsEdgeContainerArgs>? EdgeContainer { get; set; }
+
+        /// <summary>
         /// Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
         /// </summary>
         [Input("firebaseAppHosting")]
@@ -743,6 +759,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("dataStore")]
         public Input<Inputs.GcpDmIntegrationsDataStoreGetArgs>? DataStore { get; set; }
+
+        /// <summary>
+        /// GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+        /// </summary>
+        [Input("edgeContainer")]
+        public Input<Inputs.GcpDmIntegrationsEdgeContainerGetArgs>? EdgeContainer { get; set; }
 
         /// <summary>
         /// Firebase App Hosting (Dimensional Metrics only; no entity synthesis).

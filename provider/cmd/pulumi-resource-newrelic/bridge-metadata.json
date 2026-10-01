@@ -1287,6 +1287,9 @@
                     "data_store": {
                         "maxItemsOne": true
                     },
+                    "edge_container": {
+                        "maxItemsOne": true
+                    },
                     "firebase_app_hosting": {
                         "maxItemsOne": true
                     },
