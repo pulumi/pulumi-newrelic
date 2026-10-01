@@ -16,6 +16,7 @@ import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsComposerArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsDataFlowArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsDataProcArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsDataStoreArgs;
+import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsEdgeContainerArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirebaseAppHostingArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirebaseAuthArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirebaseDatabaseArgs;
@@ -213,6 +214,21 @@ public final class GcpDmIntegrationsArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<GcpDmIntegrationsDataStoreArgs>> dataStore() {
         return Optional.ofNullable(this.dataStore);
+    }
+
+    /**
+     * GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+     * 
+     */
+    @Import(name="edgeContainer")
+    private @Nullable Output<GcpDmIntegrationsEdgeContainerArgs> edgeContainer;
+
+    /**
+     * @return GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+     * 
+     */
+    public Optional<Output<GcpDmIntegrationsEdgeContainerArgs>> edgeContainer() {
+        return Optional.ofNullable(this.edgeContainer);
     }
 
     /**
@@ -604,6 +620,7 @@ public final class GcpDmIntegrationsArgs extends com.pulumi.resources.ResourceAr
         this.dataFlow = $.dataFlow;
         this.dataProc = $.dataProc;
         this.dataStore = $.dataStore;
+        this.edgeContainer = $.edgeContainer;
         this.firebaseAppHosting = $.firebaseAppHosting;
         this.firebaseAuth = $.firebaseAuth;
         this.firebaseDatabase = $.firebaseDatabase;
@@ -878,6 +895,27 @@ public final class GcpDmIntegrationsArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder dataStore(GcpDmIntegrationsDataStoreArgs dataStore) {
             return dataStore(Output.of(dataStore));
+        }
+
+        /**
+         * @param edgeContainer GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeContainer(@Nullable Output<GcpDmIntegrationsEdgeContainerArgs> edgeContainer) {
+            $.edgeContainer = edgeContainer;
+            return this;
+        }
+
+        /**
+         * @param edgeContainer GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeContainer(GcpDmIntegrationsEdgeContainerArgs edgeContainer) {
+            return edgeContainer(Output.of(edgeContainer));
         }
 
         /**

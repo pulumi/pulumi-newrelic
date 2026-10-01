@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * > **Beta Preview:** This resource is not yet available to the general public. Once public preview goes live, opted-in users will receive access.
+ * > **Public Preview:** This resource is in public preview and available only to opted-in accounts.
  *
  * Pathpoint maps the health of your technical systems onto the business journeys they support. Each Flow in Pathpoint represents one journey — checkout, authentication, or onboarding — broken into stages, so when something goes wrong you can see which part of the customer journey the problem affects.
  *
@@ -21,31 +21,9 @@ import * as utilities from "./utilities";
  *
  * A flow is made up of `stages`, each stage made up of `levels`, each level made up of `steps`. Each step contains `signals` — entities, alerts, or entities discovered dynamically via `entitySearchQuery` — and its health is derived from those signals.
  *
- * ### Flow-level health
- *
- * `healthRollup` on the flow controls how the flow's overall health is derived:
- *
- * - `AUTOMATIC_ROLL_UP` (the default) — health rolls up automatically from the flow's stages.
- *   
- *   - `isExcluded` controls whether the stage contributes to the flow's overall health calculation:
- *     - `true` — the stage is excluded from the flow's health rollup. Its levels, steps, and signals are still evaluated and shown in the Pathpoint UI, but the stage does not affect the flow's overall health status. Useful for stages under construction or temporarily removed from the scope.
- *     - `false` (default) — the stage participates in the flow's health rollup normally.
- *
- * - `ALERT_CONDITIONS` — health is tied directly to the flow's KPI alert conditions instead of stage rollup. Typically paired with flow-level `kpis`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const checkout = new newrelic.PathpointFlow("checkout", {
- *     name: "Checkout Flow",
- *     healthRollup: "AUTOMATIC_ROLL_UP",
- * });
- * ```
- *
- * ### Example
- *
  * The example below is a **Checkout** flow with 2 stages (`Revenue` and `Frontend`), a flow-level KPI (`Order Success Rate`), a stage-level KPI (`Payment Errors`), and a step that uses all three signal types — an entity signal (`GUID1`), an alert signal (`GUID2`), and a dynamic `entitySearchQuery`.
+ *
+ * > **NOTE:** Replace the placeholder values below — `accountId`, entity `guid`s, `entitySearchQuery` filters, and `link` URLs — with values from your own account before applying.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -130,15 +108,29 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ## Exporting an Existing Flow
+ * The sections below break down each block type — stages, steps, KPIs, and health rollup — on its own, with smaller focused examples.
  *
- * If a flow already exists in your account (created through the UI, or by another user), you can pull its Terraform configuration directly from the Pathpoint UI instead of hand-writing it:
+ * ### Flow-level health
  *
- * 1. Open the flow in the Pathpoint UI.
- * 2. Click the overflow menu (**•••**) in the flow view
- * 3. Select **View as code** to get the full `newrelic.PathpointFlow` resource block for that pathpoint flow.
+ * `healthRollup` on the flow controls how the flow's overall health is derived:
  *
- * > **TIP:** Treat the exported configuration as a starting point. Pair it with `pulumi import` using the flow's GUID so Terraform state matches the live resource before your next `apply` — otherwise Terraform will try to recreate what already exists.
+ * - `AUTOMATIC_ROLL_UP` (the default) — health rolls up automatically from the flow's stages.
+ *   
+ *   - `isExcluded` controls whether the stage contributes to the flow's overall health calculation:
+ *     - `true` — the stage is excluded from the flow's health rollup. Its levels, steps, and signals are still evaluated and shown in the Pathpoint UI, but the stage does not affect the flow's overall health status. Useful for stages under construction or temporarily removed from the scope.
+ *     - `false` (default) — the stage participates in the flow's health rollup normally.
+ *
+ * - `ALERT_CONDITIONS` — health is tied directly to the flow's KPI alert conditions instead of stage rollup. Typically paired with flow-level `kpis`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const checkout = new newrelic.PathpointFlow("checkout", {
+ *     name: "Checkout Flow",
+ *     healthRollup: "AUTOMATIC_ROLL_UP",
+ * });
+ * ```
  *
  * ## Import
  *

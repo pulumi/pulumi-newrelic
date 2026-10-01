@@ -118,6 +118,9 @@ import (
 //				FirebaseVertexAi: &cloud.GcpDmIntegrationsFirebaseVertexAiArgs{
 //					MetricsPollingInterval: pulumi.Int(300),
 //				},
+//				EdgeContainer: &cloud.GcpDmIntegrationsEdgeContainerArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
 //				AlloyDb: &cloud.GcpDmIntegrationsAlloyDbArgs{
 //					MetricsPollingInterval: pulumi.Int(60),
 //				},
@@ -190,6 +193,8 @@ type GcpDmIntegrations struct {
 	DataProc GcpDmIntegrationsDataProcPtrOutput `pulumi:"dataProc"`
 	// GCP Cloud Datastore.
 	DataStore GcpDmIntegrationsDataStorePtrOutput `pulumi:"dataStore"`
+	// GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+	EdgeContainer GcpDmIntegrationsEdgeContainerPtrOutput `pulumi:"edgeContainer"`
 	// Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
 	FirebaseAppHosting GcpDmIntegrationsFirebaseAppHostingPtrOutput `pulumi:"firebaseAppHosting"`
 	// Firebase Authentication (Dimensional Metrics only).
@@ -297,6 +302,8 @@ type gcpDmIntegrationsState struct {
 	DataProc *GcpDmIntegrationsDataProc `pulumi:"dataProc"`
 	// GCP Cloud Datastore.
 	DataStore *GcpDmIntegrationsDataStore `pulumi:"dataStore"`
+	// GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+	EdgeContainer *GcpDmIntegrationsEdgeContainer `pulumi:"edgeContainer"`
 	// Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
 	FirebaseAppHosting *GcpDmIntegrationsFirebaseAppHosting `pulumi:"firebaseAppHosting"`
 	// Firebase Authentication (Dimensional Metrics only).
@@ -372,6 +379,8 @@ type GcpDmIntegrationsState struct {
 	DataProc GcpDmIntegrationsDataProcPtrInput
 	// GCP Cloud Datastore.
 	DataStore GcpDmIntegrationsDataStorePtrInput
+	// GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+	EdgeContainer GcpDmIntegrationsEdgeContainerPtrInput
 	// Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
 	FirebaseAppHosting GcpDmIntegrationsFirebaseAppHostingPtrInput
 	// Firebase Authentication (Dimensional Metrics only).
@@ -451,6 +460,8 @@ type gcpDmIntegrationsArgs struct {
 	DataProc *GcpDmIntegrationsDataProc `pulumi:"dataProc"`
 	// GCP Cloud Datastore.
 	DataStore *GcpDmIntegrationsDataStore `pulumi:"dataStore"`
+	// GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+	EdgeContainer *GcpDmIntegrationsEdgeContainer `pulumi:"edgeContainer"`
 	// Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
 	FirebaseAppHosting *GcpDmIntegrationsFirebaseAppHosting `pulumi:"firebaseAppHosting"`
 	// Firebase Authentication (Dimensional Metrics only).
@@ -527,6 +538,8 @@ type GcpDmIntegrationsArgs struct {
 	DataProc GcpDmIntegrationsDataProcPtrInput
 	// GCP Cloud Datastore.
 	DataStore GcpDmIntegrationsDataStorePtrInput
+	// GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+	EdgeContainer GcpDmIntegrationsEdgeContainerPtrInput
 	// Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
 	FirebaseAppHosting GcpDmIntegrationsFirebaseAppHostingPtrInput
 	// Firebase Authentication (Dimensional Metrics only).
@@ -719,6 +732,11 @@ func (o GcpDmIntegrationsOutput) DataProc() GcpDmIntegrationsDataProcPtrOutput {
 // GCP Cloud Datastore.
 func (o GcpDmIntegrationsOutput) DataStore() GcpDmIntegrationsDataStorePtrOutput {
 	return o.ApplyT(func(v *GcpDmIntegrations) GcpDmIntegrationsDataStorePtrOutput { return v.DataStore }).(GcpDmIntegrationsDataStorePtrOutput)
+}
+
+// GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+func (o GcpDmIntegrationsOutput) EdgeContainer() GcpDmIntegrationsEdgeContainerPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrations) GcpDmIntegrationsEdgeContainerPtrOutput { return v.EdgeContainer }).(GcpDmIntegrationsEdgeContainerPtrOutput)
 }
 
 // Firebase App Hosting (Dimensional Metrics only; no entity synthesis).

@@ -255,6 +255,8 @@ __all__ = [
     'GcpDmIntegrationsDataProcArgsDict',
     'GcpDmIntegrationsDataStoreArgs',
     'GcpDmIntegrationsDataStoreArgsDict',
+    'GcpDmIntegrationsEdgeContainerArgs',
+    'GcpDmIntegrationsEdgeContainerArgsDict',
     'GcpDmIntegrationsFirebaseAppHostingArgs',
     'GcpDmIntegrationsFirebaseAppHostingArgsDict',
     'GcpDmIntegrationsFirebaseAuthArgs',
@@ -8276,6 +8278,35 @@ class GcpDmIntegrationsDataStoreArgsDict(TypedDict):
 
 @pulumi.input_type
 class GcpDmIntegrationsDataStoreArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+class GcpDmIntegrationsEdgeContainerArgsDict(TypedDict):
+    metrics_polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The data polling interval in seconds.
+    """
+
+@pulumi.input_type
+class GcpDmIntegrationsEdgeContainerArgs:
     def __init__(__self__, *,
                  metrics_polling_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """

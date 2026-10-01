@@ -102,6 +102,9 @@ import * as utilities from "../utilities";
  *     firebaseVertexAi: {
  *         metricsPollingInterval: 300,
  *     },
+ *     edgeContainer: {
+ *         metricsPollingInterval: 300,
+ *     },
  *     alloyDb: {
  *         metricsPollingInterval: 60,
  *     },
@@ -215,6 +218,10 @@ export class GcpDmIntegrations extends pulumi.CustomResource {
      * GCP Cloud Datastore.
      */
     declare public readonly dataStore: pulumi.Output<outputs.cloud.GcpDmIntegrationsDataStore | undefined>;
+    /**
+     * GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+     */
+    declare public readonly edgeContainer: pulumi.Output<outputs.cloud.GcpDmIntegrationsEdgeContainer | undefined>;
     /**
      * Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
      */
@@ -340,6 +347,7 @@ export class GcpDmIntegrations extends pulumi.CustomResource {
             resourceInputs["dataFlow"] = state?.dataFlow;
             resourceInputs["dataProc"] = state?.dataProc;
             resourceInputs["dataStore"] = state?.dataStore;
+            resourceInputs["edgeContainer"] = state?.edgeContainer;
             resourceInputs["firebaseAppHosting"] = state?.firebaseAppHosting;
             resourceInputs["firebaseAuth"] = state?.firebaseAuth;
             resourceInputs["firebaseDatabase"] = state?.firebaseDatabase;
@@ -381,6 +389,7 @@ export class GcpDmIntegrations extends pulumi.CustomResource {
             resourceInputs["dataFlow"] = args?.dataFlow;
             resourceInputs["dataProc"] = args?.dataProc;
             resourceInputs["dataStore"] = args?.dataStore;
+            resourceInputs["edgeContainer"] = args?.edgeContainer;
             resourceInputs["firebaseAppHosting"] = args?.firebaseAppHosting;
             resourceInputs["firebaseAuth"] = args?.firebaseAuth;
             resourceInputs["firebaseDatabase"] = args?.firebaseDatabase;
@@ -460,6 +469,10 @@ export interface GcpDmIntegrationsState {
      * GCP Cloud Datastore.
      */
     dataStore?: pulumi.Input<inputs.cloud.GcpDmIntegrationsDataStore | undefined>;
+    /**
+     * GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+     */
+    edgeContainer?: pulumi.Input<inputs.cloud.GcpDmIntegrationsEdgeContainer | undefined>;
     /**
      * Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
      */
@@ -610,6 +623,10 @@ export interface GcpDmIntegrationsArgs {
      * GCP Cloud Datastore.
      */
     dataStore?: pulumi.Input<inputs.cloud.GcpDmIntegrationsDataStore | undefined>;
+    /**
+     * GCP Distributed Cloud Edge (Dimensional Metrics only; no entity synthesis).
+     */
+    edgeContainer?: pulumi.Input<inputs.cloud.GcpDmIntegrationsEdgeContainer | undefined>;
     /**
      * Firebase App Hosting (Dimensional Metrics only; no entity synthesis).
      */

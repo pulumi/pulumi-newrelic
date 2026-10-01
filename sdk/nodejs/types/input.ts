@@ -6396,6 +6396,13 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
+    export interface GcpDmIntegrationsEdgeContainer {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
+    }
+
     export interface GcpDmIntegrationsFirebaseAppHosting {
         /**
          * The data polling interval in seconds.
