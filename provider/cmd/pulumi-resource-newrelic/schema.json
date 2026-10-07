@@ -15785,6 +15785,10 @@
                     "type": "string",
                     "description": "The entity GUID of the configuration.\n"
                 },
+                "configurationType": {
+                    "type": "string",
+                    "description": "The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use \u003cspan pulumi-lang-nodejs=\"`legacyConfig \" pulumi-lang-dotnet=\"`LegacyConfig \" pulumi-lang-go=\"`legacyConfig \" pulumi-lang-python=\"`legacy_config \" pulumi-lang-yaml=\"`legacyConfig \" pulumi-lang-java=\"`legacyConfig \" pulumi-lang-hcl=\"`legacy_config \"\u003e`legacyConfig \u003c/span\u003e= true` instead to create a legacy configuration. Mutually exclusive with \u003cspan pulumi-lang-nodejs=\"`legacyConfig`\" pulumi-lang-dotnet=\"`LegacyConfig`\" pulumi-lang-go=\"`legacyConfig`\" pulumi-lang-python=\"`legacy_config`\" pulumi-lang-yaml=\"`legacyConfig`\" pulumi-lang-java=\"`legacyConfig`\" pulumi-lang-hcl=\"`legacy_config`\"\u003e`legacyConfig`\u003c/span\u003e. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**\n"
+                },
                 "latestVersionEntityId": {
                     "type": "string",
                     "description": "The entity GUID of the highest-numbered version.\n"
@@ -15792,6 +15796,10 @@
                 "latestVersionNumber": {
                     "type": "integer",
                     "description": "The highest version number across all versions created so far.\n"
+                },
+                "legacyConfig": {
+                    "type": "boolean",
+                    "description": "Set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e to create a legacy configuration with no configuration type (null), instead of the `\"AgentConfig\"` default. Mutually exclusive with \u003cspan pulumi-lang-nodejs=\"`configurationType`\" pulumi-lang-dotnet=\"`ConfigurationType`\" pulumi-lang-go=\"`configurationType`\" pulumi-lang-python=\"`configuration_type`\" pulumi-lang-yaml=\"`configurationType`\" pulumi-lang-java=\"`configurationType`\" pulumi-lang-hcl=\"`configuration_type`\"\u003e`configurationType`\u003c/span\u003e. **Cannot be changed after creation.**\n"
                 },
                 "managedEntityType": {
                     "type": "string",
@@ -15825,6 +15833,7 @@
                 "agentType",
                 "configurationContent",
                 "configurationId",
+                "configurationType",
                 "latestVersionEntityId",
                 "latestVersionNumber",
                 "managedEntityType",
@@ -15842,6 +15851,16 @@
                 "configurationContent": {
                     "type": "string",
                     "description": "The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.\n"
+                },
+                "configurationType": {
+                    "type": "string",
+                    "description": "The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use \u003cspan pulumi-lang-nodejs=\"`legacyConfig \" pulumi-lang-dotnet=\"`LegacyConfig \" pulumi-lang-go=\"`legacyConfig \" pulumi-lang-python=\"`legacy_config \" pulumi-lang-yaml=\"`legacyConfig \" pulumi-lang-java=\"`legacyConfig \" pulumi-lang-hcl=\"`legacy_config \"\u003e`legacyConfig \u003c/span\u003e= true` instead to create a legacy configuration. Mutually exclusive with \u003cspan pulumi-lang-nodejs=\"`legacyConfig`\" pulumi-lang-dotnet=\"`LegacyConfig`\" pulumi-lang-go=\"`legacyConfig`\" pulumi-lang-python=\"`legacy_config`\" pulumi-lang-yaml=\"`legacyConfig`\" pulumi-lang-java=\"`legacyConfig`\" pulumi-lang-hcl=\"`legacy_config`\"\u003e`legacyConfig`\u003c/span\u003e. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**\n",
+                    "willReplaceOnChanges": true
+                },
+                "legacyConfig": {
+                    "type": "boolean",
+                    "description": "Set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e to create a legacy configuration with no configuration type (null), instead of the `\"AgentConfig\"` default. Mutually exclusive with \u003cspan pulumi-lang-nodejs=\"`configurationType`\" pulumi-lang-dotnet=\"`ConfigurationType`\" pulumi-lang-go=\"`configurationType`\" pulumi-lang-python=\"`configuration_type`\" pulumi-lang-yaml=\"`configurationType`\" pulumi-lang-java=\"`configurationType`\" pulumi-lang-hcl=\"`configuration_type`\"\u003e`configurationType`\u003c/span\u003e. **Cannot be changed after creation.**\n",
+                    "willReplaceOnChanges": true
                 },
                 "managedEntityType": {
                     "type": "string",
@@ -15885,6 +15904,11 @@
                         "type": "string",
                         "description": "The entity GUID of the configuration.\n"
                     },
+                    "configurationType": {
+                        "type": "string",
+                        "description": "The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use \u003cspan pulumi-lang-nodejs=\"`legacyConfig \" pulumi-lang-dotnet=\"`LegacyConfig \" pulumi-lang-go=\"`legacyConfig \" pulumi-lang-python=\"`legacy_config \" pulumi-lang-yaml=\"`legacyConfig \" pulumi-lang-java=\"`legacyConfig \" pulumi-lang-hcl=\"`legacy_config \"\u003e`legacyConfig \u003c/span\u003e= true` instead to create a legacy configuration. Mutually exclusive with \u003cspan pulumi-lang-nodejs=\"`legacyConfig`\" pulumi-lang-dotnet=\"`LegacyConfig`\" pulumi-lang-go=\"`legacyConfig`\" pulumi-lang-python=\"`legacy_config`\" pulumi-lang-yaml=\"`legacyConfig`\" pulumi-lang-java=\"`legacyConfig`\" pulumi-lang-hcl=\"`legacy_config`\"\u003e`legacyConfig`\u003c/span\u003e. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**\n",
+                        "willReplaceOnChanges": true
+                    },
                     "latestVersionEntityId": {
                         "type": "string",
                         "description": "The entity GUID of the highest-numbered version.\n"
@@ -15892,6 +15916,11 @@
                     "latestVersionNumber": {
                         "type": "integer",
                         "description": "The highest version number across all versions created so far.\n"
+                    },
+                    "legacyConfig": {
+                        "type": "boolean",
+                        "description": "Set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e to create a legacy configuration with no configuration type (null), instead of the `\"AgentConfig\"` default. Mutually exclusive with \u003cspan pulumi-lang-nodejs=\"`configurationType`\" pulumi-lang-dotnet=\"`ConfigurationType`\" pulumi-lang-go=\"`configurationType`\" pulumi-lang-python=\"`configuration_type`\" pulumi-lang-yaml=\"`configurationType`\" pulumi-lang-java=\"`configurationType`\" pulumi-lang-hcl=\"`configuration_type`\"\u003e`configurationType`\u003c/span\u003e. **Cannot be changed after creation.**\n",
+                        "willReplaceOnChanges": true
                     },
                     "managedEntityType": {
                         "type": "string",
