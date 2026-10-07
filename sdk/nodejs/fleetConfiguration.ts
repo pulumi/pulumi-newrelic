@@ -90,6 +90,10 @@ export class FleetConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly configurationId: pulumi.Output<string>;
     /**
+     * The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+     */
+    declare public readonly configurationType: pulumi.Output<string>;
+    /**
      * The entity GUID of the highest-numbered version.
      */
     declare public /*out*/ readonly latestVersionEntityId: pulumi.Output<string>;
@@ -97,6 +101,10 @@ export class FleetConfiguration extends pulumi.CustomResource {
      * The highest version number across all versions created so far.
      */
     declare public /*out*/ readonly latestVersionNumber: pulumi.Output<number>;
+    /**
+     * Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+     */
+    declare public readonly legacyConfig: pulumi.Output<boolean | undefined>;
     /**
      * The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
      */
@@ -138,8 +146,10 @@ export class FleetConfiguration extends pulumi.CustomResource {
             resourceInputs["agentType"] = state?.agentType;
             resourceInputs["configurationContent"] = state?.configurationContent;
             resourceInputs["configurationId"] = state?.configurationId;
+            resourceInputs["configurationType"] = state?.configurationType;
             resourceInputs["latestVersionEntityId"] = state?.latestVersionEntityId;
             resourceInputs["latestVersionNumber"] = state?.latestVersionNumber;
+            resourceInputs["legacyConfig"] = state?.legacyConfig;
             resourceInputs["managedEntityType"] = state?.managedEntityType;
             resourceInputs["name"] = state?.name;
             resourceInputs["operatingSystem"] = state?.operatingSystem;
@@ -159,6 +169,8 @@ export class FleetConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["agentType"] = args?.agentType;
             resourceInputs["configurationContent"] = args?.configurationContent;
+            resourceInputs["configurationType"] = args?.configurationType;
+            resourceInputs["legacyConfig"] = args?.legacyConfig;
             resourceInputs["managedEntityType"] = args?.managedEntityType;
             resourceInputs["name"] = args?.name;
             resourceInputs["operatingSystem"] = args?.operatingSystem;
@@ -191,6 +203,10 @@ export interface FleetConfigurationState {
      */
     configurationId?: pulumi.Input<string | undefined>;
     /**
+     * The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+     */
+    configurationType?: pulumi.Input<string | undefined>;
+    /**
      * The entity GUID of the highest-numbered version.
      */
     latestVersionEntityId?: pulumi.Input<string | undefined>;
@@ -198,6 +214,10 @@ export interface FleetConfigurationState {
      * The highest version number across all versions created so far.
      */
     latestVersionNumber?: pulumi.Input<number | undefined>;
+    /**
+     * Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+     */
+    legacyConfig?: pulumi.Input<boolean | undefined>;
     /**
      * The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
      */
@@ -236,6 +256,14 @@ export interface FleetConfigurationArgs {
      * The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
      */
     configurationContent: pulumi.Input<string>;
+    /**
+     * The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+     */
+    configurationType?: pulumi.Input<string | undefined>;
+    /**
+     * Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+     */
+    legacyConfig?: pulumi.Input<boolean | undefined>;
     /**
      * The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
      */
