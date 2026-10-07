@@ -83,6 +83,12 @@ namespace Pulumi.NewRelic
         public Output<string> ConfigurationId { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `LegacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `LegacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+        /// </summary>
+        [Output("configurationType")]
+        public Output<string> ConfigurationType { get; private set; } = null!;
+
+        /// <summary>
         /// The entity GUID of the highest-numbered version.
         /// </summary>
         [Output("latestVersionEntityId")]
@@ -93,6 +99,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("latestVersionNumber")]
         public Output<int> LatestVersionNumber { get; private set; } = null!;
+
+        /// <summary>
+        /// Set to `True` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `ConfigurationType`. **Cannot be changed after creation.**
+        /// </summary>
+        [Output("legacyConfig")]
+        public Output<bool?> LegacyConfig { get; private set; } = null!;
 
         /// <summary>
         /// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
@@ -189,6 +201,18 @@ namespace Pulumi.NewRelic
         public Input<string> ConfigurationContent { get; set; } = null!;
 
         /// <summary>
+        /// The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `LegacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `LegacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+        /// </summary>
+        [Input("configurationType")]
+        public Input<string>? ConfigurationType { get; set; }
+
+        /// <summary>
+        /// Set to `True` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `ConfigurationType`. **Cannot be changed after creation.**
+        /// </summary>
+        [Input("legacyConfig")]
+        public Input<bool>? LegacyConfig { get; set; }
+
+        /// <summary>
         /// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         /// </summary>
         [Input("managedEntityType", required: true)]
@@ -239,6 +263,12 @@ namespace Pulumi.NewRelic
         public Input<string>? ConfigurationId { get; set; }
 
         /// <summary>
+        /// The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `LegacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `LegacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+        /// </summary>
+        [Input("configurationType")]
+        public Input<string>? ConfigurationType { get; set; }
+
+        /// <summary>
         /// The entity GUID of the highest-numbered version.
         /// </summary>
         [Input("latestVersionEntityId")]
@@ -249,6 +279,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("latestVersionNumber")]
         public Input<int>? LatestVersionNumber { get; set; }
+
+        /// <summary>
+        /// Set to `True` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `ConfigurationType`. **Cannot be changed after creation.**
+        /// </summary>
+        [Input("legacyConfig")]
+        public Input<bool>? LegacyConfig { get; set; }
 
         /// <summary>
         /// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**

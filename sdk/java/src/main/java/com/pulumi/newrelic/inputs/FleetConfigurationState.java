@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -63,6 +64,21 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+     * 
+     */
+    @Import(name="configurationType")
+    private @Nullable Output<String> configurationType;
+
+    /**
+     * @return The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+     * 
+     */
+    public Optional<Output<String>> configurationType() {
+        return Optional.ofNullable(this.configurationType);
+    }
+
+    /**
      * The entity GUID of the highest-numbered version.
      * 
      */
@@ -90,6 +106,21 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
      */
     public Optional<Output<Integer>> latestVersionNumber() {
         return Optional.ofNullable(this.latestVersionNumber);
+    }
+
+    /**
+     * Set to `true` to create a legacy configuration with no configuration type (null), instead of the `&#34;AgentConfig&#34;` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+     * 
+     */
+    @Import(name="legacyConfig")
+    private @Nullable Output<Boolean> legacyConfig;
+
+    /**
+     * @return Set to `true` to create a legacy configuration with no configuration type (null), instead of the `&#34;AgentConfig&#34;` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+     * 
+     */
+    public Optional<Output<Boolean>> legacyConfig() {
+        return Optional.ofNullable(this.legacyConfig);
     }
 
     /**
@@ -188,8 +219,10 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
         this.agentType = $.agentType;
         this.configurationContent = $.configurationContent;
         this.configurationId = $.configurationId;
+        this.configurationType = $.configurationType;
         this.latestVersionEntityId = $.latestVersionEntityId;
         this.latestVersionNumber = $.latestVersionNumber;
+        this.legacyConfig = $.legacyConfig;
         this.managedEntityType = $.managedEntityType;
         this.name = $.name;
         this.operatingSystem = $.operatingSystem;
@@ -280,6 +313,27 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param configurationType The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationType(@Nullable Output<String> configurationType) {
+            $.configurationType = configurationType;
+            return this;
+        }
+
+        /**
+         * @param configurationType The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationType(String configurationType) {
+            return configurationType(Output.of(configurationType));
+        }
+
+        /**
          * @param latestVersionEntityId The entity GUID of the highest-numbered version.
          * 
          * @return builder
@@ -319,6 +373,27 @@ public final class FleetConfigurationState extends com.pulumi.resources.Resource
          */
         public Builder latestVersionNumber(Integer latestVersionNumber) {
             return latestVersionNumber(Output.of(latestVersionNumber));
+        }
+
+        /**
+         * @param legacyConfig Set to `true` to create a legacy configuration with no configuration type (null), instead of the `&#34;AgentConfig&#34;` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+         * 
+         * @return builder
+         * 
+         */
+        public Builder legacyConfig(@Nullable Output<Boolean> legacyConfig) {
+            $.legacyConfig = legacyConfig;
+            return this;
+        }
+
+        /**
+         * @param legacyConfig Set to `true` to create a legacy configuration with no configuration type (null), instead of the `&#34;AgentConfig&#34;` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+         * 
+         * @return builder
+         * 
+         */
+        public Builder legacyConfig(Boolean legacyConfig) {
+            return legacyConfig(Output.of(legacyConfig));
         }
 
         /**

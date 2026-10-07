@@ -83,10 +83,14 @@ type FleetConfiguration struct {
 	ConfigurationContent pulumi.StringOutput `pulumi:"configurationContent"`
 	// The entity GUID of the configuration.
 	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
+	// The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+	ConfigurationType pulumi.StringOutput `pulumi:"configurationType"`
 	// The entity GUID of the highest-numbered version.
 	LatestVersionEntityId pulumi.StringOutput `pulumi:"latestVersionEntityId"`
 	// The highest version number across all versions created so far.
 	LatestVersionNumber pulumi.IntOutput `pulumi:"latestVersionNumber"`
+	// Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+	LegacyConfig pulumi.BoolPtrOutput `pulumi:"legacyConfig"`
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType pulumi.StringOutput `pulumi:"managedEntityType"`
 	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
@@ -146,10 +150,14 @@ type fleetConfigurationState struct {
 	ConfigurationContent *string `pulumi:"configurationContent"`
 	// The entity GUID of the configuration.
 	ConfigurationId *string `pulumi:"configurationId"`
+	// The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+	ConfigurationType *string `pulumi:"configurationType"`
 	// The entity GUID of the highest-numbered version.
 	LatestVersionEntityId *string `pulumi:"latestVersionEntityId"`
 	// The highest version number across all versions created so far.
 	LatestVersionNumber *int `pulumi:"latestVersionNumber"`
+	// Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+	LegacyConfig *bool `pulumi:"legacyConfig"`
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType *string `pulumi:"managedEntityType"`
 	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
@@ -171,10 +179,14 @@ type FleetConfigurationState struct {
 	ConfigurationContent pulumi.StringPtrInput
 	// The entity GUID of the configuration.
 	ConfigurationId pulumi.StringPtrInput
+	// The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+	ConfigurationType pulumi.StringPtrInput
 	// The entity GUID of the highest-numbered version.
 	LatestVersionEntityId pulumi.StringPtrInput
 	// The highest version number across all versions created so far.
 	LatestVersionNumber pulumi.IntPtrInput
+	// Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+	LegacyConfig pulumi.BoolPtrInput
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType pulumi.StringPtrInput
 	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
@@ -198,6 +210,10 @@ type fleetConfigurationArgs struct {
 	AgentType string `pulumi:"agentType"`
 	// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
 	ConfigurationContent string `pulumi:"configurationContent"`
+	// The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+	ConfigurationType *string `pulumi:"configurationType"`
+	// Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+	LegacyConfig *bool `pulumi:"legacyConfig"`
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType string `pulumi:"managedEntityType"`
 	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
@@ -214,6 +230,10 @@ type FleetConfigurationArgs struct {
 	AgentType pulumi.StringInput
 	// The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
 	ConfigurationContent pulumi.StringInput
+	// The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+	ConfigurationType pulumi.StringPtrInput
+	// Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+	LegacyConfig pulumi.BoolPtrInput
 	// The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
 	ManagedEntityType pulumi.StringInput
 	// The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
@@ -326,6 +346,11 @@ func (o FleetConfigurationOutput) ConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.ConfigurationId }).(pulumi.StringOutput)
 }
 
+// The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+func (o FleetConfigurationOutput) ConfigurationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.ConfigurationType }).(pulumi.StringOutput)
+}
+
 // The entity GUID of the highest-numbered version.
 func (o FleetConfigurationOutput) LatestVersionEntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.StringOutput { return v.LatestVersionEntityId }).(pulumi.StringOutput)
@@ -334,6 +359,11 @@ func (o FleetConfigurationOutput) LatestVersionEntityId() pulumi.StringOutput {
 // The highest version number across all versions created so far.
 func (o FleetConfigurationOutput) LatestVersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *FleetConfiguration) pulumi.IntOutput { return v.LatestVersionNumber }).(pulumi.IntOutput)
+}
+
+// Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+func (o FleetConfigurationOutput) LegacyConfig() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FleetConfiguration) pulumi.BoolPtrOutput { return v.LegacyConfig }).(pulumi.BoolPtrOutput)
 }
 
 // The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**

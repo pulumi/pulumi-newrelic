@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.FleetConfigurationArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.FleetConfigurationState;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -130,6 +131,20 @@ public class FleetConfiguration extends com.pulumi.resources.CustomResource {
         return this.configurationId;
     }
     /**
+     * The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+     * 
+     */
+    @Export(name="configurationType", refs={String.class}, tree="[0]")
+    private Output<String> configurationType;
+
+    /**
+     * @return The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacyConfig = true` instead to create a legacy configuration. Mutually exclusive with `legacyConfig`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+     * 
+     */
+    public Output<String> configurationType() {
+        return this.configurationType;
+    }
+    /**
      * The entity GUID of the highest-numbered version.
      * 
      */
@@ -156,6 +171,20 @@ public class FleetConfiguration extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> latestVersionNumber() {
         return this.latestVersionNumber;
+    }
+    /**
+     * Set to `true` to create a legacy configuration with no configuration type (null), instead of the `&#34;AgentConfig&#34;` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+     * 
+     */
+    @Export(name="legacyConfig", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> legacyConfig;
+
+    /**
+     * @return Set to `true` to create a legacy configuration with no configuration type (null), instead of the `&#34;AgentConfig&#34;` default. Mutually exclusive with `configurationType`. **Cannot be changed after creation.**
+     * 
+     */
+    public Output<Optional<Boolean>> legacyConfig() {
+        return Codegen.optional(this.legacyConfig);
     }
     /**
      * The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**

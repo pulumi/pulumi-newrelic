@@ -22,6 +22,8 @@ class FleetConfigurationArgs:
                  agent_type: pulumi.Input[_builtins.str],
                  configuration_content: pulumi.Input[_builtins.str],
                  managed_entity_type: pulumi.Input[_builtins.str],
+                 configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 legacy_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -31,6 +33,8 @@ class FleetConfigurationArgs:
         :param pulumi.Input[_builtins.str] agent_type: The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
+        :param pulumi.Input[_builtins.str] configuration_type: The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacy_config = true` instead to create a legacy configuration. Mutually exclusive with `legacy_config`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+        :param pulumi.Input[_builtins.bool] legacy_config: Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configuration_type`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] name: The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] organization_id: The organization ID. Auto-fetched from the account when not provided. **Cannot be changed after creation.**
@@ -38,6 +42,10 @@ class FleetConfigurationArgs:
         pulumi.set(__self__, "agent_type", agent_type)
         pulumi.set(__self__, "configuration_content", configuration_content)
         pulumi.set(__self__, "managed_entity_type", managed_entity_type)
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
+        if legacy_config is not None:
+            pulumi.set(__self__, "legacy_config", legacy_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if operating_system is not None:
@@ -82,6 +90,30 @@ class FleetConfigurationArgs:
         pulumi.set(self, "managed_entity_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacy_config = true` instead to create a legacy configuration. Mutually exclusive with `legacy_config`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="legacyConfig")
+    def legacy_config(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configuration_type`. **Cannot be changed after creation.**
+        """
+        return pulumi.get(self, "legacy_config")
+
+    @legacy_config.setter
+    def legacy_config(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "legacy_config", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -124,8 +156,10 @@ class _FleetConfigurationState:
                  agent_type: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_content: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
                  latest_version_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 legacy_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
@@ -138,8 +172,10 @@ class _FleetConfigurationState:
         :param pulumi.Input[_builtins.str] agent_type: The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
         :param pulumi.Input[_builtins.str] configuration_id: The entity GUID of the configuration.
+        :param pulumi.Input[_builtins.str] configuration_type: The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacy_config = true` instead to create a legacy configuration. Mutually exclusive with `legacy_config`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] latest_version_entity_id: The entity GUID of the highest-numbered version.
         :param pulumi.Input[_builtins.int] latest_version_number: The highest version number across all versions created so far.
+        :param pulumi.Input[_builtins.bool] legacy_config: Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configuration_type`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] name: The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
@@ -153,10 +189,14 @@ class _FleetConfigurationState:
             pulumi.set(__self__, "configuration_content", configuration_content)
         if configuration_id is not None:
             pulumi.set(__self__, "configuration_id", configuration_id)
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
         if latest_version_entity_id is not None:
             pulumi.set(__self__, "latest_version_entity_id", latest_version_entity_id)
         if latest_version_number is not None:
             pulumi.set(__self__, "latest_version_number", latest_version_number)
+        if legacy_config is not None:
+            pulumi.set(__self__, "legacy_config", legacy_config)
         if managed_entity_type is not None:
             pulumi.set(__self__, "managed_entity_type", managed_entity_type)
         if name is not None:
@@ -207,6 +247,18 @@ class _FleetConfigurationState:
         pulumi.set(self, "configuration_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacy_config = true` instead to create a legacy configuration. Mutually exclusive with `legacy_config`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="latestVersionEntityId")
     def latest_version_entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -229,6 +281,18 @@ class _FleetConfigurationState:
     @latest_version_number.setter
     def latest_version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "latest_version_number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="legacyConfig")
+    def legacy_config(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configuration_type`. **Cannot be changed after creation.**
+        """
+        return pulumi.get(self, "legacy_config")
+
+    @legacy_config.setter
+    def legacy_config(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "legacy_config", value)
 
     @_builtins.property
     @pulumi.getter(name="managedEntityType")
@@ -311,6 +375,8 @@ class FleetConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_type: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 legacy_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
@@ -365,6 +431,8 @@ class FleetConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_type: The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
+        :param pulumi.Input[_builtins.str] configuration_type: The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacy_config = true` instead to create a legacy configuration. Mutually exclusive with `legacy_config`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+        :param pulumi.Input[_builtins.bool] legacy_config: Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configuration_type`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] name: The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
@@ -438,6 +506,8 @@ class FleetConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_type: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 legacy_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
@@ -457,6 +527,8 @@ class FleetConfiguration(pulumi.CustomResource):
             if configuration_content is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_content'")
             __props__.__dict__["configuration_content"] = configuration_content
+            __props__.__dict__["configuration_type"] = configuration_type
+            __props__.__dict__["legacy_config"] = legacy_config
             if managed_entity_type is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_entity_type'")
             __props__.__dict__["managed_entity_type"] = managed_entity_type
@@ -481,8 +553,10 @@ class FleetConfiguration(pulumi.CustomResource):
             agent_type: pulumi.Input[Optional[_builtins.str]] = None,
             configuration_content: pulumi.Input[Optional[_builtins.str]] = None,
             configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
             latest_version_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
             latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+            legacy_config: pulumi.Input[Optional[_builtins.bool]] = None,
             managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             operating_system: pulumi.Input[Optional[_builtins.str]] = None,
@@ -499,8 +573,10 @@ class FleetConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] agent_type: The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] configuration_content: The YAML or JSON content for this configuration. Use `file()` to load content from a file. Each change to this field creates a new immutable version on the API; the resource ID remains constant.
         :param pulumi.Input[_builtins.str] configuration_id: The entity GUID of the configuration.
+        :param pulumi.Input[_builtins.str] configuration_type: The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacy_config = true` instead to create a legacy configuration. Mutually exclusive with `legacy_config`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] latest_version_entity_id: The entity GUID of the highest-numbered version.
         :param pulumi.Input[_builtins.int] latest_version_number: The highest version number across all versions created so far.
+        :param pulumi.Input[_builtins.bool] legacy_config: Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configuration_type`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] managed_entity_type: The type of entities this configuration manages. Valid values: `HOST`, `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
         :param pulumi.Input[_builtins.str] name: The name of the configuration. **Changing this forces resource recreation** — the API does not support renaming a configuration in place.
         :param pulumi.Input[_builtins.str] operating_system: The operating system this configuration targets. Valid values: `LINUX`, `WINDOWS`. Applicable to `HOST` configurations only — must not be set when `managed_entity_type` is `KUBERNETESCLUSTER`. **Cannot be changed after creation.**
@@ -515,8 +591,10 @@ class FleetConfiguration(pulumi.CustomResource):
         __props__.__dict__["agent_type"] = agent_type
         __props__.__dict__["configuration_content"] = configuration_content
         __props__.__dict__["configuration_id"] = configuration_id
+        __props__.__dict__["configuration_type"] = configuration_type
         __props__.__dict__["latest_version_entity_id"] = latest_version_entity_id
         __props__.__dict__["latest_version_number"] = latest_version_number
+        __props__.__dict__["legacy_config"] = legacy_config
         __props__.__dict__["managed_entity_type"] = managed_entity_type
         __props__.__dict__["name"] = name
         __props__.__dict__["operating_system"] = operating_system
@@ -550,6 +628,14 @@ class FleetConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "configuration_id")
 
     @_builtins.property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        The configuration type. Currently only `AgentConfig` is a supported value, and it is the default — a fleet configuration can no longer be created with a null configuration type through this argument. Use `legacy_config = true` instead to create a legacy configuration. Mutually exclusive with `legacy_config`. This is an interim restriction pending further product guidance and may change. **Cannot be changed after creation.**
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @_builtins.property
     @pulumi.getter(name="latestVersionEntityId")
     def latest_version_entity_id(self) -> pulumi.Output[_builtins.str]:
         """
@@ -564,6 +650,14 @@ class FleetConfiguration(pulumi.CustomResource):
         The highest version number across all versions created so far.
         """
         return pulumi.get(self, "latest_version_number")
+
+    @_builtins.property
+    @pulumi.getter(name="legacyConfig")
+    def legacy_config(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Set to `true` to create a legacy configuration with no configuration type (null), instead of the `"AgentConfig"` default. Mutually exclusive with `configuration_type`. **Cannot be changed after creation.**
+        """
+        return pulumi.get(self, "legacy_config")
 
     @_builtins.property
     @pulumi.getter(name="managedEntityType")
