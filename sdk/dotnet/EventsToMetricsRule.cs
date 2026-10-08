@@ -50,7 +50,9 @@ namespace Pulumi.NewRelic
     public partial class EventsToMetricsRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Account with the event and where the metrics will be put.
+        /// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+        /// 
+        /// &gt; **NOTE:** Setting `AccountId` explicitly is recommended so the target account is unambiguous in your configuration.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -132,7 +134,9 @@ namespace Pulumi.NewRelic
     public sealed class EventsToMetricsRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Account with the event and where the metrics will be put.
+        /// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+        /// 
+        /// &gt; **NOTE:** Setting `AccountId` explicitly is recommended so the target account is unambiguous in your configuration.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -170,7 +174,9 @@ namespace Pulumi.NewRelic
     public sealed class EventsToMetricsRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Account with the event and where the metrics will be put.
+        /// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+        /// 
+        /// &gt; **NOTE:** Setting `AccountId` explicitly is recommended so the target account is unambiguous in your configuration.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

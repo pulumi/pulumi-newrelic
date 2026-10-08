@@ -71,14 +71,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/eventsToMetricsRule:EventsToMetricsRule")
 public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
     /**
-     * Account with the event and where the metrics will be put.
+     * The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider&#39;s configured account ID*.
+     * 
+     * &gt; **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return Account with the event and where the metrics will be put.
+     * @return The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider&#39;s configured account ID*.
+     * 
+     * &gt; **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
      * 
      */
     public Output<String> accountId() {

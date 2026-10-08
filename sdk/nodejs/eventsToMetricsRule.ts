@@ -63,7 +63,9 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
     }
 
     /**
-     * Account with the event and where the metrics will be put.
+     * The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+     *
+     * > **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
@@ -128,7 +130,9 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
  */
 export interface EventsToMetricsRuleState {
     /**
-     * Account with the event and where the metrics will be put.
+     * The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+     *
+     * > **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
@@ -158,7 +162,9 @@ export interface EventsToMetricsRuleState {
  */
 export interface EventsToMetricsRuleArgs {
     /**
-     * Account with the event and where the metrics will be put.
+     * The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+     *
+     * > **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**

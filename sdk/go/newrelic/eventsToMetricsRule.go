@@ -59,7 +59,9 @@ import (
 type EventsToMetricsRule struct {
 	pulumi.CustomResourceState
 
-	// Account with the event and where the metrics will be put.
+	// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+	//
+	// > **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Provides additional information about the rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -106,7 +108,9 @@ func GetEventsToMetricsRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventsToMetricsRule resources.
 type eventsToMetricsRuleState struct {
-	// Account with the event and where the metrics will be put.
+	// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+	//
+	// > **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
 	AccountId *string `pulumi:"accountId"`
 	// Provides additional information about the rule.
 	Description *string `pulumi:"description"`
@@ -121,7 +125,9 @@ type eventsToMetricsRuleState struct {
 }
 
 type EventsToMetricsRuleState struct {
-	// Account with the event and where the metrics will be put.
+	// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+	//
+	// > **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
 	AccountId pulumi.StringPtrInput
 	// Provides additional information about the rule.
 	Description pulumi.StringPtrInput
@@ -140,7 +146,9 @@ func (EventsToMetricsRuleState) ElementType() reflect.Type {
 }
 
 type eventsToMetricsRuleArgs struct {
-	// Account with the event and where the metrics will be put.
+	// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+	//
+	// > **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
 	AccountId *string `pulumi:"accountId"`
 	// Provides additional information about the rule.
 	Description *string `pulumi:"description"`
@@ -154,7 +162,9 @@ type eventsToMetricsRuleArgs struct {
 
 // The set of arguments for constructing a EventsToMetricsRule resource.
 type EventsToMetricsRuleArgs struct {
-	// Account with the event and where the metrics will be put.
+	// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+	//
+	// > **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
 	AccountId pulumi.StringPtrInput
 	// Provides additional information about the rule.
 	Description pulumi.StringPtrInput
@@ -253,7 +263,9 @@ func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutputWithContext(ctx co
 	return o
 }
 
-// Account with the event and where the metrics will be put.
+// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+//
+// > **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
 func (o EventsToMetricsRuleOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventsToMetricsRule) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
