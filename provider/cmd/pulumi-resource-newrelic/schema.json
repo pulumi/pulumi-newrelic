@@ -15229,7 +15229,7 @@
             "properties": {
                 "accountId": {
                     "type": "string",
-                    "description": "Account with the event and where the metrics will be put.\n"
+                    "description": "The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.\n\n\u003e **NOTE:** Setting \u003cspan pulumi-lang-nodejs=\"`accountId`\" pulumi-lang-dotnet=\"`AccountId`\" pulumi-lang-go=\"`accountId`\" pulumi-lang-python=\"`account_id`\" pulumi-lang-yaml=\"`accountId`\" pulumi-lang-java=\"`accountId`\" pulumi-lang-hcl=\"`account_id`\"\u003e`accountId`\u003c/span\u003e explicitly is recommended so the target account is unambiguous in your configuration.\n"
                 },
                 "description": {
                     "type": "string",
@@ -15261,7 +15261,7 @@
             "inputProperties": {
                 "accountId": {
                     "type": "string",
-                    "description": "Account with the event and where the metrics will be put.\n"
+                    "description": "The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.\n\n\u003e **NOTE:** Setting \u003cspan pulumi-lang-nodejs=\"`accountId`\" pulumi-lang-dotnet=\"`AccountId`\" pulumi-lang-go=\"`accountId`\" pulumi-lang-python=\"`account_id`\" pulumi-lang-yaml=\"`accountId`\" pulumi-lang-java=\"`accountId`\" pulumi-lang-hcl=\"`account_id`\"\u003e`accountId`\u003c/span\u003e explicitly is recommended so the target account is unambiguous in your configuration.\n"
                 },
                 "description": {
                     "type": "string",
@@ -15291,7 +15291,7 @@
                 "properties": {
                     "accountId": {
                         "type": "string",
-                        "description": "Account with the event and where the metrics will be put.\n"
+                        "description": "The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.\n\n\u003e **NOTE:** Setting \u003cspan pulumi-lang-nodejs=\"`accountId`\" pulumi-lang-dotnet=\"`AccountId`\" pulumi-lang-go=\"`accountId`\" pulumi-lang-python=\"`account_id`\" pulumi-lang-yaml=\"`accountId`\" pulumi-lang-java=\"`accountId`\" pulumi-lang-hcl=\"`account_id`\"\u003e`accountId`\u003c/span\u003e explicitly is recommended so the target account is unambiguous in your configuration.\n"
                     },
                     "description": {
                         "type": "string",
