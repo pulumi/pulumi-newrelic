@@ -17,14 +17,18 @@ public final class EventsToMetricsRuleState extends com.pulumi.resources.Resourc
     public static final EventsToMetricsRuleState Empty = new EventsToMetricsRuleState();
 
     /**
-     * Account with the event and where the metrics will be put.
+     * The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider&#39;s configured account ID*.
+     * 
+     * &gt; **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return Account with the event and where the metrics will be put.
+     * @return The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider&#39;s configured account ID*.
+     * 
+     * &gt; **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -136,7 +140,9 @@ public final class EventsToMetricsRuleState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId Account with the event and where the metrics will be put.
+         * @param accountId The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider&#39;s configured account ID*.
+         * 
+         * &gt; **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
          * 
          * @return builder
          * 
@@ -147,7 +153,9 @@ public final class EventsToMetricsRuleState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId Account with the event and where the metrics will be put.
+         * @param accountId The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider&#39;s configured account ID*.
+         * 
+         * &gt; **NOTE:** Setting `accountId` explicitly is recommended so the target account is unambiguous in your configuration.
          * 
          * @return builder
          * 

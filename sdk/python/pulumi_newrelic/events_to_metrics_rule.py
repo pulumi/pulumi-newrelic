@@ -28,7 +28,9 @@ class EventsToMetricsRuleArgs:
         The set of arguments for constructing a EventsToMetricsRule resource.
 
         :param pulumi.Input[_builtins.str] nrql: Explains how to create metrics from events.
-        :param pulumi.Input[_builtins.str] account_id: Account with the event and where the metrics will be put.
+        :param pulumi.Input[_builtins.str] account_id: The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+               
+               > **NOTE:** Setting `account_id` explicitly is recommended so the target account is unambiguous in your configuration.
         :param pulumi.Input[_builtins.str] description: Provides additional information about the rule.
         :param pulumi.Input[_builtins.bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
         :param pulumi.Input[_builtins.str] name: The name of the rule. This must be unique within an account.
@@ -59,7 +61,9 @@ class EventsToMetricsRuleArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Account with the event and where the metrics will be put.
+        The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+
+        > **NOTE:** Setting `account_id` explicitly is recommended so the target account is unambiguous in your configuration.
         """
         return pulumi.get(self, "account_id")
 
@@ -116,7 +120,9 @@ class _EventsToMetricsRuleState:
         """
         Input properties used for looking up and filtering EventsToMetricsRule resources.
 
-        :param pulumi.Input[_builtins.str] account_id: Account with the event and where the metrics will be put.
+        :param pulumi.Input[_builtins.str] account_id: The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+               
+               > **NOTE:** Setting `account_id` explicitly is recommended so the target account is unambiguous in your configuration.
         :param pulumi.Input[_builtins.str] description: Provides additional information about the rule.
         :param pulumi.Input[_builtins.bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
         :param pulumi.Input[_builtins.str] name: The name of the rule. This must be unique within an account.
@@ -140,7 +146,9 @@ class _EventsToMetricsRuleState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Account with the event and where the metrics will be put.
+        The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+
+        > **NOTE:** Setting `account_id` explicitly is recommended so the target account is unambiguous in your configuration.
         """
         return pulumi.get(self, "account_id")
 
@@ -253,7 +261,9 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: Account with the event and where the metrics will be put.
+        :param pulumi.Input[_builtins.str] account_id: The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+               
+               > **NOTE:** Setting `account_id` explicitly is recommended so the target account is unambiguous in your configuration.
         :param pulumi.Input[_builtins.str] description: Provides additional information about the rule.
         :param pulumi.Input[_builtins.bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
         :param pulumi.Input[_builtins.str] name: The name of the rule. This must be unique within an account.
@@ -355,7 +365,9 @@ class EventsToMetricsRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: Account with the event and where the metrics will be put.
+        :param pulumi.Input[_builtins.str] account_id: The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+               
+               > **NOTE:** Setting `account_id` explicitly is recommended so the target account is unambiguous in your configuration.
         :param pulumi.Input[_builtins.str] description: Provides additional information about the rule.
         :param pulumi.Input[_builtins.bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
         :param pulumi.Input[_builtins.str] name: The name of the rule. This must be unique within an account.
@@ -378,7 +390,9 @@ class EventsToMetricsRule(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Account with the event and where the metrics will be put.
+        The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
+
+        > **NOTE:** Setting `account_id` explicitly is recommended so the target account is unambiguous in your configuration.
         """
         return pulumi.get(self, "account_id")
 
