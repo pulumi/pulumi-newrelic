@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AzureIntegrationsAutoDiscovery {
     /**
-     * @return The data polling interval in seconds
+     * @return The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -26,7 +26,7 @@ public final class AzureIntegrationsAutoDiscovery {
 
     private AzureIntegrationsAutoDiscovery() {}
     /**
-     * @return The data polling interval in seconds
+     * @return The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
      * 
      */
     public Optional<Integer> metricsPollingInterval() {
