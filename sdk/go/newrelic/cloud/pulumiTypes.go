@@ -14565,7 +14565,7 @@ func (o AzureIntegrationsAppServicePtrOutput) ResourceGroups() pulumi.StringArra
 }
 
 type AzureIntegrationsAutoDiscovery struct {
-	// The data polling interval in seconds
+	// The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
 	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
 	ResourceGroups []string `pulumi:"resourceGroups"`
@@ -14583,7 +14583,7 @@ type AzureIntegrationsAutoDiscoveryInput interface {
 }
 
 type AzureIntegrationsAutoDiscoveryArgs struct {
-	// The data polling interval in seconds
+	// The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
 	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
 	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
 	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
@@ -14666,7 +14666,7 @@ func (o AzureIntegrationsAutoDiscoveryOutput) ToAzureIntegrationsAutoDiscoveryPt
 	}).(AzureIntegrationsAutoDiscoveryPtrOutput)
 }
 
-// The data polling interval in seconds
+// The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
 func (o AzureIntegrationsAutoDiscoveryOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureIntegrationsAutoDiscovery) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
 }
@@ -14700,7 +14700,7 @@ func (o AzureIntegrationsAutoDiscoveryPtrOutput) Elem() AzureIntegrationsAutoDis
 	}).(AzureIntegrationsAutoDiscoveryOutput)
 }
 
-// The data polling interval in seconds
+// The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
 func (o AzureIntegrationsAutoDiscoveryPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrationsAutoDiscovery) *int {
 		if v == nil {

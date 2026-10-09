@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
     public sealed class AzureIntegrationsAutoDiscoveryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data polling interval in seconds
+        /// The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }

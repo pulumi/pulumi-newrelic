@@ -5739,7 +5739,7 @@ class AzureIntegrationsAutoDiscovery(dict):
                  metrics_polling_interval: Optional[_builtins.int] = None,
                  resource_groups: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.int metrics_polling_interval: The data polling interval in seconds
+        :param _builtins.int metrics_polling_interval: The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
         :param Sequence[_builtins.str] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         if metrics_polling_interval is not None:
@@ -5751,7 +5751,7 @@ class AzureIntegrationsAutoDiscovery(dict):
     @pulumi.getter(name="metricsPollingInterval")
     def metrics_polling_interval(self) -> Optional[_builtins.int]:
         """
-        The data polling interval in seconds
+        The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
         """
         return pulumi.get(self, "metrics_polling_interval")
 
