@@ -98,6 +98,21 @@ public final class FederatedLogsSetupState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+     * 
+     */
+    @Import(name="derivedLifecycleState")
+    private @Nullable Output<String> derivedLifecycleState;
+
+    /**
+     * @return The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+     * 
+     */
+    public Optional<Output<String>> derivedLifecycleState() {
+        return Optional.ofNullable(this.derivedLifecycleState);
+    }
+
+    /**
      * A description for federated logs setup.
      * 
      */
@@ -210,6 +225,7 @@ public final class FederatedLogsSetupState extends com.pulumi.resources.Resource
         this.createdAt = $.createdAt;
         this.defaultPartition = $.defaultPartition;
         this.defaultPartitionId = $.defaultPartitionId;
+        this.derivedLifecycleState = $.derivedLifecycleState;
         this.description = $.description;
         this.forwarder = $.forwarder;
         this.healthChecks = $.healthChecks;
@@ -340,6 +356,27 @@ public final class FederatedLogsSetupState extends com.pulumi.resources.Resource
          */
         public Builder defaultPartitionId(String defaultPartitionId) {
             return defaultPartitionId(Output.of(defaultPartitionId));
+        }
+
+        /**
+         * @param derivedLifecycleState The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder derivedLifecycleState(@Nullable Output<String> derivedLifecycleState) {
+            $.derivedLifecycleState = derivedLifecycleState;
+            return this;
+        }
+
+        /**
+         * @param derivedLifecycleState The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder derivedLifecycleState(String derivedLifecycleState) {
+            return derivedLifecycleState(Output.of(derivedLifecycleState));
         }
 
         /**

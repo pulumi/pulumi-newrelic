@@ -145,6 +145,7 @@ class _FederatedLogsSetupState:
                  created_at: pulumi.Input[Optional[_builtins.str]] = None,
                  default_partition: pulumi.Input[Optional['FederatedLogsSetupDefaultPartitionArgs']] = None,
                  default_partition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 derived_lifecycle_state: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  forwarder: pulumi.Input[Optional['FederatedLogsSetupForwarderArgs']] = None,
                  health_checks: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckArgs']]]] = None,
@@ -160,6 +161,7 @@ class _FederatedLogsSetupState:
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp.
         :param pulumi.Input['FederatedLogsSetupDefaultPartitionArgs'] default_partition: Default partition created alongside the setup. See Nested default_partition block below.
         :param pulumi.Input[_builtins.str] default_partition_id: The entity GUID of the default partition created alongside this setup.
+        :param pulumi.Input[_builtins.str] derived_lifecycle_state: The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
         :param pulumi.Input[_builtins.str] description: A description for federated logs setup.
         :param pulumi.Input['FederatedLogsSetupForwarderArgs'] forwarder: Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.
         :param pulumi.Input[Sequence[pulumi.Input['FederatedLogsSetupHealthCheckArgs']]] health_checks: Aggregate health check status for the setup.
@@ -178,6 +180,8 @@ class _FederatedLogsSetupState:
             pulumi.set(__self__, "default_partition", default_partition)
         if default_partition_id is not None:
             pulumi.set(__self__, "default_partition_id", default_partition_id)
+        if derived_lifecycle_state is not None:
+            pulumi.set(__self__, "derived_lifecycle_state", derived_lifecycle_state)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if forwarder is not None:
@@ -252,6 +256,18 @@ class _FederatedLogsSetupState:
     @default_partition_id.setter
     def default_partition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_partition_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="derivedLifecycleState")
+    def derived_lifecycle_state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+        """
+        return pulumi.get(self, "derived_lifecycle_state")
+
+    @derived_lifecycle_state.setter
+    def derived_lifecycle_state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "derived_lifecycle_state", value)
 
     @_builtins.property
     @pulumi.getter
@@ -534,6 +550,7 @@ class FederatedLogsSetup(pulumi.CustomResource):
             __props__.__dict__["storage"] = storage
             __props__.__dict__["created_at"] = None
             __props__.__dict__["default_partition_id"] = None
+            __props__.__dict__["derived_lifecycle_state"] = None
             __props__.__dict__["health_checks"] = None
             __props__.__dict__["lifecycle_statuses"] = None
             __props__.__dict__["updated_at"] = None
@@ -552,6 +569,7 @@ class FederatedLogsSetup(pulumi.CustomResource):
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             default_partition: pulumi.Input[Optional[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict', 'outputs.FederatedLogsSetupDefaultPartition']]] = None,
             default_partition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            derived_lifecycle_state: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             forwarder: pulumi.Input[Optional[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict', 'outputs.FederatedLogsSetupForwarder']]] = None,
             health_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsSetupHealthCheckArgs', 'FederatedLogsSetupHealthCheckArgsDict', 'outputs.FederatedLogsSetupHealthCheck']]]]] = None,
@@ -571,6 +589,7 @@ class FederatedLogsSetup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp.
         :param pulumi.Input[Union['FederatedLogsSetupDefaultPartitionArgs', 'FederatedLogsSetupDefaultPartitionArgsDict', 'outputs.FederatedLogsSetupDefaultPartition']] default_partition: Default partition created alongside the setup. See Nested default_partition block below.
         :param pulumi.Input[_builtins.str] default_partition_id: The entity GUID of the default partition created alongside this setup.
+        :param pulumi.Input[_builtins.str] derived_lifecycle_state: The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
         :param pulumi.Input[_builtins.str] description: A description for federated logs setup.
         :param pulumi.Input[Union['FederatedLogsSetupForwarderArgs', 'FederatedLogsSetupForwarderArgsDict', 'outputs.FederatedLogsSetupForwarder']] forwarder: Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsSetupHealthCheckArgs', 'FederatedLogsSetupHealthCheckArgsDict', 'outputs.FederatedLogsSetupHealthCheck']]]] health_checks: Aggregate health check status for the setup.
@@ -588,6 +607,7 @@ class FederatedLogsSetup(pulumi.CustomResource):
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["default_partition"] = default_partition
         __props__.__dict__["default_partition_id"] = default_partition_id
+        __props__.__dict__["derived_lifecycle_state"] = derived_lifecycle_state
         __props__.__dict__["description"] = description
         __props__.__dict__["forwarder"] = forwarder
         __props__.__dict__["health_checks"] = health_checks
@@ -636,6 +656,14 @@ class FederatedLogsSetup(pulumi.CustomResource):
         The entity GUID of the default partition created alongside this setup.
         """
         return pulumi.get(self, "default_partition_id")
+
+    @_builtins.property
+    @pulumi.getter(name="derivedLifecycleState")
+    def derived_lifecycle_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+        """
+        return pulumi.get(self, "derived_lifecycle_state")
 
     @_builtins.property
     @pulumi.getter

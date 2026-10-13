@@ -76,6 +76,8 @@ type FederatedLogsPartition struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Retention policy for logs in this partition. See Nested dataRetentionPolicy block below.
 	DataRetentionPolicy FederatedLogsPartitionDataRetentionPolicyPtrOutput `pulumi:"dataRetentionPolicy"`
+	// The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+	DerivedLifecycleState pulumi.StringOutput `pulumi:"derivedLifecycleState"`
 	// A description for partition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Forwarder configuration for routing specific logs to this partition. See Nested forwarderConfiguration block below.
@@ -140,6 +142,8 @@ type federatedLogsPartitionState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Retention policy for logs in this partition. See Nested dataRetentionPolicy block below.
 	DataRetentionPolicy *FederatedLogsPartitionDataRetentionPolicy `pulumi:"dataRetentionPolicy"`
+	// The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+	DerivedLifecycleState *string `pulumi:"derivedLifecycleState"`
 	// A description for partition.
 	Description *string `pulumi:"description"`
 	// Forwarder configuration for routing specific logs to this partition. See Nested forwarderConfiguration block below.
@@ -169,6 +173,8 @@ type FederatedLogsPartitionState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Retention policy for logs in this partition. See Nested dataRetentionPolicy block below.
 	DataRetentionPolicy FederatedLogsPartitionDataRetentionPolicyPtrInput
+	// The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+	DerivedLifecycleState pulumi.StringPtrInput
 	// A description for partition.
 	Description pulumi.StringPtrInput
 	// Forwarder configuration for routing specific logs to this partition. See Nested forwarderConfiguration block below.
@@ -339,6 +345,11 @@ func (o FederatedLogsPartitionOutput) DataRetentionPolicy() FederatedLogsPartiti
 	return o.ApplyT(func(v *FederatedLogsPartition) FederatedLogsPartitionDataRetentionPolicyPtrOutput {
 		return v.DataRetentionPolicy
 	}).(FederatedLogsPartitionDataRetentionPolicyPtrOutput)
+}
+
+// The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+func (o FederatedLogsPartitionOutput) DerivedLifecycleState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FederatedLogsPartition) pulumi.StringOutput { return v.DerivedLifecycleState }).(pulumi.StringOutput)
 }
 
 // A description for partition.

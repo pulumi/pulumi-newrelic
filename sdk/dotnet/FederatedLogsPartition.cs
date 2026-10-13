@@ -89,6 +89,12 @@ namespace Pulumi.NewRelic
         public Output<Outputs.FederatedLogsPartitionDataRetentionPolicy?> DataRetentionPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+        /// </summary>
+        [Output("derivedLifecycleState")]
+        public Output<string> DerivedLifecycleState { get; private set; } = null!;
+
+        /// <summary>
         /// A description for partition.
         /// </summary>
         [Output("description")]
@@ -267,6 +273,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("dataRetentionPolicy")]
         public Input<Inputs.FederatedLogsPartitionDataRetentionPolicyGetArgs>? DataRetentionPolicy { get; set; }
+
+        /// <summary>
+        /// The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+        /// </summary>
+        [Input("derivedLifecycleState")]
+        public Input<string>? DerivedLifecycleState { get; set; }
 
         /// <summary>
         /// A description for partition.

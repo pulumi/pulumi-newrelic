@@ -124,6 +124,12 @@ namespace Pulumi.NewRelic
         public Output<string> DefaultPartitionId { get; private set; } = null!;
 
         /// <summary>
+        /// The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+        /// </summary>
+        [Output("derivedLifecycleState")]
+        public Output<string> DerivedLifecycleState { get; private set; } = null!;
+
+        /// <summary>
         /// A description for federated logs setup.
         /// </summary>
         [Output("description")]
@@ -290,6 +296,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("defaultPartitionId")]
         public Input<string>? DefaultPartitionId { get; set; }
+
+        /// <summary>
+        /// The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+        /// </summary>
+        [Input("derivedLifecycleState")]
+        public Input<string>? DerivedLifecycleState { get; set; }
 
         /// <summary>
         /// A description for federated logs setup.

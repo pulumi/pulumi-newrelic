@@ -148,6 +148,20 @@ public class FederatedLogsPartition extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.dataRetentionPolicy);
     }
     /**
+     * The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+     * 
+     */
+    @Export(name="derivedLifecycleState", refs={String.class}, tree="[0]")
+    private Output<String> derivedLifecycleState;
+
+    /**
+     * @return The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+     * 
+     */
+    public Output<String> derivedLifecycleState() {
+        return this.derivedLifecycleState;
+    }
+    /**
      * A description for partition.
      * 
      */
