@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new AwsEuSovereignIntegrations("bar", AwsEuSovereignIntegrationsArgs.builder()
- *             .linkedAccountId(foo.id())
+ *             .linkedAccountId(foo.get("id"))
  *             .billing(AwsEuSovereignIntegrationsBillingArgs.builder()
  *                 .metricsPollingInterval(300)
  *                 .build())

@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AlertCondition("foo", AlertConditionArgs.builder()
- *             .policyId(fooNewrelicAlertPolicy.id())
+ *             .policyId(fooNewrelicAlertPolicy.get("id"))
  *             .name("foo")
- *             .monitorId(fooNewrelicSyntheticsMonitor.id())
+ *             .monitorId(fooNewrelicSyntheticsMonitor.get("id"))
  *             .runbookUrl("https://www.example.com")
  *             .build());
  * 

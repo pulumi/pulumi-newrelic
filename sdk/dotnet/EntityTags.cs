@@ -81,11 +81,11 @@ namespace Pulumi.NewRelic
     ///         },
     ///     })).Result;
     /// 
-    ///     var customTags = 
+    ///     var customTags = new Dictionary&lt;string, string&gt;
     ///     {
-    ///         { "tag-key-1", "tag-value-1" },
-    ///         { "tag-key-2", "tag-value-2" },
-    ///         { "tag-key-3", "tag-value-3" },
+    ///         ["tag-key-1"] = "tag-value-1",
+    ///         ["tag-key-2"] = "tag-value-2",
+    ///         ["tag-key-3"] = "tag-value-3",
     ///     };
     /// 
     ///     var foo = ;

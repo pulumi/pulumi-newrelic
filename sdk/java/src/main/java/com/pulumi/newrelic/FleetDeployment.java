@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var infra = new FleetDeployment("infra", FleetDeploymentArgs.builder()
- *             .fleetId(prod.id())
+ *             .fleetId(prod.get("id"))
  *             .name("Production Infra Deployment")
  *             .description("Deploys NRInfra v1.58.0 with the production config")
  *             .agents(FleetDeploymentAgentArgs.builder()
@@ -107,18 +107,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fullStack = new FleetDeployment("fullStack", FleetDeploymentArgs.builder()
- *             .fleetId(prod.id())
+ *             .fleetId(prod.get("id"))
  *             .name("Full Stack Deployment")
  *             .agents(            
  *                 FleetDeploymentAgentArgs.builder()
  *                     .agentType("NRInfra")
  *                     .version("1.58.0")
- *                     .configurationVersionId(infraCfg.latestVersionEntityId())
+ *                     .configurationVersionId(infraCfg.get("latestVersionEntityId"))
  *                     .build(),
  *                 FleetDeploymentAgentArgs.builder()
  *                     .agentType("FluentBit")
  *                     .version("3.2.0")
- *                     .configurationVersionId(fbCfg.latestVersionEntityId())
+ *                     .configurationVersionId(fbCfg.get("latestVersionEntityId"))
  *                     .build())
  *             .build());
  * 
@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var drained = new FleetDeployment("drained", FleetDeploymentArgs.builder()
- *             .fleetId(prod.id())
+ *             .fleetId(prod.get("id"))
  *             .name("Drained deployment")
  *             .build());
  * 
@@ -193,12 +193,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var pinned = new FleetDeployment("pinned", FleetDeploymentArgs.builder()
- *             .fleetId(prod.id())
+ *             .fleetId(prod.get("id"))
  *             .name("Stable v1 rollout")
  *             .agents(FleetDeploymentAgentArgs.builder()
  *                 .agentType("NRInfra")
  *                 .version("1.58.0")
- *                 .configurationVersionId(infraCfg.versionEntityIds()[0])
+ *                 .configurationVersionId(infraCfg.get("versionEntityIds")[0])
  *                 .build())
  *             .build());
  * 
@@ -233,12 +233,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var infra = new FleetDeployment("infra", FleetDeploymentArgs.builder()
- *             .fleetId(prod.id())
+ *             .fleetId(prod.get("id"))
  *             .name("Production Deployment")
  *             .agents(FleetDeploymentAgentArgs.builder()
  *                 .agentType("NRInfra")
  *                 .version("1.58.0")
- *                 .configurationVersionId(infraCfg.latestVersionEntityId())
+ *                 .configurationVersionId(infraCfg.get("latestVersionEntityId"))
  *                 .build())
  *             .tags(            
  *                 "environment:production",

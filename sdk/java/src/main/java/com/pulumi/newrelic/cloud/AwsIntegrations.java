@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AwsLinkAccount("foo", AwsLinkAccountArgs.builder()
- *             .arn(newrelicAwsRole.arn())
+ *             .arn(newrelicAwsRole.get("arn"))
  *             .metricCollectionMode("PULL")
  *             .name("foo")
  *             .build());
@@ -711,7 +711,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new AwsIntegrations("bar", AwsIntegrationsArgs.builder()
- *             .linkedAccountId(foo.id())
+ *             .linkedAccountId(foo.get("id"))
  *             .billing(AwsIntegrationsBillingArgs.builder()
  *                 .metricsPollingInterval(3600)
  *                 .build())

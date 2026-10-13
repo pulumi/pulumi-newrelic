@@ -116,7 +116,7 @@ import * as utilities from "./utilities";
  * const bulk = new newrelic.CardinalityManagement("bulk", {
  *     metrics: highCardinalityMetrics.map((v, k) => ({key: k, value: v})).map(entry => ({
  *         name: entry.value.name,
- *         cardinalityLimit: Number(entry.value.limit),
+ *         cardinalityLimit: entry.value.limit,
  *     })),
  *     mode: "PER_METRIC",
  * });

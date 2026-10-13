@@ -143,7 +143,7 @@ namespace Pulumi.NewRelic
         ///         Input = foo.Apply(getEntityResult =&gt; getEntityResult.EntityTags),
         ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
         ///         var pair = item.Value;
-        ///         return pair.Key;
+        ///         return pair.Key.ToString(System.Globalization.CultureInfo.InvariantCulture);
         ///     }, item =&gt; {
         ///         var pair = item.Value;
         ///         return pair.Values;
@@ -292,7 +292,7 @@ namespace Pulumi.NewRelic
         ///         Input = foo.Apply(getEntityResult =&gt; getEntityResult.EntityTags),
         ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
         ///         var pair = item.Value;
-        ///         return pair.Key;
+        ///         return pair.Key.ToString(System.Globalization.CultureInfo.InvariantCulture);
         ///     }, item =&gt; {
         ///         var pair = item.Value;
         ///         return pair.Values;
@@ -441,7 +441,7 @@ namespace Pulumi.NewRelic
         ///         Input = foo.Apply(getEntityResult =&gt; getEntityResult.EntityTags),
         ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
         ///         var pair = item.Value;
-        ///         return pair.Key;
+        ///         return pair.Key.ToString(System.Globalization.CultureInfo.InvariantCulture);
         ///     }, item =&gt; {
         ///         var pair = item.Value;
         ///         return pair.Values;

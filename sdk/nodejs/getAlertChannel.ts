@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  * });
  * // Resource
  * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {name: "foo"});
- * // Using the data source and resource together
+ * // Using the function and resource together
  * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
  *     policyId: fooAlertPolicy.id,
  *     channelId: foo.then(foo => foo.id),
@@ -92,7 +92,7 @@ export interface GetAlertChannelResult {
  * });
  * // Resource
  * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {name: "foo"});
- * // Using the data source and resource together
+ * // Using the function and resource together
  * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
  *     policyId: fooAlertPolicy.id,
  *     channelId: foo.then(foo => foo.id),

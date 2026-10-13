@@ -816,7 +816,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var services = config.get("services").orElse(Arrays.asList(        
+ *         final var services = config.getObject("services", com.pulumi.core.TypeShape.list(String.class)).orElse(Arrays.asList(        
  *             "checkout",
  *             "inventory",
  *             "payments"));

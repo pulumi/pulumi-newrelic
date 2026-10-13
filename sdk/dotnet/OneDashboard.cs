@@ -204,8 +204,8 @@ namespace Pulumi.NewRelic
     ///                         LegendEnabled = true,
     ///                         IgnoreTimeRange = false,
     ///                         YAxisLeftZero = true,
-    ///                         YAxisLeftMin = 0,
-    ///                         YAxisLeftMax = 1,
+    ///                         YAxisLeftMin = 0.0,
+    ///                         YAxisLeftMax = 1.0,
     ///                         Tooltip = new NewRelic.Inputs.OneDashboardPageWidgetLineTooltipArgs
     ///                         {
     ///                             Mode = "single",
@@ -213,8 +213,8 @@ namespace Pulumi.NewRelic
     ///                         YAxisRight = new NewRelic.Inputs.OneDashboardPageWidgetLineYAxisRightArgs
     ///                         {
     ///                             YAxisRightZero = true,
-    ///                             YAxisRightMin = 0,
-    ///                             YAxisRightMax = 300,
+    ///                             YAxisRightMin = 0.0,
+    ///                             YAxisRightMax = 300.0,
     ///                             YAxisRightSeries = new[]
     ///                             {
     ///                                 "A",
@@ -274,8 +274,8 @@ namespace Pulumi.NewRelic
     ///                         LegendEnabled = true,
     ///                         IgnoreTimeRange = false,
     ///                         YAxisLeftZero = true,
-    ///                         YAxisLeftMin = 0,
-    ///                         YAxisLeftMax = 0,
+    ///                         YAxisLeftMin = 0.0,
+    ///                         YAxisLeftMax = 0.0,
     ///                         NullValues = new[]
     ///                         {
     ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineNullValueArgs

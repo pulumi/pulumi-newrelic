@@ -256,7 +256,7 @@ class CardinalityManagement(pulumi.CustomResource):
         bulk = newrelic.CardinalityManagement("bulk",
             metrics=[{
                 "name": entry["value"]["name"],
-                "cardinality_limit": int(entry["value"]["limit"]),
+                "cardinality_limit": entry["value"]["limit"],
             } for entry in [{"key": k, "value": v} for k, v in sorted(high_cardinality_metrics.items())]],
             mode="PER_METRIC")
         ```
@@ -438,7 +438,7 @@ class CardinalityManagement(pulumi.CustomResource):
         bulk = newrelic.CardinalityManagement("bulk",
             metrics=[{
                 "name": entry["value"]["name"],
-                "cardinality_limit": int(entry["value"]["limit"]),
+                "cardinality_limit": entry["value"]["limit"],
             } for entry in [{"key": k, "value": v} for k, v in sorted(high_cardinality_metrics.items())]],
             mode="PER_METRIC")
         ```

@@ -134,7 +134,7 @@ namespace Pulumi.NewRelic
         ///         SliGuid = foo.SliGuid,
         ///         SloTarget = fooTarget,
         ///         SloPeriod = fooPeriod,
-        ///         CustomToleratedBudgetConsumption = 4,
+        ///         CustomToleratedBudgetConsumption = 4.0,
         ///         CustomEvaluationPeriod = 5400,
         ///         IsBadEvents = true,
         ///     });
@@ -294,7 +294,7 @@ namespace Pulumi.NewRelic
         ///         SliGuid = foo.SliGuid,
         ///         SloTarget = fooTarget,
         ///         SloPeriod = fooPeriod,
-        ///         CustomToleratedBudgetConsumption = 4,
+        ///         CustomToleratedBudgetConsumption = 4.0,
         ///         CustomEvaluationPeriod = 5400,
         ///         IsBadEvents = true,
         ///     });
@@ -454,7 +454,7 @@ namespace Pulumi.NewRelic
         ///         SliGuid = foo.SliGuid,
         ///         SloTarget = fooTarget,
         ///         SloPeriod = fooPeriod,
-        ///         CustomToleratedBudgetConsumption = 4,
+        ///         CustomToleratedBudgetConsumption = 4.0,
         ///         CustomEvaluationPeriod = 5400,
         ///         IsBadEvents = true,
         ///     });

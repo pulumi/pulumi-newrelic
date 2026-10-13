@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var highCpu = new NrqlAlertCondition("highCpu", NrqlAlertConditionArgs.builder()
- *             .policyId(example.id())
+ *             .policyId(example.get("id"))
  *             .name("High CPU")
  *             .enabled(true)
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var highMemory = new NrqlAlertCondition("highMemory", NrqlAlertConditionArgs.builder()
- *             .policyId(example.id())
+ *             .policyId(example.get("id"))
  *             .name("High Memory")
  *             .enabled(true)
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -178,7 +178,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var diskFull = new NrqlAlertCondition("diskFull", NrqlAlertConditionArgs.builder()
- *             .policyId(example.id())
+ *             .policyId(example.get("id"))
  *             .name("Disk Full")
  *             .enabled(true)
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -194,7 +194,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var complex = new AlertCompoundCondition("complex", AlertCompoundConditionArgs.builder()
- *             .policyId(example.id())
+ *             .policyId(example.get("id"))
  *             .name("Complex Infrastructure Alert")
  *             .enabled(true)
  *             .triggerExpression("(A AND B) OR C")
@@ -248,7 +248,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var highThroughputPerHost = new NrqlAlertCondition("highThroughputPerHost", NrqlAlertConditionArgs.builder()
- *             .policyId(example.id())
+ *             .policyId(example.get("id"))
  *             .name("High Throughput Per Host")
  *             .enabled(true)
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -264,7 +264,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var highErrorRatePerHost = new NrqlAlertCondition("highErrorRatePerHost", NrqlAlertConditionArgs.builder()
- *             .policyId(example.id())
+ *             .policyId(example.get("id"))
  *             .name("High Error Rate Per Host")
  *             .enabled(true)
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
@@ -280,7 +280,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var withFacets = new AlertCompoundCondition("withFacets", AlertCompoundConditionArgs.builder()
- *             .policyId(example.id())
+ *             .policyId(example.get("id"))
  *             .name("Host-Specific Alert")
  *             .enabled(true)
  *             .triggerExpression("A AND B")

@@ -122,7 +122,7 @@ def get_alert_channel(account_id: Optional[_builtins.str] = None,
     foo = newrelic.get_alert_channel(name="foo@example.com")
     # Resource
     foo_alert_policy = newrelic.AlertPolicy("foo", name="foo")
-    # Using the data source and resource together
+    # Using the function and resource together
     foo_alert_policy_channel = newrelic.AlertPolicyChannel("foo",
         policy_id=foo_alert_policy.id,
         channel_id=foo.id)
@@ -163,7 +163,7 @@ def get_alert_channel_output(account_id: pulumi.Input[Optional[Optional[_builtin
     foo = newrelic.get_alert_channel(name="foo@example.com")
     # Resource
     foo_alert_policy = newrelic.AlertPolicy("foo", name="foo")
-    # Using the data source and resource together
+    # Using the function and resource together
     foo_alert_policy_channel = newrelic.AlertPolicyChannel("foo",
         policy_id=foo_alert_policy.id,
         channel_id=foo.id)
