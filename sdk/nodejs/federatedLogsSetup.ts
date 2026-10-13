@@ -118,6 +118,10 @@ export class FederatedLogsSetup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly defaultPartitionId: pulumi.Output<string>;
     /**
+     * The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+     */
+    declare public /*out*/ readonly derivedLifecycleState: pulumi.Output<string>;
+    /**
      * A description for federated logs setup.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -164,6 +168,7 @@ export class FederatedLogsSetup extends pulumi.CustomResource {
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["defaultPartition"] = state?.defaultPartition;
             resourceInputs["defaultPartitionId"] = state?.defaultPartitionId;
+            resourceInputs["derivedLifecycleState"] = state?.derivedLifecycleState;
             resourceInputs["description"] = state?.description;
             resourceInputs["forwarder"] = state?.forwarder;
             resourceInputs["healthChecks"] = state?.healthChecks;
@@ -188,6 +193,7 @@ export class FederatedLogsSetup extends pulumi.CustomResource {
             resourceInputs["storage"] = args?.storage;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["defaultPartitionId"] = undefined /*out*/;
+            resourceInputs["derivedLifecycleState"] = undefined /*out*/;
             resourceInputs["healthChecks"] = undefined /*out*/;
             resourceInputs["lifecycleStatuses"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
@@ -221,6 +227,10 @@ export interface FederatedLogsSetupState {
      * The entity GUID of the default partition created alongside this setup.
      */
     defaultPartitionId?: pulumi.Input<string | undefined>;
+    /**
+     * The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+     */
+    derivedLifecycleState?: pulumi.Input<string | undefined>;
     /**
      * A description for federated logs setup.
      */

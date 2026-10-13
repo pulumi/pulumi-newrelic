@@ -107,6 +107,8 @@ type FederatedLogsSetup struct {
 	DefaultPartition FederatedLogsSetupDefaultPartitionOutput `pulumi:"defaultPartition"`
 	// The entity GUID of the default partition created alongside this setup.
 	DefaultPartitionId pulumi.StringOutput `pulumi:"defaultPartitionId"`
+	// The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+	DerivedLifecycleState pulumi.StringOutput `pulumi:"derivedLifecycleState"`
 	// A description for federated logs setup.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.
@@ -169,6 +171,8 @@ type federatedLogsSetupState struct {
 	DefaultPartition *FederatedLogsSetupDefaultPartition `pulumi:"defaultPartition"`
 	// The entity GUID of the default partition created alongside this setup.
 	DefaultPartitionId *string `pulumi:"defaultPartitionId"`
+	// The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+	DerivedLifecycleState *string `pulumi:"derivedLifecycleState"`
 	// A description for federated logs setup.
 	Description *string `pulumi:"description"`
 	// Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.
@@ -196,6 +200,8 @@ type FederatedLogsSetupState struct {
 	DefaultPartition FederatedLogsSetupDefaultPartitionPtrInput
 	// The entity GUID of the default partition created alongside this setup.
 	DefaultPartitionId pulumi.StringPtrInput
+	// The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+	DerivedLifecycleState pulumi.StringPtrInput
 	// A description for federated logs setup.
 	Description pulumi.StringPtrInput
 	// Forwarder configuration that wires a fleet to this setup. See Nested forwarder block below.
@@ -361,6 +367,11 @@ func (o FederatedLogsSetupOutput) DefaultPartition() FederatedLogsSetupDefaultPa
 // The entity GUID of the default partition created alongside this setup.
 func (o FederatedLogsSetupOutput) DefaultPartitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedLogsSetup) pulumi.StringOutput { return v.DefaultPartitionId }).(pulumi.StringOutput)
+}
+
+// The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+func (o FederatedLogsSetupOutput) DerivedLifecycleState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FederatedLogsSetup) pulumi.StringOutput { return v.DerivedLifecycleState }).(pulumi.StringOutput)
 }
 
 // A description for federated logs setup.

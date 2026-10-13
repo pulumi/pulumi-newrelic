@@ -91,6 +91,10 @@ export class FederatedLogsPartition extends pulumi.CustomResource {
      */
     declare public readonly dataRetentionPolicy: pulumi.Output<outputs.FederatedLogsPartitionDataRetentionPolicy | undefined>;
     /**
+     * The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+     */
+    declare public /*out*/ readonly derivedLifecycleState: pulumi.Output<string>;
+    /**
      * A description for partition.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -144,6 +148,7 @@ export class FederatedLogsPartition extends pulumi.CustomResource {
             resourceInputs["active"] = state?.active;
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["dataRetentionPolicy"] = state?.dataRetentionPolicy;
+            resourceInputs["derivedLifecycleState"] = state?.derivedLifecycleState;
             resourceInputs["description"] = state?.description;
             resourceInputs["forwarderConfiguration"] = state?.forwarderConfiguration;
             resourceInputs["healthChecks"] = state?.healthChecks;
@@ -170,6 +175,7 @@ export class FederatedLogsPartition extends pulumi.CustomResource {
             resourceInputs["setupId"] = args?.setupId;
             resourceInputs["storage"] = args?.storage;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["derivedLifecycleState"] = undefined /*out*/;
             resourceInputs["healthChecks"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["lifecycleStatuses"] = undefined /*out*/;
@@ -200,6 +206,10 @@ export interface FederatedLogsPartitionState {
      * Retention policy for logs in this partition. See Nested dataRetentionPolicy block below.
      */
     dataRetentionPolicy?: pulumi.Input<inputs.FederatedLogsPartitionDataRetentionPolicy | undefined>;
+    /**
+     * The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+     */
+    derivedLifecycleState?: pulumi.Input<string | undefined>;
     /**
      * A description for partition.
      */

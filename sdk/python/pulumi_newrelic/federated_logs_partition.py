@@ -160,6 +160,7 @@ class _FederatedLogsPartitionState:
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
                  created_at: pulumi.Input[Optional[_builtins.str]] = None,
                  data_retention_policy: pulumi.Input[Optional['FederatedLogsPartitionDataRetentionPolicyArgs']] = None,
+                 derived_lifecycle_state: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  forwarder_configuration: pulumi.Input[Optional['FederatedLogsPartitionForwarderConfigurationArgs']] = None,
                  health_checks: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckArgs']]]] = None,
@@ -176,6 +177,7 @@ class _FederatedLogsPartitionState:
         :param pulumi.Input[_builtins.bool] active: Whether the partition is active.
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp.
         :param pulumi.Input['FederatedLogsPartitionDataRetentionPolicyArgs'] data_retention_policy: Retention policy for logs in this partition. See Nested data_retention_policy block below.
+        :param pulumi.Input[_builtins.str] derived_lifecycle_state: The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
         :param pulumi.Input[_builtins.str] description: A description for partition.
         :param pulumi.Input['FederatedLogsPartitionForwarderConfigurationArgs'] forwarder_configuration: Forwarder configuration for routing specific logs to this partition. See Nested forwarder_configuration block below.
         :param pulumi.Input[Sequence[pulumi.Input['FederatedLogsPartitionHealthCheckArgs']]] health_checks: Aggregate health check status for the partition.
@@ -194,6 +196,8 @@ class _FederatedLogsPartitionState:
             pulumi.set(__self__, "created_at", created_at)
         if data_retention_policy is not None:
             pulumi.set(__self__, "data_retention_policy", data_retention_policy)
+        if derived_lifecycle_state is not None:
+            pulumi.set(__self__, "derived_lifecycle_state", derived_lifecycle_state)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if forwarder_configuration is not None:
@@ -260,6 +264,18 @@ class _FederatedLogsPartitionState:
     @data_retention_policy.setter
     def data_retention_policy(self, value: pulumi.Input[Optional['FederatedLogsPartitionDataRetentionPolicyArgs']]):
         pulumi.set(self, "data_retention_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="derivedLifecycleState")
+    def derived_lifecycle_state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+        """
+        return pulumi.get(self, "derived_lifecycle_state")
+
+    @derived_lifecycle_state.setter
+    def derived_lifecycle_state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "derived_lifecycle_state", value)
 
     @_builtins.property
     @pulumi.getter
@@ -527,6 +543,7 @@ class FederatedLogsPartition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage'")
             __props__.__dict__["storage"] = storage
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["derived_lifecycle_state"] = None
             __props__.__dict__["health_checks"] = None
             __props__.__dict__["is_default"] = None
             __props__.__dict__["lifecycle_statuses"] = None
@@ -545,6 +562,7 @@ class FederatedLogsPartition(pulumi.CustomResource):
             active: pulumi.Input[Optional[_builtins.bool]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             data_retention_policy: pulumi.Input[Optional[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict', 'outputs.FederatedLogsPartitionDataRetentionPolicy']]] = None,
+            derived_lifecycle_state: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             forwarder_configuration: pulumi.Input[Optional[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict', 'outputs.FederatedLogsPartitionForwarderConfiguration']]] = None,
             health_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsPartitionHealthCheckArgs', 'FederatedLogsPartitionHealthCheckArgsDict', 'outputs.FederatedLogsPartitionHealthCheck']]]]] = None,
@@ -565,6 +583,7 @@ class FederatedLogsPartition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] active: Whether the partition is active.
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp.
         :param pulumi.Input[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict', 'outputs.FederatedLogsPartitionDataRetentionPolicy']] data_retention_policy: Retention policy for logs in this partition. See Nested data_retention_policy block below.
+        :param pulumi.Input[_builtins.str] derived_lifecycle_state: The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
         :param pulumi.Input[_builtins.str] description: A description for partition.
         :param pulumi.Input[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict', 'outputs.FederatedLogsPartitionForwarderConfiguration']] forwarder_configuration: Forwarder configuration for routing specific logs to this partition. See Nested forwarder_configuration block below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedLogsPartitionHealthCheckArgs', 'FederatedLogsPartitionHealthCheckArgsDict', 'outputs.FederatedLogsPartitionHealthCheck']]]] health_checks: Aggregate health check status for the partition.
@@ -583,6 +602,7 @@ class FederatedLogsPartition(pulumi.CustomResource):
         __props__.__dict__["active"] = active
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["data_retention_policy"] = data_retention_policy
+        __props__.__dict__["derived_lifecycle_state"] = derived_lifecycle_state
         __props__.__dict__["description"] = description
         __props__.__dict__["forwarder_configuration"] = forwarder_configuration
         __props__.__dict__["health_checks"] = health_checks
@@ -625,6 +645,14 @@ class FederatedLogsPartition(pulumi.CustomResource):
         Retention policy for logs in this partition. See Nested data_retention_policy block below.
         """
         return pulumi.get(self, "data_retention_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="derivedLifecycleState")
+    def derived_lifecycle_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR.
+        """
+        return pulumi.get(self, "derived_lifecycle_state")
 
     @_builtins.property
     @pulumi.getter
