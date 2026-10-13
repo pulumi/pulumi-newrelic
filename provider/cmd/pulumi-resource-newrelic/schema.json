@@ -15339,6 +15339,10 @@
                     "$ref": "#/types/newrelic:index/FederatedLogsPartitionDataRetentionPolicy:FederatedLogsPartitionDataRetentionPolicy",
                     "description": "Retention policy for logs in this partition. See Nested\u003cspan pulumi-lang-nodejs=\" dataRetentionPolicy \" pulumi-lang-dotnet=\" DataRetentionPolicy \" pulumi-lang-go=\" dataRetentionPolicy \" pulumi-lang-python=\" data_retention_policy \" pulumi-lang-yaml=\" dataRetentionPolicy \" pulumi-lang-java=\" dataRetentionPolicy \" pulumi-lang-hcl=\" data_retention_policy \"\u003e dataRetentionPolicy \u003c/span\u003eblock below.\n"
                 },
+                "derivedLifecycleState": {
+                    "type": "string",
+                    "description": "The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR."
+                },
                 "description": {
                     "type": "string",
                     "description": "A description for partition.\n"
@@ -15386,6 +15390,7 @@
                 "accountId",
                 "active",
                 "createdAt",
+                "derivedLifecycleState",
                 "healthChecks",
                 "isDefault",
                 "lifecycleStatuses",
@@ -15450,6 +15455,10 @@
                     "dataRetentionPolicy": {
                         "$ref": "#/types/newrelic:index/FederatedLogsPartitionDataRetentionPolicy:FederatedLogsPartitionDataRetentionPolicy",
                         "description": "Retention policy for logs in this partition. See Nested\u003cspan pulumi-lang-nodejs=\" dataRetentionPolicy \" pulumi-lang-dotnet=\" DataRetentionPolicy \" pulumi-lang-go=\" dataRetentionPolicy \" pulumi-lang-python=\" data_retention_policy \" pulumi-lang-yaml=\" dataRetentionPolicy \" pulumi-lang-java=\" dataRetentionPolicy \" pulumi-lang-hcl=\" data_retention_policy \"\u003e dataRetentionPolicy \u003c/span\u003eblock below.\n"
+                    },
+                    "derivedLifecycleState": {
+                        "type": "string",
+                        "description": "The derived lifecycle state of the partition, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR."
                     },
                     "description": {
                         "type": "string",
@@ -15520,6 +15529,10 @@
                     "type": "string",
                     "description": "The entity GUID of the default partition created alongside this setup.\n"
                 },
+                "derivedLifecycleState": {
+                    "type": "string",
+                    "description": "The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR."
+                },
                 "description": {
                     "type": "string",
                     "description": "A description for federated logs setup.\n"
@@ -15561,6 +15574,7 @@
                 "createdAt",
                 "defaultPartition",
                 "defaultPartitionId",
+                "derivedLifecycleState",
                 "healthChecks",
                 "lifecycleStatuses",
                 "name",
@@ -15623,6 +15637,10 @@
                     "defaultPartitionId": {
                         "type": "string",
                         "description": "The entity GUID of the default partition created alongside this setup.\n"
+                    },
+                    "derivedLifecycleState": {
+                        "type": "string",
+                        "description": "The derived lifecycle state of the setup, computed from the stored lifecycle status and PCG deployment progress. Possible values: DRAFT, ACTIVE, UPDATE_STAGED, ENABLE_STAGED, DISABLE_STAGED, DISABLED, DECOMMISSION_STAGED, DECOMMISSIONED, ERROR."
                     },
                     "description": {
                         "type": "string",
