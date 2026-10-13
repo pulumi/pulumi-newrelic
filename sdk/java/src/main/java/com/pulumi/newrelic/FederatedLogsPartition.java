@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new FederatedLogsPartition("foo", FederatedLogsPartitionArgs.builder()
- *             .setupId(setup.id())
+ *             .setupId(setup.get("id"))
  *             .name("test-partition-logs")
  *             .description("test partition for logs")
  *             .storage(FederatedLogsPartitionStorageArgs.builder()

@@ -133,25 +133,25 @@ namespace Pulumi.NewRelic
     /// {
     ///     var highCardinalityMetrics = new[]
     ///     {
-    ///         
+    ///         new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "name", "http.server.duration" },
-    ///             { "limit", 200000 },
+    ///             ["name"] = "http.server.duration",
+    ///             ["limit"] = 200000,
     ///         },
-    ///         
+    ///         new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "name", "otelcol_nrreceiver_incoming_request_proxy" },
-    ///             { "limit", 300000 },
+    ///             ["name"] = "otelcol_nrreceiver_incoming_request_proxy",
+    ///             ["limit"] = 300000,
     ///         },
-    ///         
+    ///         new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "name", "k8s.pod.cpu.usage" },
-    ///             { "limit", 150000 },
+    ///             ["name"] = "k8s.pod.cpu.usage",
+    ///             ["limit"] = 150000,
     ///         },
-    ///         
+    ///         new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "name", "k8s.pod.memory.usage" },
-    ///             { "limit", 150000 },
+    ///             ["name"] = "k8s.pod.memory.usage",
+    ///             ["limit"] = 150000,
     ///         },
     ///     };
     /// 

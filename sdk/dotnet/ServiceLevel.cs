@@ -51,7 +51,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
     ///         {
-    ///             Target = 99,
+    ///             Target = 99.0,
     ///             TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
     ///             {
     ///                 Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
@@ -99,7 +99,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
     ///         {
-    ///             Target = 99,
+    ///             Target = 99.0,
     ///             TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
     ///             {
     ///                 Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
@@ -174,14 +174,14 @@ namespace Pulumi.NewRelic
     ///                 {
     ///                     Attribute = "`query.wallClockTime.negative.distribution`",
     ///                     Function = "GET_CDF_COUNT",
-    ///                     Threshold = 7,
+    ///                     Threshold = 7.0,
     ///                 },
     ///                 Where = "metricName = 'query.wallClockTime.negative.distribution'",
     ///             },
     ///         },
     ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
     ///         {
-    ///             Target = 49,
+    ///             Target = 49.0,
     ///             TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
     ///             {
     ///                 Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs

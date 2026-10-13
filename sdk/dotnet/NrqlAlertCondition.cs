@@ -45,7 +45,7 @@ namespace Pulumi.NewRelic
     ///         Enabled = true,
     ///         ViolationTimeLimitSeconds = 3600,
     ///         FillOption = "static",
-    ///         FillValue = 1,
+    ///         FillValue = 1.0,
     ///         AggregationWindow = 60,
     ///         AggregationMethod = "event_flow",
     ///         AggregationDelay = "120",
@@ -246,7 +246,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
     ///         {
     ///             Operator = "above",
-    ///             Threshold = 0,
+    ///             Threshold = 0.0,
     ///             ThresholdDuration = 300,
     ///             ThresholdOccurrences = "all",
     ///         },
@@ -285,7 +285,7 @@ namespace Pulumi.NewRelic
     ///         Enabled = true,
     ///         ViolationTimeLimitSeconds = 3600,
     ///         FillOption = "static",
-    ///         FillValue = 1,
+    ///         FillValue = 1.0,
     ///         AggregationWindow = 60,
     ///         AggregationMethod = "event_flow",
     ///         AggregationDelay = "120",
@@ -369,7 +369,7 @@ namespace Pulumi.NewRelic
     ///         {
     ///             Operator = "above",
     ///             ThresholdDuration = 120,
-    ///             Threshold = 3,
+    ///             Threshold = 3.0,
     ///             ThresholdOccurrences = "AT_LEAST_ONCE",
     ///         },
     ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
@@ -406,7 +406,7 @@ namespace Pulumi.NewRelic
     ///             {
     ///                 Priority = "critical",
     ///                 Operator = "above",
-    ///                 Threshold = 3,
+    ///                 Threshold = 3.0,
     ///                 Duration = 5,
     ///                 TimeFunction = "any",
     ///             },

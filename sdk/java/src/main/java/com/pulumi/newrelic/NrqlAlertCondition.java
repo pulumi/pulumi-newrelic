@@ -445,7 +445,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var z = new NrqlAlertCondition("z", NrqlAlertConditionArgs.builder()
- *             .policyId(zNewrelicAlertPolicy.id())
+ *             .policyId(zNewrelicAlertPolicy.get("id"))
  *             .name("zleslie-test")
  *             .type("static")
  *             .runbookUrl("https://localhost")
@@ -495,7 +495,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var z = new NrqlAlertCondition("z", NrqlAlertConditionArgs.builder()
- *             .policyId(zNewrelicAlertPolicy.id())
+ *             .policyId(zNewrelicAlertPolicy.get("id"))
  *             .name("zleslie-test")
  *             .type("static")
  *             .runbookUrl("https://localhost")

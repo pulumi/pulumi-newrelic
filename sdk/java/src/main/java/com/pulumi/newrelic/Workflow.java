@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
- *                 .channelId(someChannel.id())
+ *                 .channelId(someChannel.get("id"))
  *                 .build())
  *             .build());
  * 
@@ -216,7 +216,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
- *                 .channelId(webhook_channel.id())
+ *                 .channelId(webhook_channel.get("id"))
  *                 .build())
  *             .build());
  * 
@@ -265,7 +265,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
- *                 .channelId(webhook_channel.id())
+ *                 .channelId(webhook_channel.get("id"))
  *                 .notificationTriggers("ACTIVATED")
  *                 .build())
  *             .build());

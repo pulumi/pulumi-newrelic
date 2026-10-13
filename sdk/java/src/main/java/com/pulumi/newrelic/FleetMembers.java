@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FleetMembers("example", FleetMembersArgs.builder()
- *             .fleetId(exampleNewrelicFleet.id())
+ *             .fleetId(exampleNewrelicFleet.get("id"))
  *             .rings(            
  *                 FleetMembersRingArgs.builder()
  *                     .name("default")
@@ -171,7 +171,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FleetMembers("example", FleetMembersArgs.builder()
- *             .fleetId(exampleNewrelicFleet.id())
+ *             .fleetId(exampleNewrelicFleet.get("id"))
  *             .rings(FleetMembersRingArgs.builder()
  *                 .name("default")
  *                 .entityIds(                

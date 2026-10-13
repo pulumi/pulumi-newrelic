@@ -417,7 +417,7 @@ public final class NewrelicFunctions {
      *             .name("foo")
      *             .build());
      * 
-     *         // Using the data source and resource together
+     *         // Using the function and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
      *             .policyId(fooAlertPolicy.id())
      *             .channelId(foo.id())
@@ -475,7 +475,7 @@ public final class NewrelicFunctions {
      *             .name("foo")
      *             .build());
      * 
-     *         // Using the data source and resource together
+     *         // Using the function and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
      *             .policyId(fooAlertPolicy.id())
      *             .channelId(foo.id())
@@ -533,7 +533,7 @@ public final class NewrelicFunctions {
      *             .name("foo")
      *             .build());
      * 
-     *         // Using the data source and resource together
+     *         // Using the function and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
      *             .policyId(fooAlertPolicy.id())
      *             .channelId(foo.id())
@@ -591,7 +591,7 @@ public final class NewrelicFunctions {
      *             .name("foo")
      *             .build());
      * 
-     *         // Using the data source and resource together
+     *         // Using the function and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
      *             .policyId(fooAlertPolicy.id())
      *             .channelId(foo.id())
@@ -649,7 +649,7 @@ public final class NewrelicFunctions {
      *             .name("foo")
      *             .build());
      * 
-     *         // Using the data source and resource together
+     *         // Using the function and resource together
      *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
      *             .policyId(fooAlertPolicy.id())
      *             .channelId(foo.id())
@@ -4214,7 +4214,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
-     *             .fleetId(example.id())
+     *             .fleetId(example.get("id"))
      *             .ring("canary")
      *             .build());
      * 
@@ -4259,7 +4259,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
-     *             .fleetId(example.id())
+     *             .fleetId(example.get("id"))
      *             .ring("canary")
      *             .build());
      * 
@@ -4304,7 +4304,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
-     *             .fleetId(example.id())
+     *             .fleetId(example.get("id"))
      *             .ring("canary")
      *             .build());
      * 
@@ -4349,7 +4349,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
-     *             .fleetId(example.id())
+     *             .fleetId(example.get("id"))
      *             .ring("canary")
      *             .build());
      * 
@@ -4394,7 +4394,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var canary = NewrelicFunctions.getFleetMembers(GetFleetMembersArgs.builder()
-     *             .fleetId(example.id())
+     *             .fleetId(example.get("id"))
      *             .ring("canary")
      *             .build());
      * 
@@ -4493,10 +4493,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *             .build()).result() : "";
      * 
      *     }
      * }
@@ -4593,10 +4593,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *             .build()).result() : "";
      * 
      *     }
      * }
@@ -4693,10 +4693,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *             .build()).result() : "";
      * 
      *     }
      * }
@@ -4793,10 +4793,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *             .build()).result() : "";
      * 
      *     }
      * }
@@ -4893,10 +4893,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().size().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().size() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *             .build()).result() : "";
      * 
      *     }
      * }
@@ -7015,7 +7015,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("slow_burn")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .isBadEvents(true)
@@ -7079,7 +7079,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("custom")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .customToleratedBudgetConsumption(4.0)
@@ -7222,7 +7222,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("slow_burn")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .isBadEvents(true)
@@ -7286,7 +7286,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("custom")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .customToleratedBudgetConsumption(4.0)
@@ -7429,7 +7429,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("slow_burn")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .isBadEvents(true)
@@ -7493,7 +7493,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("custom")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .customToleratedBudgetConsumption(4.0)
@@ -7636,7 +7636,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("slow_burn")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .isBadEvents(true)
@@ -7700,7 +7700,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("custom")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .customToleratedBudgetConsumption(4.0)
@@ -7843,7 +7843,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("slow_burn")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .isBadEvents(true)
@@ -7907,7 +7907,7 @@ public final class NewrelicFunctions {
      *     public static void stack(Context ctx) {
      *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
      *             .alertType("custom")
-     *             .sliGuid(foo.sliGuid())
+     *             .sliGuid(foo.get("sliGuid"))
      *             .sloTarget(fooTarget)
      *             .sloPeriod(fooPeriod)
      *             .customToleratedBudgetConsumption(4.0)

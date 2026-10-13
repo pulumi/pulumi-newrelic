@@ -39,7 +39,7 @@ namespace Pulumi.NewRelic
         ///         Name = "foo",
         ///     });
         /// 
-        ///     // Using the data source and resource together
+        ///     // Using the function and resource together
         ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
         ///     {
         ///         PolicyId = fooAlertPolicy.Id,
@@ -80,7 +80,7 @@ namespace Pulumi.NewRelic
         ///         Name = "foo",
         ///     });
         /// 
-        ///     // Using the data source and resource together
+        ///     // Using the function and resource together
         ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
         ///     {
         ///         PolicyId = fooAlertPolicy.Id,
@@ -121,7 +121,7 @@ namespace Pulumi.NewRelic
         ///         Name = "foo",
         ///     });
         /// 
-        ///     // Using the data source and resource together
+        ///     // Using the function and resource together
         ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
         ///     {
         ///         PolicyId = fooAlertPolicy.Id,

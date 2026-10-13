@@ -42,7 +42,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
     ///         {
     ///             Operator = "above",
-    ///             Threshold = 5,
+    ///             Threshold = 5.0,
     ///             ThresholdDuration = 300,
     ///             ThresholdOccurrences = "all",
     ///         },
@@ -61,7 +61,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
     ///         {
     ///             Operator = "above",
-    ///             Threshold = 5,
+    ///             Threshold = 5.0,
     ///             ThresholdDuration = 300,
     ///             ThresholdOccurrences = "all",
     ///         },
@@ -118,7 +118,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
     ///         {
     ///             Operator = "above",
-    ///             Threshold = 80,
+    ///             Threshold = 80.0,
     ///             ThresholdDuration = 300,
     ///             ThresholdOccurrences = "all",
     ///         },
@@ -137,7 +137,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
     ///         {
     ///             Operator = "above",
-    ///             Threshold = 85,
+    ///             Threshold = 85.0,
     ///             ThresholdDuration = 300,
     ///             ThresholdOccurrences = "all",
     ///         },
@@ -156,7 +156,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
     ///         {
     ///             Operator = "above",
-    ///             Threshold = 90,
+    ///             Threshold = 90.0,
     ///             ThresholdDuration = 300,
     ///             ThresholdOccurrences = "all",
     ///         },
@@ -214,7 +214,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
     ///         {
     ///             Operator = "above",
-    ///             Threshold = 1000,
+    ///             Threshold = 1000.0,
     ///             ThresholdDuration = 300,
     ///             ThresholdOccurrences = "all",
     ///         },
@@ -233,7 +233,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
     ///         {
     ///             Operator = "above",
-    ///             Threshold = 5,
+    ///             Threshold = 5.0,
     ///             ThresholdDuration = 300,
     ///             ThresholdOccurrences = "all",
     ///         },

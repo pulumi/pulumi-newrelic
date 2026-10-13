@@ -42,13 +42,13 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
     ///         {
     ///             Duration = 25,
-    ///             Value = 90,
+    ///             Value = 90.0,
     ///             TimeFunction = "all",
     ///         },
     ///         Warning = new NewRelic.Inputs.InfraAlertConditionWarningArgs
     ///         {
     ///             Duration = 10,
-    ///             Value = 80,
+    ///             Value = 80.0,
     ///             TimeFunction = "all",
     ///         },
     ///     });
@@ -67,7 +67,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
     ///         {
     ///             Duration = 25,
-    ///             Value = 90,
+    ///             Value = 90.0,
     ///             TimeFunction = "all",
     ///         },
     ///     });
@@ -84,7 +84,7 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
     ///         {
     ///             Duration = 5,
-    ///             Value = 0,
+    ///             Value = 0.0,
     ///         },
     ///     });
     /// 
@@ -142,13 +142,13 @@ namespace Pulumi.NewRelic
     ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
     ///         {
     ///             Duration = 25,
-    ///             Value = 90,
+    ///             Value = 90.0,
     ///             TimeFunction = "all",
     ///         },
     ///         Warning = new NewRelic.Inputs.InfraAlertConditionWarningArgs
     ///         {
     ///             Duration = 10,
-    ///             Value = 80,
+    ///             Value = 80.0,
     ///             TimeFunction = "all",
     ///         },
     ///     });

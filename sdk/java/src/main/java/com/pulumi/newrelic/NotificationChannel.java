@@ -641,7 +641,7 @@ import javax.annotation.Nullable;
  *             .accountId("12345678")
  *             .name("channel-webhook")
  *             .type("WEBHOOK")
- *             .destinationId(webhook_destination.id())
+ *             .destinationId(webhook_destination.get("id"))
  *             .product("IINT")
  *             .properties(NotificationChannelPropertyArgs.builder()
  *                 .key("payload")

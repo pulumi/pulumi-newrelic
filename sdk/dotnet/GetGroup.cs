@@ -68,7 +68,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
         /// 
-        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length(), Std.Join.Invoke(new()
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
         ///     {
         ///         Separator = ", ",
         ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
@@ -142,7 +142,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
         /// 
-        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length(), Std.Join.Invoke(new()
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
         ///     {
         ///         Separator = ", ",
         ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
@@ -216,7 +216,7 @@ namespace Pulumi.NewRelic
         /// 
         ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
         /// 
-        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length(), Std.Join.Invoke(new()
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
         ///     {
         ///         Separator = ", ",
         ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
