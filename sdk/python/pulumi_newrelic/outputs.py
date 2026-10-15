@@ -274,6 +274,10 @@ __all__ = [
     'PathpointFlowStageStageKpiQuerySelect',
     'PathpointFlowStageStageKpiQueryTimeWindow',
     'PathpointFlowStageStageKpiQueryTimeWindowRelativeRange',
+    'ScorecardProgressLevel',
+    'ScorecardRuleNrqlEngine',
+    'ScorecardRuleTag',
+    'ScorecardTag',
     'ServiceLevelEvents',
     'ServiceLevelEventsBadEvents',
     'ServiceLevelEventsBadEventsSelect',
@@ -284,6 +288,11 @@ __all__ = [
     'ServiceLevelObjective',
     'ServiceLevelObjectiveTimeWindow',
     'ServiceLevelObjectiveTimeWindowRolling',
+    'TeamResource',
+    'TeamTag',
+    'TeamsOrganizationSettingsHierarchyLevel',
+    'TeamsOrganizationSettingsSyncGroupRules',
+    'TeamsOrganizationSettingsSyncGroupRulesCondition',
     'WorkflowDestination',
     'WorkflowEnrichments',
     'WorkflowEnrichmentsNrql',
@@ -296,6 +305,7 @@ __all__ = [
     'GetNotificationDestinationPropertyResult',
     'GetNotificationDestinationScopeResult',
     'GetNotificationDestinationSecureUrlResult',
+    'GetTeamsHierarchyLevelsLevelResult',
     'GetTestGrokPatternTestGrokResult',
     'GetTestGrokPatternTestGrokAttributeResult',
 ]
@@ -16558,6 +16568,192 @@ class PathpointFlowStageStageKpiQueryTimeWindowRelativeRange(dict):
 
 
 @pulumi.output_type
+class ScorecardProgressLevel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hexColorCode":
+            suggest = "hex_color_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScorecardProgressLevel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScorecardProgressLevel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScorecardProgressLevel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 hex_color_code: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str id: The entity GUID of the scorecard.
+        :param _builtins.str name: The name of the scorecard.
+        :param _builtins.str description: A description of the scorecard's purpose.
+        :param _builtins.str hex_color_code: Hex colour for this level, e.g. '#FF0000'.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hex_color_code is not None:
+            pulumi.set(__self__, "hex_color_code", hex_color_code)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The entity GUID of the scorecard.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the scorecard.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A description of the scorecard's purpose.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="hexColorCode")
+    def hex_color_code(self) -> Optional[_builtins.str]:
+        """
+        Hex colour for this level, e.g. '#FF0000'.
+        """
+        return pulumi.get(self, "hex_color_code")
+
+
+@pulumi.output_type
+class ScorecardRuleNrqlEngine(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "joinAccounts":
+            suggest = "join_accounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScorecardRuleNrqlEngine. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScorecardRuleNrqlEngine.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScorecardRuleNrqlEngine.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accounts: Sequence[_builtins.int],
+                 query: _builtins.str,
+                 join_accounts: Optional[Sequence[_builtins.int]] = None):
+        """
+        :param Sequence[_builtins.int] accounts: Account IDs where this rule runs.
+        :param _builtins.str query: The NRQL query. Must be FACET-ed and alias the result as 'score'.
+        :param Sequence[_builtins.int] join_accounts: Additional account IDs to join with the query accounts.
+        """
+        pulumi.set(__self__, "accounts", accounts)
+        pulumi.set(__self__, "query", query)
+        if join_accounts is not None:
+            pulumi.set(__self__, "join_accounts", join_accounts)
+
+    @_builtins.property
+    @pulumi.getter
+    def accounts(self) -> Sequence[_builtins.int]:
+        """
+        Account IDs where this rule runs.
+        """
+        return pulumi.get(self, "accounts")
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> _builtins.str:
+        """
+        The NRQL query. Must be FACET-ed and alias the result as 'score'.
+        """
+        return pulumi.get(self, "query")
+
+    @_builtins.property
+    @pulumi.getter(name="joinAccounts")
+    def join_accounts(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        Additional account IDs to join with the query accounts.
+        """
+        return pulumi.get(self, "join_accounts")
+
+
+@pulumi.output_type
+class ScorecardRuleTag(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str key: The tag key.
+        :param Sequence[_builtins.str] values: One or more tag values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        One or more tag values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ScorecardTag(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str key: The tag key.
+        :param Sequence[_builtins.str] values: One or more tag values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        One or more tag values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class ServiceLevelEvents(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -17057,6 +17253,152 @@ class ServiceLevelObjectiveTimeWindowRolling(dict):
         The only supported value is `DAY`.
         """
         return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class TeamResource(dict):
+    def __init__(__self__, *,
+                 content: _builtins.str,
+                 type: _builtins.str,
+                 title: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str content: The URL or contact address for this resource.
+        :param _builtins.str type: Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+        :param _builtins.str title: A short label shown in the UI for this resource.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "type", type)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @_builtins.property
+    @pulumi.getter
+    def content(self) -> _builtins.str:
+        """
+        The URL or contact address for this resource.
+        """
+        return pulumi.get(self, "content")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[_builtins.str]:
+        """
+        A short label shown in the UI for this resource.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class TeamTag(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str key: The tag key.
+        :param Sequence[_builtins.str] values: The tag values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        The tag values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class TeamsOrganizationSettingsHierarchyLevel(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: _builtins.str):
+        """
+        :param _builtins.str id: The entity GUID of the organisation settings singleton entity.
+        :param _builtins.str name: Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The entity GUID of the organisation settings singleton entity.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class TeamsOrganizationSettingsSyncGroupRules(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.TeamsOrganizationSettingsSyncGroupRulesCondition']):
+        """
+        :param Sequence['TeamsOrganizationSettingsSyncGroupRulesConditionArgs'] conditions: Conditions that a group name must satisfy for this rule to apply.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.TeamsOrganizationSettingsSyncGroupRulesCondition']:
+        """
+        Conditions that a group name must satisfy for this rule to apply.
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class TeamsOrganizationSettingsSyncGroupRulesCondition(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str type: Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+        :param _builtins.str value: The string to match against the group name.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The string to match against the group name.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -17702,6 +18044,35 @@ class GetNotificationDestinationSecureUrlResult(dict):
     @pulumi.getter
     def prefix(self) -> _builtins.str:
         return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class GetTeamsHierarchyLevelsLevelResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: _builtins.str):
+        """
+        :param _builtins.str id: The entity GUID of the hierarchy level. Pass this to `newrelic_teams_organization_settings.hierarchy_levels[*].id` to reference and rename the level.
+        :param _builtins.str name: The current display name of this level (e.g. `"Division"`, `"Squad"`).
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The entity GUID of the hierarchy level. Pass this to `newrelic_teams_organization_settings.hierarchy_levels[*].id` to reference and rename the level.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The current display name of this level (e.g. `"Division"`, `"Squad"`).
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

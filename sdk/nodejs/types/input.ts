@@ -4421,6 +4421,62 @@ export interface PathpointFlowStageStageKpiQueryTimeWindowRelativeRange {
     since: pulumi.Input<string>;
 }
 
+export interface ScorecardProgressLevel {
+    /**
+     * A description of the scorecard's purpose.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Hex colour for this level, e.g. '#FF0000'.
+     */
+    hexColorCode?: pulumi.Input<string | undefined>;
+    /**
+     * The entity GUID of the scorecard.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The name of the scorecard.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface ScorecardRuleNrqlEngine {
+    /**
+     * Account IDs where this rule runs.
+     */
+    accounts: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional account IDs to join with the query accounts.
+     */
+    joinAccounts?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+    /**
+     * The NRQL query. Must be FACET-ed and alias the result as 'score'.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface ScorecardRuleTag {
+    /**
+     * The tag key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * One or more tag values.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ScorecardTag {
+    /**
+     * The tag key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * One or more tag values.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface ServiceLevelEvents {
     /**
      * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
@@ -4568,6 +4624,61 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
      * The only supported value is `DAY`.
      */
     unit: pulumi.Input<string>;
+}
+
+export interface TeamResource {
+    /**
+     * The URL or contact address for this resource.
+     */
+    content: pulumi.Input<string>;
+    /**
+     * A short label shown in the UI for this resource.
+     */
+    title?: pulumi.Input<string | undefined>;
+    /**
+     * Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface TeamTag {
+    /**
+     * The tag key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The tag values.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface TeamsOrganizationSettingsHierarchyLevel {
+    /**
+     * The entity GUID of the organisation settings singleton entity.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface TeamsOrganizationSettingsSyncGroupRules {
+    /**
+     * Conditions that a group name must satisfy for this rule to apply.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.TeamsOrganizationSettingsSyncGroupRulesCondition>[]>;
+}
+
+export interface TeamsOrganizationSettingsSyncGroupRulesCondition {
+    /**
+     * Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The string to match against the group name.
+     */
+    value: pulumi.Input<string>;
 }
 
 export interface WorkflowDestination {

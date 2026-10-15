@@ -61,8 +61,10 @@ import com.pulumi.newrelic.outputs.GetNotebookResult;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationResult;
 import com.pulumi.newrelic.outputs.GetObfuscationExpressionResult;
 import com.pulumi.newrelic.outputs.GetServiceLevelAlertHelperResult;
+import com.pulumi.newrelic.outputs.GetTeamsHierarchyLevelsResult;
 import com.pulumi.newrelic.outputs.GetTestGrokPatternResult;
 import com.pulumi.newrelic.outputs.GetUserResult;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class NewrelicFunctions {
@@ -7946,6 +7948,384 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelperPlain(GetServiceLevelAlertHelperPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", TypeShape.of(GetServiceLevelAlertHelperResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the GUIDs and display names of all Teams hierarchy level entities in your New Relic organisation.
+     * 
+     * Hierarchy levels define the organisational tiers shown in the Teams UI (for example, &#34;Division&#34; and &#34;Squad&#34;). Their GUIDs are required when configuring the ordered hierarchy in `newrelic.TeamsOrganizationSettings`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.TeamsOrganizationSettings;
+     * import com.pulumi.newrelic.TeamsOrganizationSettingsArgs;
+     * import com.pulumi.newrelic.inputs.TeamsOrganizationSettingsHierarchyLevelArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = NewrelicFunctions.getTeamsHierarchyLevels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         var org = new TeamsOrganizationSettings("org", TeamsOrganizationSettingsArgs.builder()
+     *             .hierarchyLevels(            
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[0].id())
+     *                     .name("Division")
+     *                     .build(),
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[1].id())
+     *                     .name("Squad")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamsHierarchyLevelsResult> getTeamsHierarchyLevels() {
+        return getTeamsHierarchyLevels(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the GUIDs and display names of all Teams hierarchy level entities in your New Relic organisation.
+     * 
+     * Hierarchy levels define the organisational tiers shown in the Teams UI (for example, &#34;Division&#34; and &#34;Squad&#34;). Their GUIDs are required when configuring the ordered hierarchy in `newrelic.TeamsOrganizationSettings`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.TeamsOrganizationSettings;
+     * import com.pulumi.newrelic.TeamsOrganizationSettingsArgs;
+     * import com.pulumi.newrelic.inputs.TeamsOrganizationSettingsHierarchyLevelArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = NewrelicFunctions.getTeamsHierarchyLevels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         var org = new TeamsOrganizationSettings("org", TeamsOrganizationSettingsArgs.builder()
+     *             .hierarchyLevels(            
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[0].id())
+     *                     .name("Division")
+     *                     .build(),
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[1].id())
+     *                     .name("Squad")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetTeamsHierarchyLevelsResult> getTeamsHierarchyLevelsPlain() {
+        return getTeamsHierarchyLevelsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the GUIDs and display names of all Teams hierarchy level entities in your New Relic organisation.
+     * 
+     * Hierarchy levels define the organisational tiers shown in the Teams UI (for example, &#34;Division&#34; and &#34;Squad&#34;). Their GUIDs are required when configuring the ordered hierarchy in `newrelic.TeamsOrganizationSettings`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.TeamsOrganizationSettings;
+     * import com.pulumi.newrelic.TeamsOrganizationSettingsArgs;
+     * import com.pulumi.newrelic.inputs.TeamsOrganizationSettingsHierarchyLevelArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = NewrelicFunctions.getTeamsHierarchyLevels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         var org = new TeamsOrganizationSettings("org", TeamsOrganizationSettingsArgs.builder()
+     *             .hierarchyLevels(            
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[0].id())
+     *                     .name("Division")
+     *                     .build(),
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[1].id())
+     *                     .name("Squad")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamsHierarchyLevelsResult> getTeamsHierarchyLevels(InvokeArgs args) {
+        return getTeamsHierarchyLevels(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the GUIDs and display names of all Teams hierarchy level entities in your New Relic organisation.
+     * 
+     * Hierarchy levels define the organisational tiers shown in the Teams UI (for example, &#34;Division&#34; and &#34;Squad&#34;). Their GUIDs are required when configuring the ordered hierarchy in `newrelic.TeamsOrganizationSettings`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.TeamsOrganizationSettings;
+     * import com.pulumi.newrelic.TeamsOrganizationSettingsArgs;
+     * import com.pulumi.newrelic.inputs.TeamsOrganizationSettingsHierarchyLevelArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = NewrelicFunctions.getTeamsHierarchyLevels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         var org = new TeamsOrganizationSettings("org", TeamsOrganizationSettingsArgs.builder()
+     *             .hierarchyLevels(            
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[0].id())
+     *                     .name("Division")
+     *                     .build(),
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[1].id())
+     *                     .name("Squad")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetTeamsHierarchyLevelsResult> getTeamsHierarchyLevelsPlain(InvokeArgs args) {
+        return getTeamsHierarchyLevelsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the GUIDs and display names of all Teams hierarchy level entities in your New Relic organisation.
+     * 
+     * Hierarchy levels define the organisational tiers shown in the Teams UI (for example, &#34;Division&#34; and &#34;Squad&#34;). Their GUIDs are required when configuring the ordered hierarchy in `newrelic.TeamsOrganizationSettings`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.TeamsOrganizationSettings;
+     * import com.pulumi.newrelic.TeamsOrganizationSettingsArgs;
+     * import com.pulumi.newrelic.inputs.TeamsOrganizationSettingsHierarchyLevelArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = NewrelicFunctions.getTeamsHierarchyLevels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         var org = new TeamsOrganizationSettings("org", TeamsOrganizationSettingsArgs.builder()
+     *             .hierarchyLevels(            
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[0].id())
+     *                     .name("Division")
+     *                     .build(),
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[1].id())
+     *                     .name("Squad")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamsHierarchyLevelsResult> getTeamsHierarchyLevels(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getTeamsHierarchyLevels:getTeamsHierarchyLevels", TypeShape.of(GetTeamsHierarchyLevelsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the GUIDs and display names of all Teams hierarchy level entities in your New Relic organisation.
+     * 
+     * Hierarchy levels define the organisational tiers shown in the Teams UI (for example, &#34;Division&#34; and &#34;Squad&#34;). Their GUIDs are required when configuring the ordered hierarchy in `newrelic.TeamsOrganizationSettings`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.TeamsOrganizationSettings;
+     * import com.pulumi.newrelic.TeamsOrganizationSettingsArgs;
+     * import com.pulumi.newrelic.inputs.TeamsOrganizationSettingsHierarchyLevelArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = NewrelicFunctions.getTeamsHierarchyLevels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         var org = new TeamsOrganizationSettings("org", TeamsOrganizationSettingsArgs.builder()
+     *             .hierarchyLevels(            
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[0].id())
+     *                     .name("Division")
+     *                     .build(),
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[1].id())
+     *                     .name("Squad")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamsHierarchyLevelsResult> getTeamsHierarchyLevels(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getTeamsHierarchyLevels:getTeamsHierarchyLevels", TypeShape.of(GetTeamsHierarchyLevelsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the GUIDs and display names of all Teams hierarchy level entities in your New Relic organisation.
+     * 
+     * Hierarchy levels define the organisational tiers shown in the Teams UI (for example, &#34;Division&#34; and &#34;Squad&#34;). Their GUIDs are required when configuring the ordered hierarchy in `newrelic.TeamsOrganizationSettings`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.TeamsOrganizationSettings;
+     * import com.pulumi.newrelic.TeamsOrganizationSettingsArgs;
+     * import com.pulumi.newrelic.inputs.TeamsOrganizationSettingsHierarchyLevelArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = NewrelicFunctions.getTeamsHierarchyLevels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         var org = new TeamsOrganizationSettings("org", TeamsOrganizationSettingsArgs.builder()
+     *             .hierarchyLevels(            
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[0].id())
+     *                     .name("Division")
+     *                     .build(),
+     *                 TeamsOrganizationSettingsHierarchyLevelArgs.builder()
+     *                     .id(all.levels()[1].id())
+     *                     .name("Squad")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetTeamsHierarchyLevelsResult> getTeamsHierarchyLevelsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getTeamsHierarchyLevels:getTeamsHierarchyLevels", TypeShape.of(GetTeamsHierarchyLevelsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to validate a grok pattern.  More information on Terraform&#39;s data sources can be found here.
