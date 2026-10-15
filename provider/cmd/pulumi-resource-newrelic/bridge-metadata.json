@@ -2820,6 +2820,57 @@
                 "current": "newrelic:index/pipelineCloudRule:PipelineCloudRule",
                 "majorVersion": 5
             },
+            "newrelic_scorecard": {
+                "current": "newrelic:index/scorecard:Scorecard",
+                "majorVersion": 5,
+                "fields": {
+                    "progress_levels": {
+                        "maxItemsOne": false
+                    },
+                    "rule_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "newrelic_scorecard_rule": {
+                "current": "newrelic:index/scorecardRule:ScorecardRule",
+                "majorVersion": 5,
+                "fields": {
+                    "nrql_engine": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "accounts": {
+                                    "maxItemsOne": false
+                                },
+                                "join_accounts": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "newrelic_service_level": {
                 "current": "newrelic:index/serviceLevel:ServiceLevel",
                 "majorVersion": 5,
@@ -3041,6 +3092,59 @@
                         "elem": {
                             "fields": {
                                 "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "newrelic_team": {
+                "current": "newrelic:index/team:Team",
+                "majorVersion": 5,
+                "fields": {
+                    "aliases": {
+                        "maxItemsOne": false
+                    },
+                    "entities": {
+                        "maxItemsOne": false
+                    },
+                    "managers": {
+                        "maxItemsOne": false
+                    },
+                    "members": {
+                        "maxItemsOne": false
+                    },
+                    "resources": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "newrelic_teams_organization_settings": {
+                "current": "newrelic:index/teamsOrganizationSettings:TeamsOrganizationSettings",
+                "majorVersion": 5,
+                "fields": {
+                    "discovery_tag_keys": {
+                        "maxItemsOne": false
+                    },
+                    "hierarchy_levels": {
+                        "maxItemsOne": false
+                    },
+                    "sync_group_rules": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "conditions": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -3288,6 +3392,15 @@
             "newrelic_synthetics_secure_credential": {
                 "current": "newrelic:synthetics/getSecureCredential:getSecureCredential",
                 "majorVersion": 5
+            },
+            "newrelic_teams_hierarchy_levels": {
+                "current": "newrelic:index/getTeamsHierarchyLevels:getTeamsHierarchyLevels",
+                "majorVersion": 5,
+                "fields": {
+                    "levels": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "newrelic_test_grok_pattern": {
                 "current": "newrelic:index/getTestGrokPattern:getTestGrokPattern",
@@ -5272,6 +5385,14 @@
             "newrelic_pipeline_cloud_rule": [
                 "account_id"
             ],
+            "newrelic_scorecard": [
+                "organization_id",
+                "rule_ids",
+                "rules_collection_id"
+            ],
+            "newrelic_scorecard_rule": [
+                "organization_id"
+            ],
             "newrelic_service_level": [
                 "events.$.account_id",
                 "sli_id"
@@ -5311,6 +5432,14 @@
             "newrelic_synthetics_step_monitor": [
                 "account_id",
                 "monitor_id"
+            ],
+            "newrelic_team": [
+                "entities",
+                "hierarchy_level_id",
+                "membership_collection_id",
+                "organization_id",
+                "ownership_collection_id",
+                "parent_id"
             ],
             "newrelic_user": [
                 "authentication_domain_id",
