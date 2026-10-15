@@ -42,6 +42,7 @@ from .get_notebook import *
 from .get_notification_destination import *
 from .get_obfuscation_expression import *
 from .get_service_level_alert_helper import *
+from .get_teams_hierarchy_levels import *
 from .get_test_grok_pattern import *
 from .get_user import *
 from .group import *
@@ -63,7 +64,11 @@ from .one_dashboard_raw import *
 from .pathpoint_flow import *
 from .pipeline_cloud_rule import *
 from .provider import *
+from .scorecard import *
+from .scorecard_rule import *
 from .service_level import *
+from .team import *
+from .teams_organization_settings import *
 from .user import *
 from .workflow import *
 from .workflow_automation import *
@@ -494,10 +499,42 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
+  "mod": "index/scorecard",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/scorecard:Scorecard": "Scorecard"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/scorecardRule",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/scorecardRule:ScorecardRule": "ScorecardRule"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "index/serviceLevel",
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/serviceLevel:ServiceLevel": "ServiceLevel"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/team",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/team:Team": "Team"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/teamsOrganizationSettings",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/teamsOrganizationSettings:TeamsOrganizationSettings": "TeamsOrganizationSettings"
   }
  },
  {

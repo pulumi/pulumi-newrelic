@@ -185,6 +185,11 @@ export const getServiceLevelAlertHelper: typeof import("./getServiceLevelAlertHe
 export const getServiceLevelAlertHelperOutput: typeof import("./getServiceLevelAlertHelper").getServiceLevelAlertHelperOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceLevelAlertHelper","getServiceLevelAlertHelperOutput"], () => require("./getServiceLevelAlertHelper"));
 
+export { GetTeamsHierarchyLevelsResult } from "./getTeamsHierarchyLevels";
+export const getTeamsHierarchyLevels: typeof import("./getTeamsHierarchyLevels").getTeamsHierarchyLevels = null as any;
+export const getTeamsHierarchyLevelsOutput: typeof import("./getTeamsHierarchyLevels").getTeamsHierarchyLevelsOutput = null as any;
+utilities.lazyLoad(exports, ["getTeamsHierarchyLevels","getTeamsHierarchyLevelsOutput"], () => require("./getTeamsHierarchyLevels"));
+
 export { GetTestGrokPatternArgs, GetTestGrokPatternResult, GetTestGrokPatternOutputArgs } from "./getTestGrokPattern";
 export const getTestGrokPattern: typeof import("./getTestGrokPattern").getTestGrokPattern = null as any;
 export const getTestGrokPatternOutput: typeof import("./getTestGrokPattern").getTestGrokPatternOutput = null as any;
@@ -288,10 +293,30 @@ utilities.lazyLoad(exports, ["PipelineCloudRule"], () => require("./pipelineClou
 export * from "./provider";
 import { Provider } from "./provider";
 
+export { ScorecardArgs, ScorecardState } from "./scorecard";
+export type Scorecard = import("./scorecard").Scorecard;
+export const Scorecard: typeof import("./scorecard").Scorecard = null as any;
+utilities.lazyLoad(exports, ["Scorecard"], () => require("./scorecard"));
+
+export { ScorecardRuleArgs, ScorecardRuleState } from "./scorecardRule";
+export type ScorecardRule = import("./scorecardRule").ScorecardRule;
+export const ScorecardRule: typeof import("./scorecardRule").ScorecardRule = null as any;
+utilities.lazyLoad(exports, ["ScorecardRule"], () => require("./scorecardRule"));
+
 export { ServiceLevelArgs, ServiceLevelState } from "./serviceLevel";
 export type ServiceLevel = import("./serviceLevel").ServiceLevel;
 export const ServiceLevel: typeof import("./serviceLevel").ServiceLevel = null as any;
 utilities.lazyLoad(exports, ["ServiceLevel"], () => require("./serviceLevel"));
+
+export { TeamArgs, TeamState } from "./team";
+export type Team = import("./team").Team;
+export const Team: typeof import("./team").Team = null as any;
+utilities.lazyLoad(exports, ["Team"], () => require("./team"));
+
+export { TeamsOrganizationSettingsArgs, TeamsOrganizationSettingsState } from "./teamsOrganizationSettings";
+export type TeamsOrganizationSettings = import("./teamsOrganizationSettings").TeamsOrganizationSettings;
+export const TeamsOrganizationSettings: typeof import("./teamsOrganizationSettings").TeamsOrganizationSettings = null as any;
+utilities.lazyLoad(exports, ["TeamsOrganizationSettings"], () => require("./teamsOrganizationSettings"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
@@ -406,8 +431,16 @@ const _module = {
                 return new PathpointFlow(name, <any>undefined, { urn })
             case "newrelic:index/pipelineCloudRule:PipelineCloudRule":
                 return new PipelineCloudRule(name, <any>undefined, { urn })
+            case "newrelic:index/scorecard:Scorecard":
+                return new Scorecard(name, <any>undefined, { urn })
+            case "newrelic:index/scorecardRule:ScorecardRule":
+                return new ScorecardRule(name, <any>undefined, { urn })
             case "newrelic:index/serviceLevel:ServiceLevel":
                 return new ServiceLevel(name, <any>undefined, { urn })
+            case "newrelic:index/team:Team":
+                return new Team(name, <any>undefined, { urn })
+            case "newrelic:index/teamsOrganizationSettings:TeamsOrganizationSettings":
+                return new TeamsOrganizationSettings(name, <any>undefined, { urn })
             case "newrelic:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "newrelic:index/workflow:Workflow":
@@ -457,7 +490,11 @@ pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardJson", _mod
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardRaw", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/pathpointFlow", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/pipelineCloudRule", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/scorecard", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/scorecardRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/serviceLevel", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/team", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/teamsOrganizationSettings", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/user", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/workflow", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/workflowAutomation", _module)

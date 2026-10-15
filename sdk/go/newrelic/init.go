@@ -97,8 +97,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PathpointFlow{}
 	case "newrelic:index/pipelineCloudRule:PipelineCloudRule":
 		r = &PipelineCloudRule{}
+	case "newrelic:index/scorecard:Scorecard":
+		r = &Scorecard{}
+	case "newrelic:index/scorecardRule:ScorecardRule":
+		r = &ScorecardRule{}
 	case "newrelic:index/serviceLevel:ServiceLevel":
 		r = &ServiceLevel{}
+	case "newrelic:index/team:Team":
+		r = &Team{}
+	case "newrelic:index/teamsOrganizationSettings:TeamsOrganizationSettings":
+		r = &TeamsOrganizationSettings{}
 	case "newrelic:index/user:User":
 		r = &User{}
 	case "newrelic:index/workflow:Workflow":
@@ -328,7 +336,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
+		"index/scorecard",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/scorecardRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
 		"index/serviceLevel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/team",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/teamsOrganizationSettings",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

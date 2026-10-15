@@ -531,6 +531,14 @@ __all__ = [
     'PathpointFlowStageStageKpiQueryTimeWindowArgsDict',
     'PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs',
     'PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgsDict',
+    'ScorecardProgressLevelArgs',
+    'ScorecardProgressLevelArgsDict',
+    'ScorecardRuleNrqlEngineArgs',
+    'ScorecardRuleNrqlEngineArgsDict',
+    'ScorecardRuleTagArgs',
+    'ScorecardRuleTagArgsDict',
+    'ScorecardTagArgs',
+    'ScorecardTagArgsDict',
     'ServiceLevelEventsArgs',
     'ServiceLevelEventsArgsDict',
     'ServiceLevelEventsBadEventsArgs',
@@ -551,6 +559,16 @@ __all__ = [
     'ServiceLevelObjectiveTimeWindowArgsDict',
     'ServiceLevelObjectiveTimeWindowRollingArgs',
     'ServiceLevelObjectiveTimeWindowRollingArgsDict',
+    'TeamResourceArgs',
+    'TeamResourceArgsDict',
+    'TeamTagArgs',
+    'TeamTagArgsDict',
+    'TeamsOrganizationSettingsHierarchyLevelArgs',
+    'TeamsOrganizationSettingsHierarchyLevelArgsDict',
+    'TeamsOrganizationSettingsSyncGroupRulesArgs',
+    'TeamsOrganizationSettingsSyncGroupRulesArgsDict',
+    'TeamsOrganizationSettingsSyncGroupRulesConditionArgs',
+    'TeamsOrganizationSettingsSyncGroupRulesConditionArgsDict',
     'WorkflowDestinationArgs',
     'WorkflowDestinationArgsDict',
     'WorkflowEnrichmentsArgs',
@@ -20879,6 +20897,254 @@ class PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs:
         pulumi.set(self, "compare_against", value)
 
 
+class ScorecardProgressLevelArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The entity GUID of the scorecard.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the scorecard.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A description of the scorecard's purpose.
+    """
+    hex_color_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hex colour for this level, e.g. '#FF0000'.
+    """
+
+@pulumi.input_type
+class ScorecardProgressLevelArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hex_color_code: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: The entity GUID of the scorecard.
+        :param pulumi.Input[_builtins.str] name: The name of the scorecard.
+        :param pulumi.Input[_builtins.str] description: A description of the scorecard's purpose.
+        :param pulumi.Input[_builtins.str] hex_color_code: Hex colour for this level, e.g. '#FF0000'.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hex_color_code is not None:
+            pulumi.set(__self__, "hex_color_code", hex_color_code)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The entity GUID of the scorecard.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the scorecard.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A description of the scorecard's purpose.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hexColorCode")
+    def hex_color_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hex colour for this level, e.g. '#FF0000'.
+        """
+        return pulumi.get(self, "hex_color_code")
+
+    @hex_color_code.setter
+    def hex_color_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hex_color_code", value)
+
+
+class ScorecardRuleNrqlEngineArgsDict(TypedDict):
+    accounts: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    Account IDs where this rule runs.
+    """
+    query: pulumi.Input[_builtins.str]
+    """
+    The NRQL query. Must be FACET-ed and alias the result as 'score'.
+    """
+    join_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
+    """
+    Additional account IDs to join with the query accounts.
+    """
+
+@pulumi.input_type
+class ScorecardRuleNrqlEngineArgs:
+    def __init__(__self__, *,
+                 accounts: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]],
+                 query: pulumi.Input[_builtins.str],
+                 join_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] accounts: Account IDs where this rule runs.
+        :param pulumi.Input[_builtins.str] query: The NRQL query. Must be FACET-ed and alias the result as 'score'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] join_accounts: Additional account IDs to join with the query accounts.
+        """
+        pulumi.set(__self__, "accounts", accounts)
+        pulumi.set(__self__, "query", query)
+        if join_accounts is not None:
+            pulumi.set(__self__, "join_accounts", join_accounts)
+
+    @_builtins.property
+    @pulumi.getter
+    def accounts(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]:
+        """
+        Account IDs where this rule runs.
+        """
+        return pulumi.get(self, "accounts")
+
+    @accounts.setter
+    def accounts(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]):
+        pulumi.set(self, "accounts", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[_builtins.str]:
+        """
+        The NRQL query. Must be FACET-ed and alias the result as 'score'.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="joinAccounts")
+    def join_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        Additional account IDs to join with the query accounts.
+        """
+        return pulumi.get(self, "join_accounts")
+
+    @join_accounts.setter
+    def join_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
+        pulumi.set(self, "join_accounts", value)
+
+
+class ScorecardRuleTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    One or more tag values.
+    """
+
+@pulumi.input_type
+class ScorecardRuleTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] key: The tag key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more tag values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        One or more tag values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class ScorecardTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    One or more tag values.
+    """
+
+@pulumi.input_type
+class ScorecardTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] key: The tag key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more tag values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        One or more tag values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
 class ServiceLevelEventsArgsDict(TypedDict):
     account_id: pulumi.Input[_builtins.str]
     """
@@ -21543,6 +21809,242 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
     @unit.setter
     def unit(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "unit", value)
+
+
+class TeamResourceArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
+    """
+    The URL or contact address for this resource.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+    """
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A short label shown in the UI for this resource.
+    """
+
+@pulumi.input_type
+class TeamResourceArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] content: The URL or contact address for this resource.
+        :param pulumi.Input[_builtins.str] type: Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+        :param pulumi.Input[_builtins.str] title: A short label shown in the UI for this resource.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "type", type)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @_builtins.property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[_builtins.str]:
+        """
+        The URL or contact address for this resource.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "content", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A short label shown in the UI for this resource.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title", value)
+
+
+class TeamTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The tag values.
+    """
+
+@pulumi.input_type
+class TeamTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] key: The tag key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The tag values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The tag values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class TeamsOrganizationSettingsHierarchyLevelArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The entity GUID of the organisation settings singleton entity.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+    """
+
+@pulumi.input_type
+class TeamsOrganizationSettingsHierarchyLevelArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: The entity GUID of the organisation settings singleton entity.
+        :param pulumi.Input[_builtins.str] name: Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The entity GUID of the organisation settings singleton entity.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+class TeamsOrganizationSettingsSyncGroupRulesArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['TeamsOrganizationSettingsSyncGroupRulesConditionArgsDict']]]
+    """
+    Conditions that a group name must satisfy for this rule to apply.
+    """
+
+@pulumi.input_type
+class TeamsOrganizationSettingsSyncGroupRulesArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['TeamsOrganizationSettingsSyncGroupRulesConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['TeamsOrganizationSettingsSyncGroupRulesConditionArgs']]] conditions: Conditions that a group name must satisfy for this rule to apply.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['TeamsOrganizationSettingsSyncGroupRulesConditionArgs']]]:
+        """
+        Conditions that a group name must satisfy for this rule to apply.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['TeamsOrganizationSettingsSyncGroupRulesConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class TeamsOrganizationSettingsSyncGroupRulesConditionArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The string to match against the group name.
+    """
+
+@pulumi.input_type
+class TeamsOrganizationSettingsSyncGroupRulesConditionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] type: Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+        :param pulumi.Input[_builtins.str] value: The string to match against the group name.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The string to match against the group name.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 class WorkflowDestinationArgsDict(TypedDict):

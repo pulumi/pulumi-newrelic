@@ -35957,6 +35957,517 @@ func (o PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput) Since()
 	}).(pulumi.StringPtrOutput)
 }
 
+type ScorecardProgressLevel struct {
+	// A description of the scorecard's purpose.
+	Description *string `pulumi:"description"`
+	// Hex colour for this level, e.g. '#FF0000'.
+	HexColorCode *string `pulumi:"hexColorCode"`
+	// The entity GUID of the scorecard.
+	Id string `pulumi:"id"`
+	// The name of the scorecard.
+	Name string `pulumi:"name"`
+}
+
+// ScorecardProgressLevelInput is an input type that accepts ScorecardProgressLevelArgs and ScorecardProgressLevelOutput values.
+// You can construct a concrete instance of `ScorecardProgressLevelInput` via:
+//
+//	ScorecardProgressLevelArgs{...}
+type ScorecardProgressLevelInput interface {
+	pulumi.Input
+
+	ToScorecardProgressLevelOutput() ScorecardProgressLevelOutput
+	ToScorecardProgressLevelOutputWithContext(context.Context) ScorecardProgressLevelOutput
+}
+
+type ScorecardProgressLevelArgs struct {
+	// A description of the scorecard's purpose.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Hex colour for this level, e.g. '#FF0000'.
+	HexColorCode pulumi.StringPtrInput `pulumi:"hexColorCode"`
+	// The entity GUID of the scorecard.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the scorecard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ScorecardProgressLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScorecardProgressLevel)(nil)).Elem()
+}
+
+func (i ScorecardProgressLevelArgs) ToScorecardProgressLevelOutput() ScorecardProgressLevelOutput {
+	return i.ToScorecardProgressLevelOutputWithContext(context.Background())
+}
+
+func (i ScorecardProgressLevelArgs) ToScorecardProgressLevelOutputWithContext(ctx context.Context) ScorecardProgressLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScorecardProgressLevelOutput)
+}
+
+// ScorecardProgressLevelArrayInput is an input type that accepts ScorecardProgressLevelArray and ScorecardProgressLevelArrayOutput values.
+// You can construct a concrete instance of `ScorecardProgressLevelArrayInput` via:
+//
+//	ScorecardProgressLevelArray{ ScorecardProgressLevelArgs{...} }
+type ScorecardProgressLevelArrayInput interface {
+	pulumi.Input
+
+	ToScorecardProgressLevelArrayOutput() ScorecardProgressLevelArrayOutput
+	ToScorecardProgressLevelArrayOutputWithContext(context.Context) ScorecardProgressLevelArrayOutput
+}
+
+type ScorecardProgressLevelArray []ScorecardProgressLevelInput
+
+func (ScorecardProgressLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScorecardProgressLevel)(nil)).Elem()
+}
+
+func (i ScorecardProgressLevelArray) ToScorecardProgressLevelArrayOutput() ScorecardProgressLevelArrayOutput {
+	return i.ToScorecardProgressLevelArrayOutputWithContext(context.Background())
+}
+
+func (i ScorecardProgressLevelArray) ToScorecardProgressLevelArrayOutputWithContext(ctx context.Context) ScorecardProgressLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScorecardProgressLevelArrayOutput)
+}
+
+type ScorecardProgressLevelOutput struct{ *pulumi.OutputState }
+
+func (ScorecardProgressLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScorecardProgressLevel)(nil)).Elem()
+}
+
+func (o ScorecardProgressLevelOutput) ToScorecardProgressLevelOutput() ScorecardProgressLevelOutput {
+	return o
+}
+
+func (o ScorecardProgressLevelOutput) ToScorecardProgressLevelOutputWithContext(ctx context.Context) ScorecardProgressLevelOutput {
+	return o
+}
+
+// A description of the scorecard's purpose.
+func (o ScorecardProgressLevelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScorecardProgressLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Hex colour for this level, e.g. '#FF0000'.
+func (o ScorecardProgressLevelOutput) HexColorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScorecardProgressLevel) *string { return v.HexColorCode }).(pulumi.StringPtrOutput)
+}
+
+// The entity GUID of the scorecard.
+func (o ScorecardProgressLevelOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ScorecardProgressLevel) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the scorecard.
+func (o ScorecardProgressLevelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScorecardProgressLevel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ScorecardProgressLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (ScorecardProgressLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScorecardProgressLevel)(nil)).Elem()
+}
+
+func (o ScorecardProgressLevelArrayOutput) ToScorecardProgressLevelArrayOutput() ScorecardProgressLevelArrayOutput {
+	return o
+}
+
+func (o ScorecardProgressLevelArrayOutput) ToScorecardProgressLevelArrayOutputWithContext(ctx context.Context) ScorecardProgressLevelArrayOutput {
+	return o
+}
+
+func (o ScorecardProgressLevelArrayOutput) Index(i pulumi.IntInput) ScorecardProgressLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScorecardProgressLevel {
+		return vs[0].([]ScorecardProgressLevel)[vs[1].(int)]
+	}).(ScorecardProgressLevelOutput)
+}
+
+type ScorecardRuleNrqlEngine struct {
+	// Account IDs where this rule runs.
+	Accounts []int `pulumi:"accounts"`
+	// Additional account IDs to join with the query accounts.
+	JoinAccounts []int `pulumi:"joinAccounts"`
+	// The NRQL query. Must be FACET-ed and alias the result as 'score'.
+	Query string `pulumi:"query"`
+}
+
+// ScorecardRuleNrqlEngineInput is an input type that accepts ScorecardRuleNrqlEngineArgs and ScorecardRuleNrqlEngineOutput values.
+// You can construct a concrete instance of `ScorecardRuleNrqlEngineInput` via:
+//
+//	ScorecardRuleNrqlEngineArgs{...}
+type ScorecardRuleNrqlEngineInput interface {
+	pulumi.Input
+
+	ToScorecardRuleNrqlEngineOutput() ScorecardRuleNrqlEngineOutput
+	ToScorecardRuleNrqlEngineOutputWithContext(context.Context) ScorecardRuleNrqlEngineOutput
+}
+
+type ScorecardRuleNrqlEngineArgs struct {
+	// Account IDs where this rule runs.
+	Accounts pulumi.IntArrayInput `pulumi:"accounts"`
+	// Additional account IDs to join with the query accounts.
+	JoinAccounts pulumi.IntArrayInput `pulumi:"joinAccounts"`
+	// The NRQL query. Must be FACET-ed and alias the result as 'score'.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (ScorecardRuleNrqlEngineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScorecardRuleNrqlEngine)(nil)).Elem()
+}
+
+func (i ScorecardRuleNrqlEngineArgs) ToScorecardRuleNrqlEngineOutput() ScorecardRuleNrqlEngineOutput {
+	return i.ToScorecardRuleNrqlEngineOutputWithContext(context.Background())
+}
+
+func (i ScorecardRuleNrqlEngineArgs) ToScorecardRuleNrqlEngineOutputWithContext(ctx context.Context) ScorecardRuleNrqlEngineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScorecardRuleNrqlEngineOutput)
+}
+
+func (i ScorecardRuleNrqlEngineArgs) ToScorecardRuleNrqlEnginePtrOutput() ScorecardRuleNrqlEnginePtrOutput {
+	return i.ToScorecardRuleNrqlEnginePtrOutputWithContext(context.Background())
+}
+
+func (i ScorecardRuleNrqlEngineArgs) ToScorecardRuleNrqlEnginePtrOutputWithContext(ctx context.Context) ScorecardRuleNrqlEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScorecardRuleNrqlEngineOutput).ToScorecardRuleNrqlEnginePtrOutputWithContext(ctx)
+}
+
+// ScorecardRuleNrqlEnginePtrInput is an input type that accepts ScorecardRuleNrqlEngineArgs, ScorecardRuleNrqlEnginePtr and ScorecardRuleNrqlEnginePtrOutput values.
+// You can construct a concrete instance of `ScorecardRuleNrqlEnginePtrInput` via:
+//
+//	        ScorecardRuleNrqlEngineArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScorecardRuleNrqlEnginePtrInput interface {
+	pulumi.Input
+
+	ToScorecardRuleNrqlEnginePtrOutput() ScorecardRuleNrqlEnginePtrOutput
+	ToScorecardRuleNrqlEnginePtrOutputWithContext(context.Context) ScorecardRuleNrqlEnginePtrOutput
+}
+
+type scorecardRuleNrqlEnginePtrType ScorecardRuleNrqlEngineArgs
+
+func ScorecardRuleNrqlEnginePtr(v *ScorecardRuleNrqlEngineArgs) ScorecardRuleNrqlEnginePtrInput {
+	return (*scorecardRuleNrqlEnginePtrType)(v)
+}
+
+func (*scorecardRuleNrqlEnginePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScorecardRuleNrqlEngine)(nil)).Elem()
+}
+
+func (i *scorecardRuleNrqlEnginePtrType) ToScorecardRuleNrqlEnginePtrOutput() ScorecardRuleNrqlEnginePtrOutput {
+	return i.ToScorecardRuleNrqlEnginePtrOutputWithContext(context.Background())
+}
+
+func (i *scorecardRuleNrqlEnginePtrType) ToScorecardRuleNrqlEnginePtrOutputWithContext(ctx context.Context) ScorecardRuleNrqlEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScorecardRuleNrqlEnginePtrOutput)
+}
+
+type ScorecardRuleNrqlEngineOutput struct{ *pulumi.OutputState }
+
+func (ScorecardRuleNrqlEngineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScorecardRuleNrqlEngine)(nil)).Elem()
+}
+
+func (o ScorecardRuleNrqlEngineOutput) ToScorecardRuleNrqlEngineOutput() ScorecardRuleNrqlEngineOutput {
+	return o
+}
+
+func (o ScorecardRuleNrqlEngineOutput) ToScorecardRuleNrqlEngineOutputWithContext(ctx context.Context) ScorecardRuleNrqlEngineOutput {
+	return o
+}
+
+func (o ScorecardRuleNrqlEngineOutput) ToScorecardRuleNrqlEnginePtrOutput() ScorecardRuleNrqlEnginePtrOutput {
+	return o.ToScorecardRuleNrqlEnginePtrOutputWithContext(context.Background())
+}
+
+func (o ScorecardRuleNrqlEngineOutput) ToScorecardRuleNrqlEnginePtrOutputWithContext(ctx context.Context) ScorecardRuleNrqlEnginePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScorecardRuleNrqlEngine) *ScorecardRuleNrqlEngine {
+		return &v
+	}).(ScorecardRuleNrqlEnginePtrOutput)
+}
+
+// Account IDs where this rule runs.
+func (o ScorecardRuleNrqlEngineOutput) Accounts() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v ScorecardRuleNrqlEngine) []int { return v.Accounts }).(pulumi.IntArrayOutput)
+}
+
+// Additional account IDs to join with the query accounts.
+func (o ScorecardRuleNrqlEngineOutput) JoinAccounts() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v ScorecardRuleNrqlEngine) []int { return v.JoinAccounts }).(pulumi.IntArrayOutput)
+}
+
+// The NRQL query. Must be FACET-ed and alias the result as 'score'.
+func (o ScorecardRuleNrqlEngineOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v ScorecardRuleNrqlEngine) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type ScorecardRuleNrqlEnginePtrOutput struct{ *pulumi.OutputState }
+
+func (ScorecardRuleNrqlEnginePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScorecardRuleNrqlEngine)(nil)).Elem()
+}
+
+func (o ScorecardRuleNrqlEnginePtrOutput) ToScorecardRuleNrqlEnginePtrOutput() ScorecardRuleNrqlEnginePtrOutput {
+	return o
+}
+
+func (o ScorecardRuleNrqlEnginePtrOutput) ToScorecardRuleNrqlEnginePtrOutputWithContext(ctx context.Context) ScorecardRuleNrqlEnginePtrOutput {
+	return o
+}
+
+func (o ScorecardRuleNrqlEnginePtrOutput) Elem() ScorecardRuleNrqlEngineOutput {
+	return o.ApplyT(func(v *ScorecardRuleNrqlEngine) ScorecardRuleNrqlEngine {
+		if v != nil {
+			return *v
+		}
+		var ret ScorecardRuleNrqlEngine
+		return ret
+	}).(ScorecardRuleNrqlEngineOutput)
+}
+
+// Account IDs where this rule runs.
+func (o ScorecardRuleNrqlEnginePtrOutput) Accounts() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ScorecardRuleNrqlEngine) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(pulumi.IntArrayOutput)
+}
+
+// Additional account IDs to join with the query accounts.
+func (o ScorecardRuleNrqlEnginePtrOutput) JoinAccounts() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ScorecardRuleNrqlEngine) []int {
+		if v == nil {
+			return nil
+		}
+		return v.JoinAccounts
+	}).(pulumi.IntArrayOutput)
+}
+
+// The NRQL query. Must be FACET-ed and alias the result as 'score'.
+func (o ScorecardRuleNrqlEnginePtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScorecardRuleNrqlEngine) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScorecardRuleTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// One or more tag values.
+	Values []string `pulumi:"values"`
+}
+
+// ScorecardRuleTagInput is an input type that accepts ScorecardRuleTagArgs and ScorecardRuleTagOutput values.
+// You can construct a concrete instance of `ScorecardRuleTagInput` via:
+//
+//	ScorecardRuleTagArgs{...}
+type ScorecardRuleTagInput interface {
+	pulumi.Input
+
+	ToScorecardRuleTagOutput() ScorecardRuleTagOutput
+	ToScorecardRuleTagOutputWithContext(context.Context) ScorecardRuleTagOutput
+}
+
+type ScorecardRuleTagArgs struct {
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// One or more tag values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ScorecardRuleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScorecardRuleTag)(nil)).Elem()
+}
+
+func (i ScorecardRuleTagArgs) ToScorecardRuleTagOutput() ScorecardRuleTagOutput {
+	return i.ToScorecardRuleTagOutputWithContext(context.Background())
+}
+
+func (i ScorecardRuleTagArgs) ToScorecardRuleTagOutputWithContext(ctx context.Context) ScorecardRuleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScorecardRuleTagOutput)
+}
+
+// ScorecardRuleTagArrayInput is an input type that accepts ScorecardRuleTagArray and ScorecardRuleTagArrayOutput values.
+// You can construct a concrete instance of `ScorecardRuleTagArrayInput` via:
+//
+//	ScorecardRuleTagArray{ ScorecardRuleTagArgs{...} }
+type ScorecardRuleTagArrayInput interface {
+	pulumi.Input
+
+	ToScorecardRuleTagArrayOutput() ScorecardRuleTagArrayOutput
+	ToScorecardRuleTagArrayOutputWithContext(context.Context) ScorecardRuleTagArrayOutput
+}
+
+type ScorecardRuleTagArray []ScorecardRuleTagInput
+
+func (ScorecardRuleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScorecardRuleTag)(nil)).Elem()
+}
+
+func (i ScorecardRuleTagArray) ToScorecardRuleTagArrayOutput() ScorecardRuleTagArrayOutput {
+	return i.ToScorecardRuleTagArrayOutputWithContext(context.Background())
+}
+
+func (i ScorecardRuleTagArray) ToScorecardRuleTagArrayOutputWithContext(ctx context.Context) ScorecardRuleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScorecardRuleTagArrayOutput)
+}
+
+type ScorecardRuleTagOutput struct{ *pulumi.OutputState }
+
+func (ScorecardRuleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScorecardRuleTag)(nil)).Elem()
+}
+
+func (o ScorecardRuleTagOutput) ToScorecardRuleTagOutput() ScorecardRuleTagOutput {
+	return o
+}
+
+func (o ScorecardRuleTagOutput) ToScorecardRuleTagOutputWithContext(ctx context.Context) ScorecardRuleTagOutput {
+	return o
+}
+
+// The tag key.
+func (o ScorecardRuleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ScorecardRuleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// One or more tag values.
+func (o ScorecardRuleTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScorecardRuleTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ScorecardRuleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ScorecardRuleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScorecardRuleTag)(nil)).Elem()
+}
+
+func (o ScorecardRuleTagArrayOutput) ToScorecardRuleTagArrayOutput() ScorecardRuleTagArrayOutput {
+	return o
+}
+
+func (o ScorecardRuleTagArrayOutput) ToScorecardRuleTagArrayOutputWithContext(ctx context.Context) ScorecardRuleTagArrayOutput {
+	return o
+}
+
+func (o ScorecardRuleTagArrayOutput) Index(i pulumi.IntInput) ScorecardRuleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScorecardRuleTag {
+		return vs[0].([]ScorecardRuleTag)[vs[1].(int)]
+	}).(ScorecardRuleTagOutput)
+}
+
+type ScorecardTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// One or more tag values.
+	Values []string `pulumi:"values"`
+}
+
+// ScorecardTagInput is an input type that accepts ScorecardTagArgs and ScorecardTagOutput values.
+// You can construct a concrete instance of `ScorecardTagInput` via:
+//
+//	ScorecardTagArgs{...}
+type ScorecardTagInput interface {
+	pulumi.Input
+
+	ToScorecardTagOutput() ScorecardTagOutput
+	ToScorecardTagOutputWithContext(context.Context) ScorecardTagOutput
+}
+
+type ScorecardTagArgs struct {
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// One or more tag values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ScorecardTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScorecardTag)(nil)).Elem()
+}
+
+func (i ScorecardTagArgs) ToScorecardTagOutput() ScorecardTagOutput {
+	return i.ToScorecardTagOutputWithContext(context.Background())
+}
+
+func (i ScorecardTagArgs) ToScorecardTagOutputWithContext(ctx context.Context) ScorecardTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScorecardTagOutput)
+}
+
+// ScorecardTagArrayInput is an input type that accepts ScorecardTagArray and ScorecardTagArrayOutput values.
+// You can construct a concrete instance of `ScorecardTagArrayInput` via:
+//
+//	ScorecardTagArray{ ScorecardTagArgs{...} }
+type ScorecardTagArrayInput interface {
+	pulumi.Input
+
+	ToScorecardTagArrayOutput() ScorecardTagArrayOutput
+	ToScorecardTagArrayOutputWithContext(context.Context) ScorecardTagArrayOutput
+}
+
+type ScorecardTagArray []ScorecardTagInput
+
+func (ScorecardTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScorecardTag)(nil)).Elem()
+}
+
+func (i ScorecardTagArray) ToScorecardTagArrayOutput() ScorecardTagArrayOutput {
+	return i.ToScorecardTagArrayOutputWithContext(context.Background())
+}
+
+func (i ScorecardTagArray) ToScorecardTagArrayOutputWithContext(ctx context.Context) ScorecardTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScorecardTagArrayOutput)
+}
+
+type ScorecardTagOutput struct{ *pulumi.OutputState }
+
+func (ScorecardTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScorecardTag)(nil)).Elem()
+}
+
+func (o ScorecardTagOutput) ToScorecardTagOutput() ScorecardTagOutput {
+	return o
+}
+
+func (o ScorecardTagOutput) ToScorecardTagOutputWithContext(ctx context.Context) ScorecardTagOutput {
+	return o
+}
+
+// The tag key.
+func (o ScorecardTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ScorecardTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// One or more tag values.
+func (o ScorecardTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScorecardTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ScorecardTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ScorecardTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScorecardTag)(nil)).Elem()
+}
+
+func (o ScorecardTagArrayOutput) ToScorecardTagArrayOutput() ScorecardTagArrayOutput {
+	return o
+}
+
+func (o ScorecardTagArrayOutput) ToScorecardTagArrayOutputWithContext(ctx context.Context) ScorecardTagArrayOutput {
+	return o
+}
+
+func (o ScorecardTagArrayOutput) Index(i pulumi.IntInput) ScorecardTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScorecardTag {
+		return vs[0].([]ScorecardTag)[vs[1].(int)]
+	}).(ScorecardTagOutput)
+}
+
 type ServiceLevelEvents struct {
 	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
 	// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
@@ -37700,6 +38211,578 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Unit() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type TeamResource struct {
+	// The URL or contact address for this resource.
+	Content string `pulumi:"content"`
+	// A short label shown in the UI for this resource.
+	Title *string `pulumi:"title"`
+	// Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+	Type string `pulumi:"type"`
+}
+
+// TeamResourceInput is an input type that accepts TeamResourceArgs and TeamResourceOutput values.
+// You can construct a concrete instance of `TeamResourceInput` via:
+//
+//	TeamResourceArgs{...}
+type TeamResourceInput interface {
+	pulumi.Input
+
+	ToTeamResourceOutput() TeamResourceOutput
+	ToTeamResourceOutputWithContext(context.Context) TeamResourceOutput
+}
+
+type TeamResourceArgs struct {
+	// The URL or contact address for this resource.
+	Content pulumi.StringInput `pulumi:"content"`
+	// A short label shown in the UI for this resource.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TeamResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamResource)(nil)).Elem()
+}
+
+func (i TeamResourceArgs) ToTeamResourceOutput() TeamResourceOutput {
+	return i.ToTeamResourceOutputWithContext(context.Background())
+}
+
+func (i TeamResourceArgs) ToTeamResourceOutputWithContext(ctx context.Context) TeamResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamResourceOutput)
+}
+
+// TeamResourceArrayInput is an input type that accepts TeamResourceArray and TeamResourceArrayOutput values.
+// You can construct a concrete instance of `TeamResourceArrayInput` via:
+//
+//	TeamResourceArray{ TeamResourceArgs{...} }
+type TeamResourceArrayInput interface {
+	pulumi.Input
+
+	ToTeamResourceArrayOutput() TeamResourceArrayOutput
+	ToTeamResourceArrayOutputWithContext(context.Context) TeamResourceArrayOutput
+}
+
+type TeamResourceArray []TeamResourceInput
+
+func (TeamResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamResource)(nil)).Elem()
+}
+
+func (i TeamResourceArray) ToTeamResourceArrayOutput() TeamResourceArrayOutput {
+	return i.ToTeamResourceArrayOutputWithContext(context.Background())
+}
+
+func (i TeamResourceArray) ToTeamResourceArrayOutputWithContext(ctx context.Context) TeamResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamResourceArrayOutput)
+}
+
+type TeamResourceOutput struct{ *pulumi.OutputState }
+
+func (TeamResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamResource)(nil)).Elem()
+}
+
+func (o TeamResourceOutput) ToTeamResourceOutput() TeamResourceOutput {
+	return o
+}
+
+func (o TeamResourceOutput) ToTeamResourceOutputWithContext(ctx context.Context) TeamResourceOutput {
+	return o
+}
+
+// The URL or contact address for this resource.
+func (o TeamResourceOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamResource) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// A short label shown in the UI for this resource.
+func (o TeamResourceOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamResource) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+func (o TeamResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamResource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TeamResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamResource)(nil)).Elem()
+}
+
+func (o TeamResourceArrayOutput) ToTeamResourceArrayOutput() TeamResourceArrayOutput {
+	return o
+}
+
+func (o TeamResourceArrayOutput) ToTeamResourceArrayOutputWithContext(ctx context.Context) TeamResourceArrayOutput {
+	return o
+}
+
+func (o TeamResourceArrayOutput) Index(i pulumi.IntInput) TeamResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamResource {
+		return vs[0].([]TeamResource)[vs[1].(int)]
+	}).(TeamResourceOutput)
+}
+
+type TeamTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag values.
+	Values []string `pulumi:"values"`
+}
+
+// TeamTagInput is an input type that accepts TeamTagArgs and TeamTagOutput values.
+// You can construct a concrete instance of `TeamTagInput` via:
+//
+//	TeamTagArgs{...}
+type TeamTagInput interface {
+	pulumi.Input
+
+	ToTeamTagOutput() TeamTagOutput
+	ToTeamTagOutputWithContext(context.Context) TeamTagOutput
+}
+
+type TeamTagArgs struct {
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (TeamTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamTag)(nil)).Elem()
+}
+
+func (i TeamTagArgs) ToTeamTagOutput() TeamTagOutput {
+	return i.ToTeamTagOutputWithContext(context.Background())
+}
+
+func (i TeamTagArgs) ToTeamTagOutputWithContext(ctx context.Context) TeamTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamTagOutput)
+}
+
+// TeamTagArrayInput is an input type that accepts TeamTagArray and TeamTagArrayOutput values.
+// You can construct a concrete instance of `TeamTagArrayInput` via:
+//
+//	TeamTagArray{ TeamTagArgs{...} }
+type TeamTagArrayInput interface {
+	pulumi.Input
+
+	ToTeamTagArrayOutput() TeamTagArrayOutput
+	ToTeamTagArrayOutputWithContext(context.Context) TeamTagArrayOutput
+}
+
+type TeamTagArray []TeamTagInput
+
+func (TeamTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamTag)(nil)).Elem()
+}
+
+func (i TeamTagArray) ToTeamTagArrayOutput() TeamTagArrayOutput {
+	return i.ToTeamTagArrayOutputWithContext(context.Background())
+}
+
+func (i TeamTagArray) ToTeamTagArrayOutputWithContext(ctx context.Context) TeamTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamTagArrayOutput)
+}
+
+type TeamTagOutput struct{ *pulumi.OutputState }
+
+func (TeamTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamTag)(nil)).Elem()
+}
+
+func (o TeamTagOutput) ToTeamTagOutput() TeamTagOutput {
+	return o
+}
+
+func (o TeamTagOutput) ToTeamTagOutputWithContext(ctx context.Context) TeamTagOutput {
+	return o
+}
+
+// The tag key.
+func (o TeamTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag values.
+func (o TeamTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TeamTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type TeamTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamTag)(nil)).Elem()
+}
+
+func (o TeamTagArrayOutput) ToTeamTagArrayOutput() TeamTagArrayOutput {
+	return o
+}
+
+func (o TeamTagArrayOutput) ToTeamTagArrayOutputWithContext(ctx context.Context) TeamTagArrayOutput {
+	return o
+}
+
+func (o TeamTagArrayOutput) Index(i pulumi.IntInput) TeamTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamTag {
+		return vs[0].([]TeamTag)[vs[1].(int)]
+	}).(TeamTagOutput)
+}
+
+type TeamsOrganizationSettingsHierarchyLevel struct {
+	// The entity GUID of the organisation settings singleton entity.
+	Id string `pulumi:"id"`
+	// Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+	Name string `pulumi:"name"`
+}
+
+// TeamsOrganizationSettingsHierarchyLevelInput is an input type that accepts TeamsOrganizationSettingsHierarchyLevelArgs and TeamsOrganizationSettingsHierarchyLevelOutput values.
+// You can construct a concrete instance of `TeamsOrganizationSettingsHierarchyLevelInput` via:
+//
+//	TeamsOrganizationSettingsHierarchyLevelArgs{...}
+type TeamsOrganizationSettingsHierarchyLevelInput interface {
+	pulumi.Input
+
+	ToTeamsOrganizationSettingsHierarchyLevelOutput() TeamsOrganizationSettingsHierarchyLevelOutput
+	ToTeamsOrganizationSettingsHierarchyLevelOutputWithContext(context.Context) TeamsOrganizationSettingsHierarchyLevelOutput
+}
+
+type TeamsOrganizationSettingsHierarchyLevelArgs struct {
+	// The entity GUID of the organisation settings singleton entity.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (TeamsOrganizationSettingsHierarchyLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamsOrganizationSettingsHierarchyLevel)(nil)).Elem()
+}
+
+func (i TeamsOrganizationSettingsHierarchyLevelArgs) ToTeamsOrganizationSettingsHierarchyLevelOutput() TeamsOrganizationSettingsHierarchyLevelOutput {
+	return i.ToTeamsOrganizationSettingsHierarchyLevelOutputWithContext(context.Background())
+}
+
+func (i TeamsOrganizationSettingsHierarchyLevelArgs) ToTeamsOrganizationSettingsHierarchyLevelOutputWithContext(ctx context.Context) TeamsOrganizationSettingsHierarchyLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamsOrganizationSettingsHierarchyLevelOutput)
+}
+
+// TeamsOrganizationSettingsHierarchyLevelArrayInput is an input type that accepts TeamsOrganizationSettingsHierarchyLevelArray and TeamsOrganizationSettingsHierarchyLevelArrayOutput values.
+// You can construct a concrete instance of `TeamsOrganizationSettingsHierarchyLevelArrayInput` via:
+//
+//	TeamsOrganizationSettingsHierarchyLevelArray{ TeamsOrganizationSettingsHierarchyLevelArgs{...} }
+type TeamsOrganizationSettingsHierarchyLevelArrayInput interface {
+	pulumi.Input
+
+	ToTeamsOrganizationSettingsHierarchyLevelArrayOutput() TeamsOrganizationSettingsHierarchyLevelArrayOutput
+	ToTeamsOrganizationSettingsHierarchyLevelArrayOutputWithContext(context.Context) TeamsOrganizationSettingsHierarchyLevelArrayOutput
+}
+
+type TeamsOrganizationSettingsHierarchyLevelArray []TeamsOrganizationSettingsHierarchyLevelInput
+
+func (TeamsOrganizationSettingsHierarchyLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamsOrganizationSettingsHierarchyLevel)(nil)).Elem()
+}
+
+func (i TeamsOrganizationSettingsHierarchyLevelArray) ToTeamsOrganizationSettingsHierarchyLevelArrayOutput() TeamsOrganizationSettingsHierarchyLevelArrayOutput {
+	return i.ToTeamsOrganizationSettingsHierarchyLevelArrayOutputWithContext(context.Background())
+}
+
+func (i TeamsOrganizationSettingsHierarchyLevelArray) ToTeamsOrganizationSettingsHierarchyLevelArrayOutputWithContext(ctx context.Context) TeamsOrganizationSettingsHierarchyLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamsOrganizationSettingsHierarchyLevelArrayOutput)
+}
+
+type TeamsOrganizationSettingsHierarchyLevelOutput struct{ *pulumi.OutputState }
+
+func (TeamsOrganizationSettingsHierarchyLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamsOrganizationSettingsHierarchyLevel)(nil)).Elem()
+}
+
+func (o TeamsOrganizationSettingsHierarchyLevelOutput) ToTeamsOrganizationSettingsHierarchyLevelOutput() TeamsOrganizationSettingsHierarchyLevelOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsHierarchyLevelOutput) ToTeamsOrganizationSettingsHierarchyLevelOutputWithContext(ctx context.Context) TeamsOrganizationSettingsHierarchyLevelOutput {
+	return o
+}
+
+// The entity GUID of the organisation settings singleton entity.
+func (o TeamsOrganizationSettingsHierarchyLevelOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamsOrganizationSettingsHierarchyLevel) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+func (o TeamsOrganizationSettingsHierarchyLevelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamsOrganizationSettingsHierarchyLevel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type TeamsOrganizationSettingsHierarchyLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamsOrganizationSettingsHierarchyLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamsOrganizationSettingsHierarchyLevel)(nil)).Elem()
+}
+
+func (o TeamsOrganizationSettingsHierarchyLevelArrayOutput) ToTeamsOrganizationSettingsHierarchyLevelArrayOutput() TeamsOrganizationSettingsHierarchyLevelArrayOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsHierarchyLevelArrayOutput) ToTeamsOrganizationSettingsHierarchyLevelArrayOutputWithContext(ctx context.Context) TeamsOrganizationSettingsHierarchyLevelArrayOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsHierarchyLevelArrayOutput) Index(i pulumi.IntInput) TeamsOrganizationSettingsHierarchyLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamsOrganizationSettingsHierarchyLevel {
+		return vs[0].([]TeamsOrganizationSettingsHierarchyLevel)[vs[1].(int)]
+	}).(TeamsOrganizationSettingsHierarchyLevelOutput)
+}
+
+type TeamsOrganizationSettingsSyncGroupRules struct {
+	// Conditions that a group name must satisfy for this rule to apply.
+	Conditions []TeamsOrganizationSettingsSyncGroupRulesCondition `pulumi:"conditions"`
+}
+
+// TeamsOrganizationSettingsSyncGroupRulesInput is an input type that accepts TeamsOrganizationSettingsSyncGroupRulesArgs and TeamsOrganizationSettingsSyncGroupRulesOutput values.
+// You can construct a concrete instance of `TeamsOrganizationSettingsSyncGroupRulesInput` via:
+//
+//	TeamsOrganizationSettingsSyncGroupRulesArgs{...}
+type TeamsOrganizationSettingsSyncGroupRulesInput interface {
+	pulumi.Input
+
+	ToTeamsOrganizationSettingsSyncGroupRulesOutput() TeamsOrganizationSettingsSyncGroupRulesOutput
+	ToTeamsOrganizationSettingsSyncGroupRulesOutputWithContext(context.Context) TeamsOrganizationSettingsSyncGroupRulesOutput
+}
+
+type TeamsOrganizationSettingsSyncGroupRulesArgs struct {
+	// Conditions that a group name must satisfy for this rule to apply.
+	Conditions TeamsOrganizationSettingsSyncGroupRulesConditionArrayInput `pulumi:"conditions"`
+}
+
+func (TeamsOrganizationSettingsSyncGroupRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamsOrganizationSettingsSyncGroupRules)(nil)).Elem()
+}
+
+func (i TeamsOrganizationSettingsSyncGroupRulesArgs) ToTeamsOrganizationSettingsSyncGroupRulesOutput() TeamsOrganizationSettingsSyncGroupRulesOutput {
+	return i.ToTeamsOrganizationSettingsSyncGroupRulesOutputWithContext(context.Background())
+}
+
+func (i TeamsOrganizationSettingsSyncGroupRulesArgs) ToTeamsOrganizationSettingsSyncGroupRulesOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamsOrganizationSettingsSyncGroupRulesOutput)
+}
+
+func (i TeamsOrganizationSettingsSyncGroupRulesArgs) ToTeamsOrganizationSettingsSyncGroupRulesPtrOutput() TeamsOrganizationSettingsSyncGroupRulesPtrOutput {
+	return i.ToTeamsOrganizationSettingsSyncGroupRulesPtrOutputWithContext(context.Background())
+}
+
+func (i TeamsOrganizationSettingsSyncGroupRulesArgs) ToTeamsOrganizationSettingsSyncGroupRulesPtrOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamsOrganizationSettingsSyncGroupRulesOutput).ToTeamsOrganizationSettingsSyncGroupRulesPtrOutputWithContext(ctx)
+}
+
+// TeamsOrganizationSettingsSyncGroupRulesPtrInput is an input type that accepts TeamsOrganizationSettingsSyncGroupRulesArgs, TeamsOrganizationSettingsSyncGroupRulesPtr and TeamsOrganizationSettingsSyncGroupRulesPtrOutput values.
+// You can construct a concrete instance of `TeamsOrganizationSettingsSyncGroupRulesPtrInput` via:
+//
+//	        TeamsOrganizationSettingsSyncGroupRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TeamsOrganizationSettingsSyncGroupRulesPtrInput interface {
+	pulumi.Input
+
+	ToTeamsOrganizationSettingsSyncGroupRulesPtrOutput() TeamsOrganizationSettingsSyncGroupRulesPtrOutput
+	ToTeamsOrganizationSettingsSyncGroupRulesPtrOutputWithContext(context.Context) TeamsOrganizationSettingsSyncGroupRulesPtrOutput
+}
+
+type teamsOrganizationSettingsSyncGroupRulesPtrType TeamsOrganizationSettingsSyncGroupRulesArgs
+
+func TeamsOrganizationSettingsSyncGroupRulesPtr(v *TeamsOrganizationSettingsSyncGroupRulesArgs) TeamsOrganizationSettingsSyncGroupRulesPtrInput {
+	return (*teamsOrganizationSettingsSyncGroupRulesPtrType)(v)
+}
+
+func (*teamsOrganizationSettingsSyncGroupRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamsOrganizationSettingsSyncGroupRules)(nil)).Elem()
+}
+
+func (i *teamsOrganizationSettingsSyncGroupRulesPtrType) ToTeamsOrganizationSettingsSyncGroupRulesPtrOutput() TeamsOrganizationSettingsSyncGroupRulesPtrOutput {
+	return i.ToTeamsOrganizationSettingsSyncGroupRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *teamsOrganizationSettingsSyncGroupRulesPtrType) ToTeamsOrganizationSettingsSyncGroupRulesPtrOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamsOrganizationSettingsSyncGroupRulesPtrOutput)
+}
+
+type TeamsOrganizationSettingsSyncGroupRulesOutput struct{ *pulumi.OutputState }
+
+func (TeamsOrganizationSettingsSyncGroupRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamsOrganizationSettingsSyncGroupRules)(nil)).Elem()
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesOutput) ToTeamsOrganizationSettingsSyncGroupRulesOutput() TeamsOrganizationSettingsSyncGroupRulesOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesOutput) ToTeamsOrganizationSettingsSyncGroupRulesOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesOutput) ToTeamsOrganizationSettingsSyncGroupRulesPtrOutput() TeamsOrganizationSettingsSyncGroupRulesPtrOutput {
+	return o.ToTeamsOrganizationSettingsSyncGroupRulesPtrOutputWithContext(context.Background())
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesOutput) ToTeamsOrganizationSettingsSyncGroupRulesPtrOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamsOrganizationSettingsSyncGroupRules) *TeamsOrganizationSettingsSyncGroupRules {
+		return &v
+	}).(TeamsOrganizationSettingsSyncGroupRulesPtrOutput)
+}
+
+// Conditions that a group name must satisfy for this rule to apply.
+func (o TeamsOrganizationSettingsSyncGroupRulesOutput) Conditions() TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput {
+	return o.ApplyT(func(v TeamsOrganizationSettingsSyncGroupRules) []TeamsOrganizationSettingsSyncGroupRulesCondition {
+		return v.Conditions
+	}).(TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput)
+}
+
+type TeamsOrganizationSettingsSyncGroupRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (TeamsOrganizationSettingsSyncGroupRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamsOrganizationSettingsSyncGroupRules)(nil)).Elem()
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesPtrOutput) ToTeamsOrganizationSettingsSyncGroupRulesPtrOutput() TeamsOrganizationSettingsSyncGroupRulesPtrOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesPtrOutput) ToTeamsOrganizationSettingsSyncGroupRulesPtrOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesPtrOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesPtrOutput) Elem() TeamsOrganizationSettingsSyncGroupRulesOutput {
+	return o.ApplyT(func(v *TeamsOrganizationSettingsSyncGroupRules) TeamsOrganizationSettingsSyncGroupRules {
+		if v != nil {
+			return *v
+		}
+		var ret TeamsOrganizationSettingsSyncGroupRules
+		return ret
+	}).(TeamsOrganizationSettingsSyncGroupRulesOutput)
+}
+
+// Conditions that a group name must satisfy for this rule to apply.
+func (o TeamsOrganizationSettingsSyncGroupRulesPtrOutput) Conditions() TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput {
+	return o.ApplyT(func(v *TeamsOrganizationSettingsSyncGroupRules) []TeamsOrganizationSettingsSyncGroupRulesCondition {
+		if v == nil {
+			return nil
+		}
+		return v.Conditions
+	}).(TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput)
+}
+
+type TeamsOrganizationSettingsSyncGroupRulesCondition struct {
+	// Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+	Type string `pulumi:"type"`
+	// The string to match against the group name.
+	Value string `pulumi:"value"`
+}
+
+// TeamsOrganizationSettingsSyncGroupRulesConditionInput is an input type that accepts TeamsOrganizationSettingsSyncGroupRulesConditionArgs and TeamsOrganizationSettingsSyncGroupRulesConditionOutput values.
+// You can construct a concrete instance of `TeamsOrganizationSettingsSyncGroupRulesConditionInput` via:
+//
+//	TeamsOrganizationSettingsSyncGroupRulesConditionArgs{...}
+type TeamsOrganizationSettingsSyncGroupRulesConditionInput interface {
+	pulumi.Input
+
+	ToTeamsOrganizationSettingsSyncGroupRulesConditionOutput() TeamsOrganizationSettingsSyncGroupRulesConditionOutput
+	ToTeamsOrganizationSettingsSyncGroupRulesConditionOutputWithContext(context.Context) TeamsOrganizationSettingsSyncGroupRulesConditionOutput
+}
+
+type TeamsOrganizationSettingsSyncGroupRulesConditionArgs struct {
+	// Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The string to match against the group name.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TeamsOrganizationSettingsSyncGroupRulesConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamsOrganizationSettingsSyncGroupRulesCondition)(nil)).Elem()
+}
+
+func (i TeamsOrganizationSettingsSyncGroupRulesConditionArgs) ToTeamsOrganizationSettingsSyncGroupRulesConditionOutput() TeamsOrganizationSettingsSyncGroupRulesConditionOutput {
+	return i.ToTeamsOrganizationSettingsSyncGroupRulesConditionOutputWithContext(context.Background())
+}
+
+func (i TeamsOrganizationSettingsSyncGroupRulesConditionArgs) ToTeamsOrganizationSettingsSyncGroupRulesConditionOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamsOrganizationSettingsSyncGroupRulesConditionOutput)
+}
+
+// TeamsOrganizationSettingsSyncGroupRulesConditionArrayInput is an input type that accepts TeamsOrganizationSettingsSyncGroupRulesConditionArray and TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput values.
+// You can construct a concrete instance of `TeamsOrganizationSettingsSyncGroupRulesConditionArrayInput` via:
+//
+//	TeamsOrganizationSettingsSyncGroupRulesConditionArray{ TeamsOrganizationSettingsSyncGroupRulesConditionArgs{...} }
+type TeamsOrganizationSettingsSyncGroupRulesConditionArrayInput interface {
+	pulumi.Input
+
+	ToTeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput() TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput
+	ToTeamsOrganizationSettingsSyncGroupRulesConditionArrayOutputWithContext(context.Context) TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput
+}
+
+type TeamsOrganizationSettingsSyncGroupRulesConditionArray []TeamsOrganizationSettingsSyncGroupRulesConditionInput
+
+func (TeamsOrganizationSettingsSyncGroupRulesConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamsOrganizationSettingsSyncGroupRulesCondition)(nil)).Elem()
+}
+
+func (i TeamsOrganizationSettingsSyncGroupRulesConditionArray) ToTeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput() TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput {
+	return i.ToTeamsOrganizationSettingsSyncGroupRulesConditionArrayOutputWithContext(context.Background())
+}
+
+func (i TeamsOrganizationSettingsSyncGroupRulesConditionArray) ToTeamsOrganizationSettingsSyncGroupRulesConditionArrayOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput)
+}
+
+type TeamsOrganizationSettingsSyncGroupRulesConditionOutput struct{ *pulumi.OutputState }
+
+func (TeamsOrganizationSettingsSyncGroupRulesConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamsOrganizationSettingsSyncGroupRulesCondition)(nil)).Elem()
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesConditionOutput) ToTeamsOrganizationSettingsSyncGroupRulesConditionOutput() TeamsOrganizationSettingsSyncGroupRulesConditionOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesConditionOutput) ToTeamsOrganizationSettingsSyncGroupRulesConditionOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesConditionOutput {
+	return o
+}
+
+// Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+func (o TeamsOrganizationSettingsSyncGroupRulesConditionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamsOrganizationSettingsSyncGroupRulesCondition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The string to match against the group name.
+func (o TeamsOrganizationSettingsSyncGroupRulesConditionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamsOrganizationSettingsSyncGroupRulesCondition) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamsOrganizationSettingsSyncGroupRulesCondition)(nil)).Elem()
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput) ToTeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput() TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput) ToTeamsOrganizationSettingsSyncGroupRulesConditionArrayOutputWithContext(ctx context.Context) TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput {
+	return o
+}
+
+func (o TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput) Index(i pulumi.IntInput) TeamsOrganizationSettingsSyncGroupRulesConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamsOrganizationSettingsSyncGroupRulesCondition {
+		return vs[0].([]TeamsOrganizationSettingsSyncGroupRulesCondition)[vs[1].(int)]
+	}).(TeamsOrganizationSettingsSyncGroupRulesConditionOutput)
+}
+
 type WorkflowDestination struct {
 	// (Required) Destination's channel id.
 	ChannelId string `pulumi:"channelId"`
@@ -39267,6 +40350,112 @@ func (o GetNotificationDestinationSecureUrlArrayOutput) Index(i pulumi.IntInput)
 	}).(GetNotificationDestinationSecureUrlOutput)
 }
 
+type GetTeamsHierarchyLevelsLevel struct {
+	// The entity GUID of the hierarchy level. Pass this to `newrelic_teams_organization_settings.hierarchy_levels[*].id` to reference and rename the level.
+	Id string `pulumi:"id"`
+	// The current display name of this level (e.g. `"Division"`, `"Squad"`).
+	Name string `pulumi:"name"`
+}
+
+// GetTeamsHierarchyLevelsLevelInput is an input type that accepts GetTeamsHierarchyLevelsLevelArgs and GetTeamsHierarchyLevelsLevelOutput values.
+// You can construct a concrete instance of `GetTeamsHierarchyLevelsLevelInput` via:
+//
+//	GetTeamsHierarchyLevelsLevelArgs{...}
+type GetTeamsHierarchyLevelsLevelInput interface {
+	pulumi.Input
+
+	ToGetTeamsHierarchyLevelsLevelOutput() GetTeamsHierarchyLevelsLevelOutput
+	ToGetTeamsHierarchyLevelsLevelOutputWithContext(context.Context) GetTeamsHierarchyLevelsLevelOutput
+}
+
+type GetTeamsHierarchyLevelsLevelArgs struct {
+	// The entity GUID of the hierarchy level. Pass this to `newrelic_teams_organization_settings.hierarchy_levels[*].id` to reference and rename the level.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The current display name of this level (e.g. `"Division"`, `"Squad"`).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTeamsHierarchyLevelsLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsHierarchyLevelsLevel)(nil)).Elem()
+}
+
+func (i GetTeamsHierarchyLevelsLevelArgs) ToGetTeamsHierarchyLevelsLevelOutput() GetTeamsHierarchyLevelsLevelOutput {
+	return i.ToGetTeamsHierarchyLevelsLevelOutputWithContext(context.Background())
+}
+
+func (i GetTeamsHierarchyLevelsLevelArgs) ToGetTeamsHierarchyLevelsLevelOutputWithContext(ctx context.Context) GetTeamsHierarchyLevelsLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamsHierarchyLevelsLevelOutput)
+}
+
+// GetTeamsHierarchyLevelsLevelArrayInput is an input type that accepts GetTeamsHierarchyLevelsLevelArray and GetTeamsHierarchyLevelsLevelArrayOutput values.
+// You can construct a concrete instance of `GetTeamsHierarchyLevelsLevelArrayInput` via:
+//
+//	GetTeamsHierarchyLevelsLevelArray{ GetTeamsHierarchyLevelsLevelArgs{...} }
+type GetTeamsHierarchyLevelsLevelArrayInput interface {
+	pulumi.Input
+
+	ToGetTeamsHierarchyLevelsLevelArrayOutput() GetTeamsHierarchyLevelsLevelArrayOutput
+	ToGetTeamsHierarchyLevelsLevelArrayOutputWithContext(context.Context) GetTeamsHierarchyLevelsLevelArrayOutput
+}
+
+type GetTeamsHierarchyLevelsLevelArray []GetTeamsHierarchyLevelsLevelInput
+
+func (GetTeamsHierarchyLevelsLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamsHierarchyLevelsLevel)(nil)).Elem()
+}
+
+func (i GetTeamsHierarchyLevelsLevelArray) ToGetTeamsHierarchyLevelsLevelArrayOutput() GetTeamsHierarchyLevelsLevelArrayOutput {
+	return i.ToGetTeamsHierarchyLevelsLevelArrayOutputWithContext(context.Background())
+}
+
+func (i GetTeamsHierarchyLevelsLevelArray) ToGetTeamsHierarchyLevelsLevelArrayOutputWithContext(ctx context.Context) GetTeamsHierarchyLevelsLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamsHierarchyLevelsLevelArrayOutput)
+}
+
+type GetTeamsHierarchyLevelsLevelOutput struct{ *pulumi.OutputState }
+
+func (GetTeamsHierarchyLevelsLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsHierarchyLevelsLevel)(nil)).Elem()
+}
+
+func (o GetTeamsHierarchyLevelsLevelOutput) ToGetTeamsHierarchyLevelsLevelOutput() GetTeamsHierarchyLevelsLevelOutput {
+	return o
+}
+
+func (o GetTeamsHierarchyLevelsLevelOutput) ToGetTeamsHierarchyLevelsLevelOutputWithContext(ctx context.Context) GetTeamsHierarchyLevelsLevelOutput {
+	return o
+}
+
+// The entity GUID of the hierarchy level. Pass this to `newrelic_teams_organization_settings.hierarchy_levels[*].id` to reference and rename the level.
+func (o GetTeamsHierarchyLevelsLevelOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsHierarchyLevelsLevel) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The current display name of this level (e.g. `"Division"`, `"Squad"`).
+func (o GetTeamsHierarchyLevelsLevelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsHierarchyLevelsLevel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTeamsHierarchyLevelsLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTeamsHierarchyLevelsLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamsHierarchyLevelsLevel)(nil)).Elem()
+}
+
+func (o GetTeamsHierarchyLevelsLevelArrayOutput) ToGetTeamsHierarchyLevelsLevelArrayOutput() GetTeamsHierarchyLevelsLevelArrayOutput {
+	return o
+}
+
+func (o GetTeamsHierarchyLevelsLevelArrayOutput) ToGetTeamsHierarchyLevelsLevelArrayOutputWithContext(ctx context.Context) GetTeamsHierarchyLevelsLevelArrayOutput {
+	return o
+}
+
+func (o GetTeamsHierarchyLevelsLevelArrayOutput) Index(i pulumi.IntInput) GetTeamsHierarchyLevelsLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTeamsHierarchyLevelsLevel {
+		return vs[0].([]GetTeamsHierarchyLevelsLevel)[vs[1].(int)]
+	}).(GetTeamsHierarchyLevelsLevelOutput)
+}
+
 type GetTestGrokPatternTestGrok struct {
 	// Nested list containing information about any attributes that were extracted.
 	Attributes []GetTestGrokPatternTestGrokAttribute `pulumi:"attributes"`
@@ -40001,6 +41190,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindowPtrInput)(nil)).Elem(), PathpointFlowStageStageKpiQueryTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeInput)(nil)).Elem(), PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrInput)(nil)).Elem(), PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScorecardProgressLevelInput)(nil)).Elem(), ScorecardProgressLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScorecardProgressLevelArrayInput)(nil)).Elem(), ScorecardProgressLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScorecardRuleNrqlEngineInput)(nil)).Elem(), ScorecardRuleNrqlEngineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScorecardRuleNrqlEnginePtrInput)(nil)).Elem(), ScorecardRuleNrqlEngineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScorecardRuleTagInput)(nil)).Elem(), ScorecardRuleTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScorecardRuleTagArrayInput)(nil)).Elem(), ScorecardRuleTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScorecardTagInput)(nil)).Elem(), ScorecardTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScorecardTagArrayInput)(nil)).Elem(), ScorecardTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsInput)(nil)).Elem(), ServiceLevelEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsPtrInput)(nil)).Elem(), ServiceLevelEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsBadEventsInput)(nil)).Elem(), ServiceLevelEventsBadEventsArgs{})
@@ -40021,6 +41218,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowPtrInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRollingInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowRollingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRollingPtrInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowRollingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamResourceInput)(nil)).Elem(), TeamResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamResourceArrayInput)(nil)).Elem(), TeamResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamTagInput)(nil)).Elem(), TeamTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamTagArrayInput)(nil)).Elem(), TeamTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamsOrganizationSettingsHierarchyLevelInput)(nil)).Elem(), TeamsOrganizationSettingsHierarchyLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamsOrganizationSettingsHierarchyLevelArrayInput)(nil)).Elem(), TeamsOrganizationSettingsHierarchyLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamsOrganizationSettingsSyncGroupRulesInput)(nil)).Elem(), TeamsOrganizationSettingsSyncGroupRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamsOrganizationSettingsSyncGroupRulesPtrInput)(nil)).Elem(), TeamsOrganizationSettingsSyncGroupRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamsOrganizationSettingsSyncGroupRulesConditionInput)(nil)).Elem(), TeamsOrganizationSettingsSyncGroupRulesConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamsOrganizationSettingsSyncGroupRulesConditionArrayInput)(nil)).Elem(), TeamsOrganizationSettingsSyncGroupRulesConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDestinationInput)(nil)).Elem(), WorkflowDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDestinationArrayInput)(nil)).Elem(), WorkflowDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsInput)(nil)).Elem(), WorkflowEnrichmentsArgs{})
@@ -40044,6 +41251,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationScopePtrInput)(nil)).Elem(), GetNotificationDestinationScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationSecureUrlInput)(nil)).Elem(), GetNotificationDestinationSecureUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationSecureUrlArrayInput)(nil)).Elem(), GetNotificationDestinationSecureUrlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsHierarchyLevelsLevelInput)(nil)).Elem(), GetTeamsHierarchyLevelsLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsHierarchyLevelsLevelArrayInput)(nil)).Elem(), GetTeamsHierarchyLevelsLevelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokInput)(nil)).Elem(), GetTestGrokPatternTestGrokArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokArrayInput)(nil)).Elem(), GetTestGrokPatternTestGrokArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokAttributeInput)(nil)).Elem(), GetTestGrokPatternTestGrokAttributeArgs{})
@@ -40560,6 +41769,14 @@ func init() {
 	pulumi.RegisterOutputType(PathpointFlowStageStageKpiQueryTimeWindowPtrOutput{})
 	pulumi.RegisterOutputType(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangeOutput{})
 	pulumi.RegisterOutputType(PathpointFlowStageStageKpiQueryTimeWindowRelativeRangePtrOutput{})
+	pulumi.RegisterOutputType(ScorecardProgressLevelOutput{})
+	pulumi.RegisterOutputType(ScorecardProgressLevelArrayOutput{})
+	pulumi.RegisterOutputType(ScorecardRuleNrqlEngineOutput{})
+	pulumi.RegisterOutputType(ScorecardRuleNrqlEnginePtrOutput{})
+	pulumi.RegisterOutputType(ScorecardRuleTagOutput{})
+	pulumi.RegisterOutputType(ScorecardRuleTagArrayOutput{})
+	pulumi.RegisterOutputType(ScorecardTagOutput{})
+	pulumi.RegisterOutputType(ScorecardTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsBadEventsOutput{})
@@ -40580,6 +41797,16 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingPtrOutput{})
+	pulumi.RegisterOutputType(TeamResourceOutput{})
+	pulumi.RegisterOutputType(TeamResourceArrayOutput{})
+	pulumi.RegisterOutputType(TeamTagOutput{})
+	pulumi.RegisterOutputType(TeamTagArrayOutput{})
+	pulumi.RegisterOutputType(TeamsOrganizationSettingsHierarchyLevelOutput{})
+	pulumi.RegisterOutputType(TeamsOrganizationSettingsHierarchyLevelArrayOutput{})
+	pulumi.RegisterOutputType(TeamsOrganizationSettingsSyncGroupRulesOutput{})
+	pulumi.RegisterOutputType(TeamsOrganizationSettingsSyncGroupRulesPtrOutput{})
+	pulumi.RegisterOutputType(TeamsOrganizationSettingsSyncGroupRulesConditionOutput{})
+	pulumi.RegisterOutputType(TeamsOrganizationSettingsSyncGroupRulesConditionArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowDestinationOutput{})
 	pulumi.RegisterOutputType(WorkflowDestinationArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowEnrichmentsOutput{})
@@ -40603,6 +41830,8 @@ func init() {
 	pulumi.RegisterOutputType(GetNotificationDestinationScopePtrOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationSecureUrlOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationSecureUrlArrayOutput{})
+	pulumi.RegisterOutputType(GetTeamsHierarchyLevelsLevelOutput{})
+	pulumi.RegisterOutputType(GetTeamsHierarchyLevelsLevelArrayOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokArrayOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokAttributeOutput{})

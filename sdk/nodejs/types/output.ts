@@ -550,6 +550,17 @@ export interface GetNotificationDestinationSecureUrl {
     prefix: string;
 }
 
+export interface GetTeamsHierarchyLevelsLevel {
+    /**
+     * The entity GUID of the hierarchy level. Pass this to `newrelic_teams_organization_settings.hierarchy_levels[*].id` to reference and rename the level.
+     */
+    id: string;
+    /**
+     * The current display name of this level (e.g. `"Division"`, `"Squad"`).
+     */
+    name: string;
+}
+
 export interface GetTestGrokPatternTestGrok {
     /**
      * Nested list containing information about any attributes that were extracted.
@@ -4478,6 +4489,62 @@ export interface PathpointFlowStageStageKpiQueryTimeWindowRelativeRange {
     since: string;
 }
 
+export interface ScorecardProgressLevel {
+    /**
+     * A description of the scorecard's purpose.
+     */
+    description?: string;
+    /**
+     * Hex colour for this level, e.g. '#FF0000'.
+     */
+    hexColorCode?: string;
+    /**
+     * The entity GUID of the scorecard.
+     */
+    id: string;
+    /**
+     * The name of the scorecard.
+     */
+    name: string;
+}
+
+export interface ScorecardRuleNrqlEngine {
+    /**
+     * Account IDs where this rule runs.
+     */
+    accounts: number[];
+    /**
+     * Additional account IDs to join with the query accounts.
+     */
+    joinAccounts?: number[];
+    /**
+     * The NRQL query. Must be FACET-ed and alias the result as 'score'.
+     */
+    query: string;
+}
+
+export interface ScorecardRuleTag {
+    /**
+     * The tag key.
+     */
+    key: string;
+    /**
+     * One or more tag values.
+     */
+    values: string[];
+}
+
+export interface ScorecardTag {
+    /**
+     * The tag key.
+     */
+    key: string;
+    /**
+     * One or more tag values.
+     */
+    values: string[];
+}
+
 export interface ServiceLevelEvents {
     /**
      * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
@@ -4625,6 +4692,61 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
      * The only supported value is `DAY`.
      */
     unit: string;
+}
+
+export interface TeamResource {
+    /**
+     * The URL or contact address for this resource.
+     */
+    content: string;
+    /**
+     * A short label shown in the UI for this resource.
+     */
+    title?: string;
+    /**
+     * Resource category. Valid values are defined in TeamResourceTypeValues() in the go-client and stay in sync with the API automatically.
+     */
+    type: string;
+}
+
+export interface TeamTag {
+    /**
+     * The tag key.
+     */
+    key: string;
+    /**
+     * The tag values.
+     */
+    values: string[];
+}
+
+export interface TeamsOrganizationSettingsHierarchyLevel {
+    /**
+     * The entity GUID of the organisation settings singleton entity.
+     */
+    id: string;
+    /**
+     * Display name of this hierarchy level (e.g. 'Division', 'Squad'). Renaming here updates the entity in the API.
+     */
+    name: string;
+}
+
+export interface TeamsOrganizationSettingsSyncGroupRules {
+    /**
+     * Conditions that a group name must satisfy for this rule to apply.
+     */
+    conditions: outputs.TeamsOrganizationSettingsSyncGroupRulesCondition[];
+}
+
+export interface TeamsOrganizationSettingsSyncGroupRulesCondition {
+    /**
+     * Match type: STARTS_WITH, ENDS_WITH, or CONTAINS.
+     */
+    type: string;
+    /**
+     * The string to match against the group name.
+     */
+    value: string;
 }
 
 export interface WorkflowDestination {
