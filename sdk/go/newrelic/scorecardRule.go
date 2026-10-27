@@ -124,8 +124,8 @@ import (
 //					},
 //				},
 //				RuleIds: pulumi.StringArray{
-//					alertConfigured.ID().ToIDOutput().ToStringOutput(),
-//					lowLatency.ID().ToIDOutput().ToStringOutput(),
+//					alertConfigured.ID(),
+//					lowLatency.ID(),
 //				},
 //			})
 //			if err != nil {

@@ -38,7 +38,7 @@ import (
 //			}
 //			// Create component NRQL conditions
 //			highResponseTime, err := newrelic.NewNrqlAlertCondition(ctx, "high_response_time", &newrelic.NrqlAlertConditionArgs{
-//				PolicyId: example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId: example.ID(),
 //				Name:     pulumi.String("High Response Time"),
 //				Enabled:  pulumi.Bool(true),
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			highErrorRate, err := newrelic.NewNrqlAlertCondition(ctx, "high_error_rate", &newrelic.NrqlAlertConditionArgs{
-//				PolicyId: example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId: example.ID(),
 //				Name:     pulumi.String("High Error Rate"),
 //				Enabled:  pulumi.Bool(true),
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
@@ -75,7 +75,7 @@ import (
 //			}
 //			// Create alert compound condition combining both
 //			_, err = newrelic.NewAlertCompoundCondition(ctx, "critical_service_health", &newrelic.AlertCompoundConditionArgs{
-//				PolicyId:          example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId:          example.ID(),
 //				Name:              pulumi.String("Critical Service Health"),
 //				Enabled:           pulumi.Bool(true),
 //				TriggerExpression: pulumi.String("A AND B"),
@@ -83,11 +83,11 @@ import (
 //				ThresholdDuration: pulumi.Int(120),
 //				ComponentConditions: newrelic.AlertCompoundConditionComponentConditionArray{
 //					&newrelic.AlertCompoundConditionComponentConditionArgs{
-//						Id:    highResponseTime.ID().ToIDOutput().ToStringOutput(),
+//						Id:    highResponseTime.ID(),
 //						Alias: pulumi.String("A"),
 //					},
 //					&newrelic.AlertCompoundConditionComponentConditionArgs{
-//						Id:    highErrorRate.ID().ToIDOutput().ToStringOutput(),
+//						Id:    highErrorRate.ID(),
 //						Alias: pulumi.String("B"),
 //					},
 //				},
@@ -177,15 +177,15 @@ import (
 //				TriggerExpression: pulumi.String("(A AND B) OR C"),
 //				ComponentConditions: newrelic.AlertCompoundConditionComponentConditionArray{
 //					&newrelic.AlertCompoundConditionComponentConditionArgs{
-//						Id:    highCpu.ID().ToIDOutput().ToStringOutput(),
+//						Id:    highCpu.ID(),
 //						Alias: pulumi.String("A"),
 //					},
 //					&newrelic.AlertCompoundConditionComponentConditionArgs{
-//						Id:    highMemory.ID().ToIDOutput().ToStringOutput(),
+//						Id:    highMemory.ID(),
 //						Alias: pulumi.String("B"),
 //					},
 //					&newrelic.AlertCompoundConditionComponentConditionArgs{
-//						Id:    diskFull.ID().ToIDOutput().ToStringOutput(),
+//						Id:    diskFull.ID(),
 //						Alias: pulumi.String("C"),
 //					},
 //				},
@@ -257,11 +257,11 @@ import (
 //				FacetMatchingBehavior: pulumi.String("FACETS_MATCH"),
 //				ComponentConditions: newrelic.AlertCompoundConditionComponentConditionArray{
 //					&newrelic.AlertCompoundConditionComponentConditionArgs{
-//						Id:    highThroughputPerHost.ID().ToIDOutput().ToStringOutput(),
+//						Id:    highThroughputPerHost.ID(),
 //						Alias: pulumi.String("A"),
 //					},
 //					&newrelic.AlertCompoundConditionComponentConditionArgs{
-//						Id:    highErrorRatePerHost.ID().ToIDOutput().ToStringOutput(),
+//						Id:    highErrorRatePerHost.ID(),
 //						Alias: pulumi.String("B"),
 //					},
 //				},

@@ -100,9 +100,9 @@ import (
 //				return err
 //			}
 //			fooAlertCondition, err := synthetics.NewAlertCondition(ctx, "foo", &synthetics.AlertConditionArgs{
-//				PolicyId:   foo.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId:   foo.ID(),
 //				Name:       pulumi.String("foo synthetics condition"),
-//				MonitorId:  fooMonitor.ID().ToIDOutput().ToStringOutput(),
+//				MonitorId:  fooMonitor.ID(),
 //				RunbookUrl: pulumi.String("https://www.example.com"),
 //			})
 //			if err != nil {

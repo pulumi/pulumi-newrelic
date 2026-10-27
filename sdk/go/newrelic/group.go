@@ -105,8 +105,8 @@ import (
 //				Name:                   pulumi.String("Test Group"),
 //				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserIds: pulumi.StringArray{
-//					fooUser.ID().ToIDOutput().ToStringOutput(),
-//					bar.ID().ToIDOutput().ToStringOutput(),
+//					fooUser.ID(),
+//					bar.ID(),
 //				},
 //			})
 //			if err != nil {

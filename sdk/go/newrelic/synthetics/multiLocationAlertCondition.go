@@ -51,13 +51,13 @@ import (
 //				return err
 //			}
 //			_, err = synthetics.NewMultiLocationAlertCondition(ctx, "example", &synthetics.MultiLocationAlertConditionArgs{
-//				PolicyId:                  policy.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId:                  policy.ID(),
 //				Name:                      pulumi.String("Example condition"),
 //				RunbookUrl:                pulumi.String("https://example.com"),
 //				Enabled:                   pulumi.Bool(true),
 //				ViolationTimeLimitSeconds: pulumi.Int(3600),
 //				Entities: pulumi.StringArray{
-//					monitor.ID().ToIDOutput().ToStringOutput(),
+//					monitor.ID(),
 //				},
 //				Critical: &synthetics.MultiLocationAlertConditionCriticalArgs{
 //					Threshold: pulumi.Int(2),
@@ -129,13 +129,13 @@ import (
 //				return err
 //			}
 //			fooMultiLocationAlertCondition, err := synthetics.NewMultiLocationAlertCondition(ctx, "foo", &synthetics.MultiLocationAlertConditionArgs{
-//				PolicyId:                  foo.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId:                  foo.ID(),
 //				Name:                      pulumi.String("foo condition"),
 //				RunbookUrl:                pulumi.String("https://example.com"),
 //				Enabled:                   pulumi.Bool(true),
 //				ViolationTimeLimitSeconds: pulumi.Int(3600),
 //				Entities: pulumi.StringArray{
-//					fooMonitor.ID().ToIDOutput().ToStringOutput(),
+//					fooMonitor.ID(),
 //				},
 //				Critical: &synthetics.MultiLocationAlertConditionCriticalArgs{
 //					Threshold: pulumi.Int(2),

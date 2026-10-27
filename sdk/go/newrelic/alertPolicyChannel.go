@@ -71,8 +71,8 @@ import (
 //			_, err = newrelic.NewAlertPolicyChannel(ctx, "foo", &newrelic.AlertPolicyChannelArgs{
 //				PolicyId: pulumi.String(examplePolicy.Id),
 //				ChannelIds: pulumi.StringArray{
-//					emailChannel.ID().ToIDOutput().ToStringOutput(),
-//					slackChannel.ID().ToIDOutput().ToStringOutput(),
+//					emailChannel.ID(),
+//					slackChannel.ID(),
 //				},
 //			})
 //			if err != nil {
