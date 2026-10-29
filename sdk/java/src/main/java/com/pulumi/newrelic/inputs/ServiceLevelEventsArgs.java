@@ -10,6 +10,7 @@ import com.pulumi.newrelic.inputs.ServiceLevelEventsBadEventsArgs;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsGoodEventsArgs;
 import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -52,6 +53,21 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+     * 
+     */
+    @Import(name="facets")
+    private @Nullable Output<List<String>> facets;
+
+    /**
+     * @return A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+     * 
+     */
+    public Optional<Output<List<String>>> facets() {
+        return Optional.ofNullable(this.facets);
+    }
+
+    /**
      * The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
      * 
      */
@@ -86,6 +102,7 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
     private ServiceLevelEventsArgs(ServiceLevelEventsArgs $) {
         this.accountId = $.accountId;
         this.badEvents = $.badEvents;
+        this.facets = $.facets;
         this.goodEvents = $.goodEvents;
         this.validEvents = $.validEvents;
     }
@@ -150,6 +167,37 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
          */
         public Builder badEvents(ServiceLevelEventsBadEventsArgs badEvents) {
             return badEvents(Output.of(badEvents));
+        }
+
+        /**
+         * @param facets A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder facets(@Nullable Output<List<String>> facets) {
+            $.facets = facets;
+            return this;
+        }
+
+        /**
+         * @param facets A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder facets(List<String> facets) {
+            return facets(Output.of(facets));
+        }
+
+        /**
+         * @param facets A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder facets(String... facets) {
+            return facets(List.of(facets));
         }
 
         /**

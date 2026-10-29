@@ -38,6 +38,10 @@ namespace Pulumi.NewRelic
     ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///         {
     ///             AccountId = "12345678",
+    ///             Facets = new[]
+    ///             {
+    ///                 "appName",
+    ///             },
     ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
     ///             {
     ///                 From = "Transaction",

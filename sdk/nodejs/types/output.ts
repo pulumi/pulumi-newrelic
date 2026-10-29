@@ -4556,6 +4556,10 @@ export interface ServiceLevelEvents {
      */
     badEvents?: outputs.ServiceLevelEventsBadEvents;
     /**
+     * A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+     */
+    facets?: string[];
+    /**
      * The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
      */
     goodEvents?: outputs.ServiceLevelEventsGoodEvents;
@@ -6162,7 +6166,7 @@ export namespace cloud {
 
     export interface AzureIntegrationsAutoDiscovery {
         /**
-         * The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
+         * The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours), 57600 (16 hours) and 86400 (24 hours)
          */
         metricsPollingInterval?: number;
         /**

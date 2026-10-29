@@ -16782,18 +16782,22 @@ class ServiceLevelEvents(dict):
                  account_id: _builtins.str,
                  valid_events: 'outputs.ServiceLevelEventsValidEvents',
                  bad_events: Optional['outputs.ServiceLevelEventsBadEvents'] = None,
+                 facets: Optional[Sequence[_builtins.str]] = None,
                  good_events: Optional['outputs.ServiceLevelEventsGoodEvents'] = None):
         """
         :param _builtins.str account_id: The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
                and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
         :param 'ServiceLevelEventsValidEventsArgs' valid_events: The definition of valid requests.
         :param 'ServiceLevelEventsBadEventsArgs' bad_events: The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+        :param Sequence[_builtins.str] facets: A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`valid_events`, `good_events`, and `bad_events`). A maximum of 2 facets can be specified. When set, the `valid_events` query and the `good_events`/`bad_events` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
         :param 'ServiceLevelEventsGoodEventsArgs' good_events: The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "valid_events", valid_events)
         if bad_events is not None:
             pulumi.set(__self__, "bad_events", bad_events)
+        if facets is not None:
+            pulumi.set(__self__, "facets", facets)
         if good_events is not None:
             pulumi.set(__self__, "good_events", good_events)
 
@@ -16821,6 +16825,14 @@ class ServiceLevelEvents(dict):
         The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
         """
         return pulumi.get(self, "bad_events")
+
+    @_builtins.property
+    @pulumi.getter
+    def facets(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`valid_events`, `good_events`, and `bad_events`). A maximum of 2 facets can be specified. When set, the `valid_events` query and the `good_events`/`bad_events` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+        """
+        return pulumi.get(self, "facets")
 
     @_builtins.property
     @pulumi.getter(name="goodEvents")

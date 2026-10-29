@@ -25,6 +25,18 @@ namespace Pulumi.NewRelic.Inputs
         [Input("badEvents")]
         public Input<Inputs.ServiceLevelEventsBadEventsGetArgs>? BadEvents { get; set; }
 
+        [Input("facets")]
+        private InputList<string>? _facets;
+
+        /// <summary>
+        /// A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`ValidEvents`, `GoodEvents`, and `BadEvents`). A maximum of 2 facets can be specified. When set, the `ValidEvents` query and the `GoodEvents`/`BadEvents` query must use the same `From` event type and the same SELECT `Function` (and, unless the function is `COUNT`, the same `Attribute`) — otherwise the API rejects the configuration.
+        /// </summary>
+        public InputList<string> Facets
+        {
+            get => _facets ?? (_facets = new InputList<string>());
+            set => _facets = value;
+        }
+
         /// <summary>
         /// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
         /// </summary>

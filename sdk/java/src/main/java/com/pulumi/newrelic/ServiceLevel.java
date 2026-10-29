@@ -63,6 +63,7 @@ import javax.annotation.Nullable;
  *             .description("Proportion of requests that are served faster than a threshold.")
  *             .events(ServiceLevelEventsArgs.builder()
  *                 .accountId("12345678")
+ *                 .facets("appName")
  *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
  *                     .from("Transaction")
  *                     .where("appName = 'Example application' AND (transactionType='Web')")

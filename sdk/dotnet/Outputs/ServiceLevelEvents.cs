@@ -23,6 +23,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly Outputs.ServiceLevelEventsBadEvents? BadEvents;
         /// <summary>
+        /// A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`ValidEvents`, `GoodEvents`, and `BadEvents`). A maximum of 2 facets can be specified. When set, the `ValidEvents` query and the `GoodEvents`/`BadEvents` query must use the same `From` event type and the same SELECT `Function` (and, unless the function is `COUNT`, the same `Attribute`) — otherwise the API rejects the configuration.
+        /// </summary>
+        public readonly ImmutableArray<string> Facets;
+        /// <summary>
         /// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
         /// </summary>
         public readonly Outputs.ServiceLevelEventsGoodEvents? GoodEvents;
@@ -37,12 +41,15 @@ namespace Pulumi.NewRelic.Outputs
 
             Outputs.ServiceLevelEventsBadEvents? badEvents,
 
+            ImmutableArray<string> facets,
+
             Outputs.ServiceLevelEventsGoodEvents? goodEvents,
 
             Outputs.ServiceLevelEventsValidEvents validEvents)
         {
             AccountId = accountId;
             BadEvents = badEvents;
+            Facets = facets;
             GoodEvents = goodEvents;
             ValidEvents = validEvents;
         }

@@ -29,6 +29,7 @@ import * as utilities from "./utilities";
  *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
  *         accountId: "12345678",
+ *         facets: ["appName"],
  *         validEvents: {
  *             from: "Transaction",
  *             where: "appName = 'Example application' AND (transactionType='Web')",
