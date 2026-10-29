@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AzureIntegrationsAutoDiscovery
     {
         /// <summary>
-        /// The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours) and 57600 (16 hours)
+        /// The data polling interval in seconds. Valid values are 28800 (8 hours), 43200 (12 hours), 57600 (16 hours) and 86400 (24 hours)
         /// </summary>
         public readonly int? MetricsPollingInterval;
         /// <summary>

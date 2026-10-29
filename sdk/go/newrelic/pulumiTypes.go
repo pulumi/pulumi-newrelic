@@ -36474,6 +36474,8 @@ type ServiceLevelEvents struct {
 	AccountId string `pulumi:"accountId"`
 	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
 	BadEvents *ServiceLevelEventsBadEvents `pulumi:"badEvents"`
+	// A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+	Facets []string `pulumi:"facets"`
 	// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
 	GoodEvents *ServiceLevelEventsGoodEvents `pulumi:"goodEvents"`
 	// The definition of valid requests.
@@ -36497,6 +36499,8 @@ type ServiceLevelEventsArgs struct {
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
 	BadEvents ServiceLevelEventsBadEventsPtrInput `pulumi:"badEvents"`
+	// A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+	Facets pulumi.StringArrayInput `pulumi:"facets"`
 	// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
 	GoodEvents ServiceLevelEventsGoodEventsPtrInput `pulumi:"goodEvents"`
 	// The definition of valid requests.
@@ -36591,6 +36595,11 @@ func (o ServiceLevelEventsOutput) BadEvents() ServiceLevelEventsBadEventsPtrOutp
 	return o.ApplyT(func(v ServiceLevelEvents) *ServiceLevelEventsBadEvents { return v.BadEvents }).(ServiceLevelEventsBadEventsPtrOutput)
 }
 
+// A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+func (o ServiceLevelEventsOutput) Facets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceLevelEvents) []string { return v.Facets }).(pulumi.StringArrayOutput)
+}
+
 // The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
 func (o ServiceLevelEventsOutput) GoodEvents() ServiceLevelEventsGoodEventsPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEvents) *ServiceLevelEventsGoodEvents { return v.GoodEvents }).(ServiceLevelEventsGoodEventsPtrOutput)
@@ -36644,6 +36653,16 @@ func (o ServiceLevelEventsPtrOutput) BadEvents() ServiceLevelEventsBadEventsPtrO
 		}
 		return v.BadEvents
 	}).(ServiceLevelEventsBadEventsPtrOutput)
+}
+
+// A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+func (o ServiceLevelEventsPtrOutput) Facets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceLevelEvents) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Facets
+	}).(pulumi.StringArrayOutput)
 }
 
 // The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.

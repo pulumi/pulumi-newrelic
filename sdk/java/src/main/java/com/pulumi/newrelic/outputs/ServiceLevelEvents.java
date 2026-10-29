@@ -9,6 +9,7 @@ import com.pulumi.newrelic.outputs.ServiceLevelEventsBadEvents;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsGoodEvents;
 import com.pulumi.newrelic.outputs.ServiceLevelEventsValidEvents;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -26,6 +27,11 @@ public final class ServiceLevelEvents {
      * 
      */
     private @Nullable ServiceLevelEventsBadEvents badEvents;
+    /**
+     * @return A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+     * 
+     */
+    private @Nullable List<String> facets;
     /**
      * @return The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
      * 
@@ -54,6 +60,13 @@ public final class ServiceLevelEvents {
         return Optional.ofNullable(this.badEvents);
     }
     /**
+     * @return A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`validEvents`, `goodEvents`, and `badEvents`). A maximum of 2 facets can be specified. When set, the `validEvents` query and the `goodEvents`/`badEvents` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+     * 
+     */
+    public List<String> facets() {
+        return this.facets == null ? List.of() : this.facets;
+    }
+    /**
      * @return The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
      * 
      */
@@ -79,6 +92,7 @@ public final class ServiceLevelEvents {
     public static final class Builder {
         private String accountId;
         private @Nullable ServiceLevelEventsBadEvents badEvents;
+        private @Nullable List<String> facets;
         private @Nullable ServiceLevelEventsGoodEvents goodEvents;
         private ServiceLevelEventsValidEvents validEvents;
         public Builder() {}
@@ -86,6 +100,7 @@ public final class ServiceLevelEvents {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
     	      this.badEvents = defaults.badEvents;
+    	      this.facets = defaults.facets;
     	      this.goodEvents = defaults.goodEvents;
     	      this.validEvents = defaults.validEvents;
         }
@@ -105,6 +120,15 @@ public final class ServiceLevelEvents {
             return this;
         }
         @CustomType.Setter
+        public Builder facets(@Nullable List<String> facets) {
+
+            this.facets = facets;
+            return this;
+        }
+        public Builder facets(String... facets) {
+            return facets(List.of(facets));
+        }
+        @CustomType.Setter
         public Builder goodEvents(@Nullable ServiceLevelEventsGoodEvents goodEvents) {
 
             this.goodEvents = goodEvents;
@@ -122,6 +146,7 @@ public final class ServiceLevelEvents {
             final var _resultValue = new ServiceLevelEvents();
             _resultValue.accountId = accountId;
             _resultValue.badEvents = badEvents;
+            _resultValue.facets = facets;
             _resultValue.goodEvents = goodEvents;
             _resultValue.validEvents = validEvents;
             return _resultValue;

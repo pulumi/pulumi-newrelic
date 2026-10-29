@@ -268,6 +268,7 @@ class ServiceLevel(pulumi.CustomResource):
             description="Proportion of requests that are served faster than a threshold.",
             events={
                 "account_id": "12345678",
+                "facets": ["appName"],
                 "valid_events": {
                     "from_": "Transaction",
                     "where": "appName = 'Example application' AND (transactionType='Web')",
@@ -431,6 +432,7 @@ class ServiceLevel(pulumi.CustomResource):
             description="Proportion of requests that are served faster than a threshold.",
             events={
                 "account_id": "12345678",
+                "facets": ["appName"],
                 "valid_events": {
                     "from_": "Transaction",
                     "where": "appName = 'Example application' AND (transactionType='Web')",

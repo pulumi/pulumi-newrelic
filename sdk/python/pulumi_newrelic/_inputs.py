@@ -21159,6 +21159,10 @@ class ServiceLevelEventsArgsDict(TypedDict):
     """
     The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
     """
+    facets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`valid_events`, `good_events`, and `bad_events`). A maximum of 2 facets can be specified. When set, the `valid_events` query and the `good_events`/`bad_events` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+    """
     good_events: NotRequired[pulumi.Input[Optional['ServiceLevelEventsGoodEventsArgsDict']]]
     """
     The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
@@ -21170,18 +21174,22 @@ class ServiceLevelEventsArgs:
                  account_id: pulumi.Input[_builtins.str],
                  valid_events: pulumi.Input['ServiceLevelEventsValidEventsArgs'],
                  bad_events: pulumi.Input[Optional['ServiceLevelEventsBadEventsArgs']] = None,
+                 facets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  good_events: pulumi.Input[Optional['ServiceLevelEventsGoodEventsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] account_id: The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
                and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
         :param pulumi.Input['ServiceLevelEventsValidEventsArgs'] valid_events: The definition of valid requests.
         :param pulumi.Input['ServiceLevelEventsBadEventsArgs'] bad_events: The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] facets: A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`valid_events`, `good_events`, and `bad_events`). A maximum of 2 facets can be specified. When set, the `valid_events` query and the `good_events`/`bad_events` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
         :param pulumi.Input['ServiceLevelEventsGoodEventsArgs'] good_events: The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "valid_events", valid_events)
         if bad_events is not None:
             pulumi.set(__self__, "bad_events", bad_events)
+        if facets is not None:
+            pulumi.set(__self__, "facets", facets)
         if good_events is not None:
             pulumi.set(__self__, "good_events", good_events)
 
@@ -21221,6 +21229,18 @@ class ServiceLevelEventsArgs:
     @bad_events.setter
     def bad_events(self, value: pulumi.Input[Optional['ServiceLevelEventsBadEventsArgs']]):
         pulumi.set(self, "bad_events", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def facets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of NRQL `FACET` attributes to group results by. These facets are applied to all event queries (`valid_events`, `good_events`, and `bad_events`). A maximum of 2 facets can be specified. When set, the `valid_events` query and the `good_events`/`bad_events` query must use the same `from` event type and the same SELECT `function` (and, unless the function is `COUNT`, the same `attribute`) — otherwise the API rejects the configuration.
+        """
+        return pulumi.get(self, "facets")
+
+    @facets.setter
+    def facets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "facets", value)
 
     @_builtins.property
     @pulumi.getter(name="goodEvents")

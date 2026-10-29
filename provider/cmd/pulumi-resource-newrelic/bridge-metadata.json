@@ -2889,6 +2889,9 @@
                                         }
                                     }
                                 },
+                                "facets": {
+                                    "maxItemsOne": false
+                                },
                                 "good_events": {
                                     "maxItemsOne": true,
                                     "elem": {

@@ -42,6 +42,9 @@ import (
 //				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
 //				Events: &newrelic.ServiceLevelEventsArgs{
 //					AccountId: pulumi.String("12345678"),
+//					Facets: pulumi.StringArray{
+//						pulumi.String("appName"),
+//					},
 //					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From:  pulumi.String("Transaction"),
 //						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
