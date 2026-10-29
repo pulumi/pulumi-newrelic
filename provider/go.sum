@@ -623,8 +623,8 @@ github.com/natefinch/atomic v1.0.1 h1:ZPYKxkqQOx3KZ+RsbnP/YsgvxWQPGxjC0oBt2AhwV0
 github.com/natefinch/atomic v1.0.1/go.mod h1:N/D/ELrljoqDyT3rZrsUmtsuzvHkeB/wWjHV22AZRbM=
 github.com/newrelic/go-agent/v3 v3.45.0 h1:6Y/NvrdVOY+UuvGDPytBDqAECuvCb2uvU6k0qq8gxnE=
 github.com/newrelic/go-agent/v3 v3.45.0/go.mod h1:2aY3paC/QaI9wf/qz9iD0lWP5AQ7UQ9Ks35iDA40ndU=
-github.com/newrelic/newrelic-client-go/v2 v2.97.0 h1:fBSVPnxMjpBT064mOVmKE/Zle9Iqjl5w2gULt18tI10=
-github.com/newrelic/newrelic-client-go/v2 v2.97.0/go.mod h1:Zuv+2A5y4076Ytp/bFw8ZwNYHSgTxdEa30jMySmySRc=
+github.com/newrelic/newrelic-client-go/v2 v2.97.2 h1:O9CwKBNCe37SEM1DFWAvoxH6oWG+1+3KAdzv1RzNR3E=
+github.com/newrelic/newrelic-client-go/v2 v2.97.2/go.mod h1:Zuv+2A5y4076Ytp/bFw8ZwNYHSgTxdEa30jMySmySRc=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/nightlyone/lockfile v1.0.0 h1:RHep2cFKK4PonZJDdEl4GmkabuhbsRMgk/k3uAmxBiA=
 github.com/nightlyone/lockfile v1.0.0/go.mod h1:rywoIealpdNse2r832aiD9jRk8ErCatROs6LzC841CI=
