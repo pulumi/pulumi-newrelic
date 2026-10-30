@@ -56,6 +56,7 @@ from .notification_channel import *
 from .notification_destination import *
 from .nrql_alert_condition import *
 from .nrql_drop_rule import *
+from .nrql_macro import *
 from .obfuscation_expression import *
 from .obfuscation_rule import *
 from .one_dashboard import *
@@ -439,6 +440,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/nrqlDropRule:NrqlDropRule": "NrqlDropRule"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/nrqlMacro",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/nrqlMacro:NrqlMacro": "NrqlMacro"
   }
  },
  {

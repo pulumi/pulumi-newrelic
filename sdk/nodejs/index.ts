@@ -255,6 +255,11 @@ export type NrqlDropRule = import("./nrqlDropRule").NrqlDropRule;
 export const NrqlDropRule: typeof import("./nrqlDropRule").NrqlDropRule = null as any;
 utilities.lazyLoad(exports, ["NrqlDropRule"], () => require("./nrqlDropRule"));
 
+export { NrqlMacroArgs, NrqlMacroState } from "./nrqlMacro";
+export type NrqlMacro = import("./nrqlMacro").NrqlMacro;
+export const NrqlMacro: typeof import("./nrqlMacro").NrqlMacro = null as any;
+utilities.lazyLoad(exports, ["NrqlMacro"], () => require("./nrqlMacro"));
+
 export { ObfuscationExpressionArgs, ObfuscationExpressionState } from "./obfuscationExpression";
 export type ObfuscationExpression = import("./obfuscationExpression").ObfuscationExpression;
 export const ObfuscationExpression: typeof import("./obfuscationExpression").ObfuscationExpression = null as any;
@@ -417,6 +422,8 @@ const _module = {
                 return new NrqlAlertCondition(name, <any>undefined, { urn })
             case "newrelic:index/nrqlDropRule:NrqlDropRule":
                 return new NrqlDropRule(name, <any>undefined, { urn })
+            case "newrelic:index/nrqlMacro:NrqlMacro":
+                return new NrqlMacro(name, <any>undefined, { urn })
             case "newrelic:index/obfuscationExpression:ObfuscationExpression":
                 return new ObfuscationExpression(name, <any>undefined, { urn })
             case "newrelic:index/obfuscationRule:ObfuscationRule":
@@ -483,6 +490,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/notificationChannel", _
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationDestination", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlDropRule", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/nrqlMacro", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/obfuscationExpression", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/obfuscationRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboard", _module)

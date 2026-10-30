@@ -1800,6 +1800,10 @@
                 "current": "newrelic:index/nrqlDropRule:NrqlDropRule",
                 "majorVersion": 5
             },
+            "newrelic_nrql_macro": {
+                "current": "newrelic:index/nrqlMacro:NrqlMacro",
+                "majorVersion": 5
+            },
             "newrelic_obfuscation_expression": {
                 "current": "newrelic:index/obfuscationExpression:ObfuscationExpression",
                 "majorVersion": 5
@@ -5348,6 +5352,9 @@
                 "account_id",
                 "pipeline_cloud_rule_entity_id",
                 "rule_id"
+            ],
+            "newrelic_nrql_macro": [
+                "organization_id"
             ],
             "newrelic_obfuscation_expression": [
                 "account_id"
