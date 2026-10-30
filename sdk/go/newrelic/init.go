@@ -83,6 +83,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NrqlAlertCondition{}
 	case "newrelic:index/nrqlDropRule:NrqlDropRule":
 		r = &NrqlDropRule{}
+	case "newrelic:index/nrqlMacro:NrqlMacro":
+		r = &NrqlMacro{}
 	case "newrelic:index/obfuscationExpression:ObfuscationExpression":
 		r = &ObfuscationExpression{}
 	case "newrelic:index/obfuscationRule:ObfuscationRule":
@@ -297,6 +299,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/nrqlDropRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/nrqlMacro",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -87,6 +87,7 @@
         "notificationDestination.ts",
         "nrqlAlertCondition.ts",
         "nrqlDropRule.ts",
+        "nrqlMacro.ts",
         "obfuscationExpression.ts",
         "obfuscationRule.ts",
         "oneDashboard.ts",
