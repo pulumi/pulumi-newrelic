@@ -78,14 +78,14 @@ public final class DataPartitionRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+     * The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
      * 
      */
     @Import(name="retentionPolicy", required=true)
     private Output<String> retentionPolicy;
 
     /**
-     * @return The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+     * @return The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
      * 
      */
     public Output<String> retentionPolicy() {
@@ -221,7 +221,7 @@ public final class DataPartitionRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param retentionPolicy The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+         * @param retentionPolicy The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class DataPartitionRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param retentionPolicy The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+         * @param retentionPolicy The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
          * 
          * @return builder
          * 

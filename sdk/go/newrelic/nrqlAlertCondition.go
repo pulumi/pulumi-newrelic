@@ -493,7 +493,7 @@ type NrqlAlertCondition struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The unique entity identifier of the NRQL Condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
-	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
 	EvaluationDelay pulumi.IntPtrOutput `pulumi:"evaluationDelay"`
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration pulumi.IntPtrOutput `pulumi:"expirationDuration"`
@@ -600,7 +600,7 @@ type nrqlAlertConditionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The unique entity identifier of the NRQL Condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
-	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
 	EvaluationDelay *int `pulumi:"evaluationDelay"`
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration *int `pulumi:"expirationDuration"`
@@ -672,7 +672,7 @@ type NrqlAlertConditionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The unique entity identifier of the NRQL Condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
-	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
 	EvaluationDelay pulumi.IntPtrInput
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration pulumi.IntPtrInput
@@ -746,7 +746,7 @@ type nrqlAlertConditionArgs struct {
 	Description *string `pulumi:"description"`
 	// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
 	EvaluationDelay *int `pulumi:"evaluationDelay"`
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration *int `pulumi:"expirationDuration"`
@@ -817,7 +817,7 @@ type NrqlAlertConditionArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
 	EvaluationDelay pulumi.IntPtrInput
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration pulumi.IntPtrInput
@@ -1008,7 +1008,7 @@ func (o NrqlAlertConditionOutput) EntityGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
-// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
 func (o NrqlAlertConditionOutput) EvaluationDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.EvaluationDelay }).(pulumi.IntPtrOutput)
 }

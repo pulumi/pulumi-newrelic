@@ -420,7 +420,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly entityGuid: pulumi.Output<string>;
     /**
-     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
      */
     declare public readonly evaluationDelay: pulumi.Output<number | undefined>;
     /**
@@ -645,7 +645,7 @@ export interface NrqlAlertConditionState {
      */
     entityGuid?: pulumi.Input<string | undefined>;
     /**
-     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
      */
     evaluationDelay?: pulumi.Input<number | undefined>;
     /**
@@ -778,7 +778,7 @@ export interface NrqlAlertConditionArgs {
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
      */
     evaluationDelay?: pulumi.Input<number | undefined>;
     /**

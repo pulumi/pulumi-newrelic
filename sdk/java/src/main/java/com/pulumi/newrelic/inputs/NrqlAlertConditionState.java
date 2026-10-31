@@ -190,14 +190,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
      * 
      */
     @Import(name="evaluationDelay")
     private @Nullable Output<Integer> evaluationDelay;
 
     /**
-     * @return How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     * @return How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
      * 
      */
     public Optional<Output<Integer>> evaluationDelay() {
@@ -797,7 +797,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param evaluationDelay How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+         * @param evaluationDelay How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
          * 
          * @return builder
          * 
@@ -808,7 +808,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param evaluationDelay How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+         * @param evaluationDelay How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
          * 
          * @return builder
          * 

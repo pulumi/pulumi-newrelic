@@ -141,14 +141,14 @@ public class DataPartitionRule extends com.pulumi.resources.CustomResource {
         return this.nrql;
     }
     /**
-     * The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+     * The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
      * 
      */
     @Export(name="retentionPolicy", refs={String.class}, tree="[0]")
     private Output<String> retentionPolicy;
 
     /**
-     * @return The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+     * @return The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
      * 
      */
     public Output<String> retentionPolicy() {

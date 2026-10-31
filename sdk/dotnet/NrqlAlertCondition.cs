@@ -507,7 +507,7 @@ namespace Pulumi.NewRelic
         public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
-        /// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        /// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         /// </summary>
         [Output("evaluationDelay")]
         public Output<int?> EvaluationDelay { get; private set; } = null!;
@@ -736,7 +736,7 @@ namespace Pulumi.NewRelic
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        /// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         /// </summary>
         [Input("evaluationDelay")]
         public Input<int>? EvaluationDelay { get; set; }
@@ -940,7 +940,7 @@ namespace Pulumi.NewRelic
         public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
-        /// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        /// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         /// </summary>
         [Input("evaluationDelay")]
         public Input<int>? EvaluationDelay { get; set; }

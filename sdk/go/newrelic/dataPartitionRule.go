@@ -68,7 +68,7 @@ type DataPartitionRule struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
 	Nrql pulumi.StringOutput `pulumi:"nrql"`
-	// The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+	// The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
 	RetentionPolicy pulumi.StringOutput `pulumi:"retentionPolicy"`
 	// The name of the data partition where logs will be allocated once the rule is enabled.
 	TargetDataPartition pulumi.StringOutput `pulumi:"targetDataPartition"`
@@ -126,7 +126,7 @@ type dataPartitionRuleState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
 	Nrql *string `pulumi:"nrql"`
-	// The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+	// The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
 	RetentionPolicy *string `pulumi:"retentionPolicy"`
 	// The name of the data partition where logs will be allocated once the rule is enabled.
 	TargetDataPartition *string `pulumi:"targetDataPartition"`
@@ -143,7 +143,7 @@ type DataPartitionRuleState struct {
 	Enabled pulumi.BoolPtrInput
 	// The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
 	Nrql pulumi.StringPtrInput
-	// The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+	// The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
 	RetentionPolicy pulumi.StringPtrInput
 	// The name of the data partition where logs will be allocated once the rule is enabled.
 	TargetDataPartition pulumi.StringPtrInput
@@ -162,7 +162,7 @@ type dataPartitionRuleArgs struct {
 	Enabled bool `pulumi:"enabled"`
 	// The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
 	Nrql string `pulumi:"nrql"`
-	// The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+	// The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
 	RetentionPolicy string `pulumi:"retentionPolicy"`
 	// The name of the data partition where logs will be allocated once the rule is enabled.
 	TargetDataPartition string `pulumi:"targetDataPartition"`
@@ -178,7 +178,7 @@ type DataPartitionRuleArgs struct {
 	Enabled pulumi.BoolInput
 	// The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
 	Nrql pulumi.StringInput
-	// The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+	// The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
 	RetentionPolicy pulumi.StringInput
 	// The name of the data partition where logs will be allocated once the rule is enabled.
 	TargetDataPartition pulumi.StringInput
@@ -296,7 +296,7 @@ func (o DataPartitionRuleOutput) Nrql() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataPartitionRule) pulumi.StringOutput { return v.Nrql }).(pulumi.StringOutput)
 }
 
-// The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+// The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
 func (o DataPartitionRuleOutput) RetentionPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataPartitionRule) pulumi.StringOutput { return v.RetentionPolicy }).(pulumi.StringOutput)
 }

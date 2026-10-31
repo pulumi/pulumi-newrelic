@@ -83,7 +83,7 @@ export class DataPartitionRule extends pulumi.CustomResource {
      */
     declare public readonly nrql: pulumi.Output<string>;
     /**
-     * The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+     * The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
      */
     declare public readonly retentionPolicy: pulumi.Output<string>;
     /**
@@ -163,7 +163,7 @@ export interface DataPartitionRuleState {
      */
     nrql?: pulumi.Input<string | undefined>;
     /**
-     * The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+     * The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
      */
     retentionPolicy?: pulumi.Input<string | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface DataPartitionRuleArgs {
      */
     nrql: pulumi.Input<string>;
     /**
-     * The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+     * The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
      */
     retentionPolicy: pulumi.Input<string>;
     /**
