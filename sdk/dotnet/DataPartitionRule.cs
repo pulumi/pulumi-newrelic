@@ -80,7 +80,7 @@ namespace Pulumi.NewRelic
         public Output<string> Nrql { get; private set; } = null!;
 
         /// <summary>
-        /// The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        /// The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         /// </summary>
         [Output("retentionPolicy")]
         public Output<string> RetentionPolicy { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.NewRelic
         public Input<string> Nrql { get; set; } = null!;
 
         /// <summary>
-        /// The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        /// The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         /// </summary>
         [Input("retentionPolicy", required: true)]
         public Input<string> RetentionPolicy { get; set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Nrql { get; set; }
 
         /// <summary>
-        /// The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        /// The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         /// </summary>
         [Input("retentionPolicy")]
         public Input<string>? RetentionPolicy { get; set; }

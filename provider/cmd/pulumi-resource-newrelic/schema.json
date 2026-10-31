@@ -15293,7 +15293,7 @@
                 },
                 "retentionPolicy": {
                     "type": "string",
-                    "description": "The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.\n"
+                    "description": "The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).\n"
                 },
                 "targetDataPartition": {
                     "type": "string",
@@ -15327,7 +15327,7 @@
                 },
                 "retentionPolicy": {
                     "type": "string",
-                    "description": "The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.\n",
+                    "description": "The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).\n",
                     "willReplaceOnChanges": true
                 },
                 "targetDataPartition": {
@@ -15367,7 +15367,7 @@
                     },
                     "retentionPolicy": {
                         "type": "string",
-                        "description": "The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.\n",
+                        "description": "The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).\n",
                         "willReplaceOnChanges": true
                     },
                     "targetDataPartition": {
@@ -17608,7 +17608,7 @@
                 },
                 "evaluationDelay": {
                     "type": "integer",
-                    "description": "How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).\n"
+                    "description": "How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to \u003cspan pulumi-lang-nodejs=\"`0`\" pulumi-lang-dotnet=\"`0`\" pulumi-lang-go=\"`0`\" pulumi-lang-python=\"`0`\" pulumi-lang-yaml=\"`0`\" pulumi-lang-java=\"`0`\" pulumi-lang-hcl=\"`0`\"\u003e`0`\u003c/span\u003e or leave it out.\n"
                 },
                 "expirationDuration": {
                     "type": "integer",
@@ -17744,7 +17744,7 @@
                 },
                 "evaluationDelay": {
                     "type": "integer",
-                    "description": "How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).\n"
+                    "description": "How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to \u003cspan pulumi-lang-nodejs=\"`0`\" pulumi-lang-dotnet=\"`0`\" pulumi-lang-go=\"`0`\" pulumi-lang-python=\"`0`\" pulumi-lang-yaml=\"`0`\" pulumi-lang-java=\"`0`\" pulumi-lang-hcl=\"`0`\"\u003e`0`\u003c/span\u003e or leave it out.\n"
                 },
                 "expirationDuration": {
                     "type": "integer",
@@ -17883,7 +17883,7 @@
                     },
                     "evaluationDelay": {
                         "type": "integer",
-                        "description": "How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).\n"
+                        "description": "How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to \u003cspan pulumi-lang-nodejs=\"`0`\" pulumi-lang-dotnet=\"`0`\" pulumi-lang-go=\"`0`\" pulumi-lang-python=\"`0`\" pulumi-lang-yaml=\"`0`\" pulumi-lang-java=\"`0`\" pulumi-lang-hcl=\"`0`\"\u003e`0`\u003c/span\u003e or leave it out.\n"
                     },
                     "expirationDuration": {
                         "type": "integer",

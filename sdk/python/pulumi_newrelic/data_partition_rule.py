@@ -30,7 +30,7 @@ class DataPartitionRuleArgs:
 
         :param pulumi.Input[_builtins.bool] enabled: Whether or not this data partition rule is enabled.
         :param pulumi.Input[_builtins.str] nrql: The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
-        :param pulumi.Input[_builtins.str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        :param pulumi.Input[_builtins.str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         :param pulumi.Input[_builtins.str] target_data_partition: The name of the data partition where logs will be allocated once the rule is enabled.
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the data partition rule.
         :param pulumi.Input[_builtins.str] description: The description of the data partition rule.
@@ -72,7 +72,7 @@ class DataPartitionRuleArgs:
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> pulumi.Input[_builtins.str]:
         """
-        The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         """
         return pulumi.get(self, "retention_policy")
 
@@ -135,7 +135,7 @@ class _DataPartitionRuleState:
         :param pulumi.Input[_builtins.str] description: The description of the data partition rule.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not this data partition rule is enabled.
         :param pulumi.Input[_builtins.str] nrql: The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
-        :param pulumi.Input[_builtins.str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        :param pulumi.Input[_builtins.str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         :param pulumi.Input[_builtins.str] target_data_partition: The name of the data partition where logs will be allocated once the rule is enabled.
         """
         if account_id is not None:
@@ -217,7 +217,7 @@ class _DataPartitionRuleState:
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         """
         return pulumi.get(self, "retention_policy")
 
@@ -287,7 +287,7 @@ class DataPartitionRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the data partition rule.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not this data partition rule is enabled.
         :param pulumi.Input[_builtins.str] nrql: The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
-        :param pulumi.Input[_builtins.str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        :param pulumi.Input[_builtins.str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         :param pulumi.Input[_builtins.str] target_data_partition: The name of the data partition where logs will be allocated once the rule is enabled.
         """
         ...
@@ -400,7 +400,7 @@ class DataPartitionRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the data partition rule.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not this data partition rule is enabled.
         :param pulumi.Input[_builtins.str] nrql: The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
-        :param pulumi.Input[_builtins.str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        :param pulumi.Input[_builtins.str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         :param pulumi.Input[_builtins.str] target_data_partition: The name of the data partition where logs will be allocated once the rule is enabled.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -460,7 +460,7 @@ class DataPartitionRule(pulumi.CustomResource):
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> pulumi.Output[_builtins.str]:
         """
-        The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
+        The retention policy of the data partition data. Valid values are `SECONDARY`, `STANDARD` and `STANDARD_LIVE_ARCHIVE` (standard retention with Live Archives enabled).
         """
         return pulumi.get(self, "retention_policy")
 

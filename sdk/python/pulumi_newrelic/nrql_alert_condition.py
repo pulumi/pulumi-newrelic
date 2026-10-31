@@ -66,7 +66,7 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[_builtins.str] description: The description of the NRQL alert condition.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[_builtins.int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        :param pulumi.Input[_builtins.int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         :param pulumi.Input[_builtins.int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[_builtins.str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[_builtins.float] fill_value: This value will be used for filling gaps in the signal.
@@ -301,7 +301,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter(name="evaluationDelay")
     def evaluation_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         """
         return pulumi.get(self, "evaluation_delay")
 
@@ -567,7 +567,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[_builtins.str] description: The description of the NRQL alert condition.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
-        :param pulumi.Input[_builtins.int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        :param pulumi.Input[_builtins.int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         :param pulumi.Input[_builtins.int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[_builtins.str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[_builtins.float] fill_value: This value will be used for filling gaps in the signal.
@@ -796,7 +796,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter(name="evaluationDelay")
     def evaluation_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         """
         return pulumi.get(self, "evaluation_delay")
 
@@ -1422,7 +1422,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict', 'outputs.NrqlAlertConditionCritical']] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[_builtins.str] description: The description of the NRQL alert condition.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[_builtins.int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        :param pulumi.Input[_builtins.int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         :param pulumi.Input[_builtins.int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[_builtins.str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[_builtins.float] fill_value: This value will be used for filling gaps in the signal.
@@ -1935,7 +1935,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the NRQL alert condition.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
-        :param pulumi.Input[_builtins.int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        :param pulumi.Input[_builtins.int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         :param pulumi.Input[_builtins.int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[_builtins.str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[_builtins.float] fill_value: This value will be used for filling gaps in the signal.
@@ -2088,7 +2088,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="evaluationDelay")
     def evaluation_delay(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes). To turn off the delay, set it to `0` or leave it out.
         """
         return pulumi.get(self, "evaluation_delay")
 
