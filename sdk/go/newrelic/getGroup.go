@@ -82,7 +82,7 @@ import (
 //			}
 //			_ := fooGetGroup.Id
 //			var tmp0 pulumi.String
-//			if len(fooGetGroup.UserIds) > 0 {
+//			if bool(len(fooGetGroup.UserIds) > 0) {
 //				tmp0 = std.Join(ctx, &std.JoinArgs{
 //					Separator: ", ",
 //					Input:     fooGetGroup.UserIds,

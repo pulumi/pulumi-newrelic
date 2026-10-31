@@ -201,7 +201,7 @@ import (
 //			}
 //			squad, err := newrelic.NewTeam(ctx, "squad", &newrelic.TeamArgs{
 //				Name:     pulumi.String("Backend Squad"),
-//				ParentId: division.ID().ToIDOutput().ToStringOutput(),
+//				ParentId: division.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -313,7 +313,7 @@ import (
 //			}
 //			_, err = newrelic.NewTeam(ctx, "backend", &newrelic.TeamArgs{
 //				Name:     pulumi.String("Backend"),
-//				ParentId: engineering.ID().ToIDOutput().ToStringOutput(),
+//				ParentId: engineering.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -351,7 +351,7 @@ import (
 //				Name:                 pulumi.String("Platform"),
 //				EntityManagementMode: pulumi.String("managed"),
 //				Entities: pulumi.StringArray{
-//					standards.ID().ToIDOutput().ToStringOutput(),
+//					standards.ID(),
 //				},
 //			})
 //			if err != nil {

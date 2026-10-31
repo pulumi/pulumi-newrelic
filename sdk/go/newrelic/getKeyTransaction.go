@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewAlertCondition(ctx, "foo", &newrelic.AlertConditionArgs{
-//				PolicyId: foo.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId: foo.ID(),
 //				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_kt_metric"),
 //				Entities: pulumi.StringArray{

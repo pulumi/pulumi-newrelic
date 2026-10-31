@@ -79,7 +79,7 @@ import (
 //					},
 //				},
 //				RuleIds: pulumi.StringArray{
-//					alertCoverage.ID().ToIDOutput().ToStringOutput(),
+//					alertCoverage.ID(),
 //				},
 //			})
 //			if err != nil {

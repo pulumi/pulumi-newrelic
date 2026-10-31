@@ -67,7 +67,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewFleetMembers(ctx, "example", &newrelic.FleetMembersArgs{
-//				FleetId: example.ID().ToIDOutput().ToStringOutput(),
+//				FleetId: example.ID(),
 //				Rings: newrelic.FleetMembersRingArray{
 //					&newrelic.FleetMembersRingArgs{
 //						Name: pulumi.String("default"),

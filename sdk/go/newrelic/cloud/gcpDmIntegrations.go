@@ -45,7 +45,7 @@ import (
 //			}
 //			_, err = cloud.NewGcpDmIntegrations(ctx, "example", &cloud.GcpDmIntegrationsArgs{
 //				AccountId:       pulumi.Any(newrelicAccountId),
-//				LinkedAccountId: example.ID().ToIDOutput().ToStringOutput(),
+//				LinkedAccountId: example.ID(),
 //				AiPlatform: &cloud.GcpDmIntegrationsAiPlatformArgs{
 //					MetricsPollingInterval: pulumi.Int(300),
 //				},

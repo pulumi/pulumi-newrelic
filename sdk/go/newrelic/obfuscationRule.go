@@ -46,7 +46,7 @@ import (
 //						Attributes: pulumi.StringArray{
 //							pulumi.String("message"),
 //						},
-//						ExpressionId: bar.ID().ToIDOutput().ToStringOutput(),
+//						ExpressionId: bar.ID(),
 //						Method:       pulumi.String("MASK"),
 //					},
 //				},
