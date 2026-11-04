@@ -85,10 +85,41 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
+    /// ### Example: Disabling a Key and Assigning Owning Teams
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ingestLicenseKey = new NewRelic.ApiAccessKey("ingest_license_key", new()
+    ///     {
+    ///         AccountId = "1234321",
+    ///         KeyType = "INGEST",
+    ///         IngestType = "LICENSE",
+    ///         Name = "Ingest License Key for App Monitoring",
+    ///         Enabled = false,
+    ///         OwningTeamIds = new[]
+    ///         {
+    ///             "MTIzNDMyMXxOR0VQfFRFQU18MDE5ODBkOTEtMDJhYS03MjNjLTkxYTYtOWJlNzg3YzUxNWUz",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Important Considerations
     /// 
     /// #### Updating Existing Keys
-    /// - Only `Name` and `Notes` can be updated in place. Changes to other attributes will recreate the key (the `newrelic.ApiAccessKey` resource), invalidating the existing one.
+    /// - Only `Name`, `Notes`, `Enabled` and `OwningTeamIds` can be updated in place. Changes to other attributes will recreate the key (the `newrelic.ApiAccessKey` resource), invalidating the existing one.
+    /// 
+    /// #### Disabling and Re-enabling Keys
+    /// - New keys are always created enabled. If `enabled = false` is set when a key is created, the key is created and then disabled in the same `pulumi up`.
+    /// - When `Enabled` is omitted, Terraform does not manage the key's status: a key disabled outside Terraform (for example, in the New Relic UI during a security incident) stays disabled. Removing `enabled = false` from the configuration therefore does not re-enable the key; set `enabled = true` to do so.
+    /// - When `Enabled` is set, Terraform enforces it: for example, `enabled = true` re-enables a key that was disabled outside Terraform.
+    /// - A disabled key can still be updated, imported and deleted.
     /// 
     /// #### Creating API Keys for Other Users
     /// - If an API key is created for a user other than the owner of the API key used to run Terraform, the full key value will not be returned by the API for security reasons. Instead, a truncated version of the key will be provided. To retrieve the full key, ensure the necessary capabilities and access management settings are applied to the user running Terraform. For more details, contact New Relic Support.
@@ -120,6 +151,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("accountId")]
         public Output<string?> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Set to `False` to disable the key, or `True` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// Required if `KeyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
@@ -154,6 +191,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("notes")]
         public Output<string> Notes { get; private set; } = null!;
+
+        /// <summary>
+        /// A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `KeyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+        /// </summary>
+        [Output("owningTeamIds")]
+        public Output<ImmutableArray<string>> OwningTeamIds { get; private set; } = null!;
 
         /// <summary>
         /// Required if `KeyType` is `USER`. The New Relic user ID for which the API access key will be created.
@@ -214,6 +257,12 @@ namespace Pulumi.NewRelic
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
+        /// Set to `False` to disable the key, or `True` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// Required if `KeyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         /// </summary>
         [Input("ingestType")]
@@ -240,6 +289,18 @@ namespace Pulumi.NewRelic
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        [Input("owningTeamIds")]
+        private InputList<string>? _owningTeamIds;
+
+        /// <summary>
+        /// A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `KeyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+        /// </summary>
+        public InputList<string> OwningTeamIds
+        {
+            get => _owningTeamIds ?? (_owningTeamIds = new InputList<string>());
+            set => _owningTeamIds = value;
+        }
+
         /// <summary>
         /// Required if `KeyType` is `USER`. The New Relic user ID for which the API access key will be created.
         /// </summary>
@@ -259,6 +320,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// Set to `False` to disable the key, or `True` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// Required if `KeyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
@@ -293,6 +360,18 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
+
+        [Input("owningTeamIds")]
+        private InputList<string>? _owningTeamIds;
+
+        /// <summary>
+        /// A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `KeyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+        /// </summary>
+        public InputList<string> OwningTeamIds
+        {
+            get => _owningTeamIds ?? (_owningTeamIds = new InputList<string>());
+            set => _owningTeamIds = value;
+        }
 
         /// <summary>
         /// Required if `KeyType` is `USER`. The New Relic user ID for which the API access key will be created.

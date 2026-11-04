@@ -5,7 +5,9 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,6 +30,21 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
+    }
+
+    /**
+     * Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key&#39;s current status is left unchanged. See Disabling and Re-enabling Keys below.
+     * 
+     */
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
+
+    /**
+     * @return Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key&#39;s current status is left unchanged. See Disabling and Re-enabling Keys below.
+     * 
+     */
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     /**
@@ -114,6 +131,21 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key&#39;s current owning teams are left unchanged.
+     * 
+     */
+    @Import(name="owningTeamIds")
+    private @Nullable Output<List<String>> owningTeamIds;
+
+    /**
+     * @return A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key&#39;s current owning teams are left unchanged.
+     * 
+     */
+    public Optional<Output<List<String>>> owningTeamIds() {
+        return Optional.ofNullable(this.owningTeamIds);
+    }
+
+    /**
      * Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
      * 
      */
@@ -132,11 +164,13 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
 
     private ApiAccessKeyState(ApiAccessKeyState $) {
         this.accountId = $.accountId;
+        this.enabled = $.enabled;
         this.ingestType = $.ingestType;
         this.key = $.key;
         this.keyType = $.keyType;
         this.name = $.name;
         this.notes = $.notes;
+        this.owningTeamIds = $.owningTeamIds;
         this.userId = $.userId;
     }
 
@@ -177,6 +211,27 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param enabled Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key&#39;s current status is left unchanged. See Disabling and Re-enabling Keys below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
+            $.enabled = enabled;
+            return this;
+        }
+
+        /**
+         * @param enabled Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key&#39;s current status is left unchanged. See Disabling and Re-enabling Keys below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(Boolean enabled) {
+            return enabled(Output.of(enabled));
         }
 
         /**
@@ -290,6 +345,37 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder notes(String notes) {
             return notes(Output.of(notes));
+        }
+
+        /**
+         * @param owningTeamIds A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key&#39;s current owning teams are left unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder owningTeamIds(@Nullable Output<List<String>> owningTeamIds) {
+            $.owningTeamIds = owningTeamIds;
+            return this;
+        }
+
+        /**
+         * @param owningTeamIds A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key&#39;s current owning teams are left unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder owningTeamIds(List<String> owningTeamIds) {
+            return owningTeamIds(Output.of(owningTeamIds));
+        }
+
+        /**
+         * @param owningTeamIds A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key&#39;s current owning teams are left unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder owningTeamIds(String... owningTeamIds) {
+            return owningTeamIds(List.of(owningTeamIds));
         }
 
         /**

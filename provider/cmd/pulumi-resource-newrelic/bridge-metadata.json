@@ -88,7 +88,12 @@
             },
             "newrelic_api_access_key": {
                 "current": "newrelic:index/apiAccessKey:ApiAccessKey",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "owning_team_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "newrelic_application_settings": {
                 "current": "newrelic:plugins/applicationSettings:ApplicationSettings",
@@ -5218,6 +5223,7 @@
             ],
             "newrelic_api_access_key": [
                 "account_id",
+                "owning_team_ids",
                 "user_id"
             ],
             "newrelic_aws_connection": [

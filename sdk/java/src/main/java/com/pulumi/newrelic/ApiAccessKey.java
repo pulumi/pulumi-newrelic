@@ -10,7 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.ApiAccessKeyArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.ApiAccessKeyState;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -135,10 +137,53 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Example: Disabling a Key and Assigning Owning Teams
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.ApiAccessKey;
+ * import com.pulumi.newrelic.ApiAccessKeyArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ingestLicenseKey = new ApiAccessKey("ingestLicenseKey", ApiAccessKeyArgs.builder()
+ *             .accountId("1234321")
+ *             .keyType("INGEST")
+ *             .ingestType("LICENSE")
+ *             .name("Ingest License Key for App Monitoring")
+ *             .enabled(false)
+ *             .owningTeamIds("MTIzNDMyMXxOR0VQfFRFQU18MDE5ODBkOTEtMDJhYS03MjNjLTkxYTYtOWJlNzg3YzUxNWUz")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Important Considerations
  * 
  * #### Updating Existing Keys
- * - Only `name` and `notes` can be updated in place. Changes to other attributes will recreate the key (the `newrelic.ApiAccessKey` resource), invalidating the existing one.
+ * - Only `name`, `notes`, `enabled` and `owningTeamIds` can be updated in place. Changes to other attributes will recreate the key (the `newrelic.ApiAccessKey` resource), invalidating the existing one.
+ * 
+ * #### Disabling and Re-enabling Keys
+ * - New keys are always created enabled. If `enabled = false` is set when a key is created, the key is created and then disabled in the same `pulumi up`.
+ * - When `enabled` is omitted, Terraform does not manage the key&#39;s status: a key disabled outside Terraform (for example, in the New Relic UI during a security incident) stays disabled. Removing `enabled = false` from the configuration therefore does not re-enable the key; set `enabled = true` to do so.
+ * - When `enabled` is set, Terraform enforces it: for example, `enabled = true` re-enables a key that was disabled outside Terraform.
+ * - A disabled key can still be updated, imported and deleted.
  * 
  * #### Creating API Keys for Other Users
  * - If an API key is created for a user other than the owner of the API key used to run Terraform, the full key value will not be returned by the API for security reasons. Instead, a truncated version of the key will be provided. To retrieve the full key, ensure the necessary capabilities and access management settings are applied to the user running Terraform. For more details, contact New Relic Support.
@@ -178,6 +223,20 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> accountId() {
         return Codegen.optional(this.accountId);
+    }
+    /**
+     * Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key&#39;s current status is left unchanged. See Disabling and Re-enabling Keys below.
+     * 
+     */
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enabled;
+
+    /**
+     * @return Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key&#39;s current status is left unchanged. See Disabling and Re-enabling Keys below.
+     * 
+     */
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
@@ -256,6 +315,20 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      */
     public Output<String> notes() {
         return this.notes;
+    }
+    /**
+     * A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key&#39;s current owning teams are left unchanged.
+     * 
+     */
+    @Export(name="owningTeamIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> owningTeamIds;
+
+    /**
+     * @return A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key&#39;s current owning teams are left unchanged.
+     * 
+     */
+    public Output<List<String>> owningTeamIds() {
+        return this.owningTeamIds;
     }
     /**
      * Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.

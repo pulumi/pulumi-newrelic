@@ -21,9 +21,11 @@ class ApiAccessKeyArgs:
     def __init__(__self__, *,
                  key_type: pulumi.Input[_builtins.str],
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiAccessKey resource.
@@ -32,21 +34,27 @@ class ApiAccessKeyArgs:
                - If `key_type` is `INGEST`, then `ingest_type` must be specified.
                - If `key_type` is `USER`, then `user_id` must be specified.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
+        :param pulumi.Input[_builtins.bool] enabled: Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
         :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         :param pulumi.Input[_builtins.str] name: The name of the API key.
                - **Note**: While `name` is optional, it is <b style="color:red;">\\*\\*strongly recommended\\*\\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
         :param pulumi.Input[_builtins.str] notes: Additional notes about the API access key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `key_type` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
         :param pulumi.Input[_builtins.str] user_id: Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         pulumi.set(__self__, "key_type", key_type)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if ingest_type is not None:
             pulumi.set(__self__, "ingest_type", ingest_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if owning_team_ids is not None:
+            pulumi.set(__self__, "owning_team_ids", owning_team_ids)
         if user_id is not None:
             pulumi.set(__self__, "user_id", user_id)
 
@@ -75,6 +83,18 @@ class ApiAccessKeyArgs:
     @account_id.setter
     def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestType")
@@ -114,6 +134,18 @@ class ApiAccessKeyArgs:
         pulumi.set(self, "notes", value)
 
     @_builtins.property
+    @pulumi.getter(name="owningTeamIds")
+    def owning_team_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `key_type` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+        """
+        return pulumi.get(self, "owning_team_ids")
+
+    @owning_team_ids.setter
+    def owning_team_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "owning_team_ids", value)
+
+    @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -130,16 +162,19 @@ class ApiAccessKeyArgs:
 class _ApiAccessKeyState:
     def __init__(__self__, *,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiAccessKey resources.
 
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
+        :param pulumi.Input[_builtins.bool] enabled: Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
         :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         :param pulumi.Input[_builtins.str] key: The actual API key.
                - <span style="color:tomato;">It is important to exercise caution when exporting the value of `key`, as it is sensitive information</span>. Avoid logging or exposing it inappropriately.
@@ -149,10 +184,13 @@ class _ApiAccessKeyState:
         :param pulumi.Input[_builtins.str] name: The name of the API key.
                - **Note**: While `name` is optional, it is <b style="color:red;">\\*\\*strongly recommended\\*\\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
         :param pulumi.Input[_builtins.str] notes: Additional notes about the API access key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `key_type` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
         :param pulumi.Input[_builtins.str] user_id: Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if ingest_type is not None:
             pulumi.set(__self__, "ingest_type", ingest_type)
         if key is not None:
@@ -163,6 +201,8 @@ class _ApiAccessKeyState:
             pulumi.set(__self__, "name", name)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if owning_team_ids is not None:
+            pulumi.set(__self__, "owning_team_ids", owning_team_ids)
         if user_id is not None:
             pulumi.set(__self__, "user_id", user_id)
 
@@ -177,6 +217,18 @@ class _ApiAccessKeyState:
     @account_id.setter
     def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestType")
@@ -243,6 +295,18 @@ class _ApiAccessKeyState:
         pulumi.set(self, "notes", value)
 
     @_builtins.property
+    @pulumi.getter(name="owningTeamIds")
+    def owning_team_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `key_type` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+        """
+        return pulumi.get(self, "owning_team_ids")
+
+    @owning_team_ids.setter
+    def owning_team_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "owning_team_ids", value)
+
+    @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -262,10 +326,12 @@ class ApiAccessKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
                  key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -320,10 +386,30 @@ class ApiAccessKey(pulumi.CustomResource):
             notes="This key is used for browser monitoring and analytics.")
         ```
 
+        ### Example: Disabling a Key and Assigning Owning Teams
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        ingest_license_key = newrelic.ApiAccessKey("ingest_license_key",
+            account_id="1234321",
+            key_type="INGEST",
+            ingest_type="LICENSE",
+            name="Ingest License Key for App Monitoring",
+            enabled=False,
+            owning_team_ids=["MTIzNDMyMXxOR0VQfFRFQU18MDE5ODBkOTEtMDJhYS03MjNjLTkxYTYtOWJlNzg3YzUxNWUz"])
+        ```
+
         ## Important Considerations
 
         #### Updating Existing Keys
-        - Only `name` and `notes` can be updated in place. Changes to other attributes will recreate the key (the `ApiAccessKey` resource), invalidating the existing one.
+        - Only `name`, `notes`, `enabled` and `owning_team_ids` can be updated in place. Changes to other attributes will recreate the key (the `ApiAccessKey` resource), invalidating the existing one.
+
+        #### Disabling and Re-enabling Keys
+        - New keys are always created enabled. If `enabled = false` is set when a key is created, the key is created and then disabled in the same `pulumi up`.
+        - When `enabled` is omitted, Terraform does not manage the key's status: a key disabled outside Terraform (for example, in the New Relic UI during a security incident) stays disabled. Removing `enabled = false` from the configuration therefore does not re-enable the key; set `enabled = true` to do so.
+        - When `enabled` is set, Terraform enforces it: for example, `enabled = true` re-enables a key that was disabled outside Terraform.
+        - A disabled key can still be updated, imported and deleted.
 
         #### Creating API Keys for Other Users
         - If an API key is created for a user other than the owner of the API key used to run Terraform, the full key value will not be returned by the API for security reasons. Instead, a truncated version of the key will be provided. To retrieve the full key, ensure the necessary capabilities and access management settings are applied to the user running Terraform. For more details, contact New Relic Support.
@@ -351,6 +437,7 @@ class ApiAccessKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
+        :param pulumi.Input[_builtins.bool] enabled: Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
         :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         :param pulumi.Input[_builtins.str] key_type: The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
                - If `key_type` is `INGEST`, then `ingest_type` must be specified.
@@ -358,6 +445,7 @@ class ApiAccessKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the API key.
                - **Note**: While `name` is optional, it is <b style="color:red;">\\*\\*strongly recommended\\*\\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
         :param pulumi.Input[_builtins.str] notes: Additional notes about the API access key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `key_type` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
         :param pulumi.Input[_builtins.str] user_id: Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         ...
@@ -418,10 +506,30 @@ class ApiAccessKey(pulumi.CustomResource):
             notes="This key is used for browser monitoring and analytics.")
         ```
 
+        ### Example: Disabling a Key and Assigning Owning Teams
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        ingest_license_key = newrelic.ApiAccessKey("ingest_license_key",
+            account_id="1234321",
+            key_type="INGEST",
+            ingest_type="LICENSE",
+            name="Ingest License Key for App Monitoring",
+            enabled=False,
+            owning_team_ids=["MTIzNDMyMXxOR0VQfFRFQU18MDE5ODBkOTEtMDJhYS03MjNjLTkxYTYtOWJlNzg3YzUxNWUz"])
+        ```
+
         ## Important Considerations
 
         #### Updating Existing Keys
-        - Only `name` and `notes` can be updated in place. Changes to other attributes will recreate the key (the `ApiAccessKey` resource), invalidating the existing one.
+        - Only `name`, `notes`, `enabled` and `owning_team_ids` can be updated in place. Changes to other attributes will recreate the key (the `ApiAccessKey` resource), invalidating the existing one.
+
+        #### Disabling and Re-enabling Keys
+        - New keys are always created enabled. If `enabled = false` is set when a key is created, the key is created and then disabled in the same `pulumi up`.
+        - When `enabled` is omitted, Terraform does not manage the key's status: a key disabled outside Terraform (for example, in the New Relic UI during a security incident) stays disabled. Removing `enabled = false` from the configuration therefore does not re-enable the key; set `enabled = true` to do so.
+        - When `enabled` is set, Terraform enforces it: for example, `enabled = true` re-enables a key that was disabled outside Terraform.
+        - A disabled key can still be updated, imported and deleted.
 
         #### Creating API Keys for Other Users
         - If an API key is created for a user other than the owner of the API key used to run Terraform, the full key value will not be returned by the API for security reasons. Instead, a truncated version of the key will be provided. To retrieve the full key, ensure the necessary capabilities and access management settings are applied to the user running Terraform. For more details, contact New Relic Support.
@@ -462,10 +570,12 @@ class ApiAccessKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
                  key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -477,12 +587,14 @@ class ApiAccessKey(pulumi.CustomResource):
             __props__ = ApiAccessKeyArgs.__new__(ApiAccessKeyArgs)
 
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["enabled"] = enabled
             __props__.__dict__["ingest_type"] = ingest_type
             if key_type is None and not opts.urn:
                 raise TypeError("Missing required property 'key_type'")
             __props__.__dict__["key_type"] = key_type
             __props__.__dict__["name"] = name
             __props__.__dict__["notes"] = notes
+            __props__.__dict__["owning_team_ids"] = owning_team_ids
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["key"] = None
         super(ApiAccessKey, __self__).__init__(
@@ -496,11 +608,13 @@ class ApiAccessKey(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
             key_type: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             notes: pulumi.Input[Optional[_builtins.str]] = None,
+            owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiAccessKey':
         """
         Get an existing ApiAccessKey resource's state with the given name, id, and optional extra
@@ -510,6 +624,7 @@ class ApiAccessKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
+        :param pulumi.Input[_builtins.bool] enabled: Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
         :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         :param pulumi.Input[_builtins.str] key: The actual API key.
                - <span style="color:tomato;">It is important to exercise caution when exporting the value of `key`, as it is sensitive information</span>. Avoid logging or exposing it inappropriately.
@@ -519,6 +634,7 @@ class ApiAccessKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the API key.
                - **Note**: While `name` is optional, it is <b style="color:red;">\\*\\*strongly recommended\\*\\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
         :param pulumi.Input[_builtins.str] notes: Additional notes about the API access key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `key_type` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
         :param pulumi.Input[_builtins.str] user_id: Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -526,11 +642,13 @@ class ApiAccessKey(pulumi.CustomResource):
         __props__ = _ApiAccessKeyState.__new__(_ApiAccessKeyState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["enabled"] = enabled
         __props__.__dict__["ingest_type"] = ingest_type
         __props__.__dict__["key"] = key
         __props__.__dict__["key_type"] = key_type
         __props__.__dict__["name"] = name
         __props__.__dict__["notes"] = notes
+        __props__.__dict__["owning_team_ids"] = owning_team_ids
         __props__.__dict__["user_id"] = user_id
         return ApiAccessKey(resource_name, opts=opts, __props__=__props__)
 
@@ -541,6 +659,14 @@ class ApiAccessKey(pulumi.CustomResource):
         The New Relic account ID where the API access key will be created.
         """
         return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+        """
+        return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="ingestType")
@@ -585,6 +711,14 @@ class ApiAccessKey(pulumi.CustomResource):
         Additional notes about the API access key.
         """
         return pulumi.get(self, "notes")
+
+    @_builtins.property
+    @pulumi.getter(name="owningTeamIds")
+    def owning_team_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `key_type` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+        """
+        return pulumi.get(self, "owning_team_ids")
 
     @_builtins.property
     @pulumi.getter(name="userId")
