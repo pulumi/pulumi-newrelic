@@ -111,10 +111,48 @@ import (
 //
 // ```
 //
+// ### Example: Disabling a Key and Assigning Owning Teams
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewApiAccessKey(ctx, "ingest_license_key", &newrelic.ApiAccessKeyArgs{
+//				AccountId:  pulumi.String("1234321"),
+//				KeyType:    pulumi.String("INGEST"),
+//				IngestType: pulumi.String("LICENSE"),
+//				Name:       pulumi.String("Ingest License Key for App Monitoring"),
+//				Enabled:    pulumi.Bool(false),
+//				OwningTeamIds: pulumi.StringArray{
+//					pulumi.String("MTIzNDMyMXxOR0VQfFRFQU18MDE5ODBkOTEtMDJhYS03MjNjLTkxYTYtOWJlNzg3YzUxNWUz"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Important Considerations
 //
 // #### Updating Existing Keys
-// - Only `name` and `notes` can be updated in place. Changes to other attributes will recreate the key (the `ApiAccessKey` resource), invalidating the existing one.
+// - Only `name`, `notes`, `enabled` and `owningTeamIds` can be updated in place. Changes to other attributes will recreate the key (the `ApiAccessKey` resource), invalidating the existing one.
+//
+// #### Disabling and Re-enabling Keys
+// - New keys are always created enabled. If `enabled = false` is set when a key is created, the key is created and then disabled in the same `pulumi up`.
+// - When `enabled` is omitted, Terraform does not manage the key's status: a key disabled outside Terraform (for example, in the New Relic UI during a security incident) stays disabled. Removing `enabled = false` from the configuration therefore does not re-enable the key; set `enabled = true` to do so.
+// - When `enabled` is set, Terraform enforces it: for example, `enabled = true` re-enables a key that was disabled outside Terraform.
+// - A disabled key can still be updated, imported and deleted.
 //
 // #### Creating API Keys for Other Users
 // - If an API key is created for a user other than the owner of the API key used to run Terraform, the full key value will not be returned by the API for security reasons. Instead, a truncated version of the key will be provided. To retrieve the full key, ensure the necessary capabilities and access management settings are applied to the user running Terraform. For more details, contact New Relic Support.
@@ -142,6 +180,8 @@ type ApiAccessKey struct {
 
 	// The New Relic account ID where the API access key will be created.
 	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
+	// Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
 	IngestType pulumi.StringOutput `pulumi:"ingestType"`
 	// The actual API key.
@@ -156,6 +196,8 @@ type ApiAccessKey struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Additional notes about the API access key.
 	Notes pulumi.StringOutput `pulumi:"notes"`
+	// A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+	OwningTeamIds pulumi.StringArrayOutput `pulumi:"owningTeamIds"`
 	// Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 }
@@ -195,6 +237,8 @@ func GetApiAccessKey(ctx *pulumi.Context,
 type apiAccessKeyState struct {
 	// The New Relic account ID where the API access key will be created.
 	AccountId *string `pulumi:"accountId"`
+	// Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+	Enabled *bool `pulumi:"enabled"`
 	// Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
 	IngestType *string `pulumi:"ingestType"`
 	// The actual API key.
@@ -209,6 +253,8 @@ type apiAccessKeyState struct {
 	Name *string `pulumi:"name"`
 	// Additional notes about the API access key.
 	Notes *string `pulumi:"notes"`
+	// A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+	OwningTeamIds []string `pulumi:"owningTeamIds"`
 	// Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
 	UserId *string `pulumi:"userId"`
 }
@@ -216,6 +262,8 @@ type apiAccessKeyState struct {
 type ApiAccessKeyState struct {
 	// The New Relic account ID where the API access key will be created.
 	AccountId pulumi.StringPtrInput
+	// Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+	Enabled pulumi.BoolPtrInput
 	// Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
 	IngestType pulumi.StringPtrInput
 	// The actual API key.
@@ -230,6 +278,8 @@ type ApiAccessKeyState struct {
 	Name pulumi.StringPtrInput
 	// Additional notes about the API access key.
 	Notes pulumi.StringPtrInput
+	// A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+	OwningTeamIds pulumi.StringArrayInput
 	// Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
 	UserId pulumi.StringPtrInput
 }
@@ -241,6 +291,8 @@ func (ApiAccessKeyState) ElementType() reflect.Type {
 type apiAccessKeyArgs struct {
 	// The New Relic account ID where the API access key will be created.
 	AccountId *string `pulumi:"accountId"`
+	// Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+	Enabled *bool `pulumi:"enabled"`
 	// Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
 	IngestType *string `pulumi:"ingestType"`
 	// The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
@@ -252,6 +304,8 @@ type apiAccessKeyArgs struct {
 	Name *string `pulumi:"name"`
 	// Additional notes about the API access key.
 	Notes *string `pulumi:"notes"`
+	// A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+	OwningTeamIds []string `pulumi:"owningTeamIds"`
 	// Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
 	UserId *string `pulumi:"userId"`
 }
@@ -260,6 +314,8 @@ type apiAccessKeyArgs struct {
 type ApiAccessKeyArgs struct {
 	// The New Relic account ID where the API access key will be created.
 	AccountId pulumi.StringPtrInput
+	// Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+	Enabled pulumi.BoolPtrInput
 	// Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
 	IngestType pulumi.StringPtrInput
 	// The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
@@ -271,6 +327,8 @@ type ApiAccessKeyArgs struct {
 	Name pulumi.StringPtrInput
 	// Additional notes about the API access key.
 	Notes pulumi.StringPtrInput
+	// A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+	OwningTeamIds pulumi.StringArrayInput
 	// Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
 	UserId pulumi.StringPtrInput
 }
@@ -367,6 +425,11 @@ func (o ApiAccessKeyOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
+// Set to `false` to disable the key, or `true` to re-enable it. A disabled key is retained, but cannot be used until it is re-enabled. If omitted, the key's current status is left unchanged. See Disabling and Re-enabling Keys below.
+func (o ApiAccessKeyOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
 // Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
 func (o ApiAccessKeyOutput) IngestType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringOutput { return v.IngestType }).(pulumi.StringOutput)
@@ -394,6 +457,11 @@ func (o ApiAccessKeyOutput) Name() pulumi.StringOutput {
 // Additional notes about the API access key.
 func (o ApiAccessKeyOutput) Notes() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringOutput { return v.Notes }).(pulumi.StringOutput)
+}
+
+// A set of up to 50 New Relic team entity GUIDs of the teams that own the key. Only supported when `keyType` is `INGEST`. Set to `[]` to remove all owning teams. If omitted, the key's current owning teams are left unchanged.
+func (o ApiAccessKeyOutput) OwningTeamIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringArrayOutput { return v.OwningTeamIds }).(pulumi.StringArrayOutput)
 }
 
 // Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
