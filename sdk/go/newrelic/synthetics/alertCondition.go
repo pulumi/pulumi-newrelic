@@ -228,6 +228,12 @@ func (AlertConditionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertConditionState)(nil)).Elem()
 }
 
+// AlertConditionExists checks whether an existing AlertCondition resource with the given ID exists.
+func AlertConditionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertConditionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:synthetics/alertCondition:AlertCondition", id, state, "", opts...)
+}
+
 type alertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`

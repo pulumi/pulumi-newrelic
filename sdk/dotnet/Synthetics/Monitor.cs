@@ -295,14 +295,14 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<ImmutableArray<Outputs.MonitorCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Output("deviceOrientation")]
         public Output<string?> DeviceOrientation { get; private set; } = null!;
 
         /// <summary>
-        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Output("deviceType")]
@@ -509,14 +509,14 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
-        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
-        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceType")]
@@ -697,14 +697,14 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
-        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
-        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceType")]

@@ -617,6 +617,28 @@ class FleetDeployment(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return FleetDeployment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetDeploymentAgentArgs', 'FleetDeploymentAgentArgsDict', 'outputs.FleetDeploymentAgent']]]]] = None,
+            deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            phase: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agents"] = agents
+        __props__["deploymentId"] = deployment_id
+        __props__["description"] = description
+        __props__["fleetId"] = fleet_id
+        __props__["name"] = name
+        __props__["organizationId"] = organization_id
+        __props__["phase"] = phase
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/fleetDeployment:FleetDeployment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def agents(self) -> pulumi.Output[Optional[Sequence['outputs.FleetDeploymentAgent']]]:

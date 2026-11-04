@@ -230,7 +230,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// A condition term with the priority set to warning.
         /// 
-        /// 
         /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
         [Output("warning")]
@@ -333,7 +332,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// A condition term with the priority set to warning.
         /// 
-        /// 
         /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
         [Input("warning")]
@@ -403,7 +401,6 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// A condition term with the priority set to warning.
-        /// 
         /// 
         /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>

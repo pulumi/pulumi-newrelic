@@ -1009,6 +1009,36 @@ class AlertCompoundCondition(pulumi.CustomResource):
         __props__.__dict__["trigger_expression"] = trigger_expression
         return AlertCompoundCondition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            component_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertCompoundConditionComponentConditionArgs', 'AlertCompoundConditionComponentConditionArgsDict', 'outputs.AlertCompoundConditionComponentCondition']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            facet_matching_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+            threshold_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            title_template: pulumi.Input[Optional[_builtins.str]] = None,
+            trigger_expression: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["componentConditions"] = component_conditions
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["entityGuid"] = entity_guid
+        __props__["facetMatchingBehavior"] = facet_matching_behavior
+        __props__["name"] = name
+        __props__["policyId"] = policy_id
+        __props__["runbookUrl"] = runbook_url
+        __props__["thresholdDuration"] = threshold_duration
+        __props__["titleTemplate"] = title_template
+        __props__["triggerExpression"] = trigger_expression
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/alertCompoundCondition:AlertCompoundCondition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

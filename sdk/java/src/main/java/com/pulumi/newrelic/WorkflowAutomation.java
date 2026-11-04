@@ -166,18 +166,18 @@ import javax.annotation.Nullable;
  * 
  * Executes a specific function, such as querying data or sending a notification.
  * 
- * * `type: action` \- Defines the step as an action.
- *   * `action` \- The specific action to execute (example, `newrelic.nrdb.query`).
- *   * `version` \- The version of the action to use.
- *   * `inputs` \- A map of input parameters for the action.
+ * * `type: action` &#92;- Defines the step as an action.
+ *   * `action` &#92;- The specific action to execute (example, `newrelic.nrdb.query`).
+ *   * `version` &#92;- The version of the action to use.
+ *   * `inputs` &#92;- A map of input parameters for the action.
  * 
  * Example:
  * 
  * **Common actions include:**
  * 
- * * `newrelic.nrdb.query` \- Query New Relic database
- * * `utils.transform.toCSV` \- Transform data to CSV format
- * * `slack.chat.postMessage` \- Send messages to Slack
+ * * `newrelic.nrdb.query` &#92;- Query New Relic database
+ * * `utils.transform.toCSV` &#92;- Transform data to CSV format
+ * * `slack.chat.postMessage` &#92;- Send messages to Slack
  * 
  * **Available actions**
  * A complete list of available actions, their versions, and required inputs can be found in the [**Workflow Action Catalog**](https://docs.newrelic.com/docs/workflow-automation/actions-catalog/).
@@ -187,9 +187,9 @@ import javax.annotation.Nullable;
  * Pauses the workflow for a specified duration or until it receives a signal.
  * 
  * * `type: wait`
- *   * `seconds` \- The number of seconds to pause.
- *   * `signals` \- (Optional) An array of signals to wait for. See [SignalWorkflowRun](https://docs.newrelic.com/docs/workflow-automation/workflow-automation-apis/signal-workflow-run/) for more information
- *   * `next` \- (Optional) The name of the next step. Use `end` to terminate the workflow.
+ *   * `seconds` &#92;- The number of seconds to pause.
+ *   * `signals` &#92;- (Optional) An array of signals to wait for. See [SignalWorkflowRun](https://docs.newrelic.com/docs/workflow-automation/workflow-automation-apis/signal-workflow-run/) for more information
+ *   * `next` &#92;- (Optional) The name of the next step. Use `end` to terminate the workflow.
  * 
  * Example:
  * 
@@ -198,9 +198,9 @@ import javax.annotation.Nullable;
  * Provides conditional branching logic.
  * 
  * * `type: switch`
- *   * `switch` \- An array of conditions to evaluate in order.
- *   * `condition` \- A JQ expression that evaluates to `true` or `false`.
- *   * `next` \- The name of the step to execute if the condition is true. The `switch` block can also have a top-level `next` field to define the default step if no conditions match.
+ *   * `switch` &#92;- An array of conditions to evaluate in order.
+ *   * `condition` &#92;- A JQ expression that evaluates to `true` or `false`.
+ *   * `next` &#92;- The name of the step to execute if the condition is true. The `switch` block can also have a top-level `next` field to define the default step if no conditions match.
  * 
  * Example:
  * 
@@ -209,8 +209,8 @@ import javax.annotation.Nullable;
  * Iterates over a set of values and executes a sequence of steps for each iteration.
  * 
  * * `type: loop`
- *   * `for.in` \- A JQ expression that returns an array to iterate over.
- *   * `steps` \- An array of steps to execute for each iteration. Inside the loop, you can use `next: continue` to skip to the next iteration or `next: break` to exit the loop.
+ *   * `for.in` &#92;- A JQ expression that returns an array to iterate over.
+ *   * `steps` &#92;- An array of steps to execute for each iteration. Inside the loop, you can use `next: continue` to skip to the next iteration or `next: break` to exit the loop.
  * 
  * Example:
  * 
@@ -331,8 +331,8 @@ import javax.annotation.Nullable;
  * 
  * ### Scope type
  * 
- * * **ACCOUNT** \- The workflow automation is scoped to a specific New Relic account. Use your numeric account ID as the `scopeId`.
- * * **ORGANIZATION** \- The workflow automation is scoped to your entire New Relic organization. Use your organization ID string as the `scopeId`.
+ * * **ACCOUNT** &#92;- The workflow automation is scoped to a specific New Relic account. Use your numeric account ID as the `scopeId`.
+ * * **ORGANIZATION** &#92;- The workflow automation is scoped to your entire New Relic organization. Use your organization ID string as the `scopeId`.
  * 
  * See, [Create accounts and organizations](https://docs.newrelic.com/docs/accounts/accounts-billing/account-structure/multi-tenancy/org-creation/) on how to create an account or an organization.
  * 
@@ -340,9 +340,9 @@ import javax.annotation.Nullable;
  * 
  * The following attributes, when changed, will force creation of a new resource :
  * 
- * * `name` \- Changing the workflow name creates a new resource.
- * * `scopeId` \- Changing the scope ID creates a new resource.
- * * `scopeType` \- Changing between **ACCOUNT** and **ORGANIZATION** creates a new resource.
+ * * `name` &#92;- Changing the workflow name creates a new resource.
+ * * `scopeId` &#92;- Changing the scope ID creates a new resource.
+ * * `scopeType` &#92;- Changing between **ACCOUNT** and **ORGANIZATION** creates a new resource.
  * 
  * ### YAML validation
  * 
@@ -388,14 +388,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/workflowAutomation:WorkflowAutomation")
 public class WorkflowAutomation extends com.pulumi.resources.CustomResource {
     /**
-     * \- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
+     * &#92;- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
      * 
      */
     @Export(name="definition", refs={String.class}, tree="[0]")
     private Output<String> definition;
 
     /**
-     * @return \- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
+     * @return &#92;- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
      * 
      */
     public Output<String> definition() {
@@ -416,70 +416,70 @@ public class WorkflowAutomation extends com.pulumi.resources.CustomResource {
         return this.definitionId;
     }
     /**
-     * \- The description of the workflow, as defined in the YAML.
+     * &#92;- The description of the workflow, as defined in the YAML.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return \- The description of the workflow, as defined in the YAML.
+     * @return &#92;- The description of the workflow, as defined in the YAML.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * \- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
+     * &#92;- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return \- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
+     * @return &#92;- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * \- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
+     * &#92;- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
      * 
      */
     @Export(name="scopeId", refs={String.class}, tree="[0]")
     private Output<String> scopeId;
 
     /**
-     * @return \- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
+     * @return &#92;- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
      * 
      */
     public Output<String> scopeId() {
         return this.scopeId;
     }
     /**
-     * \- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
+     * &#92;- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
      * 
      */
     @Export(name="scopeType", refs={String.class}, tree="[0]")
     private Output<String> scopeType;
 
     /**
-     * @return \- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
+     * @return &#92;- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
      * 
      */
     public Output<String> scopeType() {
         return this.scopeType;
     }
     /**
-     * \- The current version number of the workflow. This number increments with each update to the `definition`.
+     * &#92;- The current version number of the workflow. This number increments with each update to the `definition`.
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**
-     * @return \- The current version number of the workflow. This number increments with each update to the `definition`.
+     * @return &#92;- The current version number of the workflow. This number increments with each update to the `definition`.
      * 
      */
     public Output<Integer> version() {

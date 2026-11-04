@@ -222,6 +222,12 @@ func (AwsEuSovereignIntegrationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*awsEuSovereignIntegrationsState)(nil)).Elem()
 }
 
+// AwsEuSovereignIntegrationsExists checks whether an existing AwsEuSovereignIntegrations resource with the given ID exists.
+func AwsEuSovereignIntegrationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AwsEuSovereignIntegrationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations", id, state, "", opts...)
+}
+
 type awsEuSovereignIntegrationsArgs struct {
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`

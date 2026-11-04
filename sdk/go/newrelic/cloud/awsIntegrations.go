@@ -1470,6 +1470,12 @@ func (AwsIntegrationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*awsIntegrationsState)(nil)).Elem()
 }
 
+// AwsIntegrationsExists checks whether an existing AwsIntegrations resource with the given ID exists.
+func AwsIntegrationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AwsIntegrationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/awsIntegrations:AwsIntegrations", id, state, "", opts...)
+}
+
 type awsIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`

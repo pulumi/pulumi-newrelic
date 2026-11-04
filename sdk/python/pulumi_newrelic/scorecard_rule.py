@@ -720,6 +720,30 @@ class ScorecardRule(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return ScorecardRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            impact_weight: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nrql_engine: pulumi.Input[Optional[Union['ScorecardRuleNrqlEngineArgs', 'ScorecardRuleNrqlEngineArgsDict', 'outputs.ScorecardRuleNrqlEngine']]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            progress_level: pulumi.Input[Optional[_builtins.str]] = None,
+            run_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScorecardRuleTagArgs', 'ScorecardRuleTagArgsDict', 'outputs.ScorecardRuleTag']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["impactWeight"] = impact_weight
+        __props__["name"] = name
+        __props__["nrqlEngine"] = nrql_engine
+        __props__["organizationId"] = organization_id
+        __props__["progressLevel"] = progress_level
+        __props__["runInterval"] = run_interval
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/scorecardRule:ScorecardRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

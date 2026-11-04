@@ -416,6 +416,26 @@ class DataPartitionRule(pulumi.CustomResource):
         __props__.__dict__["target_data_partition"] = target_data_partition
         return DataPartitionRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            deleted: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            nrql: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            target_data_partition: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["deleted"] = deleted
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["nrql"] = nrql
+        __props__["retentionPolicy"] = retention_policy
+        __props__["targetDataPartition"] = target_data_partition
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/dataPartitionRule:DataPartitionRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

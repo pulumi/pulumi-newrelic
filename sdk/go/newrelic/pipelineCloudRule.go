@@ -125,6 +125,12 @@ func (PipelineCloudRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineCloudRuleState)(nil)).Elem()
 }
 
+// PipelineCloudRuleExists checks whether an existing PipelineCloudRule resource with the given ID exists.
+func PipelineCloudRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipelineCloudRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/pipelineCloudRule:PipelineCloudRule", id, state, "", opts...)
+}
+
 type pipelineCloudRuleArgs struct {
 	// The account ID where the Pipeline Cloud Rule will be created.
 	AccountId *string `pulumi:"accountId"`

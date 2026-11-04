@@ -945,6 +945,46 @@ class StepMonitor(pulumi.CustomResource):
         __props__.__dict__["use_unsupported_legacy_runtime"] = use_unsupported_legacy_runtime
         return StepMonitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            location_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict', 'outputs.StepMonitorLocationPrivate']]]]] = None,
+            locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            period: pulumi.Input[Optional[_builtins.str]] = None,
+            period_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict', 'outputs.StepMonitorStep']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict', 'outputs.StepMonitorTag']]]]] = None,
+            use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["browsers"] = browsers
+        __props__["devices"] = devices
+        __props__["enableScreenshotOnFailureAndScript"] = enable_screenshot_on_failure_and_script
+        __props__["guid"] = guid
+        __props__["locationPrivates"] = location_privates
+        __props__["locationsPublics"] = locations_publics
+        __props__["monitorId"] = monitor_id
+        __props__["name"] = name
+        __props__["period"] = period
+        __props__["periodInMinutes"] = period_in_minutes
+        __props__["runtimeType"] = runtime_type
+        __props__["runtimeTypeVersion"] = runtime_type_version
+        __props__["status"] = status
+        __props__["steps"] = steps
+        __props__["tags"] = tags
+        __props__["useUnsupportedLegacyRuntime"] = use_unsupported_legacy_runtime
+        return pulumi.runtime.exists_resource(None, 'newrelic:synthetics/stepMonitor:StepMonitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

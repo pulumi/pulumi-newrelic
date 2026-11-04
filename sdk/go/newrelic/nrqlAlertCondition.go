@@ -725,6 +725,12 @@ func (NrqlAlertConditionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nrqlAlertConditionState)(nil)).Elem()
 }
 
+// NrqlAlertConditionExists checks whether an existing NrqlAlertCondition resource with the given ID exists.
+func NrqlAlertConditionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NrqlAlertConditionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", id, state, "", opts...)
+}
+
 type nrqlAlertConditionArgs struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`

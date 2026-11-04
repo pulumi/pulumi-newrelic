@@ -121,6 +121,12 @@ func (ObfuscationExpressionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*obfuscationExpressionState)(nil)).Elem()
 }
 
+// ObfuscationExpressionExists checks whether an existing ObfuscationExpression resource with the given ID exists.
+func ObfuscationExpressionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObfuscationExpressionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/obfuscationExpression:ObfuscationExpression", id, state, "", opts...)
+}
+
 type obfuscationExpressionArgs struct {
 	// The account id associated with the obfuscation expression.
 	AccountId *string `pulumi:"accountId"`

@@ -143,6 +143,12 @@ func (AwsEuSovereignLinkAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*awsEuSovereignLinkAccountState)(nil)).Elem()
 }
 
+// AwsEuSovereignLinkAccountExists checks whether an existing AwsEuSovereignLinkAccount resource with the given ID exists.
+func AwsEuSovereignLinkAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AwsEuSovereignLinkAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount", id, state, "", opts...)
+}
+
 type awsEuSovereignLinkAccountArgs struct {
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
 	AccountId *string `pulumi:"accountId"`

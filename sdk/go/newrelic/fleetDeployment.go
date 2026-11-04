@@ -313,6 +313,12 @@ func (FleetDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetDeploymentState)(nil)).Elem()
 }
 
+// FleetDeploymentExists checks whether an existing FleetDeployment resource with the given ID exists.
+func FleetDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FleetDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/fleetDeployment:FleetDeployment", id, state, "", opts...)
+}
+
 type fleetDeploymentArgs struct {
 	// Zero or more `agent` blocks. An empty list is accepted on both create and update — useful to drain agent assignments. Each `agentType` may appear at most once per deployment. See Nested `agent` blocks below.
 	Agents []FleetDeploymentAgent `pulumi:"agents"`

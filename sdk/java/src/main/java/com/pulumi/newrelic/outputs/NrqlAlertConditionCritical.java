@@ -29,11 +29,10 @@ public final class NrqlAlertConditionCritical {
     /**
      * @return In minutes, must be in the range of 1 to 120 (inclusive).
      * 
-     * @deprecated
-     * use `thresholdDuration` attribute instead
+     * @deprecated use `thresholdDuration` attribute instead
      * 
      */
-    @Deprecated /* use `thresholdDuration` attribute instead */
+    @Deprecated
     private @Nullable Integer duration;
     /**
      * @return One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to &#39;equals&#39;.
@@ -63,11 +62,10 @@ public final class NrqlAlertConditionCritical {
     /**
      * @return Valid values are: &#39;all&#39; or &#39;any&#39;
      * 
-     * @deprecated
-     * use `thresholdOccurrences` attribute instead
+     * @deprecated use `thresholdOccurrences` attribute instead
      * 
      */
-    @Deprecated /* use `thresholdOccurrences` attribute instead */
+    @Deprecated
     private @Nullable String timeFunction;
 
     private NrqlAlertConditionCritical() {}
@@ -88,11 +86,10 @@ public final class NrqlAlertConditionCritical {
     /**
      * @return In minutes, must be in the range of 1 to 120 (inclusive).
      * 
-     * @deprecated
-     * use `thresholdDuration` attribute instead
+     * @deprecated use `thresholdDuration` attribute instead
      * 
      */
-    @Deprecated /* use `thresholdDuration` attribute instead */
+    @Deprecated
     public Optional<Integer> duration() {
         return Optional.ofNullable(this.duration);
     }
@@ -134,11 +131,10 @@ public final class NrqlAlertConditionCritical {
     /**
      * @return Valid values are: &#39;all&#39; or &#39;any&#39;
      * 
-     * @deprecated
-     * use `thresholdOccurrences` attribute instead
+     * @deprecated use `thresholdOccurrences` attribute instead
      * 
      */
-    @Deprecated /* use `thresholdOccurrences` attribute instead */
+    @Deprecated
     public Optional<String> timeFunction() {
         return Optional.ofNullable(this.timeFunction);
     }

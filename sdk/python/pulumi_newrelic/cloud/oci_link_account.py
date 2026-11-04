@@ -900,6 +900,44 @@ class OciLinkAccount(pulumi.CustomResource):
         __props__.__dict__["user_vault_ocid"] = user_vault_ocid
         return OciLinkAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            compartment_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            ingest_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            instrumentation_type: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_stack_ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_domain_url: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_home_region: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_vault_ocid: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["compartmentOcid"] = compartment_ocid
+        __props__["ingestVaultOcid"] = ingest_vault_ocid
+        __props__["instrumentationType"] = instrumentation_type
+        __props__["loggingStackOcid"] = logging_stack_ocid
+        __props__["metricStackOcid"] = metric_stack_ocid
+        __props__["name"] = name
+        __props__["ociClientId"] = oci_client_id
+        __props__["ociClientSecret"] = oci_client_secret
+        __props__["ociDomainUrl"] = oci_domain_url
+        __props__["ociHomeRegion"] = oci_home_region
+        __props__["ociRegion"] = oci_region
+        __props__["resourceTag"] = resource_tag
+        __props__["tenantId"] = tenant_id
+        __props__["trustType"] = trust_type
+        __props__["userVaultOcid"] = user_vault_ocid
+        return pulumi.runtime.exists_resource(None, 'newrelic:cloud/ociLinkAccount:OciLinkAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

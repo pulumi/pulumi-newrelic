@@ -288,6 +288,12 @@ func (ApiAccessKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiAccessKeyState)(nil)).Elem()
 }
 
+// ApiAccessKeyExists checks whether an existing ApiAccessKey resource with the given ID exists.
+func ApiAccessKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiAccessKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/apiAccessKey:ApiAccessKey", id, state, "", opts...)
+}
+
 type apiAccessKeyArgs struct {
 	// The New Relic account ID where the API access key will be created.
 	AccountId *string `pulumi:"accountId"`

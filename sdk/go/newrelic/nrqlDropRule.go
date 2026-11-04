@@ -99,6 +99,12 @@ func (NrqlDropRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nrqlDropRuleState)(nil)).Elem()
 }
 
+// NrqlDropRuleExists checks whether an existing NrqlDropRule resource with the given ID exists.
+func NrqlDropRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NrqlDropRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/nrqlDropRule:NrqlDropRule", id, state, "", opts...)
+}
+
 type nrqlDropRuleArgs struct {
 	// Account with the NRQL drop rule will be put.
 	AccountId *string `pulumi:"accountId"`

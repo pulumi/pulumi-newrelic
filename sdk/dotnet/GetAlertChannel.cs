@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
         /// 
         /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
         /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -57,7 +56,6 @@ namespace Pulumi.NewRelic
         /// 
         /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
         /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -97,7 +95,6 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific alert channel in New Relic that already exists. More information on Terraform's data sources can be found here.
         /// 
         /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
-        /// 
         /// 
         /// ## Example Usage
         /// 

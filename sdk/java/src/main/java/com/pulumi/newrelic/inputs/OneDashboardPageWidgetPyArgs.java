@@ -208,14 +208,14 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     @Import(name="nrqlQueries", required=true)
     private Output<List<OneDashboardPageWidgetPyNrqlQueryArgs>> nrqlQueries;
 
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     public Output<List<OneDashboardPageWidgetPyNrqlQueryArgs>> nrqlQueries() {
@@ -661,7 +661,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
          * 
          * @return builder
          * 
@@ -672,7 +672,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
          * 
          * @return builder
          * 

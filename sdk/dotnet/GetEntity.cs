@@ -20,7 +20,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ### Example: Filter By Account ID
         /// 
-        /// The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `Name`, `Domain`, `Type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match. 
+        /// The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `Name`, `Domain`, `Type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
         /// 
         /// This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
         /// 
@@ -66,7 +66,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// The following example explains a use case along the lines of the aforementioned; using the `AccountId` argument in the data source to allow the filtering criteria to be the `AccountId` specified (of the subaccount), and not the account ID in the provider configuration. 
+        /// The following example explains a use case along the lines of the aforementioned; using the `AccountId` argument in the data source to allow the filtering criteria to be the `AccountId` specified (of the subaccount), and not the account ID in the provider configuration.
         /// 
         /// In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `AccountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `AccountId`.
         /// ### Query for an OTEL entity
@@ -169,7 +169,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ### Example: Filter By Account ID
         /// 
-        /// The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `Name`, `Domain`, `Type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match. 
+        /// The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `Name`, `Domain`, `Type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
         /// 
         /// This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
         /// 
@@ -215,7 +215,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// The following example explains a use case along the lines of the aforementioned; using the `AccountId` argument in the data source to allow the filtering criteria to be the `AccountId` specified (of the subaccount), and not the account ID in the provider configuration. 
+        /// The following example explains a use case along the lines of the aforementioned; using the `AccountId` argument in the data source to allow the filtering criteria to be the `AccountId` specified (of the subaccount), and not the account ID in the provider configuration.
         /// 
         /// In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `AccountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `AccountId`.
         /// ### Query for an OTEL entity
@@ -318,7 +318,7 @@ namespace Pulumi.NewRelic
         /// 
         /// ### Example: Filter By Account ID
         /// 
-        /// The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `Name`, `Domain`, `Type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match. 
+        /// The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `Name`, `Domain`, `Type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
         /// 
         /// This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
         /// 
@@ -364,7 +364,7 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// The following example explains a use case along the lines of the aforementioned; using the `AccountId` argument in the data source to allow the filtering criteria to be the `AccountId` specified (of the subaccount), and not the account ID in the provider configuration. 
+        /// The following example explains a use case along the lines of the aforementioned; using the `AccountId` argument in the data source to allow the filtering criteria to be the `AccountId` specified (of the subaccount), and not the account ID in the provider configuration.
         /// 
         /// In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `AccountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `AccountId`.
         /// ### Query for an OTEL entity

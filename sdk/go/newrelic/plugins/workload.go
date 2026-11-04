@@ -462,6 +462,12 @@ func (WorkloadState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadState)(nil)).Elem()
 }
 
+// WorkloadExists checks whether an existing Workload resource with the given ID exists.
+func WorkloadExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkloadState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:plugins/workload:Workload", id, state, "", opts...)
+}
+
 type workloadArgs struct {
 	// The New Relic account ID where you want to create the workload.
 	AccountId *string `pulumi:"accountId"`

@@ -1996,6 +1996,74 @@ class NrqlAlertCondition(pulumi.CustomResource):
         __props__.__dict__["warning"] = warning
         return NrqlAlertCondition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aggregation_delay: pulumi.Input[Optional[_builtins.str]] = None,
+            aggregation_method: pulumi.Input[Optional[_builtins.str]] = None,
+            aggregation_timer: pulumi.Input[Optional[_builtins.str]] = None,
+            aggregation_window: pulumi.Input[Optional[_builtins.int]] = None,
+            baseline_direction: pulumi.Input[Optional[_builtins.str]] = None,
+            close_violations_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+            critical: pulumi.Input[Optional[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict', 'outputs.NrqlAlertConditionCritical']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            expiration_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            fill_option: pulumi.Input[Optional[_builtins.str]] = None,
+            fill_value: pulumi.Input[Optional[_builtins.float]] = None,
+            ignore_on_expected_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nrql: pulumi.Input[Optional[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict', 'outputs.NrqlAlertConditionNrql']]] = None,
+            open_violation_on_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+            outlier_configuration: pulumi.Input[Optional[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict', 'outputs.NrqlAlertConditionOutlierConfiguration']]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+            signal_seasonality: pulumi.Input[Optional[_builtins.str]] = None,
+            slide_by: pulumi.Input[Optional[_builtins.int]] = None,
+            target_entity: pulumi.Input[Optional[_builtins.str]] = None,
+            terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict', 'outputs.NrqlAlertConditionTerm']]]]] = None,
+            title_template: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            violation_time_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            warning: pulumi.Input[Optional[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict', 'outputs.NrqlAlertConditionWarning']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["aggregationDelay"] = aggregation_delay
+        __props__["aggregationMethod"] = aggregation_method
+        __props__["aggregationTimer"] = aggregation_timer
+        __props__["aggregationWindow"] = aggregation_window
+        __props__["baselineDirection"] = baseline_direction
+        __props__["closeViolationsOnExpiration"] = close_violations_on_expiration
+        __props__["critical"] = critical
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["entityGuid"] = entity_guid
+        __props__["evaluationDelay"] = evaluation_delay
+        __props__["expirationDuration"] = expiration_duration
+        __props__["fillOption"] = fill_option
+        __props__["fillValue"] = fill_value
+        __props__["ignoreOnExpectedTermination"] = ignore_on_expected_termination
+        __props__["name"] = name
+        __props__["nrql"] = nrql
+        __props__["openViolationOnExpiration"] = open_violation_on_expiration
+        __props__["outlierConfiguration"] = outlier_configuration
+        __props__["policyId"] = policy_id
+        __props__["runbookUrl"] = runbook_url
+        __props__["signalSeasonality"] = signal_seasonality
+        __props__["slideBy"] = slide_by
+        __props__["targetEntity"] = target_entity
+        __props__["terms"] = terms
+        __props__["titleTemplate"] = title_template
+        __props__["type"] = type
+        __props__["violationTimeLimit"] = violation_time_limit
+        __props__["violationTimeLimitSeconds"] = violation_time_limit_seconds
+        __props__["warning"] = warning
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/nrqlAlertCondition:NrqlAlertCondition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

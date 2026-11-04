@@ -288,6 +288,12 @@ func (CertCheckMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certCheckMonitorState)(nil)).Elem()
 }
 
+// CertCheckMonitorExists checks whether an existing CertCheckMonitor resource with the given ID exists.
+func CertCheckMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertCheckMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:synthetics/certCheckMonitor:CertCheckMonitor", id, state, "", opts...)
+}
+
 type certCheckMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *string `pulumi:"accountId"`

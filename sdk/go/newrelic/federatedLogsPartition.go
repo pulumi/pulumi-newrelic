@@ -199,6 +199,12 @@ func (FederatedLogsPartitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedLogsPartitionState)(nil)).Elem()
 }
 
+// FederatedLogsPartitionExists checks whether an existing FederatedLogsPartition resource with the given ID exists.
+func FederatedLogsPartitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedLogsPartitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/federatedLogsPartition:FederatedLogsPartition", id, state, "", opts...)
+}
+
 type federatedLogsPartitionArgs struct {
 	// The New Relic account ID where the federated logs partition will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API.
 	AccountId *string `pulumi:"accountId"`

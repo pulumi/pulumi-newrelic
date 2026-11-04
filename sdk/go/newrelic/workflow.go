@@ -419,6 +419,12 @@ func (WorkflowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workflowState)(nil)).Elem()
 }
 
+// WorkflowExists checks whether an existing Workflow resource with the given ID exists.
+func WorkflowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkflowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/workflow:Workflow", id, state, "", opts...)
+}
+
 type workflowArgs struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
 	AccountId *string `pulumi:"accountId"`

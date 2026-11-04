@@ -478,6 +478,22 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
         __props__.__dict__["x_ray"] = x_ray
         return AwsEuSovereignIntegrations(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            billing: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict', 'outputs.AwsEuSovereignIntegrationsBilling']]] = None,
+            cloudtrail: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict', 'outputs.AwsEuSovereignIntegrationsCloudtrail']]] = None,
+            linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            x_ray: pulumi.Input[Optional[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict', 'outputs.AwsEuSovereignIntegrationsXRay']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["billing"] = billing
+        __props__["cloudtrail"] = cloudtrail
+        __props__["linkedAccountId"] = linked_account_id
+        __props__["xRay"] = x_ray
+        return pulumi.runtime.exists_resource(None, 'newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

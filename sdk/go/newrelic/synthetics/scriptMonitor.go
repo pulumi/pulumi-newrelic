@@ -519,6 +519,12 @@ func (ScriptMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scriptMonitorState)(nil)).Elem()
 }
 
+// ScriptMonitorExists checks whether an existing ScriptMonitor resource with the given ID exists.
+func ScriptMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScriptMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:synthetics/scriptMonitor:ScriptMonitor", id, state, "", opts...)
+}
+
 type scriptMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *string `pulumi:"accountId"`

@@ -471,6 +471,24 @@ class GcpLinkAccount(pulumi.CustomResource):
         __props__.__dict__["use_workload_identity_federation"] = use_workload_identity_federation
         return GcpLinkAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            audience: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account_email: pulumi.Input[Optional[_builtins.str]] = None,
+            use_workload_identity_federation: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["audience"] = audience
+        __props__["name"] = name
+        __props__["projectId"] = project_id
+        __props__["serviceAccountEmail"] = service_account_email
+        __props__["useWorkloadIdentityFederation"] = use_workload_identity_federation
+        return pulumi.runtime.exists_resource(None, 'newrelic:cloud/gcpLinkAccount:GcpLinkAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

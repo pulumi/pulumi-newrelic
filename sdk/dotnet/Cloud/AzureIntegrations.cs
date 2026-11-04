@@ -426,7 +426,6 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The ID of the linked Azure account in New Relic.
         /// 
-        /// 
         /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 60 seconds.
         /// </summary>
         [Output("linkedAccountId")]
@@ -691,7 +690,6 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The ID of the linked Azure account in New Relic.
         /// 
-        /// 
         /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 60 seconds.
         /// </summary>
         [Input("linkedAccountId", required: true)]
@@ -917,7 +915,6 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked Azure account in New Relic.
-        /// 
         /// 
         /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 60 seconds.
         /// </summary>

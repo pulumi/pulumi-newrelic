@@ -21,21 +21,19 @@ public final class NrqlAlertConditionNrql {
     /**
      * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
      * 
-     * @deprecated
-     * use `aggregationMethod` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregationMethod` attribute instead */
+    @Deprecated
     private @Nullable Integer evaluationOffset;
     private String query;
     /**
      * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
      * 
-     * @deprecated
-     * use `aggregationMethod` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregationMethod` attribute instead */
+    @Deprecated
     private @Nullable String sinceValue;
 
     private NrqlAlertConditionNrql() {}
@@ -49,11 +47,10 @@ public final class NrqlAlertConditionNrql {
     /**
      * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
      * 
-     * @deprecated
-     * use `aggregationMethod` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregationMethod` attribute instead */
+    @Deprecated
     public Optional<Integer> evaluationOffset() {
         return Optional.ofNullable(this.evaluationOffset);
     }
@@ -63,11 +60,10 @@ public final class NrqlAlertConditionNrql {
     /**
      * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
      * 
-     * @deprecated
-     * use `aggregationMethod` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregationMethod` attribute instead */
+    @Deprecated
     public Optional<String> sinceValue() {
         return Optional.ofNullable(this.sinceValue);
     }

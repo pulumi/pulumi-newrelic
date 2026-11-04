@@ -171,6 +171,12 @@ func (AwsConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*awsConnectionState)(nil)).Elem()
 }
 
+// AwsConnectionExists checks whether an existing AwsConnection resource with the given ID exists.
+func AwsConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AwsConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/awsConnection:AwsConnection", id, state, "", opts...)
+}
+
 type awsConnectionArgs struct {
 	// New Relic account ID where the connection will be created. Used when `scopeType = ACCOUNT`.
 	AccountId *string `pulumi:"accountId"`

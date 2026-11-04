@@ -184,6 +184,12 @@ func (OneDashboardRawState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oneDashboardRawState)(nil)).Elem()
 }
 
+// OneDashboardRawExists checks whether an existing OneDashboardRaw resource with the given ID exists.
+func OneDashboardRawExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OneDashboardRawState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/oneDashboardRaw:OneDashboardRaw", id, state, "", opts...)
+}
+
 type oneDashboardRawArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`

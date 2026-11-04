@@ -205,6 +205,12 @@ func (FleetConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetConfigurationState)(nil)).Elem()
 }
 
+// FleetConfigurationExists checks whether an existing FleetConfiguration resource with the given ID exists.
+func FleetConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FleetConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/fleetConfiguration:FleetConfiguration", id, state, "", opts...)
+}
+
 type fleetConfigurationArgs struct {
 	// The type of agent this configuration is for. Valid values: `NRInfra`, `NRDOT`, `FluentBit`, `NRPrometheusAgent`. **Cannot be changed after creation.**
 	AgentType string `pulumi:"agentType"`

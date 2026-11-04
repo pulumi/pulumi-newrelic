@@ -284,12 +284,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("webhook-example")
  *             .type("webhook")
@@ -297,18 +297,18 @@ import javax.annotation.Nullable;
  *                 .baseUrl("http://www.test.com")
  *                 .payloadType("application/json")
  *                 .payloadString("""
- * {
- *   \"my_custom_values\": {
- *     \"condition_name\": \"$CONDITION_NAME\",
- *     \"policy_name\": \"$POLICY_NAME\"
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "my_custom_values}&#92;{@code ": }{{@code
+ *     }&#92;{@code "condition_name}&#92;{@code ": }&#92;{@code "$CONDITION_NAME}&#92;{@code ",
+ *     }&#92;{@code "policy_name}&#92;{@code ": }&#92;{@code "$POLICY_NAME}&#92;{@code "
+ *   }}{@code
+ * }}{@code
  *                 """)
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

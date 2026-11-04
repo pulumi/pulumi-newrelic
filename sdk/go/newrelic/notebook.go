@@ -1003,6 +1003,12 @@ func (NotebookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookState)(nil)).Elem()
 }
 
+// NotebookExists checks whether an existing Notebook resource with the given ID exists.
+func NotebookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotebookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/notebook:Notebook", id, state, "", opts...)
+}
+
 type notebookArgs struct {
 	// The notebook body as a JSON string. Accepts the raw JSON exported from the New Relic UI, a `file()` reference, or a `jsonencode({...})` expression. Produces line-level diffs of the normalized JSON in `pulumi preview`.
 	Content string `pulumi:"content"`

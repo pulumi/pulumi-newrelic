@@ -84,7 +84,7 @@ public final class OneDashboardPageWidgetPy {
      */
     private @Nullable List<String> linkedEntityGuids;
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     private List<OneDashboardPageWidgetPyNrqlQuery> nrqlQueries;
@@ -211,7 +211,7 @@ public final class OneDashboardPageWidgetPy {
         return this.linkedEntityGuids == null ? List.of() : this.linkedEntityGuids;
     }
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     public List<OneDashboardPageWidgetPyNrqlQuery> nrqlQueries() {

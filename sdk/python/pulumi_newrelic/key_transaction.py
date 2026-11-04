@@ -405,6 +405,26 @@ class KeyTransaction(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return KeyTransaction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apdex_index: pulumi.Input[Optional[_builtins.float]] = None,
+            application_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_apdex_target: pulumi.Input[Optional[_builtins.float]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apdexIndex"] = apdex_index
+        __props__["applicationGuid"] = application_guid
+        __props__["browserApdexTarget"] = browser_apdex_target
+        __props__["domain"] = domain
+        __props__["metricName"] = metric_name
+        __props__["name"] = name
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/keyTransaction:KeyTransaction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apdexIndex")
     def apdex_index(self) -> pulumi.Output[_builtins.float]:

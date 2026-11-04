@@ -296,6 +296,12 @@ func (MultiLocationAlertConditionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiLocationAlertConditionState)(nil)).Elem()
 }
 
+// MultiLocationAlertConditionExists checks whether an existing MultiLocationAlertCondition resource with the given ID exists.
+func MultiLocationAlertConditionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiLocationAlertConditionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition", id, state, "", opts...)
+}
+
 type multiLocationAlertConditionArgs struct {
 	// A condition term with the priority set to critical.
 	Critical MultiLocationAlertConditionCritical `pulumi:"critical"`

@@ -891,11 +891,10 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      * 
-     * @deprecated
-     * use `critical` and `warning` attributes instead
+     * @deprecated use `critical` and `warning` attributes instead
      * 
      */
-    @Deprecated /* use `critical` and `warning` attributes instead */
+    @Deprecated
     @Export(name="terms", refs={List.class,NrqlAlertConditionTerm.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NrqlAlertConditionTerm>> terms;
 
@@ -922,7 +921,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
     }
     /**
      * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
-     * &lt;small&gt;\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
+     * &lt;small&gt;&#92;***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
@@ -930,7 +929,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
-     * &lt;small&gt;\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
+     * &lt;small&gt;&#92;***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
      * 
      */
     public Output<Optional<String>> type() {
@@ -938,19 +937,18 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
     }
     /**
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;&#92;***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
      * 
-     * @deprecated
-     * use `violationTimeLimitSeconds` attribute instead
+     * @deprecated use `violationTimeLimitSeconds` attribute instead
      * 
      */
-    @Deprecated /* use `violationTimeLimitSeconds` attribute instead */
+    @Deprecated
     @Export(name="violationTimeLimit", refs={String.class}, tree="[0]")
     private Output<String> violationTimeLimit;
 
     /**
      * @return **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;&#92;***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
      * 
      */
     public Output<String> violationTimeLimit() {
@@ -958,7 +956,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
     }
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;&#92;***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
      * 
      */
     @Export(name="violationTimeLimitSeconds", refs={Integer.class}, tree="[0]")
@@ -966,7 +964,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;&#92;***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
      * 
      */
     public Output<Optional<Integer>> violationTimeLimitSeconds() {

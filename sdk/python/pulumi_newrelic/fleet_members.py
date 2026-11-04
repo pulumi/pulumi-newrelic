@@ -414,6 +414,16 @@ class FleetMembers(pulumi.CustomResource):
         __props__.__dict__["rings"] = rings
         return FleetMembers(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetMembersRingArgs', 'FleetMembersRingArgsDict', 'outputs.FleetMembersRing']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["fleetId"] = fleet_id
+        __props__["rings"] = rings
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/fleetMembers:FleetMembers', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="fleetId")
     def fleet_id(self) -> pulumi.Output[_builtins.str]:

@@ -674,6 +674,36 @@ class ApplicationSettings(pulumi.CustomResource):
         __props__.__dict__["use_server_side_config"] = use_server_side_config
         return ApplicationSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            enable_real_user_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_slow_sql: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_thread_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_user_apdex_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            error_collectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict', 'outputs.ApplicationSettingsErrorCollector']]]]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            is_imported: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tracer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            transaction_tracers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict', 'outputs.ApplicationSettingsTransactionTracer']]]]] = None,
+            use_server_side_config: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appApdexThreshold"] = app_apdex_threshold
+        __props__["enableRealUserMonitoring"] = enable_real_user_monitoring
+        __props__["enableSlowSql"] = enable_slow_sql
+        __props__["enableThreadProfiler"] = enable_thread_profiler
+        __props__["endUserApdexThreshold"] = end_user_apdex_threshold
+        __props__["errorCollectors"] = error_collectors
+        __props__["guid"] = guid
+        __props__["isImported"] = is_imported
+        __props__["name"] = name
+        __props__["tracerType"] = tracer_type
+        __props__["transactionTracers"] = transaction_tracers
+        __props__["useServerSideConfig"] = use_server_side_config
+        return pulumi.runtime.exists_resource(None, 'newrelic:plugins/applicationSettings:ApplicationSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appApdexThreshold")
     def app_apdex_threshold(self) -> pulumi.Output[Optional[_builtins.float]]:

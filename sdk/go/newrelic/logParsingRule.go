@@ -206,6 +206,12 @@ func (LogParsingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logParsingRuleState)(nil)).Elem()
 }
 
+// LogParsingRuleExists checks whether an existing LogParsingRule resource with the given ID exists.
+func LogParsingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogParsingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/logParsingRule:LogParsingRule", id, state, "", opts...)
+}
+
 type logParsingRuleArgs struct {
 	// The account id associated with the obfuscation rule.
 	AccountId *string `pulumi:"accountId"`

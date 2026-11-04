@@ -142,6 +142,12 @@ func (BrowserApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*browserApplicationState)(nil)).Elem()
 }
 
+// BrowserApplicationExists checks whether an existing BrowserApplication resource with the given ID exists.
+func BrowserApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BrowserApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/browserApplication:BrowserApplication", id, state, "", opts...)
+}
+
 type browserApplicationArgs struct {
 	// The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
 	AccountId *string `pulumi:"accountId"`

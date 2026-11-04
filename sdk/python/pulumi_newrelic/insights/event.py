@@ -240,6 +240,14 @@ class Event(pulumi.CustomResource):
         __props__.__dict__["events"] = events
         return Event(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict', 'outputs.EventEvent']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["events"] = events
+        return pulumi.runtime.exists_resource(None, 'newrelic:insights/event:Event', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def events(self) -> pulumi.Output[Sequence['outputs.EventEvent']]:

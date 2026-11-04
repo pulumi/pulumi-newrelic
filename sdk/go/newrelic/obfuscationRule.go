@@ -156,6 +156,12 @@ func (ObfuscationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*obfuscationRuleState)(nil)).Elem()
 }
 
+// ObfuscationRuleExists checks whether an existing ObfuscationRule resource with the given ID exists.
+func ObfuscationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObfuscationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/obfuscationRule:ObfuscationRule", id, state, "", opts...)
+}
+
 type obfuscationRuleArgs struct {
 	// The account id associated with the obfuscation rule.
 	AccountId *string `pulumi:"accountId"`

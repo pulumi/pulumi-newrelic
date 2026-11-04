@@ -34,22 +34,20 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
     /**
      * **DEPRECATED** The `channelIds` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
      * 
-     * @deprecated
-     * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+     * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      * 
      */
-    @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
+    @Deprecated
     @Import(name="channelIds")
     private @Nullable Output<List<String>> channelIds;
 
     /**
      * @return **DEPRECATED** The `channelIds` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
      * 
-     * @deprecated
-     * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+     * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      * 
      */
-    @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
+    @Deprecated
     public Optional<Output<List<String>>> channelIds() {
         return Optional.ofNullable(this.channelIds);
     }
@@ -159,11 +157,10 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+         * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
          * 
          */
-        @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
+        @Deprecated
         public Builder channelIds(@Nullable Output<List<String>> channelIds) {
             $.channelIds = channelIds;
             return this;
@@ -174,11 +171,10 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+         * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
          * 
          */
-        @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
+        @Deprecated
         public Builder channelIds(List<String> channelIds) {
             return channelIds(Output.of(channelIds));
         }
@@ -188,11 +184,10 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
+         * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
          * 
          */
-        @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
+        @Deprecated
         public Builder channelIds(String... channelIds) {
             return channelIds(List.of(channelIds));
         }

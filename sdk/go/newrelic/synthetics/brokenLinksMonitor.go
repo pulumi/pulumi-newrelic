@@ -283,6 +283,12 @@ func (BrokenLinksMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*brokenLinksMonitorState)(nil)).Elem()
 }
 
+// BrokenLinksMonitorExists checks whether an existing BrokenLinksMonitor resource with the given ID exists.
+func BrokenLinksMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BrokenLinksMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor", id, state, "", opts...)
+}
+
 type brokenLinksMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *string `pulumi:"accountId"`

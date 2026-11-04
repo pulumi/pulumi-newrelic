@@ -288,6 +288,12 @@ func (CardinalityManagementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cardinalityManagementState)(nil)).Elem()
 }
 
+// CardinalityManagementExists checks whether an existing CardinalityManagement resource with the given ID exists.
+func CardinalityManagementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CardinalityManagementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/cardinalityManagement:CardinalityManagement", id, state, "", opts...)
+}
+
 type cardinalityManagementArgs struct {
 	// The account-wide cardinality limit — the maximum number of unique dimension-value combinations allowed per metric per day. Required when `mode` is `"DEFAULT"`; must not be set when `mode` is `"PER_METRIC"`.
 	CardinalityLimit *int `pulumi:"cardinalityLimit"`

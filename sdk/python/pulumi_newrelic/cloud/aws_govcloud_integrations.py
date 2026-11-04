@@ -1007,6 +1007,56 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         __props__.__dict__["sqs"] = sqs
         return AwsGovcloudIntegrations(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            alb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAlbArgs', 'AwsGovcloudIntegrationsAlbArgsDict', 'outputs.AwsGovcloudIntegrationsAlb']]] = None,
+            api_gateway: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsApiGatewayArgs', 'AwsGovcloudIntegrationsApiGatewayArgsDict', 'outputs.AwsGovcloudIntegrationsApiGateway']]] = None,
+            auto_scaling: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAutoScalingArgs', 'AwsGovcloudIntegrationsAutoScalingArgsDict', 'outputs.AwsGovcloudIntegrationsAutoScaling']]] = None,
+            aws_direct_connect: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsDirectConnectArgs', 'AwsGovcloudIntegrationsAwsDirectConnectArgsDict', 'outputs.AwsGovcloudIntegrationsAwsDirectConnect']]] = None,
+            aws_states: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsAwsStatesArgs', 'AwsGovcloudIntegrationsAwsStatesArgsDict', 'outputs.AwsGovcloudIntegrationsAwsStates']]] = None,
+            cloudtrail: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsCloudtrailArgs', 'AwsGovcloudIntegrationsCloudtrailArgsDict', 'outputs.AwsGovcloudIntegrationsCloudtrail']]] = None,
+            dynamo_db: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsDynamoDbArgs', 'AwsGovcloudIntegrationsDynamoDbArgsDict', 'outputs.AwsGovcloudIntegrationsDynamoDb']]] = None,
+            ebs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEbsArgs', 'AwsGovcloudIntegrationsEbsArgsDict', 'outputs.AwsGovcloudIntegrationsEbs']]] = None,
+            ec2: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEc2Args', 'AwsGovcloudIntegrationsEc2ArgsDict', 'outputs.AwsGovcloudIntegrationsEc2']]] = None,
+            elastic_search: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElasticSearchArgs', 'AwsGovcloudIntegrationsElasticSearchArgsDict', 'outputs.AwsGovcloudIntegrationsElasticSearch']]] = None,
+            elb: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsElbArgs', 'AwsGovcloudIntegrationsElbArgsDict', 'outputs.AwsGovcloudIntegrationsElb']]] = None,
+            emr: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsEmrArgs', 'AwsGovcloudIntegrationsEmrArgsDict', 'outputs.AwsGovcloudIntegrationsEmr']]] = None,
+            iam: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsIamArgs', 'AwsGovcloudIntegrationsIamArgsDict', 'outputs.AwsGovcloudIntegrationsIam']]] = None,
+            lambda_: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsLambdaArgs', 'AwsGovcloudIntegrationsLambdaArgsDict', 'outputs.AwsGovcloudIntegrationsLambda']]] = None,
+            linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rds: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRdsArgs', 'AwsGovcloudIntegrationsRdsArgsDict', 'outputs.AwsGovcloudIntegrationsRds']]] = None,
+            red_shift: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRedShiftArgs', 'AwsGovcloudIntegrationsRedShiftArgsDict', 'outputs.AwsGovcloudIntegrationsRedShift']]] = None,
+            route53: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsRoute53Args', 'AwsGovcloudIntegrationsRoute53ArgsDict', 'outputs.AwsGovcloudIntegrationsRoute53']]] = None,
+            s3: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsS3Args', 'AwsGovcloudIntegrationsS3ArgsDict', 'outputs.AwsGovcloudIntegrationsS3']]] = None,
+            sns: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSnsArgs', 'AwsGovcloudIntegrationsSnsArgsDict', 'outputs.AwsGovcloudIntegrationsSns']]] = None,
+            sqs: pulumi.Input[Optional[Union['AwsGovcloudIntegrationsSqsArgs', 'AwsGovcloudIntegrationsSqsArgsDict', 'outputs.AwsGovcloudIntegrationsSqs']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["alb"] = alb
+        __props__["apiGateway"] = api_gateway
+        __props__["autoScaling"] = auto_scaling
+        __props__["awsDirectConnect"] = aws_direct_connect
+        __props__["awsStates"] = aws_states
+        __props__["cloudtrail"] = cloudtrail
+        __props__["dynamoDb"] = dynamo_db
+        __props__["ebs"] = ebs
+        __props__["ec2"] = ec2
+        __props__["elasticSearch"] = elastic_search
+        __props__["elb"] = elb
+        __props__["emr"] = emr
+        __props__["iam"] = iam
+        __props__["lambda"] = lambda_
+        __props__["linkedAccountId"] = linked_account_id
+        __props__["rds"] = rds
+        __props__["redShift"] = red_shift
+        __props__["route53"] = route53
+        __props__["s3"] = s3
+        __props__["sns"] = sns
+        __props__["sqs"] = sqs
+        return pulumi.runtime.exists_resource(None, 'newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

@@ -738,6 +738,32 @@ class PathpointFlow(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return PathpointFlow(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            health_rollup: pulumi.Input[Optional[_builtins.str]] = None,
+            kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PathpointFlowKpiArgs', 'PathpointFlowKpiArgsDict', 'outputs.PathpointFlowKpi']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_interval: pulumi.Input[Optional[_builtins.str]] = None,
+            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PathpointFlowStageArgs', 'PathpointFlowStageArgsDict', 'outputs.PathpointFlowStage']]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["category"] = category
+        __props__["description"] = description
+        __props__["guid"] = guid
+        __props__["healthRollup"] = health_rollup
+        __props__["kpis"] = kpis
+        __props__["name"] = name
+        __props__["refreshInterval"] = refresh_interval
+        __props__["stages"] = stages
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/pathpointFlow:PathpointFlow', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

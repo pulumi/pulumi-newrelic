@@ -222,6 +222,12 @@ func (MetricPruningRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricPruningRuleState)(nil)).Elem()
 }
 
+// MetricPruningRuleExists checks whether an existing MetricPruningRule resource with the given ID exists.
+func MetricPruningRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MetricPruningRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/metricPruningRule:MetricPruningRule", id, state, "", opts...)
+}
+
 type metricPruningRuleArgs struct {
 	// The New Relic account ID in which to create the pruning rule. Defaults to the account ID configured on the provider.
 	//
