@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var foo = new FederatedLogsPartition("foo", FederatedLogsPartitionArgs.builder()
  *             .setupId(setup.get("id"))
  *             .name("test-partition-logs")
@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
  *                 .type("PIPELINE_CONTROL")
  *                 .pipelineControl(FederatedLogsPartitionForwarderConfigurationPipelineControlArgs.builder()
  *                     .partitionRule(FederatedLogsPartitionForwarderConfigurationPipelineControlPartitionRuleArgs.builder()
- *                         .expression("attributes[\"log.type\"] == \"partition\"")
+ *                         .expression("attributes[}&#92;{@code "log.type}&#92;{@code "] == }&#92;{@code "partition}&#92;{@code "")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

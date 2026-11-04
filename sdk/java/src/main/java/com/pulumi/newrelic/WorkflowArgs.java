@@ -55,11 +55,10 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
      * **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
      * these two are different flags, but they are functionally identical. Defaults to true.
      * 
-     * @deprecated
-     * Please use &#39;enabled&#39; instead
+     * @deprecated Please use &#39;enabled&#39; instead
      * 
      */
-    @Deprecated /* Please use 'enabled' instead */
+    @Deprecated
     @Import(name="destinationsEnabled")
     private @Nullable Output<Boolean> destinationsEnabled;
 
@@ -67,11 +66,10 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
      * @return **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
      * these two are different flags, but they are functionally identical. Defaults to true.
      * 
-     * @deprecated
-     * Please use &#39;enabled&#39; instead
+     * @deprecated Please use &#39;enabled&#39; instead
      * 
      */
-    @Deprecated /* Please use 'enabled' instead */
+    @Deprecated
     public Optional<Output<Boolean>> destinationsEnabled() {
         return Optional.ofNullable(this.destinationsEnabled);
     }
@@ -256,11 +254,10 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use &#39;enabled&#39; instead
+         * @deprecated Please use &#39;enabled&#39; instead
          * 
          */
-        @Deprecated /* Please use 'enabled' instead */
+        @Deprecated
         public Builder destinationsEnabled(@Nullable Output<Boolean> destinationsEnabled) {
             $.destinationsEnabled = destinationsEnabled;
             return this;
@@ -272,11 +269,10 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use &#39;enabled&#39; instead
+         * @deprecated Please use &#39;enabled&#39; instead
          * 
          */
-        @Deprecated /* Please use 'enabled' instead */
+        @Deprecated
         public Builder destinationsEnabled(Boolean destinationsEnabled) {
             return destinationsEnabled(Output.of(destinationsEnabled));
         }

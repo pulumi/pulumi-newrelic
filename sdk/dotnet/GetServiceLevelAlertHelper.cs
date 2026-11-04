@@ -119,7 +119,6 @@ namespace Pulumi.NewRelic
         /// 
         /// Here is an example of a custom alert:
         /// 
-        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -279,7 +278,6 @@ namespace Pulumi.NewRelic
         /// 
         /// Here is an example of a custom alert:
         /// 
-        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -438,7 +436,6 @@ namespace Pulumi.NewRelic
         /// ```
         /// 
         /// Here is an example of a custom alert:
-        /// 
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

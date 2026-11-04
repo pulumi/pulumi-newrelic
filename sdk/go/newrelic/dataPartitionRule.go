@@ -153,6 +153,12 @@ func (DataPartitionRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataPartitionRuleState)(nil)).Elem()
 }
 
+// DataPartitionRuleExists checks whether an existing DataPartitionRule resource with the given ID exists.
+func DataPartitionRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataPartitionRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/dataPartitionRule:DataPartitionRule", id, state, "", opts...)
+}
+
 type dataPartitionRuleArgs struct {
 	// The account id associated with the data partition rule.
 	AccountId *string `pulumi:"accountId"`

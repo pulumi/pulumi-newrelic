@@ -121,6 +121,12 @@ func (AccountManagementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountManagementState)(nil)).Elem()
 }
 
+// AccountManagementExists checks whether an existing AccountManagement resource with the given ID exists.
+func AccountManagementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountManagementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/accountManagement:AccountManagement", id, state, "", opts...)
+}
+
 type accountManagementArgs struct {
 	// The name of the Account.
 	//

@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampledash = new OneDashboardRaw("exampledash", OneDashboardRawArgs.builder()
  *             .name("New Relic Terraform Example")
  *             .pages(OneDashboardRawPageArgs.builder()
@@ -61,22 +61,22 @@ import javax.annotation.Nullable;
  *                         .height(1)
  *                         .visualizationId("viz.custom")
  *                         .configuration("""
- *       {
- *         \"legend\": {
- *           \"enabled\": false
- *         },
- *         \"nrqlQueries\": [
- *           {
- *             \"accountId\": ` + accountID + `,
- *             \"query\": \"SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES\"
- *           }
+ *       }{{@code
+ *         }&#92;{@code "legend}&#92;{@code ": }{{@code
+ *           }&#92;{@code "enabled}&#92;{@code ": false
+ *         }}{@code ,
+ *         }&#92;{@code "nrqlQueries}&#92;{@code ": [
+ *           }{{@code
+ *             }&#92;{@code "accountId}&#92;{@code ": ` + accountID + `,
+ *             }&#92;{@code "query}&#92;{@code ": }&#92;{@code "SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES}&#92;{@code "
+ *           }}{@code
  *         ],
- *         \"yAxisLeft\": {
- *           \"max\": 100,
- *           \"min\": 50,
- *           \"zero\": false
- *         }
- *       }
+ *         }&#92;{@code "yAxisLeft}&#92;{@code ": }{{@code
+ *           }&#92;{@code "max}&#92;{@code ": 100,
+ *           }&#92;{@code "min}&#92;{@code ": 50,
+ *           }&#92;{@code "zero}&#92;{@code ": false
+ *         }}{@code
+ *       }}{@code
  *                         """)
  *                         .build(),
  *                     OneDashboardRawPageWidgetArgs.builder()
@@ -87,14 +87,14 @@ import javax.annotation.Nullable;
  *                         .height(1)
  *                         .visualizationId("viz.testing")
  *                         .configuration("""
- *       {
- *         \"nrqlQueries\": [
- *           {
- *             \"accountId\": ` + accountID + `,
- *             \"query\": \"SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400\"
- *           }
+ *       }{{@code
+ *         }&#92;{@code "nrqlQueries}&#92;{@code ": [
+ *           }{{@code
+ *             }&#92;{@code "accountId}&#92;{@code ": ` + accountID + `,
+ *             }&#92;{@code "query}&#92;{@code ": }&#92;{@code "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400}&#92;{@code "
+ *           }}{@code
  *         ]
- *       }
+ *       }}{@code
  *                         """)
  *                         .build(),
  *                     OneDashboardRawPageWidgetArgs.builder()
@@ -119,8 +119,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

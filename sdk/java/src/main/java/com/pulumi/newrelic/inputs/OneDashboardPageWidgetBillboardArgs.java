@@ -29,14 +29,14 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
     public static final OneDashboardPageWidgetBillboardArgs Empty = new OneDashboardPageWidgetBillboardArgs();
 
     /**
-     * (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+     * (Optional) A nested block that describes billboard specific settings. See Nested billboard&#92;_settings blocks below for details.
      * 
      */
     @Import(name="billboardSettings")
     private @Nullable Output<OneDashboardPageWidgetBillboardBillboardSettingsArgs> billboardSettings;
 
     /**
-     * @return (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+     * @return (Optional) A nested block that describes billboard specific settings. See Nested billboard&#92;_settings blocks below for details.
      * 
      */
     public Optional<Output<OneDashboardPageWidgetBillboardBillboardSettingsArgs>> billboardSettings() {
@@ -209,14 +209,14 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
     }
 
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     @Import(name="nrqlQueries", required=true)
     private Output<List<OneDashboardPageWidgetBillboardNrqlQueryArgs>> nrqlQueries;
 
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     public Output<List<OneDashboardPageWidgetBillboardNrqlQueryArgs>> nrqlQueries() {
@@ -396,7 +396,7 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
         }
 
         /**
-         * @param billboardSettings (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+         * @param billboardSettings (Optional) A nested block that describes billboard specific settings. See Nested billboard&#92;_settings blocks below for details.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
         }
 
         /**
-         * @param billboardSettings (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+         * @param billboardSettings (Optional) A nested block that describes billboard specific settings. See Nested billboard&#92;_settings blocks below for details.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
         }
 
         /**
-         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
         }
 
         /**
-         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
         }
 
         /**
-         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
          * 
          * @return builder
          * 

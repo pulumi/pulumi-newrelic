@@ -193,6 +193,12 @@ func (GcpLinkAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gcpLinkAccountState)(nil)).Elem()
 }
 
+// GcpLinkAccountExists checks whether an existing GcpLinkAccount resource with the given ID exists.
+func GcpLinkAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GcpLinkAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/gcpLinkAccount:GcpLinkAccount", id, state, "", opts...)
+}
+
 type gcpLinkAccountArgs struct {
 	// Account ID of the New Relic account.
 	AccountId *string `pulumi:"accountId"`

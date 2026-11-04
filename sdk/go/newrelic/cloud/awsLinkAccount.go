@@ -136,6 +136,12 @@ func (AwsLinkAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*awsLinkAccountState)(nil)).Elem()
 }
 
+// AwsLinkAccountExists checks whether an existing AwsLinkAccount resource with the given ID exists.
+func AwsLinkAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AwsLinkAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/awsLinkAccount:AwsLinkAccount", id, state, "", opts...)
+}
+
 type awsLinkAccountArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`

@@ -652,6 +652,30 @@ class ApiAccessKey(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return ApiAccessKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ingest_type: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            key_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["enabled"] = enabled
+        __props__["ingestType"] = ingest_type
+        __props__["key"] = key
+        __props__["keyType"] = key_type
+        __props__["name"] = name
+        __props__["notes"] = notes
+        __props__["owningTeamIds"] = owning_team_ids
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/apiAccessKey:ApiAccessKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[_builtins.str]]:

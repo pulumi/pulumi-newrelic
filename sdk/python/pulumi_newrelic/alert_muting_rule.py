@@ -489,6 +489,26 @@ class AlertMutingRule(pulumi.CustomResource):
         __props__.__dict__["schedule"] = schedule
         return AlertMutingRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            action_on_muting_rule_window_ended: pulumi.Input[Optional[_builtins.str]] = None,
+            condition: pulumi.Input[Optional[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict', 'outputs.AlertMutingRuleCondition']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict', 'outputs.AlertMutingRuleSchedule']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["actionOnMutingRuleWindowEnded"] = action_on_muting_rule_window_ended
+        __props__["condition"] = condition
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["schedule"] = schedule
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/alertMutingRule:AlertMutingRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

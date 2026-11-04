@@ -1866,6 +1866,82 @@ class AzureIntegrations(pulumi.CustomResource):
         __props__.__dict__["vpn_gateway"] = vpn_gateway
         return AzureIntegrations(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            api_management: pulumi.Input[Optional[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict', 'outputs.AzureIntegrationsApiManagement']]] = None,
+            app_gateway: pulumi.Input[Optional[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict', 'outputs.AzureIntegrationsAppGateway']]] = None,
+            app_service: pulumi.Input[Optional[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict', 'outputs.AzureIntegrationsAppService']]] = None,
+            auto_discovery: pulumi.Input[Optional[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict', 'outputs.AzureIntegrationsAutoDiscovery']]] = None,
+            containers: pulumi.Input[Optional[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict', 'outputs.AzureIntegrationsContainers']]] = None,
+            cosmos_db: pulumi.Input[Optional[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict', 'outputs.AzureIntegrationsCosmosDb']]] = None,
+            cost_management: pulumi.Input[Optional[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict', 'outputs.AzureIntegrationsCostManagement']]] = None,
+            data_factory: pulumi.Input[Optional[Union['AzureIntegrationsDataFactoryArgs', 'AzureIntegrationsDataFactoryArgsDict', 'outputs.AzureIntegrationsDataFactory']]] = None,
+            event_hub: pulumi.Input[Optional[Union['AzureIntegrationsEventHubArgs', 'AzureIntegrationsEventHubArgsDict', 'outputs.AzureIntegrationsEventHub']]] = None,
+            express_route: pulumi.Input[Optional[Union['AzureIntegrationsExpressRouteArgs', 'AzureIntegrationsExpressRouteArgsDict', 'outputs.AzureIntegrationsExpressRoute']]] = None,
+            firewalls: pulumi.Input[Optional[Union['AzureIntegrationsFirewallsArgs', 'AzureIntegrationsFirewallsArgsDict', 'outputs.AzureIntegrationsFirewalls']]] = None,
+            front_door: pulumi.Input[Optional[Union['AzureIntegrationsFrontDoorArgs', 'AzureIntegrationsFrontDoorArgsDict', 'outputs.AzureIntegrationsFrontDoor']]] = None,
+            functions: pulumi.Input[Optional[Union['AzureIntegrationsFunctionsArgs', 'AzureIntegrationsFunctionsArgsDict', 'outputs.AzureIntegrationsFunctions']]] = None,
+            key_vault: pulumi.Input[Optional[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict', 'outputs.AzureIntegrationsKeyVault']]] = None,
+            linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer: pulumi.Input[Optional[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict', 'outputs.AzureIntegrationsLoadBalancer']]] = None,
+            logic_apps: pulumi.Input[Optional[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict', 'outputs.AzureIntegrationsLogicApps']]] = None,
+            machine_learning: pulumi.Input[Optional[Union['AzureIntegrationsMachineLearningArgs', 'AzureIntegrationsMachineLearningArgsDict', 'outputs.AzureIntegrationsMachineLearning']]] = None,
+            maria_db: pulumi.Input[Optional[Union['AzureIntegrationsMariaDbArgs', 'AzureIntegrationsMariaDbArgsDict', 'outputs.AzureIntegrationsMariaDb']]] = None,
+            monitor: pulumi.Input[Optional[Union['AzureIntegrationsMonitorArgs', 'AzureIntegrationsMonitorArgsDict', 'outputs.AzureIntegrationsMonitor']]] = None,
+            mysql: pulumi.Input[Optional[Union['AzureIntegrationsMysqlArgs', 'AzureIntegrationsMysqlArgsDict', 'outputs.AzureIntegrationsMysql']]] = None,
+            mysql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsMysqlFlexibleArgs', 'AzureIntegrationsMysqlFlexibleArgsDict', 'outputs.AzureIntegrationsMysqlFlexible']]] = None,
+            postgresql: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlArgs', 'AzureIntegrationsPostgresqlArgsDict', 'outputs.AzureIntegrationsPostgresql']]] = None,
+            postgresql_flexible: pulumi.Input[Optional[Union['AzureIntegrationsPostgresqlFlexibleArgs', 'AzureIntegrationsPostgresqlFlexibleArgsDict', 'outputs.AzureIntegrationsPostgresqlFlexible']]] = None,
+            power_bi_dedicated: pulumi.Input[Optional[Union['AzureIntegrationsPowerBiDedicatedArgs', 'AzureIntegrationsPowerBiDedicatedArgsDict', 'outputs.AzureIntegrationsPowerBiDedicated']]] = None,
+            redis_cache: pulumi.Input[Optional[Union['AzureIntegrationsRedisCacheArgs', 'AzureIntegrationsRedisCacheArgsDict', 'outputs.AzureIntegrationsRedisCache']]] = None,
+            service_bus: pulumi.Input[Optional[Union['AzureIntegrationsServiceBusArgs', 'AzureIntegrationsServiceBusArgsDict', 'outputs.AzureIntegrationsServiceBus']]] = None,
+            sql: pulumi.Input[Optional[Union['AzureIntegrationsSqlArgs', 'AzureIntegrationsSqlArgsDict', 'outputs.AzureIntegrationsSql']]] = None,
+            sql_managed: pulumi.Input[Optional[Union['AzureIntegrationsSqlManagedArgs', 'AzureIntegrationsSqlManagedArgsDict', 'outputs.AzureIntegrationsSqlManaged']]] = None,
+            storage: pulumi.Input[Optional[Union['AzureIntegrationsStorageArgs', 'AzureIntegrationsStorageArgsDict', 'outputs.AzureIntegrationsStorage']]] = None,
+            virtual_machine: pulumi.Input[Optional[Union['AzureIntegrationsVirtualMachineArgs', 'AzureIntegrationsVirtualMachineArgsDict', 'outputs.AzureIntegrationsVirtualMachine']]] = None,
+            virtual_networks: pulumi.Input[Optional[Union['AzureIntegrationsVirtualNetworksArgs', 'AzureIntegrationsVirtualNetworksArgsDict', 'outputs.AzureIntegrationsVirtualNetworks']]] = None,
+            vms: pulumi.Input[Optional[Union['AzureIntegrationsVmsArgs', 'AzureIntegrationsVmsArgsDict', 'outputs.AzureIntegrationsVms']]] = None,
+            vpn_gateway: pulumi.Input[Optional[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict', 'outputs.AzureIntegrationsVpnGateway']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["apiManagement"] = api_management
+        __props__["appGateway"] = app_gateway
+        __props__["appService"] = app_service
+        __props__["autoDiscovery"] = auto_discovery
+        __props__["containers"] = containers
+        __props__["cosmosDb"] = cosmos_db
+        __props__["costManagement"] = cost_management
+        __props__["dataFactory"] = data_factory
+        __props__["eventHub"] = event_hub
+        __props__["expressRoute"] = express_route
+        __props__["firewalls"] = firewalls
+        __props__["frontDoor"] = front_door
+        __props__["functions"] = functions
+        __props__["keyVault"] = key_vault
+        __props__["linkedAccountId"] = linked_account_id
+        __props__["loadBalancer"] = load_balancer
+        __props__["logicApps"] = logic_apps
+        __props__["machineLearning"] = machine_learning
+        __props__["mariaDb"] = maria_db
+        __props__["monitor"] = monitor
+        __props__["mysql"] = mysql
+        __props__["mysqlFlexible"] = mysql_flexible
+        __props__["postgresql"] = postgresql
+        __props__["postgresqlFlexible"] = postgresql_flexible
+        __props__["powerBiDedicated"] = power_bi_dedicated
+        __props__["redisCache"] = redis_cache
+        __props__["serviceBus"] = service_bus
+        __props__["sql"] = sql
+        __props__["sqlManaged"] = sql_managed
+        __props__["storage"] = storage
+        __props__["virtualMachine"] = virtual_machine
+        __props__["virtualNetworks"] = virtual_networks
+        __props__["vms"] = vms
+        __props__["vpnGateway"] = vpn_gateway
+        return pulumi.runtime.exists_resource(None, 'newrelic:cloud/azureIntegrations:AzureIntegrations', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

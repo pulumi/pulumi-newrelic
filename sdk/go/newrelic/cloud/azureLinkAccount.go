@@ -174,6 +174,12 @@ func (AzureLinkAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*azureLinkAccountState)(nil)).Elem()
 }
 
+// AzureLinkAccountExists checks whether an existing AzureLinkAccount resource with the given ID exists.
+func AzureLinkAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AzureLinkAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/azureLinkAccount:AzureLinkAccount", id, state, "", opts...)
+}
+
 type azureLinkAccountArgs struct {
 	// Account ID of the New Relic.
 	AccountId *string `pulumi:"accountId"`

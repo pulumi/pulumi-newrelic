@@ -1429,6 +1429,68 @@ class GcpIntegrations(pulumi.CustomResource):
         __props__.__dict__["vpc_access"] = vpc_access
         return GcpIntegrations(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            alloy_db: pulumi.Input[Optional[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict', 'outputs.GcpIntegrationsAlloyDb']]] = None,
+            app_engine: pulumi.Input[Optional[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict', 'outputs.GcpIntegrationsAppEngine']]] = None,
+            big_query: pulumi.Input[Optional[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict', 'outputs.GcpIntegrationsBigQuery']]] = None,
+            big_table: pulumi.Input[Optional[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict', 'outputs.GcpIntegrationsBigTable']]] = None,
+            composer: pulumi.Input[Optional[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict', 'outputs.GcpIntegrationsComposer']]] = None,
+            data_flow: pulumi.Input[Optional[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict', 'outputs.GcpIntegrationsDataFlow']]] = None,
+            data_proc: pulumi.Input[Optional[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict', 'outputs.GcpIntegrationsDataProc']]] = None,
+            data_store: pulumi.Input[Optional[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict', 'outputs.GcpIntegrationsDataStore']]] = None,
+            fire_base_database: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict', 'outputs.GcpIntegrationsFireBaseDatabase']]] = None,
+            fire_base_hosting: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict', 'outputs.GcpIntegrationsFireBaseHosting']]] = None,
+            fire_base_storage: pulumi.Input[Optional[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict', 'outputs.GcpIntegrationsFireBaseStorage']]] = None,
+            fire_store: pulumi.Input[Optional[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict', 'outputs.GcpIntegrationsFireStore']]] = None,
+            functions: pulumi.Input[Optional[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict', 'outputs.GcpIntegrationsFunctions']]] = None,
+            interconnect: pulumi.Input[Optional[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict', 'outputs.GcpIntegrationsInterconnect']]] = None,
+            kubernetes: pulumi.Input[Optional[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict', 'outputs.GcpIntegrationsKubernetes']]] = None,
+            linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing: pulumi.Input[Optional[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict', 'outputs.GcpIntegrationsLoadBalancing']]] = None,
+            mem_cache: pulumi.Input[Optional[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict', 'outputs.GcpIntegrationsMemCache']]] = None,
+            pub_sub: pulumi.Input[Optional[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict', 'outputs.GcpIntegrationsPubSub']]] = None,
+            redis: pulumi.Input[Optional[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict', 'outputs.GcpIntegrationsRedis']]] = None,
+            router: pulumi.Input[Optional[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict', 'outputs.GcpIntegrationsRouter']]] = None,
+            run: pulumi.Input[Optional[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict', 'outputs.GcpIntegrationsRun']]] = None,
+            spanner: pulumi.Input[Optional[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict', 'outputs.GcpIntegrationsSpanner']]] = None,
+            sql: pulumi.Input[Optional[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict', 'outputs.GcpIntegrationsSql']]] = None,
+            storage: pulumi.Input[Optional[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict', 'outputs.GcpIntegrationsStorage']]] = None,
+            virtual_machines: pulumi.Input[Optional[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict', 'outputs.GcpIntegrationsVirtualMachines']]] = None,
+            vpc_access: pulumi.Input[Optional[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict', 'outputs.GcpIntegrationsVpcAccess']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["alloyDb"] = alloy_db
+        __props__["appEngine"] = app_engine
+        __props__["bigQuery"] = big_query
+        __props__["bigTable"] = big_table
+        __props__["composer"] = composer
+        __props__["dataFlow"] = data_flow
+        __props__["dataProc"] = data_proc
+        __props__["dataStore"] = data_store
+        __props__["fireBaseDatabase"] = fire_base_database
+        __props__["fireBaseHosting"] = fire_base_hosting
+        __props__["fireBaseStorage"] = fire_base_storage
+        __props__["fireStore"] = fire_store
+        __props__["functions"] = functions
+        __props__["interconnect"] = interconnect
+        __props__["kubernetes"] = kubernetes
+        __props__["linkedAccountId"] = linked_account_id
+        __props__["loadBalancing"] = load_balancing
+        __props__["memCache"] = mem_cache
+        __props__["pubSub"] = pub_sub
+        __props__["redis"] = redis
+        __props__["router"] = router
+        __props__["run"] = run
+        __props__["spanner"] = spanner
+        __props__["sql"] = sql
+        __props__["storage"] = storage
+        __props__["virtualMachines"] = virtual_machines
+        __props__["vpcAccess"] = vpc_access
+        return pulumi.runtime.exists_resource(None, 'newrelic:cloud/gcpIntegrations:GcpIntegrations', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

@@ -145,6 +145,12 @@ func (EventsToMetricsRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventsToMetricsRuleState)(nil)).Elem()
 }
 
+// EventsToMetricsRuleExists checks whether an existing EventsToMetricsRule resource with the given ID exists.
+func EventsToMetricsRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventsToMetricsRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/eventsToMetricsRule:EventsToMetricsRule", id, state, "", opts...)
+}
+
 type eventsToMetricsRuleArgs struct {
 	// The account ID where the Events to Metrics rule will be created. If not specified, defaults to *the provider's configured account ID*.
 	//

@@ -1385,6 +1385,62 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["verify_ssl"] = verify_ssl
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            browsers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            bypass_head_request: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict', 'outputs.MonitorCustomHeader']]]]] = None,
+            device_orientation: pulumi.Input[Optional[_builtins.str]] = None,
+            device_type: pulumi.Input[Optional[_builtins.str]] = None,
+            devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enable_screenshot_on_failure_and_script: pulumi.Input[Optional[_builtins.bool]] = None,
+            locations_privates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            period: pulumi.Input[Optional[_builtins.str]] = None,
+            period_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+            script_language: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict', 'outputs.MonitorTag']]]]] = None,
+            treat_redirect_as_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None,
+            use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None,
+            validation_string: pulumi.Input[Optional[_builtins.str]] = None,
+            verify_ssl: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["browsers"] = browsers
+        __props__["bypassHeadRequest"] = bypass_head_request
+        __props__["customHeaders"] = custom_headers
+        __props__["deviceOrientation"] = device_orientation
+        __props__["deviceType"] = device_type
+        __props__["devices"] = devices
+        __props__["enableScreenshotOnFailureAndScript"] = enable_screenshot_on_failure_and_script
+        __props__["locationsPrivates"] = locations_privates
+        __props__["locationsPublics"] = locations_publics
+        __props__["monitorId"] = monitor_id
+        __props__["name"] = name
+        __props__["period"] = period
+        __props__["periodInMinutes"] = period_in_minutes
+        __props__["runtimeType"] = runtime_type
+        __props__["runtimeTypeVersion"] = runtime_type_version
+        __props__["scriptLanguage"] = script_language
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["treatRedirectAsFailure"] = treat_redirect_as_failure
+        __props__["type"] = type
+        __props__["uri"] = uri
+        __props__["useUnsupportedLegacyRuntime"] = use_unsupported_legacy_runtime
+        __props__["validationString"] = validation_string
+        __props__["verifySsl"] = verify_ssl
+        return pulumi.runtime.exists_resource(None, 'newrelic:synthetics/monitor:Monitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

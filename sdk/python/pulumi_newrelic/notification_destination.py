@@ -1018,6 +1018,38 @@ class NotificationDestination(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return NotificationDestination(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_basic: pulumi.Input[Optional[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict', 'outputs.NotificationDestinationAuthBasic']]] = None,
+            auth_custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict', 'outputs.NotificationDestinationAuthCustomHeader']]]]] = None,
+            auth_token: pulumi.Input[Optional[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict', 'outputs.NotificationDestinationAuthToken']]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            last_sent: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict', 'outputs.NotificationDestinationProperty']]]]] = None,
+            scope: pulumi.Input[Optional[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict', 'outputs.NotificationDestinationScope']]] = None,
+            secure_url: pulumi.Input[Optional[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict', 'outputs.NotificationDestinationSecureUrl']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["active"] = active
+        __props__["authBasic"] = auth_basic
+        __props__["authCustomHeaders"] = auth_custom_headers
+        __props__["authToken"] = auth_token
+        __props__["guid"] = guid
+        __props__["lastSent"] = last_sent
+        __props__["name"] = name
+        __props__["properties"] = properties
+        __props__["scope"] = scope
+        __props__["secureUrl"] = secure_url
+        __props__["status"] = status
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/notificationDestination:NotificationDestination', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

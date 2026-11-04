@@ -390,6 +390,12 @@ func (MonitorDowntimeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorDowntimeState)(nil)).Elem()
 }
 
+// MonitorDowntimeExists checks whether an existing MonitorDowntime resource with the given ID exists.
+func MonitorDowntimeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorDowntimeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/monitorDowntime:MonitorDowntime", id, state, "", opts...)
+}
+
 type monitorDowntimeArgs struct {
 	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
 	AccountId *string `pulumi:"accountId"`

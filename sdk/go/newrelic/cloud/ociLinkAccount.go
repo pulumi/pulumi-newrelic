@@ -291,6 +291,12 @@ func (OciLinkAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ociLinkAccountState)(nil)).Elem()
 }
 
+// OciLinkAccountExists checks whether an existing OciLinkAccount resource with the given ID exists.
+func OciLinkAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OciLinkAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/ociLinkAccount:OciLinkAccount", id, state, "", opts...)
+}
+
 type ociLinkAccountArgs struct {
 	// New Relic account to operate on. Overrides the provider-level `accountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`

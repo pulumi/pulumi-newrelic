@@ -161,6 +161,12 @@ func (AlertPolicyChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertPolicyChannelState)(nil)).Elem()
 }
 
+// AlertPolicyChannelExists checks whether an existing AlertPolicyChannel resource with the given ID exists.
+func AlertPolicyChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertPolicyChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/alertPolicyChannel:AlertPolicyChannel", id, state, "", opts...)
+}
+
 type alertPolicyChannelArgs struct {
 	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`

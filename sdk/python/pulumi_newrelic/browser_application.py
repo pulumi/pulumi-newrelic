@@ -405,6 +405,28 @@ class BrowserApplication(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return BrowserApplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cookies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            distributed_tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            js_config: pulumi.Input[Optional[_builtins.str]] = None,
+            loader_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["applicationId"] = application_id
+        __props__["cookiesEnabled"] = cookies_enabled
+        __props__["distributedTracingEnabled"] = distributed_tracing_enabled
+        __props__["guid"] = guid
+        __props__["jsConfig"] = js_config
+        __props__["loaderType"] = loader_type
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/browserApplication:BrowserApplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

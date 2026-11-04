@@ -42,11 +42,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.apiKey);
     }
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     @Export(name="apiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiUrl;
 
@@ -60,11 +59,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.cacertFile);
     }
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     @Export(name="infrastructureApiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> infrastructureApiUrl;
 
@@ -90,11 +88,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.insightsQueryUrl);
     }
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     @Export(name="nerdgraphApiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nerdgraphApiUrl;
 
@@ -116,11 +113,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.region);
     }
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     @Export(name="syntheticsApiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> syntheticsApiUrl;
 

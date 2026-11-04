@@ -362,6 +362,12 @@ func (ScorecardRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scorecardRuleState)(nil)).Elem()
 }
 
+// ScorecardRuleExists checks whether an existing ScorecardRule resource with the given ID exists.
+func ScorecardRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScorecardRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/scorecardRule:ScorecardRule", id, state, "", opts...)
+}
+
 type scorecardRuleArgs struct {
 	// A description of what this rule measures.
 	Description *string `pulumi:"description"`

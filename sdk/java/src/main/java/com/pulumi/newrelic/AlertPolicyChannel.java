@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  * $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324
  * ```
  * 
- * When importing `newrelic.AlertPolicyChannel` resource, the attribute `channelIds`\* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
+ * When importing `newrelic.AlertPolicyChannel` resource, the attribute `channelIds`&#92;* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
  * 
  */
 @ResourceType(type="newrelic:index/alertPolicyChannel:AlertPolicyChannel")

@@ -282,6 +282,12 @@ func (TeamsOrganizationSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamsOrganizationSettingsState)(nil)).Elem()
 }
 
+// TeamsOrganizationSettingsExists checks whether an existing TeamsOrganizationSettings resource with the given ID exists.
+func TeamsOrganizationSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamsOrganizationSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/teamsOrganizationSettings:TeamsOrganizationSettings", id, state, "", opts...)
+}
+
 type teamsOrganizationSettingsArgs struct {
 	// Whether tag-based entity discovery is enabled. When true, entities with a matching tag are automatically assigned to teams.
 	DiscoveryEnabled *bool `pulumi:"discoveryEnabled"`

@@ -157,6 +157,12 @@ func (KeyTransactionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyTransactionState)(nil)).Elem()
 }
 
+// KeyTransactionExists checks whether an existing KeyTransaction resource with the given ID exists.
+func KeyTransactionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyTransactionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/keyTransaction:KeyTransaction", id, state, "", opts...)
+}
+
 type keyTransactionArgs struct {
 	// A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).
 	ApdexIndex float64 `pulumi:"apdexIndex"`

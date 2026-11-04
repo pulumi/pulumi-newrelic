@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardPageWidgetBillboard {
     /**
-     * @return (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+     * @return (Optional) A nested block that describes billboard specific settings. See Nested billboard&#92;_settings blocks below for details.
      * 
      */
     private @Nullable OneDashboardPageWidgetBillboardBillboardSettings billboardSettings;
@@ -85,7 +85,7 @@ public final class OneDashboardPageWidgetBillboard {
      */
     private @Nullable Boolean legendEnabled;
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     private List<OneDashboardPageWidgetBillboardNrqlQuery> nrqlQueries;
@@ -133,7 +133,7 @@ public final class OneDashboardPageWidgetBillboard {
 
     private OneDashboardPageWidgetBillboard() {}
     /**
-     * @return (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+     * @return (Optional) A nested block that describes billboard specific settings. See Nested billboard&#92;_settings blocks below for details.
      * 
      */
     public Optional<OneDashboardPageWidgetBillboardBillboardSettings> billboardSettings() {
@@ -217,7 +217,7 @@ public final class OneDashboardPageWidgetBillboard {
         return Optional.ofNullable(this.legendEnabled);
     }
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     public List<OneDashboardPageWidgetBillboardNrqlQuery> nrqlQueries() {

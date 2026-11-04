@@ -887,6 +887,28 @@ class WorkflowAutomation(pulumi.CustomResource):
         __props__.__dict__["yaml"] = yaml
         return WorkflowAutomation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            definition: pulumi.Input[Optional[_builtins.str]] = None,
+            definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_type: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None,
+            yaml: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["definition"] = definition
+        __props__["definitionId"] = definition_id
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["scopeId"] = scope_id
+        __props__["scopeType"] = scope_type
+        __props__["version"] = version
+        __props__["yaml"] = yaml
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/workflowAutomation:WorkflowAutomation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def definition(self) -> pulumi.Output[_builtins.str]:

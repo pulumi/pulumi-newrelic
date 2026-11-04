@@ -340,6 +340,12 @@ func (StepMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stepMonitorState)(nil)).Elem()
 }
 
+// StepMonitorExists checks whether an existing StepMonitor resource with the given ID exists.
+func StepMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StepMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:synthetics/stepMonitor:StepMonitor", id, state, "", opts...)
+}
+
 type stepMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *string `pulumi:"accountId"`

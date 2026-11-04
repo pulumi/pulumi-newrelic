@@ -82,11 +82,10 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
     /**
      * DEPRECATED. The `region` argument is no longer meaningful and has no effect on where the account is created.
      * 
-     * @deprecated
-     * `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
+     * @deprecated `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset.
      * 
      */
-    @Deprecated /* `region` is deprecated. New Relic organizations are single-region - the account is created in the region of the organization tied to your API key. Leave this argument unset. */
+    @Deprecated
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 

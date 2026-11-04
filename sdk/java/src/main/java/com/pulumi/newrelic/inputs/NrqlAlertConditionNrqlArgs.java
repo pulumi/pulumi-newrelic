@@ -35,22 +35,20 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     /**
      * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
      * 
-     * @deprecated
-     * use `aggregationMethod` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregationMethod` attribute instead */
+    @Deprecated
     @Import(name="evaluationOffset")
     private @Nullable Output<Integer> evaluationOffset;
 
     /**
      * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
      * 
-     * @deprecated
-     * use `aggregationMethod` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregationMethod` attribute instead */
+    @Deprecated
     public Optional<Output<Integer>> evaluationOffset() {
         return Optional.ofNullable(this.evaluationOffset);
     }
@@ -65,22 +63,20 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     /**
      * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
      * 
-     * @deprecated
-     * use `aggregationMethod` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregationMethod` attribute instead */
+    @Deprecated
     @Import(name="sinceValue")
     private @Nullable Output<String> sinceValue;
 
     /**
      * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
      * 
-     * @deprecated
-     * use `aggregationMethod` attribute instead
+     * @deprecated use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregationMethod` attribute instead */
+    @Deprecated
     public Optional<Output<String>> sinceValue() {
         return Optional.ofNullable(this.sinceValue);
     }
@@ -138,11 +134,10 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * use `aggregationMethod` attribute instead
+         * @deprecated use `aggregationMethod` attribute instead
          * 
          */
-        @Deprecated /* use `aggregationMethod` attribute instead */
+        @Deprecated
         public Builder evaluationOffset(@Nullable Output<Integer> evaluationOffset) {
             $.evaluationOffset = evaluationOffset;
             return this;
@@ -153,11 +148,10 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * use `aggregationMethod` attribute instead
+         * @deprecated use `aggregationMethod` attribute instead
          * 
          */
-        @Deprecated /* use `aggregationMethod` attribute instead */
+        @Deprecated
         public Builder evaluationOffset(Integer evaluationOffset) {
             return evaluationOffset(Output.of(evaluationOffset));
         }
@@ -176,11 +170,10 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * use `aggregationMethod` attribute instead
+         * @deprecated use `aggregationMethod` attribute instead
          * 
          */
-        @Deprecated /* use `aggregationMethod` attribute instead */
+        @Deprecated
         public Builder sinceValue(@Nullable Output<String> sinceValue) {
             $.sinceValue = sinceValue;
             return this;
@@ -191,11 +184,10 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * use `aggregationMethod` attribute instead
+         * @deprecated use `aggregationMethod` attribute instead
          * 
          */
-        @Deprecated /* use `aggregationMethod` attribute instead */
+        @Deprecated
         public Builder sinceValue(String sinceValue) {
             return sinceValue(Output.of(sinceValue));
         }

@@ -614,6 +614,40 @@ class FederatedLogsPartition(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return FederatedLogsPartition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            data_retention_policy: pulumi.Input[Optional[Union['FederatedLogsPartitionDataRetentionPolicyArgs', 'FederatedLogsPartitionDataRetentionPolicyArgsDict', 'outputs.FederatedLogsPartitionDataRetentionPolicy']]] = None,
+            derived_lifecycle_state: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            forwarder_configuration: pulumi.Input[Optional[Union['FederatedLogsPartitionForwarderConfigurationArgs', 'FederatedLogsPartitionForwarderConfigurationArgsDict', 'outputs.FederatedLogsPartitionForwarderConfiguration']]] = None,
+            health_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsPartitionHealthCheckArgs', 'FederatedLogsPartitionHealthCheckArgsDict', 'outputs.FederatedLogsPartitionHealthCheck']]]]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            lifecycle_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedLogsPartitionLifecycleStatusArgs', 'FederatedLogsPartitionLifecycleStatusArgsDict', 'outputs.FederatedLogsPartitionLifecycleStatus']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            setup_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage: pulumi.Input[Optional[Union['FederatedLogsPartitionStorageArgs', 'FederatedLogsPartitionStorageArgsDict', 'outputs.FederatedLogsPartitionStorage']]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["active"] = active
+        __props__["createdAt"] = created_at
+        __props__["dataRetentionPolicy"] = data_retention_policy
+        __props__["derivedLifecycleState"] = derived_lifecycle_state
+        __props__["description"] = description
+        __props__["forwarderConfiguration"] = forwarder_configuration
+        __props__["healthChecks"] = health_checks
+        __props__["isDefault"] = is_default
+        __props__["lifecycleStatuses"] = lifecycle_statuses
+        __props__["name"] = name
+        __props__["setupId"] = setup_id
+        __props__["storage"] = storage
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/federatedLogsPartition:FederatedLogsPartition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

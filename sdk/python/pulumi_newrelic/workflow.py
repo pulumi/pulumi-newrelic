@@ -858,6 +858,36 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["workflow_id"] = workflow_id
         return Workflow(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict', 'outputs.WorkflowDestination']]]]] = None,
+            destinations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            enrichments: pulumi.Input[Optional[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict', 'outputs.WorkflowEnrichments']]] = None,
+            enrichments_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            issues_filter: pulumi.Input[Optional[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict', 'outputs.WorkflowIssuesFilter']]] = None,
+            last_run: pulumi.Input[Optional[_builtins.str]] = None,
+            muting_rules_handling: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            workflow_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["destinations"] = destinations
+        __props__["destinationsEnabled"] = destinations_enabled
+        __props__["enabled"] = enabled
+        __props__["enrichments"] = enrichments
+        __props__["enrichmentsEnabled"] = enrichments_enabled
+        __props__["guid"] = guid
+        __props__["issuesFilter"] = issues_filter
+        __props__["lastRun"] = last_run
+        __props__["mutingRulesHandling"] = muting_rules_handling
+        __props__["name"] = name
+        __props__["workflowId"] = workflow_id
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/workflow:Workflow', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

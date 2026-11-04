@@ -554,6 +554,12 @@ func (AzureIntegrationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*azureIntegrationsState)(nil)).Elem()
 }
 
+// AzureIntegrationsExists checks whether an existing AzureIntegrations resource with the given ID exists.
+func AzureIntegrationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AzureIntegrationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/azureIntegrations:AzureIntegrations", id, state, "", opts...)
+}
+
 type azureIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`

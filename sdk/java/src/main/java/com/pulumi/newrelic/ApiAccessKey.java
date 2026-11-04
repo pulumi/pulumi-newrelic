@@ -288,7 +288,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
     }
     /**
      * The name of the API key.
-     * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;\*\*strongly recommended\*\*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+     * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;&#92;*&#92;*strongly recommended&#92;*&#92;*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -296,7 +296,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The name of the API key.
-     * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;\*\*strongly recommended\*\*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+     * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;&#92;*&#92;*strongly recommended&#92;*&#92;*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
      * 
      */
     public Output<String> name() {

@@ -42,89 +42,89 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var incidentRunbook = new Notebook("incidentRunbook", NotebookArgs.builder()
  *             .title("Production API Incident - Investigation")
  *             .content("""
- * {
- *   \"type\": \"declarative\",
- *   \"version\": 1,
- *   \"content\": [
- *     {
- *       \"type\": \"container\",
- *       \"props\": { \"layout\": \"stack\" },
- *       \"content\": [
- *         {
- *           \"type\": \"widget\",
- *           \"content\": {
- *             \"type\": \"visualization\",
- *             \"id\": \"viz.markdown\",
- *             \"props\": {
- *               \"text\": \"# Production API Incident\
- * \
- * **Status**: Resolved\
- * **Impact**: ~15% of API requests failed\
- * \
- * Use this notebook to walk through what happened and track action items.\"
- *             }
- *           }
- *         },
- *         {
- *           \"type\": \"widget\",
- *           \"props\": { \"title\": \"Peak error rate\" },
- *           \"content\": {
- *             \"type\": \"visualization\",
- *             \"id\": \"viz.billboard\",
- *             \"props\": {
- *               \"nrqlQueries\": [
- *                 {
- *                   \"accountIds\": [1234567],
- *                   \"query\": \"SELECT percentage(count(*), WHERE httpResponseCode >= 400) AS 'Error Rate %' FROM Transaction WHERE appName = 'api-production' SINCE 1 hour ago\"
- *                 }
+ * }{{@code
+ *   }&#92;{@code "type}&#92;{@code ": }&#92;{@code "declarative}&#92;{@code ",
+ *   }&#92;{@code "version}&#92;{@code ": 1,
+ *   }&#92;{@code "content}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "type}&#92;{@code ": }&#92;{@code "container}&#92;{@code ",
+ *       }&#92;{@code "props}&#92;{@code ": }{{@code  }&#92;{@code "layout}&#92;{@code ": }&#92;{@code "stack}&#92;{@code " }}{@code ,
+ *       }&#92;{@code "content}&#92;{@code ": [
+ *         }{{@code
+ *           }&#92;{@code "type}&#92;{@code ": }&#92;{@code "widget}&#92;{@code ",
+ *           }&#92;{@code "content}&#92;{@code ": }{{@code
+ *             }&#92;{@code "type}&#92;{@code ": }&#92;{@code "visualization}&#92;{@code ",
+ *             }&#92;{@code "id}&#92;{@code ": }&#92;{@code "viz.markdown}&#92;{@code ",
+ *             }&#92;{@code "props}&#92;{@code ": }{{@code
+ *               }&#92;{@code "text}&#92;{@code ": }&#92;{@code "# Production API Incident}&#92;{@code
+ * }&#92;{@code
+ * **Status**: Resolved}&#92;{@code
+ * **Impact**: ~15% of API requests failed}&#92;{@code
+ * }&#92;{@code
+ * Use this notebook to walk through what happened and track action items.}&#92;{@code "
+ *             }}{@code
+ *           }}{@code
+ *         }}{@code ,
+ *         }{{@code
+ *           }&#92;{@code "type}&#92;{@code ": }&#92;{@code "widget}&#92;{@code ",
+ *           }&#92;{@code "props}&#92;{@code ": }{{@code  }&#92;{@code "title}&#92;{@code ": }&#92;{@code "Peak error rate}&#92;{@code " }}{@code ,
+ *           }&#92;{@code "content}&#92;{@code ": }{{@code
+ *             }&#92;{@code "type}&#92;{@code ": }&#92;{@code "visualization}&#92;{@code ",
+ *             }&#92;{@code "id}&#92;{@code ": }&#92;{@code "viz.billboard}&#92;{@code ",
+ *             }&#92;{@code "props}&#92;{@code ": }{{@code
+ *               }&#92;{@code "nrqlQueries}&#92;{@code ": [
+ *                 }{{@code
+ *                   }&#92;{@code "accountIds}&#92;{@code ": [1234567],
+ *                   }&#92;{@code "query}&#92;{@code ": }&#92;{@code "SELECT percentage(count(*), WHERE httpResponseCode >= 400) AS 'Error Rate %' FROM Transaction WHERE appName = 'api-production' SINCE 1 hour ago}&#92;{@code "
+ *                 }}{@code
  *               ],
- *               \"thresholdsWithSeriesOverrides\": {
- *                 \"thresholds\": [
- *                   { \"to\": 1,   \"severity\": \"success\"  },
- *                   { \"from\": 1, \"to\": 5, \"severity\": \"warning\"  },
- *                   { \"from\": 5, \"severity\": \"critical\" }
+ *               }&#92;{@code "thresholdsWithSeriesOverrides}&#92;{@code ": }{{@code
+ *                 }&#92;{@code "thresholds}&#92;{@code ": [
+ *                   }{{@code  }&#92;{@code "to}&#92;{@code ": 1,   }&#92;{@code "severity}&#92;{@code ": }&#92;{@code "success}&#92;{@code "  }}{@code ,
+ *                   }{{@code  }&#92;{@code "from}&#92;{@code ": 1, }&#92;{@code "to}&#92;{@code ": 5, }&#92;{@code "severity}&#92;{@code ": }&#92;{@code "warning}&#92;{@code "  }}{@code ,
+ *                   }{{@code  }&#92;{@code "from}&#92;{@code ": 5, }&#92;{@code "severity}&#92;{@code ": }&#92;{@code "critical}&#92;{@code " }}{@code
  *                 ]
- *               }
- *             }
- *           }
- *         },
- *         {
- *           \"type\": \"widget\",
- *           \"props\": { \"title\": \"Error rate over time\" },
- *           \"content\": {
- *             \"type\": \"visualization\",
- *             \"id\": \"viz.line\",
- *             \"props\": {
- *               \"nrqlQueries\": [
- *                 {
- *                   \"accountIds\": [1234567],
- *                   \"query\": \"SELECT percentage(count(*), WHERE httpResponseCode >= 400) FROM Transaction WHERE appName = 'api-production' TIMESERIES 1 minute SINCE 1 hour ago\"
- *                 }
+ *               }}{@code
+ *             }}{@code
+ *           }}{@code
+ *         }}{@code ,
+ *         }{{@code
+ *           }&#92;{@code "type}&#92;{@code ": }&#92;{@code "widget}&#92;{@code ",
+ *           }&#92;{@code "props}&#92;{@code ": }{{@code  }&#92;{@code "title}&#92;{@code ": }&#92;{@code "Error rate over time}&#92;{@code " }}{@code ,
+ *           }&#92;{@code "content}&#92;{@code ": }{{@code
+ *             }&#92;{@code "type}&#92;{@code ": }&#92;{@code "visualization}&#92;{@code ",
+ *             }&#92;{@code "id}&#92;{@code ": }&#92;{@code "viz.line}&#92;{@code ",
+ *             }&#92;{@code "props}&#92;{@code ": }{{@code
+ *               }&#92;{@code "nrqlQueries}&#92;{@code ": [
+ *                 }{{@code
+ *                   }&#92;{@code "accountIds}&#92;{@code ": [1234567],
+ *                   }&#92;{@code "query}&#92;{@code ": }&#92;{@code "SELECT percentage(count(*), WHERE httpResponseCode >= 400) FROM Transaction WHERE appName = 'api-production' TIMESERIES 1 minute SINCE 1 hour ago}&#92;{@code "
+ *                 }}{@code
  *               ],
- *               \"legend\":    { \"enabled\": true },
- *               \"yAxisLeft\": { \"zero\": true },
- *               \"nullValues\": { \"nullValue\": \"zero\" }
- *             }
- *           }
- *         }
+ *               }&#92;{@code "legend}&#92;{@code ":    }{{@code  }&#92;{@code "enabled}&#92;{@code ": true }}{@code ,
+ *               }&#92;{@code "yAxisLeft}&#92;{@code ": }{{@code  }&#92;{@code "zero}&#92;{@code ": true }}{@code ,
+ *               }&#92;{@code "nullValues}&#92;{@code ": }{{@code  }&#92;{@code "nullValue}&#92;{@code ": }&#92;{@code "zero}&#92;{@code " }}{@code
+ *             }}{@code
+ *           }}{@code
+ *         }}{@code
  *       ]
- *     }
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -214,7 +214,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** The `props` key must be **absent entirely** from the widget object for `viz.markdown`. Including `&#34;props&#34;: {}` will fail validation. See Understanding the structure for both a code example and an explanation of why this restriction exists.
  * 
- *   * `text` - (Required) The Markdown source string. Supports headings, bold, italic, code, lists, task lists (`- [ ]`), tables, and links. Use `\n` for newlines within the string.
+ *   * `text` - (Required) The Markdown source string. Supports headings, bold, italic, code, lists, task lists (`- [ ]`), tables, and links. Use `&#92;n` for newlines within the string.
  * 
  * **Example:**
  * 

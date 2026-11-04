@@ -509,6 +509,22 @@ class TeamsOrganizationSettings(pulumi.CustomResource):
         __props__.__dict__["sync_groups_enabled"] = sync_groups_enabled
         return TeamsOrganizationSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            discovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            discovery_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            hierarchy_levels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamsOrganizationSettingsHierarchyLevelArgs', 'TeamsOrganizationSettingsHierarchyLevelArgsDict', 'outputs.TeamsOrganizationSettingsHierarchyLevel']]]]] = None,
+            sync_group_rules: pulumi.Input[Optional[Union['TeamsOrganizationSettingsSyncGroupRulesArgs', 'TeamsOrganizationSettingsSyncGroupRulesArgsDict', 'outputs.TeamsOrganizationSettingsSyncGroupRules']]] = None,
+            sync_groups_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["discoveryEnabled"] = discovery_enabled
+        __props__["discoveryTagKeys"] = discovery_tag_keys
+        __props__["hierarchyLevels"] = hierarchy_levels
+        __props__["syncGroupRules"] = sync_group_rules
+        __props__["syncGroupsEnabled"] = sync_groups_enabled
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/teamsOrganizationSettings:TeamsOrganizationSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="discoveryEnabled")
     def discovery_enabled(self) -> pulumi.Output[_builtins.bool]:

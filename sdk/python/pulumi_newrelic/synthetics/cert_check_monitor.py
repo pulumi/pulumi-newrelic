@@ -794,6 +794,40 @@ class CertCheckMonitor(pulumi.CustomResource):
         __props__.__dict__["use_unsupported_legacy_runtime"] = use_unsupported_legacy_runtime
         return CertCheckMonitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_expiration: pulumi.Input[Optional[_builtins.int]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            locations_privates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            locations_publics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            period: pulumi.Input[Optional[_builtins.str]] = None,
+            period_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            runtime_type: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict', 'outputs.CertCheckMonitorTag']]]]] = None,
+            use_unsupported_legacy_runtime: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["certificateExpiration"] = certificate_expiration
+        __props__["domain"] = domain
+        __props__["locationsPrivates"] = locations_privates
+        __props__["locationsPublics"] = locations_publics
+        __props__["monitorId"] = monitor_id
+        __props__["name"] = name
+        __props__["period"] = period
+        __props__["periodInMinutes"] = period_in_minutes
+        __props__["runtimeType"] = runtime_type
+        __props__["runtimeTypeVersion"] = runtime_type_version
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["useUnsupportedLegacyRuntime"] = use_unsupported_legacy_runtime
+        return pulumi.runtime.exists_resource(None, 'newrelic:synthetics/certCheckMonitor:CertCheckMonitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

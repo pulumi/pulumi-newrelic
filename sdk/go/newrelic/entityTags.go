@@ -140,6 +140,12 @@ func (EntityTagsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entityTagsState)(nil)).Elem()
 }
 
+// EntityTagsExists checks whether an existing EntityTags resource with the given ID exists.
+func EntityTagsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntityTagsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/entityTags:EntityTags", id, state, "", opts...)
+}
+
 type entityTagsArgs struct {
 	// The guid of the entity to tag.
 	Guid string `pulumi:"guid"`

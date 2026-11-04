@@ -341,11 +341,10 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
      * these two are different flags, but they are functionally identical. Defaults to true.
      * 
-     * @deprecated
-     * Please use &#39;enabled&#39; instead
+     * @deprecated Please use &#39;enabled&#39; instead
      * 
      */
-    @Deprecated /* Please use 'enabled' instead */
+    @Deprecated
     @Export(name="destinationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> destinationsEnabled;
 

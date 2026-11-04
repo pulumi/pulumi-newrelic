@@ -565,6 +565,12 @@ func (NotificationDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationDestinationState)(nil)).Elem()
 }
 
+// NotificationDestinationExists checks whether an existing NotificationDestination resource with the given ID exists.
+func NotificationDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/notificationDestination:NotificationDestination", id, state, "", opts...)
+}
+
 type notificationDestinationArgs struct {
 	// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`

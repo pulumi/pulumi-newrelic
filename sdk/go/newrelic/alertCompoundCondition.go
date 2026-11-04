@@ -446,6 +446,12 @@ func (AlertCompoundConditionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertCompoundConditionState)(nil)).Elem()
 }
 
+// AlertCompoundConditionExists checks whether an existing AlertCompoundCondition resource with the given ID exists.
+func AlertCompoundConditionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertCompoundConditionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/alertCompoundCondition:AlertCompoundCondition", id, state, "", opts...)
+}
+
 type alertCompoundConditionArgs struct {
 	// The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`

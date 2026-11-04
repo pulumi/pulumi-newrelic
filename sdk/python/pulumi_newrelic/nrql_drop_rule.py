@@ -304,6 +304,24 @@ class NrqlDropRule(pulumi.CustomResource):
         __props__.__dict__["rule_id"] = rule_id
         return NrqlDropRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            nrql: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_cloud_rule_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["action"] = action
+        __props__["description"] = description
+        __props__["nrql"] = nrql
+        __props__["pipelineCloudRuleEntityId"] = pipeline_cloud_rule_entity_id
+        __props__["ruleId"] = rule_id
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/nrqlDropRule:NrqlDropRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

@@ -603,6 +603,38 @@ class FleetConfiguration(pulumi.CustomResource):
         __props__.__dict__["version_entity_ids"] = version_entity_ids
         return FleetConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_content: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_version_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+            legacy_config: pulumi.Input[Optional[_builtins.bool]] = None,
+            managed_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            total_versions: pulumi.Input[Optional[_builtins.int]] = None,
+            version_entity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentType"] = agent_type
+        __props__["configurationContent"] = configuration_content
+        __props__["configurationId"] = configuration_id
+        __props__["configurationType"] = configuration_type
+        __props__["latestVersionEntityId"] = latest_version_entity_id
+        __props__["latestVersionNumber"] = latest_version_number
+        __props__["legacyConfig"] = legacy_config
+        __props__["managedEntityType"] = managed_entity_type
+        __props__["name"] = name
+        __props__["operatingSystem"] = operating_system
+        __props__["organizationId"] = organization_id
+        __props__["totalVersions"] = total_versions
+        __props__["versionEntityIds"] = version_entity_ids
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/fleetConfiguration:FleetConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentType")
     def agent_type(self) -> pulumi.Output[_builtins.str]:

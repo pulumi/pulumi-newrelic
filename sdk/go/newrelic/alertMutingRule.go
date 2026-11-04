@@ -178,6 +178,12 @@ func (AlertMutingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertMutingRuleState)(nil)).Elem()
 }
 
+// AlertMutingRuleExists checks whether an existing AlertMutingRule resource with the given ID exists.
+func AlertMutingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertMutingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/alertMutingRule:AlertMutingRule", id, state, "", opts...)
+}
+
 type alertMutingRuleArgs struct {
 	// The account id of the MutingRule.
 	AccountId *string `pulumi:"accountId"`

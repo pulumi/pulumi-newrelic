@@ -437,6 +437,12 @@ func (GcpDmIntegrationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gcpDmIntegrationsState)(nil)).Elem()
 }
 
+// GcpDmIntegrationsExists checks whether an existing GcpDmIntegrations resource with the given ID exists.
+func GcpDmIntegrationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GcpDmIntegrationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/gcpDmIntegrations:GcpDmIntegrations", id, state, "", opts...)
+}
+
 type gcpDmIntegrationsArgs struct {
 	// The New Relic account ID to operate on. Defaults to the `accountId` set on the provider.
 	AccountId *string `pulumi:"accountId"`

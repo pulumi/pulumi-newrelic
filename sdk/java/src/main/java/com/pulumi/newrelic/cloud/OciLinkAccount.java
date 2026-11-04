@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * For the `newrelic.cloud.OciLinkAccount` resource to work properly, you need an OCI tenancy with IAM permissions to create and manage the identity artifacts (client/application, secrets, compartments, and service user) referenced below. OCI provides enterprise-grade cloud services across multiple global regions.
  * 
- * &gt; NOTE: Before using this resource, ensure the New Relic provider is configured with valid credentials.\
+ * &gt; NOTE: Before using this resource, ensure the New Relic provider is configured with valid credentials.&#92;
  * See Getting Started: New Relic provider guide
  * 
  * If you encounter issues or bugs, please open an issue in the GitHub repository.

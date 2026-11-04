@@ -358,6 +358,12 @@ func (InfraAlertConditionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*infraAlertConditionState)(nil)).Elem()
 }
 
+// InfraAlertConditionExists checks whether an existing InfraAlertCondition resource with the given ID exists.
+func InfraAlertConditionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InfraAlertConditionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/infraAlertCondition:InfraAlertCondition", id, state, "", opts...)
+}
+
 type infraAlertConditionArgs struct {
 	// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
 	Comparison *string `pulumi:"comparison"`

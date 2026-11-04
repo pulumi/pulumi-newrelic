@@ -136,6 +136,12 @@ func (SecureCredentialState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secureCredentialState)(nil)).Elem()
 }
 
+// SecureCredentialExists checks whether an existing SecureCredential resource with the given ID exists.
+func SecureCredentialExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecureCredentialState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:synthetics/secureCredential:SecureCredential", id, state, "", opts...)
+}
+
 type secureCredentialArgs struct {
 	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`

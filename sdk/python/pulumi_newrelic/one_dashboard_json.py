@@ -313,6 +313,22 @@ class OneDashboardJson(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return OneDashboardJson(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            json: pulumi.Input[Optional[_builtins.str]] = None,
+            permalink: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["guid"] = guid
+        __props__["json"] = json
+        __props__["permalink"] = permalink
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/oneDashboardJson:OneDashboardJson', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

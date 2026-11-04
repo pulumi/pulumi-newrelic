@@ -832,6 +832,32 @@ class MonitorDowntime(pulumi.CustomResource):
         __props__.__dict__["time_zone"] = time_zone
         return MonitorDowntime(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            end_repeat: pulumi.Input[Optional[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict', 'outputs.MonitorDowntimeEndRepeat']]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            frequency: pulumi.Input[Optional[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict', 'outputs.MonitorDowntimeFrequency']]] = None,
+            maintenance_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["endRepeat"] = end_repeat
+        __props__["endTime"] = end_time
+        __props__["frequency"] = frequency
+        __props__["maintenanceDays"] = maintenance_days
+        __props__["mode"] = mode
+        __props__["monitorGuids"] = monitor_guids
+        __props__["name"] = name
+        __props__["startTime"] = start_time
+        __props__["timeZone"] = time_zone
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/monitorDowntime:MonitorDowntime', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

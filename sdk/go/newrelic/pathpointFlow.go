@@ -308,6 +308,12 @@ func (PathpointFlowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pathpointFlowState)(nil)).Elem()
 }
 
+// PathpointFlowExists checks whether an existing PathpointFlow resource with the given ID exists.
+func PathpointFlowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PathpointFlowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/pathpointFlow:PathpointFlow", id, state, "", opts...)
+}
+
 type pathpointFlowArgs struct {
 	// The New Relic account ID that owns this Pathpoint flow. Defaults to the provider account ID.
 	AccountId *string `pulumi:"accountId"`

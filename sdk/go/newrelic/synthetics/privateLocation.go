@@ -149,6 +149,12 @@ func (PrivateLocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLocationState)(nil)).Elem()
 }
 
+// PrivateLocationExists checks whether an existing PrivateLocation resource with the given ID exists.
+func PrivateLocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateLocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:synthetics/privateLocation:PrivateLocation", id, state, "", opts...)
+}
+
 type privateLocationArgs struct {
 	// The account in which the private location will be created.
 	AccountId *string `pulumi:"accountId"`

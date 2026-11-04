@@ -208,6 +208,12 @@ func (ApplicationSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationSettingsState)(nil)).Elem()
 }
 
+// ApplicationSettingsExists checks whether an existing ApplicationSettings resource with the given ID exists.
+func ApplicationSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:plugins/applicationSettings:ApplicationSettings", id, state, "", opts...)
+}
+
 type applicationSettingsArgs struct {
 	// The acceptable response time limit (Apdex threshold) for the application.
 	AppApdexThreshold *float64 `pulumi:"appApdexThreshold"`

@@ -222,6 +222,12 @@ func (FederatedLogsSetupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedLogsSetupState)(nil)).Elem()
 }
 
+// FederatedLogsSetupExists checks whether an existing FederatedLogsSetup resource with the given ID exists.
+func FederatedLogsSetupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedLogsSetupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/federatedLogsSetup:FederatedLogsSetup", id, state, "", opts...)
+}
+
 type federatedLogsSetupArgs struct {
 	// The New Relic account ID where the federated logs setup will live. Defaults to the provider's account_id. Changing this after creation is rejected by the API.
 	AccountId *string `pulumi:"accountId"`

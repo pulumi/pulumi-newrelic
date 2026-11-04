@@ -131,6 +131,12 @@ func (EventState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventState)(nil)).Elem()
 }
 
+// EventExists checks whether an existing Event resource with the given ID exists.
+func EventExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:insights/event:Event", id, state, "", opts...)
+}
+
 type eventArgs struct {
 	// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
 	Events []EventEvent `pulumi:"events"`

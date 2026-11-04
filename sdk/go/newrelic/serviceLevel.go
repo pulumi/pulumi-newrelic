@@ -315,6 +315,12 @@ func (ServiceLevelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLevelState)(nil)).Elem()
 }
 
+// ServiceLevelExists checks whether an existing ServiceLevel resource with the given ID exists.
+func ServiceLevelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceLevelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/serviceLevel:ServiceLevel", id, state, "", opts...)
+}
+
 type serviceLevelArgs struct {
 	// The description of the SLI.
 	Description *string `pulumi:"description"`

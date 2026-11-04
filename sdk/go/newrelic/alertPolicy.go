@@ -244,6 +244,12 @@ func (AlertPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertPolicyState)(nil)).Elem()
 }
 
+// AlertPolicyExists checks whether an existing AlertPolicy resource with the given ID exists.
+func AlertPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/alertPolicy:AlertPolicy", id, state, "", opts...)
+}
+
 type alertPolicyArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`

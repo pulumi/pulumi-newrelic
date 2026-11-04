@@ -599,6 +599,26 @@ class Scorecard(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Scorecard(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            progress_levels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScorecardProgressLevelArgs', 'ScorecardProgressLevelArgsDict', 'outputs.ScorecardProgressLevel']]]]] = None,
+            rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rules_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScorecardTagArgs', 'ScorecardTagArgsDict', 'outputs.ScorecardTag']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["organizationId"] = organization_id
+        __props__["progressLevels"] = progress_levels
+        __props__["ruleIds"] = rule_ids
+        __props__["rulesCollectionId"] = rules_collection_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/scorecard:Scorecard', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

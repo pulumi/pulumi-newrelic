@@ -1033,6 +1033,48 @@ class InfraAlertCondition(pulumi.CustomResource):
         __props__.__dict__["where"] = where
         return InfraAlertCondition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comparison: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.int]] = None,
+            critical: pulumi.Input[Optional[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict', 'outputs.InfraAlertConditionCritical']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            event: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            process_where: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+            select: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.int]] = None,
+            violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None,
+            warning: pulumi.Input[Optional[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict', 'outputs.InfraAlertConditionWarning']]] = None,
+            where: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comparison"] = comparison
+        __props__["createdAt"] = created_at
+        __props__["critical"] = critical
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["entityGuid"] = entity_guid
+        __props__["event"] = event
+        __props__["integrationProvider"] = integration_provider
+        __props__["name"] = name
+        __props__["policyId"] = policy_id
+        __props__["processWhere"] = process_where
+        __props__["runbookUrl"] = runbook_url
+        __props__["select"] = select
+        __props__["type"] = type
+        __props__["updatedAt"] = updated_at
+        __props__["violationCloseTimer"] = violation_close_timer
+        __props__["warning"] = warning
+        __props__["where"] = where
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/infraAlertCondition:InfraAlertCondition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Output[Optional[_builtins.str]]:

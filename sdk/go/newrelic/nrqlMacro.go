@@ -209,6 +209,12 @@ func (NrqlMacroState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nrqlMacroState)(nil)).Elem()
 }
 
+// NrqlMacroExists checks whether an existing NrqlMacro resource with the given ID exists.
+func NrqlMacroExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NrqlMacroState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/nrqlMacro:NrqlMacro", id, state, "", opts...)
+}
+
 type nrqlMacroArgs struct {
 	// The NRQL expression fragment this macro expands to. When using positional parameters (`$1`, `$2`, ...), `parameterCount` must also be set to the number of distinct tokens used.
 	Expression string `pulumi:"expression"`

@@ -493,6 +493,24 @@ class AlertCondition(pulumi.CustomResource):
         __props__.__dict__["runbook_url"] = runbook_url
         return AlertCondition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enabled"] = enabled
+        __props__["entityGuid"] = entity_guid
+        __props__["monitorId"] = monitor_id
+        __props__["name"] = name
+        __props__["policyId"] = policy_id
+        __props__["runbookUrl"] = runbook_url
+        return pulumi.runtime.exists_resource(None, 'newrelic:synthetics/alertCondition:AlertCondition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

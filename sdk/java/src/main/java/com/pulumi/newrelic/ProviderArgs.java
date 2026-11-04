@@ -39,20 +39,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     @Import(name="apiUrl")
     private @Nullable Output<String> apiUrl;
 
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     public Optional<Output<String>> apiUrl() {
         return Optional.ofNullable(this.apiUrl);
     }
@@ -65,20 +63,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     @Import(name="infrastructureApiUrl")
     private @Nullable Output<String> infrastructureApiUrl;
 
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     public Optional<Output<String>> infrastructureApiUrl() {
         return Optional.ofNullable(this.infrastructureApiUrl);
     }
@@ -112,20 +108,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     @Import(name="nerdgraphApiUrl")
     private @Nullable Output<String> nerdgraphApiUrl;
 
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     public Optional<Output<String>> nerdgraphApiUrl() {
         return Optional.ofNullable(this.nerdgraphApiUrl);
     }
@@ -146,20 +140,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     @Import(name="syntheticsApiUrl")
     private @Nullable Output<String> syntheticsApiUrl;
 
     /**
-     * @deprecated
-     * New Relic internal use only. API URLs are now configured based on the configured region.
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      * 
      */
-    @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+    @Deprecated
     public Optional<Output<String>> syntheticsApiUrl() {
         return Optional.ofNullable(this.syntheticsApiUrl);
     }
@@ -230,11 +222,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * New Relic internal use only. API URLs are now configured based on the configured region.
+         * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
          * 
          */
-        @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+        @Deprecated
         public Builder apiUrl(@Nullable Output<String> apiUrl) {
             $.apiUrl = apiUrl;
             return this;
@@ -243,11 +234,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * New Relic internal use only. API URLs are now configured based on the configured region.
+         * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
          * 
          */
-        @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+        @Deprecated
         public Builder apiUrl(String apiUrl) {
             return apiUrl(Output.of(apiUrl));
         }
@@ -264,11 +254,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * New Relic internal use only. API URLs are now configured based on the configured region.
+         * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
          * 
          */
-        @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+        @Deprecated
         public Builder infrastructureApiUrl(@Nullable Output<String> infrastructureApiUrl) {
             $.infrastructureApiUrl = infrastructureApiUrl;
             return this;
@@ -277,11 +266,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * New Relic internal use only. API URLs are now configured based on the configured region.
+         * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
          * 
          */
-        @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+        @Deprecated
         public Builder infrastructureApiUrl(String infrastructureApiUrl) {
             return infrastructureApiUrl(Output.of(infrastructureApiUrl));
         }
@@ -325,11 +313,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * New Relic internal use only. API URLs are now configured based on the configured region.
+         * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
          * 
          */
-        @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+        @Deprecated
         public Builder nerdgraphApiUrl(@Nullable Output<String> nerdgraphApiUrl) {
             $.nerdgraphApiUrl = nerdgraphApiUrl;
             return this;
@@ -338,11 +325,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * New Relic internal use only. API URLs are now configured based on the configured region.
+         * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
          * 
          */
-        @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+        @Deprecated
         public Builder nerdgraphApiUrl(String nerdgraphApiUrl) {
             return nerdgraphApiUrl(Output.of(nerdgraphApiUrl));
         }
@@ -371,11 +357,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * New Relic internal use only. API URLs are now configured based on the configured region.
+         * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
          * 
          */
-        @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+        @Deprecated
         public Builder syntheticsApiUrl(@Nullable Output<String> syntheticsApiUrl) {
             $.syntheticsApiUrl = syntheticsApiUrl;
             return this;
@@ -384,11 +369,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * New Relic internal use only. API URLs are now configured based on the configured region.
+         * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
          * 
          */
-        @Deprecated /* New Relic internal use only. API URLs are now configured based on the configured region. */
+        @Deprecated
         public Builder syntheticsApiUrl(String syntheticsApiUrl) {
             return syntheticsApiUrl(Output.of(syntheticsApiUrl));
         }

@@ -246,6 +246,12 @@ func (FleetMembersState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetMembersState)(nil)).Elem()
 }
 
+// FleetMembersExists checks whether an existing FleetMembers resource with the given ID exists.
+func FleetMembersExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FleetMembersState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/fleetMembers:FleetMembers", id, state, "", opts...)
+}
+
 type fleetMembersArgs struct {
 	// The GUID of the fleet to manage entity assignments for.
 	FleetId string `pulumi:"fleetId"`

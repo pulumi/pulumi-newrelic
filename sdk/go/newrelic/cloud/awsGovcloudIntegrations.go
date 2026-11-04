@@ -212,6 +212,12 @@ func (AwsGovcloudIntegrationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*awsGovcloudIntegrationsState)(nil)).Elem()
 }
 
+// AwsGovcloudIntegrationsExists checks whether an existing AwsGovcloudIntegrations resource with the given ID exists.
+func AwsGovcloudIntegrationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AwsGovcloudIntegrationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations", id, state, "", opts...)
+}
+
 type awsGovcloudIntegrationsArgs struct {
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`

@@ -17,14 +17,14 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
     public static final WorkflowAutomationArgs Empty = new WorkflowAutomationArgs();
 
     /**
-     * \- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
+     * &#92;- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
      * 
      */
     @Import(name="definition", required=true)
     private Output<String> definition;
 
     /**
-     * @return \- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
+     * @return &#92;- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
      * 
      */
     public Output<String> definition() {
@@ -32,14 +32,14 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * \- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
+     * &#92;- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return \- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
+     * @return &#92;- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +47,14 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * \- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
+     * &#92;- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
      * 
      */
     @Import(name="scopeId", required=true)
     private Output<String> scopeId;
 
     /**
-     * @return \- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
+     * @return &#92;- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
      * 
      */
     public Output<String> scopeId() {
@@ -62,14 +62,14 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * \- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
+     * &#92;- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
      * 
      */
     @Import(name="scopeType", required=true)
     private Output<String> scopeType;
 
     /**
-     * @return \- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
+     * @return &#92;- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
      * 
      */
     public Output<String> scopeType() {
@@ -104,7 +104,7 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param definition \- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
+         * @param definition &#92;- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param definition \- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
+         * @param definition &#92;- (Required) The YAML definition of the workflow. This must be a valid YAML string that defines the workflow&#39;s configuration.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name \- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
+         * @param name &#92;- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name \- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
+         * @param name &#92;- (Required) The name of the workflow. This must match the `name` field in the YAML `definition`. **Important**: Changing this field will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scopeId \- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
+         * @param scopeId &#92;- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scopeId \- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
+         * @param scopeId &#92;- (Required) The ID of the scope for the workflow. For `ACCOUNT` scope, this is your New Relic account ID (numeric). For `ORGANIZATION` scope, this is your organization ID (string). **Important**: Changing this field will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scopeType \- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
+         * @param scopeType &#92;- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class WorkflowAutomationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scopeType \- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
+         * @param scopeType &#92;- (Required) The scope type for the workflow. Must be either `ACCOUNT` or `ORGANIZATION`. **Important**: Changing this field will force a new resource to be created.
          * 
          * @return builder
          * 

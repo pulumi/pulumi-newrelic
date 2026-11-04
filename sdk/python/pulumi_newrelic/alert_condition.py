@@ -866,6 +866,40 @@ class AlertCondition(pulumi.CustomResource):
         __props__.__dict__["violation_close_timer"] = violation_close_timer
         return AlertCondition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            condition_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            gc_metric: pulumi.Input[Optional[_builtins.str]] = None,
+            metric: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+            terms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict', 'outputs.AlertConditionTerm']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_defined_metric: pulumi.Input[Optional[_builtins.str]] = None,
+            user_defined_value_function: pulumi.Input[Optional[_builtins.str]] = None,
+            violation_close_timer: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conditionScope"] = condition_scope
+        __props__["enabled"] = enabled
+        __props__["entities"] = entities
+        __props__["entityGuid"] = entity_guid
+        __props__["gcMetric"] = gc_metric
+        __props__["metric"] = metric
+        __props__["name"] = name
+        __props__["policyId"] = policy_id
+        __props__["runbookUrl"] = runbook_url
+        __props__["terms"] = terms
+        __props__["type"] = type
+        __props__["userDefinedMetric"] = user_defined_metric
+        __props__["userDefinedValueFunction"] = user_defined_value_function
+        __props__["violationCloseTimer"] = violation_close_timer
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/alertCondition:AlertCondition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="conditionScope")
     def condition_scope(self) -> pulumi.Output[Optional[_builtins.str]]:

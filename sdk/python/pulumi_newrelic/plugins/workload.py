@@ -932,6 +932,40 @@ class Workload(pulumi.CustomResource):
         __props__.__dict__["workload_id"] = workload_id
         return Workload(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            composite_entity_search_query: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamic_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadDynamicFlowArgs', 'WorkloadDynamicFlowArgsDict', 'outputs.WorkloadDynamicFlow']]]]] = None,
+            entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            entity_search_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict', 'outputs.WorkloadEntitySearchQuery']]]]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permalink: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status_config_alert_policy: pulumi.Input[Optional[Union['WorkloadStatusConfigAlertPolicyArgs', 'WorkloadStatusConfigAlertPolicyArgsDict', 'outputs.WorkloadStatusConfigAlertPolicy']]] = None,
+            status_config_automatic: pulumi.Input[Optional[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict', 'outputs.WorkloadStatusConfigAutomatic']]] = None,
+            status_config_static: pulumi.Input[Optional[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict', 'outputs.WorkloadStatusConfigStatic']]] = None,
+            workload_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["compositeEntitySearchQuery"] = composite_entity_search_query
+        __props__["description"] = description
+        __props__["dynamicFlows"] = dynamic_flows
+        __props__["entityGuids"] = entity_guids
+        __props__["entitySearchQueries"] = entity_search_queries
+        __props__["guid"] = guid
+        __props__["name"] = name
+        __props__["permalink"] = permalink
+        __props__["scopeAccountIds"] = scope_account_ids
+        __props__["statusConfigAlertPolicy"] = status_config_alert_policy
+        __props__["statusConfigAutomatic"] = status_config_automatic
+        __props__["statusConfigStatic"] = status_config_static
+        __props__["workloadId"] = workload_id
+        return pulumi.runtime.exists_resource(None, 'newrelic:plugins/workload:Workload', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:

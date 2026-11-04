@@ -649,6 +649,30 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         __props__.__dict__["warning"] = warning
         return MultiLocationAlertCondition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            critical: pulumi.Input[Optional[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict', 'outputs.MultiLocationAlertConditionCritical']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            entity_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_url: pulumi.Input[Optional[_builtins.str]] = None,
+            violation_time_limit_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            warning: pulumi.Input[Optional[Union['MultiLocationAlertConditionWarningArgs', 'MultiLocationAlertConditionWarningArgsDict', 'outputs.MultiLocationAlertConditionWarning']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["critical"] = critical
+        __props__["enabled"] = enabled
+        __props__["entities"] = entities
+        __props__["entityGuid"] = entity_guid
+        __props__["name"] = name
+        __props__["policyId"] = policy_id
+        __props__["runbookUrl"] = runbook_url
+        __props__["violationTimeLimitSeconds"] = violation_time_limit_seconds
+        __props__["warning"] = warning
+        return pulumi.runtime.exists_resource(None, 'newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def critical(self) -> pulumi.Output['outputs.MultiLocationAlertConditionCritical']:

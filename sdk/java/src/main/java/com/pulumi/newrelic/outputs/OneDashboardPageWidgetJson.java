@@ -74,7 +74,7 @@ public final class OneDashboardPageWidgetJson {
      */
     private @Nullable Boolean legendEnabled;
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     private List<OneDashboardPageWidgetJsonNrqlQuery> nrqlQueries;
@@ -187,7 +187,7 @@ public final class OneDashboardPageWidgetJson {
         return Optional.ofNullable(this.legendEnabled);
     }
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql&#92;_query blocks for Variables for details.
      * 
      */
     public List<OneDashboardPageWidgetJsonNrqlQuery> nrqlQueries() {

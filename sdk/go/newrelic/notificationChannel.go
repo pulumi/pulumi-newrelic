@@ -682,6 +682,12 @@ func (NotificationChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationChannelState)(nil)).Elem()
 }
 
+// NotificationChannelExists checks whether an existing NotificationChannel resource with the given ID exists.
+func NotificationChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/notificationChannel:NotificationChannel", id, state, "", opts...)
+}
+
 type notificationChannelArgs struct {
 	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`

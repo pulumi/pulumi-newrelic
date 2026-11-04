@@ -1086,6 +1086,40 @@ class Team(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Team(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            entity_management_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            hierarchy_level_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            membership_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ownership_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamResourceArgs', 'TeamResourceArgsDict', 'outputs.TeamResource']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamTagArgs', 'TeamTagArgsDict', 'outputs.TeamTag']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aliases"] = aliases
+        __props__["description"] = description
+        __props__["entities"] = entities
+        __props__["entityManagementMode"] = entity_management_mode
+        __props__["hierarchyLevelId"] = hierarchy_level_id
+        __props__["managers"] = managers
+        __props__["members"] = members
+        __props__["membershipCollectionId"] = membership_collection_id
+        __props__["name"] = name
+        __props__["organizationId"] = organization_id
+        __props__["ownershipCollectionId"] = ownership_collection_id
+        __props__["parentId"] = parent_id
+        __props__["resources"] = resources
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'newrelic:index/team:Team', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aliases(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

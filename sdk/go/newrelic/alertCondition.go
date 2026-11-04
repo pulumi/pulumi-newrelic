@@ -323,6 +323,12 @@ func (AlertConditionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertConditionState)(nil)).Elem()
 }
 
+// AlertConditionExists checks whether an existing AlertCondition resource with the given ID exists.
+func AlertConditionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertConditionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("newrelic:index/alertCondition:AlertCondition", id, state, "", opts...)
+}
+
 type alertConditionArgs struct {
 	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
 	ConditionScope *string `pulumi:"conditionScope"`
