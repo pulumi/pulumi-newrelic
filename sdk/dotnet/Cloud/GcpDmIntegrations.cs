@@ -140,6 +140,10 @@ namespace Pulumi.NewRelic.Cloud
     ///         {
     ///             MetricsPollingInterval = 300,
     ///         },
+    ///         GeminiEnterprise = new NewRelic.Cloud.Inputs.GcpDmIntegrationsGeminiEnterpriseArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///         },
     ///         AlloyDb = new NewRelic.Cloud.Inputs.GcpDmIntegrationsAlloyDbArgs
     ///         {
     ///             MetricsPollingInterval = 60,
@@ -315,6 +319,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Output("functions")]
         public Output<Outputs.GcpDmIntegrationsFunctions?> Functions { get; private set; } = null!;
+
+        /// <summary>
+        /// GCP Gemini Enterprise (Dimensional Metrics only).
+        /// </summary>
+        [Output("geminiEnterprise")]
+        public Output<Outputs.GcpDmIntegrationsGeminiEnterprise?> GeminiEnterprise { get; private set; } = null!;
 
         /// <summary>
         /// GCP Cloud Interconnect.
@@ -585,6 +595,12 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.GcpDmIntegrationsFunctionsArgs>? Functions { get; set; }
 
         /// <summary>
+        /// GCP Gemini Enterprise (Dimensional Metrics only).
+        /// </summary>
+        [Input("geminiEnterprise")]
+        public Input<Inputs.GcpDmIntegrationsGeminiEnterpriseArgs>? GeminiEnterprise { get; set; }
+
+        /// <summary>
         /// GCP Cloud Interconnect.
         /// </summary>
         [Input("interconnect")]
@@ -813,6 +829,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("functions")]
         public Input<Inputs.GcpDmIntegrationsFunctionsGetArgs>? Functions { get; set; }
+
+        /// <summary>
+        /// GCP Gemini Enterprise (Dimensional Metrics only).
+        /// </summary>
+        [Input("geminiEnterprise")]
+        public Input<Inputs.GcpDmIntegrationsGeminiEnterpriseGetArgs>? GeminiEnterprise { get; set; }
 
         /// <summary>
         /// GCP Cloud Interconnect.

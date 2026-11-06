@@ -1319,6 +1319,9 @@
                     "functions": {
                         "maxItemsOne": true
                     },
+                    "gemini_enterprise": {
+                        "maxItemsOne": true
+                    },
                     "interconnect": {
                         "maxItemsOne": true
                     },

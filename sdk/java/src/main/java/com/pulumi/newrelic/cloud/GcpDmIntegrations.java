@@ -29,6 +29,7 @@ import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsFirebaseStorage;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsFirebaseVertexAi;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsFirestore;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsFunctions;
+import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsGeminiEnterprise;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsInterconnect;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsIstio;
 import com.pulumi.newrelic.cloud.outputs.GcpDmIntegrationsKubernetes;
@@ -94,6 +95,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirebaseAppHostingArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirebaseVertexAiArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsEdgeContainerArgs;
+ * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsGeminiEnterpriseArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsAlloyDbArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsBigQueryArgs;
  * import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsDataFlowArgs;
@@ -202,6 +204,9 @@ import javax.annotation.Nullable;
  *                 .metricsPollingInterval(300)
  *                 .build())
  *             .edgeContainer(GcpDmIntegrationsEdgeContainerArgs.builder()
+ *                 .metricsPollingInterval(300)
+ *                 .build())
+ *             .geminiEnterprise(GcpDmIntegrationsGeminiEnterpriseArgs.builder()
  *                 .metricsPollingInterval(300)
  *                 .build())
  *             .alloyDb(GcpDmIntegrationsAlloyDbArgs.builder()
@@ -531,6 +536,20 @@ public class GcpDmIntegrations extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<GcpDmIntegrationsFunctions>> functions() {
         return Codegen.optional(this.functions);
+    }
+    /**
+     * GCP Gemini Enterprise (Dimensional Metrics only).
+     * 
+     */
+    @Export(name="geminiEnterprise", refs={GcpDmIntegrationsGeminiEnterprise.class}, tree="[0]")
+    private Output</* @Nullable */ GcpDmIntegrationsGeminiEnterprise> geminiEnterprise;
+
+    /**
+     * @return GCP Gemini Enterprise (Dimensional Metrics only).
+     * 
+     */
+    public Output<Optional<GcpDmIntegrationsGeminiEnterprise>> geminiEnterprise() {
+        return Codegen.optional(this.geminiEnterprise);
     }
     /**
      * GCP Cloud Interconnect.
