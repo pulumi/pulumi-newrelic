@@ -121,6 +121,9 @@ import (
 //				EdgeContainer: &cloud.GcpDmIntegrationsEdgeContainerArgs{
 //					MetricsPollingInterval: pulumi.Int(300),
 //				},
+//				GeminiEnterprise: &cloud.GcpDmIntegrationsGeminiEnterpriseArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
 //				AlloyDb: &cloud.GcpDmIntegrationsAlloyDbArgs{
 //					MetricsPollingInterval: pulumi.Int(60),
 //				},
@@ -211,6 +214,8 @@ type GcpDmIntegrations struct {
 	Firestore GcpDmIntegrationsFirestorePtrOutput `pulumi:"firestore"`
 	// GCP Cloud Functions.
 	Functions GcpDmIntegrationsFunctionsPtrOutput `pulumi:"functions"`
+	// GCP Gemini Enterprise (Dimensional Metrics only).
+	GeminiEnterprise GcpDmIntegrationsGeminiEnterprisePtrOutput `pulumi:"geminiEnterprise"`
 	// GCP Cloud Interconnect.
 	Interconnect GcpDmIntegrationsInterconnectPtrOutput `pulumi:"interconnect"`
 	// GCP Istio Service Mesh (Dimensional Metrics only; no entity synthesis).
@@ -320,6 +325,8 @@ type gcpDmIntegrationsState struct {
 	Firestore *GcpDmIntegrationsFirestore `pulumi:"firestore"`
 	// GCP Cloud Functions.
 	Functions *GcpDmIntegrationsFunctions `pulumi:"functions"`
+	// GCP Gemini Enterprise (Dimensional Metrics only).
+	GeminiEnterprise *GcpDmIntegrationsGeminiEnterprise `pulumi:"geminiEnterprise"`
 	// GCP Cloud Interconnect.
 	Interconnect *GcpDmIntegrationsInterconnect `pulumi:"interconnect"`
 	// GCP Istio Service Mesh (Dimensional Metrics only; no entity synthesis).
@@ -397,6 +404,8 @@ type GcpDmIntegrationsState struct {
 	Firestore GcpDmIntegrationsFirestorePtrInput
 	// GCP Cloud Functions.
 	Functions GcpDmIntegrationsFunctionsPtrInput
+	// GCP Gemini Enterprise (Dimensional Metrics only).
+	GeminiEnterprise GcpDmIntegrationsGeminiEnterprisePtrInput
 	// GCP Cloud Interconnect.
 	Interconnect GcpDmIntegrationsInterconnectPtrInput
 	// GCP Istio Service Mesh (Dimensional Metrics only; no entity synthesis).
@@ -484,6 +493,8 @@ type gcpDmIntegrationsArgs struct {
 	Firestore *GcpDmIntegrationsFirestore `pulumi:"firestore"`
 	// GCP Cloud Functions.
 	Functions *GcpDmIntegrationsFunctions `pulumi:"functions"`
+	// GCP Gemini Enterprise (Dimensional Metrics only).
+	GeminiEnterprise *GcpDmIntegrationsGeminiEnterprise `pulumi:"geminiEnterprise"`
 	// GCP Cloud Interconnect.
 	Interconnect *GcpDmIntegrationsInterconnect `pulumi:"interconnect"`
 	// GCP Istio Service Mesh (Dimensional Metrics only; no entity synthesis).
@@ -562,6 +573,8 @@ type GcpDmIntegrationsArgs struct {
 	Firestore GcpDmIntegrationsFirestorePtrInput
 	// GCP Cloud Functions.
 	Functions GcpDmIntegrationsFunctionsPtrInput
+	// GCP Gemini Enterprise (Dimensional Metrics only).
+	GeminiEnterprise GcpDmIntegrationsGeminiEnterprisePtrInput
 	// GCP Cloud Interconnect.
 	Interconnect GcpDmIntegrationsInterconnectPtrInput
 	// GCP Istio Service Mesh (Dimensional Metrics only; no entity synthesis).
@@ -783,6 +796,11 @@ func (o GcpDmIntegrationsOutput) Firestore() GcpDmIntegrationsFirestorePtrOutput
 // GCP Cloud Functions.
 func (o GcpDmIntegrationsOutput) Functions() GcpDmIntegrationsFunctionsPtrOutput {
 	return o.ApplyT(func(v *GcpDmIntegrations) GcpDmIntegrationsFunctionsPtrOutput { return v.Functions }).(GcpDmIntegrationsFunctionsPtrOutput)
+}
+
+// GCP Gemini Enterprise (Dimensional Metrics only).
+func (o GcpDmIntegrationsOutput) GeminiEnterprise() GcpDmIntegrationsGeminiEnterprisePtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrations) GcpDmIntegrationsGeminiEnterprisePtrOutput { return v.GeminiEnterprise }).(GcpDmIntegrationsGeminiEnterprisePtrOutput)
 }
 
 // GCP Cloud Interconnect.

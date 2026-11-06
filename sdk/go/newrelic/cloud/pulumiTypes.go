@@ -21923,6 +21923,143 @@ func (o GcpDmIntegrationsFunctionsPtrOutput) MetricsPollingInterval() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+type GcpDmIntegrationsGeminiEnterprise struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpDmIntegrationsGeminiEnterpriseInput is an input type that accepts GcpDmIntegrationsGeminiEnterpriseArgs and GcpDmIntegrationsGeminiEnterpriseOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsGeminiEnterpriseInput` via:
+//
+//	GcpDmIntegrationsGeminiEnterpriseArgs{...}
+type GcpDmIntegrationsGeminiEnterpriseInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsGeminiEnterpriseOutput() GcpDmIntegrationsGeminiEnterpriseOutput
+	ToGcpDmIntegrationsGeminiEnterpriseOutputWithContext(context.Context) GcpDmIntegrationsGeminiEnterpriseOutput
+}
+
+type GcpDmIntegrationsGeminiEnterpriseArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpDmIntegrationsGeminiEnterpriseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsGeminiEnterprise)(nil)).Elem()
+}
+
+func (i GcpDmIntegrationsGeminiEnterpriseArgs) ToGcpDmIntegrationsGeminiEnterpriseOutput() GcpDmIntegrationsGeminiEnterpriseOutput {
+	return i.ToGcpDmIntegrationsGeminiEnterpriseOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsGeminiEnterpriseArgs) ToGcpDmIntegrationsGeminiEnterpriseOutputWithContext(ctx context.Context) GcpDmIntegrationsGeminiEnterpriseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsGeminiEnterpriseOutput)
+}
+
+func (i GcpDmIntegrationsGeminiEnterpriseArgs) ToGcpDmIntegrationsGeminiEnterprisePtrOutput() GcpDmIntegrationsGeminiEnterprisePtrOutput {
+	return i.ToGcpDmIntegrationsGeminiEnterprisePtrOutputWithContext(context.Background())
+}
+
+func (i GcpDmIntegrationsGeminiEnterpriseArgs) ToGcpDmIntegrationsGeminiEnterprisePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsGeminiEnterprisePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsGeminiEnterpriseOutput).ToGcpDmIntegrationsGeminiEnterprisePtrOutputWithContext(ctx)
+}
+
+// GcpDmIntegrationsGeminiEnterprisePtrInput is an input type that accepts GcpDmIntegrationsGeminiEnterpriseArgs, GcpDmIntegrationsGeminiEnterprisePtr and GcpDmIntegrationsGeminiEnterprisePtrOutput values.
+// You can construct a concrete instance of `GcpDmIntegrationsGeminiEnterprisePtrInput` via:
+//
+//	        GcpDmIntegrationsGeminiEnterpriseArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpDmIntegrationsGeminiEnterprisePtrInput interface {
+	pulumi.Input
+
+	ToGcpDmIntegrationsGeminiEnterprisePtrOutput() GcpDmIntegrationsGeminiEnterprisePtrOutput
+	ToGcpDmIntegrationsGeminiEnterprisePtrOutputWithContext(context.Context) GcpDmIntegrationsGeminiEnterprisePtrOutput
+}
+
+type gcpDmIntegrationsGeminiEnterprisePtrType GcpDmIntegrationsGeminiEnterpriseArgs
+
+func GcpDmIntegrationsGeminiEnterprisePtr(v *GcpDmIntegrationsGeminiEnterpriseArgs) GcpDmIntegrationsGeminiEnterprisePtrInput {
+	return (*gcpDmIntegrationsGeminiEnterprisePtrType)(v)
+}
+
+func (*gcpDmIntegrationsGeminiEnterprisePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsGeminiEnterprise)(nil)).Elem()
+}
+
+func (i *gcpDmIntegrationsGeminiEnterprisePtrType) ToGcpDmIntegrationsGeminiEnterprisePtrOutput() GcpDmIntegrationsGeminiEnterprisePtrOutput {
+	return i.ToGcpDmIntegrationsGeminiEnterprisePtrOutputWithContext(context.Background())
+}
+
+func (i *gcpDmIntegrationsGeminiEnterprisePtrType) ToGcpDmIntegrationsGeminiEnterprisePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsGeminiEnterprisePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpDmIntegrationsGeminiEnterprisePtrOutput)
+}
+
+type GcpDmIntegrationsGeminiEnterpriseOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsGeminiEnterpriseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpDmIntegrationsGeminiEnterprise)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsGeminiEnterpriseOutput) ToGcpDmIntegrationsGeminiEnterpriseOutput() GcpDmIntegrationsGeminiEnterpriseOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsGeminiEnterpriseOutput) ToGcpDmIntegrationsGeminiEnterpriseOutputWithContext(ctx context.Context) GcpDmIntegrationsGeminiEnterpriseOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsGeminiEnterpriseOutput) ToGcpDmIntegrationsGeminiEnterprisePtrOutput() GcpDmIntegrationsGeminiEnterprisePtrOutput {
+	return o.ToGcpDmIntegrationsGeminiEnterprisePtrOutputWithContext(context.Background())
+}
+
+func (o GcpDmIntegrationsGeminiEnterpriseOutput) ToGcpDmIntegrationsGeminiEnterprisePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsGeminiEnterprisePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpDmIntegrationsGeminiEnterprise) *GcpDmIntegrationsGeminiEnterprise {
+		return &v
+	}).(GcpDmIntegrationsGeminiEnterprisePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsGeminiEnterpriseOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpDmIntegrationsGeminiEnterprise) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpDmIntegrationsGeminiEnterprisePtrOutput struct{ *pulumi.OutputState }
+
+func (GcpDmIntegrationsGeminiEnterprisePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpDmIntegrationsGeminiEnterprise)(nil)).Elem()
+}
+
+func (o GcpDmIntegrationsGeminiEnterprisePtrOutput) ToGcpDmIntegrationsGeminiEnterprisePtrOutput() GcpDmIntegrationsGeminiEnterprisePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsGeminiEnterprisePtrOutput) ToGcpDmIntegrationsGeminiEnterprisePtrOutputWithContext(ctx context.Context) GcpDmIntegrationsGeminiEnterprisePtrOutput {
+	return o
+}
+
+func (o GcpDmIntegrationsGeminiEnterprisePtrOutput) Elem() GcpDmIntegrationsGeminiEnterpriseOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsGeminiEnterprise) GcpDmIntegrationsGeminiEnterprise {
+		if v != nil {
+			return *v
+		}
+		var ret GcpDmIntegrationsGeminiEnterprise
+		return ret
+	}).(GcpDmIntegrationsGeminiEnterpriseOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpDmIntegrationsGeminiEnterprisePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpDmIntegrationsGeminiEnterprise) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
 type GcpDmIntegrationsInterconnect struct {
 	// The data polling interval in seconds.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
@@ -28012,6 +28149,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFirestorePtrInput)(nil)).Elem(), GcpDmIntegrationsFirestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFunctionsInput)(nil)).Elem(), GcpDmIntegrationsFunctionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsFunctionsPtrInput)(nil)).Elem(), GcpDmIntegrationsFunctionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsGeminiEnterpriseInput)(nil)).Elem(), GcpDmIntegrationsGeminiEnterpriseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsGeminiEnterprisePtrInput)(nil)).Elem(), GcpDmIntegrationsGeminiEnterpriseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsInterconnectInput)(nil)).Elem(), GcpDmIntegrationsInterconnectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsInterconnectPtrInput)(nil)).Elem(), GcpDmIntegrationsInterconnectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpDmIntegrationsIstioInput)(nil)).Elem(), GcpDmIntegrationsIstioArgs{})
@@ -28354,6 +28493,8 @@ func init() {
 	pulumi.RegisterOutputType(GcpDmIntegrationsFirestorePtrOutput{})
 	pulumi.RegisterOutputType(GcpDmIntegrationsFunctionsOutput{})
 	pulumi.RegisterOutputType(GcpDmIntegrationsFunctionsPtrOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsGeminiEnterpriseOutput{})
+	pulumi.RegisterOutputType(GcpDmIntegrationsGeminiEnterprisePtrOutput{})
 	pulumi.RegisterOutputType(GcpDmIntegrationsInterconnectOutput{})
 	pulumi.RegisterOutputType(GcpDmIntegrationsInterconnectPtrOutput{})
 	pulumi.RegisterOutputType(GcpDmIntegrationsIstioOutput{})

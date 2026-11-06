@@ -105,6 +105,9 @@ import * as utilities from "../utilities";
  *     edgeContainer: {
  *         metricsPollingInterval: 300,
  *     },
+ *     geminiEnterprise: {
+ *         metricsPollingInterval: 300,
+ *     },
  *     alloyDb: {
  *         metricsPollingInterval: 60,
  *     },
@@ -266,6 +269,10 @@ export class GcpDmIntegrations extends pulumi.CustomResource {
      */
     declare public readonly functions: pulumi.Output<outputs.cloud.GcpDmIntegrationsFunctions | undefined>;
     /**
+     * GCP Gemini Enterprise (Dimensional Metrics only).
+     */
+    declare public readonly geminiEnterprise: pulumi.Output<outputs.cloud.GcpDmIntegrationsGeminiEnterprise | undefined>;
+    /**
      * GCP Cloud Interconnect.
      */
     declare public readonly interconnect: pulumi.Output<outputs.cloud.GcpDmIntegrationsInterconnect | undefined>;
@@ -367,6 +374,7 @@ export class GcpDmIntegrations extends pulumi.CustomResource {
             resourceInputs["firebaseVertexAi"] = state?.firebaseVertexAi;
             resourceInputs["firestore"] = state?.firestore;
             resourceInputs["functions"] = state?.functions;
+            resourceInputs["geminiEnterprise"] = state?.geminiEnterprise;
             resourceInputs["interconnect"] = state?.interconnect;
             resourceInputs["istio"] = state?.istio;
             resourceInputs["kubernetes"] = state?.kubernetes;
@@ -409,6 +417,7 @@ export class GcpDmIntegrations extends pulumi.CustomResource {
             resourceInputs["firebaseVertexAi"] = args?.firebaseVertexAi;
             resourceInputs["firestore"] = args?.firestore;
             resourceInputs["functions"] = args?.functions;
+            resourceInputs["geminiEnterprise"] = args?.geminiEnterprise;
             resourceInputs["interconnect"] = args?.interconnect;
             resourceInputs["istio"] = args?.istio;
             resourceInputs["kubernetes"] = args?.kubernetes;
@@ -516,6 +525,10 @@ export interface GcpDmIntegrationsState {
      * GCP Cloud Functions.
      */
     functions?: pulumi.Input<inputs.cloud.GcpDmIntegrationsFunctions | undefined>;
+    /**
+     * GCP Gemini Enterprise (Dimensional Metrics only).
+     */
+    geminiEnterprise?: pulumi.Input<inputs.cloud.GcpDmIntegrationsGeminiEnterprise | undefined>;
     /**
      * GCP Cloud Interconnect.
      */
@@ -670,6 +683,10 @@ export interface GcpDmIntegrationsArgs {
      * GCP Cloud Functions.
      */
     functions?: pulumi.Input<inputs.cloud.GcpDmIntegrationsFunctions | undefined>;
+    /**
+     * GCP Gemini Enterprise (Dimensional Metrics only).
+     */
+    geminiEnterprise?: pulumi.Input<inputs.cloud.GcpDmIntegrationsGeminiEnterprise | undefined>;
     /**
      * GCP Cloud Interconnect.
      */

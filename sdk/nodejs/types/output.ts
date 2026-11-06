@@ -6643,6 +6643,13 @@ export namespace cloud {
         metricsPollingInterval: number;
     }
 
+    export interface GcpDmIntegrationsGeminiEnterprise {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval: number;
+    }
+
     export interface GcpDmIntegrationsInterconnect {
         /**
          * The data polling interval in seconds.

@@ -24,6 +24,7 @@ import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirebaseStorageArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirebaseVertexAiArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFirestoreArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsFunctionsArgs;
+import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsGeminiEnterpriseArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsInterconnectArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsIstioArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpDmIntegrationsKubernetesArgs;
@@ -351,6 +352,21 @@ public final class GcpDmIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * GCP Gemini Enterprise (Dimensional Metrics only).
+     * 
+     */
+    @Import(name="geminiEnterprise")
+    private @Nullable Output<GcpDmIntegrationsGeminiEnterpriseArgs> geminiEnterprise;
+
+    /**
+     * @return GCP Gemini Enterprise (Dimensional Metrics only).
+     * 
+     */
+    public Optional<Output<GcpDmIntegrationsGeminiEnterpriseArgs>> geminiEnterprise() {
+        return Optional.ofNullable(this.geminiEnterprise);
+    }
+
+    /**
      * GCP Cloud Interconnect.
      * 
      */
@@ -628,6 +644,7 @@ public final class GcpDmIntegrationsState extends com.pulumi.resources.ResourceA
         this.firebaseVertexAi = $.firebaseVertexAi;
         this.firestore = $.firestore;
         this.functions = $.functions;
+        this.geminiEnterprise = $.geminiEnterprise;
         this.interconnect = $.interconnect;
         this.istio = $.istio;
         this.kubernetes = $.kubernetes;
@@ -1083,6 +1100,27 @@ public final class GcpDmIntegrationsState extends com.pulumi.resources.ResourceA
          */
         public Builder functions(GcpDmIntegrationsFunctionsArgs functions) {
             return functions(Output.of(functions));
+        }
+
+        /**
+         * @param geminiEnterprise GCP Gemini Enterprise (Dimensional Metrics only).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder geminiEnterprise(@Nullable Output<GcpDmIntegrationsGeminiEnterpriseArgs> geminiEnterprise) {
+            $.geminiEnterprise = geminiEnterprise;
+            return this;
+        }
+
+        /**
+         * @param geminiEnterprise GCP Gemini Enterprise (Dimensional Metrics only).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder geminiEnterprise(GcpDmIntegrationsGeminiEnterpriseArgs geminiEnterprise) {
+            return geminiEnterprise(Output.of(geminiEnterprise));
         }
 
         /**

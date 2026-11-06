@@ -42,6 +42,7 @@ class GcpDmIntegrationsArgs:
                  firebase_vertex_ai: pulumi.Input[Optional['GcpDmIntegrationsFirebaseVertexAiArgs']] = None,
                  firestore: pulumi.Input[Optional['GcpDmIntegrationsFirestoreArgs']] = None,
                  functions: pulumi.Input[Optional['GcpDmIntegrationsFunctionsArgs']] = None,
+                 gemini_enterprise: pulumi.Input[Optional['GcpDmIntegrationsGeminiEnterpriseArgs']] = None,
                  interconnect: pulumi.Input[Optional['GcpDmIntegrationsInterconnectArgs']] = None,
                  istio: pulumi.Input[Optional['GcpDmIntegrationsIstioArgs']] = None,
                  kubernetes: pulumi.Input[Optional['GcpDmIntegrationsKubernetesArgs']] = None,
@@ -82,6 +83,7 @@ class GcpDmIntegrationsArgs:
         :param pulumi.Input['GcpDmIntegrationsFirebaseVertexAiArgs'] firebase_vertex_ai: Firebase Vertex AI (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input['GcpDmIntegrationsFirestoreArgs'] firestore: GCP Firestore.
         :param pulumi.Input['GcpDmIntegrationsFunctionsArgs'] functions: GCP Cloud Functions.
+        :param pulumi.Input['GcpDmIntegrationsGeminiEnterpriseArgs'] gemini_enterprise: GCP Gemini Enterprise (Dimensional Metrics only).
         :param pulumi.Input['GcpDmIntegrationsInterconnectArgs'] interconnect: GCP Cloud Interconnect.
         :param pulumi.Input['GcpDmIntegrationsIstioArgs'] istio: GCP Istio Service Mesh (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input['GcpDmIntegrationsKubernetesArgs'] kubernetes: GCP Google Kubernetes Engine (GKE).
@@ -140,6 +142,8 @@ class GcpDmIntegrationsArgs:
             pulumi.set(__self__, "firestore", firestore)
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
+        if gemini_enterprise is not None:
+            pulumi.set(__self__, "gemini_enterprise", gemini_enterprise)
         if interconnect is not None:
             pulumi.set(__self__, "interconnect", interconnect)
         if istio is not None:
@@ -426,6 +430,18 @@ class GcpDmIntegrationsArgs:
         pulumi.set(self, "functions", value)
 
     @_builtins.property
+    @pulumi.getter(name="geminiEnterprise")
+    def gemini_enterprise(self) -> pulumi.Input[Optional['GcpDmIntegrationsGeminiEnterpriseArgs']]:
+        """
+        GCP Gemini Enterprise (Dimensional Metrics only).
+        """
+        return pulumi.get(self, "gemini_enterprise")
+
+    @gemini_enterprise.setter
+    def gemini_enterprise(self, value: pulumi.Input[Optional['GcpDmIntegrationsGeminiEnterpriseArgs']]):
+        pulumi.set(self, "gemini_enterprise", value)
+
+    @_builtins.property
     @pulumi.getter
     def interconnect(self) -> pulumi.Input[Optional['GcpDmIntegrationsInterconnectArgs']]:
         """
@@ -641,6 +657,7 @@ class _GcpDmIntegrationsState:
                  firebase_vertex_ai: pulumi.Input[Optional['GcpDmIntegrationsFirebaseVertexAiArgs']] = None,
                  firestore: pulumi.Input[Optional['GcpDmIntegrationsFirestoreArgs']] = None,
                  functions: pulumi.Input[Optional['GcpDmIntegrationsFunctionsArgs']] = None,
+                 gemini_enterprise: pulumi.Input[Optional['GcpDmIntegrationsGeminiEnterpriseArgs']] = None,
                  interconnect: pulumi.Input[Optional['GcpDmIntegrationsInterconnectArgs']] = None,
                  istio: pulumi.Input[Optional['GcpDmIntegrationsIstioArgs']] = None,
                  kubernetes: pulumi.Input[Optional['GcpDmIntegrationsKubernetesArgs']] = None,
@@ -681,6 +698,7 @@ class _GcpDmIntegrationsState:
         :param pulumi.Input['GcpDmIntegrationsFirebaseVertexAiArgs'] firebase_vertex_ai: Firebase Vertex AI (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input['GcpDmIntegrationsFirestoreArgs'] firestore: GCP Firestore.
         :param pulumi.Input['GcpDmIntegrationsFunctionsArgs'] functions: GCP Cloud Functions.
+        :param pulumi.Input['GcpDmIntegrationsGeminiEnterpriseArgs'] gemini_enterprise: GCP Gemini Enterprise (Dimensional Metrics only).
         :param pulumi.Input['GcpDmIntegrationsInterconnectArgs'] interconnect: GCP Cloud Interconnect.
         :param pulumi.Input['GcpDmIntegrationsIstioArgs'] istio: GCP Istio Service Mesh (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input['GcpDmIntegrationsKubernetesArgs'] kubernetes: GCP Google Kubernetes Engine (GKE).
@@ -739,6 +757,8 @@ class _GcpDmIntegrationsState:
             pulumi.set(__self__, "firestore", firestore)
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
+        if gemini_enterprise is not None:
+            pulumi.set(__self__, "gemini_enterprise", gemini_enterprise)
         if interconnect is not None:
             pulumi.set(__self__, "interconnect", interconnect)
         if istio is not None:
@@ -1015,6 +1035,18 @@ class _GcpDmIntegrationsState:
         pulumi.set(self, "functions", value)
 
     @_builtins.property
+    @pulumi.getter(name="geminiEnterprise")
+    def gemini_enterprise(self) -> pulumi.Input[Optional['GcpDmIntegrationsGeminiEnterpriseArgs']]:
+        """
+        GCP Gemini Enterprise (Dimensional Metrics only).
+        """
+        return pulumi.get(self, "gemini_enterprise")
+
+    @gemini_enterprise.setter
+    def gemini_enterprise(self, value: pulumi.Input[Optional['GcpDmIntegrationsGeminiEnterpriseArgs']]):
+        pulumi.set(self, "gemini_enterprise", value)
+
+    @_builtins.property
     @pulumi.getter
     def interconnect(self) -> pulumi.Input[Optional['GcpDmIntegrationsInterconnectArgs']]:
         """
@@ -1245,6 +1277,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
                  firebase_vertex_ai: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseVertexAiArgs', 'GcpDmIntegrationsFirebaseVertexAiArgsDict', 'outputs.GcpDmIntegrationsFirebaseVertexAi']]] = None,
                  firestore: pulumi.Input[Optional[Union['GcpDmIntegrationsFirestoreArgs', 'GcpDmIntegrationsFirestoreArgsDict', 'outputs.GcpDmIntegrationsFirestore']]] = None,
                  functions: pulumi.Input[Optional[Union['GcpDmIntegrationsFunctionsArgs', 'GcpDmIntegrationsFunctionsArgsDict', 'outputs.GcpDmIntegrationsFunctions']]] = None,
+                 gemini_enterprise: pulumi.Input[Optional[Union['GcpDmIntegrationsGeminiEnterpriseArgs', 'GcpDmIntegrationsGeminiEnterpriseArgsDict', 'outputs.GcpDmIntegrationsGeminiEnterprise']]] = None,
                  interconnect: pulumi.Input[Optional[Union['GcpDmIntegrationsInterconnectArgs', 'GcpDmIntegrationsInterconnectArgsDict', 'outputs.GcpDmIntegrationsInterconnect']]] = None,
                  istio: pulumi.Input[Optional[Union['GcpDmIntegrationsIstioArgs', 'GcpDmIntegrationsIstioArgsDict', 'outputs.GcpDmIntegrationsIstio']]] = None,
                  kubernetes: pulumi.Input[Optional[Union['GcpDmIntegrationsKubernetesArgs', 'GcpDmIntegrationsKubernetesArgsDict', 'outputs.GcpDmIntegrationsKubernetes']]] = None,
@@ -1361,6 +1394,9 @@ class GcpDmIntegrations(pulumi.CustomResource):
             edge_container={
                 "metrics_polling_interval": 300,
             },
+            gemini_enterprise={
+                "metrics_polling_interval": 300,
+            },
             alloy_db={
                 "metrics_polling_interval": 60,
             },
@@ -1424,6 +1460,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['GcpDmIntegrationsFirebaseVertexAiArgs', 'GcpDmIntegrationsFirebaseVertexAiArgsDict', 'outputs.GcpDmIntegrationsFirebaseVertexAi']] firebase_vertex_ai: Firebase Vertex AI (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input[Union['GcpDmIntegrationsFirestoreArgs', 'GcpDmIntegrationsFirestoreArgsDict', 'outputs.GcpDmIntegrationsFirestore']] firestore: GCP Firestore.
         :param pulumi.Input[Union['GcpDmIntegrationsFunctionsArgs', 'GcpDmIntegrationsFunctionsArgsDict', 'outputs.GcpDmIntegrationsFunctions']] functions: GCP Cloud Functions.
+        :param pulumi.Input[Union['GcpDmIntegrationsGeminiEnterpriseArgs', 'GcpDmIntegrationsGeminiEnterpriseArgsDict', 'outputs.GcpDmIntegrationsGeminiEnterprise']] gemini_enterprise: GCP Gemini Enterprise (Dimensional Metrics only).
         :param pulumi.Input[Union['GcpDmIntegrationsInterconnectArgs', 'GcpDmIntegrationsInterconnectArgsDict', 'outputs.GcpDmIntegrationsInterconnect']] interconnect: GCP Cloud Interconnect.
         :param pulumi.Input[Union['GcpDmIntegrationsIstioArgs', 'GcpDmIntegrationsIstioArgsDict', 'outputs.GcpDmIntegrationsIstio']] istio: GCP Istio Service Mesh (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input[Union['GcpDmIntegrationsKubernetesArgs', 'GcpDmIntegrationsKubernetesArgsDict', 'outputs.GcpDmIntegrationsKubernetes']] kubernetes: GCP Google Kubernetes Engine (GKE).
@@ -1546,6 +1583,9 @@ class GcpDmIntegrations(pulumi.CustomResource):
             edge_container={
                 "metrics_polling_interval": 300,
             },
+            gemini_enterprise={
+                "metrics_polling_interval": 300,
+            },
             alloy_db={
                 "metrics_polling_interval": 60,
             },
@@ -1622,6 +1662,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
                  firebase_vertex_ai: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseVertexAiArgs', 'GcpDmIntegrationsFirebaseVertexAiArgsDict', 'outputs.GcpDmIntegrationsFirebaseVertexAi']]] = None,
                  firestore: pulumi.Input[Optional[Union['GcpDmIntegrationsFirestoreArgs', 'GcpDmIntegrationsFirestoreArgsDict', 'outputs.GcpDmIntegrationsFirestore']]] = None,
                  functions: pulumi.Input[Optional[Union['GcpDmIntegrationsFunctionsArgs', 'GcpDmIntegrationsFunctionsArgsDict', 'outputs.GcpDmIntegrationsFunctions']]] = None,
+                 gemini_enterprise: pulumi.Input[Optional[Union['GcpDmIntegrationsGeminiEnterpriseArgs', 'GcpDmIntegrationsGeminiEnterpriseArgsDict', 'outputs.GcpDmIntegrationsGeminiEnterprise']]] = None,
                  interconnect: pulumi.Input[Optional[Union['GcpDmIntegrationsInterconnectArgs', 'GcpDmIntegrationsInterconnectArgsDict', 'outputs.GcpDmIntegrationsInterconnect']]] = None,
                  istio: pulumi.Input[Optional[Union['GcpDmIntegrationsIstioArgs', 'GcpDmIntegrationsIstioArgsDict', 'outputs.GcpDmIntegrationsIstio']]] = None,
                  kubernetes: pulumi.Input[Optional[Union['GcpDmIntegrationsKubernetesArgs', 'GcpDmIntegrationsKubernetesArgsDict', 'outputs.GcpDmIntegrationsKubernetes']]] = None,
@@ -1668,6 +1709,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
             __props__.__dict__["firebase_vertex_ai"] = firebase_vertex_ai
             __props__.__dict__["firestore"] = firestore
             __props__.__dict__["functions"] = functions
+            __props__.__dict__["gemini_enterprise"] = gemini_enterprise
             __props__.__dict__["interconnect"] = interconnect
             __props__.__dict__["istio"] = istio
             __props__.__dict__["kubernetes"] = kubernetes
@@ -1717,6 +1759,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
             firebase_vertex_ai: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseVertexAiArgs', 'GcpDmIntegrationsFirebaseVertexAiArgsDict', 'outputs.GcpDmIntegrationsFirebaseVertexAi']]] = None,
             firestore: pulumi.Input[Optional[Union['GcpDmIntegrationsFirestoreArgs', 'GcpDmIntegrationsFirestoreArgsDict', 'outputs.GcpDmIntegrationsFirestore']]] = None,
             functions: pulumi.Input[Optional[Union['GcpDmIntegrationsFunctionsArgs', 'GcpDmIntegrationsFunctionsArgsDict', 'outputs.GcpDmIntegrationsFunctions']]] = None,
+            gemini_enterprise: pulumi.Input[Optional[Union['GcpDmIntegrationsGeminiEnterpriseArgs', 'GcpDmIntegrationsGeminiEnterpriseArgsDict', 'outputs.GcpDmIntegrationsGeminiEnterprise']]] = None,
             interconnect: pulumi.Input[Optional[Union['GcpDmIntegrationsInterconnectArgs', 'GcpDmIntegrationsInterconnectArgsDict', 'outputs.GcpDmIntegrationsInterconnect']]] = None,
             istio: pulumi.Input[Optional[Union['GcpDmIntegrationsIstioArgs', 'GcpDmIntegrationsIstioArgsDict', 'outputs.GcpDmIntegrationsIstio']]] = None,
             kubernetes: pulumi.Input[Optional[Union['GcpDmIntegrationsKubernetesArgs', 'GcpDmIntegrationsKubernetesArgsDict', 'outputs.GcpDmIntegrationsKubernetes']]] = None,
@@ -1761,6 +1804,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['GcpDmIntegrationsFirebaseVertexAiArgs', 'GcpDmIntegrationsFirebaseVertexAiArgsDict', 'outputs.GcpDmIntegrationsFirebaseVertexAi']] firebase_vertex_ai: Firebase Vertex AI (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input[Union['GcpDmIntegrationsFirestoreArgs', 'GcpDmIntegrationsFirestoreArgsDict', 'outputs.GcpDmIntegrationsFirestore']] firestore: GCP Firestore.
         :param pulumi.Input[Union['GcpDmIntegrationsFunctionsArgs', 'GcpDmIntegrationsFunctionsArgsDict', 'outputs.GcpDmIntegrationsFunctions']] functions: GCP Cloud Functions.
+        :param pulumi.Input[Union['GcpDmIntegrationsGeminiEnterpriseArgs', 'GcpDmIntegrationsGeminiEnterpriseArgsDict', 'outputs.GcpDmIntegrationsGeminiEnterprise']] gemini_enterprise: GCP Gemini Enterprise (Dimensional Metrics only).
         :param pulumi.Input[Union['GcpDmIntegrationsInterconnectArgs', 'GcpDmIntegrationsInterconnectArgsDict', 'outputs.GcpDmIntegrationsInterconnect']] interconnect: GCP Cloud Interconnect.
         :param pulumi.Input[Union['GcpDmIntegrationsIstioArgs', 'GcpDmIntegrationsIstioArgsDict', 'outputs.GcpDmIntegrationsIstio']] istio: GCP Istio Service Mesh (Dimensional Metrics only; no entity synthesis).
         :param pulumi.Input[Union['GcpDmIntegrationsKubernetesArgs', 'GcpDmIntegrationsKubernetesArgsDict', 'outputs.GcpDmIntegrationsKubernetes']] kubernetes: GCP Google Kubernetes Engine (GKE).
@@ -1803,6 +1847,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
         __props__.__dict__["firebase_vertex_ai"] = firebase_vertex_ai
         __props__.__dict__["firestore"] = firestore
         __props__.__dict__["functions"] = functions
+        __props__.__dict__["gemini_enterprise"] = gemini_enterprise
         __props__.__dict__["interconnect"] = interconnect
         __props__.__dict__["istio"] = istio
         __props__.__dict__["kubernetes"] = kubernetes
@@ -1845,6 +1890,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
             firebase_vertex_ai: pulumi.Input[Optional[Union['GcpDmIntegrationsFirebaseVertexAiArgs', 'GcpDmIntegrationsFirebaseVertexAiArgsDict', 'outputs.GcpDmIntegrationsFirebaseVertexAi']]] = None,
             firestore: pulumi.Input[Optional[Union['GcpDmIntegrationsFirestoreArgs', 'GcpDmIntegrationsFirestoreArgsDict', 'outputs.GcpDmIntegrationsFirestore']]] = None,
             functions: pulumi.Input[Optional[Union['GcpDmIntegrationsFunctionsArgs', 'GcpDmIntegrationsFunctionsArgsDict', 'outputs.GcpDmIntegrationsFunctions']]] = None,
+            gemini_enterprise: pulumi.Input[Optional[Union['GcpDmIntegrationsGeminiEnterpriseArgs', 'GcpDmIntegrationsGeminiEnterpriseArgsDict', 'outputs.GcpDmIntegrationsGeminiEnterprise']]] = None,
             interconnect: pulumi.Input[Optional[Union['GcpDmIntegrationsInterconnectArgs', 'GcpDmIntegrationsInterconnectArgsDict', 'outputs.GcpDmIntegrationsInterconnect']]] = None,
             istio: pulumi.Input[Optional[Union['GcpDmIntegrationsIstioArgs', 'GcpDmIntegrationsIstioArgsDict', 'outputs.GcpDmIntegrationsIstio']]] = None,
             kubernetes: pulumi.Input[Optional[Union['GcpDmIntegrationsKubernetesArgs', 'GcpDmIntegrationsKubernetesArgsDict', 'outputs.GcpDmIntegrationsKubernetes']]] = None,
@@ -1883,6 +1929,7 @@ class GcpDmIntegrations(pulumi.CustomResource):
         __props__["firebaseVertexAi"] = firebase_vertex_ai
         __props__["firestore"] = firestore
         __props__["functions"] = functions
+        __props__["geminiEnterprise"] = gemini_enterprise
         __props__["interconnect"] = interconnect
         __props__["istio"] = istio
         __props__["kubernetes"] = kubernetes
@@ -2061,6 +2108,14 @@ class GcpDmIntegrations(pulumi.CustomResource):
         GCP Cloud Functions.
         """
         return pulumi.get(self, "functions")
+
+    @_builtins.property
+    @pulumi.getter(name="geminiEnterprise")
+    def gemini_enterprise(self) -> pulumi.Output[Optional['outputs.GcpDmIntegrationsGeminiEnterprise']]:
+        """
+        GCP Gemini Enterprise (Dimensional Metrics only).
+        """
+        return pulumi.get(self, "gemini_enterprise")
 
     @_builtins.property
     @pulumi.getter

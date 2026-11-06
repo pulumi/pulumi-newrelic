@@ -6574,6 +6574,13 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number | undefined>;
     }
 
+    export interface GcpDmIntegrationsGeminiEnterprise {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: pulumi.Input<number | undefined>;
+    }
+
     export interface GcpDmIntegrationsInterconnect {
         /**
          * The data polling interval in seconds.
