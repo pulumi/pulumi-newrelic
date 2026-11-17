@@ -531,6 +531,17 @@ export interface InfraAlertConditionWarning {
     value?: pulumi.Input<number | undefined>;
 }
 
+export interface MaintenanceWindowScope {
+    /**
+     * The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+     */
+    type: pulumi.Input<string>;
+}
+
 export interface MonitorDowntimeEndRepeat {
     /**
      * A date, on which the Monitor Downtime's repeat cycle is expected to end.

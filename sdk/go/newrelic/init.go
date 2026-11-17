@@ -69,6 +69,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KeyTransaction{}
 	case "newrelic:index/logParsingRule:LogParsingRule":
 		r = &LogParsingRule{}
+	case "newrelic:index/maintenanceWindow:MaintenanceWindow":
+		r = &MaintenanceWindow{}
 	case "newrelic:index/metricPruningRule:MetricPruningRule":
 		r = &MetricPruningRule{}
 	case "newrelic:index/monitorDowntime:MonitorDowntime":
@@ -264,6 +266,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/logParsingRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/maintenanceWindow",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

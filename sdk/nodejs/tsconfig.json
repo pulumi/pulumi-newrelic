@@ -80,6 +80,7 @@
         "insights/index.ts",
         "keyTransaction.ts",
         "logParsingRule.ts",
+        "maintenanceWindow.ts",
         "metricPruningRule.ts",
         "monitorDowntime.ts",
         "notebook.ts",

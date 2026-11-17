@@ -53,6 +53,7 @@ __all__ = [
     'FleetMembersRing',
     'InfraAlertConditionCritical',
     'InfraAlertConditionWarning',
+    'MaintenanceWindowScope',
     'MonitorDowntimeEndRepeat',
     'MonitorDowntimeFrequency',
     'MonitorDowntimeFrequencyDaysOfWeek',
@@ -2226,6 +2227,35 @@ class InfraAlertConditionWarning(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.float]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MaintenanceWindowScope(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str id: The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+        :param _builtins.str type: The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

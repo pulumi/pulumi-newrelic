@@ -1686,6 +1686,18 @@
                 "current": "newrelic:index/logParsingRule:LogParsingRule",
                 "majorVersion": 5
             },
+            "newrelic_maintenance_window": {
+                "current": "newrelic:index/maintenanceWindow:MaintenanceWindow",
+                "majorVersion": 5,
+                "fields": {
+                    "affected_entities": {
+                        "maxItemsOne": false
+                    },
+                    "scope": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "newrelic_metric_pruning_rule": {
                 "current": "newrelic:index/metricPruningRule:MetricPruningRule",
                 "majorVersion": 5

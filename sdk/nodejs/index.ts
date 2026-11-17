@@ -220,6 +220,11 @@ export type LogParsingRule = import("./logParsingRule").LogParsingRule;
 export const LogParsingRule: typeof import("./logParsingRule").LogParsingRule = null as any;
 utilities.lazyLoad(exports, ["LogParsingRule"], () => require("./logParsingRule"));
 
+export { MaintenanceWindowArgs, MaintenanceWindowState } from "./maintenanceWindow";
+export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
+export const MaintenanceWindow: typeof import("./maintenanceWindow").MaintenanceWindow = null as any;
+utilities.lazyLoad(exports, ["MaintenanceWindow"], () => require("./maintenanceWindow"));
+
 export { MetricPruningRuleArgs, MetricPruningRuleState } from "./metricPruningRule";
 export type MetricPruningRule = import("./metricPruningRule").MetricPruningRule;
 export const MetricPruningRule: typeof import("./metricPruningRule").MetricPruningRule = null as any;
@@ -408,6 +413,8 @@ const _module = {
                 return new KeyTransaction(name, <any>undefined, { urn })
             case "newrelic:index/logParsingRule:LogParsingRule":
                 return new LogParsingRule(name, <any>undefined, { urn })
+            case "newrelic:index/maintenanceWindow:MaintenanceWindow":
+                return new MaintenanceWindow(name, <any>undefined, { urn })
             case "newrelic:index/metricPruningRule:MetricPruningRule":
                 return new MetricPruningRule(name, <any>undefined, { urn })
             case "newrelic:index/monitorDowntime:MonitorDowntime":
@@ -483,6 +490,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/group", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/keyTransaction", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/logParsingRule", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/maintenanceWindow", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/metricPruningRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/monitorDowntime", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notebook", _module)
