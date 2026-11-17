@@ -599,6 +599,17 @@ export interface InfraAlertConditionWarning {
     value?: number;
 }
 
+export interface MaintenanceWindowScope {
+    /**
+     * The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+     */
+    id: string;
+    /**
+     * The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+     */
+    type: string;
+}
+
 export interface MonitorDowntimeEndRepeat {
     /**
      * A date, on which the Monitor Downtime's repeat cycle is expected to end.

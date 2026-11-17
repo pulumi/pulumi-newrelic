@@ -89,6 +89,8 @@ __all__ = [
     'InfraAlertConditionCriticalArgsDict',
     'InfraAlertConditionWarningArgs',
     'InfraAlertConditionWarningArgsDict',
+    'MaintenanceWindowScopeArgs',
+    'MaintenanceWindowScopeArgsDict',
     'MonitorDowntimeEndRepeatArgs',
     'MonitorDowntimeEndRepeatArgsDict',
     'MonitorDowntimeFrequencyArgs',
@@ -2896,6 +2898,53 @@ class InfraAlertConditionWarningArgs:
     @value.setter
     def value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "value", value)
+
+
+class MaintenanceWindowScopeArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+    """
+
+@pulumi.input_type
+class MaintenanceWindowScopeArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+        :param pulumi.Input[_builtins.str] type: The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
 
 
 class MonitorDowntimeEndRepeatArgsDict(TypedDict):

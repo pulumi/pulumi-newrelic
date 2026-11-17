@@ -5469,6 +5469,162 @@ func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+type MaintenanceWindowScope struct {
+	// The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+	Id string `pulumi:"id"`
+	// The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+	Type string `pulumi:"type"`
+}
+
+// MaintenanceWindowScopeInput is an input type that accepts MaintenanceWindowScopeArgs and MaintenanceWindowScopeOutput values.
+// You can construct a concrete instance of `MaintenanceWindowScopeInput` via:
+//
+//	MaintenanceWindowScopeArgs{...}
+type MaintenanceWindowScopeInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowScopeOutput() MaintenanceWindowScopeOutput
+	ToMaintenanceWindowScopeOutputWithContext(context.Context) MaintenanceWindowScopeOutput
+}
+
+type MaintenanceWindowScopeArgs struct {
+	// The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MaintenanceWindowScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowScope)(nil)).Elem()
+}
+
+func (i MaintenanceWindowScopeArgs) ToMaintenanceWindowScopeOutput() MaintenanceWindowScopeOutput {
+	return i.ToMaintenanceWindowScopeOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowScopeArgs) ToMaintenanceWindowScopeOutputWithContext(ctx context.Context) MaintenanceWindowScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowScopeOutput)
+}
+
+func (i MaintenanceWindowScopeArgs) ToMaintenanceWindowScopePtrOutput() MaintenanceWindowScopePtrOutput {
+	return i.ToMaintenanceWindowScopePtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowScopeArgs) ToMaintenanceWindowScopePtrOutputWithContext(ctx context.Context) MaintenanceWindowScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowScopeOutput).ToMaintenanceWindowScopePtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowScopePtrInput is an input type that accepts MaintenanceWindowScopeArgs, MaintenanceWindowScopePtr and MaintenanceWindowScopePtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowScopePtrInput` via:
+//
+//	        MaintenanceWindowScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type MaintenanceWindowScopePtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowScopePtrOutput() MaintenanceWindowScopePtrOutput
+	ToMaintenanceWindowScopePtrOutputWithContext(context.Context) MaintenanceWindowScopePtrOutput
+}
+
+type maintenanceWindowScopePtrType MaintenanceWindowScopeArgs
+
+func MaintenanceWindowScopePtr(v *MaintenanceWindowScopeArgs) MaintenanceWindowScopePtrInput {
+	return (*maintenanceWindowScopePtrType)(v)
+}
+
+func (*maintenanceWindowScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowScope)(nil)).Elem()
+}
+
+func (i *maintenanceWindowScopePtrType) ToMaintenanceWindowScopePtrOutput() MaintenanceWindowScopePtrOutput {
+	return i.ToMaintenanceWindowScopePtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowScopePtrType) ToMaintenanceWindowScopePtrOutputWithContext(ctx context.Context) MaintenanceWindowScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowScopePtrOutput)
+}
+
+type MaintenanceWindowScopeOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowScope)(nil)).Elem()
+}
+
+func (o MaintenanceWindowScopeOutput) ToMaintenanceWindowScopeOutput() MaintenanceWindowScopeOutput {
+	return o
+}
+
+func (o MaintenanceWindowScopeOutput) ToMaintenanceWindowScopeOutputWithContext(ctx context.Context) MaintenanceWindowScopeOutput {
+	return o
+}
+
+func (o MaintenanceWindowScopeOutput) ToMaintenanceWindowScopePtrOutput() MaintenanceWindowScopePtrOutput {
+	return o.ToMaintenanceWindowScopePtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowScopeOutput) ToMaintenanceWindowScopePtrOutputWithContext(ctx context.Context) MaintenanceWindowScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowScope) *MaintenanceWindowScope {
+		return &v
+	}).(MaintenanceWindowScopePtrOutput)
+}
+
+// The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+func (o MaintenanceWindowScopeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowScope) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+func (o MaintenanceWindowScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowScope) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type MaintenanceWindowScopePtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowScope)(nil)).Elem()
+}
+
+func (o MaintenanceWindowScopePtrOutput) ToMaintenanceWindowScopePtrOutput() MaintenanceWindowScopePtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowScopePtrOutput) ToMaintenanceWindowScopePtrOutputWithContext(ctx context.Context) MaintenanceWindowScopePtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowScopePtrOutput) Elem() MaintenanceWindowScopeOutput {
+	return o.ApplyT(func(v *MaintenanceWindowScope) MaintenanceWindowScope {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowScope
+		return ret
+	}).(MaintenanceWindowScopeOutput)
+}
+
+// The unique identifier of the object within the given scope. In practice, this is your New Relic account ID.
+func (o MaintenanceWindowScopePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The kind of scope `id` refers to. Valid values are `ACCOUNT` and `ORGANIZATION`. For Service Level maintenance windows, this should be `ACCOUNT`.
+func (o MaintenanceWindowScopePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type MonitorDowntimeEndRepeat struct {
 	// A date, on which the Monitor Downtime's repeat cycle is expected to end.
 	OnDate *string `pulumi:"onDate"`
@@ -40771,6 +40927,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionCriticalPtrInput)(nil)).Elem(), InfraAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionWarningInput)(nil)).Elem(), InfraAlertConditionWarningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionWarningPtrInput)(nil)).Elem(), InfraAlertConditionWarningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowScopeInput)(nil)).Elem(), MaintenanceWindowScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowScopePtrInput)(nil)).Elem(), MaintenanceWindowScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDowntimeEndRepeatInput)(nil)).Elem(), MonitorDowntimeEndRepeatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDowntimeEndRepeatPtrInput)(nil)).Elem(), MonitorDowntimeEndRepeatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDowntimeFrequencyInput)(nil)).Elem(), MonitorDowntimeFrequencyArgs{})
@@ -41350,6 +41508,8 @@ func init() {
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionWarningOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionWarningPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowScopeOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowScopePtrOutput{})
 	pulumi.RegisterOutputType(MonitorDowntimeEndRepeatOutput{})
 	pulumi.RegisterOutputType(MonitorDowntimeEndRepeatPtrOutput{})
 	pulumi.RegisterOutputType(MonitorDowntimeFrequencyOutput{})

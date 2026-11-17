@@ -49,6 +49,7 @@ from .group import *
 from .infra_alert_condition import *
 from .key_transaction import *
 from .log_parsing_rule import *
+from .maintenance_window import *
 from .metric_pruning_rule import *
 from .monitor_downtime import *
 from .notebook import *
@@ -384,6 +385,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/logParsingRule:LogParsingRule": "LogParsingRule"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/maintenanceWindow",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/maintenanceWindow:MaintenanceWindow": "MaintenanceWindow"
   }
  },
  {
