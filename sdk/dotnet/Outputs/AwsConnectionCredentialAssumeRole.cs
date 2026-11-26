@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class AwsConnectionCredentialAssumeRole
     {
         /// <summary>
-        /// External ID supplied by New Relic during STS:AssumeRole.
+        /// Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
         /// </summary>
         public readonly string? ExternalId;
         /// <summary>

@@ -17,14 +17,14 @@ public final class AwsConnectionCredentialAssumeRoleArgs extends com.pulumi.reso
     public static final AwsConnectionCredentialAssumeRoleArgs Empty = new AwsConnectionCredentialAssumeRoleArgs();
 
     /**
-     * External ID supplied by New Relic during STS:AssumeRole.
+     * Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
      * 
      */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
     /**
-     * @return External ID supplied by New Relic during STS:AssumeRole.
+     * @return Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
      * 
      */
     public Optional<Output<String>> externalId() {
@@ -72,7 +72,7 @@ public final class AwsConnectionCredentialAssumeRoleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param externalId External ID supplied by New Relic during STS:AssumeRole.
+         * @param externalId Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AwsConnectionCredentialAssumeRoleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param externalId External ID supplied by New Relic during STS:AssumeRole.
+         * @param externalId Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
          * 
          * @return builder
          * 

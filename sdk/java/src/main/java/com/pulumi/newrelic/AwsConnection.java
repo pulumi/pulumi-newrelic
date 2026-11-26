@@ -58,7 +58,6 @@ import javax.annotation.Nullable;
  *             .credential(AwsConnectionCredentialArgs.builder()
  *                 .assumeRole(AwsConnectionCredentialAssumeRoleArgs.builder()
  *                     .roleArn("arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest")
- *                     .externalId("external id")
  *                     .build())
  *                 .build())
  *             .build());

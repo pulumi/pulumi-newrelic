@@ -972,7 +972,7 @@ class AwsConnectionCredentialAssumeRole(dict):
                  external_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str role_arn: ARN of the IAM role New Relic should assume.
-        :param _builtins.str external_id: External ID supplied by New Relic during STS:AssumeRole.
+        :param _builtins.str external_id: Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if external_id is not None:
@@ -990,7 +990,7 @@ class AwsConnectionCredentialAssumeRole(dict):
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[_builtins.str]:
         """
-        External ID supplied by New Relic during STS:AssumeRole.
+        Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
         """
         return pulumi.get(self, "external_id")
 

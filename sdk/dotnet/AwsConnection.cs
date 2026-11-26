@@ -35,7 +35,6 @@ namespace Pulumi.NewRelic
     ///             AssumeRole = new NewRelic.Inputs.AwsConnectionCredentialAssumeRoleArgs
     ///             {
     ///                 RoleArn = "arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest",
-    ///                 ExternalId = "external id",
     ///             },
     ///         },
     ///     });
