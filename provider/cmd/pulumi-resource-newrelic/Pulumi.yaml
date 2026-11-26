@@ -1,3 +1,0 @@
-name: newrelic
-description: A Pulumi resource provider for newrelic.
-language: schema
