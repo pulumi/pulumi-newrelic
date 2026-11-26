@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AwsConnectionCredentialAssumeRole {
     /**
-     * @return External ID supplied by New Relic during STS:AssumeRole.
+     * @return Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
      * 
      */
     private @Nullable String externalId;
@@ -25,7 +25,7 @@ public final class AwsConnectionCredentialAssumeRole {
 
     private AwsConnectionCredentialAssumeRole() {}
     /**
-     * @return External ID supplied by New Relic during STS:AssumeRole.
+     * @return Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
      * 
      */
     public Optional<String> externalId() {

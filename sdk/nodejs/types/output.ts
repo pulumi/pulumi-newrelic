@@ -195,9 +195,9 @@ export interface AwsConnectionCredential {
 
 export interface AwsConnectionCredentialAssumeRole {
     /**
-     * External ID supplied by New Relic during STS:AssumeRole.
+     * Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
      */
-    externalId?: string;
+    externalId: string;
     /**
      * ARN of the IAM role New Relic should assume.
      */

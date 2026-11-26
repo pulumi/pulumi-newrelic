@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class AwsConnectionCredentialAssumeRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// External ID supplied by New Relic during STS:AssumeRole.
+        /// Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
         /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }

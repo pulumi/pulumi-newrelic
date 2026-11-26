@@ -37,8 +37,7 @@ import (
 //				ScopeId:     pulumi.String("YOUR_ORG_ID_HERE"),
 //				Credential: &newrelic.AwsConnectionCredentialArgs{
 //					AssumeRole: &newrelic.AwsConnectionCredentialAssumeRoleArgs{
-//						RoleArn:    pulumi.String("arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest"),
-//						ExternalId: pulumi.String("external id"),
+//						RoleArn: pulumi.String("arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest"),
 //					},
 //				},
 //			})

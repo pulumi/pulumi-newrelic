@@ -1439,7 +1439,7 @@ func (o AwsConnectionCredentialPtrOutput) AssumeRole() AwsConnectionCredentialAs
 }
 
 type AwsConnectionCredentialAssumeRole struct {
-	// External ID supplied by New Relic during STS:AssumeRole.
+	// Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
 	ExternalId *string `pulumi:"externalId"`
 	// ARN of the IAM role New Relic should assume.
 	RoleArn string `pulumi:"roleArn"`
@@ -1457,7 +1457,7 @@ type AwsConnectionCredentialAssumeRoleInput interface {
 }
 
 type AwsConnectionCredentialAssumeRoleArgs struct {
-	// External ID supplied by New Relic during STS:AssumeRole.
+	// Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
 	// ARN of the IAM role New Relic should assume.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -1540,7 +1540,7 @@ func (o AwsConnectionCredentialAssumeRoleOutput) ToAwsConnectionCredentialAssume
 	}).(AwsConnectionCredentialAssumeRolePtrOutput)
 }
 
-// External ID supplied by New Relic during STS:AssumeRole.
+// Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
 func (o AwsConnectionCredentialAssumeRoleOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsConnectionCredentialAssumeRole) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
@@ -1574,7 +1574,7 @@ func (o AwsConnectionCredentialAssumeRolePtrOutput) Elem() AwsConnectionCredenti
 	}).(AwsConnectionCredentialAssumeRoleOutput)
 }
 
-// External ID supplied by New Relic during STS:AssumeRole.
+// Consumer-managed identifier — useful for caller-side idempotent tracking. Distinct from `credential.assume_role.external_id` (the IAM cross-account External ID).
 func (o AwsConnectionCredentialAssumeRolePtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsConnectionCredentialAssumeRole) *string {
 		if v == nil {

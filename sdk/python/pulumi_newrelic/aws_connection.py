@@ -424,7 +424,6 @@ class AwsConnection(pulumi.CustomResource):
             credential={
                 "assume_role": {
                     "role_arn": "arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest",
-                    "external_id": "external id",
                 },
             })
         ```
@@ -477,7 +476,6 @@ class AwsConnection(pulumi.CustomResource):
             credential={
                 "assume_role": {
                     "role_arn": "arn:aws:iam::123456789012:role/newrelic-fed-logs-ingest",
-                    "external_id": "external id",
                 },
             })
         ```
